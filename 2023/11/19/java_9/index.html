@@ -1,0 +1,564 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据结构 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="枚举（Enumeration） 位集合（BitSet） 向量（Vector） 栈（Stack） 字典（Dictionary， Map） 哈希表（Hashtable） 属性（Properties）  import java.util.* 枚举 这种传统接口已被迭代器取代，虽然Enumeration 还未被遗弃，但在现代代码中已经被很少使用了。  位集合 一个Bitset类创建一种特殊类型的数组来保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="http://raphaelhyaan.cn/2023/11/19/java_9/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="枚举（Enumeration） 位集合（BitSet） 向量（Vector） 栈（Stack） 字典（Dictionary， Map） 哈希表（Hashtable） 属性（Properties）  import java.util.* 枚举 这种传统接口已被迭代器取代，虽然Enumeration 还未被遗弃，但在现代代码中已经被很少使用了。  位集合 一个Bitset类创建一种特殊类型的数组来保">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://raphaelhyaan.cn/img/cover/java-logo.png">
+<meta property="article:published_time" content="2023-11-19T04:36:42.000Z">
+<meta property="article:modified_time" content="2023-11-19T04:43:21.208Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="课程笔记">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="程序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://raphaelhyaan.cn/img/cover/java-logo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://raphaelhyaan.cn/2023/11/19/java_9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-19 12:43:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/e747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/top_image/java.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据结构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-19T04:36:42.000Z" title="发表于 2023-11-19 12:36:42">2023-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-19T04:43:21.208Z" title="更新于 2023-11-19 12:43:21">2023-11-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0-java/">课程笔记-java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据结构"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li>枚举（Enumeration）</li>
+<li>位集合（BitSet）</li>
+<li>向量（Vector）</li>
+<li>栈（Stack）</li>
+<li>字典（Dictionary， Map）</li>
+<li>哈希表（Hashtable）</li>
+<li>属性（Properties）</li>
+</ul>
+<p><code>import java.util.*</code></p>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><blockquote>
+<p>这种传统接口已被迭代器取代，虽然Enumeration 还未被遗弃，但在现代代码中已经被很少使用了。</p>
+</blockquote>
+<h2 id="位集合"><a href="#位集合" class="headerlink" title="位集合"></a>位集合</h2><blockquote>
+<p>一个Bitset类创建一种特殊类型的数组来保存位值。BitSet中<strong>数组大小会随需要增加</strong>。这和位向量（vector of bits）比较类似</p>
+</blockquote>
+<h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><ul>
+<li>默认构造：<code>BitSet()</code></li>
+<li>制定初始大小，所有位初始化为0：<code>BitSet(int size)</code></li>
+<li>复制构造：<code>Object clone( )</code></li>
+<li>取出部分：<code>BitSet get(int startIndex, int endIndex)</code></li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>二元方法</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><ul>
+<li><code>void and(BitSet set)</code>对此目标位 set 和参数位 set 执行逻辑与操作。</li>
+<li><code>void or(BitSet bitSet)</code>对此位 set 和位 set 参数执行逻辑或操作。</li>
+<li><code>void xor(BitSet bitSet)</code>对此位 set 和位 set 参数执行逻辑异或操作。</li>
+<li><code>boolean equals(Object bitSet)</code>将此对象与指定的对象进行比较</li>
+<li><code>boolean intersects(BitSet bitSet)</code>如果指定的 BitSet 中有设置为 true 的位，并且在此 BitSet 中也将其设置为 true，则返回 true。</li>
+</ul>
+</li>
+<li><strong>一元方法</strong><ul>
+<li>设置<ul>
+<li><code>void set(int index)</code>将指定索引处的位设置为 true。</li>
+<li><code>void set(int index, boolean v)</code>将指定索引处的位设置为指定的值。</li>
+<li><code>void set(int startIndex, int endIndex)</code>将指定的 fromIndex（包括）到指定的 toIndex（不包括）范围内的位设置为 true。</li>
+<li><code>void set(int startIndex, int endIndex, boolean v)</code>将指定的 fromIndex（包括）到指定的 toIndex（不包括）范围内的位设置为指定的值。</li>
+<li><code>void clear( )</code>将此 BitSet 中的所有位设置为 false。</li>
+<li><code>void clear(int index)</code>将索引指定处的位设置为 false。</li>
+<li><code>void clear(int startIndex, int endIndex)</code>将指定的 startIndex（包括）到指定的 toIndex（不包括）范围内的位设置为 false。</li>
+<li><code>void flip(int index)</code>将指定索引处的位设置为其当前值的补码。</li>
+</ul>
+</li>
+<li>查找<ul>
+<li><code>int nextClearBit(int startIndex)</code>返回第一个设置为 false 的位的索引，这发生在指定的起始索引或之后的索引上。</li>
+<li><code>int nextSetBit(int startIndex)</code>返回第一个设置为 true 的位的索引，这发生在指定的起始索引或之后的索引上。</li>
+</ul>
+</li>
+<li>统计<ul>
+<li><code>int cardinality( )</code>返回此 BitSet 中设置为 true 的位数。</li>
+<li><code>boolean isEmpty( )</code>如果此 BitSet 中没有包含任何设置为 true 的位，则返回 true。</li>
+</ul>
+</li>
+<li>属性<ul>
+<li><code>int length( )</code>返回此 BitSet 的”逻辑大小”：BitSet 中最高设置位的索引加 1。</li>
+<li><code>int size( )</code>返回此 BitSet 表示位值时实际使用空间的位数。</li>
+</ul>
+</li>
+<li>导出<ul>
+<li><code>String toString( )</code>返回此位 set 的字符串表示形式。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vector-类"><a href="#Vector-类" class="headerlink" title="Vector 类"></a><strong>Vector 类</strong></h2><blockquote>
+<p>Vector 类实现了一个动态数组</p>
+</blockquote>
+<h3 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h3><ul>
+<li>创建一个默认的向量，默认大小为 10：<code>Vector()</code></li>
+<li>创建指定大小的向量：<code>Vector(int size)</code></li>
+<li>创建指定大小的向量，并且增量用 incr 指定。增量表示向量每次增加的元素数目：<code>Vector(int size,int incr)</code></li>
+<li>创建一个包含集合 c 元素的向量：<code>Vector(Collection c)</code></li>
+</ul>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>增加设置元素<ul>
+<li><code>**void add(int index, Object element)</code>在此向量的指定位置插入指定的元素。**</li>
+<li><code>boolean add(Object o)</code>将指定元素添加到此向量的末尾。</li>
+<li><code>boolean addAll(Collection c)</code>将指定 Collection 中的所有元素添加到此向量的末尾，按照指定 collection 的迭代器所返回的顺序添加这些元素。</li>
+<li><code>boolean addAll(int index, Collection c)</code>在指定位置将指定 Collection 中的所有元素插入到此向量中。</li>
+<li><code>void addElement(Object obj)</code>将指定的组件添加到此向量的末尾，将其大小增加 1。</li>
+<li><code>void insertElementAt(Object obj, int index)</code>将指定对象作为此向量中的组件插入到指定的 index 处。</li>
+<li><code>**Object set(int index, Object element)</code>用指定的元素替换此向量中指定位置处的元素。**</li>
+<li><code>void setElementAt(Object obj, int index)</code>将此向量指定 index 处的组件设置为指定的对象。</li>
+</ul>
+</li>
+<li>移除元素<ul>
+<li><code>void clear()</code>从此向量中移除所有元素。</li>
+<li><code>**Object remove(int index)</code>移除此向量中指定位置的元素。**</li>
+<li><code>boolean remove(Object o)</code>移除此向量中指定元素的第一个匹配项，如果向量不包含该元素，则元素保持不变。</li>
+<li><code>boolean removeAll(Collection c)</code>从此向量中移除包含在指定 Collection 中的所有元素。</li>
+<li><code>void removeAllElements()</code>从此向量中移除全部组件，并将其大小设置为零。</li>
+<li><code>boolean removeElement(Object obj)</code>从此向量中移除变量的第一个（索引最小的）匹配项。</li>
+<li><code>void removeElementAt(int index)</code>删除指定索引处的组件。</li>
+<li><code>protected void removeRange(int fromIndex, int toIndex)</code>从此 List 中移除其索引位于 fromIndex（包括）与 toIndex（不包括）之间的所有元素</li>
+<li><code>boolean retainAll(Collection c)</code>在此向量中仅保留包含在指定 Collection 中的元素。</li>
+</ul>
+</li>
+<li>查找&amp;索引<ul>
+<li><code>**Object get(int index)</code>返回向量中指定位置的元素。**</li>
+<li><code>boolean contains(Object elem)</code>如果此向量包含指定的元素，则返回 true。</li>
+<li><code>boolean containsAll(Collection c)</code>如果此向量包含指定 Collection 中的所有元素，则返回 true</li>
+<li><code>Object elementAt(int index)</code>返回指定索引处的组件。</li>
+<li><code>Object firstElement()</code>返回此向量的第一个组件（位于索引 0) 处的项）。</li>
+<li><code>Object lastElement()</code>返回此向量的最后一个组件。</li>
+<li><code>**int indexOf(Object elem)</code>返回此向量中第一次出现的指定元素的索引，如果此向量不包含该元素，则返回 -1。**</li>
+<li><code>int indexOf(Object elem, int index)返回</code>此向量中第一次出现的指定元素的索引，从 index 处正向搜索，如果未找到该元素，则返回 -1。</li>
+<li><code>int lastIndexOf(Object elem)</code>返回此向量中最后一次出现的指定元素的索引；如果此向量不包含该元素，则返回 -1。</li>
+<li><code>int lastIndexOf(Object elem, int index)</code>返回此向量中最后一次出现的指定元素的索引，从 index 处逆向搜索，如果未找到该元素，则返回 -1。</li>
+</ul>
+</li>
+<li>返回属性<ul>
+<li><code>int capacity()</code>返回此向量的当前容量</li>
+<li><code>boolean isEmpty()</code>测试此向量是否不包含组件</li>
+<li><code>int size()</code>返回此向量中的组件数。</li>
+</ul>
+</li>
+<li>修改向量和导出<ul>
+<li><code>Object clone()</code>返回向量的一个副本。</li>
+<li><code>void copyInto(Object[] anArray)</code>将此向量的组件复制到指定的数组中。</li>
+<li><code>**void ensureCapacity(int minCapacity)</code>增加此向量的容量（如有必要），以确保其至少能够保存最小容量参数指定的组件数。**</li>
+<li><code>boolean equals(Object o)</code>比较指定对象与此向量的相等性</li>
+<li><code>int hashCode()</code>返回此向量的哈希码值。</li>
+<li><code>void setSize(int newSize)</code>设置此向量的大小。</li>
+<li><code>List subList(int fromIndex, int toIndex)</code>返回此 List 的部分视图，元素范围为从 fromIndex（包括）到 toIndex（不包括）。</li>
+<li><code>**Object[] toArray()</code>返回一个数组，包含此向量中以恰当顺序存放的所有元素。**</li>
+<li><code>Object[] toArray(Object[] a)</code>返回一个数组，包含此向量中以恰当顺序存放的所有元素；返回数组的运行时类型为指定数组的类型。</li>
+<li><code>String toString()</code>返回此向量的字符串表示形式，其中包含每个元素的 String 表示形式</li>
+<li><code>void trimToSize()</code>对此向量的容量进行微调，使其等于向量的当前大小。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Stack-类"><a href="#Stack-类" class="headerlink" title="Stack 类"></a>Stack 类</h2><blockquote>
+<p>stack类中包含了Vector中所有的方法，也定义了自己的方法</p>
+</blockquote>
+<h3 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h3><ul>
+<li>stack类只包含一个构造函数：<code>Stack()</code></li>
+</ul>
+<h3 id="主要方法"><a href="#主要方法" class="headerlink" title="主要方法"></a>主要方法</h3><blockquote>
+<p>Vector中的所有方法均可以使用，以下是其特有的方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>boolean empty() 测试堆栈是否为空。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Object peek( )查看堆栈顶部的对象，但不从堆栈中移除它。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Object pop( )移除堆栈顶部的对象，并作为此函数的值返回该对象。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Object push(Object element)把项压入堆栈顶部。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>int search(Object element)返回对象在堆栈中的位置，以 1 为基数。</td>
+</tr>
+</tbody></table>
+<h2 id="Dictionary-类和Map接口"><a href="#Dictionary-类和Map接口" class="headerlink" title="Dictionary 类和Map接口"></a><strong>Dictionary 类和Map接口</strong></h2><blockquote>
+<p>Dictionary 类是一个抽象类，用来存储键&#x2F;值对</p>
+<p>Dictionary类已经过时了。在实际开发中，可以<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-map-interface.html">实现Map接口</a>来获取键&#x2F;值的存储功能。</p>
+</blockquote>
+<h3 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>void clear( ) 从此映射中移除所有映射关系（可选操作）。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>boolean containsKey(Object k)如果此映射包含指定键的映射关系，则返回 true。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>boolean containsValue(Object v)如果此映射将一个或多个键映射到指定值，则返回 true。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Set entrySet( )返回此映射中包含的映射关系的 Set 视图。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>boolean equals(Object obj)比较指定的对象与此映射是否相等。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Object get(Object k)返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>int hashCode( )返回此映射的哈希码值。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>boolean isEmpty( )如果此映射未包含键-值映射关系，则返回 true。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Set keySet( )返回此映射中包含的键的 Set 视图。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Object put(Object k, Object v)将指定的值与此映射中的指定键关联（可选操作）。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>void putAll(Map m)从指定映射中将所有映射关系复制到此映射中（可选操作）。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Object remove(Object k)如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>int size( )返回此映射中的键-值映射关系数。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Collection values( )返回此映射中包含的值的 Collection 视图。</td>
+</tr>
+</tbody></table>
+<h2 id="Hashtable-类"><a href="#Hashtable-类" class="headerlink" title="Hashtable 类"></a>Hashtable 类</h2><blockquote>
+<p>Hashtable是原始的java.util的一部分， 是一个Dictionary具体的实现 。</p>
+<p>然而，Java 2 重构的Hashtable实现了Map接口，因此，Hashtable现在集成到了集合框架中。</p>
+</blockquote>
+<h3 id="构造方式"><a href="#构造方式" class="headerlink" title="构造方式"></a>构造方式</h3><ul>
+<li>默认构造方式： <code>Hashtable()</code></li>
+<li>指定大小的构造方式：<code>Hashtable()</code></li>
+</ul>
+<h3 id="主要方法-1"><a href="#主要方法-1" class="headerlink" title="主要方法"></a>主要方法</h3><ul>
+<li><code>**Object put(Object k, Object v)将指定的值与此映射中的指定键关联（可选操作）。**</code></li>
+<li><code>**Object remove(Object k)如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。**</code></li>
+<li><code>**Object get(Object k)返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。**</code></li>
+</ul>
+<h3 id="其他可用方法"><a href="#其他可用方法" class="headerlink" title="其他可用方法"></a>其他可用方法</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>void clear( ) 将此哈希表清空，使其不包含任何键。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Object clone( )创建此哈希表的浅表副本。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>boolean contains(Object value) 测试此映射表中是否存在与指定值关联的键。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>boolean containsKey(Object key)测试指定对象是否为此哈希表中的键。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>boolean containsValue(Object value)如果此 Hashtable 将一个或多个键映射到此值，则返回 true。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Enumeration elements( )返回此哈希表中的值的枚举。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Object get(Object key) 返回指定键所映射到的值，如果此映射不包含此键的映射，则返回 null. 更确切地讲，如果此映射包含满足 (key.equals(k)) 的从键 k 到值 v 的映射，则此方法返回 v；否则，返回 null。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>boolean isEmpty( )测试此哈希表是否没有键映射到值。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Enumeration keys( ) 返回此哈希表中的键的枚举。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Object put(Object key, Object value)将指定 key 映射到此哈希表中的指定 value。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>void rehash( )增加此哈希表的容量并在内部对其进行重组，以便更有效地容纳和访问其元素。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Object remove(Object key)从哈希表中移除该键及其相应的值。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>int size( ) 返回此哈希表中的键的数量。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>String toString( )返回此 Hashtable 对象的字符串表示形式，其形式为 ASCII 字符 “, “ （逗号加空格）分隔开的、括在括号中的一组条目</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Exemple</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HashTableDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">      <span class="comment">// Create a hash map</span></span><br><span class="line">      <span class="type">Hashtable</span> <span class="variable">balance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Hashtable</span>();</span><br><span class="line">      Enumeration names;</span><br><span class="line">      String str;</span><br><span class="line">      <span class="type">double</span> bal;</span><br><span class="line"></span><br><span class="line">      balance.put(<span class="string">&quot;Zara&quot;</span>, <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">3434.34</span>));</span><br><span class="line">      balance.put(<span class="string">&quot;Mahnaz&quot;</span>, <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">123.22</span>));</span><br><span class="line">      balance.put(<span class="string">&quot;Ayan&quot;</span>, <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">1378.00</span>));</span><br><span class="line">      balance.put(<span class="string">&quot;Daisy&quot;</span>, <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">99.22</span>));</span><br><span class="line">      balance.put(<span class="string">&quot;Qadir&quot;</span>, <span class="keyword">new</span> <span class="title class_">Double</span>(-<span class="number">19.08</span>));</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Show all balances in hash table.</span></span><br><span class="line">      names = balance.keys();</span><br><span class="line">      <span class="keyword">while</span>(names.hasMoreElements()) &#123;</span><br><span class="line">         str = (String) names.nextElement();</span><br><span class="line">         System.out.println(str + <span class="string">&quot;: &quot;</span> +</span><br><span class="line">         balance.get(str));</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println();</span><br><span class="line">      <span class="comment">// Deposit 1,000 into Zara&#x27;s account</span></span><br><span class="line">      bal = ((Double)balance.get(<span class="string">&quot;Zara&quot;</span>)).doubleValue();</span><br><span class="line">      balance.put(<span class="string">&quot;Zara&quot;</span>, <span class="keyword">new</span> <span class="title class_">Double</span>(bal+<span class="number">1000</span>));</span><br><span class="line">      System.out.println(<span class="string">&quot;Zara&#x27;s new balance: &quot;</span> +</span><br><span class="line">      balance.get(<span class="string">&quot;Zara&quot;</span>));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Properties-类"><a href="#Properties-类" class="headerlink" title="Properties 类"></a><strong>Properties 类</strong></h2><blockquote>
+<p>Properties 继承于 Hashtable，用于管理配置信息的类</p>
+</blockquote>
+<h3 id="构造-3"><a href="#构造-3" class="headerlink" title="构造"></a>构造</h3><ul>
+<li>没有默认值：<code>Properties()</code></li>
+<li>使用propDefault 作为默认值：<code>Properties(Properties propDefault)</code></li>
+</ul>
+<h3 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><p>Properties有Hashtable的所有方法</p>
+</li>
+<li><p>其他方法</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方法描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>String getProperty(String key) 用指定的键在此属性列表中搜索属性。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>String getProperty(String key, String defaultProperty)用指定的键在属性列表中搜索属性。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>void list(PrintStream streamOut) 将属性列表输出到指定的输出流。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>void list(PrintWriter streamOut)将属性列表输出到指定的输出流。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>void load(InputStream streamIn) throws IOException 从输入流中读取属性列表（键和元素对）。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Enumeration propertyNames( )按简单的面向行的格式从输入字符流中读取属性列表（键和元素对）。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Object setProperty(String key, String value) 调用 Hashtable 的方法 put。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>void store(OutputStream streamOut, String description) 以适合使用  load(InputStream)方法加载到 Properties 表中的格式，将此 Properties 表中的属性列表（键和元素对）写入输出流。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/11/19/java_9/">http://raphaelhyaan.cn/2023/11/19/java_9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><a class="post-meta__tags" href="/tags/java/">java</a><a class="post-meta__tags" href="/tags/%E7%A8%8B%E5%BA%8F/">程序</a></div><div class="post_share"><div class="social-share" data-image="/img/cover/java-logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/19/java_10/" title="数组&amp;Arrays"><img class="cover" src="/img/cover/java-logo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数组&amp;Arrays</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/19/java_8/" title="循环，条件和switch"><img class="cover" src="/img/cover/java-logo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">循环，条件和switch</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/19/java/" title="程序Java总览"><img class="cover" src="/img/cover/java-logo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-19</div><div class="title">程序Java总览</div></div></a></div><div><a href="/2023/11/19/java_1/" title="Hashmap"><img class="cover" src="/img/cover/java-logo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">Hashmap</div></div></a></div><div><a href="/2023/11/19/java_10/" title="数组&amp;Arrays"><img class="cover" src="/img/cover/java-logo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">数组&amp;Arrays</div></div></a></div><div><a href="/2023/11/19/java_11/" title="方法,_流_&amp;_IO,_Scanner"><img class="cover" src="/img/cover/java-logo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">方法,_流_&amp;_IO,_Scanner</div></div></a></div><div><a href="/2023/11/19/java_12/" title="日期和时间"><img class="cover" src="/img/cover/java-logo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">日期和时间</div></div></a></div><div><a href="/2023/11/19/java_13/" title="枚举"><img class="cover" src="/img/cover/java-logo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-19</div><div class="title">枚举</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/e747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">归去来兮</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-number">1.</span> <span class="toc-text">枚举</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E9%9B%86%E5%90%88"><span class="toc-number"></span> <span class="toc-text">位集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-number">1.</span> <span class="toc-text">构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vector-%E7%B1%BB"><span class="toc-number"></span> <span class="toc-text">Vector 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0-1"><span class="toc-number">1.</span> <span class="toc-text">构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1"><span class="toc-number">2.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stack-%E7%B1%BB"><span class="toc-number"></span> <span class="toc-text">Stack 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0-2"><span class="toc-number">1.</span> <span class="toc-text">构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dictionary-%E7%B1%BB%E5%92%8CMap%E6%8E%A5%E5%8F%A3"><span class="toc-number"></span> <span class="toc-text">Dictionary 类和Map接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2"><span class="toc-number">1.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hashtable-%E7%B1%BB"><span class="toc-number"></span> <span class="toc-text">Hashtable 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">构造方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95-1"><span class="toc-number">2.</span> <span class="toc-text">主要方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%8F%AF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">其他可用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties-%E7%B1%BB"><span class="toc-number"></span> <span class="toc-text">Properties 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0-3"><span class="toc-number">1.</span> <span class="toc-text">构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-3"><span class="toc-number">2.</span> <span class="toc-text">方法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/19/java/" title="程序Java总览"><img src="/img/cover/java-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="程序Java总览"/></a><div class="content"><a class="title" href="/2024/11/19/java/" title="程序Java总览">程序Java总览</a><time datetime="2024-11-19T04:36:50.000Z" title="发表于 2024-11-19 12:36:50">2024-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/EM/" title="电磁辐射波课程总览"><img src="/img/cover/%E7%94%B5%E7%A3%81%E5%AD%A6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电磁辐射波课程总览"/></a><div class="content"><a class="title" href="/2024/11/18/EM/" title="电磁辐射波课程总览">电磁辐射波课程总览</a><time datetime="2024-11-18T14:28:36.000Z" title="发表于 2024-11-18 22:28:36">2024-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/19/java_16/" title="面向对象"><img src="/img/cover/java-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象"/></a><div class="content"><a class="title" href="/2023/11/19/java_16/" title="面向对象">面向对象</a><time datetime="2023-11-19T04:36:49.000Z" title="发表于 2023-11-19 12:36:49">2023-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/19/java_15/" title="类和继承,_重写和重载"><img src="/img/cover/java-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="类和继承,_重写和重载"/></a><div class="content"><a class="title" href="/2023/11/19/java_15/" title="类和继承,_重写和重载">类和继承,_重写和重载</a><time datetime="2023-11-19T04:36:48.000Z" title="发表于 2023-11-19 12:36:48">2023-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/19/java_14/" title="正则表达式"><img src="/img/cover/java-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式"/></a><div class="content"><a class="title" href="/2023/11/19/java_14/" title="正则表达式">正则表达式</a><time datetime="2023-11-19T04:36:47.000Z" title="发表于 2023-11-19 12:36:47">2023-11-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
