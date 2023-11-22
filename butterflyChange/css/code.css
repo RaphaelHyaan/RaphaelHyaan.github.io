@@ -1,0 +1,18 @@
+@font-face{
+  font-family: 'AnonymousPro';
+  font-display: swap;
+  src: url('/butterflyChange/fonts/AnonymousPro-Regular.ttf') format("truetype");
+}
+@font-face{
+  font-family: 'LLBlackMatrix';
+  font-display: swap;
+  src: url('/butterflyChange/fonts/LLBlackMatrix.ttf') format("truetype");
+}
+@font-face{
+  font-family: SweiB2SerifCJKtc;
+  font-display: swap;
+  src: url('/butterflyChange/fonts/SweiB2SerifCJKtc-Medium.ttf') format("truetype");
+}
+body {
+  font-family: 'SweiB2SerifCJKtc','AnonymousPro','LLBlackMatrix';
+}
