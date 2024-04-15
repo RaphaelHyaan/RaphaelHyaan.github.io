@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束    \(\nu_m &#x3D; m(\frac{c}{2nL})\) \(\Delta \nu_c &#x3D; \frac{c}{2nL} &#x3D; 8.54\times10^8s^{-1}\) \(m &#x3D; \frac 1T\frac 1{\Delta\nu_c} &#x3D; \frac {c}{\lambda}\frac 1{\Delta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束">
+<meta property="og:url" content="http://raphaelhyaan.cn/2023/04/08/EM/EM-td3/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束    \(\nu_m &#x3D; m(\frac{c}{2nL})\) \(\Delta \nu_c &#x3D; \frac{c}{2nL} &#x3D; 8.54\times10^8s^{-1}\) \(m &#x3D; \frac 1T\frac 1{\Delta\nu_c} &#x3D; \frac {c}{\lambda}\frac 1{\Delta">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png">
+<meta property="article:published_time" content="2023-04-08T12:52:40.000Z">
+<meta property="article:modified_time" content="2024-04-08T13:06:08.623Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="电磁学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png"><link rel="shortcut icon" href="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Freading1.png"><link rel="canonical" href="http://raphaelhyaan.cn/2023/04/08/EM/EM-td3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-08 21:06:08'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-08T12:52:40.000Z" title="发表于 2023-04-08 20:52:40">2023-04-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-08T13:06:08.623Z" title="更新于 2024-04-08 21:06:08">2024-04-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0-%E7%94%B5%E7%A3%81%E8%BE%90%E5%B0%84%E6%B3%A2/">课程笔记-电磁辐射波</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="TD 3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="td-3模式频率模式频率间隔有折射率导致的能量衰减高斯光束">TD
+3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束</h1>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FEM-td3%2FUntitled.png" /></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FEM-td3%2FUntitled_1.png" /></p>
+<ul>
+<li><span class="math inline">\(\nu_m = m(\frac{c}{2nL})\)</span></li>
+<li><span class="math inline">\(\Delta \nu_c = \frac{c}{2nL} =
+8.54\times10^8s^{-1}\)</span></li>
+<li><span class="math inline">\(m = \frac 1T\frac 1{\Delta\nu_c} = \frac
+{c}{\lambda}\frac 1{\Delta\nu_c} = 329929.5\approx 329930\)</span></li>
+<li><span class="math inline">\(\nu_m = 329930\Delta\nu_c
+=2.818\times10^{14}Hz\)</span></li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FEM-td3%2FUntitled_2.png" /></p>
+<ul>
+<li><span class="math inline">\(Q = mF =
+m\frac{\pi\sqrt{R_e}}{1-R_e}\)</span></li>
+<li><span class="math inline">\(R_e = \sqrt{R_1R_2}e^{-\alpha
+L}\)</span></li>
+</ul>
+<p>接下来从复折射率转换到吸收系数<span
+class="math inline">\(\alpha\)</span>：</p>
+<ul>
+<li>复折射率：<span class="math inline">\(\widetilde w =
+n-i\kappa\)</span></li>
+<li>考虑电场：<span class="math inline">\(\vec E = E_0e^{i(\omega t-kz)}
+= E_0e^{i(\omega t-\frac \omega cn z)}e^{-\frac \omega c \kappa z}\vec
+e_z\)</span></li>
+<li>能量强度：<span class="math inline">\(I = |E_0|^2e^{-\frac {2\omega
+\kappa z}{c}}\)</span></li>
+<li>得到：<span class="math inline">\(\alpha = \frac{2\omega\kappa}{c} =
+\frac{4\pi\kappa}{\lambda} = 0.0118\)</span></li>
+</ul>
+<p>继续计算：</p>
+<ul>
+<li><span class="math inline">\(R_e = 0.995\cdot e^{-\frac{4\pi\kappa
+L}{\lambda}} = 0.9938,\ \ Q = 1.67\times 10^{8}\)</span></li>
+<li><span class="math inline">\(\tau_c  = \frac{Q}{\omega}=
+\frac{Q\lambda}{c2\pi} = 9.444\times10^{-8}s\)</span></li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FEM-td3%2FUntitled_3.png" /></p>
+<ul>
+<li>高斯光束：<span class="math inline">\(I =
+I_0e^{-a(\nu-\nu_0)^2}\)</span></li>
+<li>计算<span class="math inline">\(a\)</span>与<span
+class="math inline">\(\Delta\nu\)</span>的关系：在<span
+class="math inline">\(\nu_0\pm\frac{\Delta\nu}2\)</span>的范围内，光强等于<span
+class="math inline">\(I_0\frac 1{e^2}\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+I_0e^{-a\frac{\Delta\nu^2}{4}} = I_0\frac 1{e^2}\Rightarrow a =
+\frac{8}{\Delta\nu^2}
+\]</span></p>
+<ul>
+<li>已知<span class="math inline">\(\Delta \lambda\)</span>，考虑<span
+class="math inline">\(\Delta \nu\)</span>与<span
+class="math inline">\(\Delta \lambda\)</span>的关系：</li>
+</ul>
+<p><span class="math display">\[
+\nu = c/\lambda\Rightarrow\Delta\nu = \frac c{\lambda^2}\Delta\lambda =
+\frac{c}{(1.064\times10^{-6})^2}0.1\times10^{-10} = 2.65GHz
+\]</span></p>
+<ul>
+<li>注意这里<span class="math inline">\(Å\)</span>代表埃米，是<span
+class="math inline">\(10^{-10}m\)</span></li>
+<li>计算模式间距<span class="math inline">\(\Delta\nu_c\)</span>：<span
+class="math inline">\(\nu = m\times\Delta\nu_c\)</span></li>
+<li>注意区分模式间距和光束宽度</li>
+<li>光强表达式转换为：</li>
+</ul>
+<p><span class="math display">\[
+I = I_0e^{-8(\frac{\Delta\nu_c}{\Delta\nu})(m-m_{\nu_0})^2} &gt;
+I_0\frac
+1{e^2}\Rightarrow-8(\frac{\Delta\nu_c}{\Delta\nu})^2(m-m_{\nu_0}) \ge -2
+\]</span></p>
+<ul>
+<li>得到可选模数：<span
+class="math inline">\(329886,329887,329888\)</span></li>
+<li>反推频率</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FEM-td3%2FUntitled_4.png" /></p>
+<ul>
+<li>损耗导致的峰变宽：<span class="math inline">\(\Delta\nu_m = \frac
+{\Delta \nu_c}F\)</span></li>
+<li>最后考虑到激光的偏振状态，最终模数为<span
+class="math inline">\(2\times3 = 6\)</span></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/04/08/EM/EM-td3/">http://raphaelhyaan.cn/2023/04/08/EM/EM-td3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%94%B5%E7%A3%81%E5%AD%A6/">电磁学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/08/EM/EM-td4/" title="TD 4：Drude模型，电导率，电流，复介电常数，折射率和消光系数"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">TD 4：Drude模型，电导率，电流，复介电常数，折射率和消光系数</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/08/EM/EM-td2/" title="TD2：光栅，傅里叶光学"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">TD2：光栅，傅里叶光学</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/08/EM/EM-cour1/" title="Cours 1 导论，傅里叶变换，群速度和相速度，波包，变形"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-08</div><div class="title">Cours 1 导论，傅里叶变换，群速度和相速度，波包，变形</div></div></a></div><div><a href="/2023/04/08/EM/EM-cour2/" title="Cours 2 傅里叶光学，电磁学基础，波导"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-08</div><div class="title">Cours 2 傅里叶光学，电磁学基础，波导</div></div></a></div><div><a href="/2023/04/08/EM/EM-cour3/" title="Cours 3：光缆，共振腔"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-08</div><div class="title">Cours 3：光缆，共振腔</div></div></a></div><div><a href="/2023/04/08/EM/EM-cour4/" title="Cours 4 射线-物质相互作用：传统方法，折射率和复介电常数"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-08</div><div class="title">Cours 4 射线-物质相互作用：传统方法，折射率和复介电常数</div></div></a></div><div><a href="/2023/04/08/EM/EM-cour5/" title="Cours 5：光与物质相互作用的量子描述和半经典描述"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-08</div><div class="title">Cours 5：光与物质相互作用的量子描述和半经典描述</div></div></a></div><div><a href="/2023/04/08/EM/EM-cour6/" title="Cours 6：激光"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fcover%2F%E7%94%B5%E7%A3%81%E5%AD%A6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-08</div><div class="title">Cours 6：激光</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#td-3%E6%A8%A1%E5%BC%8F%E9%A2%91%E7%8E%87%E6%A8%A1%E5%BC%8F%E9%A2%91%E7%8E%87%E9%97%B4%E9%9A%94%E6%9C%89%E6%8A%98%E5%B0%84%E7%8E%87%E5%AF%BC%E8%87%B4%E7%9A%84%E8%83%BD%E9%87%8F%E8%A1%B0%E5%87%8F%E9%AB%98%E6%96%AF%E5%85%89%E6%9D%9F"><span class="toc-number">1.</span> <span class="toc-text">TD
+3：模式频率，模式频率间隔，有折射率导致的能量衰减，高斯光束</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/15/mq-6/" title="算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras"/></a><div class="content"><a class="title" href="/2024/04/15/mq-6/" title="算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras">算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras</a><time datetime="2024-04-15T07:10:05.000Z" title="发表于 2024-04-15 15:10:05">2024-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/15/mq-5/" title="量子力学公设 Les postulats de la mécanique quantique"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="量子力学公设 Les postulats de la mécanique quantique"/></a><div class="content"><a class="title" href="/2024/04/15/mq-5/" title="量子力学公设 Les postulats de la mécanique quantique">量子力学公设 Les postulats de la mécanique quantique</a><time datetime="2024-04-15T07:10:04.000Z" title="发表于 2024-04-15 15:10:04">2024-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/01/crs-3/" title="CRS III 结构的离散分析 Discrétisation des structures"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="CRS III 结构的离散分析 Discrétisation des structures"/></a><div class="content"><a class="title" href="/2024/04/01/crs-3/" title="CRS III 结构的离散分析 Discrétisation des structures">CRS III 结构的离散分析 Discrétisation des structures</a><time datetime="2024-04-01T12:48:00.000Z" title="发表于 2024-04-01 20:48:00">2024-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/01/crs-2/" title="CRS II 结构模态计算  Calcul modal des structures"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="CRS II 结构模态计算  Calcul modal des structures"/></a><div class="content"><a class="title" href="/2024/04/01/crs-2/" title="CRS II 结构模态计算  Calcul modal des structures">CRS II 结构模态计算  Calcul modal des structures</a><time datetime="2024-04-01T08:11:45.000Z" title="发表于 2024-04-01 16:11:45">2024-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/31/crs-1/" title="CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible"/></a><div class="content"><a class="title" href="/2024/03/31/crs-1/" title="CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible">CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible</a><time datetime="2024-03-31T04:02:57.000Z" title="发表于 2024-03-31 12:02:57">2024-03-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
