@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="组合逻辑系统的缺陷&amp;定时图&amp;锁存器&#x2F;触发器的技术实现 组合逻辑系统的缺陷 一个例子 考虑以下例子：        [{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com&#x2F;post%2Fsystem-logique-8%2FUntitled.png&quot;,&quot;alt&quot;:&quot;&quot;},{&quot;url&quot;:&quot;http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合逻辑系统的缺陷&amp;定时图&amp;锁存器&#x2F;触发器的技术实现">
+<meta property="og:url" content="http://raphaelhyaan.cn/2024/04/21/system-logique/system-logique-8/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="组合逻辑系统的缺陷&amp;定时图&amp;锁存器&#x2F;触发器的技术实现 组合逻辑系统的缺陷 一个例子 考虑以下例子：        [{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com&#x2F;post%2Fsystem-logique-8%2FUntitled.png&quot;,&quot;alt&quot;:&quot;&quot;},{&quot;url&quot;:&quot;http">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png">
+<meta property="article:published_time" content="2024-04-21T11:55:27.000Z">
+<meta property="article:modified_time" content="2024-04-21T11:57:43.678Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="逻辑系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png"><link rel="shortcut icon" href="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Freading1.png"><link rel="canonical" href="http://raphaelhyaan.cn/2024/04/21/system-logique/system-logique-8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '组合逻辑系统的缺陷&定时图&锁存器/触发器的技术实现',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-21 19:57:43'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-21T11:55:27.000Z" title="发表于 2024-04-21 19:55:27">2024-04-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-21T11:57:43.678Z" title="更新于 2024-04-21 19:57:43">2024-04-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%BB%E8%BE%91%E7%B3%BB%E7%BB%9F/">学习笔记-逻辑系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="组合逻辑系统的缺陷定时图锁存器触发器的技术实现">组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现</h1>
+<h2 id="组合逻辑系统的缺陷">组合逻辑系统的缺陷</h2>
+<h3 id="一个例子">一个例子</h3>
+<p>考虑以下例子：</p>
+<div class="gallery-container" data-type="data" data-button="">
+      <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_1.png","alt":""}]</div>
+      <div class="gallery-items">
+      </div>
+    </div>
+<ul>
+<li>如果电机尚未运行，则按下启动按钮将触发电机旋转</li>
+<li>如果电机已运行，则按下停止按钮将导致电机停止。</li>
+<li>按启动按钮优先于按停止按钮。</li>
+<li>取消按下按钮对系统没有影响</li>
+</ul>
+<p>在真值表的后三种情况，我们很容易判断电机的状态。然而，两个输入都为 0
+时的输出取决于电机的运行状态。</p>
+<p>此时，组合逻辑系统不能简单地结果这个问题。</p>
+<h3 id="记忆系统的引入">记忆系统的引入</h3>
+<p>为此，我们需要引入一个反映电机在时间t的运行情况的状态变量。我们可以称之为锁存器(Mémoire)。在这种情况下，我们可以定义逻辑表达式：</p>
+<p><span class="math display">\[
+\begin{align*}Moteur =&amp; Marche \cdot \overline{Arrêt}+Marche
+\cdot  \overline{Arrêt} + \overline{Marche }\cdot\overline{Arrêt}\cdot
+Mémoire\\= &amp;
+\text { Marche }+\overline{\text { Marche }} \cdot \overline{\text {
+Arrêt }} \cdot \text { Mémoire }\\=&amp;\text { Marche }+\overline{\text
+{ Arrêt }} \cdot \text { Mémoire }\end{align*}
+\]</span></p>
+<p>以及新的真值表。</p>
+<div class="gallery-container" data-type="data" data-button="">
+      <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_2.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_3.png","alt":""}]</div>
+      <div class="gallery-items">
+      </div>
+    </div>
+<p>在新的流程图中，使用循环来表示寄存器。这种结构正是一般的时序系统结构。</p>
+<h2 id="定时图-chronogramme">定时图 Chronogramme</h2>
+<blockquote>
+<p>定时图是逻辑变量的时序表示。</p>
+</blockquote>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_4.png" /></p>
+<h3 id="上升沿和下降沿">上升沿和下降沿</h3>
+<p>上升沿：</p>
+<p><span class="math display">\[
+\uparrow a=\left\{\begin{array}{l}1 \quad 若a从0变为1\\0 \quad
+sinon\end{array}\right.
+\]</span></p>
+<p>下降沿：</p>
+<p><span class="math display">\[
+\downarrow a=\left\{\begin{array}{l}1 \quad 若a从1变为0\\0 \quad
+sinon\end{array}\right.
+\]</span></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_5.png" /></p>
+<h2 id="锁存器触发器bascule技术实现">锁存器/触发器(bascule)技术实现</h2>
+<h3 id="rs锁存器-bascules-rs">RS锁存器 Bascules RS</h3>
+<blockquote>
+<p><span class="math inline">\(S\)</span>（代表Set）记忆输入变量，<span
+class="math inline">\(R\)</span>（代表Reset）记忆擦除输入变量，<span
+class="math inline">\(Q_{n+1}\)</span>输出变量<span
+class="math inline">\(Q\)</span>的当前状态，<span
+class="math inline">\(Q_n\)</span>代表输出变量<span
+class="math inline">\(Q\)</span>的先前状态</p>
+</blockquote>
+<p>RS锁存器的真值表如下：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_6.png" /></p>
+<p>注意，当S和R都为真时，结果是不确定的。有时，这种情况被简单的禁止，在其他情况下，根据不同的处理方法，有三种RS锁存器类型。</p>
+<ul>
+<li><strong>激活优先的RS锁存器 à priorité à l’activation</strong>
+先考虑激活信号，后考虑擦除信号</li>
+</ul>
+<div class="gallery-container" data-type="data" data-button="">
+      <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_7.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_8.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_9.png","alt":""}]</div>
+      <div class="gallery-items">
+      </div>
+    </div>
+<p><span class="math inline">\(Q_{n+1}\)</span>的表达式可以被记为:</p>
+<p><span class="math display">\[
+Q_{n+1} = \bar S\bar RQ_n+S\bar R\bar Q_n+S\bar RQ_n+S R\bar Q_n+S R Q_n
+= S+\bar R Q_n=\overline{\overline{S+\bar{R} \cdot
+Q_n}}=\overline{\bar{S} \cdot \overline{\bar{R} \cdot Q_n}}
+\]</span></p>
+<p>由此，可以设计如上第三张图的系统，用以实现RS锁存器。或者简记为：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_10.png" /></p>
+<p>1代表S优先。下图为一幅讨论不同情况的定时图，可以参考：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_11.png" /></p>
+<ul>
+<li><strong>擦除优先的RS锁存器 à priorité à l’effacement</strong>
+先考虑擦除信号，再考虑激活信号</li>
+</ul>
+<div class="gallery-container" data-type="data" data-button="">
+      <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_12.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_13.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_14.png","alt":""}]</div>
+      <div class="gallery-items">
+      </div>
+    </div>
+<p>真值表很好理解，不再赘述。为了实现这种RS锁存器，需使用两个或非门，其公式为：</p>
+<p><span class="math display">\[
+Q_{n+1}=\bar{R} \cdot\left(S+Q_n\right)=\overline{\overline{\bar{R}}
+\cdot\left(S+Q_n\right)}=\overline{R+\overline{S+Q_n}}
+\]</span></p>
+<p>或表示为：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_15.png" /></p>
+<ul>
+<li><strong>无源同时输入RS锁存器 à entrées simultanées passives</strong>
+两信号同时输入时，<span class="math inline">\(Q_{n+1} =
+Q_n\)</span></li>
+</ul>
+<div class="gallery-container" data-type="data" data-button="">
+      <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_16.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_17.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_18.png","alt":""}]</div>
+      <div class="gallery-items">
+      </div>
+    </div>
+<p>其表达式为：</p>
+<p><span class="math display">\[
+Q_{n+1}=\bar{R} \cdot S+\bar{R} \cdot Q_n+S \cdot Q_n=\bar{R} \cdot
+Q_n+S \cdot\left(Q_n+\bar{R}\right)
+\]</span></p>
+<p>跟前两种情况非常相似不在赘述。</p>
+<ul>
+<li>总的定时图：</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_19.png" /></p>
+<h3 id="带验证的rs锁存器-bascules-rs-à-validation">带验证的RS锁存器
+Bascules RS à validation</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_20.png" /></p>
+<p>仅有VAL为正时，RS输入才会影响Q：</p>
+<p><span class="math display">\[
+\begin{aligned}Q_{n+1} &amp; =\overline{\mathrm{VAL}} \cdot
+Q_n+\mathrm{VAL} \cdot\left(S+\bar{R} \cdot Q_n\right) \\&amp;
+=\overline{\mathrm{VAL}} \cdot Q_n+\mathrm{VAL} \cdot S+\mathrm{VAL}
+\cdot \bar{R} \cdot Q_n \\&amp; =\overline{\mathrm{VAL}} \cdot
+Q_n+\mathrm{VAL} \cdot S+\bar{R} \cdot Q_n\end{aligned}
+\]</span></p>
+<h3 id="jk触发器-bascule-jk">JK触发器 Bascule JK</h3>
+<aside>
+<p>🕸️ JK实际上就对应RS。有趣的是，J，Q，K的命名方式即来自扑克牌红的Jack,
+Queen, King。</p>
+</aside>
+<p>RS锁存器有一些缺点，RS锁存器直接由三个输入的电平决定，信号的变化仅取决于三个输入电平变化的速度，可能随时发生改变，即RS锁存器的变化是异步的。这在复杂系统中可能会导致不稳定。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_21.png" /></p>
+<p>JK触发器是基于带验证的RS锁存器的改进，它引入了周期性的01交替信号，即始终信号作为VAL。它只在始终信号为1时更新状态，从而避免了随时可能发生的不稳定变化。由于时钟信号的引入，且状态随时钟信号上升沿变化，我们可能更倾向于称之为触发器而不是锁存器。</p>
+<ul>
+<li>若<span class="math inline">\(\uparrow C =
+0\)</span>，则无论JK信号如何，<span class="math inline">\(Q_{n+1} =
+Q_n\)</span></li>
+<li>若<span class="math inline">\(\uparrow C =
+1\)</span>，则信号变化取决于<span
+class="math inline">\(J，K，Q_n\)</span>的值：</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_22.png" /></p>
+<p>注意再JK都为1时，JK触发器的表现与RS不同，他会进行一个取反操作。</p>
+<h3 id="d触发器-bascule-d">D触发器 Bascule D</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fsystem-logique-8%2FUntitled_23.png" /></p>
+<p>D触发器引入了了JK不相等的约束，并使用D来代表J的JK触发器。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/04/21/system-logique/system-logique-8/">http://raphaelhyaan.cn/2024/04/21/system-logique/system-logique-8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E9%80%BB%E8%BE%91%E7%B3%BB%E7%BB%9F/">逻辑系统</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/21/system-logique/" title="逻辑系统总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">逻辑系统总览</div></div></a></div><div class="next-post pull-right"><a href="/2024/04/21/system-logique/system-logique-7/" title="组合逻辑系统的例子 Exemples de systèmes combinatoires"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">组合逻辑系统的例子 Exemples de systèmes combinatoires</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/21/system-logique/" title="逻辑系统总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-21</div><div class="title">逻辑系统总览</div></div></a></div><div><a href="/2024/02/29/system-logique/system-logique-1/" title="控制系统的基础概念 Systèmes de commande"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-29</div><div class="title">控制系统的基础概念 Systèmes de commande</div></div></a></div><div><a href="/2024/02/29/system-logique/system-logique-2/" title="记数系统和编码 Systèmes de numération et codes associés"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-29</div><div class="title">记数系统和编码 Systèmes de numération et codes associés</div></div></a></div><div><a href="/2024/03/06/system-logique/system-logique-3/" title="逻辑代数 Algèbre de Boole"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="title">逻辑代数 Algèbre de Boole</div></div></a></div><div><a href="/2024/03/16/system-logique/system-logique-5/" title="布尔函数规范、真值表和卡诺表 Spécification d’une fonction booléenne, table de vérité et tableau de Karnaugh"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-16</div><div class="title">布尔函数规范、真值表和卡诺表 Spécification d’une fonction booléenne, table de vérité et tableau de Karnaugh</div></div></a></div><div><a href="/2024/03/16/system-logique/system-logique-4/" title="基本逻辑算符和逻辑门 Opérateurs logiques fondamentaux et portes logiques"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-16</div><div class="title">基本逻辑算符和逻辑门 Opérateurs logiques fondamentaux et portes logiques</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BC%BA%E9%99%B7%E5%AE%9A%E6%97%B6%E5%9B%BE%E9%94%81%E5%AD%98%E5%99%A8%E8%A7%A6%E5%8F%91%E5%99%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.</span> <span class="toc-text">组合逻辑系统的缺陷&amp;定时图&amp;锁存器&#x2F;触发器的技术实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="toc-number">1.1.</span> <span class="toc-text">组合逻辑系统的缺陷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">一个例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">1.1.2.</span> <span class="toc-text">记忆系统的引入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%9B%BE-chronogramme"><span class="toc-number">1.2.</span> <span class="toc-text">定时图 Chronogramme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E5%8D%87%E6%B2%BF%E5%92%8C%E4%B8%8B%E9%99%8D%E6%B2%BF"><span class="toc-number">1.2.1.</span> <span class="toc-text">上升沿和下降沿</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%E8%A7%A6%E5%8F%91%E5%99%A8bascule%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">锁存器&#x2F;触发器(bascule)技术实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rs%E9%94%81%E5%AD%98%E5%99%A8-bascules-rs"><span class="toc-number">1.3.1.</span> <span class="toc-text">RS锁存器 Bascules RS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E9%AA%8C%E8%AF%81%E7%9A%84rs%E9%94%81%E5%AD%98%E5%99%A8-bascules-rs-%C3%A0-validation"><span class="toc-number">1.3.2.</span> <span class="toc-text">带验证的RS锁存器
+Bascules RS à validation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jk%E8%A7%A6%E5%8F%91%E5%99%A8-bascule-jk"><span class="toc-number">1.3.3.</span> <span class="toc-text">JK触发器 Bascule JK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d%E8%A7%A6%E5%8F%91%E5%99%A8-bascule-d"><span class="toc-number">1.3.4.</span> <span class="toc-text">D触发器 Bascule D</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/21/system-logique/" title="逻辑系统总览"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="逻辑系统总览"/></a><div class="content"><a class="title" href="/2024/04/21/system-logique/" title="逻辑系统总览">逻辑系统总览</a><time datetime="2024-04-21T13:05:30.000Z" title="发表于 2024-04-21 21:05:30">2024-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/21/system-logique/system-logique-8/" title="组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现"/></a><div class="content"><a class="title" href="/2024/04/21/system-logique/system-logique-8/" title="组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现">组合逻辑系统的缺陷&amp;定时图&amp;锁存器/触发器的技术实现</a><time datetime="2024-04-21T11:55:27.000Z" title="发表于 2024-04-21 19:55:27">2024-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/21/system-logique/system-logique-7/" title="组合逻辑系统的例子 Exemples de systèmes combinatoires"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="组合逻辑系统的例子 Exemples de systèmes combinatoires"/></a><div class="content"><a class="title" href="/2024/04/21/system-logique/system-logique-7/" title="组合逻辑系统的例子 Exemples de systèmes combinatoires">组合逻辑系统的例子 Exemples de systèmes combinatoires</a><time datetime="2024-04-21T11:55:26.000Z" title="发表于 2024-04-21 19:55:26">2024-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/15/mq-6/" title="算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras"/></a><div class="content"><a class="title" href="/2024/04/15/mq-6/" title="算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras">算符作用在左矢和右矢上 Action des opérateurs sur les kets et les bras</a><time datetime="2024-04-15T07:10:05.000Z" title="发表于 2024-04-15 15:10:05">2024-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/15/mq-5/" title="量子力学公设 Les postulats de la mécanique quantique"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="量子力学公设 Les postulats de la mécanique quantique"/></a><div class="content"><a class="title" href="/2024/04/15/mq-5/" title="量子力学公设 Les postulats de la mécanique quantique">量子力学公设 Les postulats de la mécanique quantique</a><time datetime="2024-04-15T07:10:04.000Z" title="发表于 2024-04-15 15:10:04">2024-04-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
