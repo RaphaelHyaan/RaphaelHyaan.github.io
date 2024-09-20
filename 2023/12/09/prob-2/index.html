@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>分布和近似 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="分布和近似  文档详细讨论了正态分布、卡方分布、F分布和T分布的定义、性质和期望与方差。正态分布的独立线性组合满足正态分布，卡方分布的期望值等于其自由度，方差则为自由度的两倍。F分布用于检验模型中的各项效应是否显著，而T分布在样本量较小的情况下，相较于正态分布，更为稳健。   此外，还讨论了从超几何分布到二项分布、从二项分布到泊松分布、从正态分布到标准正态分布、从二项分布到正态分布、从泊">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>分布和近似 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="分布和近似 文档详细讨论了正态分布、卡方分布、F分布和T分布的定义、性质和期望与方差。正态分布的独立线性组合满足正态分布，卡方分布的期望值等于其自由度，方差则为自由度的两倍。F分布用于检验模型中的各项效应是否显著，而T分布在样本量较小的情况下，相较于正态分布，更为稳健。 此外，还讨论了从超几何分布到二项分布、从二项分布到泊松分布、从正态分布到标准正态分布、从二项分布到正态分布、从泊松分布到正态分布">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布和近似">
 <meta property="og:url" content="http://raphaelhyaan.cn/2023/12/09/prob-2/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="分布和近似  文档详细讨论了正态分布、卡方分布、F分布和T分布的定义、性质和期望与方差。正态分布的独立线性组合满足正态分布，卡方分布的期望值等于其自由度，方差则为自由度的两倍。F分布用于检验模型中的各项效应是否显著，而T分布在样本量较小的情况下，相较于正态分布，更为稳健。   此外，还讨论了从超几何分布到二项分布、从二项分布到泊松分布、从正态分布到标准正态分布、从二项分布到正态分布、从泊">
+<meta property="og:description" content="分布和近似 文档详细讨论了正态分布、卡方分布、F分布和T分布的定义、性质和期望与方差。正态分布的独立线性组合满足正态分布，卡方分布的期望值等于其自由度，方差则为自由度的两倍。F分布用于检验模型中的各项效应是否显著，而T分布在样本量较小的情况下，相较于正态分布，更为稳健。 此外，还讨论了从超几何分布到二项分布、从二项分布到泊松分布、从正态分布到标准正态分布、从二项分布到正态分布、从泊松分布到正态分布">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg">
 <meta property="article:published_time" content="2023-12-09T20:17:47.000Z">
@@ -154,482 +154,230 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">分布和近似</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-09T20:17:47.000Z" title="发表于 2023-12-09 21:17:47">2023-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-08T13:19:14.000Z" title="更新于 2024-04-08 15:19:14">2024-04-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">学习笔记-概率统计</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="分布和近似"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="分布和近似">分布和近似</h1>
-<blockquote>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">122</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">分布和近似</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-09T20:17:47.000Z" title="发表于 2023-12-09 21:17:47">2023-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-08T13:19:14.000Z" title="更新于 2024-04-08 15:19:14">2024-04-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">学习笔记-概率统计</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="分布和近似"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="分布和近似"><a href="#分布和近似" class="headerlink" title="分布和近似"></a>分布和近似</h1><blockquote>
 <p>文档详细讨论了正态分布、卡方分布、F分布和T分布的定义、性质和期望与方差。正态分布的独立线性组合满足正态分布，卡方分布的期望值等于其自由度，方差则为自由度的两倍。F分布用于检验模型中的各项效应是否显著，而T分布在样本量较小的情况下，相较于正态分布，更为稳健。</p>
-</blockquote>
-<blockquote>
 <p>此外，还讨论了从超几何分布到二项分布、从二项分布到泊松分布、从正态分布到标准正态分布、从二项分布到正态分布、从泊松分布到正态分布和从卡方分布到正态分布的近似。</p>
 </blockquote>
-<h1 id="分布"><strong>分布</strong></h1>
-<h2 id="均匀分布-loi-uniform">均匀分布 Loi uniform</h2>
-<h3 id="discret"><strong>discret</strong></h3>
-<p><span class="math display">\[
+<h1 id="分布"><a href="#分布" class="headerlink" title="分布"></a><strong>分布</strong></h1><h2 id="均匀分布-Loi-uniform"><a href="#均匀分布-Loi-uniform" class="headerlink" title="均匀分布 Loi uniform"></a>均匀分布 Loi uniform</h2><h3 id="discret"><a href="#discret" class="headerlink" title="discret"></a><strong>discret</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; X(\Omega) = {1, 2, ..., n}\\
-    &amp; P(X = k) = \frac{1}{n}\\
-    &amp; E(X) = \frac{n+1}{2}\\
-    &amp; V(X) = \frac{n^2-1}{12}\end{aligned}
-\]</span></p>
-<h3 id="continue-sur-0-a"><strong>continue</strong> sur [0, a]</h3>
-<p><span class="math display">\[
+    & X(\Omega) = {1, 2, ..., n}\\
+    & P(X = k) = \frac{1}{n}\\
+    & E(X) = \frac{n+1}{2}\\
+    & V(X) = \frac{n^2-1}{12}\end{aligned}</script><h3 id="continue-sur-0-a"><a href="#continue-sur-0-a" class="headerlink" title="continue sur [0, a]"></a><strong>continue</strong> sur [0, a]</h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; f(x) = 1/a \mathcal{X}_{[0, a]}\\
-    &amp; E(x) = a/2\\
-    &amp; V(x) = a^2/12\end{aligned}
-\]</span></p>
-<h3 id="continue-sur-ab">continue sur [a,b]</h3>
-<p><span class="math display">\[
-f(x) = 1/(b-a)\chi_{[a,b]}\\F(x) = \frac {x-a}{b-a}\chi_{[a,b]}\\E(x) =
-\frac{a+b}{2}\\V(x) = \frac{(b-a)^2}{12}
-\]</span></p>
-<h2 id="零一分布-loi-de-bernoulli">零一分布 Loi de Bernoulli</h2>
-<h3 id="仅discret"><strong>仅discret</strong></h3>
-<p><span class="math display">\[
+    & f(x) = 1/a \mathcal{X}_{[0, a]}\\
+    & E(x) = a/2\\
+    & V(x) = a^2/12\end{aligned}</script><h3 id="continue-sur-a-b"><a href="#continue-sur-a-b" class="headerlink" title="continue sur [a,b]"></a>continue sur [a,b]</h3><script type="math/tex; mode=display">
+f(x) = 1/(b-a)\chi_{[a,b]}\\F(x) = \frac {x-a}{b-a}\chi_{[a,b]}\\E(x) = \frac{a+b}{2}\\V(x) = \frac{(b-a)^2}{12}</script><h2 id="零一分布-Loi-de-Bernoulli"><a href="#零一分布-Loi-de-Bernoulli" class="headerlink" title="零一分布 Loi de Bernoulli"></a>零一分布 Loi de Bernoulli</h2><h3 id="仅discret"><a href="#仅discret" class="headerlink" title="仅discret"></a><strong>仅discret</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; X(\Omega) = {0, 1}\\
-    &amp; P(X = 1) = p\\
-    &amp; P(X = 0) = 1-p\\
-    &amp; E(X) = p\\
-    &amp; V(X) = p(1-p)\end{aligned}
-\]</span></p>
-<h2 id="二项分布-bn-p">二项分布 B(n, p)</h2>
-<blockquote>
+    & X(\Omega) = {0, 1}\\
+    & P(X = 1) = p\\
+    & P(X = 0) = 1-p\\
+    & E(X) = p\\
+    & V(X) = p(1-p)\end{aligned}</script><h2 id="二项分布-B-n-p"><a href="#二项分布-B-n-p" class="headerlink" title="二项分布 B(n, p)"></a>二项分布 B(n, p)</h2><blockquote>
 <p>二项分布是一种离散概率分布。它描述了在一定数量的独立试验中，成功的次数的概率分布。每次试验都有两种可能的结果：成功或失败。并且每次试验成功的概率是相同的。</p>
 </blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled.png" /></p>
-<h3 id="仅discret-1"><strong>仅discret</strong></h3>
-<p><span class="math display">\[
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled.png" alt=""></p>
+<h3 id="仅discret-1"><a href="#仅discret-1" class="headerlink" title="仅discret"></a><strong>仅discret</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; X(\Omega) = {0, 1, ...}\\
-    &amp; P(X = k) = C_n^kP^k(1-p)^{n-k}\\
-    &amp; E(X) = np\\
-    &amp; V(X) = np(1-p)\end{aligned}
-\]</span></p>
-<h2 id="超几何分布-hn-n-p">超几何分布 H(N, n, p)</h2>
-<blockquote>
+    & X(\Omega) = {0, 1, ...}\\
+    & P(X = k) = C_n^kP^k(1-p)^{n-k}\\
+    & E(X) = np\\
+    & V(X) = np(1-p)\end{aligned}</script><h2 id="超几何分布-H-N-n-p"><a href="#超几何分布-H-N-n-p" class="headerlink" title="超几何分布 H(N, n, p)"></a>超几何分布 H(N, n, p)</h2><blockquote>
 <p><strong>N个样本中，其中不合格数据的真实概率为p。超几何分布描述了在N个样本中抽出n个，有k个不合格的概率。</strong></p>
 </blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_1.png" /></p>
-<h3 id="仅discret-2"><strong>仅discret</strong></h3>
-<p><span class="math display">\[
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_1.png" alt=""></p>
+<h3 id="仅discret-2"><a href="#仅discret-2" class="headerlink" title="仅discret"></a><strong>仅discret</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; X(\Omega) = {0, 1, ...}\\
-    &amp; P(X = k) =
-\frac{\tbinom{Np}{k}\tbinom{N-Np}{n-k}}{\tbinom{N}{n}}\\
-    &amp; E(X) = np\\
-    &amp; V(X) = np(1-p)\frac{N-n}{N-1}\end{aligned}
-\]</span></p>
-<h3 id="例子">例子</h3>
-<p>On a bagué 200 flamants roses vivant sur un lac qui en compte 40 000.
-Pour étudier cette colonie, on en capture 100.</p>
-<h2 id="泊松分布-pλ">泊松分布 <em>P</em>(<em>λ</em>)</h2>
-<p>泊松分布是一种离散概率分布，它表示在一定时间或空间范围内，某事件<strong>发生的次数</strong>的概率分布</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_2.png" /></p>
-<h3 id="仅discret-3"><strong>仅discret</strong></h3>
-<p><span class="math display">\[
+    & X(\Omega) = {0, 1, ...}\\
+    & P(X = k) = \frac{\tbinom{Np}{k}\tbinom{N-Np}{n-k}}{\tbinom{N}{n}}\\
+    & E(X) = np\\
+    & V(X) = np(1-p)\frac{N-n}{N-1}\end{aligned}</script><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>On a bagué 200 flamants roses vivant sur un lac qui en compte 40 000. Pour étudier cette colonie, on en capture 100.</p>
+<h2 id="泊松分布-P-λ"><a href="#泊松分布-P-λ" class="headerlink" title="泊松分布 P(λ)"></a>泊松分布 <em>P</em>(<em>λ</em>)</h2><p>泊松分布是一种离散概率分布，它表示在一定时间或空间范围内，某事件<strong>发生的次数</strong>的概率分布</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_2.png" alt=""></p>
+<h3 id="仅discret-3"><a href="#仅discret-3" class="headerlink" title="仅discret"></a><strong>仅discret</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; X(\Omega) = {0, 1, ...}\\
-    &amp; P(X = k) = \frac{e^{-\lambda}\cdot\lambda^k}{k!}\\
-    &amp; E(X) = \lambda\\
-    &amp; V(X) = \lambda\end{aligned}
-\]</span></p>
-<h2 id="指数分布-loi-exponentielle">指数分布 Loi exponentielle</h2>
-<blockquote>
-<p>指数分布是一种连续概率分布，通常用于描述在固定时间或空间范围内，某事件发生的次数的概率分布。它的概率密度函数为
-<span class="math inline">\(f(x) = \lambda e^{-\lambda x}\)</span>，其中
-<span class="math inline">\(\lambda &gt; 0\)</span>
-是事件发生的平均速率，<span class="math inline">\(x \geq
-0\)</span>。其期望一般代表平均寿命。</p>
-</blockquote>
-<blockquote>
+    & X(\Omega) = {0, 1, ...}\\
+    & P(X = k) = \frac{e^{-\lambda}\cdot\lambda^k}{k!}\\
+    & E(X) = \lambda\\
+    & V(X) = \lambda\end{aligned}</script><h2 id="指数分布-Loi-exponentielle"><a href="#指数分布-Loi-exponentielle" class="headerlink" title="指数分布 Loi exponentielle"></a>指数分布 Loi exponentielle</h2><blockquote>
+<p>指数分布是一种连续概率分布，通常用于描述在固定时间或空间范围内，某事件发生的次数的概率分布。它的概率密度函数为 $f(x) = \lambda e^{-\lambda x}$，其中 $\lambda &gt; 0$ 是事件发生的平均速率，$x \geq 0$。其期望一般代表平均寿命。</p>
 <p>指数分布具有无记忆性，即无论过去已经等待多久，从现在开始再等待某个时间的概率仍然不变。</p>
-</blockquote>
-<blockquote>
 <p>此外，指数分布是唯一具有无记忆性的连续分布，对于连续随机变量，只有指数分布具有无记忆性。</p>
 </blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_3.png" /></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_4.png" /></p>
-<h3 id="continue"><strong>continue</strong></h3>
-<p><span class="math display">\[
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_3.png" alt=""></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_4.png" alt=""></p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a><strong>continue</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; f(x) = \left\{
+    & f(x) = \left\{
         \begin{aligned}
-        &amp;\lambda e^{-\lambda x} &amp; x&gt;0\\
-        &amp;0&amp;x\le0\
+        &\lambda e^{-\lambda x} & x>0\\
+        &0&x\le0\
         \end{aligned}
     \right.\\
-    &amp; F(x) = \left\{
+    & F(x) = \left\{
         \begin{aligned}
-            &amp;1-e^{-\lambda x}&amp;x&gt;0\\
-            &amp;0&amp;x\le0
+            &1-e^{-\lambda x}&x>0\\
+            &0&x\le0
         \end{aligned}
     \right.\\
-    &amp; E(x) = 1/\lambda\\
-    &amp; V(x) = 1/\lambda^2\end{aligned}
-\]</span></p>
-<h3 id="无记忆性">无记忆性</h3>
-<p>指数分布具有无记忆性的特点, <span
-class="math inline">\(*P(x &gt; t_0 + t|x &gt; t_0) = P(X &gt; t)*\)</span>,
-于<em>t</em>0无关。</p>
-<p><span class="math inline">\(\begin{aligned}
-    P(x&gt;t_0+t|x&gt;t_0) &amp;= \frac{P(x&gt;t_0+t)}{P(x&gt;x_0)} \\
-    &amp;= \frac{1-F(t_0+t)}{1-F(t_))}\\
-    &amp;= e^{-\lambda t} \\
-    &amp;= P(X&gt;t)\end{aligned}\)</span></p>
-<h2 id="gamma分布-γr-λ">Gamma分布
-<em>γ</em>(<em>r</em>, <em>λ</em>)</h2>
-<p>Gamma分布是一种连续概率分布，常用于描述<strong>等待多个独立随机事件发生所需时间的概率分布</strong>。如果<strong>一个随机变量X服从参数为λ的指数分布，且需要等待r个独立事件的发生，那么总等待时间则服从参数为r和λ的Gamma分布</strong>。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_5.png" /></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_6.png" /></p>
-<h3 id="欧拉函数">欧拉函数：</h3>
-<p><span class="math display">\[
+    & E(x) = 1/\lambda\\
+    & V(x) = 1/\lambda^2\end{aligned}</script><h3 id="无记忆性"><a href="#无记忆性" class="headerlink" title="无记忆性"></a>无记忆性</h3><p>指数分布具有无记忆性的特点, $<em>P(x &gt; t_0 + t|x &gt; t_0) = P(X &gt; t)</em>$, 于<em>t</em>0无关。</p>
+<p>$\begin{aligned}<br>    P(x&gt;t<em>0+t|x&gt;t_0) &amp;= \frac{P(x&gt;t_0+t)}{P(x&gt;x_0)} \<br>    &amp;= \frac{1-F(t_0+t)}{1-F(t</em>))}\<br>    &amp;= e^{-\lambda t} \<br>    &amp;= P(X&gt;t)\end{aligned}$</p>
+<h2 id="Gamma分布-γ-r-λ"><a href="#Gamma分布-γ-r-λ" class="headerlink" title="Gamma分布 γ(r, λ)"></a>Gamma分布 <em>γ</em>(<em>r</em>, <em>λ</em>)</h2><p>Gamma分布是一种连续概率分布，常用于描述<strong>等待多个独立随机事件发生所需时间的概率分布</strong>。如果<strong>一个随机变量X服从参数为λ的指数分布，且需要等待r个独立事件的发生，那么总等待时间则服从参数为r和λ的Gamma分布</strong>。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_5.png" alt=""></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_6.png" alt=""></p>
+<h3 id="欧拉函数："><a href="#欧拉函数：" class="headerlink" title="欧拉函数："></a>欧拉函数：</h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp;\Gamma(r) = \int^{+\infty}_0e^{-y}y^{r-1}dy\\
-    &amp;\Gamma(r) = (r-1)\Gamma(r-1)\\
-    &amp;\Gamma(n) = (n-1)!\end{aligned}
-\]</span></p>
-<h3 id="continue-1"><strong>continue</strong></h3>
-<p><span class="math display">\[
+    &\Gamma(r) = \int^{+\infty}_0e^{-y}y^{r-1}dy\\
+    &\Gamma(r) = (r-1)\Gamma(r-1)\\
+    &\Gamma(n) = (n-1)!\end{aligned}</script><h3 id="continue-1"><a href="#continue-1" class="headerlink" title="continue"></a><strong>continue</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; f(x) = \frac{\lambda^r}{\Gamma(r)}e^{-\lambda
-x}x^{r-1}&amp;X&gt;=0\\
-    &amp; E(x) = \frac{r}{\lambda}\\
-    &amp; V(x) = \frac{r}{\lambda^2}\end{aligned}
-\]</span></p>
-<p>期望推导：</p>
-<p><span class="math display">\[
+    & f(x) = \frac{\lambda^r}{\Gamma(r)}e^{-\lambda x}x^{r-1}&X>=0\\
+    & E(x) = \frac{r}{\lambda}\\
+    & V(x) = \frac{r}{\lambda^2}\end{aligned}</script><p>期望推导：</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-    E(x) &amp;= \int_0^{\infty}
-x^re^{-rx}\frac{\lambda^r}{\Gamma(r)}dx\\
-    &amp; =\frac{1}{\Gamma(r)}\int_0^{\infty}(\lambda x)^re^{-rx}dx\\
-    &amp; =\frac{1}{\lambda \Gamma(r)} \int_0^{\infty}u^r e^{-u}du\\
-    &amp; = \frac{\Gamma(r+1)}{\lambda \Gamma(r)}\\
-    &amp; = \frac{r}{\lambda}\end{aligned}
-\]</span></p>
-<h3 id="gamma的可加性">Gamma的可加性</h3>
-<p>当两随机变量服从Gamma分布，且相互<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%8B%AC%E7%AB%8B_(%E6%A6%82%E7%8E%87%E8%AE%BA)">独立</a>，且<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%AF%8D%E6%95%B8">参数</a>相同时，Gamma分布具有可加性。</p>
-<p><span class="math display">\[
-\coprod\left\{\begin{array}{l}r . v . X \sim \gamma\left(\alpha_1,
-\lambda\right) \\r . v . Y \sim \gamma\left(\alpha_2,
-\lambda\right)\end{array} \Longrightarrow X+Y \sim
-\gamma\left(\alpha_1+\alpha_2, \lambda\right)\right.
-\]</span></p>
-<h3 id="gamma的近似线性">gamma的近似线性</h3>
-<p><span class="math display">\[
-X \sim \gamma(r, \lambda) \rightarrow \lambda*X \sim  \gamma(r)
-\]</span></p>
-<h3
-id="特殊情况γr-λ-1"><strong>特殊情况：γ(r)</strong> <strong>:</strong> <strong>λ</strong> <strong>=</strong> <strong>1</strong></h3>
-<ul>
+    E(x) &= \int_0^{\infty} x^re^{-rx}\frac{\lambda^r}{\Gamma(r)}dx\\
+    & =\frac{1}{\Gamma(r)}\int_0^{\infty}(\lambda x)^re^{-rx}dx\\
+    & =\frac{1}{\lambda \Gamma(r)} \int_0^{\infty}u^r e^{-u}du\\
+    & = \frac{\Gamma(r+1)}{\lambda \Gamma(r)}\\
+    & = \frac{r}{\lambda}\end{aligned}</script><h3 id="Gamma的可加性"><a href="#Gamma的可加性" class="headerlink" title="Gamma的可加性"></a>Gamma的可加性</h3><p>当两随机变量服从Gamma分布，且相互<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%8B%AC%E7%AB%8B_(%E6%A6%82%E7%8E%87%E8%AE%BA">独立</a>)，且<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%AF%8D%E6%95%B8">参数</a>相同时，Gamma分布具有可加性。</p>
+<script type="math/tex; mode=display">
+\coprod\left\{\begin{array}{l}r . v . X \sim \gamma\left(\alpha_1, \lambda\right) \\r . v . Y \sim \gamma\left(\alpha_2, \lambda\right)\end{array} \Longrightarrow X+Y \sim \gamma\left(\alpha_1+\alpha_2, \lambda\right)\right.</script><h3 id="gamma的近似线性"><a href="#gamma的近似线性" class="headerlink" title="gamma的近似线性"></a>gamma的近似线性</h3><script type="math/tex; mode=display">
+X \sim \gamma(r, \lambda) \rightarrow \lambda*X \sim  \gamma(r)</script><h3 id="特殊情况：γ-r-λ-1"><a href="#特殊情况：γ-r-λ-1" class="headerlink" title="特殊情况：γ(r) : λ = 1"></a><strong>特殊情况：γ(r)</strong> <strong>:</strong> <strong>λ</strong> <strong>=</strong> <strong>1</strong></h3><ul>
 <li>期望等于方差</li>
 </ul>
-<p><span class="math display">\[
-E(x) = r = V(X)
-\]</span></p>
-<p>r = 1时, 指数分布和gamma分布等价：<span
-class="math inline">\(\gamma(1, \lambda) \thicksim
-exp(\lambda)\)</span></p>
-<h2 id="正态分布-lg">正态分布 LG()</h2>
-<blockquote>
+<script type="math/tex; mode=display">
+E(x) = r = V(X)</script><p>r = 1时, 指数分布和gamma分布等价：$\gamma(1, \lambda) \thicksim exp(\lambda)$</p>
+<h2 id="正态分布-LG"><a href="#正态分布-LG" class="headerlink" title="正态分布 LG()"></a>正态分布 LG()</h2><blockquote>
 <p>正态分布，也被称为高斯分布，其形状由两个参数决定：均值（<em>m</em>）和标准差（σ）。均值决定了分布的中心位置，标准差决定了分布的宽度和尖峰的高度。是概率中应用上最重要的分布</p>
+<p>被称为正态分布（$<em>N(m, σ^2)</em>$）或者拉普拉斯-高斯分布（$<em>LG(m, σ)</em>$）, 注意这里定义上的区别, 其概率密度函数和分布函数为：</p>
 </blockquote>
-<blockquote>
-<p>被称为正态分布（<span
-class="math inline">\(*N(m, σ^2)*\)</span>）或者拉普拉斯-高斯分布（<span
-class="math inline">\(*LG(m, σ)*\)</span>）, 注意这里定义上的区别,
-其概率密度函数和分布函数为：</p>
-</blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_7.png" /></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_8.png" /></p>
-<h3 id="正态分布lgm-σ">正态分布：LG(m, σ)</h3>
-<p><span class="math display">\[
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_7.png" alt=""></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_8.png" alt=""></p>
+<h3 id="正态分布：LG-m-σ"><a href="#正态分布：LG-m-σ" class="headerlink" title="正态分布：LG(m, σ)"></a>正态分布：LG(m, σ)</h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; f(x) =
-\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}\\
-    &amp; F(x) =
-\frac{1}{\sigma\sqrt{2\pi}}\int^x_{-\infty}e^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}dt\end{aligned}
-\]</span></p>
-<h3 id="标准正太分布-u">标准正太分布: U</h3>
-<p><span class="math display">\[
+    & f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}\\
+    & F(x) = \frac{1}{\sigma\sqrt{2\pi}}\int^x_{-\infty}e^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}dt\end{aligned}</script><h3 id="标准正太分布-U"><a href="#标准正太分布-U" class="headerlink" title="标准正太分布: U"></a>标准正太分布: U</h3><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp; U \thicksim LG(0, 1)\\
-    &amp; \phi(u) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}u^2}\\
-    &amp; \Phi(u) =
-\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}e^{-\frac{1}{2}u^2}du\\\end{aligned}
-\]</span></p>
-<ul>
-<li>通过<strong>查表6, 7</strong>可计算标准正太分布,
-表6根据<code>u查$*ϕ(u)*$</code>, 表7<code>根据*Φ*(*u*)查u</code>,
-其中表7上和左标签相互对应, 下和右标签相互对应,
-如果<em>Φ</em>(<em>u</em>) &lt; 0.5结果需要是负数, 也就是使用上和左标签,
-则为负数, 若使用右和左标签,
-则使用正数。需要查表原因是正态分布不能使用符号计算解出</li>
+    & U \thicksim LG(0, 1)\\
+    & \phi(u) = \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}u^2}\\
+    & \Phi(u) = \frac{1}{\sqrt{2\pi}}\int^x_{-\infty}e^{-\frac{1}{2}u^2}du\\\end{aligned}</script><ul>
+<li>通过<strong>查表6, 7</strong>可计算标准正太分布, 表6根据<code>u查$*ϕ(u)*$</code>, 表7<code>根据*Φ*(*u*)查u</code>, 其中表7上和左标签相互对应, 下和右标签相互对应, 如果<em>Φ</em>(<em>u</em>) &lt; 0.5结果需要是负数, 也就是使用上和左标签, 则为负数, 若使用右和左标签, 则使用正数。需要查表原因是正态分布不能使用符号计算解出</li>
 </ul>
-<h3 id="正态分布和标准正态分布">正态分布和标准正态分布</h3>
-<p>正态分布和标准正态分布可以互相转换:</p>
-<p><span class="math display">\[
-x \thicksim LG(m, \sigma) \Leftrightarrow u = \frac{X-m}{\sigma}
-\thicksim LG(0, 1)
-\]</span></p>
-<p>做题时要写出</p>
-<p><span class="math display">\[
+<h3 id="正态分布和标准正态分布"><a href="#正态分布和标准正态分布" class="headerlink" title="正态分布和标准正态分布"></a>正态分布和标准正态分布</h3><p>正态分布和标准正态分布可以互相转换:</p>
+<script type="math/tex; mode=display">
+x \thicksim LG(m, \sigma) \Leftrightarrow u = \frac{X-m}{\sigma} \thicksim LG(0, 1)</script><p>做题时要写出</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-    F(x) &amp;= P(X&lt;x) =
-P(\frac{X-m}{\sigma}&lt;\frac{x-m}{\sigma})\\
-    &amp;= P(U&lt;\frac{x-m}{\sigma}) =
-\Phi(\frac{x-m}{\sigma})\end{aligned}
-\]</span></p>
-<p>具体证明过程参考近似章的相应章节</p>
-<p>其期望和方差分别为：<span
-class="math inline">\(*E(x) = m, V(x) = σ^2*\)</span>,
-期望和方差的推导如下:</p>
-<p><span class="math inline">\(\begin{aligned}
-    E(x) &amp;=
-\frac{1}{\sigma\sqrt{2\pi}}\int^{+\infty}_{-\infty}xe^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}dt\\
-    &amp; = \frac{1}{\sqrt{2\pi}}\int^{+\infty}_{-\infty}(\sigma
-t+m)e^{-\frac{t^2}{2}}dt \ t = \frac{x-m}{\sigma}\\
-    &amp; =
-\frac{\sigma}{\sqrt{2\pi}}\int^{+\infty}_{-\infty}te^{-\frac{t^2}{2}}dt
-\ [=0] +
-\frac{m}{\sqrt{2\pi}}\int^{+\infty}_{-\infty}e^{-\frac{t^2}{2}}dt \ \\
-    &amp; =
-m*\int^{+\infty}_{-\infty}\frac{1}{\sqrt{2*\pi}}e^{-\frac{t^2}{2}}dt \
-[m\Phi(\infty)]\\
-    &amp; = m\\
-    V(x) &amp;=E(X-m)^2\\
-    &amp; =
-\frac{1}{\sigma\sqrt{2\pi}}\int^{+\infty}_{-\infty}(x-m)^2e^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}dt\\
-    &amp; =
-\frac{\sigma^2}{\sqrt{2*\pi}}\int^{+\infty}_{-\infty}t^2e^{-\frac{t^2}{2}}dt\\
-    &amp; =
--\frac{\sigma^2}{\sqrt{2*\pi}}te^{1\frac{t^2}{2}}\mid^{+\infty}_{-\infty}+\frac{\sigma^2}{\sqrt{2*\pi}}\int^{+\infty}_{-\infty}e^{-\frac{t^2}{2}}dt\\
-    &amp; = \sigma^2\end{aligned}\)</span></p>
-<h3 id="正态分布的性质">正态分布的性质</h3>
-<ol type="1">
+    F(x) &= P(X<x) = P(\frac{X-m}{\sigma}<\frac{x-m}{\sigma})\\ 
+    &= P(U<\frac{x-m}{\sigma}) = \Phi(\frac{x-m}{\sigma})\end{aligned}</script><p>具体证明过程参考近似章的相应章节</p>
+<p>其期望和方差分别为：$<em>E(x) = m, V(x) = σ^2</em>$, 期望和方差的推导如下:</p>
+<p>$\begin{aligned}<br>    E(x) &amp;= \frac{1}{\sigma\sqrt{2\pi}}\int^{+\infty}<em>{-\infty}xe^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}dt\<br>    &amp; = \frac{1}{\sqrt{2\pi}}\int^{+\infty}</em>{-\infty}(\sigma t+m)e^{-\frac{t^2}{2}}dt \ t = \frac{x-m}{\sigma}\<br>    &amp; = \frac{\sigma}{\sqrt{2\pi}}\int^{+\infty}<em>{-\infty}te^{-\frac{t^2}{2}}dt \ [=0] + \frac{m}{\sqrt{2\pi}}\int^{+\infty}</em>{-\infty}e^{-\frac{t^2}{2}}dt \ \<br>    &amp; = m<em>\int^{+\infty}_{-\infty}\frac{1}{\sqrt{2</em>\pi}}e^{-\frac{t^2}{2}}dt \ [m\Phi(\infty)]\<br>    &amp; = m\<br>    V(x) &amp;=E(X-m)^2\<br>    &amp; = \frac{1}{\sigma\sqrt{2\pi}}\int^{+\infty}<em>{-\infty}(x-m)^2e^{-\frac{1}{2}(\frac{x-m}{\sigma})^2}dt\<br>    &amp; = \frac{\sigma^2}{\sqrt{2*\pi}}\int^{+\infty}</em>{-\infty}t^2e^{-\frac{t^2}{2}}dt\<br>    &amp; = -\frac{\sigma^2}{\sqrt{2<em>\pi}}te^{1\frac{t^2}{2}}\mid^{+\infty}_{-\infty}+\frac{\sigma^2}{\sqrt{2</em>\pi}}\int^{+\infty}_{-\infty}e^{-\frac{t^2}{2}}dt\<br>    &amp; = \sigma^2\end{aligned}$</p>
+<h3 id="正态分布的性质"><a href="#正态分布的性质" class="headerlink" title="正态分布的性质"></a>正态分布的性质</h3><ol>
 <li>正态分布的<strong>独立线性组合</strong>满足正态分布：</li>
 </ol>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-    &amp;X\thicksim LG(m_1, \sigma_1), \ Y\thicksim LG(m_2, \sigma_2) \
-\\
-    &amp;X+Y \thicksim LG(m_1+m_2,
-\sqrt{\sigma_1^2+\sigma_2^2})\end{aligned}
-\]</span></p>
-<ol start="2" type="1">
-<li><p>独立正态分布的均值满足正态分布且若所<code>有的*Xi*同分布$X_i\thicksim LG(m, \sigma)$, 则均值$\overline&#123;X&#125; = LG(m, \frac&#123;\sigma&#125;&#123;\sqrt&#123;n&#125;&#125;)$</code>,
-很简单的由1可推出</p></li>
-<li><p>若<span class="math inline">\(*U = LG(0, 1)*\)</span>, 则有<span
-class="math inline">\(Z =
-\frac{U^2}{2}\thicksim\gamma(1/2)\)</span></p></li>
+    &X\thicksim LG(m_1, \sigma_1), \ Y\thicksim LG(m_2, \sigma_2) \ \\
+    &X+Y \thicksim LG(m_1+m_2, \sqrt{\sigma_1^2+\sigma_2^2})\end{aligned}</script><ol>
+<li><p>独立正态分布的均值满足正态分布且若所<code>有的*Xi*同分布$X_i\thicksim LG(m, \sigma)$, 则均值$\overline&#123;X&#125; = LG(m, \frac&#123;\sigma&#125;&#123;\sqrt&#123;n&#125;&#125;)$</code>, 很简单的由1可推出</p>
+</li>
+<li><p>若$<em>U = LG(0, 1)</em>$, 则有$Z = \frac{U^2}{2}\thicksim\gamma(1/2)$</p>
+</li>
 </ol>
-<h3 id="高斯向量">高斯向量</h3>
-<p>高斯向量，也称为正态向量，是一个多元随机变量向量，其任何线性组合都遵循正态分布。如果一个随机向量中的所有元素都服从一元正态（高斯）分布，且任何这些元素的线性组合也服从正态分布，那么这个随机向量就是高斯向量。</p>
-<p>如果向量X是高斯向量,
-则<em>X</em> = (<em>x</em>1, <em>x</em>2, ..., <em>xn</em>)中所有线性组合都是正态分布</p>
-<h2 id="卡方分布-loi-du-χ2">卡方分布 Loi du <em>χ</em>2</h2>
-<blockquote>
-<p>卡方分布（Chi-squared
-distribution）是统计学中常用的一种概率分布。在卡方检验中，卡方分布是一种特殊的伽玛分布。当独立的标准正态随机变量的平方和服从卡方分布。<strong>卡方分布的期望值等于其自由度，方差则为自由度的两倍。</strong>卡方分布广泛用于假设检验和置信区间的构造等统计推断方法中。</p>
+<h3 id="高斯向量"><a href="#高斯向量" class="headerlink" title="高斯向量"></a>高斯向量</h3><p>高斯向量，也称为正态向量，是一个多元随机变量向量，其任何线性组合都遵循正态分布。如果一个随机向量中的所有元素都服从一元正态（高斯）分布，且任何这些元素的线性组合也服从正态分布，那么这个随机向量就是高斯向量。</p>
+<p>如果向量X是高斯向量, 则<em>X</em> = (<em>x</em>1, <em>x</em>2, …, <em>xn</em>)中所有线性组合都是正态分布</p>
+<h2 id="卡方分布-Loi-du-χ2"><a href="#卡方分布-Loi-du-χ2" class="headerlink" title="卡方分布 Loi du χ2"></a>卡方分布 Loi du <em>χ</em>2</h2><blockquote>
+<p>卡方分布（Chi-squared distribution）是统计学中常用的一种概率分布。在卡方检验中，卡方分布是一种特殊的伽玛分布。当独立的标准正态随机变量的平方和服从卡方分布。<strong>卡方分布的期望值等于其自由度，方差则为自由度的两倍。</strong>卡方分布广泛用于假设检验和置信区间的构造等统计推断方法中。</p>
 </blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_9.png" /></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_10.png" /></p>
-<h3 id="定义">定义</h3>
-<p><span class="math inline">\((X1, X2, ..., Xn)\)</span>独立</p>
-<p><span class="math inline">\(X_i \thicksim LG(0, 1)\)</span></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_9.png" alt=""></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_10.png" alt=""></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>$(X1, X2, …, Xn)$独立</p>
+<p>$X_i \thicksim LG(0, 1)$</p>
 <p>则有：</p>
-<p><span class="math display">\[
-\chi^2_n = \sum_{i = 1}^{n}X_i^2
-\]</span></p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
+\chi^2_n = \sum_{i = 1}^{n}X_i^2</script><script type="math/tex; mode=display">
 \begin{aligned}
-    &amp;g(u) =
-\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}e^{-\frac{n}{2}}u^{\frac{n}{2}-1}\\
-    &amp;\chi^2_n \Leftrightarrow \gamma(\frac{n}{2},
-\frac{1}{2})\end{aligned}
-\]</span></p>
-<p>不同n的情况下的卡方分布, 可以看到n在较大的时候近似于高斯分布</p>
-<h3 id="期望和方差">期望和方差</h3>
-<p>期望和方差可以直接有伽马分布得出</p>
-<p><span class="math display">\[
+    &g(u) = \frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}e^{-\frac{n}{2}}u^{\frac{n}{2}-1}\\
+    &\chi^2_n \Leftrightarrow \gamma(\frac{n}{2}, \frac{1}{2})\end{aligned}</script><p>不同n的情况下的卡方分布, 可以看到n在较大的时候近似于高斯分布</p>
+<h3 id="期望和方差"><a href="#期望和方差" class="headerlink" title="期望和方差"></a>期望和方差</h3><p>期望和方差可以直接有伽马分布得出</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-    &amp;E(X) = n\\
-    &amp;V(X) = 2n\end{aligned}
-\]</span></p>
-<h3 id="性质">性质</h3>
-<ul>
-<li>如果<span class="math inline">\(X \sim LG(0,1)\)</span>，则<span
-class="math inline">\(X^2\sim\chi^2(1)\)</span></li>
-<li>如果 <span class="math inline">\(\chi^2_n \thicksim X\)</span> 且
-<span class="math inline">\(\chi^2_p \thicksim Y\)</span>, 则有 <span
-class="math inline">\(\chi^2_{n+p} \thicksim X+Y\)</span>, 当 <span
-class="math inline">\(*X = Y*\)</span> 时, 有 <span
-class="math inline">\(2X \thicksim \chi^2_{2n}\)</span></li>
-<li><code>卡方分布在n无穷大时可以近似于高斯分布</code>,
-参考近似部分</li>
+    &E(X) = n\\
+    &V(X) = 2n\end{aligned}</script><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>如果$X \sim LG(0,1)$，则$X^2\sim\chi^2(1)$</li>
+<li>如果 $\chi^2<em>n \thicksim X$ 且 $\chi^2_p \thicksim Y$, 则有 $\chi^2</em>{n+p} \thicksim X+Y$, 当 $<em>X = Y</em>$ 时, 有 $2X \thicksim \chi^2_{2n}$</li>
+<li><code>卡方分布在n无穷大时可以近似于高斯分布</code>, 参考近似部分</li>
 </ul>
-<h2 id="f分布-fisher-snedecor">F分布 Fisher-Snedecor</h2>
-<blockquote>
+<h2 id="F分布-Fisher-Snedecor"><a href="#F分布-Fisher-Snedecor" class="headerlink" title="F分布 Fisher-Snedecor"></a>F分布 Fisher-Snedecor</h2><blockquote>
 <p>F分布，又称为费舍尔-斯内德科尔分布或者费舍尔分布，是一种连续概率分布。在方差分析和回归分析中，F统计量经常<strong>用于检验模型</strong>中的各项效应是否显著。特别的，F分布可以用来进行两个正态总体的方差是否相等的假设检验。</p>
+<p>F分布的形式由两个参数来决定，通常被记作F(n, p)，其中n，p是自由度。具体来说，如果随机变量X服从<strong>卡方分布</strong>且自由度为n，Y也服从<strong>卡方分布</strong>且自由度为p，且X和Y是独立的，那么$F=\frac{X/n }{ Y/p}$ 就服从F分布，记作F(n, p)。</p>
 </blockquote>
-<blockquote>
-<p>F分布的形式由两个参数来决定，通常被记作F(n,
-p)，其中n，p是自由度。具体来说，如果随机变量X服从<strong>卡方分布</strong>且自由度为n，Y也服从<strong>卡方分布</strong>且自由度为p，且X和Y是独立的，那么<span
-class="math inline">\(F=\frac{X/n }{ Y/p}\)</span> 就服从F分布，记作F(n,
-p)。</p>
-</blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_11.png" /></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_12.png" /></p>
-<h3 id="定义-1">定义</h3>
-<p>F分布：</p>
-<p><span class="math display">\[
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_11.png" alt=""></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_12.png" alt=""></p>
+<h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>F分布：</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-    &amp;X \thicksim \chi^2_n \ \ \ Y \thicksim \chi^2_p\\
-    &amp;F(n, p) = \frac{X/n}{Y/p} = Z\end{aligned}
-\]</span></p>
-<h3 id="期望和方差-1">期望和方差</h3>
-<ul>
+    &X \thicksim \chi^2_n \ \ \ Y \thicksim \chi^2_p\\
+    &F(n, p) = \frac{X/n}{Y/p} = Z\end{aligned}</script><h3 id="期望和方差-1"><a href="#期望和方差-1" class="headerlink" title="期望和方差"></a>期望和方差</h3><ul>
 <li>期望</li>
 </ul>
-<p><span class="math display">\[
-E(X) = \frac{p}{p-2}
-\]</span></p>
-<ul>
+<script type="math/tex; mode=display">
+E(X) = \frac{p}{p-2}</script><ul>
 <li>方差</li>
 </ul>
-<p><span class="math display">\[
-V(X) = \frac{2p^2(n+p-2)}{n(p-2)^2(p-4)}
-\]</span></p>
-<h3 id="性质-1">性质</h3>
-<ol type="1">
-<li><p>若<span class="math inline">\(Z\thicksim F(n, p)\)</span>,
-则<span class="math inline">\(\frac{1}{Z} \thicksim F(p,
-n)\)</span></p></li>
-<li><p><span
-class="math inline">\(*F_{m, n(1 − α)} = 1/F_{n, m(α)}\)</span>*
-以用于查表</p></li>
+<script type="math/tex; mode=display">
+V(X) = \frac{2p^2(n+p-2)}{n(p-2)^2(p-4)}</script><h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ol>
+<li><p>若$Z\thicksim F(n, p)$, 则$\frac{1}{Z} \thicksim F(p, n)$</p>
+</li>
+<li><p>$<em>F<em>{m, n(1 − α)} = 1/F</em>{n, m(α)}$</em> 以用于查表</p>
+</li>
 </ol>
-<h2 id="t分布-student">T分布 student</h2>
-<blockquote>
+<h2 id="T分布-student"><a href="#T分布-student" class="headerlink" title="T分布 student"></a>T分布 student</h2><blockquote>
 <p>T分布，也被称为学生t分布，是用于小样本数据的假设检验和区间估计等统计推断中的一种重要的连续概率分布。它在样本量较小的情况下，相较于正态分布，更为稳健。</p>
+<p>如果一个随机变量X服从标准正态分布，另一个随机变量Y服从卡方分布且自由度为n，且X和Y是独立的，那么$Z = X / \sqrt{(Y/n)}$就服从自由度为n的t分布。</p>
 </blockquote>
-<blockquote>
-<p>如果一个随机变量X服从标准正态分布，另一个随机变量Y服从卡方分布且自由度为n，且X和Y是独立的，那么<span
-class="math inline">\(Z = X /
-\sqrt{(Y/n)}\)</span>就服从自由度为n的t分布。</p>
-</blockquote>
-<h3 id="定义-2">定义</h3>
-<p>T分布：</p>
-<p><span class="math display">\[
+<h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>T分布：</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-    &amp;X \thicksim LG(0, 1) \ \ \ y \thicksim \chi^2_n \ \ \ X, \ Y \
-indépendant\\
-    &amp;T(n) = \frac{X}{\sqrt{Y/n}}\end{aligned}
-\]</span></p>
-<h3 id="期望和方差-2">期望和方差</h3>
-<p><span class="math display">\[
-E\left(T_n\right)=0 \quad V\left(T_n\right)=\frac{n}{n-2}
-\]</span></p>
-<h3 id="性质-2">性质</h3>
-<ul>
-<li>n趋于无穷时, T分布趋于正态分布<span class="math inline">\(\mathrm{n}
-\rightarrow+\infty \quad T_n \rightarrow L G(0,1)\)</span></li>
-<li>T分布和F分布有一定关系：<span class="math inline">\(T_n^2 \thicksim
-F(1, n)\)</span></li>
+    &X \thicksim LG(0, 1) \ \ \ y \thicksim \chi^2_n \ \ \ X, \ Y \ indépendant\\
+    &T(n) = \frac{X}{\sqrt{Y/n}}\end{aligned}</script><h3 id="期望和方差-2"><a href="#期望和方差-2" class="headerlink" title="期望和方差"></a>期望和方差</h3><script type="math/tex; mode=display">
+E\left(T_n\right)=0 \quad V\left(T_n\right)=\frac{n}{n-2}</script><h3 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>n趋于无穷时, T分布趋于正态分布$\mathrm{n} \rightarrow+\infty \quad T_n \rightarrow L G(0,1)$</li>
+<li>T分布和F分布有一定关系：$T_n^2 \thicksim F(1, n)$</li>
 </ul>
-<h1 id="近似"><strong>近似</strong></h1>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_13.png" /></p>
-<h2 id="从超几何分布到二项分布">从超几何分布到二项分布</h2>
-<p><strong>要求</strong> <code>*n*/*N* ≤ 10%</code></p>
-<p><span class="math inline">\(*H(N, n, p) → B(n, p)*\)</span></p>
-<p><span class="math display">\[
-P(X = x) = \frac{C_{Np}^xC_{N-Np}^{n-x}}{C_{N}^{n}} \thicksim
-C_n^xp^x(1-p)^{n-x}
-\]</span></p>
-<h2 id="从二项分布到泊松分布">从二项分布到泊松分布</h2>
-<p><strong>要求</strong>
-*<code>n* &gt; 50 *p* &lt; 0.1 *np* = *λ*</code></p>
-<p><span class="math inline">\(*B(n, p) → P(λ)*\)</span></p>
-<p><span class="math inline">\(P(X = x) =
-C_n^{x}p^{x}(1-p)^{n-x}\thicksim\frac{\lambda^x}{x!}e^{-\lambda}\)</span></p>
-<h2
-id="从正态分布到标准正态分布非近似">从正态分布到标准正态分布（非近似）</h2>
-<p>正态分布和标准正态分布可以互相转换:</p>
-<p><span class="math display">\[
-x \thicksim LG(m, \sigma) \Leftrightarrow u = \frac{X-m}{\sigma}
-\thicksim LG(0, 1)
-\]</span></p>
-<p>证明过程如下：</p>
-<p><span class="math inline">\(\begin{aligned}
-    P(U\le u) &amp;= P(\frac{X-m}{\sigma}&lt;u) \\
-    &amp; = P(X&lt;\sigma u+m)\\
-    &amp; = \int_{\infty}^{\sigma u+m}\frac{1}{\sigma
-\sqrt{2\pi}}e^{-\frac{t-m}{2\sigma}}dt\\
-    &amp; =
-\int_{\infty}^{u}\frac{1}{\sqrt{2*\pi}}e^{-\frac{s^2}{2}}ds\\
-    &amp; = \Phi(S)
-    F(x) &amp;= P(X&lt;x) \\
-    &amp;= P(\frac{X-m}{\sigma}&lt;\frac{x-m}{\sigma}) \\
-    &amp;= P(U&lt;\frac{x-m}{\sigma}) \\
-    &amp;= \Phi(\frac{x-m}{\sigma})\end{aligned}\)</span></p>
-<h2 id="从二项分布到正态分布-莫瓦尔-拉普拉斯定理">从二项分布到正态分布：
-莫瓦尔-拉普拉斯定理</h2>
-<blockquote>
+<h1 id="近似"><a href="#近似" class="headerlink" title="近似"></a><strong>近似</strong></h1><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-2%2FUntitled_13.png" alt=""></p>
+<h2 id="从超几何分布到二项分布"><a href="#从超几何分布到二项分布" class="headerlink" title="从超几何分布到二项分布"></a>从超几何分布到二项分布</h2><p><strong>要求</strong> <code>*n*/*N* ≤ 10%</code></p>
+<p>$<em>H(N, n, p) → B(n, p)</em>$</p>
+<script type="math/tex; mode=display">
+P(X = x) = \frac{C_{Np}^xC_{N-Np}^{n-x}}{C_{N}^{n}} \thicksim C_n^xp^x(1-p)^{n-x}</script><h2 id="从二项分布到泊松分布"><a href="#从二项分布到泊松分布" class="headerlink" title="从二项分布到泊松分布"></a>从二项分布到泊松分布</h2><p><strong>要求</strong> <em>`n</em> &gt; 50 <em>p</em> &lt; 0.1 <em>np</em> = <em>λ</em>`</p>
+<p>$<em>B(n, p) → P(λ)</em>$</p>
+<p>$P(X = x) = C_n^{x}p^{x}(1-p)^{n-x}\thicksim\frac{\lambda^x}{x!}e^{-\lambda}$</p>
+<h2 id="从正态分布到标准正态分布（非近似）"><a href="#从正态分布到标准正态分布（非近似）" class="headerlink" title="从正态分布到标准正态分布（非近似）"></a>从正态分布到标准正态分布（非近似）</h2><p>正态分布和标准正态分布可以互相转换:</p>
+<script type="math/tex; mode=display">
+x \thicksim LG(m, \sigma) \Leftrightarrow u = \frac{X-m}{\sigma} \thicksim LG(0, 1)</script><p>证明过程如下：</p>
+<p>$\begin{aligned}<br>    P(U\le u) &amp;= P(\frac{X-m}{\sigma}&lt;u) \<br>    &amp; = P(X&lt;\sigma u+m)\<br>    &amp; = \int<em>{\infty}^{\sigma u+m}\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{t-m}{2\sigma}}dt\<br>    &amp; = \int</em>{\infty}^{u}\frac{1}{\sqrt{2*\pi}}e^{-\frac{s^2}{2}}ds\<br>    &amp; = \Phi(S)<br>    F(x) &amp;= P(X&lt;x) \<br>    &amp;= P(\frac{X-m}{\sigma}&lt;\frac{x-m}{\sigma}) \<br>    &amp;= P(U&lt;\frac{x-m}{\sigma}) \<br>    &amp;= \Phi(\frac{x-m}{\sigma})\end{aligned}$</p>
+<h2 id="从二项分布到正态分布：-莫瓦尔-拉普拉斯定理"><a href="#从二项分布到正态分布：-莫瓦尔-拉普拉斯定理" class="headerlink" title="从二项分布到正态分布： 莫瓦尔-拉普拉斯定理"></a>从二项分布到正态分布： 莫瓦尔-拉普拉斯定理</h2><blockquote>
 <p>莫瓦尔-拉普拉斯定理，也被称为<strong>二项式分布的中心极限定理</strong>，是概率论中的一个重要定理。该定理表明，当二项式分布的试验次数趋向无穷大时，二项式分布可以近似为正态分布。它是中心极限定理的一个特例。</p>
 </blockquote>
-<h3
-id="二项分布可以由正态分布近似"><strong>二项分布可以由正态分布近似</strong>:</h3>
-<p><span class="math display">\[
-B(n, p) \rightarrow LG(np, \sqrt{np(1-p)})
-\]</span></p>
-<h3 id="条件">条件</h3>
-<p><span class="math display">\[
-np &gt; 5, n(1 − p) &gt; 5
-\]</span></p>
-<h2 id="从泊松分布到正态分布">从泊松分布到正态分布</h2>
-<p><span class="math inline">\(P(\lambda) \rightarrow LG(\lambda,
-\sqrt{\lambda})\)</span></p>
-<p>条件：*<code>λ* &gt; 18</code></p>
+<h3 id="二项分布可以由正态分布近似"><a href="#二项分布可以由正态分布近似" class="headerlink" title="二项分布可以由正态分布近似:"></a><strong>二项分布可以由正态分布近似</strong>:</h3><script type="math/tex; mode=display">
+B(n, p) \rightarrow LG(np, \sqrt{np(1-p)})</script><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><script type="math/tex; mode=display">
+np > 5, n(1 − p) > 5</script><h2 id="从泊松分布到正态分布"><a href="#从泊松分布到正态分布" class="headerlink" title="从泊松分布到正态分布"></a>从泊松分布到正态分布</h2><p>$P(\lambda) \rightarrow LG(\lambda, \sqrt{\lambda})$</p>
+<p>条件：<em>`λ</em> &gt; 18`</p>
 <p>由于泊松分布本身比较好算, 所以用处有限</p>
 <p>一般是用于在<em>λ</em>过大, 导致表里没有的时候才会如此近似</p>
-<h2 id="从卡方分布到正态分布">从卡方分布到正态分布</h2>
-<p>卡方分布在n足够大时近似于正态分布 <span
-class="math inline">\(\chi^2(n) \xrightarrow{n\rightarrow \infty} LG(n,
-\sqrt{2n})\)</span></p>
-<h3 id="证明">证明</h3>
-<p>设<span class="math inline">\(T_i = \frac{1}{2}X_i^2\)</span>,
-有<span class="math inline">\(\chi^2 = 2\sum T_i\)</span></p>
-<p>其中, <span class="math inline">\(T_i \thicksim
-\gamma_\frac{1}{2}\)</span>, 故有<span class="math inline">\(E(T_i) =
-1/2 \ V(T_i) = 1/2\)</span></p>
+<h2 id="从卡方分布到正态分布"><a href="#从卡方分布到正态分布" class="headerlink" title="从卡方分布到正态分布"></a>从卡方分布到正态分布</h2><p>卡方分布在n足够大时近似于正态分布 $\chi^2(n) \xrightarrow{n\rightarrow \infty} LG(n, \sqrt{2n})$</p>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>设$T_i = \frac{1}{2}X_i^2$, 有$\chi^2 = 2\sum T_i$</p>
+<p>其中, $T<em>i \thicksim \gamma</em>\frac{1}{2}$, 故有$E(T_i) = 1/2 \ V(T_i) = 1/2$</p>
 <p>应用中心极限定理:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{align*}
-&amp;\frac{\sum T_i-\frac{1}{2}n}{\sqrt{1/2}\sqrt{n}} \rightarrow LG(0,
-1)\\
-&amp;\frac{2\sum T_i-n}{\sqrt{2n}} \rightarrow LG(0, 1)\\
-&amp;\chi^2_n \rightarrow LG(n, \sqrt{2n})
-\end{align*}
-\]</span></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/12/09/prob-2/">http://raphaelhyaan.cn/2023/12/09/prob-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">概率统计</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/09/prob-3/" title="统计基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">统计基础</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/09/prob-1/" title="概率基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">概率基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/09/prob-1/" title="概率基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">概率基础</div></div></a></div><div><a href="/2023/12/09/prob-5/" title="评价和检验"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">评价和检验</div></div></a></div><div><a href="/2023/12/09/prob-3/" title="统计基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">统计基础</div></div></a></div><div><a href="/2023/11/23/prob-6/" title="一图流笔记"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">一图流笔记</div></div></a></div><div><a href="/2023/12/09/prob-4/" title="估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">估计</div></div></a></div><div><a href="/2023/11/22/DCGAN-1/" title="DCGAN"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FDCGAN%2FUntitled.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-22</div><div class="title">DCGAN</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%92%8C%E8%BF%91%E4%BC%BC"><span class="toc-number">1.</span> <span class="toc-text">分布和近似</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83"><span class="toc-number">2.</span> <span class="toc-text">分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83-loi-uniform"><span class="toc-number">2.1.</span> <span class="toc-text">均匀分布 Loi uniform</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#discret"><span class="toc-number">2.1.1.</span> <span class="toc-text">discret</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-sur-0-a"><span class="toc-number">2.1.2.</span> <span class="toc-text">continue sur [0, a]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-sur-ab"><span class="toc-number">2.1.3.</span> <span class="toc-text">continue sur [a,b]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E4%B8%80%E5%88%86%E5%B8%83-loi-de-bernoulli"><span class="toc-number">2.2.</span> <span class="toc-text">零一分布 Loi de Bernoulli</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret"><span class="toc-number">2.2.1.</span> <span class="toc-text">仅discret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83-bn-p"><span class="toc-number">2.3.</span> <span class="toc-text">二项分布 B(n, p)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">仅discret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83-hn-n-p"><span class="toc-number">2.4.</span> <span class="toc-text">超几何分布 H(N, n, p)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">仅discret</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.4.2.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83-p%CE%BB"><span class="toc-number">2.5.</span> <span class="toc-text">泊松分布 P(λ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret-3"><span class="toc-number">2.5.1.</span> <span class="toc-text">仅discret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83-loi-exponentielle"><span class="toc-number">2.6.</span> <span class="toc-text">指数分布 Loi exponentielle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">2.6.1.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E8%AE%B0%E5%BF%86%E6%80%A7"><span class="toc-number">2.6.2.</span> <span class="toc-text">无记忆性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gamma%E5%88%86%E5%B8%83-%CE%B3r-%CE%BB"><span class="toc-number">2.7.</span> <span class="toc-text">Gamma分布
-γ(r, λ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-number">2.7.1.</span> <span class="toc-text">欧拉函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-1"><span class="toc-number">2.7.2.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gamma%E7%9A%84%E5%8F%AF%E5%8A%A0%E6%80%A7"><span class="toc-number">2.7.3.</span> <span class="toc-text">Gamma的可加性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gamma%E7%9A%84%E8%BF%91%E4%BC%BC%E7%BA%BF%E6%80%A7"><span class="toc-number">2.7.4.</span> <span class="toc-text">gamma的近似线性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5%CE%B3r-%CE%BB-1"><span class="toc-number">2.7.5.</span> <span class="toc-text">特殊情况：γ(r) : λ &#x3D; 1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83-lg"><span class="toc-number">2.8.</span> <span class="toc-text">正态分布 LG()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83lgm-%CF%83"><span class="toc-number">2.8.1.</span> <span class="toc-text">正态分布：LG(m, σ)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E5%A4%AA%E5%88%86%E5%B8%83-u"><span class="toc-number">2.8.2.</span> <span class="toc-text">标准正太分布: U</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%92%8C%E6%A0%87%E5%87%86%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">2.8.3.</span> <span class="toc-text">正态分布和标准正态分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">2.8.4.</span> <span class="toc-text">正态分布的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%90%91%E9%87%8F"><span class="toc-number">2.8.5.</span> <span class="toc-text">高斯向量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83-loi-du-%CF%872"><span class="toc-number">2.9.</span> <span class="toc-text">卡方分布 Loi du χ2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.9.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE"><span class="toc-number">2.9.2.</span> <span class="toc-text">期望和方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">2.9.3.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#f%E5%88%86%E5%B8%83-fisher-snedecor"><span class="toc-number">2.10.</span> <span class="toc-text">F分布 Fisher-Snedecor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.10.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE-1"><span class="toc-number">2.10.2.</span> <span class="toc-text">期望和方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="toc-number">2.10.3.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#t%E5%88%86%E5%B8%83-student"><span class="toc-number">2.11.</span> <span class="toc-text">T分布 student</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">2.11.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE-2"><span class="toc-number">2.11.2.</span> <span class="toc-text">期望和方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-2"><span class="toc-number">2.11.3.</span> <span class="toc-text">性质</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC"><span class="toc-number">3.</span> <span class="toc-text">近似</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%B6%85%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83%E5%88%B0%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-number">3.1.</span> <span class="toc-text">从超几何分布到二项分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="toc-number">3.2.</span> <span class="toc-text">从二项分布到泊松分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E6%A0%87%E5%87%86%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%9D%9E%E8%BF%91%E4%BC%BC"><span class="toc-number">3.3.</span> <span class="toc-text">从正态分布到标准正态分布（非近似）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83-%E8%8E%AB%E7%93%A6%E5%B0%94-%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86"><span class="toc-number">3.4.</span> <span class="toc-text">从二项分布到正态分布：
-莫瓦尔-拉普拉斯定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%8F%AF%E4%BB%A5%E7%94%B1%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E8%BF%91%E4%BC%BC"><span class="toc-number">3.4.1.</span> <span class="toc-text">二项分布可以由正态分布近似:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.4.2.</span> <span class="toc-text">条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E5%88%B0%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">3.5.</span> <span class="toc-text">从泊松分布到正态分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">3.6.</span> <span class="toc-text">从卡方分布到正态分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E"><span class="toc-number">3.6.1.</span> <span class="toc-text">证明</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité"/></a><div class="content"><a class="title" href="/2024/09/19/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité">C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité</a><time datetime="2024-09-19T19:27:42.000Z" title="发表于 2024-09-19 21:27:42">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="C1 受控系统结构 Structure d’un système asservi"/></a><div class="content"><a class="title" href="/2024/09/19/csd-1/" title="C1 受控系统结构 Structure d’un système asservi">C1 受控系统结构 Structure d’un système asservi</a><time datetime="2024-09-19T19:27:41.000Z" title="发表于 2024-09-19 21:27:41">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/15/pm0915-1/" title="导论 Presentation"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="导论 Presentation"/></a><div class="content"><a class="title" href="/2024/09/15/pm0915-1/" title="导论 Presentation">导论 Presentation</a><time datetime="2024-09-15T20:12:07.000Z" title="发表于 2024-09-15 22:12:07">2024-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/15/pt-1/" title="巴黎市郊野草树木·其一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶02.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="巴黎市郊野草树木·其一"/></a><div class="content"><a class="title" href="/2024/09/15/pt-1/" title="巴黎市郊野草树木·其一">巴黎市郊野草树木·其一</a><time datetime="2024-09-15T16:51:53.000Z" title="发表于 2024-09-15 18:51:53">2024-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/18/mg-p-1/" title="谱子：Ki. Ringtone"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F乐理和吉他.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="谱子：Ki. Ringtone"/></a><div class="content"><a class="title" href="/2024/08/18/mg-p-1/" title="谱子：Ki. Ringtone">谱子：Ki. Ringtone</a><time datetime="2024-08-18T10:28:42.000Z" title="发表于 2024-08-18 12:28:42">2024-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+&\frac{\sum T_i-\frac{1}{2}n}{\sqrt{1/2}\sqrt{n}} \rightarrow LG(0, 1)\\
+&\frac{2\sum T_i-n}{\sqrt{2n}} \rightarrow LG(0, 1)\\
+&\chi^2_n \rightarrow LG(n, \sqrt{2n})
+\end{align*}</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/12/09/prob-2/">http://raphaelhyaan.cn/2023/12/09/prob-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">概率统计</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/09/prob-3/" title="统计基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">统计基础</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/09/prob-1/" title="概率基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">概率基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/09/prob-1/" title="概率基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">概率基础</div></div></a></div><div><a href="/2023/12/09/prob-3/" title="统计基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">统计基础</div></div></a></div><div><a href="/2023/12/09/prob-4/" title="估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">估计</div></div></a></div><div><a href="/2023/11/23/prob-6/" title="一图流笔记"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">一图流笔记</div></div></a></div><div><a href="/2023/12/09/prob-5/" title="评价和检验"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">评价和检验</div></div></a></div><div><a href="/2023/11/22/DCGAN-1/" title="DCGAN"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FDCGAN%2FUntitled.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-22</div><div class="title">DCGAN</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">122</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%92%8C%E8%BF%91%E4%BC%BC"><span class="toc-number">1.</span> <span class="toc-text">分布和近似</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83"><span class="toc-number">2.</span> <span class="toc-text">分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83-Loi-uniform"><span class="toc-number">2.1.</span> <span class="toc-text">均匀分布 Loi uniform</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#discret"><span class="toc-number">2.1.1.</span> <span class="toc-text">discret</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-sur-0-a"><span class="toc-number">2.1.2.</span> <span class="toc-text">continue sur [0, a]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-sur-a-b"><span class="toc-number">2.1.3.</span> <span class="toc-text">continue sur [a,b]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E4%B8%80%E5%88%86%E5%B8%83-Loi-de-Bernoulli"><span class="toc-number">2.2.</span> <span class="toc-text">零一分布 Loi de Bernoulli</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret"><span class="toc-number">2.2.1.</span> <span class="toc-text">仅discret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83-B-n-p"><span class="toc-number">2.3.</span> <span class="toc-text">二项分布 B(n, p)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">仅discret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83-H-N-n-p"><span class="toc-number">2.4.</span> <span class="toc-text">超几何分布 H(N, n, p)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">仅discret</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.4.2.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83-P-%CE%BB"><span class="toc-number">2.5.</span> <span class="toc-text">泊松分布 P(λ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%85discret-3"><span class="toc-number">2.5.1.</span> <span class="toc-text">仅discret</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83-Loi-exponentielle"><span class="toc-number">2.6.</span> <span class="toc-text">指数分布 Loi exponentielle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">2.6.1.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E8%AE%B0%E5%BF%86%E6%80%A7"><span class="toc-number">2.6.2.</span> <span class="toc-text">无记忆性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gamma%E5%88%86%E5%B8%83-%CE%B3-r-%CE%BB"><span class="toc-number">2.7.</span> <span class="toc-text">Gamma分布 γ(r, λ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="toc-number">2.7.1.</span> <span class="toc-text">欧拉函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-1"><span class="toc-number">2.7.2.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gamma%E7%9A%84%E5%8F%AF%E5%8A%A0%E6%80%A7"><span class="toc-number">2.7.3.</span> <span class="toc-text">Gamma的可加性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gamma%E7%9A%84%E8%BF%91%E4%BC%BC%E7%BA%BF%E6%80%A7"><span class="toc-number">2.7.4.</span> <span class="toc-text">gamma的近似线性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5%EF%BC%9A%CE%B3-r-%CE%BB-1"><span class="toc-number">2.7.5.</span> <span class="toc-text">特殊情况：γ(r) : λ &#x3D; 1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83-LG"><span class="toc-number">2.8.</span> <span class="toc-text">正态分布 LG()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%EF%BC%9ALG-m-%CF%83"><span class="toc-number">2.8.1.</span> <span class="toc-text">正态分布：LG(m, σ)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E5%A4%AA%E5%88%86%E5%B8%83-U"><span class="toc-number">2.8.2.</span> <span class="toc-text">标准正太分布: U</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%92%8C%E6%A0%87%E5%87%86%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">2.8.3.</span> <span class="toc-text">正态分布和标准正态分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">2.8.4.</span> <span class="toc-text">正态分布的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%90%91%E9%87%8F"><span class="toc-number">2.8.5.</span> <span class="toc-text">高斯向量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83-Loi-du-%CF%872"><span class="toc-number">2.9.</span> <span class="toc-text">卡方分布 Loi du χ2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.9.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE"><span class="toc-number">2.9.2.</span> <span class="toc-text">期望和方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">2.9.3.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F%E5%88%86%E5%B8%83-Fisher-Snedecor"><span class="toc-number">2.10.</span> <span class="toc-text">F分布 Fisher-Snedecor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.10.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE-1"><span class="toc-number">2.10.2.</span> <span class="toc-text">期望和方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="toc-number">2.10.3.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T%E5%88%86%E5%B8%83-student"><span class="toc-number">2.11.</span> <span class="toc-text">T分布 student</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">2.11.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE-2"><span class="toc-number">2.11.2.</span> <span class="toc-text">期望和方差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8-2"><span class="toc-number">2.11.3.</span> <span class="toc-text">性质</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC"><span class="toc-number">3.</span> <span class="toc-text">近似</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%B6%85%E5%87%A0%E4%BD%95%E5%88%86%E5%B8%83%E5%88%B0%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83"><span class="toc-number">3.1.</span> <span class="toc-text">从超几何分布到二项分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83"><span class="toc-number">3.2.</span> <span class="toc-text">从二项分布到泊松分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E6%A0%87%E5%87%86%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%EF%BC%88%E9%9D%9E%E8%BF%91%E4%BC%BC%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">从正态分布到标准正态分布（非近似）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%EF%BC%9A-%E8%8E%AB%E7%93%A6%E5%B0%94-%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86"><span class="toc-number">3.4.</span> <span class="toc-text">从二项分布到正态分布： 莫瓦尔-拉普拉斯定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%8F%AF%E4%BB%A5%E7%94%B1%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E8%BF%91%E4%BC%BC"><span class="toc-number">3.4.1.</span> <span class="toc-text">二项分布可以由正态分布近似:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.4.2.</span> <span class="toc-text">条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E5%88%B0%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">3.5.</span> <span class="toc-text">从泊松分布到正态分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">3.6.</span> <span class="toc-text">从卡方分布到正态分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E"><span class="toc-number">3.6.1.</span> <span class="toc-text">证明</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/pt-2/" title="法兰西岛花草树木·其二"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶02.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="法兰西岛花草树木·其二"/></a><div class="content"><a class="title" href="/2024/09/19/pt-2/" title="法兰西岛花草树木·其二">法兰西岛花草树木·其二</a><time datetime="2024-09-19T21:39:12.000Z" title="发表于 2024-09-19 23:39:12">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité"/></a><div class="content"><a class="title" href="/2024/09/19/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité">C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité</a><time datetime="2024-09-19T19:27:42.000Z" title="发表于 2024-09-19 21:27:42">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="C1 受控系统结构 Structure d’un système asservi"/></a><div class="content"><a class="title" href="/2024/09/19/csd-1/" title="C1 受控系统结构 Structure d’un système asservi">C1 受控系统结构 Structure d’un système asservi</a><time datetime="2024-09-19T19:27:41.000Z" title="发表于 2024-09-19 21:27:41">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/15/pm0915-1/" title="导论 Presentation"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="导论 Presentation"/></a><div class="content"><a class="title" href="/2024/09/15/pm0915-1/" title="导论 Presentation">导论 Presentation</a><time datetime="2024-09-15T20:12:07.000Z" title="发表于 2024-09-15 22:12:07">2024-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/15/pt-1/" title="巴黎市郊野草树木·其一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶02.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="巴黎市郊野草树木·其一"/></a><div class="content"><a class="title" href="/2024/09/15/pt-1/" title="巴黎市郊野草树木·其一">巴黎市郊野草树木·其一</a><time datetime="2024-09-15T16:51:53.000Z" title="发表于 2024-09-15 18:51:53">2024-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
