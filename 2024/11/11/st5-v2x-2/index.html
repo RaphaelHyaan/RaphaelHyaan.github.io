@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>04 V2X 智能车辆的通信 下 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="04 V2X 智能车辆的通信 下 车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire  车载系统设计与容量 capacité   链路参数（如功率、传播）决定了车辆间良好通信的最大距离：  1个发射器和1个接收器，涉及覆盖概念。  为了进行完整的网络设计，需要考虑整">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>04 V2X 智能车辆的通信 下 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="04 V2X 智能车辆的通信 下车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire 车载系统设计与容量 capacité  链路参数（如功率、传播）决定了车辆间良好通信的最大距离： 1个发射器和1个接收器，涉及覆盖概念。   为了进行完整的网络设计，需要考虑整个系统，包括多个同时传输的车">
 <meta property="og:type" content="article">
 <meta property="og:title" content="04 V2X 智能车辆的通信 下">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/11/11/st5-v2x-2/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="04 V2X 智能车辆的通信 下 车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire  车载系统设计与容量 capacité   链路参数（如功率、传播）决定了车辆间良好通信的最大距离：  1个发射器和1个接收器，涉及覆盖概念。  为了进行完整的网络设计，需要考虑整">
+<meta property="og:description" content="04 V2X 智能车辆的通信 下车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire 车载系统设计与容量 capacité  链路参数（如功率、传播）决定了车辆间良好通信的最大距离： 1个发射器和1个接收器，涉及覆盖概念。   为了进行完整的网络设计，需要考虑整个系统，包括多个同时传输的车">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F%E9%A9%B001.png">
 <meta property="article:published_time" content="2024-11-11T09:10:28.000Z">
@@ -154,385 +154,194 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">04 V2X 智能车辆的通信 下</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-11T09:10:28.000Z" title="发表于 2024-11-11 10:10:28">2024-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-11T09:12:57.969Z" title="更新于 2024-11-11 10:12:57">2024-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%B1%BD%E8%BD%A6%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%8C%96/">学习笔记-汽车自动化与信息化</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="04 V2X 智能车辆的通信 下"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="v2x-智能车辆的通信-下">04 V2X 智能车辆的通信 下</h1>
-<h1
-id="车载网络的信道接入系统设计-conception-dun-système-daccès-au-canal-pour-un-réseau-véhiculaire">车载网络的信道接入系统设计
-conception d’un système d’accès au canal pour un réseau véhiculaire</h1>
-<hr />
-<h3 id="车载系统设计与容量-capacité">车载系统设计与容量 capacité</h3>
-<hr />
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">04 V2X 智能车辆的通信 下</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-11T09:10:28.000Z" title="发表于 2024-11-11 10:10:28">2024-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-11T09:12:57.969Z" title="更新于 2024-11-11 10:12:57">2024-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%B1%BD%E8%BD%A6%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%8C%96/">学习笔记-汽车自动化与信息化</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="04 V2X 智能车辆的通信 下"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="04-V2X-智能车辆的通信-下"><a href="#04-V2X-智能车辆的通信-下" class="headerlink" title="04 V2X 智能车辆的通信 下"></a>04 V2X 智能车辆的通信 下</h1><h1 id="车载网络的信道接入系统设计-conception-d’un-systeme-d’acces-au-canal-pour-un-reseau-vehiculaire"><a href="#车载网络的信道接入系统设计-conception-d’un-systeme-d’acces-au-canal-pour-un-reseau-vehiculaire" class="headerlink" title="车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire"></a>车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire</h1><hr>
+<h3 id="车载系统设计与容量-capacite"><a href="#车载系统设计与容量-capacite" class="headerlink" title="车载系统设计与容量 capacité"></a>车载系统设计与容量 capacité</h3><hr>
 <ul>
-<li><strong>链路参数</strong>（如功率、传播）决定了车辆间良好通信的最大距离：
-<ul>
+<li><strong>链路参数</strong>（如功率、传播）决定了车辆间良好通信的最大距离：<ul>
 <li>1个发射器和1个接收器，涉及覆盖概念。</li>
-</ul></li>
-<li>为了进行完整的网络设计，需要考虑整个系统，包括多个同时传输的车辆：
-<ul>
-<li>需要<strong>显式考虑数据包碰撞 prise en compte explicite des
-collisions de paquets</strong>。</li>
-<li>引入<strong>容量概念</strong>，即每公里的车辆数量，以确保满足目标<strong>服务质量（QoS,
-qualité de service）</strong>，通常以<strong>数据包发送速率 taux maximal
-d’envoi de paquets</strong>表示，且这些数据包能够无误解码。</li>
-</ul></li>
+</ul>
+</li>
+<li>为了进行完整的网络设计，需要考虑整个系统，包括多个同时传输的车辆：<ul>
+<li>需要<strong>显式考虑数据包碰撞 prise en compte explicite des collisions de paquets</strong>。</li>
+<li>引入<strong>容量概念</strong>，即每公里的车辆数量，以确保满足目标<strong>服务质量（QoS, qualité de service）</strong>，通常以<strong>数据包发送速率 taux maximal d’envoi de paquets</strong>表示，且这些数据包能够无误解码。</li>
+</ul>
+</li>
 <li><strong>目标</strong>：计算数据包丢失的概率，并确保丢失率保持在较低水平</li>
 </ul>
-<h3 id="信道接入的争用-contention-au-canal">信道接入的争用 contention au
-canal</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage.png" /></p>
+<h3 id="信道接入的争用-contention-au-canal"><a href="#信道接入的争用-contention-au-canal" class="headerlink" title="信道接入的争用 contention au canal"></a>信道接入的争用 contention au canal</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage.png" alt=""></p>
 <p>在V2X网络以及所有类似WiFi的网络中：</p>
 <ul>
-<li>数据包是<strong>非协调模式non
-coordonnée</strong>发送的，这种方式称为<strong>争用contention</strong>。</li>
-<li>数据包可能会发生<strong>碰撞collision</strong>，从而引发<strong>可靠性问题problèmes
-de fiabilité</strong>。</li>
+<li>数据包是<strong>非协调模式non coordonnée</strong>发送的，这种方式称为<strong>争用contention</strong>。</li>
+<li>数据包可能会发生<strong>碰撞collision</strong>，从而引发<strong>可靠性问题problèmes de fiabilité</strong>。</li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>数据帧trame与另一数据帧重叠时，发生碰撞。
-<ul>
-<li>对于时长为 <span class="math inline">\(T_f\)</span>
-的数据帧，<strong>脆弱时间 Temps de vulnérabilité</strong> 为 <span
-class="math inline">\(2T_f\)</span>（前后各<span
-class="math inline">\(T_f\)</span>的重叠时间可能）。</li>
-</ul></li>
+<li>数据帧trame与另一数据帧重叠时，发生碰撞。<ul>
+<li>对于时长为 $T_f$ 的数据帧，<strong>脆弱时间 Temps de vulnérabilité</strong> 为 $2T_f$（前后各$T_f$的重叠时间可能）。</li>
+</ul>
+</li>
 <li>重叠的概率取决于参与竞争的发射器数量以及每个发射器的活动情况。</li>
 </ul>
-<h2 id="aloha">Aloha</h2>
-<hr />
-<h3 id="aloha的碰撞特征">Aloha的碰撞特征</h3>
-<hr />
-<p>假设每个发射器平均每秒生成 <span
-class="math inline">\(\lambda\)</span>
-个数据包，且遵循一个<strong>泊松过程 processus de
-Poisson</strong>（平均间隔时间为 <span
-class="math inline">\(1/\lambda\)</span> 的指数分布）。 其他 <span
-class="math inline">\(N-1\)</span>
-个设备的总到达过程也是一个泊松过程，其参数为 <span
-class="math inline">\((N-1)\lambda\)</span>。</p>
-<p>在时间窗口 <span class="math inline">\(2T_f\)</span>
-内的数据包到达数量服从参数为 <span
-class="math inline">\(2T_f(N-1)\lambda\)</span> 的泊松分布。</p>
-<p>成功的概率为在 <span class="math inline">\(2T_f\)</span>
-时间窗口内没有任何其他数据包到达的概率。</p>
-<p><span class="math display">\[
-P_{\text {success }}=e^{-2(N-1) \lambda T_f}
-\]</span></p>
-<h3 id="时隙aloha-slotté">时隙Aloha slotté</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_1.png" /></p>
+<h2 id="Aloha"><a href="#Aloha" class="headerlink" title="Aloha"></a>Aloha</h2><hr>
+<h3 id="Aloha的碰撞特征"><a href="#Aloha的碰撞特征" class="headerlink" title="Aloha的碰撞特征"></a>Aloha的碰撞特征</h3><hr>
+<p>假设每个发射器平均每秒生成 $\lambda$ 个数据包，且遵循一个<strong>泊松过程 processus de Poisson</strong>（平均间隔时间为 $1/\lambda$ 的指数分布）。<br>其他 $N-1$ 个设备的总到达过程也是一个泊松过程，其参数为 $(N-1)\lambda$。</p>
+<p>在时间窗口 $2T_f$ 内的数据包到达数量服从参数为 $2T_f(N-1)\lambda$ 的泊松分布。</p>
+<p>成功的概率为在 $2T_f$ 时间窗口内没有任何其他数据包到达的概率。</p>
+<script type="math/tex; mode=display">
+P_{\text {success }}=e^{-2(N-1) \lambda T_f}</script><h3 id="时隙Aloha-slotte"><a href="#时隙Aloha-slotte" class="headerlink" title="时隙Aloha slotté"></a>时隙Aloha slotté</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_1.png" alt=""></p>
 <ul>
 <li>在无线系统中，发射器可以通过<strong>无线信标</strong>进行同步。</li>
-<li>时间可以被划分为<strong>时隙</strong>，形成<strong>时隙ALOHA协议</strong>：
-<ul>
+<li>时间可以被划分为<strong>时隙</strong>，形成<strong>时隙ALOHA协议</strong>：<ul>
 <li>当发射器有数据包时，它将在<strong>下一个时隙开始时</strong>进行传输。</li>
-<li><strong>脆弱时间</strong>等于时隙的长度，设为 <span
-class="math inline">\(T_f\)</span>。</li>
-</ul></li>
+<li><strong>脆弱时间</strong>等于时隙的长度，设为 $T_f$。</li>
 </ul>
-<hr />
+</li>
+</ul>
+<hr>
 <p>由于脆弱时间的减少，成功概率为：</p>
-<p><span class="math display">\[
-P_{\text {succès }}=e^{-(N-1) \lambda T_f}
-\]</span></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_2.png" /></p>
-<h2 id="csmaca">CSMA/CA</h2>
-<hr />
-<h3
-id="基于信道监听的接入方式csmaca载波侦听多路访问碰撞避免carrier-sense-multiple-accesscollision-avoidance">基于信道监听的接入方式：CSMA/CA（载波侦听多路访问/碰撞避免，Carrier
-Sense Multiple Access/Collision Avoidance ）</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_3.png" /></p>
-<p>为了减少碰撞，像IEEE 802.11这样的去中心化无线网络使用LBT（Listen
-Before Talk）类型的协议：</p>
+<script type="math/tex; mode=display">
+P_{\text {succès }}=e^{-(N-1) \lambda T_f}</script><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_2.png" alt=""></p>
+<h2 id="CSMA-CA"><a href="#CSMA-CA" class="headerlink" title="CSMA/CA"></a>CSMA/CA</h2><hr>
+<h3 id="基于信道监听的接入方式：CSMA-CA（载波侦听多路访问-碰撞避免，Carrier-Sense-Multiple-Access-Collision-Avoidance-）"><a href="#基于信道监听的接入方式：CSMA-CA（载波侦听多路访问-碰撞避免，Carrier-Sense-Multiple-Access-Collision-Avoidance-）" class="headerlink" title="基于信道监听的接入方式：CSMA/CA（载波侦听多路访问/碰撞避免，Carrier Sense Multiple Access/Collision Avoidance ）"></a>基于信道监听的接入方式：CSMA/CA（载波侦听多路访问/碰撞避免，Carrier Sense Multiple Access/Collision Avoidance ）</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_3.png" alt=""></p>
+<p>为了减少碰撞，像IEEE 802.11这样的去中心化无线网络使用LBT（Listen Before Talk）类型的协议：</p>
 <ul>
-<li>传输前，设备首先<strong>监听信道écoute le
-medium</strong>，检查其是否被占用。如果信道忙碌，设备会等待。</li>
-<li>当信道变为空闲时，发射器会等待一个<strong>IFS（帧间隔时间 Inter
-Frame Separation）</strong>，再加上一个<strong>随机时间 temps
-aléatoire</strong>。</li>
-<li>信道会被<strong>持续监测 continuellement
-sondé</strong>；如果在等待期间信道重新被占用，<strong>计时器将被冻结 le
-timer est gelé</strong> 。</li>
+<li>传输前，设备首先<strong>监听信道écoute le medium</strong>，检查其是否被占用。如果信道忙碌，设备会等待。</li>
+<li>当信道变为空闲时，发射器会等待一个<strong>IFS（帧间隔时间 Inter Frame Separation）</strong>，再加上一个<strong>随机时间 temps aléatoire</strong>。</li>
+<li>信道会被<strong>持续监测 continuellement sondé</strong>；如果在等待期间信道重新被占用，<strong>计时器将被冻结 le timer est gelé</strong> 。</li>
 <li>当计时器到期à l’expirarion du timer时，设备开始发送数据包。</li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li>IFS（帧间隔时间）的作用是避免数据包之间的干扰，要求 IFS
-大于信号在网络中的<strong>最大传播时延差différence maximale des temps de
-propagatio</strong>。</li>
+<li>IFS（帧间隔时间）的作用是避免数据包之间的干扰，要求 IFS 大于信号在网络中的<strong>最大传播时延差différence maximale des temps de propagatio</strong>。</li>
 <li>随机等待时间可以避免两个发射器在同时监听到空闲信道时，同时开始传输。若两个设备的计时器同时到期，仍有可能发生碰撞。</li>
-<li><strong>信道占用概率 <span class="math inline">\(p_c\)</span> la
-probabilité que le canal soit
-occupé</strong>：代表信道被占用的概率（需要计算）。</li>
-<li><strong>丢包概率 la probabilité de perte</strong>
-：等于信道占用概率，即<span class="math inline">\(P_{\text{loss}} =
-p_c\)</span>。</li>
+<li><strong>信道占用概率 $p_c$  la probabilité que le canal soit occupé</strong>：代表信道被占用的概率（需要计算）。</li>
+<li><strong>丢包概率 la probabilité de perte</strong> ：等于信道占用概率，即$P_{\text{loss}} = p_c$。</li>
 </ul>
 <p>这意味着，当信道繁忙时，数据包无法成功传输，导致丢包的可能性上升。</p>
-<h3
-id="csmaca的建模关联的马尔可夫链-chaine-de-markov-associée">CSMA/CA的建模：关联的马尔可夫链
-chaine de Markov associée</h3>
-<hr />
+<h3 id="CSMA-CA的建模：关联的马尔可夫链-chaine-de-Markov-associee"><a href="#CSMA-CA的建模：关联的马尔可夫链-chaine-de-Markov-associee" class="headerlink" title="CSMA/CA的建模：关联的马尔可夫链 chaine de Markov associée"></a>CSMA/CA的建模：关联的马尔可夫链 chaine de Markov associée</h3><hr>
 <p>从单个用户的视角来看，系统演变遵循一个<strong>离散时间的马尔可夫链</strong>。</p>
 <ul>
-<li>用户在<strong>时隙slot</strong>内保持<strong>空闲inactif</strong>的概率为：<span
-class="math inline">\(1-q=e^{-\lambda T_f}\)</span></li>
-<li>用户生成数据包时，从 <span class="math inline">\(0\)</span> 到 <span
-class="math inline">\(W_0-1\)</span>
-之间选择一个随机定时器，定时器的选择遵循均匀分布：<span
-class="math inline">\(\operatorname{Pr}(\text { timer
-}=\mathrm{k})=\frac{q}{W_0}\)</span>。</li>
-<li>在每个时隙中，用户监听信道
-<ul>
-<li>信道被占用的概率：<span class="math inline">\(p_c\)</span></li>
-<li>如果信道被占用，用户会<strong>冻结定时器 gèle le
-timer</strong>。</li>
-<li>如果信道空闲，用户会<strong>递减定时器décrémente le
-timer。</strong></li>
-</ul></li>
+<li>用户在<strong>时隙slot</strong>内保持<strong>空闲inactif</strong>的概率为：$1-q=e^{-\lambda T_f}$</li>
+<li>用户生成数据包时，从 $0$ 到 $W_0-1$ 之间选择一个随机定时器，定时器的选择遵循均匀分布：$\operatorname{Pr}(\text { timer }=\mathrm{k})=\frac{q}{W_0}$。</li>
+<li>在每个时隙中，用户监听信道<ul>
+<li>信道被占用的概率：$p_c$</li>
+<li>如果信道被占用，用户会<strong>冻结定时器 gèle le timer</strong>。</li>
+<li>如果信道空闲，用户会<strong>递减定时器décrémente le timer。</strong></li>
+</ul>
+</li>
 <li>当定时器降到0时，用户开始传输数据包，然后回到空闲状态。</li>
 </ul>
-<hr />
+<hr>
 <p>考虑平衡状态下的概率。</p>
 <blockquote>
 <p>平衡方程：</p>
-<p><span class="math display">\[
-\pi(i)=\sum_{j \in E} \pi(j) p_{j i}
-\]</span></p>
-<ul>
-<li><span class="math inline">\(E\)</span>事件的集合</li>
-<li><span class="math inline">\(\pi(j)\)</span>时间的概率</li>
+<script type="math/tex; mode=display">
+\pi(i)=\sum_{j \in E} \pi(j) p_{j i}</script><ul>
+<li>$E$事件的集合</li>
+<li>$\pi(j)$时间的概率</li>
 </ul>
-<p>这个方程描述了对于每一个状态<span
-class="math inline">\(i\)</span>，进入该状态的概率流总和必须等于离开该状态的概率流总和。这意味着系统的概率分布在时间上是不变的，从而形成了一个平衡。</p>
-</blockquote>
-<blockquote>
+<p>这个方程描述了对于每一个状态$i$，进入该状态的概率流总和必须等于离开该状态的概率流总和。这意味着系统的概率分布在时间上是不变的，从而形成了一个平衡。</p>
 <p>平衡方程等价于：</p>
-<p><span class="math display">\[
-\Pi^{\top}=\Pi^{\top} P
-\]</span></p>
-<ul>
-<li><span class="math inline">\(P\)</span>是传递矩阵(<span
-class="math inline">\(P_{ij}\)</span>)</li>
-<li><span
-class="math inline">\(\Pi\)</span>是状态概率向量，由于归一性有<span
-class="math inline">\(\Pi^{\top} \mathbf{1}=1\)</span>。</li>
+<script type="math/tex; mode=display">
+\Pi^{\top}=\Pi^{\top} P</script><ul>
+<li>$P$是传递矩阵($P_{ij}$)</li>
+<li>$\Pi$是状态概率向量，由于归一性有$\Pi^{\top} \mathbf{1}=1$。</li>
 </ul>
 <p>方程意味着如果链的初始分布是稳态分布，那么它将永远保持这种分布。</p>
 </blockquote>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_4.png" /></p>
-<p>状态<span class="math inline">\(W_0-1\)</span>的概率<span
-class="math inline">\(\pi\left(W_0-1\right)\)</span>：</p>
-<p><span class="math display">\[
-\pi\left(W_0-1\right)=\frac{q}{W_0} \pi(i d l e)+p_c
-\pi\left(W_0-1\right)=\frac{q}{W_0\left(1-p_c\right)} \pi(i d l e)
-\]</span></p>
-<p>即空闲状态<span class="math inline">\(idle\)</span>有<span
-class="math inline">\(q/W_0\)</span>的概率（均匀分布）转换为状态<span
-class="math inline">\(W_0-1\)</span>，而状态<span
-class="math inline">\(W_0-1\)</span>有<span
-class="math inline">\(p_c\)</span>的概率留在当前状态。</p>
-<p>状态<span class="math inline">\(W_0-2\)</span>的概率<span
-class="math inline">\(\pi\left(W_0-2\right)\)</span>：</p>
-<p><span class="math display">\[
-\pi\left(W_0-2\right)=\frac{q}{W_0} \pi(i d l e)+p_c
-\pi\left(W_0-2\right)+\left(1-p_c\right) \pi\left(W_0-1\right)=\frac{2
-q}{W_0\left(1-p_c\right)} \pi(i d l e)
-\]</span></p>
-<p>可以发现对于任意状态<span
-class="math inline">\(W_0-k\)</span>，其概率：</p>
-<p><span class="math display">\[
-\pi\left(W_0-k\right)=\frac{k q}{W_0\left(1-p_c\right)} \pi(i d l e),
-\quad 1 \leq k \leq W_0-1
-\]</span></p>
-<p>对于最后的一个状态，即用户开始进行传输的状态，有：</p>
-<p><span class="math display">\[
-\pi(0)=\frac{q}{W} \pi(i d l e)+\left(1-p_c\right) \pi(1)=q \pi(i d l e)
-\]</span></p>
-<p>对于空闲状态：</p>
-<p><span class="math display">\[
-\pi(i d l e)=(1-q) \pi(i d l e)+\pi(0)=\pi(idle )
-\]</span></p>
-<p>由此，我们将状态向量表示为<span class="math inline">\(\pi(idle
-)\)</span>的函数：</p>
-<p><span class="math display">\[
-\Pi^{\top} = (1,\frac{q}{W_0\left(1-p_c\right)} ,\frac{2
-q}{W_0\left(1-p_c\right)},...,\frac{(W_0-1)
-q}{W_0\left(1-p_c\right)},q)\pi(\text { idle })
-\]</span></p>
-<p>为了满足归一化条件：</p>
-<p><span class="math display">\[
-\Pi^{\top} \mathbf{1}=
-（1+q+\frac{q\left(W_0-1\right)}{2\left(1-p_c\right)}）\pi(\text { idle
-}) = 1
-\]</span></p>
-<p>得到：</p>
-<p><span class="math display">\[
-\pi(i d l
-e)=\left[1+q+\frac{q\left(W_0-1\right)}{2\left(1-p_c\right)}\right]^{-1}
-\]</span></p>
-<hr />
-<p>然后考虑<span class="math inline">\(p_c\)</span>和<span
-class="math inline">\(\pi(i d l e)\)</span>的联系，假设总共有<span
-class="math inline">\(N\)</span>辆车。那么信号占用的唯一一种可能就是有一辆车正在发送信号。那么，唯一一种信号不被占用的可能就是除自己之外所有的汽车都没有在发送信号：</p>
-<p><span class="math display">\[
-p_c=1-(1-\pi(0))^{N-1}=1-(1-q \pi(idle))^{N-1}
-\]</span></p>
-<p>从而有；</p>
-<p><span class="math display">\[
-\pi(i d l e)=\left[1+q+\frac{q\left(W_0-1\right)}{2(1-q \pi(i d l
-e))^{N-1}}\right]^{-1}
-\]</span></p>
-<p>其中，<span
-class="math inline">\(q\)</span>是用户在时隙内保持空闲的概率，为<span
-class="math inline">\(q=1-e^{-\lambda T_f}\)</span></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_4.png" alt=""></p>
+<p>状态$W_0-1$的概率$\pi\left(W_0-1\right)$：</p>
+<script type="math/tex; mode=display">
+\pi\left(W_0-1\right)=\frac{q}{W_0} \pi(i d l e)+p_c \pi\left(W_0-1\right)=\frac{q}{W_0\left(1-p_c\right)} \pi(i d l e)</script><p>即空闲状态$idle$有$q/W_0$的概率（均匀分布）转换为状态$W_0-1$，而状态$W_0-1$有$p_c$的概率留在当前状态。</p>
+<p>状态$W_0-2$的概率$\pi\left(W_0-2\right)$：</p>
+<script type="math/tex; mode=display">
+\pi\left(W_0-2\right)=\frac{q}{W_0} \pi(i d l e)+p_c \pi\left(W_0-2\right)+\left(1-p_c\right) \pi\left(W_0-1\right)=\frac{2 q}{W_0\left(1-p_c\right)} \pi(i d l e)</script><p>可以发现对于任意状态$W_0-k$，其概率：</p>
+<script type="math/tex; mode=display">
+\pi\left(W_0-k\right)=\frac{k q}{W_0\left(1-p_c\right)} \pi(i d l e), \quad 1 \leq k \leq W_0-1</script><p>对于最后的一个状态，即用户开始进行传输的状态，有：</p>
+<script type="math/tex; mode=display">
+\pi(0)=\frac{q}{W} \pi(i d l e)+\left(1-p_c\right) \pi(1)=q \pi(i d l e)</script><p>对于空闲状态：</p>
+<script type="math/tex; mode=display">
+\pi(i d l e)=(1-q) \pi(i d l e)+\pi(0)=\pi(idle )</script><p>由此，我们将状态向量表示为$\pi(idle )$的函数：</p>
+<script type="math/tex; mode=display">
+\Pi^{\top} = (1,\frac{q}{W_0\left(1-p_c\right)} ,\frac{2 q}{W_0\left(1-p_c\right)},...,\frac{(W_0-1) q}{W_0\left(1-p_c\right)},q)\pi(\text { idle })</script><p>为了满足归一化条件：</p>
+<script type="math/tex; mode=display">
+\Pi^{\top} \mathbf{1}= （1+q+\frac{q\left(W_0-1\right)}{2\left(1-p_c\right)}）\pi(\text { idle }) = 1</script><p>得到：</p>
+<script type="math/tex; mode=display">
+\pi(i d l e)=\left[1+q+\frac{q\left(W_0-1\right)}{2\left(1-p_c\right)}\right]^{-1}</script><hr>
+<p>然后考虑$p_c$和$\pi(i d l e)$的联系，假设总共有$N$辆车。那么信号占用的唯一一种可能就是有一辆车正在发送信号。那么，唯一一种信号不被占用的可能就是除自己之外所有的汽车都没有在发送信号：</p>
+<script type="math/tex; mode=display">
+p_c=1-(1-\pi(0))^{N-1}=1-(1-q \pi(idle))^{N-1}</script><p>从而有；</p>
+<script type="math/tex; mode=display">
+\pi(i d l e)=\left[1+q+\frac{q\left(W_0-1\right)}{2(1-q \pi(i d l e))^{N-1}}\right]^{-1}</script><p>其中，$q$是用户在时隙内保持空闲的概率，为$q=1-e^{-\lambda T_f}$</p>
 <ul>
-<li>平均每秒生成 <span class="math inline">\(\lambda\)</span>
-个数据包</li>
-<li>时隙的长度为 <span class="math inline">\(T_f\)</span></li>
+<li>平均每秒生成 $\lambda$ 个数据包</li>
+<li>时隙的长度为 $T_f$</li>
 </ul>
-<p><span class="math inline">\(W_0\)</span>是最长等待时间。</p>
-<hr />
-<h3 id="exemple-计算丢包与n的关系">Exemple 计算丢包与N的关系</h3>
-<hr />
-<p>考虑汽车每秒发送<span
-class="math inline">\(10\)</span>个包，每个包持续<span
-class="math inline">\(0.4ms\)</span>，分别考虑<span
-class="math inline">\(W_0 = [2,10,20]\)</span></p>
-<hr />
-<p>首先计算<span class="math inline">\(q=1-e^{-\lambda T_f} =
-1-e^{-10\cdot0.0004}=0.004\)</span></p>
-<p>假设初始状态下，<span class="math inline">\(p_c=0\)</span>，有：</p>
+<p>$W_0$是最长等待时间。</p>
+<hr>
+<h3 id="Exemple-计算丢包与N的关系"><a href="#Exemple-计算丢包与N的关系" class="headerlink" title="Exemple 计算丢包与N的关系"></a>Exemple 计算丢包与N的关系</h3><hr>
+<p>考虑汽车每秒发送$10$个包，每个包持续$0.4ms$，分别考虑$W_0 = [2,10,20]$</p>
+<hr>
+<p>首先计算$q=1-e^{-\lambda T_f} = 1-e^{-10\cdot0.0004}=0.004$</p>
+<p>假设初始状态下，$p_c=0$，有：</p>
 <ul>
-<li><span class="math inline">\(\pi(idle)=\left(1+q
-\frac{W_0+1}{2}\right)^{-1}=0.9982\)</span></li>
-<li><span class="math inline">\(\pi(0)=q \pi(i d l
-e)=0.0039\)</span></li>
-<li>此时，<span
-class="math inline">\(p_c=1-(1-\pi(0))^{N-1}=0.0905&gt;0\)</span></li>
+<li>$\pi(idle)=\left(1+q \frac{W_0+1}{2}\right)^{-1}=0.9982$</li>
+<li>$\pi(0)=q \pi(i d l e)=0.0039$</li>
+<li>此时，$p_c=1-(1-\pi(0))^{N-1}=0.0905&gt;0$</li>
 </ul>
-<p>然后迭代，设<span class="math inline">\(p_c
-=0.0905\)</span>，重新计算，得到：</p>
-<p><span class="math display">\[
-\pi(\text { idle })=0.9874, \pi(0)=0.0039, p_c=0.0904
-\]</span></p>
-<p>可认为系统收敛。</p>
-<h3 id="csma的优势">CSMA的优势</h3>
-<hr />
+<p>然后迭代，设$p_c =0.0905$，重新计算，得到：</p>
+<script type="math/tex; mode=display">
+\pi(\text { idle })=0.9874, \pi(0)=0.0039, p_c=0.0904</script><p>可认为系统收敛。</p>
+<h3 id="CSMA的优势"><a href="#CSMA的优势" class="headerlink" title="CSMA的优势"></a>CSMA的优势</h3><hr>
 <ul>
 <li>同步车辆并不总是可能的</li>
 <li>数据包可能具有不同的大小，如何确定时隙大小</li>
 </ul>
-<h2 id="有重传机制的csmaca-avec-retransmissions">有重传机制的CSMA/CA
-avec retransmissions</h2>
-<hr />
+<h2 id="有重传机制的CSMA-CA-avec-retransmissions"><a href="#有重传机制的CSMA-CA-avec-retransmissions" class="headerlink" title="有重传机制的CSMA/CA avec retransmissions"></a>有重传机制的CSMA/CA avec retransmissions</h2><hr>
 <ul>
 <li>如果接收方成功解码了一个数据包，便会发送ACK确认</li>
 <li>如果没有收到ACK，数据包将被视为丢失</li>
 <li>发送方将重复最初的发送过程，最多重复m次</li>
 </ul>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_5.png" /></p>
-<h3 id="建模">建模</h3>
-<hr />
-<p>对于第一次发送的状态，有在状态<span class="math inline">\(\Pi_{0,
-W_0-1}\)</span>时：</p>
-<p><span class="math display">\[
-\Pi_{0, W_0-1}=\frac{\Pi_{i n} q}{W_0}+p_c \Pi_{0, W_0-1}=\frac{\Pi_{i
-n} q}{\left(1-p_c\right) W_0}
-\]</span></p>
-<p>和<span class="math inline">\(2 \leq j \leq W_0-1\)</span>时：</p>
-<p><span class="math display">\[
-\Pi_{0, W_0-j}=q \frac{\Pi_{i n}}{W_0}+p_c \Pi_{0,
-W_0-j}+\left(1-p_c\right) \Pi_{0, W_0-j+1}=\frac{j q \Pi_{i
-n}}{\left(1-p_c\right) W_0}
-\]</span></p>
-<p>与之前的情况相同。对于状态<span
-class="math inline">\(\Pi_{0,0}\)</span>，在平衡状态下，进入该状态的概率等于离开的概率，所以不变：</p>
-<p><span class="math display">\[
-\Pi_{0,0}=q \frac{\Pi_{i n}}{W_0}+\left(1-p_c\right) \Pi_{0,1}=q \Pi_{i
-n}
-\]</span></p>
-<p>而对于第二次发送的状态，在状态<span class="math inline">\(\Pi_{1,
-W_0-1}\)</span>，唯一的变化是：</p>
-<p><span class="math display">\[
-\Pi_{1, W_0-1}=\frac{\Pi_{0, 0} p_c}{W_0}+p_c \Pi_{1,
-W_0-1}=\frac{\Pi_{0, 0} p_c}{\left(1-p_c\right) W_0} = q\frac{\Pi_{in}
-p_c}{\left(1-p_c\right) W_0}
-\]</span></p>
-<p>同理可得对于<span class="math inline">\(2 \leq j \leq
-W_0-1\)</span>：</p>
-<p><span class="math display">\[
-\Pi_{0, W_0-j}=\frac{j q p_c\Pi_{i n}}{\left(1-p_c\right) W_0}
-\]</span></p>
-<p>进一步的，对于任意状态<span class="math inline">\(\Pi_{i,
-W_0-j}\)</span>，有：</p>
-<p><span class="math display">\[
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_5.png" alt=""></p>
+<h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><hr>
+<p>对于第一次发送的状态，有在状态$\Pi_{0, W_0-1}$时：</p>
+<script type="math/tex; mode=display">
+\Pi_{0, W_0-1}=\frac{\Pi_{i n} q}{W_0}+p_c \Pi_{0, W_0-1}=\frac{\Pi_{i n} q}{\left(1-p_c\right) W_0}</script><p>和$2 \leq j \leq W_0-1$时：</p>
+<script type="math/tex; mode=display">
+\Pi_{0, W_0-j}=q \frac{\Pi_{i n}}{W_0}+p_c \Pi_{0, W_0-j}+\left(1-p_c\right) \Pi_{0, W_0-j+1}=\frac{j q \Pi_{i n}}{\left(1-p_c\right) W_0}</script><p>与之前的情况相同。对于状态$\Pi_{0,0}$，在平衡状态下，进入该状态的概率等于离开的概率，所以不变：</p>
+<script type="math/tex; mode=display">
+\Pi_{0,0}=q \frac{\Pi_{i n}}{W_0}+\left(1-p_c\right) \Pi_{0,1}=q \Pi_{i n}</script><p>而对于第二次发送的状态，在状态$\Pi_{1, W_0-1}$，唯一的变化是：</p>
+<script type="math/tex; mode=display">
+\Pi_{1, W_0-1}=\frac{\Pi_{0, 0} p_c}{W_0}+p_c \Pi_{1, W_0-1}=\frac{\Pi_{0, 0} p_c}{\left(1-p_c\right) W_0} = q\frac{\Pi_{in} p_c}{\left(1-p_c\right) W_0}</script><p>同理可得对于$2 \leq j \leq W_0-1$：</p>
+<script type="math/tex; mode=display">
+\Pi_{0, W_0-j}=\frac{j q p_c\Pi_{i n}}{\left(1-p_c\right) W_0}</script><p>进一步的，对于任意状态$\Pi_{i, W_0-j}$，有：</p>
+<script type="math/tex; mode=display">
 \left\{\begin{aligned}
-&amp;\Pi_{i, W_0-j}=\frac{j q \Pi_{i n} p_c^i}{\left(1-p_c\right)
-W_0},  &amp;1 \leq j \leq W_0-1 \\&amp;
+&\Pi_{i, W_0-j}=\frac{j q \Pi_{i n} p_c^i}{\left(1-p_c\right) W_0},  &1 \leq j \leq W_0-1 \\&
 \Pi_{i, 0}=q \Pi_{i n} p_c^i
-\end{aligned}\right.
-\]</span></p>
-<p>考虑归一化条件，有：</p>
-<p><span class="math display">\[
-\begin{aligned}1 &amp;=
-\Pi_{in}[1+\sum_{i}(qp_c^i+\frac{qp_c^i(W_0-1)}{2\left(1-p_c\right)}) ]
-=
-\Pi_{in}[1+q\left(1+\frac{W_0-1}{2\left(1-p_c\right)}\right)\sum_{i}p_c^i
-]\\&amp; = \Pi_{in}[1+q
-\frac{1-p_c^m}{1-p_c}\left(1+\frac{W_0-1}{2\left(1-p_c\right)}\right)]\end{aligned}
-\]</span></p>
-<p>从而得到：</p>
-<p><span class="math display">\[
-\Pi_{i n}=\left[1+q
-\frac{1-p_c^m}{1-p_c}\left(1+\frac{W_0-1}{2\left(1-p_c\right)}\right)\right]^{-1}
-\]</span></p>
-<hr />
-<p>此时，丢包率等于直到第<span
-class="math inline">\(m\)</span>次重试都在占用的概率：</p>
-<p><span class="math display">\[
-P_{\text {loss }}=p_c^m
-\]</span></p>
-<p>而此时，<span
-class="math inline">\(p_c\)</span>的概率则需要考虑所有正在准备发送的情况，即所有的状态<span
-class="math inline">\((i,0)\)</span>：</p>
-<p><span class="math display">\[
-p_c=1-(1-\tau)^{N-1} ,\quad\tau=\sum_{i=0}^{m-1} \Pi_{i, 0}=q \Pi_{i n}
-\frac{1-p_c^m}{1-p_c}
-\]</span></p>
-<p>即：</p>
-<p><span class="math display">\[
-p_c=1-\left(1-q \Pi_{i n} \frac{1-p_c^m}{1-p_c}\right)^{N-1}
-\]</span></p>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_6.png" /></p>
-<h2 id="考虑信号质量-prise-en-compte-e-la-qualité-radio">考虑信号质量
-prise en compte e la qualité radio</h2>
-<hr />
-<p>丢失也可能在没有碰撞的情况下发生，原因是无线电信道质量较差。在考虑信号质量的情况下，每一步都有<span
-class="math inline">\(\alpha\)</span>的概率导致信号丢失，从而回到空闲状态：</p>
-<p><span class="math display">\[
-1-\alpha=p_c P E R(S I N R)+\left(1-p_c\right) P E R(S N R)
-\]</span></p>
-<p>其中，在发生碰撞的情况下，数据丢失的概率为<span
-class="math inline">\(PER(SINR)\)</span>，否则丢失的概率为<span
-class="math inline">\(PER(SNR)\)</span>。</p>
-<p>信号丢失概率为<span class="math inline">\((1-\alpha)^m\)</span>。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/11/11/st5-v2x-2/">http://raphaelhyaan.cn/2024/11/11/st5-v2x-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%B1%BD%E8%BD%A6%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%8C%96/">汽车自动化与信息化</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/12/dr-1/" title="D1 规范与法律推理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F天03.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">D1 规范与法律推理</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/11/st5-v2x-1/" title="04 V2X 智能车辆的通信 上"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04 V2X 智能车辆的通信 上</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/11/st5-c/" title="Exemple 1 车辆的横向控制建模与侧方位通车"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">Exemple 1 车辆的横向控制建模与侧方位通车</div></div></a></div><div><a href="/2024/11/11/st5-p01/" title="P01  Système Electricité Electronique 电子电力系统"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P01  Système Electricité Electronique 电子电力系统</div></div></a></div><div><a href="/2024/11/11/st5-p02/" title="P02 系统开发&#x2F;Développement des systèmes"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P02 系统开发&#x2F;Développement des systèmes</div></div></a></div><div><a href="/2024/11/11/st5-p03/" title="P03 图像处理 traitement d’image"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P03 图像处理 traitement d’image</div></div></a></div><div><a href="/2024/11/11/st5-p04/" title="P04 实验性硬件方面"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P04 实验性硬件方面</div></div></a></div><div><a href="/2024/11/11/st5-p05/" title="P05 车辆V2X通信方面"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P05 车辆V2X通信方面</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#v2x-%E6%99%BA%E8%83%BD%E8%BD%A6%E8%BE%86%E7%9A%84%E9%80%9A%E4%BF%A1-%E4%B8%8B"><span class="toc-number">1.</span> <span class="toc-text">04 V2X 智能车辆的通信 下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%A6%E8%BD%BD%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BF%A1%E9%81%93%E6%8E%A5%E5%85%A5%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-conception-dun-syst%C3%A8me-dacc%C3%A8s-au-canal-pour-un-r%C3%A9seau-v%C3%A9hiculaire"><span class="toc-number">2.</span> <span class="toc-text">车载网络的信道接入系统设计
-conception d’un système d’accès au canal pour un réseau véhiculaire</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%A6%E8%BD%BD%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%B9%E9%87%8F-capacit%C3%A9"><span class="toc-number">2.0.1.</span> <span class="toc-text">车载系统设计与容量 capacité</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E6%8E%A5%E5%85%A5%E7%9A%84%E4%BA%89%E7%94%A8-contention-au-canal"><span class="toc-number">2.0.2.</span> <span class="toc-text">信道接入的争用 contention au
-canal</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aloha"><span class="toc-number">2.1.</span> <span class="toc-text">Aloha</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aloha%E7%9A%84%E7%A2%B0%E6%92%9E%E7%89%B9%E5%BE%81"><span class="toc-number">2.1.1.</span> <span class="toc-text">Aloha的碰撞特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%9A%99aloha-slott%C3%A9"><span class="toc-number">2.1.2.</span> <span class="toc-text">时隙Aloha slotté</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#csmaca"><span class="toc-number">2.2.</span> <span class="toc-text">CSMA&#x2F;CA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%BF%A1%E9%81%93%E7%9B%91%E5%90%AC%E7%9A%84%E6%8E%A5%E5%85%A5%E6%96%B9%E5%BC%8Fcsmaca%E8%BD%BD%E6%B3%A2%E4%BE%A6%E5%90%AC%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8Dcarrier-sense-multiple-accesscollision-avoidance"><span class="toc-number">2.2.1.</span> <span class="toc-text">基于信道监听的接入方式：CSMA&#x2F;CA（载波侦听多路访问&#x2F;碰撞避免，Carrier
-Sense Multiple Access&#x2F;Collision Avoidance ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#csmaca%E7%9A%84%E5%BB%BA%E6%A8%A1%E5%85%B3%E8%81%94%E7%9A%84%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE-chaine-de-markov-associ%C3%A9e"><span class="toc-number">2.2.2.</span> <span class="toc-text">CSMA&#x2F;CA的建模：关联的马尔可夫链
-chaine de Markov associée</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exemple-%E8%AE%A1%E7%AE%97%E4%B8%A2%E5%8C%85%E4%B8%8En%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.2.3.</span> <span class="toc-text">Exemple 计算丢包与N的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#csma%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.2.4.</span> <span class="toc-text">CSMA的优势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6%E7%9A%84csmaca-avec-retransmissions"><span class="toc-number">2.3.</span> <span class="toc-text">有重传机制的CSMA&#x2F;CA
-avec retransmissions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1"><span class="toc-number">2.3.1.</span> <span class="toc-text">建模</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%99%91%E4%BF%A1%E5%8F%B7%E8%B4%A8%E9%87%8F-prise-en-compte-e-la-qualit%C3%A9-radio"><span class="toc-number">2.4.</span> <span class="toc-text">考虑信号质量
-prise en compte e la qualité radio</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蔀易染.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="关于torchtext和pytorch的版本配合"/></a><div class="content"><a class="title" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合">关于torchtext和pytorch的版本配合</a><time datetime="2024-11-18T08:47:12.000Z" title="发表于 2024-11-18 09:47:12">2024-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/12/eco-6/" title="Chap6：增长和环境 Croissance rt Environnement"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="Chap6：增长和环境 Croissance rt Environnement"/></a><div class="content"><a class="title" href="/2024/11/12/eco-6/" title="Chap6：增长和环境 Croissance rt Environnement">Chap6：增长和环境 Croissance rt Environnement</a><time datetime="2024-11-12T10:30:29.000Z" title="发表于 2024-11-12 11:30:29">2024-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/12/eco-5/" title="Chap5：国际经济与全球化 Economie internationale"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="Chap5：国际经济与全球化 Economie internationale"/></a><div class="content"><a class="title" href="/2024/11/12/eco-5/" title="Chap5：国际经济与全球化 Economie internationale">Chap5：国际经济与全球化 Economie internationale</a><time datetime="2024-11-12T10:30:27.000Z" title="发表于 2024-11-12 11:30:27">2024-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/12/eco-4/" title="Chap4：经济形势和政策 Conjoncture et politique économique"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="Chap4：经济形势和政策 Conjoncture et politique économique"/></a><div class="content"><a class="title" href="/2024/11/12/eco-4/" title="Chap4：经济形势和政策 Conjoncture et politique économique">Chap4：经济形势和政策 Conjoncture et politique économique</a><time datetime="2024-11-12T10:30:26.000Z" title="发表于 2024-11-12 11:30:26">2024-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/12/eco-3/" title="Chap3：经济融资和货币的作用 Financement de l’économie et rôle de la monnaie"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="Chap3：经济融资和货币的作用 Financement de l’économie et rôle de la monnaie"/></a><div class="content"><a class="title" href="/2024/11/12/eco-3/" title="Chap3：经济融资和货币的作用 Financement de l’économie et rôle de la monnaie">Chap3：经济融资和货币的作用 Financement de l’économie et rôle de la monnaie</a><time datetime="2024-11-12T10:30:25.000Z" title="发表于 2024-11-12 11:30:25">2024-11-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+\end{aligned}\right.</script><p>考虑归一化条件，有：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}1 &= \Pi_{in}[1+\sum_{i}(qp_c^i+\frac{qp_c^i(W_0-1)}{2\left(1-p_c\right)}) ] = \Pi_{in}[1+q\left(1+\frac{W_0-1}{2\left(1-p_c\right)}\right)\sum_{i}p_c^i ]\\& = \Pi_{in}[1+q \frac{1-p_c^m}{1-p_c}\left(1+\frac{W_0-1}{2\left(1-p_c\right)}\right)]\end{aligned}</script><p>从而得到：</p>
+<script type="math/tex; mode=display">
+\Pi_{i n}=\left[1+q \frac{1-p_c^m}{1-p_c}\left(1+\frac{W_0-1}{2\left(1-p_c\right)}\right)\right]^{-1}</script><hr>
+<p>此时，丢包率等于直到第$m$次重试都在占用的概率：</p>
+<script type="math/tex; mode=display">
+P_{\text {loss }}=p_c^m</script><p>而此时，$p_c$的概率则需要考虑所有正在准备发送的情况，即所有的状态$(i,0)$：</p>
+<script type="math/tex; mode=display">
+p_c=1-(1-\tau)^{N-1} ,\quad\tau=\sum_{i=0}^{m-1} \Pi_{i, 0}=q \Pi_{i n} \frac{1-p_c^m}{1-p_c}</script><p>即：</p>
+<script type="math/tex; mode=display">
+p_c=1-\left(1-q \Pi_{i n} \frac{1-p_c^m}{1-p_c}\right)^{N-1}</script><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fst5-v2x-2%2Fimage_6.png" alt=""></p>
+<h2 id="考虑信号质量-prise-en-compte-e-la-qualite-radio"><a href="#考虑信号质量-prise-en-compte-e-la-qualite-radio" class="headerlink" title="考虑信号质量 prise en compte e la qualité radio"></a>考虑信号质量 prise en compte e la qualité radio</h2><hr>
+<p>丢失也可能在没有碰撞的情况下发生，原因是无线电信道质量较差。在考虑信号质量的情况下，每一步都有$\alpha$的概率导致信号丢失，从而回到空闲状态：</p>
+<script type="math/tex; mode=display">
+1-\alpha=p_c P E R(S I N R)+\left(1-p_c\right) P E R(S N R)</script><p>其中，在发生碰撞的情况下，数据丢失的概率为$PER(SINR)$，否则丢失的概率为$PER(SNR)$。</p>
+<p>信号丢失概率为$(1-\alpha)^m$。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/11/11/st5-v2x-2/">http://raphaelhyaan.cn/2024/11/11/st5-v2x-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%B1%BD%E8%BD%A6%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%8C%96/">汽车自动化与信息化</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/12/dr-1/" title="D1 规范与法律推理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F天03.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">D1 规范与法律推理</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/11/st5-v2x-1/" title="04 V2X 智能车辆的通信 上"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04 V2X 智能车辆的通信 上</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/11/st5-c/" title="Exemple 1 车辆的横向控制建模与侧方位通车"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">Exemple 1 车辆的横向控制建模与侧方位通车</div></div></a></div><div><a href="/2024/11/11/st5-p01/" title="P01  Système Electricité Electronique 电子电力系统"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P01  Système Electricité Electronique 电子电力系统</div></div></a></div><div><a href="/2024/11/11/st5-p03/" title="P03 图像处理 traitement d’image"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P03 图像处理 traitement d’image</div></div></a></div><div><a href="/2024/11/11/st5-p04/" title="P04 实验性硬件方面"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P04 实验性硬件方面</div></div></a></div><div><a href="/2024/11/11/st5-p02/" title="P02 系统开发&#x2F;Développement des systèmes"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P02 系统开发&#x2F;Développement des systèmes</div></div></a></div><div><a href="/2024/11/11/st5-p05/" title="P05 车辆V2X通信方面"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">P05 车辆V2X通信方面</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#04-V2X-%E6%99%BA%E8%83%BD%E8%BD%A6%E8%BE%86%E7%9A%84%E9%80%9A%E4%BF%A1-%E4%B8%8B"><span class="toc-number">1.</span> <span class="toc-text">04 V2X 智能车辆的通信 下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%A6%E8%BD%BD%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BF%A1%E9%81%93%E6%8E%A5%E5%85%A5%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-conception-d%E2%80%99un-systeme-d%E2%80%99acces-au-canal-pour-un-reseau-vehiculaire"><span class="toc-number">2.</span> <span class="toc-text">车载网络的信道接入系统设计 conception d’un système d’accès au canal pour un réseau véhiculaire</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%A6%E8%BD%BD%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%B9%E9%87%8F-capacite"><span class="toc-number">2.0.1.</span> <span class="toc-text">车载系统设计与容量 capacité</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E6%8E%A5%E5%85%A5%E7%9A%84%E4%BA%89%E7%94%A8-contention-au-canal"><span class="toc-number">2.0.2.</span> <span class="toc-text">信道接入的争用 contention au canal</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aloha"><span class="toc-number">2.1.</span> <span class="toc-text">Aloha</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Aloha%E7%9A%84%E7%A2%B0%E6%92%9E%E7%89%B9%E5%BE%81"><span class="toc-number">2.1.1.</span> <span class="toc-text">Aloha的碰撞特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%9A%99Aloha-slotte"><span class="toc-number">2.1.2.</span> <span class="toc-text">时隙Aloha slotté</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-CA"><span class="toc-number">2.2.</span> <span class="toc-text">CSMA&#x2F;CA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%BF%A1%E9%81%93%E7%9B%91%E5%90%AC%E7%9A%84%E6%8E%A5%E5%85%A5%E6%96%B9%E5%BC%8F%EF%BC%9ACSMA-CA%EF%BC%88%E8%BD%BD%E6%B3%A2%E4%BE%A6%E5%90%AC%E5%A4%9A%E8%B7%AF%E8%AE%BF%E9%97%AE-%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D%EF%BC%8CCarrier-Sense-Multiple-Access-Collision-Avoidance-%EF%BC%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">基于信道监听的接入方式：CSMA&#x2F;CA（载波侦听多路访问&#x2F;碰撞避免，Carrier Sense Multiple Access&#x2F;Collision Avoidance ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSMA-CA%E7%9A%84%E5%BB%BA%E6%A8%A1%EF%BC%9A%E5%85%B3%E8%81%94%E7%9A%84%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE-chaine-de-Markov-associee"><span class="toc-number">2.2.2.</span> <span class="toc-text">CSMA&#x2F;CA的建模：关联的马尔可夫链 chaine de Markov associée</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exemple-%E8%AE%A1%E7%AE%97%E4%B8%A2%E5%8C%85%E4%B8%8EN%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.2.3.</span> <span class="toc-text">Exemple 计算丢包与N的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSMA%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.2.4.</span> <span class="toc-text">CSMA的优势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%87%8D%E4%BC%A0%E6%9C%BA%E5%88%B6%E7%9A%84CSMA-CA-avec-retransmissions"><span class="toc-number">2.3.</span> <span class="toc-text">有重传机制的CSMA&#x2F;CA avec retransmissions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1"><span class="toc-number">2.3.1.</span> <span class="toc-text">建模</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%99%91%E4%BF%A1%E5%8F%B7%E8%B4%A8%E9%87%8F-prise-en-compte-e-la-qualite-radio"><span class="toc-number">2.4.</span> <span class="toc-text">考虑信号质量 prise en compte e la qualité radio</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="柏林自然博物馆的金刚鹦鹉"/></a><div class="content"><a class="title" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉">柏林自然博物馆的金刚鹦鹉</a><time datetime="2024-12-03T23:01:11.000Z" title="发表于 2024-12-04 00:01:11">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-3/" title="TS03 separation de source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS03 separation de source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-3/" title="TS03 separation de source">TS03 separation de source</a><time datetime="2024-12-03T22:55:27.000Z" title="发表于 2024-12-03 23:55:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS02 Localisation de Source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source">TS02 Localisation de Source</a><time datetime="2024-12-03T22:55:26.000Z" title="发表于 2024-12-03 23:55:26">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS01 Réponse Impulsionnelle de Salle"/></a><div class="content"><a class="title" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle">TS01 Réponse Impulsionnelle de Salle</a><time datetime="2024-12-03T22:55:25.000Z" title="发表于 2024-12-03 23:55:25">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蔀易染.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="关于torchtext和pytorch的版本配合"/></a><div class="content"><a class="title" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合">关于torchtext和pytorch的版本配合</a><time datetime="2024-11-18T08:47:12.000Z" title="发表于 2024-11-18 09:47:12">2024-11-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
