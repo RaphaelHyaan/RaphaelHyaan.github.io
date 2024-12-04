@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="离散系统的差分方法 Approche différentielle sur les systèmes discrets       [{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com&#x2F;post%2Fcrs-1%2FUntitled.png&quot;,&quot;alt&quot;:&quot;&quot;},{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhya">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="离散系统的差分方法 Approche différentielle sur les systèmes discrets        [{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com&#x2F;post%2Fcrs-1%2FUntitled.png&quot;,&quot;alt&quot;:&quot;&quot;},{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphael">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte &#x2F; formulation faible">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/03/31/crs-1/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="离散系统的差分方法 Approche différentielle sur les systèmes discrets       [{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com&#x2F;post%2Fcrs-1%2FUntitled.png&quot;,&quot;alt&quot;:&quot;&quot;},{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhya">
+<meta property="og:description" content="离散系统的差分方法 Approche différentielle sur les systèmes discrets        [{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com&#x2F;post%2Fcrs-1%2FUntitled.png&quot;,&quot;alt&quot;:&quot;&quot;},{&quot;url&quot;:&quot;https:&#x2F;&#x2F;raphael">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png">
 <meta property="article:published_time" content="2024-03-31T10:02:57.000Z">
@@ -154,231 +154,564 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-31T10:02:57.000Z" title="发表于 2024-03-31 12:02:57">2024-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-31T04:08:40.000Z" title="更新于 2024-03-31 06:08:40">2024-03-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/">学习笔记-结构力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="离散系统的差分方法-Approche-differentielle-sur-les-systemes-discrets"><a href="#离散系统的差分方法-Approche-differentielle-sur-les-systemes-discrets" class="headerlink" title="离散系统的差分方法 Approche différentielle sur les systèmes discrets"></a>离散系统的差分方法 Approche différentielle sur les systèmes discrets</h1><div class="gallery-container" data-type="data" data-button="">
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-31T10:02:57.000Z" title="发表于 2024-03-31 12:02:57">2024-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-31T04:08:40.000Z" title="更新于 2024-03-31 06:08:40">2024-03-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/">学习笔记-结构力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CRS I 结构动力学问题的表述：强表述和弱表述 Formulation du problème en dynamique des structures ： formulation forte / formulation faible"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="离散系统的差分方法-approche-différentielle-sur-les-systèmes-discrets">离散系统的差分方法
+Approche différentielle sur les systèmes discrets</h1>
+<div class="gallery-container" data-type="data" data-button="">
       <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_1.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_2.png","alt":""}]</div>
       <div class="gallery-items">
       </div>
     </div>
 <p>振动系统是离散组件的集合，唯一的特征是具有惯性的刚体，可变性元件（弹簧）和耗散元件连接在一起。未知数和自由度的数量与实体和连接方程的数量相关。</p>
-<h2 id="表述的描述-Description-des-formulations"><a href="#表述的描述-Description-des-formulations" class="headerlink" title="表述的描述 Description des formulations"></a>表述的描述 Description des formulations</h2><h3 id="强表述：离散系统"><a href="#强表述：离散系统" class="headerlink" title="强表述：离散系统"></a>强表述：离散系统</h3><script type="math/tex; mode=display">
-M \ddot{u}=-k u+F \quad M \ddot{u}=-k u-c \dot{u}</script><h3 id="弱表述：变分方法"><a href="#弱表述：变分方法" class="headerlink" title="弱表述：变分方法"></a>弱表述：变分方法</h3><p>从能量和功的概念出发，写出方程，根据变分原理写出平衡方程。</p>
-<h2 id="虚位移原理-Principe-des-travaux-virtuels"><a href="#虚位移原理-Principe-des-travaux-virtuels" class="headerlink" title="虚位移原理 Principe des travaux virtuels"></a>虚位移原理 Principe des travaux virtuels</h2><h3 id="变分算符-operateur-de-variation与虚位移-deplacement-virtuel"><a href="#变分算符-operateur-de-variation与虚位移-deplacement-virtuel" class="headerlink" title="变分算符 opérateur de variation与虚位移 déplacement virtuel"></a>变分算符 opérateur de variation与虚位移 déplacement virtuel</h3><script type="math/tex; mode=display">
-\delta \mathrm{u}_{\mathrm{i}}=\tilde{\mathrm{u}}_{\mathrm{i}}(\mathrm{t})-\mathrm{u}_{\mathrm{i}}(\mathrm{t})</script><p>$\delta$ 被称为变分算符 opérateur de variation，$\delta u_i$被称为相对真实位移的变分 variation par rapport au déplacement réel。</p>
-<p>需保证：$\delta u_i\left(t_1\right)=0 \text { et } \delta u_i\left(t_2\right)=0$</p>
+<h2 id="表述的描述-description-des-formulations">表述的描述 Description
+des formulations</h2>
+<h3 id="强表述离散系统">强表述：离散系统</h3>
+<p><span class="math display">\[
+M \ddot{u}=-k u+F \quad M \ddot{u}=-k u-c \dot{u}
+\]</span></p>
+<h3 id="弱表述变分方法">弱表述：变分方法</h3>
+<p>从能量和功的概念出发，写出方程，根据变分原理写出平衡方程。</p>
+<h2 id="虚位移原理-principe-des-travaux-virtuels">虚位移原理 Principe
+des travaux virtuels</h2>
+<h3
+id="变分算符-opérateur-de-variation与虚位移-déplacement-virtuel">变分算符
+opérateur de variation与虚位移 déplacement virtuel</h3>
+<p><span class="math display">\[
+\delta
+\mathrm{u}_{\mathrm{i}}=\tilde{\mathrm{u}}_{\mathrm{i}}(\mathrm{t})-\mathrm{u}_{\mathrm{i}}(\mathrm{t})
+\]</span></p>
+<p><span class="math inline">\(\delta\)</span> 被称为变分算符 opérateur
+de variation，<span class="math inline">\(\delta
+u_i\)</span>被称为相对真实位移的变分 variation par rapport au
+déplacement réel。</p>
+<p>需保证：<span class="math inline">\(\delta u_i\left(t_1\right)=0
+\text { et } \delta u_i\left(t_2\right)=0\)</span></p>
 <p>变分算符与微分是可交换的：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-\frac{\mathrm{d}}{\mathrm{dt}}\left(\delta \mathrm{u}_{\mathrm{i}}\right) & =\frac{\mathrm{d}}{\mathrm{dt}}\left(\tilde{\mathrm{u}}_{\mathrm{i}}\right)-\frac{\mathrm{d}}{\mathrm{dt}}\left(\mathrm{u}_{\mathrm{i}}\right)=\delta\left(\frac{\mathrm{d}}{\mathrm{dt}}\left(\mathrm{u}_{\mathrm{i}}\right)\right) \\
-& =\dot{\tilde{\mathrm{u}}}_{\mathrm{i}}-\dot{\mathrm{u}}_{\mathrm{i}}=\delta \dot{\mathrm{u}}_{\mathrm{i}}
-\end{aligned}</script><h3 id="虚力和虚功"><a href="#虚力和虚功" class="headerlink" title="虚力和虚功"></a>虚力和虚功</h3><p>一般来说，我们将力和功分别定义为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& F\left(u(x), u^{\prime}(x), \ldots, x\right) ，& J=\int_{x_1}^{x_2} F\left(u(x), u^{\prime}(x), \ldots, x\right) \cdot d x\end{aligned}</script><p>引入虚位移之后，虚力可以表示为：</p>
-<script type="math/tex; mode=display">
-\delta F=\frac{\partial F}{\partial u} \delta u+\frac{\partial F}{\partial u^{\prime}} \delta u^{\prime}+\ldots</script><p>而虚功可以表示为：</p>
-<script type="math/tex; mode=display">
-\delta J=\int_{x_1}^{x_2} \delta F . d x</script><h3 id="虚位移原理-Principe-des-travaux-virtuels-1"><a href="#虚位移原理-Principe-des-travaux-virtuels-1" class="headerlink" title="虚位移原理 Principe des travaux virtuels"></a>虚位移原理 Principe des travaux virtuels</h3><p>根据强表述：$m \ddot{u}_i=X_i \quad \forall \mathrm{i} \in{1,2,3}$，有虚位移方程：</p>
-<script type="math/tex; mode=display">
-\sum_{i=1}^3\left(m \ddot{u}_i-X_i\right) \cdot \delta u_i=0</script><p>即在虚拟位移 $u_i$ 实际作用在质点上的力所做的虚拟功为零。</p>
-<script type="math/tex; mode=display">
-\left\{\left[\begin{array}{l}m \ddot{u}_1 \\m \ddot{u}_2 \\m \ddot{u}_3\end{array}\right]-\left[\begin{array}{l}\mathrm{X}_1 \\\mathrm{X}_2 \\\mathrm{X}_3\end{array}\right]\right\} \cdot\left\{\begin{array}{l}\delta \mathrm{u}_1 \\\delta \mathrm{u}_2 \\\delta \mathrm{u}_3\end{array}\right\}=\left\{\begin{array}{l}0 \\0 \\0\end{array}\right\}</script><p>如果虚拟功方程对于与运动学条件兼容的任何位移得到验证，则满足系统的平衡。</p>
-<h1 id="哈密顿原理"><a href="#哈密顿原理" class="headerlink" title="哈密顿原理"></a>哈密顿原理</h1><p>哈密顿原理是虚位移原理的对时间积分形式：</p>
-<script type="math/tex; mode=display">
-\int_{\mathrm{t}_1}^{\mathrm{t}_2}\left[\sum_{\mathrm{k}=1}^{\mathrm{N}} \sum_{\mathrm{i}=1}^3\left(m \ddot{u}_i-X_i\right) \cdot \delta u_{ik}\right] \cdot \mathrm{dt}=0</script><p>其中$k$表示物质上的$k$点，i表示方向。</p>
-<p>$u_{ik}$是允许的虚位移 déplacement compatible ，即约束允许的位移</p>
-<h3 id="动能-Energie-cinetique"><a href="#动能-Energie-cinetique" class="headerlink" title="动能 Energie cinétique"></a>动能 Energie cinétique</h3><p>可以观察到：</p>
-<script type="math/tex; mode=display">
-\frac{d}{d t}\left(m_k \dot{u}_{i k} \cdot \delta u_{i k}\right)=m_k \ddot{u}_{i k} \delta u_{i k}+m_k \dot{u}_{i k} \delta \dot{u}_{i k}=m_k \ddot{u}_{i k} \delta u_{i k}+\delta\left(\frac{1}{2} m_k \dot{u}_{i k} \dot{u}_{i k}\right)</script><p>而后一项是动能的一部分，因此我们可以得到原式中的第一项：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2}\left[\sum_{k=1}^N \sum_{i=1}^3\left(-m_k \ddot{u}_{i k}\right) \cdot \delta u_{i k}\right] \cdot d t=\left[-\sum_{k=1}^N \sum_{i=1}^3 m_k \dot{u}_{i k} \cdot \delta u_{i k}\right]_{t_1}^{t_2}+\delta \int_{t_1}^{t_2} E_c \cdot d t</script><h3 id="功-Travail-des-actions-mecaniques"><a href="#功-Travail-des-actions-mecaniques" class="headerlink" title="功 Travail des actions mécaniques"></a>功 Travail des actions mécaniques</h3><p>对于原式的第二项，可以分成两项：外力做功$\delta W_{\text {extérieur }}$和有势力做功，即势能变化$-\delta \mathrm{V}$。</p>
-<h3 id="广义坐标"><a href="#广义坐标" class="headerlink" title="广义坐标"></a>广义坐标</h3><p>由于约束的存在，实际上的自由度并非原始的坐标数。因此引入自由度数量的广义坐标 coordonnée généralisée。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_3.png" alt=""></p>
-<p>如上图，只有一个自由度的系统，可以选择与x轴夹角$\theta(t)$作为广义坐标。</p>
-<p>通过广义坐标，原始的第二项可以写作：</p>
-<script type="math/tex; mode=display">
-\sum_{\mathrm{k}=1}^{\mathrm{N}} \sum_{\mathrm{i}=1}^3 \mathrm{X}_{\mathrm{ik}} \cdot \delta \mathrm{u}_{\mathrm{ik}}=\sum_{\mathrm{S}=1}^{\mathrm{n}} \mathrm{Q}_{\mathrm{S}} \cdot \delta \mathrm{q}_{\mathrm{S}}</script><p>其中$Q_s$为广义力。同时，原始坐标的对时间微分可以写作：</p>
-<script type="math/tex; mode=display">
-\mathrm{u}_{\mathrm{ik}}(\mathrm{x}, \mathrm{t})=\mathrm{U}_{\mathrm{ik}}\left(\mathrm{q}_{\mathrm{s}}, \mathrm{t}\right) \Rightarrow \dot{\mathrm{u}}_{\mathrm{ik}}=\frac{\partial \mathrm{U}_{\mathrm{ik}}}{\partial \mathrm{t}}+\sum_{\mathrm{S}=1}^{\mathrm{n}} \frac{\partial \mathrm{U}_{\mathrm{ik}}}{\partial \mathrm{q}_{\mathrm{s}}} \cdot \dot{\mathrm{q}}_{\mathrm{s}}</script><p>如果广义力是有势力，则可以写作：</p>
-<script type="math/tex; mode=display">
-\sum_{S=1}^n Q_S \cdot \delta q_S=-\delta V\Leftrightarrow Q_S=-\frac{\partial V}{\partial q_S}</script><h2 id="哈密顿原理-Enonce-du-principe-de-Hamilton"><a href="#哈密顿原理-Enonce-du-principe-de-Hamilton" class="headerlink" title="哈密顿原理 Enoncé du principe de Hamilton"></a>哈密顿原理 Enoncé du principe de Hamilton</h2><p>根据以上描述，原始公式可以写作：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2}\left[\sum_{k=1}^N \sum_{i=1}^3\left(-m_k \ddot{u}_{i k}+X_{i k}\right) \cdot \delta u_{i k}\right] \cdot d t=\left[-\sum_{k=1}^N \sum_{i=1}^3 m_k \dot{u}_{i k} \cdot \delta u_{i k}\right]_{t_1}^{t_2}+\delta \int_{t_1}^{t_2}\left(E_C-V+W_{e x t}\right) \cdot d t</script><p>然后根据条件：$\begin{aligned}&amp; \delta u<em>{i k}\left(t_1\right)=0 \&amp; \delta u</em>{i k}\left(t_2\right)=0\end{aligned}$，第一项为0。</p>
-<p>由此我们得到了哈密顿原理的最终表述：</p>
-<script type="math/tex; mode=display">
-\delta \int_{t_1}^{t_2}\left(E_C-V+W_{\text {ext }}\right) \cdot d t=0 \quad \text { avec } \quad \delta q_s\left(t_1\right)=0 \quad \text { et } \delta q_s\left(t_2\right)=0</script><h3 id="基于哈密顿原理的运动方程-Equations-du-mouvement-a-partir-du-principe-de-Hamilton"><a href="#基于哈密顿原理的运动方程-Equations-du-mouvement-a-partir-du-principe-de-Hamilton" class="headerlink" title="基于哈密顿原理的运动方程 Equations du mouvement à partir du principe de Hamilton"></a>基于哈密顿原理的运动方程 Equations du mouvement à partir du principe de Hamilton</h3><p>展开虚动能：</p>
-<script type="math/tex; mode=display">
-\delta \mathrm{E}_{\mathrm{C}}=\sum_{\mathrm{S}=1}^{\mathrm{n}}\left(\frac{\partial \mathrm{E}_{\mathrm{C}}}{\partial \mathrm{q}_{\mathrm{s}}} \delta \mathrm{q}_{\mathrm{s}}+\frac{\partial \mathrm{E}_{\mathrm{C}}}{\partial \dot{\mathrm{q}}_{\mathrm{s}}} \delta \dot{\mathrm{q}}_{\mathrm{s}}\right)</script><p>展开外力做功：</p>
-<script type="math/tex; mode=display">
-\delta W_{\text {ext }}=F_S \cdot \delta q_s \text { d'après } W_{\text {ext }}=F_S \cdot q_s</script><p>代入哈密顿原理得到：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2}\left[\sum_{S=1}^n\left(\frac{\partial E_C}{\partial q_S}+Q_S+F_S\right) \delta q_S+\frac{\partial E_C}{\partial \dot{q}_S} \delta \dot{q}_S\right] d t=0</script><p>基于分布积分法，第二项为：</p>
-<script type="math/tex; mode=display">
-\frac{\partial E_C}{\partial \dot{q}_S} \delta \dot{q}_S = \left[\frac{\partial E_c}{\partial \dot{q}_s} \delta q_S\right]_{t_1}^{t_2}-\int_{t_1}^{t_2} \frac{d}{d t}\left(\frac{\partial E_C}{\partial \dot{q}_s}\right) \delta q_s \cdot d t</script><p>根据哈密顿原理，第一项为0，得到：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2}\left[\sum_{S=1}^n\left(-\frac{d}{d t} \frac{\partial E_C}{\partial \dot{q}_S}+\frac{\partial E_C}{\partial q_S}+Q_S+F_S\right) \delta q_S\right] d t=0</script><h3 id="拉格朗日运动方程-Les-equations-du-mouvement-Lagrange"><a href="#拉格朗日运动方程-Les-equations-du-mouvement-Lagrange" class="headerlink" title="拉格朗日运动方程  Les  équations du mouvement Lagrange"></a>拉格朗日运动方程  Les  équations du mouvement Lagrange</h3><p>考虑每一个广义坐标：</p>
-<script type="math/tex; mode=display">
--\frac{\mathrm{d}}{\mathrm{dt}} \frac{\partial \mathrm{E}_{\mathrm{C}}}{\partial \dot{\mathrm{q}}_{\mathrm{S}}}+\frac{\partial \mathrm{E}_{\mathrm{C}}}{\partial \mathrm{q}_{\mathrm{S}}}+\mathrm{Q}_{\mathrm{S}}+\mathrm{F}_{\mathrm{S}}=0</script><h1 id="连续系统的情况"><a href="#连续系统的情况" class="headerlink" title="连续系统的情况"></a>连续系统的情况</h1><p>使用位移向量来表示物质的运动：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_4.png" alt=""></p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \vec{x}=\left\{\begin{array}{l}x_1 \\x_2 \\x_3\end{array}\right\} \\& \vec{u}=\left\{\begin{array}{l}u_1 \\u_2 \\u_3\end{array}\right\}=\left\{\begin{array}{l}u_1\left(x_1, x_2, x_3, t\right) \\u_2\left(x_1, x_2, x_3, t\right) \\u_3\left(x_1, x_2, x_3, t\right)\end{array}\right\}\end{aligned}</script><h2 id="广义的哈莫顿原理"><a href="#广义的哈莫顿原理" class="headerlink" title="广义的哈莫顿原理"></a>广义的哈莫顿原理</h2><p>我们将哈莫顿原理中的：$E<em>C-V+W</em>{\text {ext }}$记为$L(u)$</p>
-<h3 id="动能"><a href="#动能" class="headerlink" title="动能"></a>动能</h3><p>在连续系统中，动能可以分别被表示为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \mathrm{E}_{\mathrm{C}}=\frac{1}{2} \int_{\Omega_0} \rho_0 \sum_{\mathrm{i}=1}^3 \dot{\mathrm{u}}_{\mathrm{i}} \dot{\mathrm{u}}_{\mathrm{i}} \mathrm{d} \Omega \end{aligned}</script><h3 id="外势能"><a href="#外势能" class="headerlink" title="外势能"></a>外势能</h3><p>对于势能，有由体积力导致的外势能：</p>
-<script type="math/tex; mode=display">
-V_{\text {ext }}=-\int_{\Omega_0} \sum_{\mathrm{i}=1}^3 \mathrm{f}_{\mathrm{i}} \cdot \mathrm{u}_{\mathrm{i}} \mathrm{d} \Omega</script><h3 id="形变势能-energie-de-deformation"><a href="#形变势能-energie-de-deformation" class="headerlink" title="形变势能 énergie de déformation"></a>形变势能 énergie de déformation</h3><p>有由内部形变导致的变形势能：</p>
-<script type="math/tex; mode=display">
-\mathrm{V}_{\mathrm{int}}=\int_{\Omega_0} \mathrm{w}\left(\varepsilon_{\mathrm{ij}}\right) \mathrm{d} \Omega</script><p>其中$\mathrm{w}\left(\varepsilon_{\mathrm{ij}}\right)$是形变能密度，为：</p>
-<script type="math/tex; mode=display">
-w\left(\varepsilon_{i j}\right)=\sum_{i, j} \int_0^{\varepsilon_{i j}} \sigma_{i j} d \varepsilon_{i j} \Rightarrow \delta w=\sum_{i, j} \frac{\partial w}{\partial \varepsilon_{i j}} \delta \varepsilon_{i j}</script><h3 id="外力做功"><a href="#外力做功" class="headerlink" title="外力做功"></a>外力做功</h3><p>外力做功可以表示为：</p>
-<script type="math/tex; mode=display">
-\mathrm{W}_{\mathrm{ext}}=\int_{\partial \Omega_0} \sum^3 \mathrm{~F}_{\mathrm{i}} \cdot \mathrm{u}_{\mathrm{i}} \mathrm{d} \partial \Omega</script><h3 id="广义的哈莫顿原理-1"><a href="#广义的哈莫顿原理-1" class="headerlink" title="广义的哈莫顿原理"></a>广义的哈莫顿原理</h3><p>最终代入这些元素后，得到广义的哈莫顿原理，即为弱表述：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\delta \int_{t_1}^{t_2} & \left(E_C-V+W_{e x t}\right) \cdot d t \\& =\int_{t_1}^{t_2} \int_{\partial \Omega_0} \sum_{i, j}\left(F_j-n_i \sigma_{i j}\right) \delta u_j d \partial \Omega d t+\int_{t_1}^{t_2} \int_{\Omega_0} \sum_{j=1}^3\left(\sum_{i=1}^3 \frac{\partial \sigma_{i j}}{\partial x_i}-\rho_0 \ddot{u}_j+f_j\right) \delta u_j d \Omega d t\end{aligned}</script><ul>
-<li>第一个积分项是对物体表面 $∂Ω_0$ 上的力的贡献进行积分。它表示了表面力对位移的影响，即力对位移的功。</li>
-<li>第二个积分项是对物体内部 $∂Ω_0$区域内的力的贡献进行积分。它表示了内部应力和体积力对位移的影响，即内部力对位移的功。</li>
-</ul>
-<h1 id="拉伸，弯曲的动力学方程和边界条件求法"><a href="#拉伸，弯曲的动力学方程和边界条件求法" class="headerlink" title="拉伸，弯曲的动力学方程和边界条件求法"></a>拉伸，弯曲的动力学方程和边界条件求法</h1><h2 id="拉伸压缩杆的例子"><a href="#拉伸压缩杆的例子" class="headerlink" title="拉伸压缩杆的例子"></a>拉伸压缩杆的例子</h2><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_5.png" alt=""></p>
-<p>我们应用广义的哈莫顿原理解决这个问题：</p>
-<script type="math/tex; mode=display">
-\delta \int_{t_1}^{t_2}\left(E_C-V+W_{e x t}\right) \cdot d t = 0</script><p>首先，我们要计算动能，势能和外力做功。</p>
-<h3 id="动能-1"><a href="#动能-1" class="headerlink" title="动能"></a>动能</h3><p>在这个连续系统中，动能被定义为：</p>
-<script type="math/tex; mode=display">
-E_C=\frac{1}{2} \int_{\Omega}\rho\left(\frac{\partial u(x,t)}{\partial t}\right)^2d\Omega = \frac{1}{2} \int_{0}^L\rho S\left(\frac{\partial u(x,t)}{\partial t}\right)^2dx</script><p>形式上与质点的动能一致。</p>
-<h3 id="势能"><a href="#势能" class="headerlink" title="势能"></a>势能</h3><p>在这个系统中，势能由$x$方向的形变提供：</p>
-<script type="math/tex; mode=display">
-V = V_{int} = \frac 12 \int_{\Omega}\sigma : \varepsilon d\Omega</script><p>其中有：</p>
-<script type="math/tex; mode=display">
-\varepsilon = \frac{\partial u(x, t)}{\partial tx}, \ \sigma = E\varepsilon</script><p>得到：</p>
-<script type="math/tex; mode=display">
-V = V_{int} = \frac 12 \int_{0}^LES\left(\frac{\partial u(x, t)}{\partial x}\right)^2dx</script><h3 id="外力做功-1"><a href="#外力做功-1" class="headerlink" title="外力做功"></a>外力做功</h3><p>$x = 0$点的约束力不做功，$x = L$的力：</p>
-<script type="math/tex; mode=display">
-F_L = M\frac{d^2 u(L, t)}{d t^2}</script><p>其做功：</p>
-<script type="math/tex; mode=display">
-W_{ext} = F_Lu(L,t) = M \frac{d^2 u(L, t)}{d t^2}u(L,t)</script><h3 id="哈莫顿原理"><a href="#哈莫顿原理" class="headerlink" title="哈莫顿原理"></a>哈莫顿原理</h3><p>根据哈莫顿原理，有：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-&
-\delta \int_{t_1}^{t_2}\left(E_C-V+W_{e x t}\right) \cdot d t=0 \nonumber
-\\&
-\int_{t_1}^{t_2}\int_{0}^{L}\rho S\dot u\delta\dot udtdx-\int_{t_1}^{t_2}\int_{0}^{L}ES\frac{\partial u(x, t)}{\partial x}\delta\left(\frac{\partial u(x, t)}{\partial x}\right)dxdt
-\\& \ \ \ \ \ \ \ \ \ 
-+\int_{t_1}^{t_2}F_L\delta u(L,t)dt = 0 \nonumber
-\end{align}</script><p>对$(1)$第一项应用分步积分，目的是消除变分符号中的对时间的偏微分：</p>
-<script type="math/tex; mode=display">
-\begin{align}\int_{t_1}^{t_2} \int_0^L \rho S \dot{u} \delta \dot{u} d t d x = \left[\int_0^L\rho S \dot{u} \delta ud x\right]_{t_1}^{t_2}-\int_{t_1}^{t_2} \int_0^L \rho S \ddot{u} \delta u d t d x\end{align}</script><p>根据$\delta u(x,t_1) = 0,\delta u(x,t_2) = 0$，$(2)$的第一项为$0$。</p>
-<p>对$(1)$的第二项应用分步积分，目的是消除变分符号中对空间的偏微分：</p>
-<script type="math/tex; mode=display">
-\begin{align}
--\int_{t_1}^{t_2} &\int_0^L E S \frac{\partial u(x, t)}{\partial x} \delta\left(\frac{\partial u(x, t)}{\partial x}\right) d x d t 
-= \nonumber\\&-
-\left[\int_{t_1}^{t_2}E S \frac{\partial u(x, t)}{\partial x} \delta u d t\right]_0^L
-+
-\int_{t_1}^{t_2} \int_0^L E S \frac{\partial^2 u(x, t)}{\partial x^2} \delta u d x d t 
-\end{align}</script><p>进一步展开$(3)$的第一项：</p>
-<script type="math/tex; mode=display">
--\left[\int_{t_1}^{t_2} E S \frac{\partial u(x, t)}{\partial x} \delta u d t\right]_0^L = \int_{t_1}^{t_2} E S \frac{\partial u(0, t)}{\partial x} \delta u(0,t) d t-\int_{t_1}^{t_2} E S \frac{\partial u(L, t)}{\partial x} \delta u(L,t) d t</script><p>最终得到：</p>
-<script type="math/tex; mode=display">
-\begin{align}&-\int_{t_1}^{t_2} \int_0^L \rho S \ddot{u} \delta u d t d x
-+
-\int_{t_1}^{t_2} \int_0^L E S \frac{\partial^2 u(x, t)}{\partial x^2} \delta u d x d t+ \nonumber
-\\&
-\int_{t_1}^{t_2} E S \frac{\partial u(0, t)}{\partial x} \delta u(0,t) d t
--
-\int_{t_1}^{t_2} E S \frac{\partial u(L, t)}{\partial x} \delta u(L,t) d t
-+\nonumber\\&
-\int_{t_1}^{t_2}  F_L \delta u(L, t) d t 
-=
- 0
-\end{align}</script><p>合并同类项：</p>
-<script type="math/tex; mode=display">
-\begin{align}&-\int_{t_1}^{t_2} \int_0^L \left(\rho S \ddot{u} 
--
- E S \frac{\partial^2 u(x, t)}{\partial x^2}\right) \delta u d x d t+ \nonumber
-\int_{t_1}^{t_2} E S \frac{\partial u(0, t)}{\partial x} \delta u(0,t) d t
--\\&
-\int_{t_1}^{t_2} \left(E S \frac{\partial u(L, t)}{\partial x} 
--  F_L \right)\delta u(L, t) d t 
-=
- 0
-\end{align}</script><p>从而得到运动方程$(6)$和边界条件$(7)$：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-&\rho S \ddot{u}-E S \frac{\partial^2 u(x, t)}{\partial x^2} = 0
+\frac{\mathrm{d}}{\mathrm{dt}}\left(\delta
+\mathrm{u}_{\mathrm{i}}\right) &amp;
+=\frac{\mathrm{d}}{\mathrm{dt}}\left(\tilde{\mathrm{u}}_{\mathrm{i}}\right)-\frac{\mathrm{d}}{\mathrm{dt}}\left(\mathrm{u}_{\mathrm{i}}\right)=\delta\left(\frac{\mathrm{d}}{\mathrm{dt}}\left(\mathrm{u}_{\mathrm{i}}\right)\right)
 \\
-&
+&amp;
+=\dot{\tilde{\mathrm{u}}}_{\mathrm{i}}-\dot{\mathrm{u}}_{\mathrm{i}}=\delta
+\dot{\mathrm{u}}_{\mathrm{i}}
+\end{aligned}
+\]</span></p>
+<h3 id="虚力和虚功">虚力和虚功</h3>
+<p>一般来说，我们将力和功分别定义为：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; F\left(u(x), u^{\prime}(x), \ldots, x\right)
+，&amp; J=\int_{x_1}^{x_2} F\left(u(x), u^{\prime}(x), \ldots, x\right)
+\cdot d x\end{aligned}
+\]</span></p>
+<p>引入虚位移之后，虚力可以表示为：</p>
+<p><span class="math display">\[
+\delta F=\frac{\partial F}{\partial u} \delta u+\frac{\partial
+F}{\partial u^{\prime}} \delta u^{\prime}+\ldots
+\]</span></p>
+<p>而虚功可以表示为：</p>
+<p><span class="math display">\[
+\delta J=\int_{x_1}^{x_2} \delta F . d x
+\]</span></p>
+<h3 id="虚位移原理-principe-des-travaux-virtuels-1">虚位移原理 Principe
+des travaux virtuels</h3>
+<p>根据强表述：<span class="math inline">\(m \ddot{u}_i=X_i \quad
+\forall \mathrm{i} \in\{1,2,3\}\)</span>，有虚位移方程：</p>
+<p><span class="math display">\[
+\sum_{i=1}^3\left(m \ddot{u}_i-X_i\right) \cdot \delta u_i=0
+\]</span></p>
+<p>即在虚拟位移 <span class="math inline">\(u_i\)</span>
+实际作用在质点上的力所做的虚拟功为零。</p>
+<p><span class="math display">\[
+\left\{\left[\begin{array}{l}m \ddot{u}_1 \\m \ddot{u}_2 \\m
+\ddot{u}_3\end{array}\right]-\left[\begin{array}{l}\mathrm{X}_1
+\\\mathrm{X}_2 \\\mathrm{X}_3\end{array}\right]\right\}
+\cdot\left\{\begin{array}{l}\delta \mathrm{u}_1 \\\delta \mathrm{u}_2
+\\\delta \mathrm{u}_3\end{array}\right\}=\left\{\begin{array}{l}0 \\0
+\\0\end{array}\right\}
+\]</span></p>
+<p>如果虚拟功方程对于与运动学条件兼容的任何位移得到验证，则满足系统的平衡。</p>
+<h1 id="哈密顿原理">哈密顿原理</h1>
+<p>哈密顿原理是虚位移原理的对时间积分形式：</p>
+<p><span class="math display">\[
+\int_{\mathrm{t}_1}^{\mathrm{t}_2}\left[\sum_{\mathrm{k}=1}^{\mathrm{N}}
+\sum_{\mathrm{i}=1}^3\left(m \ddot{u}_i-X_i\right) \cdot \delta
+u_{ik}\right] \cdot \mathrm{dt}=0
+\]</span></p>
+<p>其中<span class="math inline">\(k\)</span>表示物质上的<span
+class="math inline">\(k\)</span>点，i表示方向。</p>
+<p><span class="math inline">\(u_{ik}\)</span>是允许的虚位移 déplacement
+compatible ，即约束允许的位移</p>
+<h3 id="动能-energie-cinétique">动能 Energie cinétique</h3>
+<p>可以观察到：</p>
+<p><span class="math display">\[
+\frac{d}{d t}\left(m_k \dot{u}_{i k} \cdot \delta u_{i k}\right)=m_k
+\ddot{u}_{i k} \delta u_{i k}+m_k \dot{u}_{i k} \delta \dot{u}_{i k}=m_k
+\ddot{u}_{i k} \delta u_{i k}+\delta\left(\frac{1}{2} m_k \dot{u}_{i k}
+\dot{u}_{i k}\right)
+\]</span></p>
+<p>而后一项是动能的一部分，因此我们可以得到原式中的第一项：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2}\left[\sum_{k=1}^N \sum_{i=1}^3\left(-m_k \ddot{u}_{i
+k}\right) \cdot \delta u_{i k}\right] \cdot d t=\left[-\sum_{k=1}^N
+\sum_{i=1}^3 m_k \dot{u}_{i k} \cdot \delta u_{i
+k}\right]_{t_1}^{t_2}+\delta \int_{t_1}^{t_2} E_c \cdot d t
+\]</span></p>
+<h3 id="功-travail-des-actions-mécaniques">功 Travail des actions
+mécaniques</h3>
+<p>对于原式的第二项，可以分成两项：外力做功<span
+class="math inline">\(\delta W_{\text {extérieur
+}}\)</span>和有势力做功，即势能变化<span class="math inline">\(-\delta
+\mathrm{V}\)</span>。</p>
+<h3 id="广义坐标">广义坐标</h3>
+<p>由于约束的存在，实际上的自由度并非原始的坐标数。因此引入自由度数量的广义坐标
+coordonnée généralisée。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_3.png" /></p>
+<p>如上图，只有一个自由度的系统，可以选择与x轴夹角<span
+class="math inline">\(\theta(t)\)</span>作为广义坐标。</p>
+<p>通过广义坐标，原始的第二项可以写作：</p>
+<p><span class="math display">\[
+\sum_{\mathrm{k}=1}^{\mathrm{N}} \sum_{\mathrm{i}=1}^3
+\mathrm{X}_{\mathrm{ik}} \cdot \delta
+\mathrm{u}_{\mathrm{ik}}=\sum_{\mathrm{S}=1}^{\mathrm{n}}
+\mathrm{Q}_{\mathrm{S}} \cdot \delta \mathrm{q}_{\mathrm{S}}
+\]</span></p>
+<p>其中<span
+class="math inline">\(Q_s\)</span>为广义力。同时，原始坐标的对时间微分可以写作：</p>
+<p><span class="math display">\[
+\mathrm{u}_{\mathrm{ik}}(\mathrm{x},
+\mathrm{t})=\mathrm{U}_{\mathrm{ik}}\left(\mathrm{q}_{\mathrm{s}},
+\mathrm{t}\right) \Rightarrow
+\dot{\mathrm{u}}_{\mathrm{ik}}=\frac{\partial
+\mathrm{U}_{\mathrm{ik}}}{\partial
+\mathrm{t}}+\sum_{\mathrm{S}=1}^{\mathrm{n}} \frac{\partial
+\mathrm{U}_{\mathrm{ik}}}{\partial \mathrm{q}_{\mathrm{s}}} \cdot
+\dot{\mathrm{q}}_{\mathrm{s}}
+\]</span></p>
+<p>如果广义力是有势力，则可以写作：</p>
+<p><span class="math display">\[
+\sum_{S=1}^n Q_S \cdot \delta q_S=-\delta V\Leftrightarrow
+Q_S=-\frac{\partial V}{\partial q_S}
+\]</span></p>
+<h2 id="哈密顿原理-enoncé-du-principe-de-hamilton">哈密顿原理 Enoncé du
+principe de Hamilton</h2>
+<p>根据以上描述，原始公式可以写作：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2}\left[\sum_{k=1}^N \sum_{i=1}^3\left(-m_k \ddot{u}_{i
+k}+X_{i k}\right) \cdot \delta u_{i k}\right] \cdot d
+t=\left[-\sum_{k=1}^N \sum_{i=1}^3 m_k \dot{u}_{i k} \cdot \delta u_{i
+k}\right]_{t_1}^{t_2}+\delta \int_{t_1}^{t_2}\left(E_C-V+W_{e x
+t}\right) \cdot d t
+\]</span></p>
+<p>然后根据条件：<span class="math inline">\(\begin{aligned}&amp; \delta
+u_{i k}\left(t_1\right)=0 \\&amp; \delta u_{i
+k}\left(t_2\right)=0\end{aligned}\)</span>，第一项为0。</p>
+<p>由此我们得到了哈密顿原理的最终表述：</p>
+<p><span class="math display">\[
+\delta \int_{t_1}^{t_2}\left(E_C-V+W_{\text {ext }}\right) \cdot d t=0
+\quad \text { avec } \quad \delta q_s\left(t_1\right)=0 \quad \text { et
+} \delta q_s\left(t_2\right)=0
+\]</span></p>
+<h3
+id="基于哈密顿原理的运动方程-equations-du-mouvement-à-partir-du-principe-de-hamilton">基于哈密顿原理的运动方程
+Equations du mouvement à partir du principe de Hamilton</h3>
+<p>展开虚动能：</p>
+<p><span class="math display">\[
+\delta
+\mathrm{E}_{\mathrm{C}}=\sum_{\mathrm{S}=1}^{\mathrm{n}}\left(\frac{\partial
+\mathrm{E}_{\mathrm{C}}}{\partial \mathrm{q}_{\mathrm{s}}} \delta
+\mathrm{q}_{\mathrm{s}}+\frac{\partial \mathrm{E}_{\mathrm{C}}}{\partial
+\dot{\mathrm{q}}_{\mathrm{s}}} \delta
+\dot{\mathrm{q}}_{\mathrm{s}}\right)
+\]</span></p>
+<p>展开外力做功：</p>
+<p><span class="math display">\[
+\delta W_{\text {ext }}=F_S \cdot \delta q_s \text { d&#39;après }
+W_{\text {ext }}=F_S \cdot q_s
+\]</span></p>
+<p>代入哈密顿原理得到：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2}\left[\sum_{S=1}^n\left(\frac{\partial E_C}{\partial
+q_S}+Q_S+F_S\right) \delta q_S+\frac{\partial E_C}{\partial \dot{q}_S}
+\delta \dot{q}_S\right] d t=0
+\]</span></p>
+<p>基于分布积分法，第二项为：</p>
+<p><span class="math display">\[
+\frac{\partial E_C}{\partial \dot{q}_S} \delta \dot{q}_S =
+\left[\frac{\partial E_c}{\partial \dot{q}_s} \delta
+q_S\right]_{t_1}^{t_2}-\int_{t_1}^{t_2} \frac{d}{d
+t}\left(\frac{\partial E_C}{\partial \dot{q}_s}\right) \delta q_s \cdot
+d t
+\]</span></p>
+<p>根据哈密顿原理，第一项为0，得到：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2}\left[\sum_{S=1}^n\left(-\frac{d}{d t} \frac{\partial
+E_C}{\partial \dot{q}_S}+\frac{\partial E_C}{\partial
+q_S}+Q_S+F_S\right) \delta q_S\right] d t=0
+\]</span></p>
+<h3
+id="拉格朗日运动方程-les-équations-du-mouvement-lagrange">拉格朗日运动方程
+Les équations du mouvement Lagrange</h3>
+<p>考虑每一个广义坐标：</p>
+<p><span class="math display">\[
+-\frac{\mathrm{d}}{\mathrm{dt}} \frac{\partial
+\mathrm{E}_{\mathrm{C}}}{\partial
+\dot{\mathrm{q}}_{\mathrm{S}}}+\frac{\partial
+\mathrm{E}_{\mathrm{C}}}{\partial
+\mathrm{q}_{\mathrm{S}}}+\mathrm{Q}_{\mathrm{S}}+\mathrm{F}_{\mathrm{S}}=0
+\]</span></p>
+<h1 id="连续系统的情况">连续系统的情况</h1>
+<p>使用位移向量来表示物质的运动：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_4.png" /></p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \vec{x}=\left\{\begin{array}{l}x_1 \\x_2
+\\x_3\end{array}\right\} \\&amp; \vec{u}=\left\{\begin{array}{l}u_1
+\\u_2 \\u_3\end{array}\right\}=\left\{\begin{array}{l}u_1\left(x_1, x_2,
+x_3, t\right) \\u_2\left(x_1, x_2, x_3, t\right) \\u_3\left(x_1, x_2,
+x_3, t\right)\end{array}\right\}\end{aligned}
+\]</span></p>
+<h2 id="广义的哈莫顿原理">广义的哈莫顿原理</h2>
+<p>我们将哈莫顿原理中的：<span class="math inline">\(E_C-V+W_{\text {ext
+}}\)</span>记为<span class="math inline">\(L(u)\)</span></p>
+<h3 id="动能">动能</h3>
+<p>在连续系统中，动能可以分别被表示为：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \mathrm{E}_{\mathrm{C}}=\frac{1}{2} \int_{\Omega_0}
+\rho_0 \sum_{\mathrm{i}=1}^3 \dot{\mathrm{u}}_{\mathrm{i}}
+\dot{\mathrm{u}}_{\mathrm{i}} \mathrm{d} \Omega \end{aligned}
+\]</span></p>
+<h3 id="外势能">外势能</h3>
+<p>对于势能，有由体积力导致的外势能：</p>
+<p><span class="math display">\[
+V_{\text {ext }}=-\int_{\Omega_0} \sum_{\mathrm{i}=1}^3
+\mathrm{f}_{\mathrm{i}} \cdot \mathrm{u}_{\mathrm{i}} \mathrm{d} \Omega
+\]</span></p>
+<h3 id="形变势能-énergie-de-déformation">形变势能 énergie de
+déformation</h3>
+<p>有由内部形变导致的变形势能：</p>
+<p><span class="math display">\[
+\mathrm{V}_{\mathrm{int}}=\int_{\Omega_0}
+\mathrm{w}\left(\varepsilon_{\mathrm{ij}}\right) \mathrm{d} \Omega
+\]</span></p>
+<p>其中<span
+class="math inline">\(\mathrm{w}\left(\varepsilon_{\mathrm{ij}}\right)\)</span>是形变能密度，为：</p>
+<p><span class="math display">\[
+w\left(\varepsilon_{i j}\right)=\sum_{i, j} \int_0^{\varepsilon_{i j}}
+\sigma_{i j} d \varepsilon_{i j} \Rightarrow \delta w=\sum_{i, j}
+\frac{\partial w}{\partial \varepsilon_{i j}} \delta \varepsilon_{i j}
+\]</span></p>
+<h3 id="外力做功">外力做功</h3>
+<p>外力做功可以表示为：</p>
+<p><span class="math display">\[
+\mathrm{W}_{\mathrm{ext}}=\int_{\partial \Omega_0} \sum^3
+\mathrm{~F}_{\mathrm{i}} \cdot \mathrm{u}_{\mathrm{i}} \mathrm{d}
+\partial \Omega
+\]</span></p>
+<h3 id="广义的哈莫顿原理-1">广义的哈莫顿原理</h3>
+<p>最终代入这些元素后，得到广义的哈莫顿原理，即为弱表述：</p>
+<p><span class="math display">\[
+\begin{aligned}\delta \int_{t_1}^{t_2} &amp; \left(E_C-V+W_{e x
+t}\right) \cdot d t \\&amp; =\int_{t_1}^{t_2} \int_{\partial \Omega_0}
+\sum_{i, j}\left(F_j-n_i \sigma_{i j}\right) \delta u_j d \partial
+\Omega d t+\int_{t_1}^{t_2} \int_{\Omega_0}
+\sum_{j=1}^3\left(\sum_{i=1}^3 \frac{\partial \sigma_{i j}}{\partial
+x_i}-\rho_0 \ddot{u}_j+f_j\right) \delta u_j d \Omega d t\end{aligned}
+\]</span></p>
+<ul>
+<li>第一个积分项是对物体表面 <span class="math inline">\(∂Ω_0\)</span>
+上的力的贡献进行积分。它表示了表面力对位移的影响，即力对位移的功。</li>
+<li>第二个积分项是对物体内部 <span
+class="math inline">\(∂Ω_0\)</span>区域内的力的贡献进行积分。它表示了内部应力和体积力对位移的影响，即内部力对位移的功。</li>
+</ul>
+<h1
+id="拉伸弯曲的动力学方程和边界条件求法">拉伸，弯曲的动力学方程和边界条件求法</h1>
+<h2 id="拉伸压缩杆的例子">拉伸压缩杆的例子</h2>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_5.png" /></p>
+<p>我们应用广义的哈莫顿原理解决这个问题：</p>
+<p><span class="math display">\[
+\delta \int_{t_1}^{t_2}\left(E_C-V+W_{e x t}\right) \cdot d t = 0
+\]</span></p>
+<p>首先，我们要计算动能，势能和外力做功。</p>
+<h3 id="动能-1">动能</h3>
+<p>在这个连续系统中，动能被定义为：</p>
+<p><span class="math display">\[
+E_C=\frac{1}{2} \int_{\Omega}\rho\left(\frac{\partial u(x,t)}{\partial
+t}\right)^2d\Omega = \frac{1}{2} \int_{0}^L\rho S\left(\frac{\partial
+u(x,t)}{\partial t}\right)^2dx
+\]</span></p>
+<p>形式上与质点的动能一致。</p>
+<h3 id="势能">势能</h3>
+<p>在这个系统中，势能由<span
+class="math inline">\(x\)</span>方向的形变提供：</p>
+<p><span class="math display">\[
+V = V_{int} = \frac 12 \int_{\Omega}\sigma : \varepsilon d\Omega
+\]</span></p>
+<p>其中有：</p>
+<p><span class="math display">\[
+\varepsilon = \frac{\partial u(x, t)}{\partial tx}, \ \sigma =
+E\varepsilon
+\]</span></p>
+<p>得到：</p>
+<p><span class="math display">\[
+V = V_{int} = \frac 12 \int_{0}^LES\left(\frac{\partial u(x,
+t)}{\partial x}\right)^2dx
+\]</span></p>
+<h3 id="外力做功-1">外力做功</h3>
+<p><span class="math inline">\(x = 0\)</span>点的约束力不做功，<span
+class="math inline">\(x = L\)</span>的力：</p>
+<p><span class="math display">\[
+F_L = M\frac{d^2 u(L, t)}{d t^2}
+\]</span></p>
+<p>其做功：</p>
+<p><span class="math display">\[
+W_{ext} = F_Lu(L,t) = M \frac{d^2 u(L, t)}{d t^2}u(L,t)
+\]</span></p>
+<h3 id="哈莫顿原理">哈莫顿原理</h3>
+<p>根据哈莫顿原理，有：</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;
+\delta \int_{t_1}^{t_2}\left(E_C-V+W_{e x t}\right) \cdot d t=0
+\nonumber
+\\&amp;
+\int_{t_1}^{t_2}\int_{0}^{L}\rho S\dot u\delta\dot
+udtdx-\int_{t_1}^{t_2}\int_{0}^{L}ES\frac{\partial u(x, t)}{\partial
+x}\delta\left(\frac{\partial u(x, t)}{\partial x}\right)dxdt
+\\&amp; \ \ \ \ \ \ \ \ \
++\int_{t_1}^{t_2}F_L\delta u(L,t)dt = 0 \nonumber
+\end{align}
+\]</span></p>
+<p>对<span
+class="math inline">\((1)\)</span>第一项应用分步积分，目的是消除变分符号中的对时间的偏微分：</p>
+<p><span class="math display">\[
+\begin{align}\int_{t_1}^{t_2} \int_0^L \rho S \dot{u} \delta \dot{u} d t
+d x = \left[\int_0^L\rho S \dot{u} \delta ud
+x\right]_{t_1}^{t_2}-\int_{t_1}^{t_2} \int_0^L \rho S \ddot{u} \delta u
+d t d x\end{align}
+\]</span></p>
+<p>根据<span class="math inline">\(\delta u(x,t_1) = 0,\delta u(x,t_2) =
+0\)</span>，<span class="math inline">\((2)\)</span>的第一项为<span
+class="math inline">\(0\)</span>。</p>
+<p>对<span
+class="math inline">\((1)\)</span>的第二项应用分步积分，目的是消除变分符号中对空间的偏微分：</p>
+<p><span class="math display">\[
+\begin{align}
+-\int_{t_1}^{t_2} &amp;\int_0^L E S \frac{\partial u(x, t)}{\partial x}
+\delta\left(\frac{\partial u(x, t)}{\partial x}\right) d x d t
+= \nonumber\\&amp;-
+\left[\int_{t_1}^{t_2}E S \frac{\partial u(x, t)}{\partial x} \delta u d
+t\right]_0^L
++
+\int_{t_1}^{t_2} \int_0^L E S \frac{\partial^2 u(x, t)}{\partial x^2}
+\delta u d x d t
+\end{align}
+\]</span></p>
+<p>进一步展开<span class="math inline">\((3)\)</span>的第一项：</p>
+<p><span class="math display">\[
+-\left[\int_{t_1}^{t_2} E S \frac{\partial u(x, t)}{\partial x} \delta u
+d t\right]_0^L = \int_{t_1}^{t_2} E S \frac{\partial u(0, t)}{\partial
+x} \delta u(0,t) d t-\int_{t_1}^{t_2} E S \frac{\partial u(L,
+t)}{\partial x} \delta u(L,t) d t
+\]</span></p>
+<p>最终得到：</p>
+<p><span class="math display">\[
+\begin{align}&amp;-\int_{t_1}^{t_2} \int_0^L \rho S \ddot{u} \delta u d
+t d x
++
+\int_{t_1}^{t_2} \int_0^L E S \frac{\partial^2 u(x, t)}{\partial x^2}
+\delta u d x d t+ \nonumber
+\\&amp;
+\int_{t_1}^{t_2} E S \frac{\partial u(0, t)}{\partial x} \delta u(0,t) d
+t
+-
+\int_{t_1}^{t_2} E S \frac{\partial u(L, t)}{\partial x} \delta u(L,t) d
+t
++\nonumber\\&amp;
+\int_{t_1}^{t_2}  F_L \delta u(L, t) d t
+=
+0
+\end{align}
+\]</span></p>
+<p>合并同类项：</p>
+<p><span class="math display">\[
+\begin{align}&amp;-\int_{t_1}^{t_2} \int_0^L \left(\rho S \ddot{u}
+-
+E S \frac{\partial^2 u(x, t)}{\partial x^2}\right) \delta u d x d t+
+\nonumber
+\int_{t_1}^{t_2} E S \frac{\partial u(0, t)}{\partial x} \delta u(0,t) d
+t
+-\\&amp;
+\int_{t_1}^{t_2} \left(E S \frac{\partial u(L, t)}{\partial x}
+-  F_L \right)\delta u(L, t) d t
+=
+0
+\end{align}
+\]</span></p>
+<p>从而得到运动方程<span
+class="math inline">\((6)\)</span>和边界条件<span
+class="math inline">\((7)\)</span>：</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;\rho S \ddot{u}-E S \frac{\partial^2 u(x, t)}{\partial x^2} = 0
+\\
+&amp;
 \left\{
 \begin{aligned}
-&ES\frac{\partial u(0,t)}{\partial x}\delta u(0,t) = 0
+&amp;ES\frac{\partial u(0,t)}{\partial x}\delta u(0,t) = 0
 \Rightarrow
 u(0,t) = 0
 \\
-&
+&amp;
 E S \frac{\partial u(L, t)}{\partial x}-F_L = 0
 \Rightarrow
 E S \frac{\partial u(L, t)}{\partial x}=F_L
 \end{aligned}
 \right.
-\end{align}</script><h2 id="曲梁的例子"><a href="#曲梁的例子" class="headerlink" title="曲梁的例子"></a>曲梁的例子</h2><div class="gallery-container" data-type="data" data-button="">
+\end{align}
+\]</span></p>
+<h2 id="曲梁的例子">曲梁的例子</h2>
+<div class="gallery-container" data-type="data" data-button="">
       <div class="gallery-data">[{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_6.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_7.png","alt":""},{"url":"https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_8.png","alt":""}]</div>
       <div class="gallery-items">
       </div>
     </div>
-<h3 id="动能，势能和所受外力做功"><a href="#动能，势能和所受外力做功" class="headerlink" title="动能，势能和所受外力做功"></a>动能，势能和所受外力做功</h3><ul>
+<h3 id="动能势能和所受外力做功">动能，势能和所受外力做功</h3>
+<ul>
 <li><p><strong>动能</strong>与压缩拉伸杆的处理方式相同：</p>
-<script type="math/tex; mode=display">
-  E_c=\frac{1}{2} \int_0^L \rho s \dot{v}^2 d x</script></li>
-<li><p>处理<strong>势能</strong>时需要注意，势能沿x方向累计，所以我们要求出x方向位移和$v$的关系。</p>
-<script type="math/tex; mode=display">
-  u=-\omega y=-\frac{\partial v}{\partial x} y</script><p>  然后以相同的方法求出应力和应变：</p>
-<script type="math/tex; mode=display">
-  \varepsilon=\frac{\partial u}{\partial x}=-\frac{\partial^2 v}{\partial x^2} y, \ \ \sigma=E \varepsilon=-E\frac{\partial^2 v}{ \partial x^2} y</script><p>  从而得到势能：</p>
-<script type="math/tex; mode=display">
-  V=\frac{1}{2} \int_{\Omega} \sigma: \varepsilon d \Omega=\frac{1}{2} \int_0^L \int_s y^2E\left(\frac{\partial^2 v}{\partial x^2}\right)^2 d S d x</script><p>  由于位移沿垂直x方向并非均匀，我们设$\int_s y^2 d s=I$，从而得到势能的最终表述：</p>
-<script type="math/tex; mode=display">
-  V=\frac{1}{2} \int_0^L E I\left(\frac{\partial^2 v}{\partial x^2}\right)^2 d x</script></li>
+<p><span class="math display">\[
+  E_c=\frac{1}{2} \int_0^L \rho s \dot{v}^2 d x
+  \]</span></p></li>
+<li><p>处理<strong>势能</strong>时需要注意，势能沿x方向累计，所以我们要求出x方向位移和<span
+class="math inline">\(v\)</span>的关系。</p>
+<p><span class="math display">\[
+  u=-\omega y=-\frac{\partial v}{\partial x} y
+  \]</span></p>
+<p>然后以相同的方法求出应力和应变：</p>
+<p><span class="math display">\[
+  \varepsilon=\frac{\partial u}{\partial x}=-\frac{\partial^2
+v}{\partial x^2} y, \ \ \sigma=E \varepsilon=-E\frac{\partial^2 v}{
+\partial x^2} y
+  \]</span></p>
+<p>从而得到势能：</p>
+<p><span class="math display">\[
+  V=\frac{1}{2} \int_{\Omega} \sigma: \varepsilon d \Omega=\frac{1}{2}
+\int_0^L \int_s y^2E\left(\frac{\partial^2 v}{\partial x^2}\right)^2 d S
+d x
+  \]</span></p>
+<p>由于位移沿垂直x方向并非均匀，我们设<span class="math inline">\(\int_s
+y^2 d s=I\)</span>，从而得到势能的最终表述：</p>
+<p><span class="math display">\[
+  V=\frac{1}{2} \int_0^L E I\left(\frac{\partial^2 v}{\partial
+x^2}\right)^2 d x
+  \]</span></p></li>
 <li><p>外力做功可以直接使用弹性势能的变化量来表示：</p>
-<script type="math/tex; mode=display">
-  W_{ext} = -V_{spring} = -\frac 12kv(L,t)^2</script><p>  <img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_9.png" alt=""></p>
-<p>  我们也同时处理一下这个情况：</p>
-<script type="math/tex; mode=display">
-  W_{ext} = -\frac{1}{2}\alpha \left(\frac{\partial v(L,t)}{\partial x}\right)^2</script><p>  最后我们与假设力为常数的情况比较：</p>
-<script type="math/tex; mode=display">
-  W_{ext} = F_0v(L,t)</script></li>
+<p><span class="math display">\[
+  W_{ext} = -V_{spring} = -\frac 12kv(L,t)^2
+  \]</span></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcrs-1%2FUntitled_9.png" /></p>
+<p>我们也同时处理一下这个情况：</p>
+<p><span class="math display">\[
+  W_{ext} = -\frac{1}{2}\alpha \left(\frac{\partial v(L,t)}{\partial
+x}\right)^2
+  \]</span></p>
+<p>最后我们与假设力为常数的情况比较：</p>
+<p><span class="math display">\[
+  W_{ext} = F_0v(L,t)
+  \]</span></p></li>
 </ul>
-<h3 id="哈密顿原理-1"><a href="#哈密顿原理-1" class="headerlink" title="哈密顿原理"></a>哈密顿原理</h3><p>应用哈莫顿原理，得到：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2} \int_0^L \rho \delta \dot{v} \delta \dot{v} d x-\int_0^L E I \frac{\partial^2 v}{\partial x^2} \delta\left(\frac{\partial^2 v}{\partial x^2}\right) d x+F_0 \delta v(L, t) d t=0</script><p>首项的处理方式与前一道题一致：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2} \int_0^L \rho \delta \dot{v} \delta \dot{v} d x = \left[\int_0^L \rho \dot{v} \delta v d x\right]_{t_1}^{t_2}-\int_{t_1}^{t_2} \int_0^L \rho \ddot{v} \delta v d x</script><p>其中第一项为0。</p>
+<h3 id="哈密顿原理-1">哈密顿原理</h3>
+<p>应用哈莫顿原理，得到：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2} \int_0^L \rho \delta \dot{v} \delta \dot{v} d
+x-\int_0^L E I \frac{\partial^2 v}{\partial x^2}
+\delta\left(\frac{\partial^2 v}{\partial x^2}\right) d x+F_0 \delta v(L,
+t) d t=0
+\]</span></p>
+<p>首项的处理方式与前一道题一致：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2} \int_0^L \rho \delta \dot{v} \delta \dot{v} d x =
+\left[\int_0^L \rho \dot{v} \delta v d
+x\right]_{t_1}^{t_2}-\int_{t_1}^{t_2} \int_0^L \rho \ddot{v} \delta v d
+x
+\]</span></p>
+<p>其中第一项为0。</p>
 <p>第二项为了消除变分中的二阶导，我们要进行两次分部积分：</p>
-<script type="math/tex; mode=display">
--\int_{t_1}^{t_2}\int_0^L E I \frac{\partial^2 v}{\partial x^2} \delta\left(\frac{\partial^2 v}{\partial x^2}\right) d x = -\left[\int_{t_1}^{t_2} E I \frac{\partial^2 v}{\partial x^2} \delta\left(\frac{\partial v}{\partial x}\right) d t\right]^L_0+\left[\int_{t_1}^{t_2} E I \frac{\partial^3 v}{\partial x^3} \delta v d t\right]^L_0-\int_{t_1}^{t_2} \int_0^L E I \frac{\partial^4 v}{\partial x^4} \delta v d x d t</script><p>第三项对应另外两种情况将分别为：</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2}kv(L,t)\delta v(L,t)</script><p>和</p>
-<script type="math/tex; mode=display">
-\int_{t_1}^{t_2}\alpha\frac{\partial v(L,t)}{\partial x}\delta\left(\frac{\partial v(L,t)}{\partial x}\right)dt</script><p>最终合并同类项之后，得到与受力无关的运动方程：</p>
-<script type="math/tex; mode=display">
-E I \frac{\partial^h v}{\partial x^4}+\rho s \ddot{v}=0</script><p>和约束条件：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+-\int_{t_1}^{t_2}\int_0^L E I \frac{\partial^2 v}{\partial x^2}
+\delta\left(\frac{\partial^2 v}{\partial x^2}\right) d x =
+-\left[\int_{t_1}^{t_2} E I \frac{\partial^2 v}{\partial x^2}
+\delta\left(\frac{\partial v}{\partial x}\right) d
+t\right]^L_0+\left[\int_{t_1}^{t_2} E I \frac{\partial^3 v}{\partial
+x^3} \delta v d t\right]^L_0-\int_{t_1}^{t_2} \int_0^L E I
+\frac{\partial^4 v}{\partial x^4} \delta v d x d t
+\]</span></p>
+<p>第三项对应另外两种情况将分别为：</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2}kv(L,t)\delta v(L,t)
+\]</span></p>
+<p>和</p>
+<p><span class="math display">\[
+\int_{t_1}^{t_2}\alpha\frac{\partial v(L,t)}{\partial
+x}\delta\left(\frac{\partial v(L,t)}{\partial x}\right)dt
+\]</span></p>
+<p>最终合并同类项之后，得到与受力无关的运动方程：</p>
+<p><span class="math display">\[
+E I \frac{\partial^h v}{\partial x^4}+\rho s \ddot{v}=0
+\]</span></p>
+<p>和约束条件：</p>
+<p><span class="math display">\[
 \begin{align}
-&-E I \frac{\partial^3 v(0,t)}{\partial x^3} \delta v(0,t) = 0 \Rightarrow v(0,t) = 0
-\\&
-+E I \frac{\partial^2 v(0,t)}{\partial x^2} \delta\left(\frac{\partial v(0,t)}{\partial x}\right)=0\Rightarrow \frac{\partial v(0,t)}{\partial x} = 0
-\end{align}</script><p>这两个约束条件和受力无关，以及于受力相关的：</p>
-<script type="math/tex; mode=display">
+&amp;-E I \frac{\partial^3 v(0,t)}{\partial x^3} \delta v(0,t) = 0
+\Rightarrow v(0,t) = 0
+\\&amp;
++E I \frac{\partial^2 v(0,t)}{\partial x^2} \delta\left(\frac{\partial
+v(0,t)}{\partial x}\right)=0\Rightarrow \frac{\partial v(0,t)}{\partial
+x} = 0
+\end{align}
+\]</span></p>
+<p>这两个约束条件和受力无关，以及于受力相关的：</p>
+<p><span class="math display">\[
 \begin{align}
-&\left(E I \frac{\partial^3 v(L,t)}{\partial x^3}+F_0||-kv(L,t)||0\right) \delta v=0\nonumber
-\\&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \  \ \ \
+&amp;\left(E I \frac{\partial^3 v(L,t)}{\partial
+x^3}+F_0||-kv(L,t)||0\right) \delta v=0\nonumber
+\\&amp;  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \
+\ \ \  \ \ \
 \Rightarrow E I \frac{\partial^3 v}{\partial x^3}(L, t)=-F_0||kv(L,t)||0
-\end{align}</script><p>$A||B||C$分别代表受恒定外力、受弹簧提供的外力和受力矩作用的情况。最后是关于力矩的：</p>
-<script type="math/tex; mode=display">
-\begin{align}(-E I &\frac{\partial^2 v(L,t)}{\partial x^2}-\alpha \frac{\partial v(L,t)}{\partial x}) \delta\left(\frac{\partial v(L,t)}{\partial x}\right) = 0\nonumber
-\\& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  
+\end{align}
+\]</span></p>
+<p><span
+class="math inline">\(A||B||C\)</span>分别代表受恒定外力、受弹簧提供的外力和受力矩作用的情况。最后是关于力矩的：</p>
+<p><span class="math display">\[
+\begin{align}(-E I &amp;\frac{\partial^2 v(L,t)}{\partial x^2}-\alpha
+\frac{\partial v(L,t)}{\partial x}) \delta\left(\frac{\partial
+v(L,t)}{\partial x}\right) = 0\nonumber
+\\&amp; \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  
 \Rightarrow
--E I \frac{\partial^2 v(L,t)}{\partial x^2}=\alpha \frac{\partial v(L,t)}{\partial x}
-\end{align}</script><p>如果不受力矩，则直接有：</p>
-<script type="math/tex; mode=display">
-\frac{\partial^2 v(L,t)}{\partial x^2} = 0</script><p>对应两个受力的情况。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/03/31/crs-1/">http://raphaelhyaan.cn/2024/03/31/crs-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/">结构力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/01/crs-2/" title="CRS II 结构模态计算  Calcul modal des structures"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CRS II 结构模态计算  Calcul modal des structures</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/16/system-logique/system-logique-6/" title="基本简化技术：代数法和卡诺法 Techniques de simplification élémentaires ： méthode algébrique et méthode de Karnaugh"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">基本简化技术：代数法和卡诺法 Techniques de simplification élémentaires ： méthode algébrique et méthode de Karnaugh</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/01/crs-2/" title="CRS II 结构模态计算  Calcul modal des structures"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="title">CRS II 结构模态计算  Calcul modal des structures</div></div></a></div><div><a href="/2024/04/01/crs-3/" title="CRS III 结构的离散分析 Discrétisation des structures"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="title">CRS III 结构的离散分析 Discrétisation des structures</div></div></a></div><div><a href="/2023/11/08/mmc-1/" title="MMC Chapitre 1 应力 contraintes"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC Chapitre 1 应力 contraintes</div></div></a></div><div><a href="/2023/11/08/mmc-2/" title="MMC  Chapitre 2 形变 Les Déformation"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC  Chapitre 2 形变 Les Déformation</div></div></a></div><div><a href="/2023/11/08/mmc-3/" title="MMC Chapitre 3 完备性方程 Loi de comportement"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC Chapitre 3 完备性方程 Loi de comportement</div></div></a></div><div><a href="/2023/11/08/mmc-4/" title="MMC Chapitre 4 能量分析"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC Chapitre 4 能量分析</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B7%AE%E5%88%86%E6%96%B9%E6%B3%95-Approche-differentielle-sur-les-systemes-discrets"><span class="toc-number">1.</span> <span class="toc-text">离散系统的差分方法 Approche différentielle sur les systèmes discrets</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E8%BF%B0%E7%9A%84%E6%8F%8F%E8%BF%B0-Description-des-formulations"><span class="toc-number">1.1.</span> <span class="toc-text">表述的描述 Description des formulations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E8%A1%A8%E8%BF%B0%EF%BC%9A%E7%A6%BB%E6%95%A3%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">强表述：离散系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E8%A1%A8%E8%BF%B0%EF%BC%9A%E5%8F%98%E5%88%86%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">弱表述：变分方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E4%BD%8D%E7%A7%BB%E5%8E%9F%E7%90%86-Principe-des-travaux-virtuels"><span class="toc-number">1.2.</span> <span class="toc-text">虚位移原理 Principe des travaux virtuels</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%88%86%E7%AE%97%E7%AC%A6-operateur-de-variation%E4%B8%8E%E8%99%9A%E4%BD%8D%E7%A7%BB-deplacement-virtuel"><span class="toc-number">1.2.1.</span> <span class="toc-text">变分算符 opérateur de variation与虚位移 déplacement virtuel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%8A%9B%E5%92%8C%E8%99%9A%E5%8A%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">虚力和虚功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E4%BD%8D%E7%A7%BB%E5%8E%9F%E7%90%86-Principe-des-travaux-virtuels-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">虚位移原理 Principe des travaux virtuels</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">哈密顿原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD-Energie-cinetique"><span class="toc-number">2.0.1.</span> <span class="toc-text">动能 Energie cinétique</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F-Travail-des-actions-mecaniques"><span class="toc-number">2.0.2.</span> <span class="toc-text">功 Travail des actions mécaniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E5%9D%90%E6%A0%87"><span class="toc-number">2.0.3.</span> <span class="toc-text">广义坐标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86-Enonce-du-principe-de-Hamilton"><span class="toc-number">2.1.</span> <span class="toc-text">哈密顿原理 Enoncé du principe de Hamilton</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-Equations-du-mouvement-a-partir-du-principe-de-Hamilton"><span class="toc-number">2.1.1.</span> <span class="toc-text">基于哈密顿原理的运动方程 Equations du mouvement à partir du principe de Hamilton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-Les-equations-du-mouvement-Lagrange"><span class="toc-number">2.1.2.</span> <span class="toc-text">拉格朗日运动方程  Les  équations du mouvement Lagrange</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">3.</span> <span class="toc-text">连续系统的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E7%9A%84%E5%93%88%E8%8E%AB%E9%A1%BF%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">广义的哈莫顿原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD"><span class="toc-number">3.1.1.</span> <span class="toc-text">动能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%8A%BF%E8%83%BD"><span class="toc-number">3.1.2.</span> <span class="toc-text">外势能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%A2%E5%8F%98%E5%8A%BF%E8%83%BD-energie-de-deformation"><span class="toc-number">3.1.3.</span> <span class="toc-text">形变势能 énergie de déformation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%8A%9B%E5%81%9A%E5%8A%9F"><span class="toc-number">3.1.4.</span> <span class="toc-text">外力做功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E7%9A%84%E5%93%88%E8%8E%AB%E9%A1%BF%E5%8E%9F%E7%90%86-1"><span class="toc-number">3.1.5.</span> <span class="toc-text">广义的哈莫顿原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%89%E4%BC%B8%EF%BC%8C%E5%BC%AF%E6%9B%B2%E7%9A%84%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%96%B9%E7%A8%8B%E5%92%8C%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6%E6%B1%82%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">拉伸，弯曲的动力学方程和边界条件求法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E4%BC%B8%E5%8E%8B%E7%BC%A9%E6%9D%86%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">4.1.</span> <span class="toc-text">拉伸压缩杆的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD-1"><span class="toc-number">4.1.1.</span> <span class="toc-text">动能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%BF%E8%83%BD"><span class="toc-number">4.1.2.</span> <span class="toc-text">势能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%8A%9B%E5%81%9A%E5%8A%9F-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">外力做功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E8%8E%AB%E9%A1%BF%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.4.</span> <span class="toc-text">哈莫顿原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B2%E6%A2%81%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">4.2.</span> <span class="toc-text">曲梁的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD%EF%BC%8C%E5%8A%BF%E8%83%BD%E5%92%8C%E6%89%80%E5%8F%97%E5%A4%96%E5%8A%9B%E5%81%9A%E5%8A%9F"><span class="toc-number">4.2.1.</span> <span class="toc-text">动能，势能和所受外力做功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">哈密顿原理</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="柏林自然博物馆的金刚鹦鹉"/></a><div class="content"><a class="title" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉">柏林自然博物馆的金刚鹦鹉</a><time datetime="2024-12-03T23:01:11.000Z" title="发表于 2024-12-04 00:01:11">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-3/" title="TS03 separation de source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS03 separation de source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-3/" title="TS03 separation de source">TS03 separation de source</a><time datetime="2024-12-03T22:55:27.000Z" title="发表于 2024-12-03 23:55:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS02 Localisation de Source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source">TS02 Localisation de Source</a><time datetime="2024-12-03T22:55:26.000Z" title="发表于 2024-12-03 23:55:26">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS01 Réponse Impulsionnelle de Salle"/></a><div class="content"><a class="title" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle">TS01 Réponse Impulsionnelle de Salle</a><time datetime="2024-12-03T22:55:25.000Z" title="发表于 2024-12-03 23:55:25">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蔀易染.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="关于torchtext和pytorch的版本配合"/></a><div class="content"><a class="title" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合">关于torchtext和pytorch的版本配合</a><time datetime="2024-11-18T08:47:12.000Z" title="发表于 2024-11-18 09:47:12">2024-11-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+-E I \frac{\partial^2 v(L,t)}{\partial x^2}=\alpha \frac{\partial
+v(L,t)}{\partial x}
+\end{align}
+\]</span></p>
+<p>如果不受力矩，则直接有：</p>
+<p><span class="math display">\[
+\frac{\partial^2 v(L,t)}{\partial x^2} = 0
+\]</span></p>
+<p>对应两个受力的情况。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/03/31/crs-1/">http://raphaelhyaan.cn/2024/03/31/crs-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/">结构力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/01/crs-2/" title="CRS II 结构模态计算  Calcul modal des structures"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CRS II 结构模态计算  Calcul modal des structures</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/16/system-logique/system-logique-6/" title="基本简化技术：代数法和卡诺法 Techniques de simplification élémentaires ： méthode algébrique et méthode de Karnaugh"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsystemlogique.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">基本简化技术：代数法和卡诺法 Techniques de simplification élémentaires ： méthode algébrique et méthode de Karnaugh</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/01/crs-2/" title="CRS II 结构模态计算  Calcul modal des structures"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="title">CRS II 结构模态计算  Calcul modal des structures</div></div></a></div><div><a href="/2024/04/01/crs-3/" title="CRS III 结构的离散分析 Discrétisation des structures"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fcrs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="title">CRS III 结构的离散分析 Discrétisation des structures</div></div></a></div><div><a href="/2023/11/08/mmc-2/" title="MMC  Chapitre 2 形变 Les Déformation"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC  Chapitre 2 形变 Les Déformation</div></div></a></div><div><a href="/2023/11/08/mmc-3/" title="MMC Chapitre 3 完备性方程 Loi de comportement"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC Chapitre 3 完备性方程 Loi de comportement</div></div></a></div><div><a href="/2023/11/08/mmc-1/" title="MMC Chapitre 1 应力 contraintes"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">MMC Chapitre 1 应力 contraintes</div></div></a></div><div><a href="/2023/11/08/rdm-1/" title="RDM Chapitre 1 结构力学模型 Modѐlisation des structures en efforts"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fstructure.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">RDM Chapitre 1 结构力学模型 Modѐlisation des structures en efforts</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B7%AE%E5%88%86%E6%96%B9%E6%B3%95-approche-diff%C3%A9rentielle-sur-les-syst%C3%A8mes-discrets"><span class="toc-number">1.</span> <span class="toc-text">离散系统的差分方法
+Approche différentielle sur les systèmes discrets</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E8%BF%B0%E7%9A%84%E6%8F%8F%E8%BF%B0-description-des-formulations"><span class="toc-number">1.1.</span> <span class="toc-text">表述的描述 Description
+des formulations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E8%A1%A8%E8%BF%B0%E7%A6%BB%E6%95%A3%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">强表述：离散系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E8%A1%A8%E8%BF%B0%E5%8F%98%E5%88%86%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">弱表述：变分方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E4%BD%8D%E7%A7%BB%E5%8E%9F%E7%90%86-principe-des-travaux-virtuels"><span class="toc-number">1.2.</span> <span class="toc-text">虚位移原理 Principe
+des travaux virtuels</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%88%86%E7%AE%97%E7%AC%A6-op%C3%A9rateur-de-variation%E4%B8%8E%E8%99%9A%E4%BD%8D%E7%A7%BB-d%C3%A9placement-virtuel"><span class="toc-number">1.2.1.</span> <span class="toc-text">变分算符
+opérateur de variation与虚位移 déplacement virtuel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%8A%9B%E5%92%8C%E8%99%9A%E5%8A%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">虚力和虚功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E4%BD%8D%E7%A7%BB%E5%8E%9F%E7%90%86-principe-des-travaux-virtuels-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">虚位移原理 Principe
+des travaux virtuels</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">哈密顿原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD-energie-cin%C3%A9tique"><span class="toc-number">2.0.1.</span> <span class="toc-text">动能 Energie cinétique</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F-travail-des-actions-m%C3%A9caniques"><span class="toc-number">2.0.2.</span> <span class="toc-text">功 Travail des actions
+mécaniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E5%9D%90%E6%A0%87"><span class="toc-number">2.0.3.</span> <span class="toc-text">广义坐标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86-enonc%C3%A9-du-principe-de-hamilton"><span class="toc-number">2.1.</span> <span class="toc-text">哈密顿原理 Enoncé du
+principe de Hamilton</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86%E7%9A%84%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-equations-du-mouvement-%C3%A0-partir-du-principe-de-hamilton"><span class="toc-number">2.1.1.</span> <span class="toc-text">基于哈密顿原理的运动方程
+Equations du mouvement à partir du principe de Hamilton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-les-%C3%A9quations-du-mouvement-lagrange"><span class="toc-number">2.1.2.</span> <span class="toc-text">拉格朗日运动方程
+Les équations du mouvement Lagrange</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">3.</span> <span class="toc-text">连续系统的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E7%9A%84%E5%93%88%E8%8E%AB%E9%A1%BF%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">广义的哈莫顿原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD"><span class="toc-number">3.1.1.</span> <span class="toc-text">动能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%8A%BF%E8%83%BD"><span class="toc-number">3.1.2.</span> <span class="toc-text">外势能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%A2%E5%8F%98%E5%8A%BF%E8%83%BD-%C3%A9nergie-de-d%C3%A9formation"><span class="toc-number">3.1.3.</span> <span class="toc-text">形变势能 énergie de
+déformation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%8A%9B%E5%81%9A%E5%8A%9F"><span class="toc-number">3.1.4.</span> <span class="toc-text">外力做功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E7%9A%84%E5%93%88%E8%8E%AB%E9%A1%BF%E5%8E%9F%E7%90%86-1"><span class="toc-number">3.1.5.</span> <span class="toc-text">广义的哈莫顿原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%89%E4%BC%B8%E5%BC%AF%E6%9B%B2%E7%9A%84%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%96%B9%E7%A8%8B%E5%92%8C%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6%E6%B1%82%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">拉伸，弯曲的动力学方程和边界条件求法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E4%BC%B8%E5%8E%8B%E7%BC%A9%E6%9D%86%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">4.1.</span> <span class="toc-text">拉伸压缩杆的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD-1"><span class="toc-number">4.1.1.</span> <span class="toc-text">动能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%BF%E8%83%BD"><span class="toc-number">4.1.2.</span> <span class="toc-text">势能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E5%8A%9B%E5%81%9A%E5%8A%9F-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">外力做功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E8%8E%AB%E9%A1%BF%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.4.</span> <span class="toc-text">哈莫顿原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B2%E6%A2%81%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">4.2.</span> <span class="toc-text">曲梁的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD%E5%8A%BF%E8%83%BD%E5%92%8C%E6%89%80%E5%8F%97%E5%A4%96%E5%8A%9B%E5%81%9A%E5%8A%9F"><span class="toc-number">4.2.1.</span> <span class="toc-text">动能，势能和所受外力做功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF%E5%8E%9F%E7%90%86-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">哈密顿原理</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/Transformer-01/" title="Transformer01 gpt模型的原理与实现"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蝶1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="Transformer01 gpt模型的原理与实现"/></a><div class="content"><a class="title" href="/2024/12/04/Transformer-01/" title="Transformer01 gpt模型的原理与实现">Transformer01 gpt模型的原理与实现</a><time datetime="2024-12-04T19:33:01.000Z" title="发表于 2024-12-04 20:33:01">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="柏林自然博物馆的金刚鹦鹉"/></a><div class="content"><a class="title" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉">柏林自然博物馆的金刚鹦鹉</a><time datetime="2024-12-03T23:01:11.000Z" title="发表于 2024-12-04 00:01:11">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-3/" title="TS03 separation de source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS03 separation de source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-3/" title="TS03 separation de source">TS03 separation de source</a><time datetime="2024-12-03T22:55:27.000Z" title="发表于 2024-12-03 23:55:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS02 Localisation de Source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source">TS02 Localisation de Source</a><time datetime="2024-12-03T22:55:26.000Z" title="发表于 2024-12-03 23:55:26">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS01 Réponse Impulsionnelle de Salle"/></a><div class="content"><a class="title" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle">TS01 Réponse Impulsionnelle de Salle</a><time datetime="2024-12-03T22:55:25.000Z" title="发表于 2024-12-03 23:55:25">2024-12-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

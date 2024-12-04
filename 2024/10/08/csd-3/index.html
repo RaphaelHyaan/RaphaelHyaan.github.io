@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’étatPLAN  校正器的作用 基于极点配置的状态反馈控制（尤其是SISO情形） 线性二次型控制（LQ） 积分作用控制 结论  C3.1 校正器的作用 Rôle du correcteur C3.1.1 对于受控系统的要求 demandées à un système asservi">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="C3 基于状态空间方法的系统控制 Commande des systèmes par approche d’état PLAN   校正器的作用 基于极点配置的状态反馈控制（尤其是SISO情形） 线性二次型控制（LQ） 积分作用控制 结论  C3.1 校正器的作用 Rôle du correcteur  C3.1.1 对于受控系统的要求 demandées à un">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/10/08/csd-3/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’étatPLAN  校正器的作用 基于极点配置的状态反馈控制（尤其是SISO情形） 线性二次型控制（LQ） 积分作用控制 结论  C3.1 校正器的作用 Rôle du correcteur C3.1.1 对于受控系统的要求 demandées à un système asservi">
+<meta property="og:description" content="C3 基于状态空间方法的系统控制 Commande des systèmes par approche d’état PLAN   校正器的作用 基于极点配置的状态反馈控制（尤其是SISO情形） 线性二次型控制（LQ） 积分作用控制 结论  C3.1 校正器的作用 Rôle du correcteur  C3.1.1 对于受控系统的要求 demandées à un">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F%E7%BE%BD.png">
 <meta property="article:published_time" content="2024-10-08T09:20:38.000Z">
@@ -154,7 +154,12 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-08T09:20:38.000Z" title="发表于 2024-10-08 11:20:38">2024-10-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-21T09:03:56.119Z" title="更新于 2024-10-21 11:03:56">2024-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">学习笔记-动态系统控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="C3-基于状态空间方法的系统控制-Commande-des-systemes-par-approche-d’etat"><a href="#C3-基于状态空间方法的系统控制-Commande-des-systemes-par-approche-d’etat" class="headerlink" title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"></a>C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</h1><h3 id="PLAN"><a href="#PLAN" class="headerlink" title="PLAN"></a>PLAN</h3><hr>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-08T09:20:38.000Z" title="发表于 2024-10-08 11:20:38">2024-10-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-21T09:03:56.119Z" title="更新于 2024-10-21 11:03:56">2024-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">学习笔记-动态系统控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="c3-基于状态空间方法的系统控制-commande-des-systèmes-par-approche-détat">C3
+基于状态空间方法的系统控制 Commande des systèmes par approche
+d’état</h1>
+<h3 id="plan">PLAN</h3>
+<hr />
 <ul>
 <li><strong>校正器的作用</strong></li>
 <li><strong>基于极点配置的状态反馈控制</strong>（尤其是SISO情形）</li>
@@ -162,366 +167,692 @@
 <li><strong>积分作用控制</strong></li>
 <li><strong>结论</strong></li>
 </ul>
-<h2 id="C3-1-校正器的作用-Role-du-correcteur"><a href="#C3-1-校正器的作用-Role-du-correcteur" class="headerlink" title="C3.1 校正器的作用 Rôle du correcteur"></a>C3.1 校正器的作用 Rôle du correcteur</h2><hr>
-<h3 id="C3-1-1-对于受控系统的要求-demandees-a-un-systeme-asservi"><a href="#C3-1-1-对于受控系统的要求-demandees-a-un-systeme-asservi" class="headerlink" title="C3.1.1 对于受控系统的要求 demandées à un système asservi"></a>C3.1.1 对于受控系统的要求 demandées à un système asservi</h3><hr>
+<h2 id="c3.1-校正器的作用-rôle-du-correcteur">C3.1 校正器的作用 Rôle du
+correcteur</h2>
+<hr />
+<h3 id="c3.1.1-对于受控系统的要求-demandées-à-un-système-asservi">C3.1.1
+对于受控系统的要求 demandées à un système asservi</h3>
+<hr />
 <ul>
-<li><strong>稳定性 stabilité</strong>：稳定一个本质上不稳定的系统，并确保系统具有正确的阻尼。</li>
-<li><strong>快速性 rapidité</strong>：保证系统的动态行为，提供令人满意的响应时间。</li>
-<li><strong>精确性 précision</strong>（静态或动态）：减少或消除相对于所需参考值的误差。<br>一个控制系统确保稳定性、快速性和精确性之间的折中。</li>
+<li><strong>稳定性
+stabilité</strong>：稳定一个本质上不稳定的系统，并确保系统具有正确的阻尼。</li>
+<li><strong>快速性
+rapidité</strong>：保证系统的动态行为，提供令人满意的响应时间。</li>
+<li><strong>精确性
+précision</strong>（静态或动态）：减少或消除相对于所需参考值的误差。
+一个控制系统确保稳定性、快速性和精确性之间的折中。</li>
 </ul>
-<hr>
+<hr />
 <p><strong>稳定性</strong></p>
 <p>稳定性取决于演化矩阵的谱，我们在上一章已经讨论。</p>
-<hr>
+<hr />
 <p><strong>快速性</strong></p>
-<p>对于二阶系统，使用超调量$D$，第一最大值时间$t_m$，响应时间$t_r$等参数衡量快速性。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage.png" alt=""></p>
+<p>对于二阶系统，使用超调量<span
+class="math inline">\(D\)</span>，第一最大值时间<span
+class="math inline">\(t_m\)</span>，响应时间<span
+class="math inline">\(t_r\)</span>等参数衡量快速性。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage.png" /></p>
 <ul>
 <li><p>超调量 <code>overshoot</code></p>
-<script type="math/tex; mode=display">
-  D=\frac{y_{\max }-y_{s t}}{y_{s t}}=\exp \left(-\frac{\pi \zeta}{\sqrt{1-\zeta^2}}\right)</script></li>
+<p><span class="math display">\[
+  D=\frac{y_{\max }-y_{s t}}{y_{s t}}=\exp \left(-\frac{\pi
+\zeta}{\sqrt{1-\zeta^2}}\right)
+  \]</span></p></li>
 <li><p>欠调量 <code>undershoot</code></p>
-<script type="math/tex; mode=display">
-  y_{\text {undershoot }}=\sup (-y(t))</script></li>
+<p><span class="math display">\[
+  y_{\text {undershoot }}=\sup (-y(t))
+  \]</span></p></li>
 <li><p>响应时间 <code>Temps de réponse</code></p>
-<script type="math/tex; mode=display">
-  t_r \Rightarrow \text { bande de } \pm 5 \% \text { du } y_{s t}</script></li>
+<p><span class="math display">\[
+  t_r \Rightarrow \text { bande de } \pm 5 \% \text { du } y_{s t}
+  \]</span></p></li>
 <li><p>上升时间 <code>Temps de montée</code></p>
-<script type="math/tex; mode=display">
-  t_{\text {monteer }} \Rightarrow \text { de 0,1à } 0,9 \text { du } y_{s t}</script></li>
-<li><p>第一个最大值时间  <code>Temps du 1ermaximum</code></p>
-</li>
+<p><span class="math display">\[
+  t_{\text {monteer }} \Rightarrow \text { de 0,1à } 0,9 \text { du }
+y_{s t}
+  \]</span></p></li>
+<li><p>第一个最大值时间 <code>Temps du 1ermaximum</code></p></li>
 </ul>
-<script type="math/tex; mode=display">
-t_m=\frac{\pi}{\omega_0 \sqrt{1-\zeta^2}} \Rightarrow \omega_0 t_m \cong 3</script><hr>
+<p><span class="math display">\[
+t_m=\frac{\pi}{\omega_0 \sqrt{1-\zeta^2}} \Rightarrow \omega_0 t_m \cong
+3
+\]</span></p>
+<hr />
 <p><strong>精确性</strong></p>
-<p>在稳态下输出和设定值 <code>la consigne</code> 之间没有偏差<code>écart</code>（即使存在扰动<code>perturbation</code>）。</p>
-<h3 id="C3-1-2-闭环控制系统的状态"><a href="#C3-1-2-闭环控制系统的状态" class="headerlink" title="C3.1.2 闭环控制系统的状态"></a>C3.1.2 闭环控制系统的状态</h3><hr>
+<p>在稳态下输出和设定值 <code>la consigne</code>
+之间没有偏差<code>écart</code>（即使存在扰动<code>perturbation</code>）。</p>
+<h3 id="c3.1.2-闭环控制系统的状态">C3.1.2 闭环控制系统的状态</h3>
+<hr />
 <p>考虑一个线性时不变系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{x}(t)=A x(t)+B u(t) \\& y(t)=C x(t) .\end{aligned}</script><p>假设其系统如下：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_1.png" alt=""></p>
-<p>其中，$K$称为状态反馈矩阵<code>retour d’état</code>。那么有：$u(t)=-K x(t)+e(t)$，因此系统可以写作：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{x}(t)=A x(t)+B u(t) \\&amp; y(t)=C x(t)
+.\end{aligned}
+\]</span></p>
+<p>假设其系统如下：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_1.png" /></p>
+<p>其中，<span
+class="math inline">\(K\)</span>称为状态反馈矩阵<code>retour d’état</code>。那么有：<span
+class="math inline">\(u(t)=-K x(t)+e(t)\)</span>，因此系统可以写作：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& \dot{x}(t)=(A-B K) x(t)+B e(t) \\
-& y(t)=C x(t)
-\end{aligned}</script><p>通过这种控制，我们将矩阵 $A$ 修改为 $A - BK$。状态反馈控制因此影响了系统的动态行为，系统现在依赖于 $A - BK$ 的特征值。状态反馈矩阵 $K$ 可以让我们选择期望的特征值，而新的输入 $e$ 则可以用来控制系统的稳态行为。</p>
-<hr>
+&amp; \dot{x}(t)=(A-B K) x(t)+B e(t) \\
+&amp; y(t)=C x(t)
+\end{aligned}
+\]</span></p>
+<p>通过这种控制，我们将矩阵 <span class="math inline">\(A\)</span>
+修改为 <span class="math inline">\(A -
+BK\)</span>。状态反馈控制因此影响了系统的动态行为，系统现在依赖于 <span
+class="math inline">\(A - BK\)</span> 的特征值。状态反馈矩阵 <span
+class="math inline">\(K\)</span> 可以让我们选择期望的特征值，而新的输入
+<span class="math inline">\(e\)</span>
+则可以用来控制系统的稳态行为。</p>
+<hr />
 <p><strong>一些定义</strong></p>
 <p>对于一个闭环控制系统：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_2.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_2.png" /></p>
 <p>其<strong>开环传递函数</strong><code>Fonction de transfert en boucle ouverte</code>为：</p>
-<script type="math/tex; mode=display">
-\operatorname{FTBO}(p)=\frac{M(p)}{\varepsilon(p)}=\mu(p) \beta(p)</script><p>其<strong>闭环控制函数</strong><code>Fonction de transfert en boucle fermée</code>为：</p>
-<script type="math/tex; mode=display">
-\operatorname{FTBF}(p)=\frac{S(p)}{E(p)}=\frac{\mu(p)}{1+\mu(p) \beta(p)}</script><p>其<strong>截止频率</strong><code>Pulsation de coupure</code> 为开环传递函数为$1$是对应的频率：</p>
-<script type="math/tex; mode=display">
-\left|F T B O\left(j \omega_c\right)\right|=1(0 \mathrm{~dB})</script><p>所有开环传递函数值大于$1$的频率的集合$\left{\omega:\left|T_{B O}(j \omega)\right|&gt;1\right}$称为<strong>导带</strong><code>bande passante</code>。</p>
-<h2 id="C3-2-基于极点配置的状态反馈控制（尤其是SISO情形）Commande-retour-d’etat-par-placement-de-poles-notamment-cas-SISO"><a href="#C3-2-基于极点配置的状态反馈控制（尤其是SISO情形）Commande-retour-d’etat-par-placement-de-poles-notamment-cas-SISO" class="headerlink" title="C3.2 基于极点配置的状态反馈控制（尤其是SISO情形）Commande retour d’état par placement de pôles (notamment cas SISO)"></a>C3.2 <strong>基于极点配置的状态反馈控制</strong>（尤其是SISO情形）Commande retour d’état par placement de pôles (notamment cas SISO)</h2><hr>
-<h3 id="C3-2-1-极点配置-placement-de-poles"><a href="#C3-2-1-极点配置-placement-de-poles" class="headerlink" title="C3.2.1 极点配置  placement de pôles"></a>C3.2.1 极点配置  placement de pôles</h3><hr>
+<p><span class="math display">\[
+\operatorname{FTBO}(p)=\frac{M(p)}{\varepsilon(p)}=\mu(p) \beta(p)
+\]</span></p>
+<p>其<strong>闭环控制函数</strong><code>Fonction de transfert en boucle fermée</code>为：</p>
+<p><span class="math display">\[
+\operatorname{FTBF}(p)=\frac{S(p)}{E(p)}=\frac{\mu(p)}{1+\mu(p)
+\beta(p)}
+\]</span></p>
+<p>其<strong>截止频率</strong><code>Pulsation de coupure</code>
+为开环传递函数为<span class="math inline">\(1\)</span>是对应的频率：</p>
+<p><span class="math display">\[
+\left|F T B O\left(j \omega_c\right)\right|=1(0 \mathrm{~dB})
+\]</span></p>
+<p>所有开环传递函数值大于<span
+class="math inline">\(1\)</span>的频率的集合<span
+class="math inline">\(\left\{\omega:\left|T_{B O}(j
+\omega)\right|&gt;1\right\}\)</span>称为<strong>导带</strong><code>bande passante</code>。</p>
+<h2
+id="c3.2-基于极点配置的状态反馈控制尤其是siso情形commande-retour-détat-par-placement-de-pôles-notamment-cas-siso">C3.2
+<strong>基于极点配置的状态反馈控制</strong>（尤其是SISO情形）Commande
+retour d’état par placement de pôles (notamment cas SISO)</h2>
+<hr />
+<h3 id="c3.2.1-极点配置-placement-de-pôles">C3.2.1 极点配置 placement de
+pôles</h3>
+<hr />
 <p>继续考虑状态方程：</p>
-<script type="math/tex; mode=display">
-\dot{\mathbf{x}}(t)=(\mathbf{A}-\mathbf{B} \mathbf{K}) \mathbf{x}(t)+\mathbf{B} \mathbf{e}(t)</script><p>极点配置法希望通过选择闭环系统矩阵$\mathbf{A}-\mathbf{B K}$的特征值来计算矩阵$\mathbf{ K }$。根据前一章的研究结果，有：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}&\mathbf{x}(t)=e^{(\mathbf{A}-\mathbf{B K})\left(t-t_0\right)} \mathbf{x}\left(t_0\right)=\sum_{i=1}^n \alpha_i e^{\lambda_i\left(t-t_0\right)} \quad \\&\lambda_i=spectrum(\mathbf{A}-\mathbf{B K})\end{aligned}</script><p>因此，可以通过选择合适的特征值来塑造系统相应特征。</p>
-<h3 id="C3-2-2-Wonham定理"><a href="#C3-2-2-Wonham定理" class="headerlink" title="C3.2.2 Wonham定理"></a>C3.2.2 Wonham定理</h3><hr>
-<p><strong>Wonham定理</strong>：对于任意选择的特征值集合 $\left{\lambda_1, \ldots, \lambda_n\right}$ ，其中每个 $\lambda_i$ 要么是实数，要么是另一个特征值 $\lambda_j$的共轭复数，存在一个矩阵 $\mathbf{K} \in \mathbb{R}$ ，使得矩阵 $\mathbf{A}-\mathbf{B K}$ 的特征值为 $\left{\lambda_1, \ldots, \lambda_n\right}$ ，当且仅当系统完全可控。</p>
+<p><span class="math display">\[
+\dot{\mathbf{x}}(t)=(\mathbf{A}-\mathbf{B} \mathbf{K})
+\mathbf{x}(t)+\mathbf{B} \mathbf{e}(t)
+\]</span></p>
+<p>极点配置法希望通过选择闭环系统矩阵<span
+class="math inline">\(\mathbf{A}-\mathbf{B
+K}\)</span>的特征值来计算矩阵<span class="math inline">\(\mathbf{ K
+}\)</span>。根据前一章的研究结果，有：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp;\mathbf{x}(t)=e^{(\mathbf{A}-\mathbf{B
+K})\left(t-t_0\right)} \mathbf{x}\left(t_0\right)=\sum_{i=1}^n \alpha_i
+e^{\lambda_i\left(t-t_0\right)} \quad
+\\&amp;\lambda_i=spectrum(\mathbf{A}-\mathbf{B K})\end{aligned}
+\]</span></p>
+<p>因此，可以通过选择合适的特征值来塑造系统相应特征。</p>
+<h3 id="c3.2.2-wonham定理">C3.2.2 Wonham定理</h3>
+<hr />
+<p><strong>Wonham定理</strong>：对于任意选择的特征值集合 <span
+class="math inline">\(\left\{\lambda_1, \ldots,
+\lambda_n\right\}\)</span> ，其中每个 <span
+class="math inline">\(\lambda_i\)</span> 要么是实数，要么是另一个特征值
+<span class="math inline">\(\lambda_j\)</span>的共轭复数，存在一个矩阵
+<span class="math inline">\(\mathbf{K} \in \mathbb{R}\)</span>
+，使得矩阵 <span class="math inline">\(\mathbf{A}-\mathbf{B K}\)</span>
+的特征值为 <span class="math inline">\(\left\{\lambda_1, \ldots,
+\lambda_n\right\}\)</span> ，当且仅当系统完全可控。</p>
 <p>如果系统不是完全可控的，可以通过基变换，将其转换为如下形式（连续时间情况下）：·</p>
-<script type="math/tex; mode=display">
-\binom{\dot{\tilde{x}}_c}{\dot{\hat{x}}_c}=\left(\begin{array}{cc}\tilde{A}_c-\tilde{B}_c \tilde{K}_1 & A_{12}-\tilde{B}_c \tilde{K}_2 \\0 & \hat{A}_c\end{array}\right)\binom{\tilde{x}_c}{\hat{x}_c}+\binom{\tilde{B}_1}{0} e .</script><p>此时，演化矩阵的特征值一定包括$\hat{A}_c$的特征值。</p>
-<h3 id="C3-2-3-特征值的选择和状态反馈矩阵K的计算"><a href="#C3-2-3-特征值的选择和状态反馈矩阵K的计算" class="headerlink" title="C3.2.3 特征值的选择和状态反馈矩阵K的计算"></a>C3.2.3 特征值的选择和状态反馈矩阵K的计算</h3><hr>
+<p><span class="math display">\[
+\binom{\dot{\tilde{x}}_c}{\dot{\hat{x}}_c}=\left(\begin{array}{cc}\tilde{A}_c-\tilde{B}_c
+\tilde{K}_1 &amp; A_{12}-\tilde{B}_c \tilde{K}_2 \\0 &amp;
+\hat{A}_c\end{array}\right)\binom{\tilde{x}_c}{\hat{x}_c}+\binom{\tilde{B}_1}{0}
+e .
+\]</span></p>
+<p>此时，演化矩阵的特征值一定包括<span
+class="math inline">\(\hat{A}_c\)</span>的特征值。</p>
+<h3 id="c3.2.3-特征值的选择和状态反馈矩阵k的计算">C3.2.3
+特征值的选择和状态反馈矩阵K的计算</h3>
+<hr />
 <p><strong>特征值的选择</strong></p>
 <p>闭环系统的特征值选择十分复杂，因为极点位置无法直接得出系统在参数变化时的鲁棒性。这种选择通常依赖于设计者的经验。一般遵循以下规则和经验：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_3.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_3.png" /></p>
 <ul>
-<li><strong>闭环稳定性</strong><code>stabilité en boucle fermée</code> 要求所有特征值的实部为负。</li>
-<li>一个负实特征值 $\lambda_i=-\sigma_i\left(\sigma_i&gt;0\right)$ 会在闭环系统的响应中引入一个暂态分量 $e^{-\sigma_i t}$ ，其收敛速度与 $\sigma_i$ 成正比， $\sigma_i$ 越大，收敛越快。</li>
+<li><strong>闭环稳定性</strong><code>stabilité en boucle fermée</code>
+要求所有特征值的实部为负。</li>
+<li>一个负实特征值 <span
+class="math inline">\(\lambda_i=-\sigma_i\left(\sigma_i&gt;0\right)\)</span>
+会在闭环系统的响应中引入一个暂态分量 <span
+class="math inline">\(e^{-\sigma_i t}\)</span> ，其收敛速度与 <span
+class="math inline">\(\sigma_i\)</span> 成正比， <span
+class="math inline">\(\sigma_i\)</span> 越大，收敛越快。</li>
 </ul>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_4.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_4.png" /></p>
 <ul>
-<li>一个复数特征值及其共轭复数 $\lambda_i=-\sigma_i \pm j \omega_i$ 会导致系统出现振荡衰减响应，形式为 $e^{-\sigma_i t} \sin \left(\omega_i t\right)$ 。 $\sigma_i$ 越大，衰减越快， $\omega_i$ 越大，振荡频率越高。阻尼系数由以下关系式给出:</li>
+<li>一个复数特征值及其共轭复数 <span
+class="math inline">\(\lambda_i=-\sigma_i \pm j \omega_i\)</span>
+会导致系统出现振荡衰减响应，形式为 <span
+class="math inline">\(e^{-\sigma_i t} \sin \left(\omega_i
+t\right)\)</span> 。 <span class="math inline">\(\sigma_i\)</span>
+越大，衰减越快， <span class="math inline">\(\omega_i\)</span>
+越大，振荡频率越高。阻尼系数由以下关系式给出:</li>
 </ul>
-<script type="math/tex; mode=display">
-\xi_i=\frac{\sigma_i}{\sqrt{\sigma_i^2+\omega_i^2}}</script><ul>
-<li>可以定义一个类似于梯形的区域（见图3.4），该区域用于确定合理的特征值位置，确保系统快速性和阻尼:<ul>
-<li>$-\sigma_{\min }$ 确定了最小快速性；</li>
-<li>$-\sigma_{\max }$ 确定了最大快速性（以限制执行器的工作强度）；</li>
-<li>一个角度 $\varphi$ 使得 $\cos (\varphi)=\xi$ ，定义了最小的阻尼比。</li>
+<p><span class="math display">\[
+\xi_i=\frac{\sigma_i}{\sqrt{\sigma_i^2+\omega_i^2}}
+\]</span></p>
+<ul>
+<li>可以定义一个类似于梯形的区域（见图3.4），该区域用于确定合理的特征值位置，确保系统快速性和阻尼:
+<ul>
+<li><span class="math inline">\(-\sigma_{\min }\)</span>
+确定了最小快速性；</li>
+<li><span class="math inline">\(-\sigma_{\max }\)</span>
+确定了最大快速性（以限制执行器的工作强度）；</li>
+<li>一个角度 <span class="math inline">\(\varphi\)</span> 使得 <span
+class="math inline">\(\cos (\varphi)=\xi\)</span>
+，定义了最小的阻尼比。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_5.png" alt=""></p>
-<hr>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_5.png" /></p>
+<hr />
 <p><strong>计算状态反馈矩阵</strong></p>
 <p>在选择特征之后，可以通过特征多项式来计算状态反馈矩阵：</p>
-<script type="math/tex; mode=display">
-|\lambda \mathbf{I}-(A-B K)| \equiv \prod_{i=1}^n\left(\lambda-\lambda_i\right)</script><hr>
+<p><span class="math display">\[
+|\lambda \mathbf{I}-(A-B K)| \equiv
+\prod_{i=1}^n\left(\lambda-\lambda_i\right)
+\]</span></p>
+<hr />
 <p><strong>使用Matlab计算</strong></p>
 <p>最简单的方法是直接通过Matlab的<code>place</code>或<code>acker</code>命令计算。</p>
 <ul>
-<li><code>place</code> 命令用于计算状态反馈矩阵 $K$，使得闭环系统的极点位于指定的位置。它通过求解控制系统的极点分配问题，提供精确的极点配置。</li>
+<li><code>place</code> 命令用于计算状态反馈矩阵 <span
+class="math inline">\(K\)</span>，使得闭环系统的极点位于指定的位置。它通过求解控制系统的极点分配问题，提供精确的极点配置。</li>
 </ul>
 <p><strong>语法：</strong></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">K = place(A, B, p)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>其中<ul>
+<li>其中
+<ul>
 <li><code>p</code>: 指定的期望闭环极点向量。</li>
 <li><code>K</code>: 状态反馈矩阵。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><code>acker</code> 命令基于 <code>Ackermann’s formula</code>（阿克曼公式）来计算状态反馈增益矩阵 K，使系统的闭环极点位于给定的期望值。它用于线性系统的极点配置。</p>
+<p><code>acker</code> 命令基于
+<code>Ackermann’s formula</code>（阿克曼公式）来计算状态反馈增益矩阵
+K，使系统的闭环极点位于给定的期望值。它用于线性系统的极点配置。</p>
 <p><strong>语法：</strong></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">K = acker(A, B, p)</span><br></pre></td></tr></table></figure>
-<hr>
+<hr />
 <p><strong>单变量系统</strong></p>
-<p>考虑一个单变量系统：$\dot{x}(t)=A x(t)+B u(t)$，其中：</p>
-<script type="math/tex; mode=display">
-A=\left(\begin{array}{ccccc}0 & 1 & 0 & \ldots & 0 \\0 & 0 & 1 & \ldots & 0 \\\vdots & \vdots & \vdots & \ddots & \vdots \\0 & 0 & 0 & \ldots & 1 \\-a_0 & -a_1 & -a_2 & \ldots & -a_{n-1}\end{array}\right), \quad B=\left(\begin{array}{c}0 \\0 \\\vdots \\0 \\1\end{array}\right)</script><p>设$u(t)=-K x(t)+e(t)$。$(A,B)$是可控的，所以控制矩阵是满秩的。</p>
+<p>考虑一个单变量系统：<span class="math inline">\(\dot{x}(t)=A x(t)+B
+u(t)\)</span>，其中：</p>
+<p><span class="math display">\[
+A=\left(\begin{array}{ccccc}0 &amp; 1 &amp; 0 &amp; \ldots &amp; 0 \\0
+&amp; 0 &amp; 1 &amp; \ldots &amp; 0 \\\vdots &amp; \vdots &amp; \vdots
+&amp; \ddots &amp; \vdots \\0 &amp; 0 &amp; 0 &amp; \ldots &amp; 1
+\\-a_0 &amp; -a_1 &amp; -a_2 &amp; \ldots &amp;
+-a_{n-1}\end{array}\right), \quad B=\left(\begin{array}{c}0 \\0 \\\vdots
+\\0 \\1\end{array}\right)
+\]</span></p>
+<p>设<span class="math inline">\(u(t)=-K x(t)+e(t)\)</span>。<span
+class="math inline">\((A,B)\)</span>是可控的，所以控制矩阵是满秩的。</p>
 <blockquote>
-<p><strong>伴随矩阵</strong><br>$A$这种满足主对角线上方的第一条对角线上的元素全为 1，其他元素则为 0，矩阵的最后一行包含了其特征多项式的系数 $p(x)=x^n+a_{n-1} x^{n-1}+\ldots+a_1 x+a_0$ 的矩阵称之为伴随矩阵。</p>
-<p>矩阵$A$的特征多项式：</p>
-<script type="math/tex; mode=display">
-\operatorname{det}(\lambda I-A)=\lambda^n+a_{n-1} \lambda^{n-1}+\cdots+a_1 \lambda+a_0</script></blockquote>
+<p><strong>伴随矩阵</strong> <span
+class="math inline">\(A\)</span>这种满足主对角线上方的第一条对角线上的元素全为
+1，其他元素则为 0，矩阵的最后一行包含了其特征多项式的系数 <span
+class="math inline">\(p(x)=x^n+a_{n-1} x^{n-1}+\ldots+a_1 x+a_0\)</span>
+的矩阵称之为伴随矩阵。</p>
+<p>矩阵<span class="math inline">\(A\)</span>的特征多项式：</p>
+<p><span class="math display">\[
+\operatorname{det}(\lambda I-A)=\lambda^n+a_{n-1}
+\lambda^{n-1}+\cdots+a_1 \lambda+a_0
+\]</span></p>
+</blockquote>
 <p>状态反馈矩阵（因为输入是一维的）：</p>
-<script type="math/tex; mode=display">
-K=\left(k_1, k_2, \ldots, k_n\right)</script><p>因此，有：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+K=\left(k_1, k_2, \ldots, k_n\right)
+\]</span></p>
+<p>因此，有：</p>
+<p><span class="math display">\[
 A-B K=\left(\begin{array}{ccccc}
-0 & 1 & 0 & \ldots & 0 \\
-0 & 0 & 1 & \cdots & 0 \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & \ldots & 1 \\
--a_0-k_1 & -a_1-k_2 & -a_2-k_3 & \ldots & -a_{n-1}-k_n
-\end{array}\right)</script><p>其特征多项式为：</p>
-<script type="math/tex; mode=display">
-\operatorname{det}(\lambda I-(A-B K))=\lambda^n+\left(a_{n-1}+k_n\right) \lambda^{n-1}+\cdots+\left(a_1+k_2\right) \lambda+\left(a_0+k_1\right)</script><p>在选择特征值之后，有特征多项式</p>
-<script type="math/tex; mode=display">
-P_{\mathrm{des}}(\lambda)=\prod_{j=1}^n\left(\lambda-\lambda_j\right)=\lambda^n+b_{n-1} \lambda^{n-1}+\cdots+b_1 \lambda+b_0</script><p>因此有：</p>
-<script type="math/tex; mode=display">
-K=\left(b_0-a_0, b_1-a_1, \ldots, b_{n-1}-a_{n-1}\right)</script><hr>
+0 &amp; 1 &amp; 0 &amp; \ldots &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \ldots &amp; 1 \\
+-a_0-k_1 &amp; -a_1-k_2 &amp; -a_2-k_3 &amp; \ldots &amp; -a_{n-1}-k_n
+\end{array}\right)
+\]</span></p>
+<p>其特征多项式为：</p>
+<p><span class="math display">\[
+\operatorname{det}(\lambda I-(A-B K))=\lambda^n+\left(a_{n-1}+k_n\right)
+\lambda^{n-1}+\cdots+\left(a_1+k_2\right) \lambda+\left(a_0+k_1\right)
+\]</span></p>
+<p>在选择特征值之后，有特征多项式</p>
+<p><span class="math display">\[
+P_{\mathrm{des}}(\lambda)=\prod_{j=1}^n\left(\lambda-\lambda_j\right)=\lambda^n+b_{n-1}
+\lambda^{n-1}+\cdots+b_1 \lambda+b_0
+\]</span></p>
+<p>因此有：</p>
+<p><span class="math display">\[
+K=\left(b_0-a_0, b_1-a_1, \ldots, b_{n-1}-a_{n-1}\right)
+\]</span></p>
+<hr />
 <p><strong>Bass-Gura公式</strong></p>
-<p>对于多变量系统，首先定义$x=T \tilde{x} \text { ， } T=\mathcal{C} \tilde{\mathcal{C}}^{-1}$，将状态方程转化为伴随形式：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}\dot{\tilde{x}}(t)=\tilde{A} \tilde{x}(t)+\tilde{B} u(t), \\\tilde{A}=\left(\begin{array}{ccccc}0 & 1 & 0 & \ldots & 0 \\0 & 0 & 1 & \ldots & 0 \\\vdots & \vdots & \vdots & \ddots & \vdots \\0 & 0 & 0 & \ldots & 1 \\-a_0 & -a_1 & -a_2 & \ldots & -a_{n-1}\end{array}\right), \quad \tilde{B}=\left(\begin{array}{c}0 \\0 \\\vdots \\0 \\1\end{array}\right) .\end{gathered}</script><p>有：$\tilde{A}=T^{-1} A T \text { ， } \tilde{B}=T^{-1} B$。通过与上述方法相同的思路，伴随形式的反馈矩阵：</p>
-<script type="math/tex; mode=display">
-\tilde{K}=\left(b_0-a_0, b_1-a_1, \ldots, b_{n-1}-a_{n-1}\right)</script><p>原本的反馈矩阵为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}K&=\tilde{K} T^{-1}=\left(b_0-a_0, b_1-a_1, \ldots, b_{n-1}-a_{n-1}\right) T^{-1} \\&=\left(b_0-a_0, b_1-a_1, \ldots, b_{n-1}-a_{n-1}\right)\left(C \tilde{C}^{-1}\right)^{-1}\end{aligned}</script><hr>
+<p>对于多变量系统，首先定义<span class="math inline">\(x=T \tilde{x}
+\text { ， } T=\mathcal{C}
+\tilde{\mathcal{C}}^{-1}\)</span>，将状态方程转化为伴随形式：</p>
+<p><span class="math display">\[
+\begin{gathered}\dot{\tilde{x}}(t)=\tilde{A} \tilde{x}(t)+\tilde{B}
+u(t), \\\tilde{A}=\left(\begin{array}{ccccc}0 &amp; 1 &amp; 0 &amp;
+\ldots &amp; 0 \\0 &amp; 0 &amp; 1 &amp; \ldots &amp; 0 \\\vdots &amp;
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\0 &amp; 0 &amp; 0 &amp;
+\ldots &amp; 1 \\-a_0 &amp; -a_1 &amp; -a_2 &amp; \ldots &amp;
+-a_{n-1}\end{array}\right), \quad \tilde{B}=\left(\begin{array}{c}0 \\0
+\\\vdots \\0 \\1\end{array}\right) .\end{gathered}
+\]</span></p>
+<p>有：<span class="math inline">\(\tilde{A}=T^{-1} A T \text { ， }
+\tilde{B}=T^{-1}
+B\)</span>。通过与上述方法相同的思路，伴随形式的反馈矩阵：</p>
+<p><span class="math display">\[
+\tilde{K}=\left(b_0-a_0, b_1-a_1, \ldots, b_{n-1}-a_{n-1}\right)
+\]</span></p>
+<p>原本的反馈矩阵为：</p>
+<p><span class="math display">\[
+\begin{aligned}K&amp;=\tilde{K} T^{-1}=\left(b_0-a_0, b_1-a_1, \ldots,
+b_{n-1}-a_{n-1}\right) T^{-1} \\&amp;=\left(b_0-a_0, b_1-a_1, \ldots,
+b_{n-1}-a_{n-1}\right)\left(C \tilde{C}^{-1}\right)^{-1}\end{aligned}
+\]</span></p>
+<hr />
 <p><strong>Ackermann公式</strong></p>
 <p>对于一个单变量且完全可控的系统，给定系统的控制矩阵，有：</p>
-<script type="math/tex; mode=display">
-K=\left(\begin{array}{lllll}0 & 0 & \ldots & 0 & 1\end{array}\right) \mathcal{C}^{-1} P(A)</script><p>其中：</p>
-<script type="math/tex; mode=display">
-\mathcal{P}(\mathbf{A})=\mathbf{A}^n+\alpha_1 \mathbf{A}^{n-1}+\cdots+\alpha_{n-1} \mathbf{A}+\alpha_n \mathbf{I}_n</script><p>$\alpha<em>i$是特征值多项式$\left(\lambda-\lambda_1\right) \cdots\left(\lambda-\lambda_n\right)=\lambda^n+\alpha_1 \lambda^{n-1}+\cdots+\alpha</em>{n-1} \lambda+\alpha_n$的系数。</p>
-<h3 id="CE3-1-直流电机"><a href="#CE3-1-直流电机" class="headerlink" title="CE3.1 直流电机"></a>CE3.1 直流电机</h3><blockquote>
+<p><span class="math display">\[
+K=\left(\begin{array}{lllll}0 &amp; 0 &amp; \ldots &amp; 0 &amp;
+1\end{array}\right) \mathcal{C}^{-1} P(A)
+\]</span></p>
+<p>其中：</p>
+<p><span class="math display">\[
+\mathcal{P}(\mathbf{A})=\mathbf{A}^n+\alpha_1
+\mathbf{A}^{n-1}+\cdots+\alpha_{n-1} \mathbf{A}+\alpha_n \mathbf{I}_n
+\]</span></p>
+<p><span class="math inline">\(\alpha_i\)</span>是特征值多项式<span
+class="math inline">\(\left(\lambda-\lambda_1\right)
+\cdots\left(\lambda-\lambda_n\right)=\lambda^n+\alpha_1
+\lambda^{n-1}+\cdots+\alpha_{n-1} \lambda+\alpha_n\)</span>的系数。</p>
+<h3 id="ce3.1-直流电机">CE3.1 直流电机</h3>
+<blockquote>
 <p>直流电机</p>
-<hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_6.png" alt=""></p>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_6.png" /></p>
 <p>有：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& x_1=y(t)=\frac{1}{s} x_2 \\& x_2=\frac{G}{s+a} u(t)\end{aligned}</script><p>因此有：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}&sx_1 = x_2\\&s x_2+a x_2=G u(t)\end{aligned}</script><p>即为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}&\dot{x}_1=x_2\\&\dot{x}_2=-a x_2+G u(t)\end{aligned}</script><p>因此，系统状态方程为：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\begin{aligned}&amp; x_1=y(t)=\frac{1}{s} x_2 \\&amp; x_2=\frac{G}{s+a}
+u(t)\end{aligned}
+\]</span></p>
+<p>因此有：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp;sx_1 = x_2\\&amp;s x_2+a x_2=G u(t)\end{aligned}
+\]</span></p>
+<p>即为：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp;\dot{x}_1=x_2\\&amp;\dot{x}_2=-a x_2+G
+u(t)\end{aligned}
+\]</span></p>
+<p>因此，系统状态方程为：</p>
+<p><span class="math display">\[
 \begin{gathered}
 \dot{x}(t)=\left(\begin{array}{cc}
-0 & 1 \\
-0 & -a
+0 &amp; 1 \\
+0 &amp; -a
 \end{array}\right) x(t)+\binom{0}{G} u(t) \\
 y(t)=\left(\begin{array}{ll}
-1 & 0
+1 &amp; 0
 \end{array}\right) x(t)
-\end{gathered}</script><hr>
-<p>希望设计控制器，使得电机的角位置 $y$ 能够在没有稳态误差的情况下跟踪阶跃指令 $y_c(t)=Y_0 \Gamma(t)$ ，并且具有瞬态响应特性，超调量 $D=20 \%$ ，最大时间 $t_m= 10 ms$ 。</p>
+\end{gathered}
+\]</span></p>
+<hr />
+<p>希望设计控制器，使得电机的角位置 <span
+class="math inline">\(y\)</span> 能够在没有稳态误差的情况下跟踪阶跃指令
+<span class="math inline">\(y_c(t)=Y_0 \Gamma(t)\)</span>
+，并且具有瞬态响应特性，超调量 <span class="math inline">\(D=20
+\%\)</span> ，最大时间 <span class="math inline">\(t_m= 10 ms\)</span>
+。</p>
 <p>考虑反馈控制：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 u(t)=-\left(\begin{array}{ll}
-k_1 & k_2
-\end{array}\right) x(t)+M y_c(t) .</script><p>有系统状态方程变为：</p>
-<script type="math/tex; mode=display">
-\dot{x}(t)=\left(\begin{array}{cc}0 & 1 \\-G k_1 & -\left(a+G k_2\right)\end{array}\right) x(t)+\binom{0}{M G} y_c(t)</script><p>为了使闭环系统的行为与二阶系统一致，特征方程为：</p>
-<script type="math/tex; mode=display">
-P(\lambda)=\lambda^2+\left(a+G k_2\right) \lambda+G k_1 \equiv \lambda^2+2 \xi \omega_0 \lambda+\omega_0^2 \text {. }</script><p>根据要求，使用超调量求得$\xi=0.45$，使用最大响应时间和$\xi=0.45$，求得$\omega_0=350 \mathrm{rad} \cdot \mathrm{~s}^{-1}$。因此可得：</p>
-<script type="math/tex; mode=display">
+k_1 &amp; k_2
+\end{array}\right) x(t)+M y_c(t) .
+\]</span></p>
+<p>有系统状态方程变为：</p>
+<p><span class="math display">\[
+\dot{x}(t)=\left(\begin{array}{cc}0 &amp; 1 \\-G k_1 &amp; -\left(a+G
+k_2\right)\end{array}\right) x(t)+\binom{0}{M G} y_c(t)
+\]</span></p>
+<p>为了使闭环系统的行为与二阶系统一致，特征方程为：</p>
+<p><span class="math display">\[
+P(\lambda)=\lambda^2+\left(a+G k_2\right) \lambda+G k_1 \equiv
+\lambda^2+2 \xi \omega_0 \lambda+\omega_0^2 \text {. }
+\]</span></p>
+<p>根据要求，使用超调量求得<span
+class="math inline">\(\xi=0.45\)</span>，使用最大响应时间和<span
+class="math inline">\(\xi=0.45\)</span>，求得<span
+class="math inline">\(\omega_0=350 \mathrm{rad} \cdot
+\mathrm{~s}^{-1}\)</span>。因此可得：</p>
+<p><span class="math display">\[
 \begin{aligned}
-k_1 & =\frac{\omega_0^2}{G}=\frac{350^2}{G}=\frac{122500}{G} \\
-k_2 & =\frac{2 \xi \omega_0-a}{G}=\frac{315-a}{G}
-\end{aligned}</script><p>值得注意的是，我们并没有准确的求出极值点，而是利用了二阶系统的一些性质。</p>
-<hr>
-<p>接下来，由于$y_c(t)=Y_0$时，系统应该平稳，即：</p>
-<script type="math/tex; mode=display">
-\binom{0}{0}=\left(\begin{array}{cc}0 & 1 \\-G k_1 & -\left(a+G k_2\right)\end{array}\right) x_{\infty}+\binom{0}{M G} Y_0</script><p>从而得出：</p>
-<script type="math/tex; mode=display">
-x_{2 \infty}=0, \quad x_{1 \infty}=\frac{M Y_0}{k_1}</script><p>即可求得$M=k_1$。</p>
+k_1 &amp; =\frac{\omega_0^2}{G}=\frac{350^2}{G}=\frac{122500}{G} \\
+k_2 &amp; =\frac{2 \xi \omega_0-a}{G}=\frac{315-a}{G}
+\end{aligned}
+\]</span></p>
+<p>值得注意的是，我们并没有准确的求出极值点，而是利用了二阶系统的一些性质。</p>
+<hr />
+<p>接下来，由于<span
+class="math inline">\(y_c(t)=Y_0\)</span>时，系统应该平稳，即：</p>
+<p><span class="math display">\[
+\binom{0}{0}=\left(\begin{array}{cc}0 &amp; 1 \\-G k_1 &amp; -\left(a+G
+k_2\right)\end{array}\right) x_{\infty}+\binom{0}{M G} Y_0
+\]</span></p>
+<p>从而得出：</p>
+<p><span class="math display">\[
+x_{2 \infty}=0, \quad x_{1 \infty}=\frac{M Y_0}{k_1}
+\]</span></p>
+<p>即可求得<span class="math inline">\(M=k_1\)</span>。</p>
 </blockquote>
-<h3 id="CE3-2-倒立摆问题"><a href="#CE3-2-倒立摆问题" class="headerlink" title="CE3.2 倒立摆问题"></a>CE3.2 倒立摆问题</h3><blockquote>
+<h3 id="ce3.2-倒立摆问题">CE3.2 倒立摆问题</h3>
+<blockquote>
 <p>回忆上一章中多次讨论的倒立摆问题，其状态方程为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}&A=\left(\begin{array}{cccc}
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & \frac{m g}{M} & 0 & 0 \\
-0 & \frac{(m+M) g \cos \bar{x}_2}{M l} & 0 & 0
-\end{array}\right), \quad \\&B=\left(\begin{array}{c}
+<p><span class="math display">\[
+\begin{aligned}&amp;A=\left(\begin{array}{cccc}
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; \frac{m g}{M} &amp; 0 &amp; 0 \\
+0 &amp; \frac{(m+M) g \cos \bar{x}_2}{M l} &amp; 0 &amp; 0
+\end{array}\right), \quad \\&amp;B=\left(\begin{array}{c}
 0 \\
 0 \\
 \frac{1}{M} \\
 \frac{\cos \bar{x}_2}{M l}
 \end{array}\right), \quad C=\left(\begin{array}{llll}
-1 & 0 & 0 & 0
-\end{array}\right), \quad D=0\end{aligned}</script><p>我们已经证明过，经过线性化之后的该系统可控，其控制矩阵满秩。设：</p>
-<script type="math/tex; mode=display">
-u(t)=-K x(t)+e(t)， \ \ K = (k1 \ k2 \ k3  \ k4)</script><hr>
+1 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right), \quad D=0\end{aligned}
+\]</span></p>
+<p>我们已经证明过，经过线性化之后的该系统可控，其控制矩阵满秩。设：</p>
+<p><span class="math display">\[
+u(t)=-K x(t)+e(t)， \ \ K = (k1 \ k2 \ k3  \ k4)
+\]</span></p>
+<hr />
 <p>我们曾经讨论过其开环系统特征值：</p>
-<script type="math/tex; mode=display">
-\left\{0,0,-\sqrt{\frac{(m+M) g}{M l}},+\sqrt{\frac{(m+M) g}{M l}}\right\}</script><ul>
-<li>保持负特征值不变为 $-\sqrt{\frac{(m+M) g}{M l}}$ ；</li>
-<li>将正特征值变为其相反数 $-\sqrt{\frac{(m+M) g}{M l}}$;</li>
-<li>将另外两个特征值选为模为 $\frac{1}{2} \sqrt{\frac{(m+M) g}{M l}}$ 的一对复数，并使其阻尼系数为 $\xi=0.7$ ，即特征值为 $\frac{1}{2} \sqrt{\frac{(m+M) g}{M l}}(-1 \pm j)$ 。</li>
+<p><span class="math display">\[
+\left\{0,0,-\sqrt{\frac{(m+M) g}{M l}},+\sqrt{\frac{(m+M) g}{M
+l}}\right\}
+\]</span></p>
+<ul>
+<li>保持负特征值不变为 <span class="math inline">\(-\sqrt{\frac{(m+M)
+g}{M l}}\)</span> ；</li>
+<li>将正特征值变为其相反数 <span
+class="math inline">\(-\sqrt{\frac{(m+M) g}{M l}}\)</span>;</li>
+<li>将另外两个特征值选为模为 <span class="math inline">\(\frac{1}{2}
+\sqrt{\frac{(m+M) g}{M l}}\)</span> 的一对复数，并使其阻尼系数为 <span
+class="math inline">\(\xi=0.7\)</span> ，即特征值为 <span
+class="math inline">\(\frac{1}{2} \sqrt{\frac{(m+M) g}{M l}}(-1 \pm
+j)\)</span> 。</li>
 </ul>
-<hr>
-<p>考虑$A-BK$:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}A-B K=&\left(\begin{array}{cccc}
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & \frac{m g}{M} & 0 & 0 \\
-0 & \frac{(m+M) g}{M l} & 0 & 0
+<hr />
+<p>考虑<span class="math inline">\(A-BK\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}A-B K=&amp;\left(\begin{array}{cccc}
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; \frac{m g}{M} &amp; 0 &amp; 0 \\
+0 &amp; \frac{(m+M) g}{M l} &amp; 0 &amp; 0
 \end{array}\right)-\left(\begin{array}{c}
 0 \\
 0 \\
 \frac{1}{M} \\
 \frac{1}{M l}
 \end{array}\right)\left(\begin{array}{llll}
-k_1 & k_2 & k_3 & k_4
-\end{array}\right)\\&=\left(\begin{array}{cccc}
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
--\frac{k_1}{M} & \frac{m g}{M}-\frac{k_2}{M} & -\frac{k_3}{M} & -\frac{k_4}{M} \\
--\frac{k_1}{M l} & \frac{(m+M) g}{M l}-\frac{k_2}{M l} & -\frac{k_3}{M l} & -\frac{k_4}{M l}
-\end{array}\right)\end{aligned}</script><p>其特征值多项式：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\operatorname{let}(\lambda I-(A-B K)) & =\left|\begin{array}{cccc}\lambda & 0 & -1 & 0 \\0 & \lambda & 0 & -1 \\\frac{k_1}{M} & -\frac{m g}{M}+\frac{k_2}{M} & \lambda+\frac{k_3}{M} & \frac{k_4}{M} \\\frac{k_1}{M l} & -\frac{(m+M) g}{M l}+\frac{k_2}{M l} & \frac{k_3}{M l} & \lambda+-\frac{k_4}{M l}\end{array}\right| \\& =\lambda^4+\left(\frac{k_3}{M}+\frac{k_4}{M l}\right) \lambda^3+\left(\frac{k_1}{M}+\frac{k_2}{M l}-\frac{(m+M) g}{M l}\right) \lambda^2-\frac{g k_3}{M l} \lambda-\frac{g k_1}{M l}\end{aligned}</script><p>同时，根据我们选择的特征值计算特征多项式：</p>
-<script type="math/tex; mode=display">
+k_1 &amp; k_2 &amp; k_3 &amp; k_4
+\end{array}\right)\\&amp;=\left(\begin{array}{cccc}
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+-\frac{k_1}{M} &amp; \frac{m g}{M}-\frac{k_2}{M} &amp; -\frac{k_3}{M}
+&amp; -\frac{k_4}{M} \\
+-\frac{k_1}{M l} &amp; \frac{(m+M) g}{M l}-\frac{k_2}{M l} &amp;
+-\frac{k_3}{M l} &amp; -\frac{k_4}{M l}
+\end{array}\right)\end{aligned}
+\]</span></p>
+<p>其特征值多项式：</p>
+<p><span class="math display">\[
+\begin{aligned}\operatorname{let}(\lambda I-(A-B K)) &amp;
+=\left|\begin{array}{cccc}\lambda &amp; 0 &amp; -1 &amp; 0 \\0 &amp;
+\lambda &amp; 0 &amp; -1 \\\frac{k_1}{M} &amp; -\frac{m
+g}{M}+\frac{k_2}{M} &amp; \lambda+\frac{k_3}{M} &amp; \frac{k_4}{M}
+\\\frac{k_1}{M l} &amp; -\frac{(m+M) g}{M l}+\frac{k_2}{M l} &amp;
+\frac{k_3}{M l} &amp; \lambda+-\frac{k_4}{M l}\end{array}\right| \\&amp;
+=\lambda^4+\left(\frac{k_3}{M}+\frac{k_4}{M l}\right)
+\lambda^3+\left(\frac{k_1}{M}+\frac{k_2}{M l}-\frac{(m+M) g}{M l}\right)
+\lambda^2-\frac{g k_3}{M l} \lambda-\frac{g k_1}{M l}\end{aligned}
+\]</span></p>
+<p>同时，根据我们选择的特征值计算特征多项式：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& \operatorname{det}(\lambda I-(A-B K))=\left(\lambda+\sqrt{\frac{(m+M) g}{M l}}\right)^2\left(\lambda^2+\sqrt{\frac{(m+M) g}{M l}} \lambda+\frac{(m+M) g}{2 M l}\right) \\
-& =\lambda^4+3 \sqrt{\frac{(m+M) g}{M l}} \lambda^3+3,5 \frac{(m+M) g}{M l} \lambda^2+2 \frac{(m+M) g}{M l} \sqrt{\frac{(m+M) g}{M l}} \lambda+0,5\left(\frac{(m+M) g}{M l}\right)^2 .
-\end{aligned}</script><p>可解得：</p>
-<script type="math/tex; mode=display">
-\begin{array}{ll}k_1=-0,5 \frac{(m+M)^2 g}{M l} & k_3=-2(m+M) \sqrt{\frac{(m+M) g}{M l}} \\k_2=4,5(m+M) g+0,5 \frac{(m+M)^2 g}{M} & k_4=(2 m+5 M) \sqrt{\frac{(m+M) g l}{M}}\end{array}</script></blockquote>
-<hr>
-<h3 id="C3-2-4-在输入端添加增益以保证稳态"><a href="#C3-2-4-在输入端添加增益以保证稳态" class="headerlink" title="C3.2.4 在输入端添加增益以保证稳态"></a>C3.2.4 在输入端添加增益以保证稳态</h3><hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_7.png" alt=""></p>
-<p>增加增益$k_c$后，系统变为：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}\dot{\mathbf{x}}(t)=(\mathbf{A}-\mathbf{B} \mathbf{K}) \mathbf{x}(t)+\mathbf{B} k_c y_c(t) \\y(t)=\mathbf{C} \mathbf{x}(t)\end{array}\right.</script><p>在稳态时，应有$y(t)=y_c(t)$，$\dot{\mathbf{x}}(t) = 0$。因此有：</p>
-<script type="math/tex; mode=display">
-k_c=\frac{-1}{\mathbf{C}(\mathbf{A}-\mathbf{B} \mathbf{K})^{-1} \mathbf{B}}</script><h3 id="C3-2-5-增加与扰动有关的增益以保证稳态"><a href="#C3-2-5-增加与扰动有关的增益以保证稳态" class="headerlink" title="C3.2.5 增加与扰动有关的增益以保证稳态"></a>C3.2.5 增加与扰动有关的增益以保证稳态</h3><hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_8.png" alt=""></p>
+&amp; \operatorname{det}(\lambda I-(A-B
+K))=\left(\lambda+\sqrt{\frac{(m+M) g}{M
+l}}\right)^2\left(\lambda^2+\sqrt{\frac{(m+M) g}{M l}}
+\lambda+\frac{(m+M) g}{2 M l}\right) \\
+&amp; =\lambda^4+3 \sqrt{\frac{(m+M) g}{M l}} \lambda^3+3,5 \frac{(m+M)
+g}{M l} \lambda^2+2 \frac{(m+M) g}{M l} \sqrt{\frac{(m+M) g}{M l}}
+\lambda+0,5\left(\frac{(m+M) g}{M l}\right)^2 .
+\end{aligned}
+\]</span></p>
+<p>可解得：</p>
+<p><span class="math display">\[
+\begin{array}{ll}k_1=-0,5 \frac{(m+M)^2 g}{M l} &amp; k_3=-2(m+M)
+\sqrt{\frac{(m+M) g}{M l}} \\k_2=4,5(m+M) g+0,5 \frac{(m+M)^2 g}{M}
+&amp; k_4=(2 m+5 M) \sqrt{\frac{(m+M) g l}{M}}\end{array}
+\]</span></p>
+</blockquote>
+<hr />
+<h3 id="c3.2.4-在输入端添加增益以保证稳态">C3.2.4
+在输入端添加增益以保证稳态</h3>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_7.png" /></p>
+<p>增加增益<span class="math inline">\(k_c\)</span>后，系统变为：</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}\dot{\mathbf{x}}(t)=(\mathbf{A}-\mathbf{B}
+\mathbf{K}) \mathbf{x}(t)+\mathbf{B} k_c y_c(t) \\y(t)=\mathbf{C}
+\mathbf{x}(t)\end{array}\right.
+\]</span></p>
+<p>在稳态时，应有<span class="math inline">\(y(t)=y_c(t)\)</span>，<span
+class="math inline">\(\dot{\mathbf{x}}(t) = 0\)</span>。因此有：</p>
+<p><span class="math display">\[
+k_c=\frac{-1}{\mathbf{C}(\mathbf{A}-\mathbf{B} \mathbf{K})^{-1}
+\mathbf{B}}
+\]</span></p>
+<h3 id="c3.2.5-增加与扰动有关的增益以保证稳态">C3.2.5
+增加与扰动有关的增益以保证稳态</h3>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_8.png" /></p>
 <p>此时控制律：</p>
-<script type="math/tex; mode=display">
-u(t)=-\mathbf{K x}(t)+k_c y_C(t)+k_d d(t)</script><p>闭环状态：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+u(t)=-\mathbf{K x}(t)+k_c y_C(t)+k_d d(t)
+\]</span></p>
+<p>闭环状态：</p>
+<p><span class="math display">\[
 \left\{\begin{array}{l}
-\dot{\mathbf{x}}(t)=(\mathbf{A}-\mathbf{B K}) \mathbf{x}(t)+\mathbf{B} k_c y_c(t)+\left(\mathbf{B} k_d+\mathbf{B}^{\prime}\right) d(t)  \\
+\dot{\mathbf{x}}(t)=(\mathbf{A}-\mathbf{B K}) \mathbf{x}(t)+\mathbf{B}
+k_c y_c(t)+\left(\mathbf{B} k_d+\mathbf{B}^{\prime}\right) d(t)  \\
 y(t)=\mathbf{C} \mathbf{x}(t)
-\end{array}\right.</script><p>此时，两个增益满足：</p>
-<script type="math/tex; mode=display">
+\end{array}\right.
+\]</span></p>
+<p>此时，两个增益满足：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& k_c=-\left[\mathbf{C}(\mathbf{A}-\mathbf{B K})^{-1} \mathbf{B}\right]^{-1} \\
-& k_d=-\left[\mathbf{C}(\mathbf{A}-\mathbf{B K})^{-1} \mathbf{B}\right]^{-1}\left[\mathbf{C}(\mathbf{A}-\mathbf{B K})^{-1} \mathbf{B}^{\prime}\right]
-\end{aligned}</script><h3 id="3-2-6-部分可控系统的闭环控制"><a href="#3-2-6-部分可控系统的闭环控制" class="headerlink" title="3.2.6 部分可控系统的闭环控制"></a>3.2.6 部分可控系统的闭环控制</h3><hr>
+&amp; k_c=-\left[\mathbf{C}(\mathbf{A}-\mathbf{B K})^{-1}
+\mathbf{B}\right]^{-1} \\
+&amp; k_d=-\left[\mathbf{C}(\mathbf{A}-\mathbf{B K})^{-1}
+\mathbf{B}\right]^{-1}\left[\mathbf{C}(\mathbf{A}-\mathbf{B K})^{-1}
+\mathbf{B}^{\prime}\right]
+\end{aligned}
+\]</span></p>
+<h3 id="部分可控系统的闭环控制">3.2.6 部分可控系统的闭环控制</h3>
+<hr />
 <p>当系统部分可控时，也可以控制系统的可控模态。基于卡尔曼标准形式，演化矩阵和输入矩阵分别为：</p>
-<script type="math/tex; mode=display">
-A=\left(\begin{array}{cc}A_c & A_{12} \\0 & A_{\bar{c}}\end{array}\right), \quad B=\binom{B_c}{0}</script><p>考虑但输入系统，此时系统的闭环控制形式 <code>la commande par retour d&#39;état</code> 为：</p>
-<script type="math/tex; mode=display">
-u(t)=-\left(\begin{array}{ll}K_1 & K_2\end{array}\right) x(t)+M y_c(t)=-K_1 x_1(t)-K_2 x_2(t)+M y_c(t)</script><p>其中，$K_1 \in \mathbb{R}^q \text { ，} K_2 \in \mathbb{R}^{n-q}$。演化方程可以写作：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}&\dot{x}(t)=(A-B K) x(t)+B M y_c(t), \\&  A-B K=\left(\begin{array}{cc}A_c-B_c K_1 & A_{12}-B_c K_2 \\0 & A_{\bar{c}}\end{array}\right)\end{aligned}</script><p>此时，闭环系统的特征值可由一下公式计算：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}\operatorname{det}(\lambda I-(A-B K))=\operatorname{det}\left(\lambda I-\left(A_c-B_c K_1\right)\right) \operatorname{det}\left(\lambda I-A_{\bar{c}}\right)=0\end{gathered}</script><p>这一表达式表明，只有 $q$ 个特征值可以通过设计反馈矩阵 $K_1$ 任意调整，而状态向量的 $x_2$ 部分 (维度为 $n-q$ ) 的特征值则保持不变，闭环控制对其无影响。</p>
-<h3 id="3-2-7-总结"><a href="#3-2-7-总结" class="headerlink" title="3.2.7 总结"></a>3.2.7 总结</h3><hr>
+<p><span class="math display">\[
+A=\left(\begin{array}{cc}A_c &amp; A_{12} \\0 &amp;
+A_{\bar{c}}\end{array}\right), \quad B=\binom{B_c}{0}
+\]</span></p>
+<p>考虑但输入系统，此时系统的闭环控制形式
+<code>la commande par retour d'état</code> 为：</p>
+<p><span class="math display">\[
+u(t)=-\left(\begin{array}{ll}K_1 &amp; K_2\end{array}\right) x(t)+M
+y_c(t)=-K_1 x_1(t)-K_2 x_2(t)+M y_c(t)
+\]</span></p>
+<p>其中，<span class="math inline">\(K_1 \in \mathbb{R}^q \text { ，}
+K_2 \in \mathbb{R}^{n-q}\)</span>。演化方程可以写作：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp;\dot{x}(t)=(A-B K) x(t)+B M y_c(t), \\&amp;  A-B
+K=\left(\begin{array}{cc}A_c-B_c K_1 &amp; A_{12}-B_c K_2 \\0 &amp;
+A_{\bar{c}}\end{array}\right)\end{aligned}
+\]</span></p>
+<p>此时，闭环系统的特征值可由一下公式计算：</p>
+<p><span class="math display">\[
+\begin{gathered}\operatorname{det}(\lambda I-(A-B
+K))=\operatorname{det}\left(\lambda I-\left(A_c-B_c K_1\right)\right)
+\operatorname{det}\left(\lambda I-A_{\bar{c}}\right)=0\end{gathered}
+\]</span></p>
+<p>这一表达式表明，只有 <span class="math inline">\(q\)</span>
+个特征值可以通过设计反馈矩阵 <span class="math inline">\(K_1\)</span>
+任意调整，而状态向量的 <span class="math inline">\(x_2\)</span> 部分
+(维度为 <span class="math inline">\(n-q\)</span> )
+的特征值则保持不变，闭环控制对其无影响。</p>
+<h3 id="总结">3.2.7 总结</h3>
+<hr />
 <ul>
 <li>状态反馈与极点配置控制律<code>Loi par retour d’état et par placement de pôles</code>:</li>
 </ul>
-<script type="math/tex; mode=display">
-u(t)=-K x(t)+k_c y_c(t)+k_d d(t)</script><ul>
-<li>设计步骤 (SISO 系统情况下) :<ol>
-<li>假设：<ul>
+<p><span class="math display">\[
+u(t)=-K x(t)+k_c y_c(t)+k_d d(t)
+\]</span></p>
+<ul>
+<li>设计步骤 (SISO 系统情况下) :
+<ol type="1">
+<li>假设：
+<ul>
 <li>系统是可控的（或至少是可稳定化的）。</li>
 <li>所有状态都是可测量的。</li>
-<li>假设扰动 $d(t)$ 是可测量的。</li>
-</ul>
-</li>
-<li>选择闭环系统的期望特征值:<ul>
+<li>假设扰动 <span class="math inline">\(d(t)\)</span> 是可测量的。</li>
+</ul></li>
+<li>选择闭环系统的期望特征值:
+<ul>
 <li>根据系统性能要求，选择合适的闭环特征值。</li>
+</ul></li>
+<li>计算状态反馈增益 <span class="math inline">\(K\)</span> :
+<ul>
+<li>通过极点配置，计算状态反馈增益矩阵 <span
+class="math inline">\(K\)</span> 以获得期望的闭环特征值。</li>
+</ul></li>
+<li>确定增益 <span class="math inline">\(k_c\)</span> 和 <span
+class="math inline">\(k_d\)</span> :
+<ul>
+<li>计算增益 <span class="math inline">\(k_c\)</span> 和 <span
+class="math inline">\(k_d\)</span>
+以消除稳态埕差，从而在恒定指令下跟踪输出，并抵消恒定扰动的影响。</li>
+</ul></li>
+</ol></li>
 </ul>
-</li>
-<li>计算状态反馈增益 $K$ :<ul>
-<li>通过极点配置，计算状态反馈增益矩阵 $K$ 以获得期望的闭环特征值。</li>
-</ul>
-</li>
-<li>确定增益 $k_c$ 和 $k_d$ :<ul>
-<li>计算增益 $k_c$ 和 $k_d$ 以消除稳态埕差，从而在恒定指令下跟踪输出，并抵消恒定扰动的影响。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="CE3-3-电磁悬浮系统"><a href="#CE3-3-电磁悬浮系统" class="headerlink" title="CE3.3 电磁悬浮系统"></a>CE3.3 电磁悬浮系统</h3><blockquote>
-<p>电磁悬浮系统的目标是使用电磁力 $F_m$ 平衡重力 $P$ ，并保持物体在某个平衡位置 $z_e$ 。该系统可通过控制输入电压 $U(t)$ 作用于电感 $L$ 、电阻 $R$ 和电流 $I(t)$ ，从而调节系统的动态行为。</p>
-<hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_9.png" alt=""></p>
-<hr>
+<h3 id="ce3.3-电磁悬浮系统">CE3.3 电磁悬浮系统</h3>
+<blockquote>
+<p>电磁悬浮系统的目标是使用电磁力 <span
+class="math inline">\(F_m\)</span> 平衡重力 <span
+class="math inline">\(P\)</span> ，并保持物体在某个平衡位置 <span
+class="math inline">\(z_e\)</span> 。该系统可通过控制输入电压 <span
+class="math inline">\(U(t)\)</span> 作用于电感 <span
+class="math inline">\(L\)</span> 、电阻 <span
+class="math inline">\(R\)</span> 和电流 <span
+class="math inline">\(I(t)\)</span> ，从而调节系统的动态行为。</p>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_9.png" /></p>
+<hr />
 <p>首先对系统进行建模：</p>
 <ul>
 <li><p>电路方程：基尔霍夫定律</p>
-<script type="math/tex; mode=display">
-  L \frac{d I(t)}{d t}+R I(t)=U(t)</script></li>
+<p><span class="math display">\[
+  L \frac{d I(t)}{d t}+R I(t)=U(t)
+  \]</span></p></li>
 <li><p>力学方程：牛顿第二定律</p>
-<script type="math/tex; mode=display">
-  m \frac{d^2 z(t)}{d t^2}=c \frac{I(t)}{\left(x_0-z(t)\right)^2}-m g</script></li>
+<p><span class="math display">\[
+  m \frac{d^2 z(t)}{d t^2}=c \frac{I(t)}{\left(x_0-z(t)\right)^2}-m g
+  \]</span></p></li>
 </ul>
-<p>其中， $z(t)$ 是物体的位置， $I(t)$ 是电流， $x_0$ 是固定距离， $g$ 是重力加速度， $c$ 是电磁力的比例常数。</p>
-<hr>
-<p>在平衡点$\bar{z}=0$周围线性化</p>
-<p>有$\bar{z}=0$时，系统平衡:</p>
-<script type="math/tex; mode=display">
+<p>其中， <span class="math inline">\(z(t)\)</span> 是物体的位置， <span
+class="math inline">\(I(t)\)</span> 是电流， <span
+class="math inline">\(x_0\)</span> 是固定距离， <span
+class="math inline">\(g\)</span> 是重力加速度， <span
+class="math inline">\(c\)</span> 是电磁力的比例常数。</p>
+<hr />
+<p>在平衡点<span class="math inline">\(\bar{z}=0\)</span>周围线性化</p>
+<p>有<span class="math inline">\(\bar{z}=0\)</span>时，系统平衡:</p>
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 \bar{U}=R \bar{I} \\
 c \frac{\bar{I}}{x_0{ }^2}-m g=0
-\end{array}\right.</script><p>可得平衡点的电压电流：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}\bar{I}=\frac{m g x_0{ }^2}{c}=i_0 \\\bar{U}=R \bar{I}=R i_0\end{array}\right.</script><p>在平衡点附近，电压和电流可以表示为：</p>
-<script type="math/tex; mode=display">
+\end{array}\right.
+\]</span></p>
+<p>可得平衡点的电压电流：</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}\bar{I}=\frac{m g x_0{ }^2}{c}=i_0 \\\bar{U}=R
+\bar{I}=R i_0\end{array}\right.
+\]</span></p>
+<p>在平衡点附近，电压和电流可以表示为：</p>
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 I(t)=\bar{I}+i_1(t) \\
 U(t)=\bar{U}+u_1(t)
-\end{array}\right.</script><p>进而带入状态方程，同时认为$z(t)\rightarrow \bar{z} = 0$，得到”</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}L \frac{d \dot{i}_1(t)}{d t}+R \dot{i}_1(t)=u_1(t) \\\frac{d^2 z(t)}{d t^2}=\frac{g}{i_0} i_1(t)+\frac{2 g}{x_0} z(t)\end{array}\right.</script><p>设系统的状态向量：</p>
-<script type="math/tex; mode=display">
+\end{array}\right.
+\]</span></p>
+<p>进而带入状态方程，同时认为<span class="math inline">\(z(t)\rightarrow
+\bar{z} = 0\)</span>，得到”</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}L \frac{d \dot{i}_1(t)}{d t}+R
+\dot{i}_1(t)=u_1(t) \\\frac{d^2 z(t)}{d t^2}=\frac{g}{i_0}
+i_1(t)+\frac{2 g}{x_0} z(t)\end{array}\right.
+\]</span></p>
+<p>设系统的状态向量：</p>
+<p><span class="math display">\[
 \mathbf{x}(t)=\left(\begin{array}{l}
 \dot{i}_1(t) \\
 z(t) \\
 \dot{z}(t)
-\end{array}\right)</script><p>带入数值：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}R  =10 \Omega ，L  =0,01 H ，g  =10 \mathrm{~m} \cdot \mathrm{~s}^{-2} ，i_0  =0,5 \mathrm{~A} ，x_0  =0,0125 \mathrm{~m} ，\beta  =4000 \mathrm{~V} \cdot \mathrm{~m}^{-1}\end{aligned}</script><p>即可得到线性化之后的系统状态方程：</p>
-<script type="math/tex; mode=display">
+\end{array}\right)
+\]</span></p>
+<p>带入数值：</p>
+<p><span class="math display">\[
+\begin{aligned}R  =10 \Omega ，L  =0,01 H ，g  =10 \mathrm{~m} \cdot
+\mathrm{~s}^{-2} ，i_0  =0,5 \mathrm{~A} ，x_0  =0,0125 \mathrm{~m}
+，\beta  =4000 \mathrm{~V} \cdot \mathrm{~m}^{-1}\end{aligned}
+\]</span></p>
+<p>即可得到线性化之后的系统状态方程：</p>
+<p><span class="math display">\[
 \begin{aligned}
-&\frac{d}{d t}\left(\begin{array}{l}
+&amp;\frac{d}{d t}\left(\begin{array}{l}
 \dot{i}_1(t) \\
 z(t) \\
 \dot{z}(t)
-\end{array}\right) =\bar A x(t)+\bar Bu_1(t)\\&=\left(\begin{array}{ccc}
--1000 & 0 & 0 \\
-0 & 0 & 1 \\
-20 & 1600 & 0
+\end{array}\right) =\bar A x(t)+\bar
+Bu_1(t)\\&amp;=\left(\begin{array}{ccc}
+-1000 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+20 &amp; 1600 &amp; 0
 \end{array}\right)\left(\begin{array}{c}
 \dot{i}_1(t) \\
 z(t) \\
@@ -531,40 +862,50 @@ z(t) \\
 0 \\
 0
 \end{array}\right) u_1(t) \\
-&V_z(t)  =\left(\begin{array}{lll}
-0 & 4000 & 0
+&amp;V_z(t)  =\left(\begin{array}{lll}
+0 &amp; 4000 &amp; 0
 \end{array}\right)\left(\begin{array}{l}
 \dot{i}_1(t) \\
 z(t) \\
 \dot{z}(t)
 \end{array}\right)
-\end{aligned}</script><hr>
+\end{aligned}
+\]</span></p>
+<hr />
 <p>分析开环系统，首先计算开环系统的特征值，得到：</p>
-<script type="math/tex; mode=display">
-spectre(\bar A) = {-1000,-40,+40}</script><p>可见系统并不稳定。</p>
+<p><span class="math display">\[
+spectre(\bar A) = {-1000,-40,+40}
+\]</span></p>
+<p>可见系统并不稳定。</p>
 <p>然后研究系统可控性，其控制矩阵：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \left[\begin{array}{lll}
-\mathbf{B} & \mathbf{A B} & \mathbf{A}^2 \mathbf{B}
+\mathbf{B} &amp; \mathbf{A B} &amp; \mathbf{A}^2 \mathbf{B}
 \end{array}\right]=\left[\begin{array}{ccc}
-100 & -10^5 & 10^8 \\
-0 & 0 & 2.10^3 \\
-0 & 2.10^3 & -2.10^6
-\end{array}\right]</script><p>满秩，所以可控。</p>
-<hr>
+100 &amp; -10^5 &amp; 10^8 \\
+0 &amp; 0 &amp; 2.10^3 \\
+0 &amp; 2.10^3 &amp; -2.10^6
+\end{array}\right]
+\]</span></p>
+<p>满秩，所以可控。</p>
+<hr />
 <p>闭环控制方程：</p>
-<script type="math/tex; mode=display">
-u_1(t)=-\left(\begin{array}{lll}k_1 & k_2 & k_3\end{array}\right)\left(\begin{array}{l}\dot{i}_1(t) \\z(t) \\\dot{z}(t)\end{array}\right)+k_c y_c(t)</script><p>从而得到闭环状态方程：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+u_1(t)=-\left(\begin{array}{lll}k_1 &amp; k_2 &amp;
+k_3\end{array}\right)\left(\begin{array}{l}\dot{i}_1(t) \\z(t)
+\\\dot{z}(t)\end{array}\right)+k_c y_c(t)
+\]</span></p>
+<p>从而得到闭环状态方程：</p>
+<p><span class="math display">\[
 \begin{aligned}
 \frac{d}{d t}\left(\begin{array}{l}
 \dot{i}_1(t) \\
 z(t) \\
 \dot{z}(t)
-\end{array}\right) & =\left(\begin{array}{ccc}
--1000-100 k_1 & -100 k_2 & -100 k_3 \\
-0 & 0 & 1 \\
-20 & 1600 & 0
+\end{array}\right) &amp; =\left(\begin{array}{ccc}
+-1000-100 k_1 &amp; -100 k_2 &amp; -100 k_3 \\
+0 &amp; 0 &amp; 1 \\
+20 &amp; 1600 &amp; 0
 \end{array}\right)\left(\begin{array}{l}
 \dot{i}_1(t) \\
 z(t) \\
@@ -574,72 +915,144 @@ z(t) \\
 0 \\
 0
 \end{array}\right) y_c(t) \\
-V_z(t) & =\left(\begin{array}{lll}
-0 & 4000 & 0
+V_z(t) &amp; =\left(\begin{array}{lll}
+0 &amp; 4000 &amp; 0
 \end{array}\right)\left(\begin{array}{l}
 \dot{i}_1(t) \\
 z(t) \\
 \dot{z}(t)
 \end{array}\right)
-\end{aligned}</script><hr>
+\end{aligned}
+\]</span></p>
+<hr />
 <p>我们希望实现：</p>
 <ul>
-<li>$D&lt;10 \% \rightarrow  \xi=0,6$</li>
-<li>$t_m \approx 0,03 \mathrm{~s} \rightarrow \omega_0=130$</li>
+<li><span class="math inline">\(D&lt;10 \%
+\rightarrow  \xi=0,6\)</span></li>
+<li><span class="math inline">\(t_m \approx 0,03 \mathrm{~s} \rightarrow
+\omega_0=130\)</span></li>
 </ul>
-<p>因此，我们保留$-1000$这个特征值，并根据$\left{\begin{array}{l}\xi=0,6 \\omega_0=130\end{array}\right.$写出特征多项式：</p>
-<script type="math/tex; mode=display">
-|\lambda \mathbf{I}-(\mathbf{A}-\mathbf{B K})|=(\lambda+1000)\left(\lambda^2+2 \times 0,6 \times 130 \lambda+130^2\right)</script><p>从而计算得到$k_1=1,560 \quad k_2=9,375.10^3 \quad k_3=87,25$。</p>
-<hr>
-<p>最后，计算$k_c$：</p>
-<script type="math/tex; mode=display">
-k_c=-\frac{800+80 k_1-k_2}{4000}=2,125</script></blockquote>
-<h2 id="C3-3-线性二次型控制-Commande-Lineaire-Quadratique"><a href="#C3-3-线性二次型控制-Commande-Lineaire-Quadratique" class="headerlink" title="C3.3 线性二次型控制 Commande Linéaire Quadratique"></a>C3.3 线性二次型控制 Commande Linéaire Quadratique</h2><hr>
-<h3 id="C3-3-1-连续时间系统的一般结果"><a href="#C3-3-1-连续时间系统的一般结果" class="headerlink" title="C3.3.1 连续时间系统的一般结果"></a>C3.3.1 连续时间系统的一般结果</h3><hr>
+<p>因此，我们保留<span
+class="math inline">\(-1000\)</span>这个特征值，并根据<span
+class="math inline">\(\left\{\begin{array}{l}\xi=0,6
+\\\omega_0=130\end{array}\right.\)</span>写出特征多项式：</p>
+<p><span class="math display">\[
+|\lambda \mathbf{I}-(\mathbf{A}-\mathbf{B
+K})|=(\lambda+1000)\left(\lambda^2+2 \times 0,6 \times 130
+\lambda+130^2\right)
+\]</span></p>
+<p>从而计算得到<span class="math inline">\(k_1=1,560 \quad
+k_2=9,375.10^3 \quad k_3=87,25\)</span>。</p>
+<hr />
+<p>最后，计算<span class="math inline">\(k_c\)</span>：</p>
+<p><span class="math display">\[
+k_c=-\frac{800+80 k_1-k_2}{4000}=2,125
+\]</span></p>
+</blockquote>
+<h2 id="c3.3-线性二次型控制-commande-linéaire-quadratique">C3.3
+线性二次型控制 Commande Linéaire Quadratique</h2>
+<hr />
+<h3 id="c3.3.1-连续时间系统的一般结果">C3.3.1
+连续时间系统的一般结果</h3>
+<hr />
 <p>对于一个连续时间系统：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}\dot{x}(t)=A x(t)+B u(t) \\y(t)=C x(t)\end{gathered}</script><p>并且具有初始条件 $x(0)$ 。我们寻找一个控制 $u(t)$ ，使得状态 $x$ 回到 $0$，同时最小化准则:</p>
-<script type="math/tex; mode=display">
-J=\int_0^{\infty}\left(x^{\top} Q x+u^{\top} R u\right) d t</script><p>其中 $Q=Q^{\top} \geq 0$ 和 $R=R^{\top}&gt;0$ 是对称半正定和正定矩阵<code>semi-dé nie et dé nie positives</code>，预先给定。这个表达式可以定性地解释为，将项 $x^{\top} Q x$ 归因于状态能量 <code>l&#39;énergie de l&#39;état</code>，而将项 $u^{\top} R u$ 归因于控制能量 <code>l&#39;énergie de la commande</code>。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_10.png" alt=""></p>
-<p>这种问题被称为线性二次型调节器综合问题<code>problème de la synthèse d&#39;un régulateur LQ</code> 。我们使用李雅普诺夫方程 <code>équations de Lyapunov</code>来解决。</p>
-<hr>
-<p>矩阵 <strong>$Q$</strong> 和 <strong>$R$</strong> 是 LQ 控制的调节参数。<br>考虑对角矩阵 <strong>$Q$</strong>  和 <strong>$R$：</strong></p>
-<script type="math/tex; mode=display">
-J=\int_0^{\infty}\left(q_1 x_1(t)^2+\ldots+q_n x_n(t)^2+\left(r_1 u_1(t)^2+\ldots+r_m u_m(t)^2\right)\right) d t</script><ul>
-<li>如果增加 $q_i$ ，闭环系统会变得更快，控制量会增大。</li>
-<li>如果增加 $r_i$ ，闭环系统会变得更慢，控制量会减小。</li>
-<li>注意，关键是 $\lceil Q / R\rfloor$ 的比率。如果同时将 $\mathbf{Q}$ 和 $\mathbf{R}$ 乘以相同的系数，最优控制不变。</li>
+<p><span class="math display">\[
+\begin{gathered}\dot{x}(t)=A x(t)+B u(t) \\y(t)=C x(t)\end{gathered}
+\]</span></p>
+<p>并且具有初始条件 <span class="math inline">\(x(0)\)</span>
+。我们寻找一个控制 <span class="math inline">\(u(t)\)</span> ，使得状态
+<span class="math inline">\(x\)</span> 回到 <span
+class="math inline">\(0\)</span>，同时最小化准则:</p>
+<p><span class="math display">\[
+J=\int_0^{\infty}\left(x^{\top} Q x+u^{\top} R u\right) d t
+\]</span></p>
+<p>其中 <span class="math inline">\(Q=Q^{\top} \geq 0\)</span> 和 <span
+class="math inline">\(R=R^{\top}&gt;0\)</span>
+是对称半正定和正定矩阵<code>semi-dé nie et dé nie positives</code>，预先给定。这个表达式可以定性地解释为，将项
+<span class="math inline">\(x^{\top} Q x\)</span> 归因于状态能量
+<code>l'énergie de l'état</code>，而将项 <span
+class="math inline">\(u^{\top} R u\)</span> 归因于控制能量
+<code>l'énergie de la commande</code>。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_10.png" /></p>
+<p>这种问题被称为线性二次型调节器综合问题<code>problème de la synthèse d'un régulateur LQ</code>
+。我们使用李雅普诺夫方程 <code>équations de Lyapunov</code>来解决。</p>
+<hr />
+<p>矩阵 <strong><span class="math inline">\(Q\)</span></strong> 和
+<strong><span class="math inline">\(R\)</span></strong> 是 LQ
+控制的调节参数。 考虑对角矩阵 <strong><span
+class="math inline">\(Q\)</span></strong> 和 <strong><span
+class="math inline">\(R\)</span>：</strong></p>
+<p><span class="math display">\[
+J=\int_0^{\infty}\left(q_1 x_1(t)^2+\ldots+q_n x_n(t)^2+\left(r_1
+u_1(t)^2+\ldots+r_m u_m(t)^2\right)\right) d t
+\]</span></p>
+<ul>
+<li>如果增加 <span class="math inline">\(q_i\)</span>
+，闭环系统会变得更快，控制量会增大。</li>
+<li>如果增加 <span class="math inline">\(r_i\)</span>
+，闭环系统会变得更慢，控制量会减小。</li>
+<li>注意，关键是 <span class="math inline">\(\lceil Q /
+R\rfloor\)</span> 的比率。如果同时将 <span
+class="math inline">\(\mathbf{Q}\)</span> 和 <span
+class="math inline">\(\mathbf{R}\)</span>
+乘以相同的系数，最优控制不变。</li>
 </ul>
 <p>这一点可以在之后的例子中看到。</p>
-<hr>
-<p>首先假设$Q=H^{\top} H$，$H$是一个满秩矩阵。</p>
+<hr />
+<p>首先假设<span class="math inline">\(Q=H^{\top} H\)</span>，<span
+class="math inline">\(H\)</span>是一个满秩矩阵。</p>
 <blockquote>
 <p><strong>正定矩阵</strong></p>
 <ul>
-<li>一个对称矩阵 $\mathbf{P}=\mathbf{P}^T$ 是正定矩阵，当且仅当对任意非零向量 $\mathbf{x} \in \mathbb{R}^n \backslash{0}$ ，都有 $\mathbf{x}^T \mathbf{P} \mathbf{x}&gt;$ 0 。</li>
+<li>一个对称矩阵 <span
+class="math inline">\(\mathbf{P}=\mathbf{P}^T\)</span>
+是正定矩阵，当且仅当对任意非零向量 <span
+class="math inline">\(\mathbf{x} \in \mathbb{R}^n
+\backslash\{0\}\)</span> ，都有 <span class="math inline">\(\mathbf{x}^T
+\mathbf{P} \mathbf{x}&gt;\)</span> 0 。</li>
 <li>当且仅当矩阵的所有<strong>特征值严格为正</strong>时，矩阵是正定的。</li>
-<li>不通过计算特征值，也可以通过判定矩阵的<strong>所有顺序主子式$\left(\mathbf{P}_{i, j}\right), 1 \leq i, j \leq p \text {, pour } p \in{1, . . n}$的行列式为正</strong>，来证明矩阵是正定的。</li>
+<li>不通过计算特征值，也可以通过判定矩阵的<strong>所有顺序主子式<span
+class="math inline">\(\left(\mathbf{P}_{i, j}\right), 1 \leq i, j \leq p
+\text {, pour } p \in\{1, . .
+n\}\)</span>的行列式为正</strong>，来证明矩阵是正定的。</li>
 <li>半正定矩阵允许特征值为0。</li>
 </ul>
-<hr>
-<p>对于正定矩阵，存在唯一的下三角矩阵 $L$ ，其主对角线上的元素全是正的，使得 $M=L L^<em>$ </em>。其中 $L^<em>$</em> 是 $L$ 的共轭转置（或转置，在实数域内）。这一分解被称为科列斯基分解<code>Cholesky decomposition</code>。</p>
+<hr />
+<p>对于正定矩阵，存在唯一的下三角矩阵 <span
+class="math inline">\(L\)</span> ，其主对角线上的元素全是正的，使得
+<span class="math inline">\(M=L L^*\)</span> <em>。其中 <span
+class="math inline">\(L^*\)</span></em> 是 <span
+class="math inline">\(L\)</span>
+的共轭转置（或转置，在实数域内）。这一分解被称为科列斯基分解<code>Cholesky decomposition</code>。</p>
 </blockquote>
-<hr>
+<hr />
 <p><strong>定理</strong></p>
-<p>如果满足条件 $(A, B)$ 可稳定和 $(A, H)$ 可检测，则线性二次型调节器问题在无限时间下的解为:</p>
-<script type="math/tex; mode=display">
+<p>如果满足条件 <span class="math inline">\((A, B)\)</span> 可稳定和
+<span class="math inline">\((A, H)\)</span>
+可检测，则线性二次型调节器问题在无限时间下的解为:</p>
+<p><span class="math display">\[
 \begin{gathered}
 u(t)=-K x(t) \\
 K=R^{-1} B^{\top} P
-\end{gathered}</script><p>其中 $P=P^{\top} \geq 0$ 是黎卡提<code>Riccati</code>方程的唯一半正定解:</p>
-<script type="math/tex; mode=display">
-A^{\top} P+P A-P B R^{-1} B^{\top} P+Q=0</script><p>最优准则的值为:</p>
-<script type="math/tex; mode=display">
-J^*=x^{\top}(0) P x(0)</script><p>闭环系统是渐近稳定的。如果进一步 $(A, H)$ 是可观的，则 $P$ 是正定的。</p>
-<hr>
+\end{gathered}
+\]</span></p>
+<p>其中 <span class="math inline">\(P=P^{\top} \geq 0\)</span>
+是黎卡提<code>Riccati</code>方程的唯一半正定解:</p>
+<p><span class="math display">\[
+A^{\top} P+P A-P B R^{-1} B^{\top} P+Q=0
+\]</span></p>
+<p>最优准则的值为:</p>
+<p><span class="math display">\[
+J^*=x^{\top}(0) P x(0)
+\]</span></p>
+<p>闭环系统是渐近稳定的。如果进一步 <span class="math inline">\((A,
+H)\)</span> 是可观的，则 <span class="math inline">\(P\)</span>
+是正定的。</p>
+<hr />
 <blockquote>
-<p><strong>Matlab</strong><br><code>[K, S, E] = lqr(A, B, Q, R)</code> ，用于设计线性二次型调节器的函数，其中：</p>
+<p><strong>Matlab</strong> <code>[K, S, E] = lqr(A, B, Q, R)</code>
+，用于设计线性二次型调节器的函数，其中：</p>
 <ul>
 <li><strong>A</strong>: 演化矩阵</li>
 <li><strong>B</strong>: 控制矩阵</li>
@@ -649,8 +1062,9 @@ J^*=x^{\top}(0) P x(0)</script><p>闭环系统是渐近稳定的。如果进一�
 <li><strong>S</strong>: Riccati方程的解</li>
 <li><strong>E</strong>: 闭环系统的极点</li>
 </ul>
-<hr>
-<p><code>X = icare(A, B, Q, R)</code> ，用于求解连续时间代数Riccati方程，其中：</p>
+<hr />
+<p><code>X = icare(A, B, Q, R)</code>
+，用于求解连续时间代数Riccati方程，其中：</p>
 <ul>
 <li><strong>A</strong>: 演化矩阵</li>
 <li><strong>B</strong>: 控制矩阵</li>
@@ -659,265 +1073,551 @@ J^*=x^{\top}(0) P x(0)</script><p>闭环系统是渐近稳定的。如果进一�
 <li><strong>X</strong>: Riccati方程的正定对称解</li>
 </ul>
 </blockquote>
-<h3 id="CE3-4-简单的开环系统的例子"><a href="#CE3-4-简单的开环系统的例子" class="headerlink" title="CE3.4 简单的开环系统的例子"></a>CE3.4 简单的开环系统的例子</h3><hr>
+<h3 id="ce3.4-简单的开环系统的例子">CE3.4 简单的开环系统的例子</h3>
+<hr />
 <blockquote>
 <p><strong>简单的开环系统的例子</strong></p>
 <p>对于开环系统：</p>
-<script type="math/tex; mode=display">
-\dot{x}(t)=-x(t)+u(t)</script><p>设最小化准则：</p>
-<script type="math/tex; mode=display">
-J=\int_0^{+\infty}\left(q x_1(t)^2+r u(t)^2\right) d t, \quad q \geq 0, r>0</script><p>黎卡提方程：</p>
-<script type="math/tex; mode=display">
-
--2P - r^{-1}  P^2+q=0</script><p>其解为：</p>
-<script type="math/tex; mode=display">
-p_{1,2}=\frac{-2 r \pm 2 r \sqrt{1+\frac{q}{r}}}{2}=r\left(-1 \pm \sqrt{1+\frac{q}{r}}\right)</script><p>只取正解，从而得：</p>
-<script type="math/tex; mode=display">
-K=-1+\sqrt{1+\frac{q}{r}}</script><p>原微分方程转化为：</p>
-<script type="math/tex; mode=display">
-\dot{x}=-x-\left(-1+\sqrt{1+\frac{q}{r}}\right) x=-\sqrt{1+\frac{q}{r}} x</script><p>从而求得解：</p>
-<script type="math/tex; mode=display">
-x(t)=e^{A t} x(0)=e^{-\sqrt{1+\frac{q}{r} t}} x(0)</script><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_11.png" alt=""></p>
+<p><span class="math display">\[
+\dot{x}(t)=-x(t)+u(t)
+\]</span></p>
+<p>设最小化准则：</p>
+<p><span class="math display">\[
+J=\int_0^{+\infty}\left(q x_1(t)^2+r u(t)^2\right) d t, \quad q \geq 0,
+r&gt;0
+\]</span></p>
+<p>黎卡提方程：</p>
+<p>$$</p>
+<p>-2P - r^{-1} P^2+q=0 $$</p>
+<p>其解为：</p>
+<p><span class="math display">\[
+p_{1,2}=\frac{-2 r \pm 2 r \sqrt{1+\frac{q}{r}}}{2}=r\left(-1 \pm
+\sqrt{1+\frac{q}{r}}\right)
+\]</span></p>
+<p>只取正解，从而得：</p>
+<p><span class="math display">\[
+K=-1+\sqrt{1+\frac{q}{r}}
+\]</span></p>
+<p>原微分方程转化为：</p>
+<p><span class="math display">\[
+\dot{x}=-x-\left(-1+\sqrt{1+\frac{q}{r}}\right) x=-\sqrt{1+\frac{q}{r}}
+x
+\]</span></p>
+<p>从而求得解：</p>
+<p><span class="math display">\[
+x(t)=e^{A t} x(0)=e^{-\sqrt{1+\frac{q}{r} t}} x(0)
+\]</span></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_11.png" /></p>
 </blockquote>
-<h3 id="C3-3-2-有噪音的情况的结果"><a href="#C3-3-2-有噪音的情况的结果" class="headerlink" title="C3.3.2 有噪音的情况的结果"></a>C3.3.2 有噪音的情况的结果</h3><hr>
+<h3 id="c3.3.2-有噪音的情况的结果">C3.3.2 有噪音的情况的结果</h3>
+<hr />
 <p>在有噪音的情况，系统可以写作：</p>
-<script type="math/tex; mode=display">
-\dot{x}(t)=A x(t)+B u(t)+v(t)</script><p>其中$v(t)$代表白噪音：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\dot{x}(t)=A x(t)+B u(t)+v(t)
+\]</span></p>
+<p>其中<span class="math inline">\(v(t)\)</span>代表白噪音：</p>
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 E\{v(t)\}=0 \\
 E\left\{v(t) v(\tau)^T\right\}=V \delta(t-\tau)
-\end{array}\right.</script><p>此时，我们希望以下方程能够最小化：</p>
-<script type="math/tex; mode=display">
-J=\lim _{T \rightarrow+\infty} \mathbb{E}\left\{\frac{1}{T} \int_0^T\left(x(t)^{\top} Q x(t)+u^{\top}(t) R u(t)\right) d t\right\}</script><p>满足这些准则的最优控制条件与无噪声的确定性情况下相同，解也是一样的。</p>
-<hr>
+\end{array}\right.
+\]</span></p>
+<p>此时，我们希望以下方程能够最小化：</p>
+<p><span class="math display">\[
+J=\lim _{T \rightarrow+\infty} \mathbb{E}\left\{\frac{1}{T}
+\int_0^T\left(x(t)^{\top} Q x(t)+u^{\top}(t) R u(t)\right) d t\right\}
+\]</span></p>
+<p>满足这些准则的最优控制条件与无噪声的确定性情况下相同，解也是一样的。</p>
+<hr />
 <p><strong>定理</strong></p>
 <p>对于如上描述的系统和最小化准则，其解等同于无限时间域线性二次调节器问题的解，最优准则的值为：</p>
-<script type="math/tex; mode=display">
-J^*=x^{\top}(0) P x(0)+\operatorname{trace}(V P)</script><h3 id="C3-3-3-基于输出的准则"><a href="#C3-3-3-基于输出的准则" class="headerlink" title="C3.3.3 基于输出的准则"></a>C3.3.3 基于输出的准则</h3><hr>
+<p><span class="math display">\[
+J^*=x^{\top}(0) P x(0)+\operatorname{trace}(V P)
+\]</span></p>
+<h3 id="c3.3.3-基于输出的准则">C3.3.3 基于输出的准则</h3>
+<hr />
 <p>对于系统：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-& \dot{x}(t)=A x(t)+B u(t) \\
-& y(t)=C x(t)
-\end{aligned}</script><p>最小化准则也可以写作：</p>
-<script type="math/tex; mode=display">
-J=\int_0^{+\infty}\left(y(t)^T \tilde{Q} y(t)+u(t)^T R u(t)\right) d t</script><p>其中，$Q=C^T \tilde{Q} C$。</p>
-<h3 id="CE3-5-两个积分器的例子"><a href="#CE3-5-两个积分器的例子" class="headerlink" title="CE3.5 两个积分器的例子"></a>CE3.5 两个积分器的例子</h3><hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_12.png" alt=""></p>
+&amp; \dot{x}(t)=A x(t)+B u(t) \\
+&amp; y(t)=C x(t)
+\end{aligned}
+\]</span></p>
+<p>最小化准则也可以写作：</p>
+<p><span class="math display">\[
+J=\int_0^{+\infty}\left(y(t)^T \tilde{Q} y(t)+u(t)^T R u(t)\right) d t
+\]</span></p>
+<p>其中，<span class="math inline">\(Q=C^T \tilde{Q} C\)</span>。</p>
+<h3 id="ce3.5-两个积分器的例子">CE3.5 两个积分器的例子</h3>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_12.png" /></p>
 <blockquote>
 <p><strong>两个积分器的例子</strong></p>
 <p>系统的状态：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 \dot{x}=\left(\begin{array}{ll}
-0 & 1 \\
-0 & 0
+0 &amp; 1 \\
+0 &amp; 0
 \end{array}\right) x+\left(\begin{array}{ll}
 1 \\
-0 
+0
 \end{array}\right) u\\
 y = \left(\begin{array}{ll}
-1 &
-0 
+1 &amp;
+0
 \end{array}\right)x
-\end{array}\right.</script><p>最小化准则为：</p>
-<script type="math/tex; mode=display">
+\end{array}\right.
+\]</span></p>
+<p>最小化准则为：</p>
+<p><span class="math display">\[
 J=\int_0^{+\infty}\left(\left(\begin{array}{ll}
-q^2 & 0 \\
-0 & 0
-\end{array}\right) x(t)^2+r u(t)^2\right) d t, q>0, r>0</script><p>由于状态是一个二维的量，不太方便计算，使用基于输出的准则。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}J&=\int_0^{+\infty}\left(q y^2+r u(t)^2\right) d t, q>0, r>0\\&=\int_0^{+\infty}\left(q x_1^2+r u(t)^2\right) d t, q>0, r>0\end{aligned}</script><p>如此进一步的解法与前一个例子完全相同。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_13.png" alt=""></p>
+q^2 &amp; 0 \\
+0 &amp; 0
+\end{array}\right) x(t)^2+r u(t)^2\right) d t, q&gt;0, r&gt;0
+\]</span></p>
+<p>由于状态是一个二维的量，不太方便计算，使用基于输出的准则。</p>
+<p><span class="math display">\[
+\begin{aligned}J&amp;=\int_0^{+\infty}\left(q y^2+r u(t)^2\right) d t,
+q&gt;0, r&gt;0\\&amp;=\int_0^{+\infty}\left(q x_1^2+r u(t)^2\right) d t,
+q&gt;0, r&gt;0\end{aligned}
+\]</span></p>
+<p>如此进一步的解法与前一个例子完全相同。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_13.png" /></p>
 </blockquote>
-<h3 id="CE3-6-飞机横向运动的伺服控制"><a href="#CE3-6-飞机横向运动的伺服控制" class="headerlink" title="CE3.6 飞机横向运动的伺服控制"></a>CE3.6 飞机横向运动的伺服控制</h3><hr>
+<h3 id="ce3.6-飞机横向运动的伺服控制">CE3.6 飞机横向运动的伺服控制</h3>
+<hr />
 <p>现在我们将综合考虑一个飞机的横向运动的伺服控制问题。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_14.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_14.png" /></p>
 <blockquote>
-<p>飞机的横向运动通过 4 个状态变量描述 : 侧滑角<code>angle de dérage</code> $\beta$ 、滚转速度<code>vitesse de roulis</code> $p$ 、偏航速度<code>angle de lacet</code>$r$ 和滚转角<code>angle de roulis</code> $\phi$ 。状态向量为:</p>
-<script type="math/tex; mode=display">
-x(t)=(\beta(t), p(t), r(t), \phi(t))^T</script><p>控制量是副翼偏转角<code>l&#39;angle de braquage des ailerons</code> $\delta_a$ 和方向舵偏转角<code>l&#39;angle de braquage de la dérive</code> $\delta_r$ ，即：</p>
-<script type="math/tex; mode=display">
-u(t)=\left(\delta_a(t), \delta_r(t)\right)^T</script><p>我们假设关注的输出是侧滑角和滚转角:</p>
-<script type="math/tex; mode=display">
-y(t)=(\beta(t), \phi(t))^T \text { 。 }</script><p>对于战斗机，横向飞行线性化模型在特定飞行状态下的状态表示为：</p>
-<script type="math/tex; mode=display">
-A=\left(\begin{array}{cccc}-0.746 & 0.006 & -1 & 0.0369 \\-12.9 & -0.746 & 0.387 & 0 \\4.31 & 0.024 & -0.174 & 0 \\0 & 1 & 0 & 0\end{array}\right), \quad B=\left(\begin{array}{cc}0.0012 & 0.0092 \\6.05 & 0.952 \\-0.416 & -1.76 \\0 & 0\end{array}\right), \quad C=\left(\begin{array}{llll}1 & 0 & 0 & 0 \\0 & 0 & 0 & 1\end{array}\right)</script><p>该模型是一个具有两个输入、两个输出和 4 个状态变量的MIMO系统。系统的开环特征值为：</p>
+<p>飞机的横向运动通过 4 个状态变量描述 :
+侧滑角<code>angle de dérage</code> <span
+class="math inline">\(\beta\)</span>
+、滚转速度<code>vitesse de roulis</code> <span
+class="math inline">\(p\)</span>
+、偏航速度<code>angle de lacet</code><span
+class="math inline">\(r\)</span> 和滚转角<code>angle de roulis</code>
+<span class="math inline">\(\phi\)</span> 。状态向量为:</p>
+<p><span class="math display">\[
+x(t)=(\beta(t), p(t), r(t), \phi(t))^T
+\]</span></p>
+<p>控制量是副翼偏转角<code>l'angle de braquage des ailerons</code> <span
+class="math inline">\(\delta_a\)</span>
+和方向舵偏转角<code>l'angle de braquage de la dérive</code> <span
+class="math inline">\(\delta_r\)</span> ，即：</p>
+<p><span class="math display">\[
+u(t)=\left(\delta_a(t), \delta_r(t)\right)^T
+\]</span></p>
+<p>我们假设关注的输出是侧滑角和滚转角:</p>
+<p><span class="math display">\[
+y(t)=(\beta(t), \phi(t))^T \text { 。 }
+\]</span></p>
+<p>对于战斗机，横向飞行线性化模型在特定飞行状态下的状态表示为：</p>
+<p><span class="math display">\[
+A=\left(\begin{array}{cccc}-0.746 &amp; 0.006 &amp; -1 &amp; 0.0369
+\\-12.9 &amp; -0.746 &amp; 0.387 &amp; 0 \\4.31 &amp; 0.024 &amp; -0.174
+&amp; 0 \\0 &amp; 1 &amp; 0 &amp; 0\end{array}\right), \quad
+B=\left(\begin{array}{cc}0.0012 &amp; 0.0092 \\6.05 &amp; 0.952 \\-0.416
+&amp; -1.76 \\0 &amp; 0\end{array}\right), \quad
+C=\left(\begin{array}{llll}1 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 0 &amp; 0
+&amp; 1\end{array}\right)
+\]</span></p>
+<p>该模型是一个具有两个输入、两个输出和 4
+个状态变量的MIMO系统。系统的开环特征值为：</p>
 <ul>
-<li>$-0.7655:$ 一个真实模式，称为纯滚模式，具有较快且稳定的动态；</li>
-<li>$-0.0062$ ： 一个真实模式，称为螺旋模式，动态缓慢且稳定（此模式可能在某些飞行状态下不稳定) ；</li>
-<li>$-0.4472 \pm i 2.0735$ ：称为荷兰滚模式的复数模式，表现为稳定的振荡动态，阻尼系数为 $\xi=0.21$ 。</li>
+<li><span class="math inline">\(-0.7655:\)</span>
+一个真实模式，称为纯滚模式，具有较快且稳定的动态；</li>
+<li><span class="math inline">\(-0.0062\)</span> ：
+一个真实模式，称为螺旋模式，动态缓慢且稳定（此模式可能在某些飞行状态下不稳定)
+；</li>
+<li><span class="math inline">\(-0.4472 \pm i 2.0735\)</span>
+：称为荷兰滚模式的复数模式，表现为稳定的振荡动态，阻尼系数为 <span
+class="math inline">\(\xi=0.21\)</span> 。</li>
 </ul>
 <p>进行<code>Kalman</code>矩阵分析：</p>
 <p>其控制矩阵：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 C =\left(\begin{array}{cccccccc}
-0.0012 & 0.0092 & 0.4514 & 1.7588 & -0.3644 & -1.6548 & -1.7089 & -6.4300 \\
-6.0500 & 0.9520 & -4.6898 & -1.5100 & -2.2383 & -21.4200 & 7.0649 & 40.2207 \\
--0.4160 & -1.7600 & 0.2228 & 0.3687 & 1.7942 & 7.4802 & -1.9365 & -8.9477 \\
-0 & 0 & 6.0500 & 0.9520 & -4.6898 & -1.5100 & -2.2383 & -21.4200
-\end{array}\right)</script><p>其观测矩阵：</p>
-<script type="math/tex; mode=display">
-O =\left(\begin{array}{cccc}1.0000 & 0 & 0 & 0 \\0 & 0 & 0 & 1.0000 \\-0.7460 & 0.0060 & -1.0000 & 0.0369 \\0 & 1.0000 & 0 & 0 \\-3.8309 & 0.0039 & 0.9223 & -0.0275 \\-12.9000 & -0.7460 & 0.3870 & 0 \\6.7821 & -0.0313 & 3.6719 & -0.1414 \\20.9148 & 0.4884 & 12.5440 & -0.4760\end{array}\right)</script><p>两个矩阵的秩都为$4$，因此系统完全可控，完全可观。</p>
-<hr>
-<p>现在，我们希望通过控制副翼和方向舵的偏转角，使角度 $\beta$ 和 $\phi$ 达到设定值，并在初始条件下实现约$3$秒的响应时间，且控制量的幅度不超过初始条件的 $2$ 倍。</p>
-<p>注意，角度变量 $\beta$ 和 $\phi$ 以及控制量 $\delta_a$ 和 $\delta_r$ 的单位相同，且大小相当。</p>
-<p>为了简化合成问题，我们可以使用对角权重矩阵 $Q=\operatorname{diag}\left(q_1, q_2, q_3, q_4\right)$ 和 $R=\operatorname{diag}\left(r_1, r_2\right)$ 。准则为:</p>
-<script type="math/tex; mode=display">
-J=\int_0^{\infty}\left(q_1 \beta(t)^2+q_2 p(t)^2+q_3 r(t)^2+q_4 \phi(t)^2+r_1 \delta_a(t)^2+r_2 \delta_r(t)^2\right) d t</script><p>由于我们调节的变量是 $\beta$ 和 $\phi$ ，为了简化合成，首先可以设 $q_2=q_3=0$ 。经过第一次迭代，我们选择了以下两个调节方案：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_15.png" alt=""></p>
-<p>在初始条件$\beta=0 ， \phi=1$与$\beta=0 ， \phi=1$两种情况下，两个调节方案的响应结果如图所示。</p>
+0.0012 &amp; 0.0092 &amp; 0.4514 &amp; 1.7588 &amp; -0.3644 &amp;
+-1.6548 &amp; -1.7089 &amp; -6.4300 \\
+6.0500 &amp; 0.9520 &amp; -4.6898 &amp; -1.5100 &amp; -2.2383 &amp;
+-21.4200 &amp; 7.0649 &amp; 40.2207 \\
+-0.4160 &amp; -1.7600 &amp; 0.2228 &amp; 0.3687 &amp; 1.7942 &amp;
+7.4802 &amp; -1.9365 &amp; -8.9477 \\
+0 &amp; 0 &amp; 6.0500 &amp; 0.9520 &amp; -4.6898 &amp; -1.5100 &amp;
+-2.2383 &amp; -21.4200
+\end{array}\right)
+\]</span></p>
+<p>其观测矩阵：</p>
+<p><span class="math display">\[
+O =\left(\begin{array}{cccc}1.0000 &amp; 0 &amp; 0 &amp; 0 \\0 &amp; 0
+&amp; 0 &amp; 1.0000 \\-0.7460 &amp; 0.0060 &amp; -1.0000 &amp; 0.0369
+\\0 &amp; 1.0000 &amp; 0 &amp; 0 \\-3.8309 &amp; 0.0039 &amp; 0.9223
+&amp; -0.0275 \\-12.9000 &amp; -0.7460 &amp; 0.3870 &amp; 0 \\6.7821
+&amp; -0.0313 &amp; 3.6719 &amp; -0.1414 \\20.9148 &amp; 0.4884 &amp;
+12.5440 &amp; -0.4760\end{array}\right)
+\]</span></p>
+<p>两个矩阵的秩都为<span
+class="math inline">\(4\)</span>，因此系统完全可控，完全可观。</p>
+<hr />
+<p>现在，我们希望通过控制副翼和方向舵的偏转角，使角度 <span
+class="math inline">\(\beta\)</span> 和 <span
+class="math inline">\(\phi\)</span>
+达到设定值，并在初始条件下实现约<span
+class="math inline">\(3\)</span>秒的响应时间，且控制量的幅度不超过初始条件的
+<span class="math inline">\(2\)</span> 倍。</p>
+<p>注意，角度变量 <span class="math inline">\(\beta\)</span> 和 <span
+class="math inline">\(\phi\)</span> 以及控制量 <span
+class="math inline">\(\delta_a\)</span> 和 <span
+class="math inline">\(\delta_r\)</span> 的单位相同，且大小相当。</p>
+<p>为了简化合成问题，我们可以使用对角权重矩阵 <span
+class="math inline">\(Q=\operatorname{diag}\left(q_1, q_2, q_3,
+q_4\right)\)</span> 和 <span
+class="math inline">\(R=\operatorname{diag}\left(r_1,
+r_2\right)\)</span> 。准则为:</p>
+<p><span class="math display">\[
+J=\int_0^{\infty}\left(q_1 \beta(t)^2+q_2 p(t)^2+q_3 r(t)^2+q_4
+\phi(t)^2+r_1 \delta_a(t)^2+r_2 \delta_r(t)^2\right) d t
+\]</span></p>
+<p>由于我们调节的变量是 <span class="math inline">\(\beta\)</span> 和
+<span class="math inline">\(\phi\)</span> ，为了简化合成，首先可以设
+<span class="math inline">\(q_2=q_3=0\)</span>
+。经过第一次迭代，我们选择了以下两个调节方案：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_15.png" /></p>
+<p>在初始条件<span class="math inline">\(\beta=0 ，
+\phi=1\)</span>与<span class="math inline">\(\beta=0 ，
+\phi=1\)</span>两种情况下，两个调节方案的响应结果如图所示。</p>
 <p>可以清楚地看到，第二种调节方案的响应速度更快，但代价是控制量略微增大。对于这两种调节方案，响应时间和控制量的最大幅度都满足设计规范的要求。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_16.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_16.png" /></p>
 </blockquote>
-<h3 id="C3-3-4-使x趋近于x-c而不是0，以及可测量扰动及其抑制的情况的进一步讨论-Cas-des-perturbations-mesurables-et-leurs-rejet"><a href="#C3-3-4-使x趋近于x-c而不是0，以及可测量扰动及其抑制的情况的进一步讨论-Cas-des-perturbations-mesurables-et-leurs-rejet" class="headerlink" title="C3.3.4 使x趋近于x_c而不是0，以及可测量扰动及其抑制的情况的进一步讨论 Cas des perturbations mesurables et leurs rejet"></a>C3.3.4 使x趋近于x_c而不是0，以及可测量扰动及其抑制的情况的进一步讨论 Cas des perturbations mesurables et leurs rejet</h3><hr>
-<p><strong>$x → x_c$的情况</strong></p>
-<p>首先讨论如何将状态$x$带回到某一状态$x_c$，而不是在此之前我们讨论的带回$0$。</p>
+<h3
+id="c3.3.4-使x趋近于x_c而不是0以及可测量扰动及其抑制的情况的进一步讨论-cas-des-perturbations-mesurables-et-leurs-rejet">C3.3.4
+使x趋近于x_c而不是0，以及可测量扰动及其抑制的情况的进一步讨论 Cas des
+perturbations mesurables et leurs rejet</h3>
+<hr />
+<p><strong><span class="math inline">\(x →
+x_c\)</span>的情况</strong></p>
+<p>首先讨论如何将状态<span
+class="math inline">\(x\)</span>带回到某一状态<span
+class="math inline">\(x_c\)</span>，而不是在此之前我们讨论的带回<span
+class="math inline">\(0\)</span>。</p>
 <p>系统：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{gathered}
 \dot{x}(t)=A x(t)+B u(t) \\
 y(t)=C x(t)
-\end{gathered}</script><p>在稳态时，我们希望$x\rightarrow x_c$，因此有：</p>
-<script type="math/tex; mode=display">
+\end{gathered}
+\]</span></p>
+<p>在稳态时，我们希望<span class="math inline">\(x\rightarrow
+x_c\)</span>，因此有：</p>
+<p><span class="math display">\[
 \begin{gathered}
 0=A x_c+B u_c \\
 y_c=C x_c
-\end{gathered}</script><p>令两组方程相减，得到：</p>
-<script type="math/tex; mode=display">
+\end{gathered}
+\]</span></p>
+<p>令两组方程相减，得到：</p>
+<p><span class="math display">\[
 \begin{gathered}
 \dot{x}(t)=A\left(x(t)-x_c\right)+B\left(u(t)-u_c\right) \\
 y(t)-y_c=C\left(x(t)-x_c\right)
-\end{gathered}</script><p>再定义：$\tilde{x}(t)=x(t)-x_c, \tilde{u}(t)=u(t)-u_c, \tilde{y}(t)=y(t)-y_c$，有新的状态方程：</p>
-<script type="math/tex; mode=display">
+\end{gathered}
+\]</span></p>
+<p>再定义：<span class="math inline">\(\tilde{x}(t)=x(t)-x_c,
+\tilde{u}(t)=u(t)-u_c,
+\tilde{y}(t)=y(t)-y_c\)</span>，有新的状态方程：</p>
+<p><span class="math display">\[
 \begin{gathered}
 \dot{\tilde{x}}(t)=A \tilde{x}(t)+B \tilde{u}(t) \\
 \tilde{y}(t)=C \tilde{x}(t)
-\end{gathered}</script><p>显然将 $\tilde{x}$ 带回零等同于将 $x$ 带到 $x_c$ 。因此，将 $x$ 带回 $x_c$ 的控制问题就是将 $\tilde{x}$ 带回零的问题。可以如前所述，通过二次型优化问题来处理该问题，最小化为：</p>
-<script type="math/tex; mode=display">
-J=\int_0^{\infty}\left(\tilde{x}^T Q \tilde{x}+\tilde{u}^T R \tilde{u}\right) d t</script><p>状态反馈矩阵 $K$ 由Riccati方程给出，进行变量替换，得到：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_17.png" alt=""></p>
-<script type="math/tex; mode=display">
-u(t)=-K\left(x(t)-x_c\right)+u_c</script><p>为了实现这种闭环控制，需要确定$y_{\infty}=y_c$时的$\left(u_c, x_c\right)$。为了显式呈现设定值，将上述结果改写为：</p>
-<script type="math/tex; mode=display">
-u(t)=-K x(t)+e， e = u_c+Kx_c</script><p>其中$e$显然是个常数。写出闭环方程：</p>
-<script type="math/tex; mode=display">
+\end{gathered}
+\]</span></p>
+<p>显然将 <span class="math inline">\(\tilde{x}\)</span> 带回零等同于将
+<span class="math inline">\(x\)</span> 带到 <span
+class="math inline">\(x_c\)</span> 。因此，将 <span
+class="math inline">\(x\)</span> 带回 <span
+class="math inline">\(x_c\)</span> 的控制问题就是将 <span
+class="math inline">\(\tilde{x}\)</span>
+带回零的问题。可以如前所述，通过二次型优化问题来处理该问题，最小化为：</p>
+<p><span class="math display">\[
+J=\int_0^{\infty}\left(\tilde{x}^T Q \tilde{x}+\tilde{u}^T R
+\tilde{u}\right) d t
+\]</span></p>
+<p>状态反馈矩阵 <span class="math inline">\(K\)</span>
+由Riccati方程给出，进行变量替换，得到：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_17.png" /></p>
+<p><span class="math display">\[
+u(t)=-K\left(x(t)-x_c\right)+u_c
+\]</span></p>
+<p>为了实现这种闭环控制，需要确定<span
+class="math inline">\(y_{\infty}=y_c\)</span>时的<span
+class="math inline">\(\left(u_c,
+x_c\right)\)</span>。为了显式呈现设定值，将上述结果改写为：</p>
+<p><span class="math display">\[
+u(t)=-K x(t)+e， e = u_c+Kx_c
+\]</span></p>
+<p>其中<span
+class="math inline">\(e\)</span>显然是个常数。写出闭环方程：</p>
+<p><span class="math display">\[
 \begin{gathered}
 \dot{x}(t)=(A-B K) x(t)+B e \\
 y(t)=C x(t)
-\end{gathered}</script><p>与之前的步骤相同，在稳态时应有：</p>
-<script type="math/tex; mode=display">
+\end{gathered}
+\]</span></p>
+<p>与之前的步骤相同，在稳态时应有：</p>
+<p><span class="math display">\[
 \left\{\begin{aligned}
-&0=(A-B K) x_c+B e \\
-&y_c=C x_c
-\end{aligned}\right.\Rightarrow \left\{\begin{aligned}&x_c=-(A-B K)^{-1} B e, \\ &y_c=-C(A-B K)^{-1} B e\end{aligned}\right.</script><p>解出：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_18.png" alt=""></p>
-<script type="math/tex; mode=display">
-e=-\left[C(A-B K)^{-1} B\right]^{-1} y_c=M y_c，M=-\left[C(A-B K)^{-1} B\right]^{-1}</script><hr>
+&amp;0=(A-B K) x_c+B e \\
+&amp;y_c=C x_c
+\end{aligned}\right.\Rightarrow \left\{\begin{aligned}&amp;x_c=-(A-B
+K)^{-1} B e, \\ &amp;y_c=-C(A-B K)^{-1} B e\end{aligned}\right.
+\]</span></p>
+<p>解出：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_18.png" /></p>
+<p><span class="math display">\[
+e=-\left[C(A-B K)^{-1} B\right]^{-1} y_c=M y_c，M=-\left[C(A-B K)^{-1}
+B\right]^{-1}
+\]</span></p>
+<hr />
 <p><strong>恒定扰动的情况</strong></p>
 <p>在得到上述控制结构之后，可以将其应用在恒定扰动情况。考虑恒定扰动的系统：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{gathered}
 \dot{x}(t)=(A-B K) x(t)+B e+B^{\prime} d \\
 y(t)=C x(t)
-\end{gathered}</script><p>基于完全相同的思路，可以得到：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}x_c=-(A-B K)^{-1} B e-(A-B K)^{-1} B^{\prime} d \\y_c=C x_c=-C(A-B K)^{-1} B e-C(A-B K)^{-1} B^{\prime} d\end{gathered}</script><p>解得：</p>
-<script type="math/tex; mode=display">
-e=-\left[C(A-B K)^{-1} B\right]^{-1} y_c-\left[C(A-B K)^{-1} B\right]^{-1} C(A-B K)^{-1} B^{\prime} d</script><p>将其简化为：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_19.png" alt=""></p>
-<script type="math/tex; mode=display">
-e=M y_c+N d，M=-\left[C(A-B K)^{-1} B\right]^{-1}, \quad N=-\left[C(A-B K)^{-1} B\right]^{-1} C(A-B K)^{-1} B^{\prime}</script><h3 id="C3-3-5-引入积分作用的LQ控制-Commande-LQ-avec-action-integrale"><a href="#C3-3-5-引入积分作用的LQ控制-Commande-LQ-avec-action-integrale" class="headerlink" title="C3.3.5 引入积分作用的LQ控制  Commande LQ avec action intégrale"></a>C3.3.5 引入积分作用的LQ控制  Commande LQ avec action intégrale</h3><hr>
+\end{gathered}
+\]</span></p>
+<p>基于完全相同的思路，可以得到：</p>
+<p><span class="math display">\[
+\begin{gathered}x_c=-(A-B K)^{-1} B e-(A-B K)^{-1} B^{\prime} d \\y_c=C
+x_c=-C(A-B K)^{-1} B e-C(A-B K)^{-1} B^{\prime} d\end{gathered}
+\]</span></p>
+<p>解得：</p>
+<p><span class="math display">\[
+e=-\left[C(A-B K)^{-1} B\right]^{-1} y_c-\left[C(A-B K)^{-1}
+B\right]^{-1} C(A-B K)^{-1} B^{\prime} d
+\]</span></p>
+<p>将其简化为：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_19.png" /></p>
+<p><span class="math display">\[
+e=M y_c+N d，M=-\left[C(A-B K)^{-1} B\right]^{-1}, \quad N=-\left[C(A-B
+K)^{-1} B\right]^{-1} C(A-B K)^{-1} B^{\prime}
+\]</span></p>
+<h3
+id="c3.3.5-引入积分作用的lq控制-commande-lq-avec-action-intégrale">C3.3.5
+引入积分作用的LQ控制 Commande LQ avec action intégrale</h3>
+<hr />
 <p>另一种在稳态下消除扰动影响的解决方案是在控制律的综合中引入积分作用。</p>
 <p>继续考虑状态：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{gathered}
 \dot{x}(t)=A x(t)+B u(t)+B^{\prime} d(t) \\
 y(t)=C x(t)
-\end{gathered}</script><p>这里我们不再假设噪音恒定。预定义附加变量$q(t)$，表示控制误差的积分：</p>
-<script type="math/tex; mode=display">
-q(t)=\int_0^t\left(y(\tau)-y_c(\tau)\right) d \tau, \quad \frac{d q(t)}{d t}=y(t)-y_c(t)</script><p>定义增广状态向量$x_a(t)=\left(x^T(t) \quad q^T(t)\right)^T$，原本的状态可以表示为：</p>
-<script type="math/tex; mode=display">
+\end{gathered}
+\]</span></p>
+<p>这里我们不再假设噪音恒定。预定义附加变量<span
+class="math inline">\(q(t)\)</span>，表示控制误差的积分：</p>
+<p><span class="math display">\[
+q(t)=\int_0^t\left(y(\tau)-y_c(\tau)\right) d \tau, \quad \frac{d
+q(t)}{d t}=y(t)-y_c(t)
+\]</span></p>
+<p>定义增广状态向量<span class="math inline">\(x_a(t)=\left(x^T(t) \quad
+q^T(t)\right)^T\)</span>，原本的状态可以表示为：</p>
+<p><span class="math display">\[
 \begin{aligned}
-\binom{\dot{x}(t)}{\dot{q}(t)} & =\left(\begin{array}{ll}
-A & 0 \\
-C & 0
-\end{array}\right)\binom{x(t)}{q(t)}+\binom{B}{0} u(t)+\left(\begin{array}{cc}
-B^{\prime} & 0 \\
-0 & -I
+\binom{\dot{x}(t)}{\dot{q}(t)} &amp; =\left(\begin{array}{ll}
+A &amp; 0 \\
+C &amp; 0
+\end{array}\right)\binom{x(t)}{q(t)}+\binom{B}{0}
+u(t)+\left(\begin{array}{cc}
+B^{\prime} &amp; 0 \\
+0 &amp; -I
 \end{array}\right)\binom{d(t)}{y_c(t)} \\
-y(t) & =\left(\begin{array}{ll}
-C & 0
+y(t) &amp; =\left(\begin{array}{ll}
+C &amp; 0
 \end{array}\right)\binom{x(t)}{q(t)}
-\end{aligned}</script><p>引入偏差变量：</p>
-<script type="math/tex; mode=display">
+\end{aligned}
+\]</span></p>
+<p>引入偏差变量：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& x^{\prime}=x-x_c \\
-& y^{\prime}=y-y_c \\
-& u^{\prime}=u-u_c \\
-& q^{\prime}=q-q_c
-\end{aligned}</script><p>增广方程转换为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\binom{\dot{x}^{\prime}(t)}{\dot{q}^{\prime}(t)} & =\underbrace{\left(\begin{array}{ll}A & 0 \\C & 0\end{array}\right)}_{A_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}+\underbrace{\binom{B}{0}}_{B_a} u^{\prime}(t) \\y^{\prime}(t) & =\underbrace{\left(\begin{array}{ll}C & 0\end{array}\right)}_{C_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}\end{aligned}</script><p>问题重新转变为调节偏差变量$y^{\prime}$到$0$，这可以通过闭环控制实现：</p>
-<script type="math/tex; mode=display">
-u^{\prime}(t)=-K\binom{x^{\prime}(t)}{q^{\prime}(t)}=-K_1 x^{\prime}(t)-K_2 q^{\prime}(t)</script><hr>
+&amp; x^{\prime}=x-x_c \\
+&amp; y^{\prime}=y-y_c \\
+&amp; u^{\prime}=u-u_c \\
+&amp; q^{\prime}=q-q_c
+\end{aligned}
+\]</span></p>
+<p>增广方程转换为：</p>
+<p><span class="math display">\[
+\begin{aligned}\binom{\dot{x}^{\prime}(t)}{\dot{q}^{\prime}(t)} &amp;
+=\underbrace{\left(\begin{array}{ll}A &amp; 0 \\C &amp;
+0\end{array}\right)}_{A_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}+\underbrace{\binom{B}{0}}_{B_a}
+u^{\prime}(t) \\y^{\prime}(t) &amp;
+=\underbrace{\left(\begin{array}{ll}C &amp;
+0\end{array}\right)}_{C_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}\end{aligned}
+\]</span></p>
+<p>问题重新转变为调节偏差变量<span
+class="math inline">\(y^{\prime}\)</span>到<span
+class="math inline">\(0\)</span>，这可以通过闭环控制实现：</p>
+<p><span class="math display">\[
+u^{\prime}(t)=-K\binom{x^{\prime}(t)}{q^{\prime}(t)}=-K_1
+x^{\prime}(t)-K_2 q^{\prime}(t)
+\]</span></p>
+<hr />
 <p><strong>可控性</strong></p>
-<p>在应用LQ控制之前，需要验证增广后的状态是否依然可控，即控制矩阵的秩是否为$n+p$，控制矩阵：</p>
-<script type="math/tex; mode=display">
-\mathcal{C}=\left(\begin{array}{ccccc}B & A B & A^2 B & \ldots & A^{n+p-1} B \\0 & C B & C A B & \cdots & C A^{n+p-2} B\end{array}\right)=\left(\begin{array}{cc}A & B \\C & 0\end{array}\right)\left(\begin{array}{ccccc}0 & B & A B & \ldots & A^{n+p-2} B \\I_m & 0 & 0 & \ldots & 0\end{array}\right)</script><p>为了使$C$的秩为$n+p$，需要满足后两个矩阵的秩大于等于$n+p$。为此，需要满足：</p>
+<p>在应用LQ控制之前，需要验证增广后的状态是否依然可控，即控制矩阵的秩是否为<span
+class="math inline">\(n+p\)</span>，控制矩阵：</p>
+<p><span class="math display">\[
+\mathcal{C}=\left(\begin{array}{ccccc}B &amp; A B &amp; A^2 B &amp;
+\ldots &amp; A^{n+p-1} B \\0 &amp; C B &amp; C A B &amp; \cdots &amp; C
+A^{n+p-2} B\end{array}\right)=\left(\begin{array}{cc}A &amp; B \\C &amp;
+0\end{array}\right)\left(\begin{array}{ccccc}0 &amp; B &amp; A B &amp;
+\ldots &amp; A^{n+p-2} B \\I_m &amp; 0 &amp; 0 &amp; \ldots &amp;
+0\end{array}\right)
+\]</span></p>
+<p>为了使<span class="math inline">\(C\)</span>的秩为<span
+class="math inline">\(n+p\)</span>，需要满足后两个矩阵的秩大于等于<span
+class="math inline">\(n+p\)</span>。为此，需要满足：</p>
 <ul>
-<li>秩 $\left(\begin{array}{ll}A &amp; B \ C &amp; 0\end{array}\right)=n+p$</li>
-<li>$(A, B)$ 是可控的（这可确保出现在第二个矩阵的第一行上的矩阵构成的第二个矩阵的子矩阵的秩为$n$）</li>
-<li>$m\ge p$，这与前一个条件相结合，可确保第二个矩阵的秩为 $n + m ≥ n + p$。</li>
+<li>秩 <span class="math inline">\(\left(\begin{array}{ll}A &amp; B \\ C
+&amp; 0\end{array}\right)=n+p\)</span></li>
+<li><span class="math inline">\((A, B)\)</span>
+是可控的（这可确保出现在第二个矩阵的第一行上的矩阵构成的第二个矩阵的子矩阵的秩为<span
+class="math inline">\(n\)</span>）</li>
+<li><span class="math inline">\(m\ge
+p\)</span>，这与前一个条件相结合，可确保第二个矩阵的秩为 <span
+class="math inline">\(n + m ≥ n + p\)</span>。</li>
 </ul>
-<p>注意，$m$是$u(t)$的维度，$p$是$y(t)$的维度，$n$是状态空间的维度。</p>
-<hr>
+<p>注意，<span class="math inline">\(m\)</span>是<span
+class="math inline">\(u(t)\)</span>的维度，<span
+class="math inline">\(p\)</span>是<span
+class="math inline">\(y(t)\)</span>的维度，<span
+class="math inline">\(n\)</span>是状态空间的维度。</p>
+<hr />
 <p>假设状态可控，则可以应用LQ控制方法：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& J=\int_0^{\infty}\left(x^{\prime}(t)^{\top} Q_1 x^{\prime}(t)+q^{\prime}(t)^{\top} Q_2 q^{\prime}(t)+u(t)^{\top} R u(t)\right) d t \\& \operatorname{avec} Q_a=Q_a^{\top}=\left(\begin{array}{cc}Q_1 & 0 \\0 & Q_2\end{array}\right) \geq 0 ; R=R^{\top}>0\end{aligned}</script><hr>
+<p><span class="math display">\[
+\begin{aligned}&amp; J=\int_0^{\infty}\left(x^{\prime}(t)^{\top} Q_1
+x^{\prime}(t)+q^{\prime}(t)^{\top} Q_2 q^{\prime}(t)+u(t)^{\top} R
+u(t)\right) d t \\&amp; \operatorname{avec}
+Q_a=Q_a^{\top}=\left(\begin{array}{cc}Q_1 &amp; 0 \\0 &amp;
+Q_2\end{array}\right) \geq 0 ; R=R^{\top}&gt;0\end{aligned}
+\]</span></p>
+<hr />
 <p><strong>可检测性</strong></p>
-<p>为了应用LQ控制方法，需要保证$(A_a,B_a)$可稳定且$(A_a,H_a)$可检测，其中$Q_a=H_a^{\top} H_a$，这在前一章已经讨论过。考虑模型：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\binom{\dot{x}^{\prime}(t)}{\dot{q}^{\prime}(t)} & =\left(\begin{array}{ll}A & 0 \\C & 0\end{array}\right)\binom{x^{\prime}(t)}{q^{\prime}(t)}+\binom{B}{0} u^{\prime}(t) \\y_1(t) & =\left(\begin{array}{ll}H_1 & 0\end{array}\right)\binom{x^{\prime}(t)}{q^{\prime}(t)} \\y_2(t) & =\left(\begin{array}{ll}0 & H_2\end{array}\right)\binom{x^{\prime}(t)}{q^{\prime}(t)}\end{aligned}</script><p>其中$H_1^T H_1=Q_1 ， H_2^T H_2=Q_2$，为了保证可检测，要求：</p>
+<p>为了应用LQ控制方法，需要保证<span
+class="math inline">\((A_a,B_a)\)</span>可稳定且<span
+class="math inline">\((A_a,H_a)\)</span>可检测，其中<span
+class="math inline">\(Q_a=H_a^{\top}
+H_a\)</span>，这在前一章已经讨论过。考虑模型：</p>
+<p><span class="math display">\[
+\begin{aligned}\binom{\dot{x}^{\prime}(t)}{\dot{q}^{\prime}(t)} &amp;
+=\left(\begin{array}{ll}A &amp; 0 \\C &amp;
+0\end{array}\right)\binom{x^{\prime}(t)}{q^{\prime}(t)}+\binom{B}{0}
+u^{\prime}(t) \\y_1(t) &amp; =\left(\begin{array}{ll}H_1 &amp;
+0\end{array}\right)\binom{x^{\prime}(t)}{q^{\prime}(t)} \\y_2(t) &amp;
+=\left(\begin{array}{ll}0 &amp;
+H_2\end{array}\right)\binom{x^{\prime}(t)}{q^{\prime}(t)}\end{aligned}
+\]</span></p>
+<p>其中<span class="math inline">\(H_1^T H_1=Q_1 ， H_2^T
+H_2=Q_2\)</span>，为了保证可检测，要求：</p>
 <ul>
-<li>$(H_1,A)$可检测</li>
-<li>$rang(H_2) = p$</li>
+<li><span class="math inline">\((H_1,A)\)</span>可检测</li>
+<li><span class="math inline">\(rang(H_2) = p\)</span></li>
 </ul>
-<hr>
+<hr />
 <p>满足可检测性和可控性之后，回到原始变量，闭环控制方程写做：</p>
-<script type="math/tex; mode=display">
-u(t)=-K_1\left(x(t)-x_c\right)-K_2\left(q(t)-q_c\right)+u_c=-K_1 x(t)-K_2 q(t)+e</script><p>应用到原始系统得到：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}\dot{x}(t)=\left(A-B K_1\right) x(t)-B K_2 q(t)+B e+B^{\prime} d \\\dot{q}(t)=C x(t)-y_c \\y(t)=C x(t)\end{gathered}</script><p>由于$e$和$d$都是常数，状态向量最终趋于常数，因此$\dot q(t)\rightarrow 0$，对比后两个方程，又有：</p>
-<script type="math/tex; mode=display">
-y(t)\rightarrow y_c</script><p>无论$e$和$d$的取值。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_20.png" alt=""></p>
-<h3 id="CE3-7-小车上的倒立摆"><a href="#CE3-7-小车上的倒立摆" class="headerlink" title="CE3.7 小车上的倒立摆"></a>CE3.7 小车上的倒立摆</h3><hr>
+<p><span class="math display">\[
+u(t)=-K_1\left(x(t)-x_c\right)-K_2\left(q(t)-q_c\right)+u_c=-K_1
+x(t)-K_2 q(t)+e
+\]</span></p>
+<p>应用到原始系统得到：</p>
+<p><span class="math display">\[
+\begin{gathered}\dot{x}(t)=\left(A-B K_1\right) x(t)-B K_2 q(t)+B
+e+B^{\prime} d \\\dot{q}(t)=C x(t)-y_c \\y(t)=C x(t)\end{gathered}
+\]</span></p>
+<p>由于<span class="math inline">\(e\)</span>和<span
+class="math inline">\(d\)</span>都是常数，状态向量最终趋于常数，因此<span
+class="math inline">\(\dot q(t)\rightarrow
+0\)</span>，对比后两个方程，又有：</p>
+<p><span class="math display">\[
+y(t)\rightarrow y_c
+\]</span></p>
+<p>无论<span class="math inline">\(e\)</span>和<span
+class="math inline">\(d\)</span>的取值。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-3%2Fimage_20.png" /></p>
+<h3 id="ce3.7-小车上的倒立摆">CE3.7 小车上的倒立摆</h3>
+<hr />
 <blockquote>
 <p>考虑倒立摆问题受到一定的噪音干扰，建立如下系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\binom{\dot{x}^{\prime}(t)}{\dot{q}^{\prime}(t)} & =\underbrace{\left(\begin{array}{ll}A & 0 \\C & 0\end{array}\right)}_{A_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}+\underbrace{\binom{B}{0}}_{B_a} u^{\prime}(t) \\y^{\prime}(t) & =\underbrace{\left(\begin{array}{ll}C & 0\end{array}\right)}_{C_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}\end{aligned}</script><p>其中：</p>
-<script type="math/tex; mode=display">
-A=\left(\begin{array}{cccc}0 & 0 & 1 & 0 \\0 & 0 & 0 & 1 \\0 & 10 & 0 & 0 \\0 & 22 & 0 & 0\end{array}\right), \quad B=\left(\begin{array}{l}0 \\0 \\1 \\2\end{array}\right), \quad C=\left(\begin{array}{llll}1 & 0 & 0 & 0\end{array}\right), \quad D=0</script><p>观察LQ控制的条件：</p>
+<p><span class="math display">\[
+\begin{aligned}\binom{\dot{x}^{\prime}(t)}{\dot{q}^{\prime}(t)} &amp;
+=\underbrace{\left(\begin{array}{ll}A &amp; 0 \\C &amp;
+0\end{array}\right)}_{A_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}+\underbrace{\binom{B}{0}}_{B_a}
+u^{\prime}(t) \\y^{\prime}(t) &amp;
+=\underbrace{\left(\begin{array}{ll}C &amp;
+0\end{array}\right)}_{C_a}\binom{x^{\prime}(t)}{q^{\prime}(t)}\end{aligned}
+\]</span></p>
+<p>其中：</p>
+<p><span class="math display">\[
+A=\left(\begin{array}{cccc}0 &amp; 0 &amp; 1 &amp; 0 \\0 &amp; 0 &amp; 0
+&amp; 1 \\0 &amp; 10 &amp; 0 &amp; 0 \\0 &amp; 22 &amp; 0 &amp;
+0\end{array}\right), \quad B=\left(\begin{array}{l}0 \\0 \\1
+\\2\end{array}\right), \quad C=\left(\begin{array}{llll}1 &amp; 0 &amp;
+0 &amp; 0\end{array}\right), \quad D=0
+\]</span></p>
+<p>观察LQ控制的条件：</p>
 <ul>
-<li>$rang\left(\begin{array}{ll}<br>A &amp; 0 \<br>C &amp; 0<br>\end{array}\right) = n+p = 5$</li>
-<li>$(A,B)$可控</li>
-<li>$m = 1 = p$</li>
-<li>$\left(H_a, A_a\right)$可检测</li>
+<li><span class="math inline">\(rang\left(\begin{array}{ll}
+A &amp; 0 \\
+C &amp; 0
+\end{array}\right) = n+p = 5\)</span></li>
+<li><span class="math inline">\((A,B)\)</span>可控</li>
+<li><span class="math inline">\(m = 1 = p\)</span></li>
+<li><span class="math inline">\(\left(H_a,
+A_a\right)\)</span>可检测</li>
 </ul>
 <p>考虑权重矩阵：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 Q=\left(\begin{array}{ccccc}
-20 & 0 & 0 & 0 & 0 \\
-0 & 250 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 100
-\end{array}\right), \quad R=1</script><p>得到：</p>
-<script type="math/tex; mode=display">
-K=\left(\begin{array}{lllll}-16 & 63 & -11.9 & 13.5 & -10\end{array}\right)</script></blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/10/08/csd-3/">http://raphaelhyaan.cn/2024/10/08/csd-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/10/25/animal-1-1/" title="俯察品类之盛-Safari Thoiry及植物园附属动物园-劳亚兽总目"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">俯察品类之盛-Safari Thoiry及植物园附属动物园-劳亚兽总目</div></div></a></div><div class="next-post pull-right"><a href="/2024/10/04/eco-2/" title="Chap2：市场与监管 Marchés et Régulations 上"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Chap2：市场与监管 Marchés et Régulations 上</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C1 受控系统结构 Structure d’un système asservi</div></div></a></div><div><a href="/2024/09/19/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité</div></div></a></div><div><a href="/2024/11/11/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div><div><a href="/2024/11/11/csd-5/" title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</div></div></a></div><div><a href="/2023/11/22/DCGAN-1/" title="DCGAN"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FDCGAN%2FUntitled.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-22</div><div class="title">DCGAN</div></div></a></div><div><a href="/2024/01/20/Generative_1/" title="Chapter 1 Generative Modeling"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 1 Generative Modeling</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C3-%E5%9F%BA%E4%BA%8E%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%96%B9%E6%B3%95%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6-Commande-des-systemes-par-approche-d%E2%80%99etat"><span class="toc-number">1.</span> <span class="toc-text">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PLAN"><span class="toc-number">1.0.1.</span> <span class="toc-text">PLAN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C3-1-%E6%A0%A1%E6%AD%A3%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8-Role-du-correcteur"><span class="toc-number">1.1.</span> <span class="toc-text">C3.1 校正器的作用 Rôle du correcteur</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-1-1-%E5%AF%B9%E4%BA%8E%E5%8F%97%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A6%81%E6%B1%82-demandees-a-un-systeme-asservi"><span class="toc-number">1.1.1.</span> <span class="toc-text">C3.1.1 对于受控系统的要求 demandées à un système asservi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-1-2-%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.</span> <span class="toc-text">C3.1.2 闭环控制系统的状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C3-2-%E5%9F%BA%E4%BA%8E%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%8D%E9%A6%88%E6%8E%A7%E5%88%B6%EF%BC%88%E5%B0%A4%E5%85%B6%E6%98%AFSISO%E6%83%85%E5%BD%A2%EF%BC%89Commande-retour-d%E2%80%99etat-par-placement-de-poles-notamment-cas-SISO"><span class="toc-number">1.2.</span> <span class="toc-text">C3.2 基于极点配置的状态反馈控制（尤其是SISO情形）Commande retour d’état par placement de pôles (notamment cas SISO)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-2-1-%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE-placement-de-poles"><span class="toc-number">1.2.1.</span> <span class="toc-text">C3.2.1 极点配置  placement de pôles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-2-2-Wonham%E5%AE%9A%E7%90%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">C3.2.2 Wonham定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-2-3-%E7%89%B9%E5%BE%81%E5%80%BC%E7%9A%84%E9%80%89%E6%8B%A9%E5%92%8C%E7%8A%B6%E6%80%81%E5%8F%8D%E9%A6%88%E7%9F%A9%E9%98%B5K%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">1.2.3.</span> <span class="toc-text">C3.2.3 特征值的选择和状态反馈矩阵K的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-1-%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text">CE3.1 直流电机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-2-%E5%80%92%E7%AB%8B%E6%91%86%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.5.</span> <span class="toc-text">CE3.2 倒立摆问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-2-4-%E5%9C%A8%E8%BE%93%E5%85%A5%E7%AB%AF%E6%B7%BB%E5%8A%A0%E5%A2%9E%E7%9B%8A%E4%BB%A5%E4%BF%9D%E8%AF%81%E7%A8%B3%E6%80%81"><span class="toc-number">1.2.6.</span> <span class="toc-text">C3.2.4 在输入端添加增益以保证稳态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-2-5-%E5%A2%9E%E5%8A%A0%E4%B8%8E%E6%89%B0%E5%8A%A8%E6%9C%89%E5%85%B3%E7%9A%84%E5%A2%9E%E7%9B%8A%E4%BB%A5%E4%BF%9D%E8%AF%81%E7%A8%B3%E6%80%81"><span class="toc-number">1.2.7.</span> <span class="toc-text">C3.2.5 增加与扰动有关的增益以保证稳态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-6-%E9%83%A8%E5%88%86%E5%8F%AF%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.8.</span> <span class="toc-text">3.2.6 部分可控系统的闭环控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-7-%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.9.</span> <span class="toc-text">3.2.7 总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-3-%E7%94%B5%E7%A3%81%E6%82%AC%E6%B5%AE%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.10.</span> <span class="toc-text">CE3.3 电磁悬浮系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C3-3-%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E5%9E%8B%E6%8E%A7%E5%88%B6-Commande-Lineaire-Quadratique"><span class="toc-number">1.3.</span> <span class="toc-text">C3.3 线性二次型控制 Commande Linéaire Quadratique</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-3-1-%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E8%88%AC%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.1.</span> <span class="toc-text">C3.3.1 连续时间系统的一般结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-4-%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E7%8E%AF%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">CE3.4 简单的开环系统的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-3-2-%E6%9C%89%E5%99%AA%E9%9F%B3%E7%9A%84%E6%83%85%E5%86%B5%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.3.</span> <span class="toc-text">C3.3.2 有噪音的情况的结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-3-3-%E5%9F%BA%E4%BA%8E%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%86%E5%88%99"><span class="toc-number">1.3.4.</span> <span class="toc-text">C3.3.3 基于输出的准则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-5-%E4%B8%A4%E4%B8%AA%E7%A7%AF%E5%88%86%E5%99%A8%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">1.3.5.</span> <span class="toc-text">CE3.5 两个积分器的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-6-%E9%A3%9E%E6%9C%BA%E6%A8%AA%E5%90%91%E8%BF%90%E5%8A%A8%E7%9A%84%E4%BC%BA%E6%9C%8D%E6%8E%A7%E5%88%B6"><span class="toc-number">1.3.6.</span> <span class="toc-text">CE3.6 飞机横向运动的伺服控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-3-4-%E4%BD%BFx%E8%B6%8B%E8%BF%91%E4%BA%8Ex-c%E8%80%8C%E4%B8%8D%E6%98%AF0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8F%AF%E6%B5%8B%E9%87%8F%E6%89%B0%E5%8A%A8%E5%8F%8A%E5%85%B6%E6%8A%91%E5%88%B6%E7%9A%84%E6%83%85%E5%86%B5%E7%9A%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%AE%A8%E8%AE%BA-Cas-des-perturbations-mesurables-et-leurs-rejet"><span class="toc-number">1.3.7.</span> <span class="toc-text">C3.3.4 使x趋近于x_c而不是0，以及可测量扰动及其抑制的情况的进一步讨论 Cas des perturbations mesurables et leurs rejet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C3-3-5-%E5%BC%95%E5%85%A5%E7%A7%AF%E5%88%86%E4%BD%9C%E7%94%A8%E7%9A%84LQ%E6%8E%A7%E5%88%B6-Commande-LQ-avec-action-integrale"><span class="toc-number">1.3.8.</span> <span class="toc-text">C3.3.5 引入积分作用的LQ控制  Commande LQ avec action intégrale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE3-7-%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86"><span class="toc-number">1.3.9.</span> <span class="toc-text">CE3.7 小车上的倒立摆</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="柏林自然博物馆的金刚鹦鹉"/></a><div class="content"><a class="title" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉">柏林自然博物馆的金刚鹦鹉</a><time datetime="2024-12-03T23:01:11.000Z" title="发表于 2024-12-04 00:01:11">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-3/" title="TS03 separation de source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS03 separation de source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-3/" title="TS03 separation de source">TS03 separation de source</a><time datetime="2024-12-03T22:55:27.000Z" title="发表于 2024-12-03 23:55:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS02 Localisation de Source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source">TS02 Localisation de Source</a><time datetime="2024-12-03T22:55:26.000Z" title="发表于 2024-12-03 23:55:26">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS01 Réponse Impulsionnelle de Salle"/></a><div class="content"><a class="title" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle">TS01 Réponse Impulsionnelle de Salle</a><time datetime="2024-12-03T22:55:25.000Z" title="发表于 2024-12-03 23:55:25">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蔀易染.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="关于torchtext和pytorch的版本配合"/></a><div class="content"><a class="title" href="/2024/11/18/zj-4/" title="关于torchtext和pytorch的版本配合">关于torchtext和pytorch的版本配合</a><time datetime="2024-11-18T08:47:12.000Z" title="发表于 2024-11-18 09:47:12">2024-11-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+20 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 250 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 100
+\end{array}\right), \quad R=1
+\]</span></p>
+<p>得到：</p>
+<p><span class="math display">\[
+K=\left(\begin{array}{lllll}-16 &amp; 63 &amp; -11.9 &amp; 13.5 &amp;
+-10\end{array}\right)
+\]</span></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/10/08/csd-3/">http://raphaelhyaan.cn/2024/10/08/csd-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/10/25/animal-1-1/" title="俯察品类之盛-Safari Thoiry及植物园附属动物园-劳亚兽总目"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">俯察品类之盛-Safari Thoiry及植物园附属动物园-劳亚兽总目</div></div></a></div><div class="next-post pull-right"><a href="/2024/10/04/eco-2/" title="Chap2：市场与监管 Marchés et Régulations 上"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F湛01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Chap2：市场与监管 Marchés et Régulations 上</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C1 受控系统结构 Structure d’un système asservi</div></div></a></div><div><a href="/2024/09/19/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité</div></div></a></div><div><a href="/2024/11/11/csd-5/" title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</div></div></a></div><div><a href="/2024/11/11/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div><div><a href="/2023/11/22/DCGAN-1/" title="DCGAN"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FDCGAN%2FUntitled.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-22</div><div class="title">DCGAN</div></div></a></div><div><a href="/2024/01/20/Generative/" title="生成式神经网络总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">生成式神经网络总览</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fe747243b42e6168d02fdf8bccbbd4ea.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">46</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c3-%E5%9F%BA%E4%BA%8E%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%96%B9%E6%B3%95%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6-commande-des-syst%C3%A8mes-par-approche-d%C3%A9tat"><span class="toc-number">1.</span> <span class="toc-text">C3
+基于状态空间方法的系统控制 Commande des systèmes par approche
+d’état</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#plan"><span class="toc-number">1.0.1.</span> <span class="toc-text">PLAN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c3.1-%E6%A0%A1%E6%AD%A3%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8-r%C3%B4le-du-correcteur"><span class="toc-number">1.1.</span> <span class="toc-text">C3.1 校正器的作用 Rôle du
+correcteur</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.1.1-%E5%AF%B9%E4%BA%8E%E5%8F%97%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A6%81%E6%B1%82-demand%C3%A9es-%C3%A0-un-syst%C3%A8me-asservi"><span class="toc-number">1.1.1.</span> <span class="toc-text">C3.1.1
+对于受控系统的要求 demandées à un système asservi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.1.2-%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.</span> <span class="toc-text">C3.1.2 闭环控制系统的状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c3.2-%E5%9F%BA%E4%BA%8E%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%8D%E9%A6%88%E6%8E%A7%E5%88%B6%E5%B0%A4%E5%85%B6%E6%98%AFsiso%E6%83%85%E5%BD%A2commande-retour-d%C3%A9tat-par-placement-de-p%C3%B4les-notamment-cas-siso"><span class="toc-number">1.2.</span> <span class="toc-text">C3.2
+基于极点配置的状态反馈控制（尤其是SISO情形）Commande
+retour d’état par placement de pôles (notamment cas SISO)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.2.1-%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE-placement-de-p%C3%B4les"><span class="toc-number">1.2.1.</span> <span class="toc-text">C3.2.1 极点配置 placement de
+pôles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.2.2-wonham%E5%AE%9A%E7%90%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">C3.2.2 Wonham定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.2.3-%E7%89%B9%E5%BE%81%E5%80%BC%E7%9A%84%E9%80%89%E6%8B%A9%E5%92%8C%E7%8A%B6%E6%80%81%E5%8F%8D%E9%A6%88%E7%9F%A9%E9%98%B5k%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">1.2.3.</span> <span class="toc-text">C3.2.3
+特征值的选择和状态反馈矩阵K的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.1-%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text">CE3.1 直流电机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.2-%E5%80%92%E7%AB%8B%E6%91%86%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.5.</span> <span class="toc-text">CE3.2 倒立摆问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.2.4-%E5%9C%A8%E8%BE%93%E5%85%A5%E7%AB%AF%E6%B7%BB%E5%8A%A0%E5%A2%9E%E7%9B%8A%E4%BB%A5%E4%BF%9D%E8%AF%81%E7%A8%B3%E6%80%81"><span class="toc-number">1.2.6.</span> <span class="toc-text">C3.2.4
+在输入端添加增益以保证稳态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.2.5-%E5%A2%9E%E5%8A%A0%E4%B8%8E%E6%89%B0%E5%8A%A8%E6%9C%89%E5%85%B3%E7%9A%84%E5%A2%9E%E7%9B%8A%E4%BB%A5%E4%BF%9D%E8%AF%81%E7%A8%B3%E6%80%81"><span class="toc-number">1.2.7.</span> <span class="toc-text">C3.2.5
+增加与扰动有关的增益以保证稳态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%8F%AF%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.8.</span> <span class="toc-text">3.2.6 部分可控系统的闭环控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.9.</span> <span class="toc-text">3.2.7 总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.3-%E7%94%B5%E7%A3%81%E6%82%AC%E6%B5%AE%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.10.</span> <span class="toc-text">CE3.3 电磁悬浮系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c3.3-%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E5%9E%8B%E6%8E%A7%E5%88%B6-commande-lin%C3%A9aire-quadratique"><span class="toc-number">1.3.</span> <span class="toc-text">C3.3
+线性二次型控制 Commande Linéaire Quadratique</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.3.1-%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E8%88%AC%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.1.</span> <span class="toc-text">C3.3.1
+连续时间系统的一般结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.4-%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E7%8E%AF%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">CE3.4 简单的开环系统的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.3.2-%E6%9C%89%E5%99%AA%E9%9F%B3%E7%9A%84%E6%83%85%E5%86%B5%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.3.</span> <span class="toc-text">C3.3.2 有噪音的情况的结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.3.3-%E5%9F%BA%E4%BA%8E%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%86%E5%88%99"><span class="toc-number">1.3.4.</span> <span class="toc-text">C3.3.3 基于输出的准则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.5-%E4%B8%A4%E4%B8%AA%E7%A7%AF%E5%88%86%E5%99%A8%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">1.3.5.</span> <span class="toc-text">CE3.5 两个积分器的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.6-%E9%A3%9E%E6%9C%BA%E6%A8%AA%E5%90%91%E8%BF%90%E5%8A%A8%E7%9A%84%E4%BC%BA%E6%9C%8D%E6%8E%A7%E5%88%B6"><span class="toc-number">1.3.6.</span> <span class="toc-text">CE3.6 飞机横向运动的伺服控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.3.4-%E4%BD%BFx%E8%B6%8B%E8%BF%91%E4%BA%8Ex_c%E8%80%8C%E4%B8%8D%E6%98%AF0%E4%BB%A5%E5%8F%8A%E5%8F%AF%E6%B5%8B%E9%87%8F%E6%89%B0%E5%8A%A8%E5%8F%8A%E5%85%B6%E6%8A%91%E5%88%B6%E7%9A%84%E6%83%85%E5%86%B5%E7%9A%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%AE%A8%E8%AE%BA-cas-des-perturbations-mesurables-et-leurs-rejet"><span class="toc-number">1.3.7.</span> <span class="toc-text">C3.3.4
+使x趋近于x_c而不是0，以及可测量扰动及其抑制的情况的进一步讨论 Cas des
+perturbations mesurables et leurs rejet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3.3.5-%E5%BC%95%E5%85%A5%E7%A7%AF%E5%88%86%E4%BD%9C%E7%94%A8%E7%9A%84lq%E6%8E%A7%E5%88%B6-commande-lq-avec-action-int%C3%A9grale"><span class="toc-number">1.3.8.</span> <span class="toc-text">C3.3.5
+引入积分作用的LQ控制 Commande LQ avec action intégrale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce3.7-%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86"><span class="toc-number">1.3.9.</span> <span class="toc-text">CE3.7 小车上的倒立摆</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/Transformer-01/" title="Transformer01 gpt模型的原理与实现"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蝶1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="Transformer01 gpt模型的原理与实现"/></a><div class="content"><a class="title" href="/2024/12/04/Transformer-01/" title="Transformer01 gpt模型的原理与实现">Transformer01 gpt模型的原理与实现</a><time datetime="2024-12-04T19:33:01.000Z" title="发表于 2024-12-04 20:33:01">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="柏林自然博物馆的金刚鹦鹉"/></a><div class="content"><a class="title" href="/2024/12/04/animal-2-1/" title="柏林自然博物馆的金刚鹦鹉">柏林自然博物馆的金刚鹦鹉</a><time datetime="2024-12-03T23:01:11.000Z" title="发表于 2024-12-04 00:01:11">2024-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-3/" title="TS03 separation de source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS03 separation de source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-3/" title="TS03 separation de source">TS03 separation de source</a><time datetime="2024-12-03T22:55:27.000Z" title="发表于 2024-12-03 23:55:27">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS02 Localisation de Source"/></a><div class="content"><a class="title" href="/2024/12/03/ts-2/" title="TS02 Localisation de Source">TS02 Localisation de Source</a><time datetime="2024-12-03T22:55:26.000Z" title="发表于 2024-12-03 23:55:26">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TS01 Réponse Impulsionnelle de Salle"/></a><div class="content"><a class="title" href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle">TS01 Réponse Impulsionnelle de Salle</a><time datetime="2024-12-03T22:55:25.000Z" title="发表于 2024-12-03 23:55:25">2024-12-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
