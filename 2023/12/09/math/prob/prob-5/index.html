@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>评价和检验 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="评价和检验假设检验 Test d’hypothese 假设一个参数, 检验是否合理  降雨量的例子我们讨论我们有9年的降雨量数据, 符合$LG(600,100)$, 我们检验$H0: m &#x3D; 600$, 取对立假设$H1: m &#x3D; 650$, 有6%的选错的风险  首先, 考虑均值满足正态分布$LG(600,100&#x2F;\sqrt{9})$, 求$P(\overline{X}&gt;K) &#x3D; 5\%$">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>评价和检验 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="评价和检验 假设检验 Test d’hypothese  假设一个参数, 检验是否合理  降雨量的例子 我们讨论我们有9年的降雨量数据, 符合\(LG(600,100)\), 我们检验\(*H0: m &#x3D; 600*\), 取对立假设\(*H1: m &#x3D; 650*\), 有6%的选错的风险  首先, 考虑均值满足正态分布\(LG(600,100&#x2F;\sqrt{9})\), 求\(P(\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="评价和检验">
 <meta property="og:url" content="http://raphaelhyaan.cn/2023/12/09/math/prob/prob-5/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="评价和检验假设检验 Test d’hypothese 假设一个参数, 检验是否合理  降雨量的例子我们讨论我们有9年的降雨量数据, 符合$LG(600,100)$, 我们检验$H0: m &#x3D; 600$, 取对立假设$H1: m &#x3D; 650$, 有6%的选错的风险  首先, 考虑均值满足正态分布$LG(600,100&#x2F;\sqrt{9})$, 求$P(\overline{X}&gt;K) &#x3D; 5\%$">
+<meta property="og:description" content="评价和检验 假设检验 Test d’hypothese  假设一个参数, 检验是否合理  降雨量的例子 我们讨论我们有9年的降雨量数据, 符合\(LG(600,100)\), 我们检验\(*H0: m &#x3D; 600*\), 取对立假设\(*H1: m &#x3D; 650*\), 有6%的选错的风险  首先, 考虑均值满足正态分布\(LG(600,100&#x2F;\sqrt{9})\), 求\(P(\">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg">
 <meta property="article:published_time" content="2023-12-09T20:17:51.000Z">
@@ -154,40 +154,59 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">评价和检验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-09T20:17:51.000Z" title="发表于 2023-12-09 21:17:51">2023-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-08T13:19:14.000Z" title="更新于 2024-04-08 15:19:14">2024-04-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">学习笔记-概率统计</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="评价和检验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="评价和检验"><a href="#评价和检验" class="headerlink" title="评价和检验"></a>评价和检验</h1><h1 id="假设检验-Test-d’hypothese"><a href="#假设检验-Test-d’hypothese" class="headerlink" title="假设检验 Test d’hypothese"></a>假设检验 Test d’hypothese</h1><blockquote>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">评价和检验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-09T20:17:51.000Z" title="发表于 2023-12-09 21:17:51">2023-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-08T13:19:14.000Z" title="更新于 2024-04-08 15:19:14">2024-04-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">学习笔记-概率统计</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="评价和检验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="评价和检验">评价和检验</h1>
+<h1 id="假设检验-test-dhypothese">假设检验 Test d’hypothese</h1>
+<blockquote>
 <p>假设一个参数, 检验是否合理</p>
 </blockquote>
-<h2 id="降雨量的例子"><a href="#降雨量的例子" class="headerlink" title="降雨量的例子"></a>降雨量的例子</h2><p>我们讨论我们有9年的降雨量数据, 符合$LG(600,100)$, 我们检验$<em>H0: m = 600</em>$, 取对立假设$<em>H1: m = 650</em>$, 有6%的选错的风险</p>
+<h2 id="降雨量的例子">降雨量的例子</h2>
+<p>我们讨论我们有9年的降雨量数据, 符合<span
+class="math inline">\(LG(600,100)\)</span>, 我们检验<span
+class="math inline">\(*H0: m = 600*\)</span>, 取对立假设<span
+class="math inline">\(*H1: m = 650*\)</span>, 有6%的选错的风险</p>
 <ul>
-<li><p>首先, 考虑均值满足正态分布$LG(600,100/\sqrt{9})$, 求$P(\overline{X}&gt;K) = 5\%$, 以求出阈值$k$, 最终再验证均值是否超过阈值</p>
-<script type="math/tex; mode=display">
+<li><p>首先, 考虑均值满足正态分布<span
+class="math inline">\(LG(600,100/\sqrt{9})\)</span>, 求<span
+class="math inline">\(P(\overline{X}&gt;K) = 5\%\)</span>,
+以求出阈值<span class="math inline">\(k\)</span>,
+最终再验证均值是否超过阈值</p>
+<p><span class="math display">\[
   \begin{aligned}
-      &P(\frac{\overline{x}-600}{100/3}>\frac{k-600}{100/3}) = 0.05 \\&P(\frac{\overline{x}-600}{100/3}<\frac{k-600}{100/3}) = 0.95= 1-\alpha\\
-      &k = 655\end{aligned}</script><p>  我们称</p>
+      &amp;P(\frac{\overline{x}-600}{100/3}&gt;\frac{k-600}{100/3}) =
+0.05 \\&amp;P(\frac{\overline{x}-600}{100/3}&lt;\frac{k-600}{100/3}) =
+0.95= 1-\alpha\\
+      &amp;k = 655\end{aligned}
+  \]</span></p>
+<p>我们称</p>
 <ul>
-<li>$k&lt;655$为<em>H</em>0的<strong>接受域</strong></li>
-<li>$k&gt;655$的范围为<em>H</em>0的<strong>拒绝域</strong></li>
-</ul>
-</li>
-<li><p>发现均值$\overline{X}&lt;k$, 接受<em>H</em>0</p>
-</li>
-<li><p>然后，我们研究<em>H</em>0接收域中的风险，设均值满足$LG(650,100/\sqrt{9})$：</p>
-<script type="math/tex; mode=display">
+<li><span
+class="math inline">\(k&lt;655\)</span>为<em>H</em>0的<strong>接受域</strong></li>
+<li><span
+class="math inline">\(k&gt;655\)</span>的范围为<em>H</em>0的<strong>拒绝域</strong></li>
+</ul></li>
+<li><p>发现均值<span class="math inline">\(\overline{X}&lt;k\)</span>,
+接受<em>H</em>0</p></li>
+<li><p>然后，我们研究<em>H</em>0接收域中的风险，设均值满足<span
+class="math inline">\(LG(650,100/\sqrt{9})\)</span>：</p>
+<p><span class="math display">\[
   \begin{aligned}
-      1-\beta &= P(\overline{X} > k)\\
-      &=P(\frac{\overline{X}-\mathbf{650}}{100/3}>\frac{655-650}{100/3})\\
-      &= 0.56\end{aligned}</script></li>
-<li><p>说明之前假设的不好</p>
-</li>
+      1-\beta &amp;= P(\overline{X} &gt; k)\\
+      &amp;=P(\frac{\overline{X}-\mathbf{650}}{100/3}&gt;\frac{655-650}{100/3})\\
+      &amp;= 0.56\end{aligned}
+  \]</span></p></li>
+<li><p>说明之前假设的不好</p></li>
 </ul>
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>在选择中, <em>α</em>被称为<strong>弃真错误</strong>, 我们认为<em>H</em>0是真的情况下, 被抛弃的概率</p>
-<p>而<em>β</em>是假设<em>H</em>0是假的的情况下的,错误的的概率,被称为<strong>取伪错误</strong>, 参见图片<a href="about:blank#fig:enter-label">7</a></p>
+<h3 id="解释">解释</h3>
+<p>在选择中, <em>α</em>被称为<strong>弃真错误</strong>,
+我们认为<em>H</em>0是真的情况下, 被抛弃的概率</p>
+<p>而<em>β</em>是假设<em>H</em>0是假的的情况下的,错误的的概率,被称为<strong>取伪错误</strong>,
+参见图片<a href="about:blank#fig:enter-label">7</a></p>
 <p>弃真错误和取伪错误</p>
 <ul>
-<li>风险 risque: $\beta$</li>
-<li>检验功效 puissance du test：$1-\beta$</li>
+<li>风险 risque: <span class="math inline">\(\beta\)</span></li>
+<li>检验功效 puissance du test：<span
+class="math inline">\(1-\beta\)</span></li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -209,279 +228,484 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="一般过程"><a href="#一般过程" class="headerlink" title="一般过程"></a>一般过程</h2><ol>
-<li><p>确定第一类错误 <em>α</em></p>
-</li>
-<li><p>确定hypothese <em>H</em>0, <em>H</em>1</p>
-</li>
-<li><p>确定决策变量，比如均值，方差, 也可以使用似然函数来确定</p>
-</li>
-<li><p>计算拒绝域région cristique RC：</p>
-</li>
+<h2 id="一般过程">一般过程</h2>
+<ol type="1">
+<li><p>确定第一类错误 <em>α</em></p></li>
+<li><p>确定hypothese <em>H</em>0, <em>H</em>1</p></li>
+<li><p>确定决策变量，比如均值，方差, 也可以使用似然函数来确定</p></li>
+<li><p>计算拒绝域région cristique RC：</p></li>
 </ol>
-<p>$<em>P(RC|H0) = α</em>$</p>
-<ol>
-<li><p>根据样本计算统计值</p>
-</li>
-<li><p>拒绝或者接收</p>
-</li>
-<li><p>计算第二类错误puissance du test: $<em>P(RC|H1) = 1 − β</em>$</p>
-</li>
+<p><span class="math inline">\(*P(RC|H0) = α*\)</span></p>
+<ol start="5" type="1">
+<li><p>根据样本计算统计值</p></li>
+<li><p>拒绝或者接收</p></li>
+<li><p>计算第二类错误puissance du test: <span
+class="math inline">\(*P(RC|H1) = 1 − β*\)</span></p></li>
 </ol>
-<h1 id="检验统计量-Neyman-Pearson"><a href="#检验统计量-Neyman-Pearson" class="headerlink" title="检验统计量 Neyman-Pearson"></a>检验统计量 Neyman-Pearson</h1><h2 id="简单的假设检验-hypothese-simple"><a href="#简单的假设检验-hypothese-simple" class="headerlink" title="简单的假设检验 hypothèse simple"></a>简单的假设检验 hypothèse simple</h2><h3 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h3><script type="math/tex; mode=display">
+<h1 id="检验统计量-neyman-pearson">检验统计量 Neyman-Pearson</h1>
+<h2 id="简单的假设检验-hypothèse-simple">简单的假设检验 hypothèse
+simple</h2>
+<h3 id="假设">假设</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0: \ \theta = \theta_0\\
-    &H_1: \ \theta = \theta_1\end{aligned}</script><h3 id="似然函数的决策变量"><a href="#似然函数的决策变量" class="headerlink" title="似然函数的决策变量"></a>似然函数的决策变量</h3><script type="math/tex; mode=display">
+    &amp;H_0: \ \theta = \theta_0\\
+    &amp;H_1: \ \theta = \theta_1\end{aligned}
+\]</span></p>
+<h3 id="似然函数的决策变量">似然函数的决策变量</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &D = \frac{L(\underline x ,\theta_1)}{L(\underline x ,\theta_0)}\end{aligned}</script><h3 id="拒绝域"><a href="#拒绝域" class="headerlink" title="拒绝域"></a>拒绝域</h3><script type="math/tex; mode=display">
+    &amp;D = \frac{L(\underline x ,\theta_1)}{L(\underline x
+,\theta_0)}\end{aligned}
+\]</span></p>
+<h3 id="拒绝域">拒绝域</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &N = D = \frac{L(\underline x ,\theta_1)}{L(\underline x ,\theta_0)}>k\end{aligned}</script><h3 id="※化简"><a href="#※化简" class="headerlink" title="※化简"></a>※化简</h3><ul>
+    &amp;N = D = \frac{L(\underline x ,\theta_1)}{L(\underline x
+,\theta_0)}&gt;k\end{aligned}
+\]</span></p>
+<h3 id="化简">※化简</h3>
+<ul>
 <li>对于复杂的比值</li>
 </ul>
-<script type="math/tex; mode=display">
-\frac{L\left(\underline{X}, \theta_1\right)}{L\left(\underline{X}, \theta_0\right)}=\exp \left[-\frac{1}{2 \sigma^2}\left[\sum_i x_i\left(m_0-m_1\right)+m_0^2+m_1^2\right]>k\right.</script><ul>
+<p><span class="math display">\[
+\frac{L\left(\underline{X}, \theta_1\right)}{L\left(\underline{X},
+\theta_0\right)}=\exp \left[-\frac{1}{2 \sigma^2}\left[\sum_i
+x_i\left(m_0-m_1\right)+m_0^2+m_1^2\right]&gt;k\right.
+\]</span></p>
+<ul>
 <li>实际上等价于</li>
 </ul>
-<script type="math/tex; mode=display">
-\sum_i x_i>K \text { dès que } \mathrm{m}_1>\mathrm{m}_0</script><ul>
+<p><span class="math display">\[
+\sum_i x_i&gt;K \text { dès que } \mathrm{m}_1&gt;\mathrm{m}_0
+\]</span></p>
+<ul>
 <li>所以接下来只用研究</li>
 </ul>
-<script type="math/tex; mode=display">
-\alpha=P\left(\bar{X}>k_0 / H_0\right)</script><script type="math/tex; mode=display">
-\beta=P\left(\bar{X}<k / H_1\right)</script><h3 id="充分统计量"><a href="#充分统计量" class="headerlink" title="充分统计量"></a>充分统计量</h3><p>如果(x)是充分统计量，有：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\alpha=P\left(\bar{X}&gt;k_0 / H_0\right)
+\]</span></p>
+<p><span class="math display">\[
+\beta=P\left(\bar{X}&lt;k / H_1\right)
+\]</span></p>
+<h3 id="充分统计量">充分统计量</h3>
+<p>如果(x)是充分统计量，有：</p>
+<p><span class="math display">\[
 \begin{aligned}
-    &L(\underline x,\theta) = g(t,\theta)h(t)\\
-    &D = \frac{g(t,\theta_1)}{g(t,\theta_0)}\end{aligned}</script><h2 id="复合的假设检验-hypothese-composite"><a href="#复合的假设检验-hypothese-composite" class="headerlink" title="复合的假设检验 hypothèse composite"></a>复合的假设检验 hypothèse composite</h2><h3 id="假设-1"><a href="#假设-1" class="headerlink" title="假设"></a>假设</h3><script type="math/tex; mode=display">
+    &amp;L(\underline x,\theta) = g(t,\theta)h(t)\\
+    &amp;D = \frac{g(t,\theta_1)}{g(t,\theta_0)}\end{aligned}
+\]</span></p>
+<h2 id="复合的假设检验-hypothèse-composite">复合的假设检验 hypothèse
+composite</h2>
+<h3 id="假设-1">假设</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0 : \ \theta = \theta_0\\
-    &H_1 : \ \theta \ne \theta_0\\\end{aligned}</script><h3 id="拒绝域-1"><a href="#拒绝域-1" class="headerlink" title="拒绝域"></a>拒绝域</h3><script type="math/tex; mode=display">
+    &amp;H_0 : \ \theta = \theta_0\\
+    &amp;H_1 : \ \theta \ne \theta_0\\\end{aligned}
+\]</span></p>
+<h3 id="拒绝域-1">拒绝域</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    D = \frac{L(\underline{x},\theta_0)}{L(\underline{x},\widehat{\theta})}\end{aligned}</script><h3 id="假设-2"><a href="#假设-2" class="headerlink" title="假设"></a>假设</h3><script type="math/tex; mode=display">
+    D =
+\frac{L(\underline{x},\theta_0)}{L(\underline{x},\widehat{\theta})}\end{aligned}
+\]</span></p>
+<h3 id="假设-2">假设</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0: \ \theta < \theta_0\\
-    &H_1: \ \theta \ge \theta_0\end{aligned}</script><h3 id="拒绝域-2"><a href="#拒绝域-2" class="headerlink" title="拒绝域"></a>拒绝域</h3><script type="math/tex; mode=display">
+    &amp;H_0: \ \theta &lt; \theta_0\\
+    &amp;H_1: \ \theta \ge \theta_0\end{aligned}
+\]</span></p>
+<h3 id="拒绝域-2">拒绝域</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    D = \frac{L_{H_0}(\underline{x},\widehat{\theta})}{L_{H_1}(\underline{x},\widehat{\theta})}\end{aligned}</script><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>对于$F(x)=1-\exp \left(-\frac{x}{a}\right)$，我们取如下假设：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \mathrm{H}_0: \mathrm{a}_0=800 \mathrm{~m}^3 / \mathrm{an} \\& \mathrm{H}_1: \mathrm{a}_1=1000 \mathrm{~m}^3 / \mathrm{an}\end{aligned}</script><ul>
-<li>通过似然函数法la méthode de Neyman-Pearson寻找决策变量la variable de décision D</li>
+    D =
+\frac{L_{H_0}(\underline{x},\widehat{\theta})}{L_{H_1}(\underline{x},\widehat{\theta})}\end{aligned}
+\]</span></p>
+<h2 id="示例">示例</h2>
+<p>对于<span class="math inline">\(F(x)=1-\exp
+\left(-\frac{x}{a}\right)\)</span>，我们取如下假设：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \mathrm{H}_0: \mathrm{a}_0=800 \mathrm{~m}^3 /
+\mathrm{an} \\&amp; \mathrm{H}_1: \mathrm{a}_1=1000 \mathrm{~m}^3 /
+\mathrm{an}\end{aligned}
+\]</span></p>
+<ul>
+<li>通过似然函数法la méthode de Neyman-Pearson寻找决策变量la variable de
+décision D</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{aligned}& \frac{L\left(\underline{X}, a_1\right)}{L\left(\underline{X}, a_1\right)} =  \frac{\frac{1}{a_1^n} \exp \left(-\frac{\sum x_i}{a_1}\right)}{\frac{1}{a_0^n} \exp \left(-\frac{\sum x_i}{a_0}\right)}<k\end{aligned}</script><ul>
+<p><span class="math display">\[
+\begin{aligned}&amp; \frac{L\left(\underline{X},
+a_1\right)}{L\left(\underline{X}, a_1\right)} =  \frac{\frac{1}{a_1^n}
+\exp \left(-\frac{\sum x_i}{a_1}\right)}{\frac{1}{a_0^n} \exp
+\left(-\frac{\sum x_i}{a_0}\right)}&lt;k\end{aligned}
+\]</span></p>
+<ul>
 <li>等价于：</li>
 </ul>
-<script type="math/tex; mode=display">
-D=\sum X_i<K</script><ul>
+<p><span class="math display">\[
+D=\sum X_i&lt;K
+\]</span></p>
+<ul>
 <li>研究拒绝域</li>
 </ul>
-<script type="math/tex; mode=display">
-P\left(D>k \mid H_0\right)=\alpha</script><ul>
+<p><span class="math display">\[
+P\left(D&gt;k \mid H_0\right)=\alpha
+\]</span></p>
+<ul>
 <li>由于X是指数分布，可等价于r = 1的gamma分布：</li>
 </ul>
-<script type="math/tex; mode=display">
-\gamma(1, \lambda) \sim \exp (\lambda)</script><ul>
+<p><span class="math display">\[
+\gamma(1, \lambda) \sim \exp (\lambda)
+\]</span></p>
+<ul>
 <li>因此，D作为gamma分布的线性组合，根据gamma分布的可加性：</li>
 </ul>
-<script type="math/tex; mode=display">
-D\sim\gamma(n,a), \quad \frac Da\sim \gamma(n,a)</script><ul>
+<p><span class="math display">\[
+D\sim\gamma(n,a), \quad \frac Da\sim \gamma(n,a)
+\]</span></p>
+<ul>
 <li>然后跟据gamma分布和卡方分布的关系：</li>
 </ul>
-<script type="math/tex; mode=display">
-\frac Da = \chi^2(\frac n2,\frac 12)</script><ul>
+<p><span class="math display">\[
+\frac Da = \chi^2(\frac n2,\frac 12)
+\]</span></p>
+<ul>
 <li>为了方便计算：</li>
 </ul>
-<script type="math/tex; mode=display">
-\frac {2D}a = \chi^2(n)</script><ul>
+<p><span class="math display">\[
+\frac {2D}a = \chi^2(n)
+\]</span></p>
+<ul>
 <li>由此，拒绝域：</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{aligned}& P\left(\frac{2 D}{a_0}>\frac{2 k}{a_0}\right)=\alpha \\& \frac{2 k}{800}=\chi_{0.05}^2(40) \\& k=22304 \\& D=21360<k, \text { 取 } H_0\end{aligned}</script><ul>
+<p><span class="math display">\[
+\begin{aligned}&amp; P\left(\frac{2 D}{a_0}&gt;\frac{2
+k}{a_0}\right)=\alpha \\&amp; \frac{2 k}{800}=\chi_{0.05}^2(40) \\&amp;
+k=22304 \\&amp; D=21360&lt;k, \text { 取 } H_0\end{aligned}
+\]</span></p>
+<ul>
 <li>然后计算第二类错误：</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{aligned}\beta & =P\left(D<k \mid H_1\right) \\& =P\left(\frac{2 D}{a_1}>\frac{2 k}{a_1}\right)=0.7\end{aligned}</script><ul>
-<li>然后计算样本数量，使$\beta&lt;0.5$</li>
+<p><span class="math display">\[
+\begin{aligned}\beta &amp; =P\left(D&lt;k \mid H_1\right) \\&amp;
+=P\left(\frac{2 D}{a_1}&gt;\frac{2 k}{a_1}\right)=0.7\end{aligned}
+\]</span></p>
+<ul>
+<li>然后计算样本数量，使<span
+class="math inline">\(\beta&lt;0.5\)</span></li>
 <li>由于卡方分布不能反差表，近似到正态分布：</li>
 </ul>
-<script type="math/tex; mode=display">
-\chi^2(2 n) \rightarrow L G(2 n, \sqrt{4 n})</script><ul>
+<p><span class="math display">\[
+\chi^2(2 n) \rightarrow L G(2 n, \sqrt{4 n})
+\]</span></p>
+<ul>
 <li>正常计算即可</li>
 </ul>
-<h1 id="正态分布的检验"><a href="#正态分布的检验" class="headerlink" title="正态分布的检验"></a>正态分布的检验</h1><h2 id="均值的检验-方差已知"><a href="#均值的检验-方差已知" class="headerlink" title="均值的检验,方差已知"></a>均值的检验,方差已知</h2><h3 id="单边检验"><a href="#单边检验" class="headerlink" title="单边检验"></a>单边检验</h3><script type="math/tex; mode=display">
+<h1 id="正态分布的检验">正态分布的检验</h1>
+<h2 id="均值的检验方差已知">均值的检验,方差已知</h2>
+<h3 id="单边检验">单边检验</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0 : \ m = m_0\\
-    &H_1 : \ m = m_1>m_0\\\end{aligned}</script><p>注意拒绝域符号跟<em>m</em>1和<em>m</em>0的大小有关,有:</p>
-<script type="math/tex; mode=display">
+    &amp;H_0 : \ m = m_0\\
+    &amp;H_1 : \ m = m_1&gt;m_0\\\end{aligned}
+\]</span></p>
+<p>注意拒绝域符号跟<em>m</em>1和<em>m</em>0的大小有关,有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-    &D = \overline{X}\\
-    &\mathbf{W:{\overline{X}>K}}\end{aligned}</script><p>转化为标准正太分布:</p>
-<script type="math/tex; mode=display">
+    &amp;D = \overline{X}\\
+    &amp;\mathbf{W:{\overline{X}&gt;K}}\end{aligned}
+\]</span></p>
+<p>转化为标准正太分布:</p>
+<p><span class="math display">\[
 \begin{aligned}
-    &P(\overline{X}>k|H_0) = \alpha\\
-    &P(\frac{\overline{X}-m_0}{\sigma/\sqrt{n}}>\frac{k-m_0}{\sigma/\sqrt{n}})\\
-    &\Phi(\frac{k-m_0}{\sigma/\sqrt{n}}) = 1-\alpha\\
-    &\mathbf{k = U_{1-\alpha}\frac{\sigma}{\sqrt{n}}+m_0}\end{aligned}</script><p>计算第二类错误:</p>
-<script type="math/tex; mode=display">
+    &amp;P(\overline{X}&gt;k|H_0) = \alpha\\
+    &amp;P(\frac{\overline{X}-m_0}{\sigma/\sqrt{n}}&gt;\frac{k-m_0}{\sigma/\sqrt{n}})\\
+    &amp;\Phi(\frac{k-m_0}{\sigma/\sqrt{n}}) = 1-\alpha\\
+    &amp;\mathbf{k =
+U_{1-\alpha}\frac{\sigma}{\sqrt{n}}+m_0}\end{aligned}
+\]</span></p>
+<p>计算第二类错误:</p>
+<p><span class="math display">\[
 \begin{aligned}
-    \beta =& P(\overline{X}<k|H_1)\\
-    =&P(\frac{\overline{X}-m_1}{\sigma/\sqrt{n}}>\frac{k-m_1}{\sigma/\sqrt{n}})\\
-    =&\Phi(\frac{k-m_1}{\sigma/\sqrt{n}})\end{aligned}</script><h3 id="双边检验"><a href="#双边检验" class="headerlink" title="双边检验"></a>双边检验</h3><script type="math/tex; mode=display">
+    \beta =&amp; P(\overline{X}&lt;k|H_1)\\
+    =&amp;P(\frac{\overline{X}-m_1}{\sigma/\sqrt{n}}&gt;\frac{k-m_1}{\sigma/\sqrt{n}})\\
+    =&amp;\Phi(\frac{k-m_1}{\sigma/\sqrt{n}})\end{aligned}
+\]</span></p>
+<h3 id="双边检验">双边检验</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0 : \ m = m_0\\
-    &H_1 : \ m \ne m_0\\\end{aligned}</script><p>此时两边都是拒绝域,有:</p>
-<script type="math/tex; mode=display">
+    &amp;H_0 : \ m = m_0\\
+    &amp;H_1 : \ m \ne m_0\\\end{aligned}
+\]</span></p>
+<p>此时两边都是拒绝域,有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-    &D = \overline{X}\\
-    &W:{|\overline{X}-m_0|>K}\\
-    &P(\frac{|\overline{X}-m_0|}{\sigma/\sqrt{n}}>\frac{k}{\sigma/\sqrt{n}})\\&k = U_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\end{aligned}</script><h2 id="均值的检验-方差未知"><a href="#均值的检验-方差未知" class="headerlink" title="均值的检验,方差未知"></a>均值的检验,方差未知</h2><h3 id="单边"><a href="#单边" class="headerlink" title="单边"></a>单边</h3><script type="math/tex; mode=display">
+    &amp;D = \overline{X}\\
+    &amp;W:{|\overline{X}-m_0|&gt;K}\\
+    &amp;P(\frac{|\overline{X}-m_0|}{\sigma/\sqrt{n}}&gt;\frac{k}{\sigma/\sqrt{n}})\\&amp;k
+= U_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\end{aligned}
+\]</span></p>
+<h2 id="均值的检验方差未知">均值的检验,方差未知</h2>
+<h3 id="单边">单边</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0 : \ m = m_0\\
-    &H_1 : \ m = m_1>m_0\\\end{aligned}</script><p>有:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &\frac{\overline{X}-m_0}{S/\sqrt{n-1}}\thicksim t(n-1)\\
-    &P(\frac{\overline{X}-m_0}{S/\sqrt{n-1}}>k) = \alpha\\
-    &k = t_{2\alpha}(n-1)\end{aligned}</script><p>另一个方向</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ m = m_0\\
-    &H_1 : \ m = m_1<m_0\\\end{aligned}</script><p>有:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &P(\frac{\overline{X}-m_0}{S/\sqrt{n-1}}<k) = \alpha\\
-    &k = -t_{2\alpha}(n-1)\end{aligned}</script><h3 id="双边"><a href="#双边" class="headerlink" title="双边"></a>双边</h3><script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ m = m_0\\
-    &H_1 : \ m \ne m_1\\\end{aligned}</script><p>有:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &P(\frac{|\overline{X}-m_0|}{S/\sqrt{n-1}}>k) = \alpha\\
-    &k = -t_{\alpha}(n-1)\end{aligned}</script><h2 id="非正态分布的均值"><a href="#非正态分布的均值" class="headerlink" title="非正态分布的均值"></a>非正态分布的均值</h2><p>使用中心极限定理可以将这些结果延伸到其他分布上，但仅限于均值</p>
-<h2 id="方差的检验-均值已知"><a href="#方差的检验-均值已知" class="headerlink" title="方差的检验,均值已知"></a>方差的检验,均值已知</h2><p>已知均值,方差:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &D = \frac{1}{n}\sum(X_i-m)^2\\
-    &\frac{nD}{\sigma^2}\thicksim\chi^2(n)\end{aligned}</script><h3 id="单边-1"><a href="#单边-1" class="headerlink" title="单边"></a>单边</h3><script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ \sigma^2= \sigma_0^2\\
-    &H_1 : \ \sigma^2= \sigma_1^2>\sigma_0^2\\\end{aligned}</script><p>有</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    \alpha &= P(D>k|H_0)\\
-    & = P(\frac{nD}{\sigma^2}>\frac{nk}{\sigma^2})\end{aligned}</script><p>得到</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &\frac{nD}{\sigma^2} = \chi^2_{\alpha}(n)\\
-    &k = \chi^2_{\alpha}(n)\frac{\sigma^2}{n}\end{aligned}</script><p>另一方向</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ \sigma^2= \sigma_0^2\\
-    &H_1 : \ \sigma^2= \sigma_1^2<\sigma_0^2\end{aligned}</script><p>得到</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &k = \chi^2_{1-\alpha}(n)\frac{\sigma^2}{n}\end{aligned}</script><h3 id="双边-1"><a href="#双边-1" class="headerlink" title="双边"></a>双边</h3><script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ \sigma^2= \sigma_0^2\\
-    &H_1 : \ \sigma^2= \sigma_1^2\ne\sigma_0^2\\\end{aligned}</script><p>得到</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &k_1 = \chi^2_{\alpha/2}(n)\frac{\sigma^2}{n}\\
-    &D>k_1\\
-    et \ &k_2 = \chi^2_{1-\alpha/2}(n)\frac{\sigma^2}{n}\\
-    &D<k_2\\\end{aligned}</script><h2 id="方差的检验-均值未知"><a href="#方差的检验-均值未知" class="headerlink" title="方差的检验,均值未知"></a>方差的检验,均值未知</h2><p>未知均值,方差:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &D = S^2\\
-    &\frac{nD}{S^2}\thicksim\chi^2(n-1)\end{aligned}</script><h3 id="单边-2"><a href="#单边-2" class="headerlink" title="单边"></a>单边</h3><script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ \sigma^2= \sigma_0^2\\
-    &H_1 : \ \sigma^2= \sigma_1^2>\sigma_0^2\\\end{aligned}</script><p>得到</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &k = \chi^2_{\alpha}(n-1)\frac{\sigma_0^2}{n}\\
-    &D>k\end{aligned}</script><h2 id="比率的检验"><a href="#比率的检验" class="headerlink" title="比率的检验"></a>比率的检验</h2><h3 id="双边-2"><a href="#双边-2" class="headerlink" title="双边"></a>双边</h3><script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0: p = p_0\\
-    &H_1: p \ne p_0\\
-    &F \rightarrow LG(p,\sqrt{\frac{p(1-p)}{n}})\end{aligned}</script><p>有:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &P(|F-P_0|>k) = \alpha\\
-    &P(\frac{|F-P|}{\sqrt{p(1-p)/n}}>\frac{k}{\sqrt{p(1-p)/n}}) = \alpha\\
-    &k = U_{1-\alpha/2}\sqrt{\frac{p_0(1-p_0)}{n}}\end{aligned}</script><h2 id="使用似然函数的方法"><a href="#使用似然函数的方法" class="headerlink" title="使用似然函数的方法"></a>使用似然函数的方法</h2><p>正态分布,单边为例:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    &H_0 : \ \sigma^2= \sigma_0^2\\
-    &H_1 : \ \sigma^2= \sigma_1^2>\sigma_0^2\\\end{aligned}</script><p>似然函数:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    L(\underline{X},m) &= \prod f(x_i,m)\\
-    & = \frac{1}{(\sigma\sqrt{2\pi})}exp(-\frac{1}{2\sigma^2}\sum(x_i-m)^2)\end{aligned}</script><p>似然函数的比值:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    \frac{L(\underline{X},m_1)}{L(\underline{X},m_0)} &= exp(-\frac{1}{2\sigma^2}(\sum(x_i-m_0)^2-\sum(x_i-m_1)^2)\\
-    &>k\end{aligned}</script><h1 id="分布检验-Test-d’ajustement"><a href="#分布检验-Test-d’ajustement" class="headerlink" title="分布检验 Test d’ajustement"></a>分布检验 Test d’ajustement</h1><p>可以使用pdf图判断，也可以根据参数之间的关系来判断</p>
-<p>比如期望和方差相等的离散函数，即为泊松分布</p>
-<h3 id="图像检验-Ajustement-graphique"><a href="#图像检验-Ajustement-graphique" class="headerlink" title="图像检验 Ajustement graphique"></a>图像检验 Ajustement graphique</h3><p>指数函数和正态分布可以用图像检验</p>
-<h3 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h3><p>对指数分布取ln</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    ln(1-F(x)) = -\lambda x\end{aligned}</script><p>可见在指数纸上描点画图后，成直线</p>
-<h3 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h3><p>假设有n个点(<em>X</em>1, …, <em>Xn</em>)都满足正态分布LG(m,<em>σ</em>)</p>
+    &amp;H_0 : \ m = m_0\\
+    &amp;H_1 : \ m = m_1&gt;m_0\\\end{aligned}
+\]</span></p>
 <p>有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-    u_i = \frac{x_i-m}{\sigma}\end{aligned}</script><p>在Papier Gausso-arithmétique上,横坐标写每一个点的观察值的上界, 纵坐标写累积的频率, 如果连起来是一个直线, 则说明是正态分布</p>
-<p>F= 0.5的值为期望 F = 0.1585和0.8415的位置为方差(也就是图中1的位置)</p>
-<h2 id="卡方检验-离散样本的检验"><a href="#卡方检验-离散样本的检验" class="headerlink" title="卡方检验: 离散样本的检验"></a>卡方检验: 离散样本的检验</h2><h3 id="假设-3"><a href="#假设-3" class="headerlink" title="假设"></a>假设</h3><script type="math/tex; mode=display">
+    &amp;\frac{\overline{X}-m_0}{S/\sqrt{n-1}}\thicksim t(n-1)\\
+    &amp;P(\frac{\overline{X}-m_0}{S/\sqrt{n-1}}&gt;k) = \alpha\\
+    &amp;k = t_{2\alpha}(n-1)\end{aligned}
+\]</span></p>
+<p>另一个方向</p>
+<p><span class="math display">\[
 \begin{aligned}
-    x:&H_0: P(x = x_i) = p_i\\
-    &H_1: P(x = x_i) \ne p_i\end{aligned}</script><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><strong>1. 分组</strong></p>
-<p>根据$<em>P(x = x_i)</em>$分组, 将所有实验样本分为$<em>A_1, …, A_k</em>$k组。比如对扔筛子, 进行100次实验, 根据点数分为6组</p>
+    &amp;H_0 : \ m = m_0\\
+    &amp;H_1 : \ m = m_1&lt;m_0\\\end{aligned}
+\]</span></p>
+<p>有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;P(\frac{\overline{X}-m_0}{S/\sqrt{n-1}}&lt;k) = \alpha\\
+    &amp;k = -t_{2\alpha}(n-1)\end{aligned}
+\]</span></p>
+<h3 id="双边">双边</h3>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0 : \ m = m_0\\
+    &amp;H_1 : \ m \ne m_1\\\end{aligned}
+\]</span></p>
+<p>有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;P(\frac{|\overline{X}-m_0|}{S/\sqrt{n-1}}&gt;k) = \alpha\\
+    &amp;k = -t_{\alpha}(n-1)\end{aligned}
+\]</span></p>
+<h2 id="非正态分布的均值">非正态分布的均值</h2>
+<p>使用中心极限定理可以将这些结果延伸到其他分布上，但仅限于均值</p>
+<h2 id="方差的检验均值已知">方差的检验,均值已知</h2>
+<p>已知均值,方差:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;D = \frac{1}{n}\sum(X_i-m)^2\\
+    &amp;\frac{nD}{\sigma^2}\thicksim\chi^2(n)\end{aligned}
+\]</span></p>
+<h3 id="单边-1">单边</h3>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0 : \ \sigma^2= \sigma_0^2\\
+    &amp;H_1 : \ \sigma^2= \sigma_1^2&gt;\sigma_0^2\\\end{aligned}
+\]</span></p>
+<p>有</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \alpha &amp;= P(D&gt;k|H_0)\\
+    &amp; = P(\frac{nD}{\sigma^2}&gt;\frac{nk}{\sigma^2})\end{aligned}
+\]</span></p>
+<p>得到</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;\frac{nD}{\sigma^2} = \chi^2_{\alpha}(n)\\
+    &amp;k = \chi^2_{\alpha}(n)\frac{\sigma^2}{n}\end{aligned}
+\]</span></p>
+<p>另一方向</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0 : \ \sigma^2= \sigma_0^2\\
+    &amp;H_1 : \ \sigma^2= \sigma_1^2&lt;\sigma_0^2\end{aligned}
+\]</span></p>
+<p>得到</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;k = \chi^2_{1-\alpha}(n)\frac{\sigma^2}{n}\end{aligned}
+\]</span></p>
+<h3 id="双边-1">双边</h3>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0 : \ \sigma^2= \sigma_0^2\\
+    &amp;H_1 : \ \sigma^2= \sigma_1^2\ne\sigma_0^2\\\end{aligned}
+\]</span></p>
+<p>得到</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;k_1 = \chi^2_{\alpha/2}(n)\frac{\sigma^2}{n}\\
+    &amp;D&gt;k_1\\
+    et \ &amp;k_2 = \chi^2_{1-\alpha/2}(n)\frac{\sigma^2}{n}\\
+    &amp;D&lt;k_2\\\end{aligned}
+\]</span></p>
+<h2 id="方差的检验均值未知">方差的检验,均值未知</h2>
+<p>未知均值,方差:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;D = S^2\\
+    &amp;\frac{nD}{S^2}\thicksim\chi^2(n-1)\end{aligned}
+\]</span></p>
+<h3 id="单边-2">单边</h3>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0 : \ \sigma^2= \sigma_0^2\\
+    &amp;H_1 : \ \sigma^2= \sigma_1^2&gt;\sigma_0^2\\\end{aligned}
+\]</span></p>
+<p>得到</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;k = \chi^2_{\alpha}(n-1)\frac{\sigma_0^2}{n}\\
+    &amp;D&gt;k\end{aligned}
+\]</span></p>
+<h2 id="比率的检验">比率的检验</h2>
+<h3 id="双边-2">双边</h3>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0: p = p_0\\
+    &amp;H_1: p \ne p_0\\
+    &amp;F \rightarrow LG(p,\sqrt{\frac{p(1-p)}{n}})\end{aligned}
+\]</span></p>
+<p>有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;P(|F-P_0|&gt;k) = \alpha\\
+    &amp;P(\frac{|F-P|}{\sqrt{p(1-p)/n}}&gt;\frac{k}{\sqrt{p(1-p)/n}}) =
+\alpha\\
+    &amp;k = U_{1-\alpha/2}\sqrt{\frac{p_0(1-p_0)}{n}}\end{aligned}
+\]</span></p>
+<h2 id="使用似然函数的方法">使用似然函数的方法</h2>
+<p>正态分布,单边为例:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    &amp;H_0 : \ \sigma^2= \sigma_0^2\\
+    &amp;H_1 : \ \sigma^2= \sigma_1^2&gt;\sigma_0^2\\\end{aligned}
+\]</span></p>
+<p>似然函数:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    L(\underline{X},m) &amp;= \prod f(x_i,m)\\
+    &amp; =
+\frac{1}{(\sigma\sqrt{2\pi})}exp(-\frac{1}{2\sigma^2}\sum(x_i-m)^2)\end{aligned}
+\]</span></p>
+<p>似然函数的比值:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \frac{L(\underline{X},m_1)}{L(\underline{X},m_0)} &amp;=
+exp(-\frac{1}{2\sigma^2}(\sum(x_i-m_0)^2-\sum(x_i-m_1)^2)\\
+    &amp;&gt;k\end{aligned}
+\]</span></p>
+<h1 id="分布检验-test-dajustement">分布检验 Test d’ajustement</h1>
+<p>可以使用pdf图判断，也可以根据参数之间的关系来判断</p>
+<p>比如期望和方差相等的离散函数，即为泊松分布</p>
+<h3 id="图像检验-ajustement-graphique">图像检验 Ajustement
+graphique</h3>
+<p>指数函数和正态分布可以用图像检验</p>
+<h3 id="指数分布">指数分布</h3>
+<p>对指数分布取ln</p>
+<p><span class="math display">\[
+\begin{aligned}
+    ln(1-F(x)) = -\lambda x\end{aligned}
+\]</span></p>
+<p>可见在指数纸上描点画图后，成直线</p>
+<h3 id="正态分布">正态分布</h3>
+<p>假设有n个点(<em>X</em>1, ..., <em>Xn</em>)都满足正态分布LG(m,<em>σ</em>)</p>
+<p>有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    u_i = \frac{x_i-m}{\sigma}\end{aligned}
+\]</span></p>
+<p>在Papier Gausso-arithmétique上,横坐标写每一个点的观察值的上界,
+纵坐标写累积的频率, 如果连起来是一个直线, 则说明是正态分布</p>
+<p>F= 0.5的值为期望 F =
+0.1585和0.8415的位置为方差(也就是图中1的位置)</p>
+<h2 id="卡方检验-离散样本的检验">卡方检验: 离散样本的检验</h2>
+<h3 id="假设-3">假设</h3>
+<p><span class="math display">\[
+\begin{aligned}
+    x:&amp;H_0: P(x = x_i) = p_i\\
+    &amp;H_1: P(x = x_i) \ne p_i\end{aligned}
+\]</span></p>
+<h3 id="步骤">步骤</h3>
+<p><strong>1. 分组</strong></p>
+<p>根据<span class="math inline">\(*P(x = x_i)*\)</span>分组,
+将所有实验样本分为<span
+class="math inline">\(*A_1, ..., A_k*\)</span>k组。比如对扔筛子,
+进行100次实验, 根据点数分为6组</p>
 <p><strong>2. 计算概率</strong></p>
-<p>根据假设$<em>H_0</em>$, 计算$<em>p_i</em>$</p>
-<p><strong>3. 确定样本点落在每一组之间个数$<em>N_i</em>$</strong></p>
-<p>统计各组样本的个数, 并作归一化: $f<em>i = \frac{N_i}{n}$, 或者使用$*n ⋅ p</em>{i}<em>$与$</em>N_i*$对应</p>
+<p>根据假设<span class="math inline">\(*H_0*\)</span>, 计算<span
+class="math inline">\(*p_i*\)</span></p>
+<p><strong>3. 确定样本点落在每一组之间个数<span
+class="math inline">\(*N_i*\)</span></strong></p>
+<p>统计各组样本的个数, 并作归一化: <span class="math inline">\(f_i =
+\frac{N_i}{n}\)</span>, 或者使用<span
+class="math inline">\(*n ⋅ p_{i}*\)</span>与<span
+class="math inline">\(*N_i*\)</span>对应</p>
 <p><strong>4. 计算<em>D</em>2</strong></p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-    D^2 = \sum_{i = 1}^k\frac{(N_i-np_i)^2}{np_i} = n\sum_{i = 1}^k\frac{(\frac{N_i}{n}-p_i)^2}{p_i}\\
-    L(D^2) = \chi^2_{k-r-1}\end{aligned}</script><ul>
-<li><em>D</em>2满足卡方分布, 卡方分布的自由度$<em>k − r − 1</em>$中的r是要确定的参数个数, 比如对于正态分布r = 2</li>
+    D^2 = \sum_{i = 1}^k\frac{(N_i-np_i)^2}{np_i} = n\sum_{i =
+1}^k\frac{(\frac{N_i}{n}-p_i)^2}{p_i}\\
+    L(D^2) = \chi^2_{k-r-1}\end{aligned}
+\]</span></p>
+<ul>
+<li><em>D</em>2满足卡方分布, 卡方分布的自由度<span
+class="math inline">\(*k − r − 1*\)</span>中的r是要确定的参数个数,
+比如对于正态分布r = 2</li>
 </ul>
-<p><strong>5. 检验分组要求$<em>np_i</em>$ ≥ 5</strong></p>
-<p>合并临近的分组, 保证$<em>np_i ≥ 5</em>$, 更新$<em>L(D<em>2) = χ</em>{k − r − 1}^2</em>$的k的值</p>
-<p><strong>6. 确定risque$<em>α</em>$</strong></p>
-<script type="math/tex; mode=display">
+<p><strong>5. 检验分组要求<span
+class="math inline">\(*np_i*\)</span> ≥ 5</strong></p>
+<p>合并临近的分组, 保证<span class="math inline">\(*np_i ≥ 5*\)</span>,
+更新<span
+class="math inline">\(*L(D_2) = χ_{k − r − 1}^2*\)</span>的k的值</p>
+<p><strong>6. 确定risque<span
+class="math inline">\(*α*\)</span></strong></p>
+<p><span class="math display">\[
 \begin{aligned}
-    &d_0 = \chi^2_\alpha(k-r-1)\\\end{aligned}</script><p>如果$<em>D^2 &gt; d_0</em>$, 则拒绝假设.</p>
-<h3 id="Exemple"><a href="#Exemple" class="headerlink" title="Exemple"></a>Exemple</h3><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-5%2FUntitled.png" alt=""></p>
-<p>$<em>X = [0-21, 1-18, 2-7, 3 -3,  &gt;  = 4-1]</em>$, 计算得到均值$0.9$, 方差$0.97$, 相近, 可能满足泊松分布, 故检验</p>
-<p>取泊松分布$<em>λ = 0.9</em>$, 在这里比较接近的取一个好算的即可</p>
+    &amp;d_0 = \chi^2_\alpha(k-r-1)\\\end{aligned}
+\]</span></p>
+<p>如果<span class="math inline">\(*D^2 &gt; d_0*\)</span>,
+则拒绝假设.</p>
+<h3 id="exemple">Exemple</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fprob-5%2FUntitled.png" /></p>
+<p><span
+class="math inline">\(*X = [0-21, 1-18, 2-7, 3 -3,  &gt;  = 4-1]*\)</span>,
+计算得到均值<span class="math inline">\(0.9\)</span>, 方差<span
+class="math inline">\(0.97\)</span>, 相近, 可能满足泊松分布, 故检验</p>
+<p>取泊松分布<span class="math inline">\(*λ = 0.9*\)</span>,
+在这里比较接近的取一个好算的即可</p>
 <p>查泊松分布表可得, 泊松分布</p>
-<p>$<em>pi = {0.4066, 0.3659, 0.1647, 0.0494, 1 − 0.4066 − 0.3659 − 0.1647 − 0.0494}</em>$</p>
-<p>合并$<em>np_i &lt; 5</em>$的组得到:</p>
-<p>$<em>p_i = 0 : 0.407, 1 : 0.366,  ≥ 2 : 0.227</em>$, </p>
+<p><span
+class="math inline">\(*pi = {0.4066, 0.3659, 0.1647, 0.0494, 1 − 0.4066 − 0.3659 − 0.1647 − 0.0494}*\)</span></p>
+<p>合并<span class="math inline">\(*np_i &lt; 5*\)</span>的组得到:</p>
+<p><span
+class="math inline">\(*p_i = 0 : 0.407, 1 : 0.366,  ≥ 2 : 0.227*\)</span>,</p>
 <p>得到:</p>
-<script type="math/tex; mode=display">
-D_2 = \sum_{i = 1}^k\frac{(N_i-np_i)^2}{np_i}</script><p>$<em>k = 3, r = 1, D<em>2 = 0.033 &lt; χ</em>{0.052}(3 − 1 − 1)</em>$</p>
+<p><span class="math display">\[
+D_2 = \sum_{i = 1}^k\frac{(N_i-np_i)^2}{np_i}
+\]</span></p>
+<p><span
+class="math inline">\(*k = 3, r = 1, D_2 = 0.033 &lt; χ_{0.052}(3 − 1 − 1)*\)</span></p>
 <p>接收假设</p>
-<h2 id="K检验-Test-de-Kolmogorov"><a href="#K检验-Test-de-Kolmogorov" class="headerlink" title="K检验 Test de Kolmogorov"></a>K检验 Test de Kolmogorov</h2><h3 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h3><p><strong>分组</strong></p>
-<script type="math/tex; mode=display">
-F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end{aligned}\right.</script><p>在分组后按<strong>样本本身排序</strong>而非按样本数量分布排序</p>
+<h2 id="k检验-test-de-kolmogorov">K检验 Test de Kolmogorov</h2>
+<h3 id="步骤-1">步骤</h3>
+<p><strong>分组</strong></p>
+<p><span class="math display">\[
+F_n^* = \left\{\begin{aligned}&amp;0&amp;x&lt;x_1\\&amp;\frac
+kn&amp;x_k\le x &lt; x_k+1\\&amp;1&amp;x&gt;x_n\end{aligned}\right.
+\]</span></p>
+<p>在分组后按<strong>样本本身排序</strong>而非按样本数量分布排序</p>
 <p><strong>决策</strong></p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-    D_n = sup|F(x)-F_n^*|\end{aligned}</script><p>如果$<em>D_n &lt; k</em>$，则接受</p>
+    D_n = sup|F(x)-F_n^*|\end{aligned}
+\]</span></p>
+<p>如果<span class="math inline">\(*D_n &lt; k*\)</span>，则接受</p>
 <p>在下表中，我们假设分布符合指数分布：</p>
-<script type="math/tex; mode=display">
-\lambda=\frac{1}{\overline x}=\frac{1}{98} \to F(x)=P(X<x)=1-e^{-\lambda x}=1-e^{-\frac{x}{98}}</script><div class="table-container">
+<p><span class="math display">\[
+\lambda=\frac{1}{\overline x}=\frac{1}{98} \to
+F(x)=P(X&lt;x)=1-e^{-\lambda x}=1-e^{-\frac{x}{98}}
+\]</span></p>
 <table>
 <thead>
 <tr>
-<th>$x_i$</th>
+<th><span class="math inline">\(x_i\)</span></th>
 <th>8</th>
 <th>58</th>
 <th>122</th>
@@ -491,7 +715,7 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 </thead>
 <tbody>
 <tr>
-<td>$F(x_i)$</td>
+<td><span class="math inline">\(F(x_i)\)</span></td>
 <td>0.079</td>
 <td>0.447</td>
 <td>0.711</td>
@@ -499,7 +723,7 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 <td>0.821</td>
 </tr>
 <tr>
-<td>$F_i$</td>
+<td><span class="math inline">\(F_i\)</span></td>
 <td>0</td>
 <td>0.2</td>
 <td>0.4</td>
@@ -507,9 +731,7 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 <td>0.8</td>
 </tr>
 <tr>
-<td>$</td>
-<td>F_i − F(x_i)</td>
-<td>$</td>
+<td><span class="math inline">\(|F_i − F(x_i)|\)</span></td>
 <td>0.079</td>
 <td>0.247</td>
 <td>0.311</td>
@@ -518,36 +740,51 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 </tr>
 </tbody>
 </table>
-</div>
-<h1 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h1><blockquote>
+<h1 id="比较检验">比较检验</h1>
+<blockquote>
 <p>是否来自同一个样本，是否存在显著差异</p>
 </blockquote>
-<h2 id="正态分布的检验-1"><a href="#正态分布的检验-1" class="headerlink" title="正态分布的检验"></a>正态分布的检验</h2><h3 id="检验σ-m未知"><a href="#检验σ-m未知" class="headerlink" title="检验σ, m未知"></a>检验<em>σ</em>, m未知</h3><script type="math/tex; mode=display">
+<h2 id="正态分布的检验-1">正态分布的检验</h2>
+<h3 id="检验σ-m未知">检验<em>σ</em>, m未知</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &H_0: \sigma_1 = \sigma_2\\
-    &H_1: \sigma_1 \ne \sigma_2\end{aligned}</script><p>已知</p>
-<script type="math/tex; mode=display">
+    &amp;H_0: \sigma_1 = \sigma_2\\
+    &amp;H_1: \sigma_1 \ne \sigma_2\end{aligned}
+\]</span></p>
+<p>已知</p>
+<p><span class="math display">\[
 \begin{aligned}
-    \frac{nS^2}{\sigma^2}\thicksim\chi^2_{n-1}\end{aligned}</script><p>使用$D = \frac{S_1^2}{S_2^2}$左右判别函数</p>
+    \frac{nS^2}{\sigma^2}\thicksim\chi^2_{n-1}\end{aligned}
+\]</span></p>
+<p>使用<span class="math inline">\(D =
+\frac{S_1^2}{S_2^2}\)</span>左右判别函数</p>
 <p>使用</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-    k_0 = \frac{\frac{n_1S_1^2}{n_1-1}}{\frac{n_2S_2^2}{n_2-1}} \thicksim F(n_1-1,n_2-1)\end{aligned}</script><p>如果<em>D</em> &lt; <em>k</em>0,接受</p>
-<h3 id="检验m-σ未知"><a href="#检验m-σ未知" class="headerlink" title="检验m, σ未知"></a>检验m, <em>σ</em>未知</h3><p>使用:</p>
-<script type="math/tex; mode=display">
+    k_0 = \frac{\frac{n_1S_1^2}{n_1-1}}{\frac{n_2S_2^2}{n_2-1}}
+\thicksim F(n_1-1,n_2-1)\end{aligned}
+\]</span></p>
+<p>如果<em>D</em> &lt; <em>k</em>0,接受</p>
+<h3 id="检验m-σ未知">检验m, <em>σ</em>未知</h3>
+<p>使用:</p>
+<p><span class="math display">\[
 \begin{aligned}
-    D = \frac{(\bar x_1 - \bar x_2)-(m_1-m_2)}{\sqrt{(n_1S_1^2+n_2S_2^2)(1/n_1+1/n_2)}}\sqrt{n_1+n_2-2}\\\thicksim t(n_1+n_2-2)\\
-    k = t_\alpha(n_1+n_2-2)\end{aligned}</script><h2 id="一般应用"><a href="#一般应用" class="headerlink" title="一般应用"></a>一般应用</h2><p>比较六个小班的学习成绩分布是否没有显著差异，样本数为6</p>
+    D = \frac{(\bar x_1 - \bar
+x_2)-(m_1-m_2)}{\sqrt{(n_1S_1^2+n_2S_2^2)(1/n_1+1/n_2)}}\sqrt{n_1+n_2-2}\\\thicksim
+t(n_1+n_2-2)\\
+    k = t_\alpha(n_1+n_2-2)\end{aligned}
+\]</span></p>
+<h2 id="一般应用">一般应用</h2>
+<p>比较六个小班的学习成绩分布是否没有显著差异，样本数为6</p>
 <p>取形态：100-90分，90-80分，80-70分，70-60分，60-分</p>
 <p>统计不同样本落在不同形态的个数</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th></th>
 <th>M1</th>
 <th>M2</th>
-<th>M…</th>
+<th>M...</th>
 <th>Mr</th>
 <th>total</th>
 </tr>
@@ -570,7 +807,7 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 <td>n2.</td>
 </tr>
 <tr>
-<td>E…</td>
+<td>E...</td>
 <td>n…, 1</td>
 <td></td>
 <td></td>
@@ -595,25 +832,37 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 </tr>
 </tbody>
 </table>
-</div>
 <p>判别：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-    d_0^2 &= \sum_{i = 1}^{k}\sum_{j = 1}^{r}\frac{(n_{ij}-n_{i.}P_i)^2}{n_{i.}p_j}\\
-    & = \sum_{i = 1}^{k}\sum_{j = 1}^{r}\frac{(n_{ij}-n_{i.}\frac{n_{.j}}{N})^2}{n_{i.}\frac{n_{.j}}{N}}\\
-    & = N((\sum_{i = 1}^{k}\sum_{j = 1}^{r}\frac{n_{ij}^2}{n_{i.}n_{j.}})-1)\end{aligned}</script><p>k:</p>
-<script type="math/tex; mode=display">
+    d_0^2 &amp;= \sum_{i = 1}^{k}\sum_{j =
+1}^{r}\frac{(n_{ij}-n_{i.}P_i)^2}{n_{i.}p_j}\\
+    &amp; = \sum_{i = 1}^{k}\sum_{j =
+1}^{r}\frac{(n_{ij}-n_{i.}\frac{n_{.j}}{N})^2}{n_{i.}\frac{n_{.j}}{N}}\\
+    &amp; = N((\sum_{i = 1}^{k}\sum_{j =
+1}^{r}\frac{n_{ij}^2}{n_{i.}n_{j.}})-1)\end{aligned}
+\]</span></p>
+<p>k:</p>
+<p><span class="math display">\[
 \begin{aligned}
-    k = \chi^2_{\alpha}(kr-k-(r-1)) = \chi^2_{\alpha}(k-1)(r-1)\end{aligned}</script><h2 id="两个样本的比较"><a href="#两个样本的比较" class="headerlink" title="两个样本的比较"></a>两个样本的比较</h2><p>样本：$<em>E_1, E_2</em>$, 假设$<em>H0: P1 = P2 = P; H1: P1\ne P_2</em>$</p>
-<h3 id="百分比的检验"><a href="#百分比的检验" class="headerlink" title="百分比的检验"></a>百分比的检验</h3><script type="math/tex; mode=display">
+    k = \chi^2_{\alpha}(kr-k-(r-1)) =
+\chi^2_{\alpha}(k-1)(r-1)\end{aligned}
+\]</span></p>
+<h2 id="两个样本的比较">两个样本的比较</h2>
+<p>样本：<span class="math inline">\(*E_1, E_2*\)</span>, 假设<span
+class="math inline">\(*H0: P1 = P2 = P; H1: P1\ne P_2*\)</span></p>
+<h3 id="百分比的检验">百分比的检验</h3>
+<p><span class="math display">\[
 \begin{aligned}
-    &p\thicksim\widehat p = \frac{n_1f_1+n_2f_2}{n_1+n+2}\\
-    &F_1\thicksim LG(p,\sqrt{\frac{p(1-p)}{n_1}})\\
-    &F_2\thicksim LG(p,\sqrt{\frac{p(1-p)}{n_2}})\\
-    &F_1-F_2\thicksim LG(0,\sqrt{p(1-p)(1/n_1+1/n_2)})\\
-    &k = U_{1-\alpha/2}\\
-    &D = \frac{f_1-f_2}{\sqrt{p(1-p)\sqrt{1/n_1+1/n_2}}}
-    &\text{拒绝域}: D>k\end{aligned}</script><h3 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h3><div class="table-container">
+    &amp;p\thicksim\widehat p = \frac{n_1f_1+n_2f_2}{n_1+n+2}\\
+    &amp;F_1\thicksim LG(p,\sqrt{\frac{p(1-p)}{n_1}})\\
+    &amp;F_2\thicksim LG(p,\sqrt{\frac{p(1-p)}{n_2}})\\
+    &amp;F_1-F_2\thicksim LG(0,\sqrt{p(1-p)(1/n_1+1/n_2)})\\
+    &amp;k = U_{1-\alpha/2}\\
+    &amp;D = \frac{f_1-f_2}{\sqrt{p(1-p)\sqrt{1/n_1+1/n_2}}}
+    &amp;\text{拒绝域}: D&gt;k\end{aligned}
+\]</span></p>
+<h3 id="卡方检验">卡方检验</h3>
 <table>
 <thead>
 <tr>
@@ -640,14 +889,20 @@ F_n^* = \left\{\begin{aligned}&0&x<x_1\\&\frac kn&x_k\le x < x_k+1\\&1&x>x_n\end
 <td></td>
 <td>a+c</td>
 <td>b+d</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-    &D^2 = N\frac{(ad-bc)^2}{(a+b)(a+c)(b+c)(b+d)}\thicksim\chi^2(1)\\
-    &k = \chi^2_{\alpha}(1 )\end{aligned}</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/12/09/math/prob/prob-5/">http://raphaelhyaan.cn/2023/12/09/math/prob/prob-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">概率统计</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/31/physique/Thermo/" title="工程热力学课程总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">工程热力学课程总览</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/09/math/prob/prob-4/" title="估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">估计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/09/math/prob/prob-2/" title="分布和近似"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">分布和近似</div></div></a></div><div><a href="/2023/12/09/math/prob/prob-1/" title="概率基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">概率基础</div></div></a></div><div><a href="/2023/12/09/math/prob/prob-3/" title="统计基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">统计基础</div></div></a></div><div><a href="/2023/12/09/math/prob/prob-4/" title="估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">估计</div></div></a></div><div><a href="/2023/11/23/math/prob/prob-6/" title="一图流笔记"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">一图流笔记</div></div></a></div><div><a href="/2024/12/03/ts-3/" title="TS03 separation de source"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">TS03 separation de source</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E5%92%8C%E6%A3%80%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">评价和检验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C-Test-d%E2%80%99hypothese"><span class="toc-number">2.</span> <span class="toc-text">假设检验 Test d’hypothese</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E9%9B%A8%E9%87%8F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">2.1.</span> <span class="toc-text">降雨量的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">2.1.1.</span> <span class="toc-text">解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">一般过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E9%87%8F-Neyman-Pearson"><span class="toc-number">3.</span> <span class="toc-text">检验统计量 Neyman-Pearson</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C-hypothese-simple"><span class="toc-number">3.1.</span> <span class="toc-text">简单的假设检验 hypothèse simple</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE"><span class="toc-number">3.1.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%86%B3%E7%AD%96%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">似然函数的决策变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E5%9F%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">拒绝域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%BB%E5%8C%96%E7%AE%80"><span class="toc-number">3.1.4.</span> <span class="toc-text">※化简</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%85%E5%88%86%E7%BB%9F%E8%AE%A1%E9%87%8F"><span class="toc-number">3.1.5.</span> <span class="toc-text">充分统计量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C-hypothese-composite"><span class="toc-number">3.2.</span> <span class="toc-text">复合的假设检验 hypothèse composite</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E5%9F%9F-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">拒绝域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE-2"><span class="toc-number">3.2.3.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E5%9F%9F-2"><span class="toc-number">3.2.4.</span> <span class="toc-text">拒绝域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.3.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">正态分布的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%80%BC%E7%9A%84%E6%A3%80%E9%AA%8C-%E6%96%B9%E5%B7%AE%E5%B7%B2%E7%9F%A5"><span class="toc-number">4.1.</span> <span class="toc-text">均值的检验,方差已知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">4.1.1.</span> <span class="toc-text">单边检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">4.1.2.</span> <span class="toc-text">双边检验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%80%BC%E7%9A%84%E6%A3%80%E9%AA%8C-%E6%96%B9%E5%B7%AE%E6%9C%AA%E7%9F%A5"><span class="toc-number">4.2.</span> <span class="toc-text">均值的检验,方差未知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9"><span class="toc-number">4.2.1.</span> <span class="toc-text">单边</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9"><span class="toc-number">4.2.2.</span> <span class="toc-text">双边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E5%9D%87%E5%80%BC"><span class="toc-number">4.3.</span> <span class="toc-text">非正态分布的均值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C-%E5%9D%87%E5%80%BC%E5%B7%B2%E7%9F%A5"><span class="toc-number">4.4.</span> <span class="toc-text">方差的检验,均值已知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9-1"><span class="toc-number">4.4.1.</span> <span class="toc-text">单边</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9-1"><span class="toc-number">4.4.2.</span> <span class="toc-text">双边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C-%E5%9D%87%E5%80%BC%E6%9C%AA%E7%9F%A5"><span class="toc-number">4.5.</span> <span class="toc-text">方差的检验,均值未知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9-2"><span class="toc-number">4.5.1.</span> <span class="toc-text">单边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E7%8E%87%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">4.6.</span> <span class="toc-text">比率的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9-2"><span class="toc-number">4.6.1.</span> <span class="toc-text">双边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.7.</span> <span class="toc-text">使用似然函数的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E6%A3%80%E9%AA%8C-Test-d%E2%80%99ajustement"><span class="toc-number">5.</span> <span class="toc-text">分布检验 Test d’ajustement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%A3%80%E9%AA%8C-Ajustement-graphique"><span class="toc-number">5.0.1.</span> <span class="toc-text">图像检验 Ajustement graphique</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83"><span class="toc-number">5.0.2.</span> <span class="toc-text">指数分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">5.0.3.</span> <span class="toc-text">正态分布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C-%E7%A6%BB%E6%95%A3%E6%A0%B7%E6%9C%AC%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">5.1.</span> <span class="toc-text">卡方检验: 离散样本的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE-3"><span class="toc-number">5.1.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">5.1.2.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exemple"><span class="toc-number">5.1.3.</span> <span class="toc-text">Exemple</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K%E6%A3%80%E9%AA%8C-Test-de-Kolmogorov"><span class="toc-number">5.2.</span> <span class="toc-text">K检验 Test de Kolmogorov</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%A3%80%E9%AA%8C"><span class="toc-number">6.</span> <span class="toc-text">比较检验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%A3%80%E9%AA%8C-1"><span class="toc-number">6.1.</span> <span class="toc-text">正态分布的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%CF%83-m%E6%9C%AA%E7%9F%A5"><span class="toc-number">6.1.1.</span> <span class="toc-text">检验σ, m未知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8Cm-%CF%83%E6%9C%AA%E7%9F%A5"><span class="toc-number">6.1.2.</span> <span class="toc-text">检验m, σ未知</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%BA%94%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">一般应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%A0%B7%E6%9C%AC%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">6.3.</span> <span class="toc-text">两个样本的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">6.3.1.</span> <span class="toc-text">百分比的检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">6.3.2.</span> <span class="toc-text">卡方检验</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/09/informatique/java/java-03-03/" title="J03 Java基础 03：集合框架"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J03 Java基础 03：集合框架"/></a><div class="content"><a class="title" href="/2025/01/09/informatique/java/java-03-03/" title="J03 Java基础 03：集合框架">J03 Java基础 03：集合框架</a><time datetime="2025-01-09T21:13:07.000Z" title="发表于 2025-01-09 22:13:07">2025-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/09/informatique/java/java-03-02/" title="J03 Java基础 02：面向对象"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J03 Java基础 02：面向对象"/></a><div class="content"><a class="title" href="/2025/01/09/informatique/java/java-03-02/" title="J03 Java基础 02：面向对象">J03 Java基础 02：面向对象</a><time datetime="2025-01-09T21:13:06.000Z" title="发表于 2025-01-09 22:13:06">2025-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/09/informatique/java/java-03-01/" title="J03 Java基础 01：基本语法"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J03 Java基础 01：基本语法"/></a><div class="content"><a class="title" href="/2025/01/09/informatique/java/java-03-01/" title="J03 Java基础 01：基本语法">J03 Java基础 01：基本语法</a><time datetime="2025-01-09T21:13:04.000Z" title="发表于 2025-01-09 22:13:04">2025-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/09/informatique/java/java-02/" title="J02 统一建模语言 UML"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J02 统一建模语言 UML"/></a><div class="content"><a class="title" href="/2025/01/09/informatique/java/java-02/" title="J02 统一建模语言 UML">J02 统一建模语言 UML</a><time datetime="2025-01-09T21:13:03.000Z" title="发表于 2025-01-09 22:13:03">2025-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/09/informatique/java/java-01/" title="J01 引言：面向对象和程序设计"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J01 引言：面向对象和程序设计"/></a><div class="content"><a class="title" href="/2025/01/09/informatique/java/java-01/" title="J01 引言：面向对象和程序设计">J01 引言：面向对象和程序设计</a><time datetime="2025-01-09T21:13:02.000Z" title="发表于 2025-01-09 22:13:02">2025-01-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+    &amp;D^2 =
+N\frac{(ad-bc)^2}{(a+b)(a+c)(b+c)(b+d)}\thicksim\chi^2(1)\\
+    &amp;k = \chi^2_{\alpha}(1 )\end{aligned}
+\]</span></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/12/09/math/prob/prob-5/">http://raphaelhyaan.cn/2023/12/09/math/prob/prob-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/">概率统计</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/31/physique/Thermo/" title="工程热力学课程总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">工程热力学课程总览</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/09/math/prob/prob-4/" title="估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">估计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/09/math/prob/prob-2/" title="分布和近似"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">分布和近似</div></div></a></div><div><a href="/2023/12/09/math/prob/prob-3/" title="统计基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">统计基础</div></div></a></div><div><a href="/2023/12/09/math/prob/prob-4/" title="估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">估计</div></div></a></div><div><a href="/2023/12/09/math/prob/prob-1/" title="概率基础"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">概率基础</div></div></a></div><div><a href="/2023/11/23/math/prob/prob-6/" title="一图流笔记"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F9d66b275944827a45dc2c2f02f94bd72.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">一图流笔记</div></div></a></div><div><a href="/2024/12/03/ts-1/" title="TS01 Réponse Impulsionnelle de Salle"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F雨03.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">TS01 Réponse Impulsionnelle de Salle</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E5%92%8C%E6%A3%80%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">评价和检验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C-test-dhypothese"><span class="toc-number">2.</span> <span class="toc-text">假设检验 Test d’hypothese</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E9%9B%A8%E9%87%8F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">2.1.</span> <span class="toc-text">降雨量的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">2.1.1.</span> <span class="toc-text">解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">一般过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E9%87%8F-neyman-pearson"><span class="toc-number">3.</span> <span class="toc-text">检验统计量 Neyman-Pearson</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C-hypoth%C3%A8se-simple"><span class="toc-number">3.1.</span> <span class="toc-text">简单的假设检验 hypothèse
+simple</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE"><span class="toc-number">3.1.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%86%B3%E7%AD%96%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">似然函数的决策变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E5%9F%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">拒绝域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%96%E7%AE%80"><span class="toc-number">3.1.4.</span> <span class="toc-text">※化简</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%85%E5%88%86%E7%BB%9F%E8%AE%A1%E9%87%8F"><span class="toc-number">3.1.5.</span> <span class="toc-text">充分统计量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C-hypoth%C3%A8se-composite"><span class="toc-number">3.2.</span> <span class="toc-text">复合的假设检验 hypothèse
+composite</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E5%9F%9F-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">拒绝域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE-2"><span class="toc-number">3.2.3.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E5%9F%9F-2"><span class="toc-number">3.2.4.</span> <span class="toc-text">拒绝域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.3.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">正态分布的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%80%BC%E7%9A%84%E6%A3%80%E9%AA%8C%E6%96%B9%E5%B7%AE%E5%B7%B2%E7%9F%A5"><span class="toc-number">4.1.</span> <span class="toc-text">均值的检验,方差已知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">4.1.1.</span> <span class="toc-text">单边检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">4.1.2.</span> <span class="toc-text">双边检验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E5%80%BC%E7%9A%84%E6%A3%80%E9%AA%8C%E6%96%B9%E5%B7%AE%E6%9C%AA%E7%9F%A5"><span class="toc-number">4.2.</span> <span class="toc-text">均值的检验,方差未知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9"><span class="toc-number">4.2.1.</span> <span class="toc-text">单边</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9"><span class="toc-number">4.2.2.</span> <span class="toc-text">双边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E5%9D%87%E5%80%BC"><span class="toc-number">4.3.</span> <span class="toc-text">非正态分布的均值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C%E5%9D%87%E5%80%BC%E5%B7%B2%E7%9F%A5"><span class="toc-number">4.4.</span> <span class="toc-text">方差的检验,均值已知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9-1"><span class="toc-number">4.4.1.</span> <span class="toc-text">单边</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9-1"><span class="toc-number">4.4.2.</span> <span class="toc-text">双边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C%E5%9D%87%E5%80%BC%E6%9C%AA%E7%9F%A5"><span class="toc-number">4.5.</span> <span class="toc-text">方差的检验,均值未知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%BE%B9-2"><span class="toc-number">4.5.1.</span> <span class="toc-text">单边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E7%8E%87%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">4.6.</span> <span class="toc-text">比率的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E8%BE%B9-2"><span class="toc-number">4.6.1.</span> <span class="toc-text">双边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.7.</span> <span class="toc-text">使用似然函数的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E6%A3%80%E9%AA%8C-test-dajustement"><span class="toc-number">5.</span> <span class="toc-text">分布检验 Test d’ajustement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%A3%80%E9%AA%8C-ajustement-graphique"><span class="toc-number">5.0.1.</span> <span class="toc-text">图像检验 Ajustement
+graphique</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83"><span class="toc-number">5.0.2.</span> <span class="toc-text">指数分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="toc-number">5.0.3.</span> <span class="toc-text">正态分布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C-%E7%A6%BB%E6%95%A3%E6%A0%B7%E6%9C%AC%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">5.1.</span> <span class="toc-text">卡方检验: 离散样本的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE-3"><span class="toc-number">5.1.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">5.1.2.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exemple"><span class="toc-number">5.1.3.</span> <span class="toc-text">Exemple</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k%E6%A3%80%E9%AA%8C-test-de-kolmogorov"><span class="toc-number">5.2.</span> <span class="toc-text">K检验 Test de Kolmogorov</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%A3%80%E9%AA%8C"><span class="toc-number">6.</span> <span class="toc-text">比较检验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%A3%80%E9%AA%8C-1"><span class="toc-number">6.1.</span> <span class="toc-text">正态分布的检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%CF%83-m%E6%9C%AA%E7%9F%A5"><span class="toc-number">6.1.1.</span> <span class="toc-text">检验σ, m未知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8Cm-%CF%83%E6%9C%AA%E7%9F%A5"><span class="toc-number">6.1.2.</span> <span class="toc-text">检验m, σ未知</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%BA%94%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">一般应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%A0%B7%E6%9C%AC%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">6.3.</span> <span class="toc-text">两个样本的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">6.3.1.</span> <span class="toc-text">百分比的检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="toc-number">6.3.2.</span> <span class="toc-text">卡方检验</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/26/ts-dc-9/" title="从小波到压缩"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从小波到压缩"/></a><div class="content"><a class="title" href="/2025/01/26/ts-dc-9/" title="从小波到压缩">从小波到压缩</a><time datetime="2025-01-26T21:06:25.000Z" title="发表于 2025-01-26 22:06:25">2025-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/26/ts-dc-8/" title="从多分辨率到小波"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从多分辨率到小波"/></a><div class="content"><a class="title" href="/2025/01/26/ts-dc-8/" title="从多分辨率到小波">从多分辨率到小波</a><time datetime="2025-01-26T21:06:24.000Z" title="发表于 2025-01-26 22:06:24">2025-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/26/ts-dc-7/" title="从采样定理到多分辨率"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从采样定理到多分辨率"/></a><div class="content"><a class="title" href="/2025/01/26/ts-dc-7/" title="从采样定理到多分辨率">从采样定理到多分辨率</a><time datetime="2025-01-26T21:06:23.000Z" title="发表于 2025-01-26 22:06:23">2025-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/26/ts-dc-6/" title="TFCT, MDCT, 感知音频编码"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="TFCT, MDCT, 感知音频编码"/></a><div class="content"><a class="title" href="/2025/01/26/ts-dc-6/" title="TFCT, MDCT, 感知音频编码">TFCT, MDCT, 感知音频编码</a><time datetime="2025-01-26T21:06:22.000Z" title="发表于 2025-01-26 22:06:22">2025-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/26/ts-dc-5/" title="块傅里叶基和JPEG"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="块傅里叶基和JPEG"/></a><div class="content"><a class="title" href="/2025/01/26/ts-dc-5/" title="块傅里叶基和JPEG">块傅里叶基和JPEG</a><time datetime="2025-01-26T21:06:21.000Z" title="发表于 2025-01-26 22:06:21">2025-01-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
