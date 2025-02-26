@@ -1,0 +1,1007 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>从小波到压缩 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="从小波到压缩 PLAN   小波的实际应用 压缩特性 如何选择小波  小波的实际应用  前置内容的小结  多分辨率分析  定义为一系列嵌套的希尔伯特子空间 \(\{V_j\}_{j \in \mathbb{Z}}\)，描述了尺度 \(2^j\) 上的函数行为，配备一个函数 \(\theta\)，它在 \(V_0\) 上生成一个 Riesz 基。 由 \(\thet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从小波到压缩">
+<meta property="og:url" content="http://raphaelhyaan.cn/2025/01/26/informatique/ts/ts-dc-9/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="从小波到压缩 PLAN   小波的实际应用 压缩特性 如何选择小波  小波的实际应用  前置内容的小结  多分辨率分析  定义为一系列嵌套的希尔伯特子空间 \(\{V_j\}_{j \in \mathbb{Z}}\)，描述了尺度 \(2^j\) 上的函数行为，配备一个函数 \(\theta\)，它在 \(V_0\) 上生成一个 Riesz 基。 由 \(\thet">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F%E6%B8%851.png">
+<meta property="article:published_time" content="2025-01-26T14:06:25.000Z">
+<meta property="article:modified_time" content="2025-02-11T00:24:25.782Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="信号处理">
+<meta property="article:tag" content="压缩与降噪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F%E6%B8%851.png"><link rel="shortcut icon" href="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flana cat 002.png"><link rel="canonical" href="http://raphaelhyaan.cn/2025/01/26/informatique/ts/ts-dc-9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从小波到压缩',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-11 08:24:25'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">167</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从小波到压缩</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-26T14:06:25.000Z" title="发表于 2025-01-26 22:06:25">2025-01-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.782Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">信号处理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从小波到压缩"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="从小波到压缩">从小波到压缩</h1>
+<p><strong>PLAN</strong></p>
+<hr />
+<ul>
+<li>小波的实际应用</li>
+<li>压缩特性</li>
+<li>如何选择小波</li>
+</ul>
+<h2 id="小波的实际应用">小波的实际应用</h2>
+<hr />
+<h3 id="前置内容的小结">前置内容的小结</h3>
+<hr />
+<p><strong>多分辨率分析</strong></p>
+<ul>
+<li><p>定义为一系列嵌套的希尔伯特子空间 <span
+class="math inline">\(\{V_j\}_{j \in \mathbb{Z}}\)</span>，描述了尺度
+<span class="math inline">\(2^j\)</span> 上的函数行为，配备一个函数
+<span class="math inline">\(\theta\)</span>，它在 <span
+class="math inline">\(V_0\)</span> 上生成一个 Riesz 基。</p></li>
+<li><p>由 <span class="math inline">\(\theta\)</span> 推导出一个尺度函数
+<span class="math inline">\(\phi\)</span>，满足如下性质：</p>
+<p>对于每个 <span class="math inline">\(j \in \mathbb{Z}\)</span>，</p>
+<p><span class="math display">\[
+  \left\{ \frac{1}{\sqrt{2^j}} \phi \left( \cdot - \frac{2^j n}{2^j}
+\right) \right\}_{n \in \mathbb{Z}}
+  \]</span></p>
+<p>是 <span class="math inline">\(V_j\)</span> 的希尔伯特基。</p></li>
+</ul>
+<hr />
+<p><strong>共轭镜像滤波器</strong></p>
+<ul>
+<li><p><span class="math inline">\(h = (h_n)_{n \in \mathbb{Z}}\)</span>
+（低通滤波器）和 <span class="math inline">\(g = (g_n)_{n \in
+\mathbb{Z}}\)</span> （高通滤波器），满足以下条件：</p>
+<p><span class="math display">\[
+  \begin{cases}
+  h_n = \left(\frac{1}{\sqrt{2}} \phi(\cdot / 2), \phi(\cdot-n)\right),
+\\
+  \widehat{\phi}(2\omega) = \widehat{\phi}(\omega)
+\frac{\widehat{h}(\omega)}{\sqrt{2}}, &amp; \omega \in \mathbb{R},
+  \end{cases}
+  \]</span></p>
+<p>并且</p>
+<p><span class="math display">\[
+  \begin{cases}
+  g_n = (-1)^{1-n} h_{1-n}, \\
+  \widehat{g}(\omega) = e^{-i\omega} \widehat{h}(\omega + \pi),
+  \end{cases}
+  \]</span></p></li>
+</ul>
+<hr />
+<p><strong>小波函数</strong></p>
+<ul>
+<li><p>选定小波函数 <span
+class="math inline">\(\psi\)</span>以满足：</p>
+<p><span class="math display">\[
+  \begin{cases}
+  g_n = \left(\frac{1}{\sqrt{2}} \psi(\cdot / 2), \phi(\cdot -
+n)\right), \\
+  \widehat{\psi}(2\omega) = \widehat{\phi}(\omega)
+\frac{\widehat{g}(\omega)}{\sqrt{2}},
+  \end{cases}
+  \]</span></p>
+<p>从而使</p>
+<p><span class="math display">\[
+  \left\{ \frac{1}{2^j} \psi \left( \cdot - \frac{2^j n}{2^j} \right)
+\right\}{n \in \mathbb{Z}}
+  \]</span></p>
+<p>是 <span class="math inline">\(W_j\)</span> 的希尔伯特基（其中 <span
+class="math inline">\(V_j \oplus W_j = V_{j-1}\)</span>）。</p></li>
+</ul>
+<hr />
+<p>由于 <span class="math inline">\(V_j = V_{j+1} \oplus
+W_{j+1}\)</span>，我们可以写为： 对于 <span class="math inline">\(L &lt;
+J\)</span>，</p>
+<p><span class="math display">\[
+V_L = V_J \oplus W_J \oplus W_{J-1} \oplus \cdots \oplus W_{L+2} \oplus
+W_{L+1},
+\]</span></p>
+<p>因此对于任何 <span class="math inline">\(L^2\)</span> 中的函数，</p>
+<p><span class="math display">\[
+P_{V_L} f = P_{V_J} f + \sum_{j=L+1}^{J} P_{W_j} f.
+\]</span></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage.png" /></p>
+<h3
+id="快速小波变换算法-fast-wavelet-transform-algorithm">快速小波变换算法
+Fast wavelet transform algorithm</h3>
+<hr />
+<p>假设我们知道<span class="math inline">\(P_{V_0}
+f\)</span>，即假设：</p>
+<p><span class="math display">\[
+P_{V_0} f = \sum_{-\infty}^{\infty}a_{0,n} \phi_{0, n}=
+\sum_{-\infty}^{\infty}\left(f, \phi_{0, n}\right) \phi_{0, n}
+\]</span></p>
+<p>根据之前的假设：<span class="math inline">\(P_{V_j}f = P_{V_{j+1}}f +
+P_{W_{j+1}}f\)</span>，可以计算对应<span class="math inline">\(P_{V_1}
+f\)</span> 和 <span class="math inline">\(P_{W_1} f\)</span> 的内积
+<span class="math inline">\((a_{1,p})_{p \in \mathbb{Z}}\)</span> **和
+<em><span class="math inline">\((d_{1,p})_{p \in
+\mathbb{Z}}\)</span></em>：</p>
+<p><span class="math display">\[
+P_{V_0} f = \sum_p a_{1,p} \phi_{1,p} + \sum_p d_{1,p} \psi_{1,p}
+\]</span></p>
+<hr />
+<p><strong>递归分解 Recursive decomposition</strong></p>
+<p>根据上式计算 <span class="math inline">\((a_{1,p})_{p \in
+\mathbb{Z}}\)</span> **和 <em><span class="math inline">\((d_{1,p})_{p
+\in \mathbb{Z}}\)</span>：</em></p>
+<p><span class="math display">\[
+\begin{aligned}
+a_{1, p} &amp; =\left(\phi_{1, p}, P_{V_0} f\right)
+=\sum_n a_{0, n}\left(\phi_{1, p}, \phi_{0, n}\right) =\sum_n a_{0,
+n}\left(\phi_{1,0}, \phi_{0, n-2 p}\right) \\
+&amp; =\sum_n a_{0, n} h_{n-2 p} =\left(a_0 \star \bar{h}\right)_{2 p}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}d_{1, p} &amp; =\left(\psi_{1, p}, P_{V_0}
+f\right)  =\sum_n a_{0, n}\left(\psi_{1, p}, \phi_{0, n}\right)  =\sum_n
+a_{0, n}\left(\psi_{1,0}, \phi_{0, n-2 p}\right) \\&amp; =\sum_n a_{0,
+n} g_{n-2 p}  =\left(a_0 \star \bar{g}\right)_{2 p}\end{aligned}
+\]</span></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_1.png" /></p>
+<p>因此，无需知道 <span class="math inline">\(\psi\)</span> 和 <span
+class="math inline">\(\phi\)</span> 的复杂表达式即可完成分解。</p>
+<hr />
+<p><strong>初始化</strong></p>
+<p>从定义在区间 <span class="math inline">\([0,1]\)</span> 上的函数
+<span class="math inline">\(f \colon [0,1] \to \mathbb{R}\)</span>
+开始，假设其在 <span class="math inline">\(N = 2^{-L}\)</span>
+个点上均匀采样（采样间隔为 <span class="math inline">\(T =
+2^L\)</span>）。计算初始系数：</p>
+<p><span class="math display">\[
+a_{L,n} = \int f(t) \phi_{L,n}(t) \, dt = \int f(t) \frac{1}{\sqrt{N}}
+\phi \left( \frac{t - (N^{-1}n)}{N^{-1}} \right) \, dt \approx N^{-1/2}
+f(N^{-1}n).
+\]</span></p>
+<hr />
+<p><strong>快速逆变换</strong></p>
+<ul>
+<li><p>根据之前的公式：</p>
+<p><span class="math display">\[
+  P_{V_0} f = \sum_p a_{1,p} \phi_{1,p} + \sum_p d_{1,p} \psi_{1,p} =
+\sum_p a_{0,p} \phi_{0,p}.
+  \]</span></p></li>
+<li><p>有：</p>
+<p><span class="math display">\[
+  a_{0,p} = (\phi_{0,p}, P_{V_0} f) = \sum_n a_{1,n} (\phi_{0,p},
+\phi_{1,n}) + \sum_n d_{1,n} (\phi_{0,p}, \psi_{1,n}).
+  \]</span></p>
+<p>使用特性展开：</p>
+<p><span class="math display">\[
+  a_{0,p} = \sum_n a_{1,n} h_{p-2n} + \sum_n d_{1,n} g_{p-2n}.
+  \]</span></p>
+<p>表示为卷积和上采样：</p>
+<p><span class="math display">\[
+  a_{0,p} = \left(a_1^{\uparrow} \star h\right)_p+\left(d_1^{\uparrow}
+\star g\right)_p
+  \]</span></p></li>
+<li><p>其中，上采样 <span class="math inline">\(u^\uparrow\)</span> 满足
+<span class="math inline">\(u^\uparrow_{2n} = u_n\)</span> 且 <span
+class="math inline">\(u^\uparrow_{2n+1} = 0\)</span>。</p></li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_2.png" /></p>
+<hr />
+<p><strong>算法复杂度</strong></p>
+<ul>
+<li>假设滤波器 <span class="math inline">\(h\)</span> 和 <span
+class="math inline">\(g\)</span> 的支持集大小为 <span
+class="math inline">\(K\)</span>（即 <span
+class="math inline">\(K\)</span> 个非零元素）。</li>
+<li>假设 <span class="math inline">\(a_L\)</span> 的支持集大小为 <span
+class="math inline">\(N\)</span>。</li>
+<li>因此，从尺度 <span class="math inline">\(2^L\)</span> 到 <span
+class="math inline">\(2^{L-1}\)</span> 的变换需要 <span
+class="math inline">\(2KN\)</span> 次加法和乘法。</li>
+<li>当 <span class="math inline">\(K\)</span> 很小时，该算法比
+FFT（快速傅里叶变换）更快。</li>
+</ul>
+<hr />
+<p><strong>处理定义域的边界</strong></p>
+<ul>
+<li>一个实际问题是，小波对不连续非常敏感 →
+需要避免定义域边界的人工不连续性。</li>
+<li>两种解决思路：
+<ol type="1">
+<li>在区间 <span class="math inline">\([0, 2]\)</span>
+上采用对称性和“周期化 periodization”处理。</li>
+<li>使用专门的边界小波。</li>
+</ol></li>
+</ul>
+<h3 id="图像小波">图像小波</h3>
+<hr />
+<p>张量积的概念将一维扩展到二维</p>
+<hr />
+<p><strong>命题</strong></p>
+<p>设 <span class="math inline">\(V_1\)</span> 和 <span
+class="math inline">\(V_2\)</span> 是 <span
+class="math inline">\(L^2(\mathbb{R})\)</span>
+的两个希尔伯特子空间，其希尔伯特基为 <span
+class="math inline">\(\{e_n^i\}{n \in \mathbb{Z}}, \, i = 1,
+2\)</span>。 定义乘积空间：</p>
+<p><span class="math display">\[
+V = V_1 \otimes V_2 = \mathrm{clos}\{f : \mathbb{R} \times \mathbb{R}
+\to \mathbb{R}, \, f(x_1, x_2) = \sum_n \lambda_n f_n^1(x_1) f_n^2(x_2),
+\, f_n^1 \in V_1, \, f_n^2 \in V_2\}.
+\]</span></p>
+<p>则集合</p>
+<p><span class="math display">\[
+\left\{e_{n_1}^1\left(x_1\right) \cdot
+e_{n_2}^2\left(x_2\right)\right\}_{\left(n_1, n_2\right) \in
+\mathbb{Z}^2}
+\]</span></p>
+<p>是 <span class="math inline">\(V\)</span> 的一个希尔伯特基。</p>
+<hr />
+<p>当然，同样的原理可用于二维傅里叶变换：</p>
+<p><span class="math display">\[
+\begin{array}{ll}
+e^{\mathrm{i} 2 \pi n t} &amp; \rightarrow 1 D \\
+e^{\mathrm{i} 2 \pi\left(n_1 x_1+n_2 x_2\right)} &amp; \rightarrow 2 D
+\end{array}
+\]</span></p>
+<hr />
+<p><strong>对于小波分析</strong></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_3.png" /></p>
+<ul>
+<li><p>对每个 <span class="math inline">\(j \in
+\mathbb{Z}\)</span>，定义</p>
+<p><span class="math display">\[
+  V_j^2 = V_j \otimes V_j,
+  \]</span></p></li>
+<li><p>并定义空间 <span class="math inline">\(W_j^2\)</span>，使得</p>
+<p><span class="math display">\[
+  V_{j-1}^2 = V_j^2 \oplus W_j^2.
+  \]</span></p></li>
+<li><p>定义三种类型的小波：</p>
+<p><span class="math display">\[
+  \begin{cases}
+  \psi^1(x_1, x_2) = \phi(x_1) \psi(x_2), \\
+  \psi^2(x_1, x_2) = \psi(x_1) \phi(x_2), \\
+  \psi^3(x_1, x_2) = \psi(x_1) \psi(x_2).
+  \end{cases}
+  \]</span></p></li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_4.png" /></p>
+<ul>
+<li><p>然后定义：</p>
+<p><span class="math display">\[
+  \psi_{j, n_1, n_2}^k(x_1, x_2) = \frac{1}{2^j} \psi^k\left(\frac{x_1 -
+2^j n_1}{2^j}, \frac{x_2 - 2^j n_2}{2^j}\right).
+  \]</span></p></li>
+<li><p>集合</p>
+<p><span class="math display">\[
+  \{\psi_{j, n_1, n_2}^1, \psi_{j, n_1, n_2}^2, \psi_{j, n_1,
+n_2}^3\}_{(n_1, n_2) \in \mathbb{Z}^2}
+  \]</span></p>
+<p>是 <span class="math inline">\(W_j^2\)</span>
+的一个希尔伯特基。</p></li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_5.png" /></p>
+<h2 id="压缩-compression">压缩 Compression</h2>
+<hr />
+<h3 id="全局和局部正则化">全局和局部正则化</h3>
+<hr />
+<p><strong>傅里叶变换的正则性与衰减</strong></p>
+<ul>
+<li><p>函数 <span class="math inline">\(f\)</span> 的正则性 <span
+class="math inline">\(↔\)</span> <span class="math inline">\(f\)</span>
+可微分的次数。</p></li>
+<li><p>如果 <span class="math inline">\(\hat{f} \in
+L^1(\mathbb{R})\)</span>，则傅里叶反演公式表明：</p>
+<p><span class="math display">\[
+  |f(t)| \leq \frac{1}{2\pi} \int_{-\infty}^\infty |e^{i\omega t}
+\hat{f}(\omega)| d\omega = \frac{1}{2\pi} \int_{-\infty}^\infty
+|\hat{f}(\omega)| d\omega &lt; +\infty, \quad t \in \mathbb{R}.
+  \]</span></p></li>
+<li><p>此外，若 <span class="math inline">\(f\)</span> 有界并且 <span
+class="math inline">\(p\)</span> 次连续可微且导数有界，则需满足：</p>
+<p><span class="math display">\[
+  \int_{-\infty}^\infty |\hat{f}(\omega)| (1 + |\omega|^p) d\omega &lt;
++\infty.
+  \]</span></p></li>
+</ul>
+<hr />
+<ul>
+<li><p>特别地，若存在 <span class="math inline">\(K &gt; 0, \epsilon
+&gt; 0\)</span>，使得：</p>
+<p><span class="math display">\[
+  |\hat{f}(\omega)| \leq \frac{K}{1 + |\omega|^{p+1+\epsilon}}, \quad
+\forall \omega \in \mathbb{R},
+  \]</span></p>
+<p>则 <span class="math inline">\(f \in C^p\)</span>。</p></li>
+<li><p>此外，还可以将可微性扩展到<strong>非整数阶</strong>。</p></li>
+</ul>
+<hr />
+<p><strong>Sobolev意义下的正则性</strong></p>
+<p><strong>定义 1：</strong></p>
+<p>若函数 <span class="math inline">\(f \in L^2(\mathbb{R})\)</span>
+满足</p>
+<p><span class="math display">\[
+\int (1 + |\omega|)^2 |\hat{f}(\omega)|^2 d\omega &lt; +\infty,
+\]</span></p>
+<p>则 <span class="math inline">\(f\)</span> 在 Sobolev 意义下可微。</p>
+<p><strong>定义 2：</strong></p>
+<p>令 <span class="math inline">\(s \in \mathbb{R}\)</span>。若分布
+<span class="math inline">\(u\)</span> 在 <span
+class="math inline">\(\mathbb{R}^d\)</span> 上满足以下条件，则称其属于
+Sobolev 空间 <span
+class="math inline">\(H^s(\mathbb{R}^d)\)</span>：</p>
+<ol type="1">
+<li><span class="math inline">\(u \in
+S&#39;\)</span>（分布空间的对偶）；</li>
+<li><span class="math inline">\(\hat{u} \in
+L^1_{\text{loc}}(\mathbb{R}^d)\)</span>；</li>
+<li><span class="math inline">\(u\)</span> 满足正则性条件：</li>
+</ol>
+<p><span class="math display">\[
+\int (1 + |\omega|^2)^s |\hat{u}(\omega)|^2 d\omega &lt; +\infty.
+\]</span></p>
+<hr />
+<ul>
+<li>函数傅里叶变换的衰减是理解小波近似效率的重要概念。</li>
+<li>然而，仅依赖全局正则性是不够精确的。</li>
+<li><span class="math inline">\(\hat{f}\)</span> 在无穷远处的衰减取决于
+<span class="math inline">\(f\)</span> 最严重的奇异性行为。</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li><span class="math inline">\(f = \mathbb{1}_{[-1,1]}\)</span>
+在两个点不连续，因此 <span class="math inline">\(\hat{f}\)</span>
+的衰减为 <span class="math inline">\(\omega^{-1}\)</span>。</li>
+<li>然而，<span class="math inline">\(f\)</span>
+在两个奇异性点之外是正则的。</li>
+<li>因此，我们需要引入<strong>局部正则性</strong>的概念。</li>
+</ul>
+<hr />
+<p><strong>Lipschitz 正则性</strong></p>
+<ul>
+<li><p>假设 <span class="math inline">\(f\)</span> 在区间 <span
+class="math inline">\(]u-h, u+h[ \subset \mathbb{R}\)</span> 中 <span
+class="math inline">\(m\)</span> 次可微，其中 <span
+class="math inline">\(h &gt; 0\)</span>。</p></li>
+<li><p>泰勒公式表明，<span class="math inline">\(f\)</span>
+可表示为：</p>
+<p><span class="math display">\[
+  f(t) = p_u(t) + \epsilon_u(t), \quad t \in ]u-h, u+h[,
+  \]</span></p>
+<p>其中：</p>
+<p><span class="math display">\[
+  p_u(t) = \sum_{k=0}^{m-1} \frac{f^{(k)}(u)}{k!} (t-u)^k,
+  \]</span></p>
+<p>并且</p>
+<p><span class="math display">\[
+  |\epsilon_u(t)| \leq \frac{|t-u|^m}{m!} \sup_{v \in ]u-h, u+h[}
+|f^{(m)}(v)|.
+  \]</span></p></li>
+<li><p>因此，<span class="math inline">\(f\)</span> 的 <span
+class="math inline">\(m\)</span>-阶可微性为 <span
+class="math inline">\(\epsilon_u\)</span> 提供了一个上界，这引出了
+<strong>Lipschitz 正则性</strong> 的概念。</p></li>
+</ul>
+<hr />
+<p><strong>定义</strong></p>
+<p>令 <span class="math inline">\(\alpha \geq 0\)</span>。</p>
+<ol type="1">
+<li><p>若存在一个多项式 <span class="math inline">\(p_u\)</span>（次数
+<span class="math inline">\(m &lt; \alpha\)</span>）和一个常数 <span
+class="math inline">\(K &gt; 0\)</span>，使得对任意 <span
+class="math inline">\(t \in \mathbb{R}\)</span>：</p>
+<p><span class="math display">\[
+|f(t) - p_u(t)| \leq K |t-u|^\alpha,
+\]</span></p>
+<p>则称函数 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\(u\)</span> 处是 Lipschitz <span
+class="math inline">\(\alpha\)</span>。</p></li>
+<li><p>若存在 <span class="math inline">\(K &gt; 0\)</span>，使得 <span
+class="math inline">\(f\)</span> 在区间 <span
+class="math inline">\([a,b]\)</span> 上每一点 <span
+class="math inline">\(u\)</span> 都是 Lipschitz <span
+class="math inline">\(\alpha\)</span>，并且具有相同的 Lipschitz 常数
+<span class="math inline">\(K\)</span>，则称 <span
+class="math inline">\(f\)</span> 在 <span
+class="math inline">\([a,b]\)</span> 上是统一的 Lipschitz <span
+class="math inline">\(\alpha\)</span>。</p></li>
+</ol>
+<hr />
+<ul>
+<li>一个在 <span class="math inline">\(u\)</span> 处有界但不连续的函数是
+Lipschitz 0。</li>
+<li>如果 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\(u\)</span> 的邻域内是统一 Lipschitz <span
+class="math inline">\(\alpha &gt; m\)</span>，则 <span
+class="math inline">\(f\)</span> 在该邻域内 <span
+class="math inline">\(m\)</span> 次连续可微。</li>
+</ul>
+<h3 id="小波的消失矩-vanishing-moments-of-a-wavelet">小波的消失矩
+Vanishing moments of a wavelet</h3>
+<hr />
+<ul>
+<li><p>对于一个小波 <span class="math inline">\(\psi\)</span>、位置参数
+<span class="math inline">\(u \in \mathbb{R}\)</span> 和尺度因子 <span
+class="math inline">\(s &gt; 0\)</span>，定义：</p>
+<p><span class="math display">\[
+  \psi_{u,s} : t \mapsto \frac{1}{\sqrt{s}}
+\psi\left(\frac{t-u}{s}\right).
+  \]</span></p></li>
+<li><p>假设 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\(u\)</span> 处是 Lipschitz <span
+class="math inline">\(\alpha\)</span>，则 <span class="math inline">\(f
+= p_u + \epsilon_u\)</span>，其中 <span
+class="math inline">\(p_u\)</span> 是一个次数 <span
+class="math inline">\(m &lt; \alpha\)</span> 的多项式。</p></li>
+<li><p>是否可能满足以下性质？</p>
+<p><span class="math display">\[
+  (f, \psi_{u,s}) = (p_u, \psi_{u,s}) + (\epsilon_u, \psi_{u,s}) = 0 +
+(\epsilon_u, \psi_{u,s}).
+  \]</span></p></li>
+</ul>
+<p>→ 换句话说，<span class="math inline">\(\psi_{u,s}\)</span>
+不“感知”多项式。</p>
+<ul>
+<li>如果 <span class="math inline">\(f\)</span>
+足够正则并在局部表现得像多项式，则内积会非常小。</li>
+</ul>
+<hr />
+<p><strong>定义</strong></p>
+<p>若 <span class="math inline">\(\psi\)</span> 满足</p>
+<p><span class="math display">\[
+\int t^k \psi(t) dt = 0, \quad \forall 0 \leq k &lt; m,
+\]</span></p>
+<p>则称 <span class="math inline">\(\psi\)</span> 具有 <span
+class="math inline">\(m\)</span> 阶消失矩。</p>
+<ul>
+<li><p>这表明 <span class="math inline">\(\psi\)</span> 与任意次数小于
+<span class="math inline">\(m\)</span> 的多项式正交：</p>
+<p>若 <span class="math inline">\(p \in \mathbb{R}[X], \deg p &lt;
+m\)</span>，则 <span class="math inline">\((\psi, p) =
+0\)</span>。</p></li>
+<li><p>而且，正交性在尺度和平移下具有不变性：</p>
+<p><span class="math display">\[
+  \int p(t) \frac{1}{\sqrt{s}} \psi\left(\frac{t-u}{s}\right) dt = 0,
+\quad \forall u \in \mathbb{R}, s &gt; 0.
+  \]</span></p></li>
+</ul>
+<hr />
+<p><strong>假设与结论</strong></p>
+<ul>
+<li><p>假设 <span class="math inline">\(\psi\)</span> 具有 <span
+class="math inline">\(m\)</span> 阶消失矩。</p></li>
+<li><p>假设 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\(v\)</span> 处是 Lipschitz <span
+class="math inline">\(\alpha\)</span>，则存在次数 <span
+class="math inline">\(\deg p_v &lt; \alpha\)</span> 的多项式 <span
+class="math inline">\(p_v\)</span>，且有</p>
+<p><span class="math display">\[
+  |f(t) - p_v(t)| \leq K |t-v|^\alpha.
+  \]</span></p></li>
+<li><p>当 <span class="math inline">\(\alpha \leq m\)</span> 时，</p>
+<p><span class="math display">\[
+  (p_v, \psi_{u,s}) = 0, \quad \forall u \in \mathbb{R}, s &gt; 0.
+  \]</span></p></li>
+<li><p>因此：</p>
+<p><span class="math display">\[
+  \begin{aligned}&amp;\left|\left(f, \psi_{u,
+s}\right)\right|=\left|\int\left(f(t)-p_v(t)\right) \frac{1}{\sqrt{s}}
+\psi\left(\frac{t-u}{s}\right) \mathrm{d} t\right| \\&amp; \leq \int
+K|t-v|^\alpha
+\frac{1}{\sqrt{s}}\left|\psi\left(\frac{t-u}{s}\right)\right| \mathrm{d}
+t \\&amp; x=(t-u) / s \\&amp; \leq \sqrt{s} \int K|s
+x+u-v|^\alpha|\psi(x)| \mathrm{d} x\end{aligned}
+  \]</span></p></li>
+<li><p>特别的，<span class="math inline">\(u =
+v\)</span>时，有：</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}\left|\left(f, \psi_{v, s}\right)\right| &amp; \leq K
+s^{\alpha+1 / 2} \int|x|^\alpha|\psi(x)| \mathrm{d} x \\&amp; \leq
+K^{\prime} s^{\alpha+1 / 2}\end{aligned}
+\]</span></p>
+<p>当<span
+class="math inline">\(f\)</span>的局部正则性增加，且小波具有消失矩时，内积衰减速度更快。</p>
+<h3 id="逼近率-approximation-rates">逼近率 Approximation rates</h3>
+<hr />
+<p><strong>线性逼近 linear approximation</strong></p>
+<p>令 <span class="math inline">\(B = (e_n)_{n \in \mathbb{N}}\)</span>
+为一个可分希尔伯特空间的希尔伯特基。对于 <span class="math inline">\(f
+\in E\)</span> 的<strong>线性逼近</strong>，定义为 <span
+class="math inline">\(f_N\)</span>，它是 <span
+class="math inline">\(f\)</span> 在由 <span
+class="math inline">\(B\)</span> 的前 <span
+class="math inline">\(N\)</span>
+个元素（通常无需失一般性）所张成的有限维空间上的正交投影：</p>
+<p><span class="math display">\[
+f_N = \sum_{n=0}^{N-1} (f, e_n)e_n.
+\]</span></p>
+<p>逼近的误差为：</p>
+<p><span class="math display">\[
+\varepsilon_1(N) = \| f - f_N \|^2 = \sum_{n=N}^{+\infty} |(f, e_n)|^2.
+\]</span></p>
+<hr />
+<p><strong>非线性逼近 Non-linear approximation</strong></p>
+<p>对于 <span class="math inline">\(f \in E\)</span>
+的<strong>非线性逼近</strong>，定义为 <span
+class="math inline">\(f_N\)</span>，它是 <span
+class="math inline">\(f\)</span> 在由 <span
+class="math inline">\(B\)</span> 的 <span
+class="math inline">\(N\)</span> 个向量 <span
+class="math inline">\(e_n\)</span>（对应于最大的 <span
+class="math inline">\((f, e_n)\)</span> 内积的索引 <span
+class="math inline">\(i_N = \{i_1, \dots, i_N\} \in
+\mathbb{N}^N\)</span>所张成的有限维空间上的正交投影。</p>
+<ul>
+<li><strong>非线性逼近</strong> <span class="math inline">\(\implies f_N
++ g_N \neq (f + g)_N\)</span></li>
+<li>思路：自适应网格，在 <span class="math inline">\(f\)</span>
+的奇异性邻域更细化。</li>
+</ul>
+<hr />
+<p><strong>关于 <span class="math inline">\(L^2[0,1]\)</span>
+的一些理论结果</strong></p>
+<ul>
+<li>回忆信号处理课程中的知识：集合 <span class="math inline">\(\{t
+\mapsto e^{i 2\pi n t}\}_{n \in \mathbb{Z}}\)</span> 是 <span
+class="math inline">\(L^2([0,1])\)</span> 的一个希尔伯特基。</li>
+<li>如果 <span class="math inline">\(f \in L^2([0,1])\)</span>，那么
+<span class="math inline">\(f\)</span> 可以写成一个傅里叶级数：</li>
+</ul>
+<p><span class="math display">\[
+f(t) = \sum_{k=-\infty}^{+\infty} (f, e^{i 2\pi k t}) e^{i 2\pi k t},
+\]</span></p>
+<ul>
+<li>其中：</li>
+</ul>
+<p><span class="math display">\[
+(f, e^{i 2\pi k t}) = \int_0^1 f(t) e^{-i 2\pi k t} \, dt.
+\]</span></p>
+<ul>
+<li>定义 <span class="math inline">\(W^s([0,1])\)</span> 为 <span
+class="math inline">\(L^2([0,1])\)</span> 的子集，其元素在 Sobolev
+意义上 <span class="math inline">\(s\)</span> 次可微，且支持集在 <span
+class="math inline">\([0,1]\)</span> 中。</li>
+</ul>
+<hr />
+<p><span class="math inline">\(f \in W^s([0,1])\)</span>
+当且仅当以下断言之一成立：</p>
+<ol type="1">
+<li><span class="math inline">\(\sum_{k \in \mathbb{Z}} |k|^{2s} |(f,
+e^{i2\pi kt})|^2 &lt; \infty\)</span></li>
+<li><span class="math inline">\(\sum_{N=1}^\infty N^{2s}
+\frac{\varepsilon_1(N)}{N} &lt; \infty \implies \varepsilon_1(N) =
+o(N^{-2s})\)</span></li>
+</ol>
+<hr />
+<ul>
+<li><strong>线性逼近的误差</strong>：在线性逼近中，傅里叶基下的误差仅在
+<span class="math inline">\(f\)</span> 具有较高的 Sobolev 正则性 <span
+class="math inline">\(s\)</span> 时快速衰减。</li>
+<li>如果 <span class="math inline">\(f\)</span> 在某处不连续，则 <span
+class="math inline">\(f \notin W^s([0,1])\)</span>，无论 <span
+class="math inline">\(s &gt; 1/2\)</span>。</li>
+<li>因此 <span class="math inline">\(\varepsilon_1(N) =
+O(N^{-1})\)</span>（缓慢衰减 + Gibbs 振荡）。</li>
+</ul>
+<hr />
+<p><strong>小波情形</strong></p>
+<p>在 <span class="math inline">\(V_L \cap W^s([0,1])\)</span> 中，有
+<span class="math inline">\(N = 2^{-L} + 1\)</span> 个定义在 <span
+class="math inline">\([0,1]\)</span> 上的尺度函数，因此：</p>
+<p><span class="math display">\[
+f_N = P_{V_L} f = \sum_{n=0}^{2^{-L}} (f, \phi_{L,n}) \phi_{L,n}.
+\]</span></p>
+<p>逼近误差可写为：</p>
+<p><span class="math display">\[
+\varepsilon_1 = \|f - f_N\|^2 = \sum_{j=-\infty}^L \sum_{n=0}^{2^{-j}}
+|(f, \psi_{j,n})|^2.
+\]</span></p>
+<hr />
+<p>假设小波 <span class="math inline">\(\psi\)</span> 具有 <span
+class="math inline">\(m\)</span> 个消失矩，<span class="math inline">\(0
+&lt; s &lt; m\)</span>。则函数 <span class="math inline">\(f \in
+W^s([0,1])\)</span> 当且仅当：</p>
+<p><span class="math display">\[
+\sum_{N=1}^\infty N^{2s} \frac{\varepsilon_1(N)}{N} &lt; \infty \implies
+\varepsilon_1(N) = o(N^{-2s}).
+\]</span></p>
+<p>相较于傅里叶逼近没有收益</p>
+<hr />
+<p><strong>非线性逼近速率</strong></p>
+<p>假设小波函数具有 <span class="math inline">\(m\)</span>
+个消失矩。假设 <span class="math inline">\(f\)</span> 在 <span
+class="math inline">\([0,1]\)</span>
+上有有限个间断点，并且在间断点之间的 <span
+class="math inline">\([0,1]\)</span> 上是一致的 Lipschitz <span
+class="math inline">\(\alpha\)</span>（其中 <span
+class="math inline">\(1/2 &lt; \alpha &lt;
+m\)</span>）。则线性逼近的误差上界为：</p>
+<p><span class="math display">\[
+\varepsilon_1(N) = O(N^{-1}).
+\]</span></p>
+<p>然而，非线性上界：</p>
+<p><span class="math display">\[
+\varepsilon_{nl}(N) = O(N^{-2\alpha}).
+\]</span></p>
+<hr />
+<h2 id="选择小波">选择小波</h2>
+<hr />
+<h3 id="小波的构造">小波的构造</h3>
+<ul>
+<li><p>我们希望选择具有<strong>消失矩</strong>的 <span
+class="math inline">\(\psi\)</span>。</p></li>
+<li><p>我们希望：</p>
+<p><span class="math display">\[
+  \begin{aligned}\int t^k \psi(t) \mathrm{d} t &amp; =0, &amp; 0 \leq
+k&lt;m \\\Longrightarrow \quad \widehat{\psi}^{(k)}(0) &amp; =0, &amp; 0
+\leq k&lt;m\end{aligned}
+  \]</span></p>
+<ul>
+<li>因为 <span class="math inline">\(\hat{\psi}^{(k)}(0) = \int (-it)^k
+\psi(t) dt\)</span>。</li>
+</ul></li>
+<li><p>因此，当 <span class="math inline">\(|\hat{\psi}(\omega)|
+\underset{\omega \to 0}{=} O(\omega^m)\)</span> 时，<span
+class="math inline">\(\psi\)</span> 具有 <span
+class="math inline">\(m\)</span> 个消失矩。</p>
+<p>（由于 <span class="math inline">\(\hat{\psi}(\omega)
+\underset{\omega \to 0}{=} \hat{\psi}(0) + \omega \hat{\psi}^{(1)}(0) +
+\frac{\omega^2}{2!} \hat{\psi}^{(2)}(0) + \cdots\)</span>）</p></li>
+</ul>
+<hr />
+<ul>
+<li><p>回忆以下公式：</p>
+<p><span class="math display">\[
+  \hat{\psi}(\omega) = \frac{\hat{g}(\omega)}{\sqrt{2}}
+\hat{\phi}(\omega/2)
+  \]</span></p>
+<ul>
+<li>且 <span class="math inline">\(\hat{\phi}(\omega/2) \underset{\omega
+\to 0}{=} O(1)\)</span>。</li>
+</ul></li>
+<li><p>因此：</p>
+<p><span class="math display">\[
+  |\hat{g}(\omega)| \underset{\omega \to 0}{=} O(\omega^m)
+  \]</span></p></li>
+<li><p>由于 <span class="math inline">\(|\hat{g}(\omega)| =
+|\hat{h}(\omega + \pi)|\)</span>，<span
+class="math inline">\(\psi\)</span> 在 <span
+class="math inline">\(\omega = \pi\)</span> 处有 <span
+class="math inline">\(m\)</span> 阶零点当且仅当 <span
+class="math inline">\(\hat{h}\)</span> 在 <span
+class="math inline">\(\omega = \pi\)</span> 处有 <span
+class="math inline">\(m\)</span> 阶零点。</p></li>
+</ul>
+<hr />
+<h3 id="支集的大小">支集的大小</h3>
+<ul>
+<li><p>另一个要求：<span class="math inline">\(\psi\)</span>
+的支集应足够小，以便内积仅捕获局部奇异性。</p></li>
+<li><p>例如，我们可以要求 <span class="math inline">\(\psi\)</span>
+是紧支撑的。</p>
+<ul>
+<li>若 <span class="math inline">\(\psi\)</span> 是紧支撑的 <span
+class="math inline">\(\implies g = (g_n){n \in \mathbb{Z}}\)</span>
+<em>和 <span class="math inline">\(\phi\)</span>
+是紧支撑的，因为：</em></li>
+</ul>
+<p><span class="math display">\[
+  \frac{1}{\sqrt{2}} \psi(t/2) = \sum_{n=-\infty}^\infty g_n \phi(t - n)
+  \]</span></p>
+<ul>
+<li>若 <span class="math inline">\(g\)</span> 是紧支撑的 <span
+class="math inline">\(\implies h = (h_n){n \in \mathbb{Z}}\)</span>
+**是紧支撑的，因为：</li>
+</ul>
+<p><span class="math display">\[
+  g_n = (-1)^{1-n} h{1-n}.
+  \]</span></p></li>
+</ul>
+<hr />
+<ul>
+<li><p>回忆以下公式：</p>
+<p><span class="math display">\[
+  \frac{1}{\sqrt{2}} \phi(t/2) = \sum_{n=-\infty}^\infty h_n \phi(t - n)
+  \]</span></p></li>
+<li><p>假设 <span class="math inline">\(\text{supp } h = [N_1,
+N_2]\)</span> 且 <span class="math inline">\(\text{supp } \phi = [K_1,
+K_2]\)</span>，应有<span class="math inline">\(\text{supp }
+\phi(\cdot/2) \subset [2K_1, 2K_2].\)</span></p></li>
+<li><p>此外：<span class="math inline">\(\text{supp} \sum_{N_1}^{N_2}
+h_n \phi(t - n) \subset [N_1 + K_1, N_2 + K_2].\)</span></p></li>
+<li><p>因此 <span class="math inline">\(K_1 = N_1\)</span> 且 <span
+class="math inline">\(K_2 = N_2\)</span>。</p></li>
+<li><p>由于<span class="math inline">\(\frac{1}{\sqrt{2}} \psi(t/2) =
+\sum_n (-1)^{1-n} h_{1-n} \phi(t - n)\)</span>，小波<span
+class="math inline">\(\psi(\cdot/2)\)</span> 的支集为 <span
+class="math inline">\([N_1 - N_2 + 1, N_2 - N_1 + 1]\)</span>。</p></li>
+<li><p>因此：</p>
+<p><span class="math display">\[
+  \text{supp } \psi = [(N_1 - N_2 + 1)/2, (N_2 - N_1 + 1)/2],
+  \]</span></p>
+<p><span class="math inline">\(\psi\)</span> 的支集大小为 <span
+class="math inline">\(N_2 - N_1\)</span>，以 <span
+class="math inline">\(1/2\)</span> 为中心。</p></li>
+</ul>
+<hr />
+<p><strong>Mallat 和 Meyer 定理</strong></p>
+<p><strong>定理</strong></p>
+<p>令 <span class="math inline">\(\hat{h}\)</span> 为 <span
+class="math inline">\(2\pi\)</span> 周期函数，并满足以下要求：</p>
+<ol type="1">
+<li><span class="math inline">\(\hat{h}\)</span> 在零的邻域内是 <span
+class="math inline">\(C^1\)</span> 的；</li>
+<li><span class="math inline">\(\inf_{\omega \in [-2\pi, 2\pi]}
+|\hat{h}(\omega)| &gt; 0\)</span>；</li>
+<li><span class="math inline">\(\forall \omega \in \mathbb{R}, \
+|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \pi)|^2 = 2\)</span>；</li>
+<li><span class="math inline">\(\hat{h}(0) = \sqrt{2}\)</span>。</li>
+</ol>
+<p>则函数 <span class="math inline">\(\phi \in
+L^2(\mathbb{R})\)</span>，其傅里叶变换为：</p>
+<p><span class="math display">\[
+\hat{\phi}(\omega) = \prod_{j=1}^\infty
+\frac{\hat{h}(2^{-j}\omega)}{\sqrt{2}}, \quad \omega \in \mathbb{R},
+\]</span></p>
+<p>是一个尺度函数。</p>
+<hr />
+<ul>
+<li>由于 <span class="math inline">\(\hat{h}(\omega) = \sum_{N_1}^{N_2}
+h_n e^{i\omega n}\)</span>，我们可以将 <span
+class="math inline">\(\hat{h}\)</span> 写成 <span
+class="math inline">\(e^{i\omega}\)</span> 的多项式，使用少量项。</li>
+<li>此外<span class="math inline">\(\omega \mapsto \left(\frac{1 +
+e^{i\omega}}{2}\right)^k\)</span>在 <span class="math inline">\(\omega =
+\pi\)</span> 处具有 <span class="math inline">\(k\)</span> 阶零点。</li>
+<li>因此我们可以写为：</li>
+</ul>
+<p><span class="math display">\[
+\hat{h}(\omega) = \left(\frac{1 + e^{i\omega}}{2}\right)^m
+\gamma(\omega),
+\]</span></p>
+<ul>
+<li>并优化 <span class="math inline">\(\gamma\)</span>，以保证 <span
+class="math inline">\(|\hat{h}(\omega)|^2 + |\hat{h}(\omega + \pi)|^2 =
+2\)</span>，同时保持 <span class="math inline">\(N_2 - N_1\)</span>
+小。</li>
+<li>通过此原则可以构造出大量小波。</li>
+</ul>
+<h3 id="经典小波">经典小波</h3>
+<hr />
+<p><strong>Shannon 小波</strong></p>
+<ul>
+<li><span class="math inline">\(\hat{\psi}\)</span> 是紧支撑的 <span
+class="math inline">\(\implies \psi\)</span> 具有无限多个消失矩。</li>
+<li>然而，<span class="math inline">\(\psi\)</span> 也是 <span
+class="math inline">\(C^\infty\)</span>
+的，在时域中具有较慢的衰减，这不利于逼近。</li>
+<li>对于含间断点的函数 <span class="math inline">\(f\)</span>
+的逼近，会出现 Gibbs 效应。</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_6.png" /></p>
+<hr />
+<p><strong>Meyer 小波</strong></p>
+<ul>
+<li>修复 Shannon 小波的问题：<span
+class="math inline">\(\hat{\psi}\)</span> 是紧支撑且光滑的 <span
+class="math inline">\(\implies \psi\)</span> 衰减更快。</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_7.png" /></p>
+<hr />
+<p><strong>Battle-Lemarié 小波</strong></p>
+<ul>
+<li>基于样条多分辨率导出的多项式样条小波。</li>
+<li><span class="math inline">\(\psi\)</span> 具有指数衰减。</li>
+<li>对于 <span class="math inline">\(m\)</span> 阶样条，<span
+class="math inline">\(\psi\)</span> 具有 <span
+class="math inline">\(m+1\)</span> 个消失矩。</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_8.png" /></p>
+<hr />
+<p><strong>Daubechies 紧支撑小波</strong></p>
+<ul>
+<li>设计为在指定的消失矩数量下，具有最小的支撑大小。</li>
+<li>对于 <span class="math inline">\(m = 1\)</span> 的消失矩，得到 Haar
+小波（所有小波中支撑最短）。</li>
+<li><strong>缺点</strong>：由于 <span class="math inline">\(h\)</span>
+的非线性相位，Daubechies 小波非常不对称。</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_9.png" /></p>
+<hr />
+<p><strong>Symmlets 小波</strong></p>
+<ul>
+<li><strong>修复 Daubechies 小波的问题</strong>：
+提供短紧支撑，同时满足指定的消失矩数量，并具有近似线性相位（因此具有对称性）。</li>
+</ul>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fts-dc-9%2Fimage_10.png" /></p>
+<hr />
+<p><strong>Coiflets 小波</strong></p>
+<ul>
+<li>提供短紧支撑，同时满足指定的消失矩数量，并具有近似线性相位（因此具有对称性）。</li>
+<li><span
+class="math inline">\(\phi\)</span>（尺度函数）也具有消失矩。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/01/26/informatique/ts/ts-dc-9/">http://raphaelhyaan.cn/2025/01/26/informatique/ts/ts-dc-9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">信号处理</a><a class="post-meta__tags" href="/tags/%E5%8E%8B%E7%BC%A9%E4%B8%8E%E9%99%8D%E5%99%AA/">压缩与降噪</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/02/11/informatique/rm/rm-1/" title="RM1 移动网络简介和多址接入"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">RM1 移动网络简介和多址接入</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/26/informatique/ts/ts-dc-8/" title="从多分辨率到小波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从多分辨率到小波</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/12/10/informatique/ts/ts-dc-1/" title="降噪：维纳滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-10</div><div class="title">降噪：维纳滤波</div></div></a></div><div><a href="/2024/12/10/informatique/ts/ts-dc-2/" title="基于线性预测的编码"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-10</div><div class="title">基于线性预测的编码</div></div></a></div><div><a href="/2024/12/10/informatique/ts/ts-dc-3/" title="熵和霍夫曼编码"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-10</div><div class="title">熵和霍夫曼编码</div></div></a></div><div><a href="/2025/01/26/informatique/ts/ts-dc-5/" title="块傅里叶基和JPEG"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-26</div><div class="title">块傅里叶基和JPEG</div></div></a></div><div><a href="/2025/01/26/informatique/ts/ts-dc-6/" title="TFCT, MDCT, 感知音频编码"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-26</div><div class="title">TFCT, MDCT, 感知音频编码</div></div></a></div><div><a href="/2025/01/26/informatique/ts/ts-dc-4/" title="量化"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F清1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-26</div><div class="title">量化</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">167</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">51</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%B0%8F%E6%B3%A2%E5%88%B0%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.</span> <span class="toc-text">从小波到压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E6%B3%A2%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">小波的实际应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%86%85%E5%AE%B9%E7%9A%84%E5%B0%8F%E7%BB%93"><span class="toc-number">1.1.1.</span> <span class="toc-text">前置内容的小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2%E7%AE%97%E6%B3%95-fast-wavelet-transform-algorithm"><span class="toc-number">1.1.2.</span> <span class="toc-text">快速小波变换算法
+Fast wavelet transform algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%B0%8F%E6%B3%A2"><span class="toc-number">1.1.3.</span> <span class="toc-text">图像小波</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9-compression"><span class="toc-number">1.2.</span> <span class="toc-text">压缩 Compression</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%92%8C%E5%B1%80%E9%83%A8%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">全局和局部正则化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E6%B3%A2%E7%9A%84%E6%B6%88%E5%A4%B1%E7%9F%A9-vanishing-moments-of-a-wavelet"><span class="toc-number">1.2.2.</span> <span class="toc-text">小波的消失矩
+Vanishing moments of a wavelet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BC%E8%BF%91%E7%8E%87-approximation-rates"><span class="toc-number">1.2.3.</span> <span class="toc-text">逼近率 Approximation rates</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%B0%8F%E6%B3%A2"><span class="toc-number">1.3.</span> <span class="toc-text">选择小波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E6%B3%A2%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">1.3.1.</span> <span class="toc-text">小波的构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E9%9B%86%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">支集的大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%B0%8F%E6%B3%A2"><span class="toc-number">1.3.3.</span> <span class="toc-text">经典小波</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/informatique/deeplearning/Generative-11/" title="GAN,VAE和流模型的原理（以流模型为主）"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蝶1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="GAN,VAE和流模型的原理（以流模型为主）"/></a><div class="content"><a class="title" href="/2025/02/26/informatique/deeplearning/Generative-11/" title="GAN,VAE和流模型的原理（以流模型为主）">GAN,VAE和流模型的原理（以流模型为主）</a><time datetime="2025-02-26T08:30:58.000Z" title="发表于 2025-02-26 16:30:58">2025-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/11/informatique/java/java-5/" title="J05 同步"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J05 同步"/></a><div class="content"><a class="title" href="/2025/02/11/informatique/java/java-5/" title="J05 同步">J05 同步</a><time datetime="2025-02-11T00:23:20.000Z" title="发表于 2025-02-11 08:23:20">2025-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/11/informatique/java/java-4/" title="J04 测试"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J04 测试"/></a><div class="content"><a class="title" href="/2025/02/11/informatique/java/java-4/" title="J04 测试">J04 测试</a><time datetime="2025-02-11T00:23:19.000Z" title="发表于 2025-02-11 08:23:19">2025-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/11/informatique/java/java-3-5/" title="J03.5 质量 qualité"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J03.5 质量 qualité"/></a><div class="content"><a class="title" href="/2025/02/11/informatique/java/java-3-5/" title="J03.5 质量 qualité">J03.5 质量 qualité</a><time datetime="2025-02-11T00:23:18.000Z" title="发表于 2025-02-11 08:23:18">2025-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/11/informatique/java/java-3-4/" title="J03 Java基础 04：补充"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="J03 Java基础 04：补充"/></a><div class="content"><a class="title" href="/2025/02/11/informatique/java/java-3-4/" title="J03 Java基础 04：补充">J03 Java基础 04：补充</a><time datetime="2025-02-11T00:23:17.000Z" title="发表于 2025-02-11 08:23:17">2025-02-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
