@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>波束形成 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="波束形成 空间协方差矩阵 SCM  在多麦克风语音处理里，我们把每一个频点 \(f\) 上、在同一时刻 \(t\) 采集到的 \(\mathbf{M}\) 路复数 STFT系列表示为一个列向量： \[ \mathbf{y}(t, f)&#x3D;\left[\begin{array}{c} Y_1(t, f) \\ Y_2(t, f) \\ \vdots \\ Y_M(t, f) \e">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>波束形成 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="波束形成空间协方差矩阵 SCM 在多麦克风语音处理里，我们把每一个频点 $f$ 上、在同一时刻 $t$ 采集到的 $\mathbf{M}$ 路复数 STFT系列表示为一个列向量：  \mathbf{y}(t, f)&#x3D;\left[\begin{array}{c} Y_1(t, f) \\ Y_2(t, f) \\ \vdots \\ Y_M(t, f) \end{array}\right] \in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="波束形成">
 <meta property="og:url" content="http://raphaelhyaan.cn/2025/08/04/RH-BF/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="波束形成 空间协方差矩阵 SCM  在多麦克风语音处理里，我们把每一个频点 \(f\) 上、在同一时刻 \(t\) 采集到的 \(\mathbf{M}\) 路复数 STFT系列表示为一个列向量： \[ \mathbf{y}(t, f)&#x3D;\left[\begin{array}{c} Y_1(t, f) \\ Y_2(t, f) \\ \vdots \\ Y_M(t, f) \e">
+<meta property="og:description" content="波束形成空间协方差矩阵 SCM 在多麦克风语音处理里，我们把每一个频点 $f$ 上、在同一时刻 $t$ 采集到的 $\mathbf{M}$ 路复数 STFT系列表示为一个列向量：  \mathbf{y}(t, f)&#x3D;\left[\begin{array}{c} Y_1(t, f) \\ Y_2(t, f) \\ \vdots \\ Y_M(t, f) \end{array}\right] \in">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png">
 <meta property="article:published_time" content="2025-08-04T14:59:11.000Z">
@@ -154,254 +154,98 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">180</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">波束形成</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:02:44.908Z" title="更新于 2025-08-04 23:02:44">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="波束形成"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="波束形成">波束形成</h1>
-<h2 id="空间协方差矩阵-scm">空间协方差矩阵 SCM</h2>
-<hr />
-<p>在多麦克风语音处理里，我们把每一个频点 <span
-class="math inline">\(f\)</span> 上、在同一时刻 <span
-class="math inline">\(t\)</span> 采集到的 <span
-class="math inline">\(\mathbf{M}\)</span> 路复数
-STFT系列表示为一个列向量：</p>
-<p><span class="math display">\[
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">波束形成</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:02:44.908Z" title="更新于 2025-08-04 23:02:44">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="波束形成"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="波束形成"><a href="#波束形成" class="headerlink" title="波束形成"></a>波束形成</h1><h2 id="空间协方差矩阵-SCM"><a href="#空间协方差矩阵-SCM" class="headerlink" title="空间协方差矩阵 SCM"></a>空间协方差矩阵 SCM</h2><hr>
+<p>在多麦克风语音处理里，我们把每一个频点 $f$ 上、在同一时刻 $t$ 采集到的 $\mathbf{M}$ 路复数 STFT系列表示为一个列向量：</p>
+<script type="math/tex; mode=display">
 \mathbf{y}(t, f)=\left[\begin{array}{c}
 Y_1(t, f) \\
 Y_2(t, f) \\
 \vdots \\
 Y_M(t, f)
-\end{array}\right] \in \mathbb{C}^{M \times 1}
-\]</span></p>
-<p>其空间协方差矩阵SCM定义为：</p>
-<p><span class="math display">\[
-\mathbf{\Phi}(f)=\mathbb{E}\left[\mathbf{y}(t, f) \mathbf{y}(t,
-f)^{\mathrm{H}}\right] \in \mathbb{C}^{M \times M}
-\]</span></p>
-<p>有时也需要每一帧的局部SCM：</p>
-<p><span class="math display">\[
-\hat{\boldsymbol{\Phi}}_y(t, f)=\frac{1}{2 w+1}
-\sum_{t^{\prime}=t-w}^{t+w} \mathbf{y}\left(t^{\prime}, f\right)
-\mathbf{y}\left(t^{\prime}, f\right)^{\mathrm{H}}
-\]</span></p>
-<p>对于一些用于区分说话人和噪音的应用中，也会使用到类似这样的写法：</p>
-<p><span class="math display">\[
-\begin{aligned}&amp; \hat{\boldsymbol{\Phi}}_s(f)=\frac{\sum_t n(t, f)
-\mathbf{y}(t, f) \mathbf{y}(t, f)^{\mathrm{H}}}{\sum_t n(t, f)} \\&amp;
-\hat{\boldsymbol{\Phi}}_n(f)=\frac{\sum_t \xi(t, f) \mathbf{y}(t, f)
-\mathbf{y}(t, f)^{\mathrm{H}}}{\sum_t \xi(t, f)}\end{aligned}
-\]</span></p>
-<p><span class="math inline">\(n(t,f)\)</span>和<span
-class="math inline">\(\xi(t,f)\)</span>分别是说话人软掩码和噪音软掩码。</p>
-<h2 id="波束形成-1">波束形成</h2>
-<hr />
+\end{array}\right] \in \mathbb{C}^{M \times 1}</script><p>其空间协方差矩阵SCM定义为：</p>
+<script type="math/tex; mode=display">
+\mathbf{\Phi}(f)=\mathbb{E}\left[\mathbf{y}(t, f) \mathbf{y}(t, f)^{\mathrm{H}}\right] \in \mathbb{C}^{M \times M}</script><p>有时也需要每一帧的局部SCM：</p>
+<script type="math/tex; mode=display">
+\hat{\boldsymbol{\Phi}}_y(t, f)=\frac{1}{2 w+1} \sum_{t^{\prime}=t-w}^{t+w} \mathbf{y}\left(t^{\prime}, f\right) \mathbf{y}\left(t^{\prime}, f\right)^{\mathrm{H}}</script><p>对于一些用于区分说话人和噪音的应用中，也会使用到类似这样的写法：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}& \hat{\boldsymbol{\Phi}}_s(f)=\frac{\sum_t n(t, f) \mathbf{y}(t, f) \mathbf{y}(t, f)^{\mathrm{H}}}{\sum_t n(t, f)} \\& \hat{\boldsymbol{\Phi}}_n(f)=\frac{\sum_t \xi(t, f) \mathbf{y}(t, f) \mathbf{y}(t, f)^{\mathrm{H}}}{\sum_t \xi(t, f)}\end{aligned}</script><p>$n(t,f)$和$\xi(t,f)$分别是说话人软掩码和噪音软掩码。</p>
+<h2 id="波束形成-1"><a href="#波束形成-1" class="headerlink" title="波束形成"></a>波束形成</h2><hr>
 <blockquote>
-<p>本节中<span
-class="math inline">\(l,t\)</span>都代表时间维度，总通道数为<span
-class="math inline">\(N\)</span>。</p>
+<p>本节中$l,t$都代表时间维度，总通道数为$N$。</p>
 </blockquote>
 <p>波束形成（beamformer）的一般公式为：</p>
-<p><span class="math display">\[
-Y_{\mathrm{BF}}(l, f)=\mathbf{w}^T(l, f) \mathbf{x}(l, f),
-\]</span></p>
-<p>其中<span class="math inline">\(\mathbf{x}(l, f)=\left[X_0(l, f),
-X_1(l, f), \ldots, X_{N-1}(l, f)\right]^T,\)</span><span
-class="math inline">\(N\)</span>路麦克风的接受信号，<span
-class="math inline">\(\mathbf{w}(l, f)=\left[W_0(l, f), \ldots,
-W_{N-1}(l, f)\right]^T\)</span> 是复系数。</p>
+<script type="math/tex; mode=display">
+Y_{\mathrm{BF}}(l, f)=\mathbf{w}^T(l, f) \mathbf{x}(l, f),</script><p>其中$\mathbf{x}(l, f)=\left[X<em>0(l, f), X_1(l, f), \ldots, X</em>{N-1}(l, f)\right]^T,$$N$路麦克风的接受信号，$\mathbf{w}(l, f)=\left[W<em>0(l, f), \ldots, W</em>{N-1}(l, f)\right]^T$ 是复系数。</p>
 <p>有时在波束形成后端也会增加一个后滤波器：</p>
-<p><span class="math display">\[
-Y(l, f)=G(l, f) Y_{\mathrm{BF}}(l, f)
-\]</span></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage.png" /></p>
-<h3 id="加权延迟-求和波束形成-weighted-dsbf">加权延迟-求和波束形成
-Weighted DSBF</h3>
-<hr />
-<p>一种比较简单的波束形成方式是加权延迟-求和波束形成（Weighted
-delay-and-sum beamformer，Weighted DSBF），其第<span
-class="math inline">\(n\)</span>通道的滤波系数被定义为：</p>
-<p><span class="math display">\[
-W_n(l, f)=w_n(l) e^{-j 2 \pi f \tau_n(l)}
-\]</span></p>
-<hr />
-<p>考察目标声源到达时间差异，依照平面波模型，流向矢量（steeringn
-vector）写作：</p>
-<p><span class="math display">\[
-\mathbf{h}(l, f)=\left[e^{\mathrm{j} 2 \pi f \tau_0(l)}, e^{\mathrm{j} 2
-\pi f \tau_1(l)}, \ldots, e^{\mathrm{j} 2 \pi f \tau_{N-1}(l)}\right]^T,
-\]</span></p>
-<p>其中<span class="math inline">\(\tau_n(n)=\frac{\mathbf{a}^T(n)
-\mathbf{p}_m}{c}\)</span>代表第<span
-class="math inline">\(m\)</span>麦克风的相对时间时差。<span
-class="math inline">\(\mathbf p_m\)</span>代表麦克风<span
-class="math inline">\(m\)</span>的笛卡尔坐标，<span
-class="math inline">\(\mathbf
-a(n)\)</span>是从声源指向坐标原点的单位向量：</p>
-<p><span class="math display">\[
-\mathbf{a}(l)=-\left[\sin \left(\theta_d\right) \cos
-\left(\phi_d\right), \sin \left(\theta_d\right) \sin
-\left(\phi_d\right), \cos \left(\theta_d\right)\right]^T
-\]</span></p>
-<p>每个源接收到的信号可以被建模为：</p>
-<p><span class="math display">\[
-X_n(l,f) = \sum_{r=1}^N a_{n,r f} s_{n,r lf},
-\]</span></p>
-<p><span class="math inline">\(a_{rf}\)</span>描述第<span
-class="math inline">\(r\)</span>个声源在<span
-class="math inline">\(f\)</span>频率下到各个麦克风的幅度响应。为了简化，我们假设仅有两个音源，其余被建模为噪音，则有：</p>
-<p><span class="math display">\[
-X_n(l,f) =  s_{n,1lf}e^{j2\pi f\tau_{1,n}(l)}+s_{n,2lf}e^{j2\pi
-f\tau_{2,n}(l)}
-\]</span></p>
-<p>与上述滤波器相乘之后，得到：</p>
-<p><span class="math display">\[
-Y_{BF}(l,f) = \sum_{n = 0}^{N-1}s_{n,1lf}w_n(l)+\sum_{n =
-0}^{N-1}s_{n,2lf}w_n(l)e^{j2\pi f (\tau_{2,n}-\tau_{1,n})}
-\]</span></p>
-<p>从而增强了目标信号。所以这一过程也被称为时对齐（time-alignment）。</p>
-<hr />
-<p>为了获取<span
-class="math inline">\(\tau\)</span>，除了直接根据位置和平面波假设计算之外，也可以使用广义互相关相位变换
-（Generalized Cross-Correlation with Phase Transform,
-GCC-PHAT）来计算。但这项技术似乎仅在只有一个说话人，或者在固定场景下有已知的说话人片段的情况下可以使用。</p>
+<script type="math/tex; mode=display">
+Y(l, f)=G(l, f) Y_{\mathrm{BF}}(l, f)</script><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage.png" alt=""></p>
+<h3 id="加权延迟-求和波束形成-Weighted-DSBF"><a href="#加权延迟-求和波束形成-Weighted-DSBF" class="headerlink" title="加权延迟-求和波束形成 Weighted DSBF"></a>加权延迟-求和波束形成 Weighted DSBF</h3><hr>
+<p>一种比较简单的波束形成方式是加权延迟-求和波束形成（Weighted delay-and-sum beamformer，Weighted DSBF），其第$n$通道的滤波系数被定义为：</p>
+<script type="math/tex; mode=display">
+W_n(l, f)=w_n(l) e^{-j 2 \pi f \tau_n(l)}</script><hr>
+<p>考察目标声源到达时间差异，依照平面波模型，流向矢量（steeringn vector）写作：</p>
+<script type="math/tex; mode=display">
+\mathbf{h}(l, f)=\left[e^{\mathrm{j} 2 \pi f \tau_0(l)}, e^{\mathrm{j} 2 \pi f \tau_1(l)}, \ldots, e^{\mathrm{j} 2 \pi f \tau_{N-1}(l)}\right]^T,</script><p>其中$\tau_n(n)=\frac{\mathbf{a}^T(n) \mathbf{p}_m}{c}$代表第$m$麦克风的相对时间时差。$\mathbf p_m$代表麦克风$m$的笛卡尔坐标，$\mathbf a(n)$是从声源指向坐标原点的单位向量：</p>
+<script type="math/tex; mode=display">
+\mathbf{a}(l)=-\left[\sin \left(\theta_d\right) \cos \left(\phi_d\right), \sin \left(\theta_d\right) \sin \left(\phi_d\right), \cos \left(\theta_d\right)\right]^T</script><p>每个源接收到的信号可以被建模为：</p>
+<script type="math/tex; mode=display">
+X_n(l,f) = \sum_{r=1}^N a_{n,r f} s_{n,r lf},</script><p>$a_{rf}$描述第$r$个声源在$f$频率下到各个麦克风的幅度响应。为了简化，我们假设仅有两个音源，其余被建模为噪音，则有：</p>
+<script type="math/tex; mode=display">
+X_n(l,f) =  s_{n,1lf}e^{j2\pi f\tau_{1,n}(l)}+s_{n,2lf}e^{j2\pi f\tau_{2,n}(l)}</script><p>与上述滤波器相乘之后，得到：</p>
+<script type="math/tex; mode=display">
+Y_{BF}(l,f) = \sum_{n = 0}^{N-1}s_{n,1lf}w_n(l)+\sum_{n = 0}^{N-1}s_{n,2lf}w_n(l)e^{j2\pi f (\tau_{2,n}-\tau_{1,n})}</script><p>从而增强了目标信号。所以这一过程也被称为时对齐（time-alignment）。</p>
+<hr>
+<p>为了获取$\tau$，除了直接根据位置和平面波假设计算之外，也可以使用广义互相关相位变换 （Generalized Cross-Correlation with Phase Transform, GCC-PHAT）来计算。但这项技术似乎仅在只有一个说话人，或者在固定场景下有已知的说话人片段的情况下可以使用。</p>
 <p>简单来说，对于两个通道，其互相关：</p>
-<p><span class="math display">\[
-R_{12}[\tau]=\sum_n x_1[n] x_2[n+\tau]
-\]</span></p>
-<p>在<span class="math inline">\(\tau =
-\tau_d\)</span>时取最大值。利用卷积定理，互相关可写为傅里叶域乘积的逆变换：</p>
-<p><span class="math display">\[
-R_{12}[\tau]=\mathcal{F}^{-1}\left\{X_1[k] X_2^*[k]\right\}
-\]</span></p>
-<p><span class="math inline">\(X\)</span>是对<span
-class="math inline">\(x\)</span>的离散傅里叶变换的结果，<span
-class="math inline">\(*\)</span>代表复共轭。</p>
-<p>在计算式，为了提升信噪比，通常会施加一组频域权函数<span
-class="math inline">\(G[k]\)</span>：</p>
-<p><span class="math display">\[
-R_{12}^{(G)}[\tau]=\mathcal{F}^{-1}\left\{G[k] X_1[k] X_2^*[k]\right\} .
-\]</span></p>
-<p>这种互相关则称之为广义互相关。</p>
+<script type="math/tex; mode=display">
+R_{12}[\tau]=\sum_n x_1[n] x_2[n+\tau]</script><p>在$\tau = \tau_d$时取最大值。利用卷积定理，互相关可写为傅里叶域乘积的逆变换：</p>
+<script type="math/tex; mode=display">
+R_{12}[\tau]=\mathcal{F}^{-1}\left\{X_1[k] X_2^*[k]\right\}</script><p>$X$是对$x$的离散傅里叶变换的结果，$*$代表复共轭。</p>
+<p>在计算式，为了提升信噪比，通常会施加一组频域权函数$G[k]$：</p>
+<script type="math/tex; mode=display">
+R_{12}^{(G)}[\tau]=\mathcal{F}^{-1}\left\{G[k] X_1[k] X_2^*[k]\right\} .</script><p>这种互相关则称之为广义互相关。</p>
 <p>更进一步的，在这个过程中我们主要关注相位差信息，因此引入PATH权函数：</p>
-<p><span class="math display">\[
-G_{\mathrm{PHAT}}[k]=\frac{1}{\left|X_1[k] X_2^*[k]\right|}
-\]</span></p>
-<p>以去除广义互相关计算中的幅度项：</p>
-<p><span class="math display">\[
-X_1[k] X_2^*[k] G_{\mathrm{PHAT}}[k]=\frac{X_1[k] X_2^*[k]}{\left|X_1[k]
-X_2^*[k]\right|}=e^{j\left(\phi_1[k]-\phi_2[k]\right)}
-\]</span></p>
-<h3 id="幅度平方相干-msc">幅度平方相干 MSC</h3>
-<hr />
-<p>假设某个时频单元被定向目标语音主导，则该时频单元具有相干性；被漫射噪声或房间混响主导，则表现出非相干性。则可以根据通道间相关性提取一部分特征。通道<span
-class="math inline">\(i\)</span>和通道<span
-class="math inline">\(j\)</span>之间的相关性可以被写作：</p>
-<p><span class="math display">\[
-\operatorname{ICC}(i, j, t, f)=\frac{\hat{\Phi}_y(t, f, i,
-j)}{\sqrt{\hat{\Phi}_y(t, f, i, i) \hat{\Phi}_y(t, f, j, j)}}
-\]</span></p>
-<p>这种计算方式被称作<strong>幅度平方相干</strong>（Magnitude Squared
-Coherence, MSC）。总的幅度平方相干是对每个通道的求和，其中<span
-class="math inline">\(P=\frac{M(M-1)}{2}\)</span>代表总的麦克风对数：</p>
-<p><span class="math display">\[
-\operatorname{MSC}(t, f)=\frac{1}{P} \sum_{i=1}^D
-\sum_{j=i+1}^D|\operatorname{ICC}(i, j, t, f)|
-\]</span></p>
-<p>如果假设成立，当某个时频单元在所有通道上都被定向声源强烈主导，则<span
-class="math inline">\(MSC\)</span>趋近于<span
-class="math inline">\(1\)</span>；否则<span
-class="math inline">\(MSC\)</span>则类似于sinc函数。MSC在高频段区分度更高，在低频区域容易收到麦克风接收到信号的相位差的影响。</p>
-<h3 id="直达与弥散功率比">直达与弥散功率比</h3>
-<hr />
-<p>另一种相干性滤波器则基于空间相关性。定义CDR（coherent-to-diffuse
-power ratio，直达与弥散功率比）：</p>
-<p><span class="math display">\[
-\operatorname{CDR}(l, f)=\frac{\Gamma_n(l, f)-\Gamma_x(l,
-f)}{\Gamma_x(l, f)-\Gamma_s(l, f)},
-\]</span></p>
-<p><span class="math inline">\(\Gamma_x(l, f), \Gamma_s(l, f),
-\Gamma_n(l,
-f)\)</span>分别表示观测信号、直达路径信号和噪声在麦克风间的相干函数。直达信号与弥散噪声的空间相干函数分别为：</p>
-<p><span class="math display">\[
-\begin{aligned}&amp; \Gamma_s(l, f)=e^{\mathrm{j} 2 \pi
-f\left(\tau_p(l)-\tau_q(l)\right)}, \\&amp; \Gamma_n(f)=\frac{\sin
-\left(2 \pi f d_{p q}^n / c\right)}{2 \pi f d_{p q}^n / c},\end{aligned}
-\]</span></p>
-<p><span
-class="math inline">\(d_{pq}^n\)</span>代表两个麦克风之间的间距。sinc的形式是认为弥散噪音声场来自无穷多个各个方向的平面波叠加，对球面方向积分得到的。</p>
+<script type="math/tex; mode=display">
+G_{\mathrm{PHAT}}[k]=\frac{1}{\left|X_1[k] X_2^*[k]\right|}</script><p>以去除广义互相关计算中的幅度项：</p>
+<script type="math/tex; mode=display">
+X_1[k] X_2^*[k] G_{\mathrm{PHAT}}[k]=\frac{X_1[k] X_2^*[k]}{\left|X_1[k] X_2^*[k]\right|}=e^{j\left(\phi_1[k]-\phi_2[k]\right)}</script><h3 id="幅度平方相干-MSC"><a href="#幅度平方相干-MSC" class="headerlink" title="幅度平方相干 MSC"></a>幅度平方相干 MSC</h3><hr>
+<p>假设某个时频单元被定向目标语音主导，则该时频单元具有相干性；被漫射噪声或房间混响主导，则表现出非相干性。则可以根据通道间相关性提取一部分特征。通道$i$和通道$j$之间的相关性可以被写作：</p>
+<script type="math/tex; mode=display">
+\operatorname{ICC}(i, j, t, f)=\frac{\hat{\Phi}_y(t, f, i, j)}{\sqrt{\hat{\Phi}_y(t, f, i, i) \hat{\Phi}_y(t, f, j, j)}}</script><p>这种计算方式被称作<strong>幅度平方相干</strong>（Magnitude Squared Coherence, MSC）。总的幅度平方相干是对每个通道的求和，其中$P=\frac{M(M-1)}{2}$代表总的麦克风对数：</p>
+<script type="math/tex; mode=display">
+\operatorname{MSC}(t, f)=\frac{1}{P} \sum_{i=1}^D \sum_{j=i+1}^D|\operatorname{ICC}(i, j, t, f)|</script><p>如果假设成立，当某个时频单元在所有通道上都被定向声源强烈主导，则$MSC$趋近于$1$；否则$MSC$则类似于sinc函数。MSC在高频段区分度更高，在低频区域容易收到麦克风接收到信号的相位差的影响。</p>
+<h3 id="直达与弥散功率比"><a href="#直达与弥散功率比" class="headerlink" title="直达与弥散功率比"></a>直达与弥散功率比</h3><hr>
+<p>另一种相干性滤波器则基于空间相关性。定义CDR（coherent-to-diffuse power ratio，直达与弥散功率比）：</p>
+<script type="math/tex; mode=display">
+\operatorname{CDR}(l, f)=\frac{\Gamma_n(l, f)-\Gamma_x(l, f)}{\Gamma_x(l, f)-\Gamma_s(l, f)},</script><p>$\Gamma_x(l, f), \Gamma_s(l, f), \Gamma_n(l, f)$分别表示观测信号、直达路径信号和噪声在麦克风间的相干函数。直达信号与弥散噪声的空间相干函数分别为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}& \Gamma_s(l, f)=e^{\mathrm{j} 2 \pi f\left(\tau_p(l)-\tau_q(l)\right)}, \\& \Gamma_n(f)=\frac{\sin \left(2 \pi f d_{p q}^n / c\right)}{2 \pi f d_{p q}^n / c},\end{aligned}</script><p>$d_{pq}^n$代表两个麦克风之间的间距。sinc的形式是认为弥散噪音声场来自无穷多个各个方向的平面波叠加，对球面方向积分得到的。</p>
 <p>观测信号的相关函数由功率谱密度递归得到：</p>
-<p><span class="math display">\[
-\begin{gathered}\hat{\Gamma}_x(l, f)=\frac{\hat{\Phi}_{x_p x_q}(l,
-f)}{\sqrt{\hat{\Phi}_{x_p x_p}(l, f) \hat{\Phi}_{x_q x_q}(l, f)}},
-\\\hat{\Phi}_{x_p x_q}(l, f)=\lambda \hat{\Phi}_{x_p x_q}(l-1,
-f)+(1-\lambda) X_p(l, f) X_q^*(l, f),\end{gathered}
-\]</span></p>
-<p>其中<span
-class="math inline">\(\lambda\)</span>是遗忘因子。引入递归可能为了让实测信号更加平稳。</p>
-<hr />
+<script type="math/tex; mode=display">
+\begin{gathered}\hat{\Gamma}_x(l, f)=\frac{\hat{\Phi}_{x_p x_q}(l, f)}{\sqrt{\hat{\Phi}_{x_p x_p}(l, f) \hat{\Phi}_{x_q x_q}(l, f)}}, \\\hat{\Phi}_{x_p x_q}(l, f)=\lambda \hat{\Phi}_{x_p x_q}(l-1, f)+(1-\lambda) X_p(l, f) X_q^*(l, f),\end{gathered}</script><p>其中$\lambda$是遗忘因子。引入递归可能为了让实测信号更加平稳。</p>
+<hr>
 <p>实际使用CDR时往往不会如上计算。因为我们需要一个实值CDR，而上述计算方式很可能给出复值结果。为此需要引入估计器，在这里直接展示：</p>
 <ul>
 <li><p>DOA无关估计器</p>
-<p><span class="math display">\[
-  \begin{aligned}&amp;\widehat{\mathrm{CDR}}_{\text {DOAindep
-}}=\\&amp;\max \left(0, \frac{\Gamma_{\mathrm{n}}
-\operatorname{Re}\left\{\hat{\Gamma}_{\mathrm{x}}\right\}-\left|\hat{\Gamma}_{\mathrm{x}}\right|^2-\sqrt{\Gamma_{\mathrm{n}}^2
-\operatorname{Re}\left\{\hat{\Gamma}_{\mathrm{x}}\right\}^2-\Gamma_{\mathrm{n}}^2\left|\hat{\Gamma}_{\mathrm{x}}\right|^2+\Gamma_{\mathrm{n}}^2-2
-\Gamma_{\mathrm{n}}
-\operatorname{Re}\left\{\hat{\Gamma}_{\mathrm{x}}\right\}+\left|\hat{\Gamma}_{\mathrm{x}}\right|^2}}{\left|\hat{\Gamma}_{\mathrm{x}}\right|^2-1}\right)\end{aligned}
-  \]</span></p>
-<p><span class="math display">\[
-  \widehat{\operatorname{CDR}}_{\text {Thiergart }}=\max \left(0,
-\frac{\operatorname{Re}\left\{\Gamma_n-\hat{\Gamma}_x\right\}}{\hat{\Gamma}_x-e^{\mathrm{j}
-\arg \hat{\Gamma}_x}}\right)
-  \]</span></p></li>
+<script type="math/tex; mode=display">
+  \begin{aligned}&\widehat{\mathrm{CDR}}_{\text {DOAindep }}=\\&\max \left(0, \frac{\Gamma_{\mathrm{n}} \operatorname{Re}\left\{\hat{\Gamma}_{\mathrm{x}}\right\}-\left|\hat{\Gamma}_{\mathrm{x}}\right|^2-\sqrt{\Gamma_{\mathrm{n}}^2 \operatorname{Re}\left\{\hat{\Gamma}_{\mathrm{x}}\right\}^2-\Gamma_{\mathrm{n}}^2\left|\hat{\Gamma}_{\mathrm{x}}\right|^2+\Gamma_{\mathrm{n}}^2-2 \Gamma_{\mathrm{n}} \operatorname{Re}\left\{\hat{\Gamma}_{\mathrm{x}}\right\}+\left|\hat{\Gamma}_{\mathrm{x}}\right|^2}}{\left|\hat{\Gamma}_{\mathrm{x}}\right|^2-1}\right)\end{aligned}</script><script type="math/tex; mode=display">
+  \widehat{\operatorname{CDR}}_{\text {Thiergart }}=\max \left(0, \frac{\operatorname{Re}\left\{\Gamma_n-\hat{\Gamma}_x\right\}}{\hat{\Gamma}_x-e^{\mathrm{j} \arg \hat{\Gamma}_x}}\right)</script></li>
 <li><p>DOA依赖估计器</p>
-<p><span class="math display">\[
-  \overline{\mathrm{CDR}}_{\text {DOAdep }}=\max \left\{0,
-\frac{1-\Gamma_n \cos \left(\arg
-\left(\Gamma_s\right)\right)}{\left|\Gamma_n-\Gamma_s\right|},
-\frac{\Gamma_s^*\left(\Gamma_n-\hat{\Gamma}_x\right)}{\operatorname{Re}\left\{\Gamma_s^*
-\hat{\Gamma}_x\right\}-1}\right\}
-  \]</span></p>
-<p><span class="math display">\[
-  \overline{\mathrm{CDR}}_{\mathrm{Jeub}}=\max \left(0,
-\frac{\Gamma_n-\operatorname{Re}\left\{\Gamma_s^*
-\hat{\Gamma}_x\right\}}{\operatorname{Re}\left\{\Gamma_s^*
-\hat{\Gamma}_x\right\}-1}\right)
-  \]</span></p></li>
+<script type="math/tex; mode=display">
+  \overline{\mathrm{CDR}}_{\text {DOAdep }}=\max \left\{0, \frac{1-\Gamma_n \cos \left(\arg \left(\Gamma_s\right)\right)}{\left|\Gamma_n-\Gamma_s\right|}, \frac{\Gamma_s^*\left(\Gamma_n-\hat{\Gamma}_x\right)}{\operatorname{Re}\left\{\Gamma_s^* \hat{\Gamma}_x\right\}-1}\right\}</script><script type="math/tex; mode=display">
+  \overline{\mathrm{CDR}}_{\mathrm{Jeub}}=\max \left(0, \frac{\Gamma_n-\operatorname{Re}\left\{\Gamma_s^* \hat{\Gamma}_x\right\}}{\operatorname{Re}\left\{\Gamma_s^* \hat{\Gamma}_x\right\}-1}\right)</script></li>
 </ul>
-<p>第一个估计器的特点是不需要计算<span
-class="math inline">\(F_s\)</span>，因而依赖于空间中仅有一个说话人，事实上整个CDR方法都很依赖这一点，但如第二个估计器这般显式指定总归是能提供一些滤波效果。</p>
-<hr />
+<p>第一个估计器的特点是不需要计算$F_s$，因而依赖于空间中仅有一个说话人，事实上整个CDR方法都很依赖这一点，但如第二个估计器这般显式指定总归是能提供一些滤波效果。</p>
+<hr>
 <p>计算CDR之后，可以将其应用在后滤波器上：</p>
-<p><span class="math display">\[
-G(l, f)=\max \left\{1-\mu \frac{1}{1+\operatorname{CDR}(l, f)}, G_{\min
-}\right\}
-\]</span></p>
-<p>但如果要这样使用，则需要的是<span
-class="math inline">\(Y_{BF}\)</span>的CDR，而非<span
-class="math inline">\(X\)</span>的CDR。可以通过引入矫正因子来转换：</p>
-<p><span class="math display">\[
-\widehat{\mathrm{CDR}}_{\mathrm{BF}}(l,
-f)=\frac{\widehat{\mathrm{CDR}}_{\mathrm{In}}(l, f)}{A_{\Gamma}(l, f)},
-\]</span></p>
-<p>矫正因子被定义为：</p>
-<p><span class="math display">\[
-A_{\Gamma}(l, f)=\mathbf{w}^H(l, f) J_{\text {diff }}(f) \mathbf{w}(l,
-f),
-\]</span></p>
-<p>其中的<span class="math inline">\(J_{diff}\)</span>是<span
-class="math inline">\(N\times
-N\)</span>的弥散噪音空间相关性矩阵。实际上，矫正因子<span
-class="math inline">\(A_{\Gamma}\)</span>反应的是如果输入是单位功率的各向同性扩散场，波束输出端的功率会被放大多少。这里使用<span
-class="math inline">\(J_{diff}\)</span>似乎并不意味着<span
-class="math inline">\(A_\Gamma\)</span>直接与弥散噪音相关，而是弥散噪音的空间相关性矩阵（把相关性<span
-class="math inline">\(\Gamma_n\)</span>重排）本身就是一个各向同性扩散场的空间相关性矩阵：</p>
-<p><span class="math display">\[
-\left[\mathbf{J}_{\mathrm{diff}}(f)\right]_{p q}=\Gamma_n^{(p q)}(f),
-\]</span></p>
-<h2
-id="多通道语音分离和神经波束形成-mc-ssneural-beamforming">多通道语音分离和神经波束形成
-MC-SS&amp;Neural Beamforming</h2>
-<hr />
+<script type="math/tex; mode=display">
+G(l, f)=\max \left\{1-\mu \frac{1}{1+\operatorname{CDR}(l, f)}, G_{\min }\right\}</script><p>但如果要这样使用，则需要的是$Y_{BF}$的CDR，而非$X$的CDR。可以通过引入矫正因子来转换：</p>
+<script type="math/tex; mode=display">
+\widehat{\mathrm{CDR}}_{\mathrm{BF}}(l, f)=\frac{\widehat{\mathrm{CDR}}_{\mathrm{In}}(l, f)}{A_{\Gamma}(l, f)},</script><p>矫正因子被定义为：</p>
+<script type="math/tex; mode=display">
+A_{\Gamma}(l, f)=\mathbf{w}^H(l, f) J_{\text {diff }}(f) \mathbf{w}(l, f),</script><p>其中的$J<em>{diff}$是$N\times N$的弥散噪音空间相关性矩阵。实际上，矫正因子$A</em>{\Gamma}$反应的是如果输入是单位功率的各向同性扩散场，波束输出端的功率会被放大多少。这里使用$J<em>{diff}$似乎并不意味着$A</em>\Gamma$直接与弥散噪音相关，而是弥散噪音的空间相关性矩阵（把相关性$\Gamma_n$重排）本身就是一个各向同性扩散场的空间相关性矩阵：</p>
+<script type="math/tex; mode=display">
+\left[\mathbf{J}_{\mathrm{diff}}(f)\right]_{p q}=\Gamma_n^{(p q)}(f),</script><h2 id="多通道语音分离和神经波束形成-MC-SS-amp-Neural-Beamforming"><a href="#多通道语音分离和神经波束形成-MC-SS-amp-Neural-Beamforming" class="headerlink" title="多通道语音分离和神经波束形成 MC-SS&amp;Neural Beamforming"></a>多通道语音分离和神经波束形成 MC-SS&amp;Neural Beamforming</h2><hr>
 <p>传统波束形成的主要缺点在于其主要处理仅存在一个定向信号（说话人）的情况，且对波束形成权重的估计依赖于经验。</p>
 <p>考虑，多通道信号中蕴含信息一般体现在时域、频域与空间信息。这些信息通常使用双耳（多麦克风）顺位差（IPD）与根据到达方向（DOA）估计的理论IPD（T-IPD）的相似度提取相关信息。这种方式通常结合短时傅里叶变换实现，并对STFT的窗口大小有所要求。另一种方法则直接使用可学习滤波器直接处理原始信号，但这通常难以利用DOA信息。</p>
 <p>基于这些信息，使用神经网络生成权重以进行波束形成的方式被称为神经波束形成。</p>
@@ -411,198 +255,75 @@ MC-SS&amp;Neural Beamforming</h2>
 <li>联合训练波束形成与掩码估计的二阶段框架</li>
 <li>直接使用神经网路预测波束形成权重</li>
 </ul>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_1.png" /></p>
-<h3 id="频域方向特征-fd-df">频域方向特征 FD-DF</h3>
-<hr />
-<p>STFT 可视为将时域信号与指数窗<span
-class="math inline">\(w[n]\)</span>的卷积。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_2.png" /></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_1.png" alt=""></p>
+<h3 id="频域方向特征-FD-DF"><a href="#频域方向特征-FD-DF" class="headerlink" title="频域方向特征 FD-DF"></a>频域方向特征 FD-DF</h3><hr>
+<p>STFT 可视为将时域信号与指数窗$w[n]$的卷积。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_2.png" alt=""></p>
 <p>指数窗卷积核可以简单定义为：</p>
-<p><span class="math display">\[
-F_{n f}=w[n] e^{-j \frac{2 \pi}{N} n f}
-\]</span></p>
-<p>则STFT的结果为：</p>
-<p><span class="math display">\[
-Y^{(m)}(t, f)=y^{(m)}(t) \circledast \mathbf{F}_f=\sum_{n=0}^{N-1}
-y^{(m)}(t H+n) F_{n f}
-\]</span></p>
-<p>其中<span
-class="math inline">\(H\)</span>是帧移。对数功率谱LPS定义为：</p>
-<p><span class="math display">\[
-\mathrm{LPS}_{t, f}=20 \log _{10}\left|Y^{(\mathrm{ref})}(t, f)\right|
-\]</span></p>
-<p>表现STFT谱的强度信息，<span
-class="math inline">\(ref\)</span>表示参考麦克风。每一对麦克风<span
-class="math inline">\(p\)</span>之间的双耳相位差IPD定义为：</p>
-<p><span class="math display">\[
-\operatorname{IPD}_{t, f}^{(p)}=\angle\left(Y^{(p)}(t,
-f)\right)-\angle\left(Y^{(\mathrm{ref})}(t, f)\right) .
-\]</span></p>
-<p>理论相位差与第<span
-class="math inline">\(p\)</span>对麦克风之间的几何时延有关，时延可以根据麦克风对之间的距离和DOA来计算：<span
-class="math inline">\(\tau^{(p)}(\theta)=d^{(p)} \cos \theta /
-c\)</span>。由此理论相位差（T-IPD）被定义为：</p>
-<p><span class="math display">\[
-\begin{aligned}\mathrm{T}-\mathrm{IPD}_{t,
-f}^{(p)}(\theta)=&amp;\angle\left[\delta[n] \circledast
-\mathbf{F}_f\right]-\angle\left[\delta\left[n-\tau^{(p)}(\theta)\right]
-\circledast \mathbf{F}_f\right]\\=&amp;-\frac{2 \pi f}{N}
-\tau^{(p)}(\theta)\end{aligned}
-\]</span></p>
-<p>根据<span class="math inline">\(IPD\)</span>和<span
-class="math inline">\(T-IPD\)</span>之间的关系则可以得到频域方向特征（frequency
-domain directional feature ，FD-DF）：</p>
-<p><span class="math display">\[
-\mathrm{FD}-\mathrm{DF}_{t,
-f}(\theta)=\sum_p\left\langle\mathrm{IPD}_{t, f}^{(p)},
-\mathrm{T}-\mathrm{IPD}_{t, f}^{(p)}(\theta)\right\rangle
-\]</span></p>
-<p>使用神经网络处理该特征以分离掩码，可以估计目标语音的复比掩码<span
-class="math inline">\(\hat M_s\)</span>和干扰语音的复比掩码<span
-class="math inline">\(\hat
-M_n\)</span>，也可以估计所有可能说话人的掩码和噪音掩码。这些掩码与多通道混合谱图逐元素相乘则可以起到分离信号的作用。如果STFT的时域窗口大小远大于特征时间（一个周期，通常满足），则可以使掩码对所有通道共享。</p>
-<h3 id="潜在域方向特征-ld-df">潜在域方向特征 LD-DF</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_3.png" /></p>
+<script type="math/tex; mode=display">
+F_{n f}=w[n] e^{-j \frac{2 \pi}{N} n f}</script><p>则STFT的结果为：</p>
+<script type="math/tex; mode=display">
+Y^{(m)}(t, f)=y^{(m)}(t) \circledast \mathbf{F}_f=\sum_{n=0}^{N-1} y^{(m)}(t H+n) F_{n f}</script><p>其中$H$是帧移。对数功率谱LPS定义为：</p>
+<script type="math/tex; mode=display">
+\mathrm{LPS}_{t, f}=20 \log _{10}\left|Y^{(\mathrm{ref})}(t, f)\right|</script><p>表现STFT谱的强度信息，$ref$表示参考麦克风。每一对麦克风$p$之间的双耳相位差IPD定义为：</p>
+<script type="math/tex; mode=display">
+\operatorname{IPD}_{t, f}^{(p)}=\angle\left(Y^{(p)}(t, f)\right)-\angle\left(Y^{(\mathrm{ref})}(t, f)\right) .</script><p>理论相位差与第$p$对麦克风之间的几何时延有关，时延可以根据麦克风对之间的距离和DOA来计算：$\tau^{(p)}(\theta)=d^{(p)} \cos \theta / c$。由此理论相位差（T-IPD）被定义为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}\mathrm{T}-\mathrm{IPD}_{t, f}^{(p)}(\theta)=&\angle\left[\delta[n] \circledast \mathbf{F}_f\right]-\angle\left[\delta\left[n-\tau^{(p)}(\theta)\right] \circledast \mathbf{F}_f\right]\\=&-\frac{2 \pi f}{N} \tau^{(p)}(\theta)\end{aligned}</script><p>根据$IPD$和$T-IPD$之间的关系则可以得到频域方向特征（frequency domain directional feature ，FD-DF）：</p>
+<script type="math/tex; mode=display">
+\mathrm{FD}-\mathrm{DF}_{t, f}(\theta)=\sum_p\left\langle\mathrm{IPD}_{t, f}^{(p)}, \mathrm{T}-\mathrm{IPD}_{t, f}^{(p)}(\theta)\right\rangle</script><p>使用神经网络处理该特征以分离掩码，可以估计目标语音的复比掩码$\hat M_s$和干扰语音的复比掩码$\hat M_n$，也可以估计所有可能说话人的掩码和噪音掩码。这些掩码与多通道混合谱图逐元素相乘则可以起到分离信号的作用。如果STFT的时域窗口大小远大于特征时间（一个周期，通常满足），则可以使掩码对所有通道共享。</p>
+<h3 id="潜在域方向特征-LD-DF"><a href="#潜在域方向特征-LD-DF" class="headerlink" title="潜在域方向特征 LD-DF"></a>潜在域方向特征 LD-DF</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_3.png" alt=""></p>
 <p>使用可学习窗代替STFT的指数窗：</p>
-<p><span class="math display">\[
-\mathbf{K}^m=w^m \mathbf{K}^0 \quad(m=1, \ldots, M)
-\]</span></p>
-<p>其中<span
-class="math inline">\(K_0\)</span>是可学习的参考滤波器组，<span
-class="math inline">\(w\in \mathbb
-R^{n}\)</span>是一组可学习权重。使用这组权重计算每对麦克风的特征图卷积差分（ICD）：</p>
-<p><span class="math display">\[
-\mathrm{ICD}_{t, f^{\prime}}^{(p)}=\bar{y}^{\left(p_1\right)}(t)
-\circledast
-K_{f^{\prime}}^{\left(p_1\right)}-\bar{y}^{\left(p_2\right)}(t)
-\circledast K_{f^{\prime}}^{\left(p_2\right)},
-\]</span></p>
-<p>同时定义目标ICD：</p>
-<p><span class="math display">\[
-\mathrm{T}-\mathrm{ICD}_{t, f^{\prime}}^{(p)}(\theta)=\delta[n]
-\circledast
-K_{f^{\prime}}^{\left(p_1\right)}-\delta\left[n-\tau^{(p)}(\theta)\right]
-\circledast K_{f^{\prime}}^{\left(p_2\right)}
-\]</span></p>
-<p>比较两者，则将得到潜在域方向特征（LD-DF）：</p>
-<p><span class="math display">\[
-\mathrm{LD}-\mathrm{DF}_{t,
-f^{\prime}}(\theta)=\sum_p\left\langle\mathrm{ICD}_{t,
-f^{\prime}}^{(p)}, \mathrm{T}-\mathrm{ICD}_{t,
-f^{\prime}}^{(p)}(\theta)\right\rangle .
-\]</span></p>
-<p>相比于直接对应几何时延的FD-DF，LD-DF被定义在基于学习的潜在子空间上。网络自己学一套最适合声源分离的潜在滤波器，再与相同滤波器作用下的几何模板比对。</p>
-<h3
-id="等化最小方差无失真响应mvdr闭式解">等化最小方差无失真响应（MVDR）闭式解</h3>
-<hr />
+<script type="math/tex; mode=display">
+\mathbf{K}^m=w^m \mathbf{K}^0 \quad(m=1, \ldots, M)</script><p>其中$K_0$是可学习的参考滤波器组，$w\in \mathbb R^{n}$是一组可学习权重。使用这组权重计算每对麦克风的特征图卷积差分（ICD）：</p>
+<script type="math/tex; mode=display">
+\mathrm{ICD}_{t, f^{\prime}}^{(p)}=\bar{y}^{\left(p_1\right)}(t) \circledast K_{f^{\prime}}^{\left(p_1\right)}-\bar{y}^{\left(p_2\right)}(t) \circledast K_{f^{\prime}}^{\left(p_2\right)},</script><p>同时定义目标ICD：</p>
+<script type="math/tex; mode=display">
+\mathrm{T}-\mathrm{ICD}_{t, f^{\prime}}^{(p)}(\theta)=\delta[n] \circledast K_{f^{\prime}}^{\left(p_1\right)}-\delta\left[n-\tau^{(p)}(\theta)\right] \circledast K_{f^{\prime}}^{\left(p_2\right)}</script><p>比较两者，则将得到潜在域方向特征（LD-DF）：</p>
+<script type="math/tex; mode=display">
+\mathrm{LD}-\mathrm{DF}_{t, f^{\prime}}(\theta)=\sum_p\left\langle\mathrm{ICD}_{t, f^{\prime}}^{(p)}, \mathrm{T}-\mathrm{ICD}_{t, f^{\prime}}^{(p)}(\theta)\right\rangle .</script><p>相比于直接对应几何时延的FD-DF，LD-DF被定义在基于学习的潜在子空间上。网络自己学一套最适合声源分离的潜在滤波器，再与相同滤波器作用下的几何模板比对。</p>
+<h3 id="等化最小方差无失真响应（MVDR）闭式解"><a href="#等化最小方差无失真响应（MVDR）闭式解" class="headerlink" title="等化最小方差无失真响应（MVDR）闭式解"></a>等化最小方差无失真响应（MVDR）闭式解</h3><hr>
 <p>对于波束形成过程：</p>
-<p><span class="math display">\[
-Y_{\mathrm{BF}}(l, f)=\mathbf{w}^H(l, f) \mathbf{x}(l, f)
-\]</span></p>
-<p>希望在方向<span
-class="math inline">\(\mathbf{v}(f)\)</span>保持增益同时使得输出残余噪音功率最小。在之前，我们提到了Weighted
-DSBF方法，而MVDR闭式解是另一种方法。这种方法将上述问题转化为带约束的优化问题：</p>
-<p><span class="math display">\[
-\begin{array}{ll}\min _{\mathbf{w}(f)} &amp; \mathbf{w}^H(f)
-\boldsymbol{\Phi}_{n n}(f) \mathbf{w}(f) \\\text { s.t. } &amp;
-\mathbf{w}^H(f) \mathbf{v}(f)=1\end{array}
-\]</span></p>
-<p>其中<span class="math inline">\(\boldsymbol{\Phi}_{n
-n}(f)\)</span>为噪音和干扰信号的SCM，<span
-class="math inline">\(\boldsymbol{\Phi}_{ss}(f)\)</span>为目标信号的SCM。<span
-class="math inline">\(\mathbf{v}\)</span>可以直接由显式DOA指定，也可以使用<span
-class="math inline">\(PCA\)</span>方法估计：</p>
-<p><span class="math display">\[
-\mathbf{v}(f)=\underset{\max
-}{\operatorname{eigvec}}\left(\boldsymbol{\Phi}_{s s}(f)\right)
-\]</span></p>
-<hr />
+<script type="math/tex; mode=display">
+Y_{\mathrm{BF}}(l, f)=\mathbf{w}^H(l, f) \mathbf{x}(l, f)</script><p>希望在方向$\mathbf{v}(f)$保持增益同时使得输出残余噪音功率最小。在之前，我们提到了Weighted DSBF方法，而MVDR闭式解是另一种方法。这种方法将上述问题转化为带约束的优化问题：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}\min _{\mathbf{w}(f)} & \mathbf{w}^H(f) \boldsymbol{\Phi}_{n n}(f) \mathbf{w}(f) \\\text { s.t. } & \mathbf{w}^H(f) \mathbf{v}(f)=1\end{array}</script><p>其中$\boldsymbol{\Phi}<em>{n n}(f)$为噪音和干扰信号的SCM，$\boldsymbol{\Phi}</em>{ss}(f)$为目标信号的SCM。$\mathbf{v}$可以直接由显式DOA指定，也可以使用$PCA$方法估计：</p>
+<script type="math/tex; mode=display">
+\mathbf{v}(f)=\underset{\max }{\operatorname{eigvec}}\left(\boldsymbol{\Phi}_{s s}(f)\right)</script><hr>
 <p>使用拉格朗日乘子法，构造拉格朗日函数：</p>
-<p><span class="math display">\[
-\mathcal{L}=\mathbf{w}^H \boldsymbol{\Phi}_{n n}
-\mathbf{w}-\lambda\left(\mathbf{w}^H \mathbf{v}-1\right)
-\]</span></p>
-<p>将函数对<span class="math inline">\(\mathbf w\)</span>求导得：</p>
-<p><span class="math display">\[
-\frac{\partial \mathcal{L}}{\partial \mathbf{w^*}}=0 \Rightarrow
-\boldsymbol{\Phi}_{n n} \mathbf{w}=\lambda \mathbf{v} \Rightarrow
-\mathbf{w}=\lambda \boldsymbol{\Phi}_{n n}^{-1} \mathbf{v}
-\]</span></p>
-<p>带入约束<span class="math inline">\(\mathbf{w}^H
-\mathbf{v}=1\)</span>即可得到：</p>
-<p><span class="math display">\[
-\lambda=\frac{1}{\mathbf{v}^H \boldsymbol{\Phi}_{n n}^{-1} \mathbf{v}}
-\]</span></p>
-<p>带回，从而解得权重的闭式解：</p>
-<p><span class="math display">\[
-\mathbf{w}_{\mathrm{FD}-\mathrm{eq}-\mathrm{MVDR}}(l,f)=\frac{\boldsymbol{\Phi}_{n
-n}^{-1}(l,f) \mathbf{v}(f)}{\mathbf{v}^H(f) \boldsymbol{\Phi}_{n
-n}^{-1}(l,f) \mathbf{v}(f)}
-\]</span></p>
-<h3 id="时域波束形成">时域波束形成</h3>
-<hr />
+<script type="math/tex; mode=display">
+\mathcal{L}=\mathbf{w}^H \boldsymbol{\Phi}_{n n} \mathbf{w}-\lambda\left(\mathbf{w}^H \mathbf{v}-1\right)</script><p>将函数对$\mathbf w$求导得：</p>
+<script type="math/tex; mode=display">
+\frac{\partial \mathcal{L}}{\partial \mathbf{w^*}}=0 \Rightarrow \boldsymbol{\Phi}_{n n} \mathbf{w}=\lambda \mathbf{v} \Rightarrow \mathbf{w}=\lambda \boldsymbol{\Phi}_{n n}^{-1} \mathbf{v}</script><p>带入约束$\mathbf{w}^H \mathbf{v}=1$即可得到：</p>
+<script type="math/tex; mode=display">
+\lambda=\frac{1}{\mathbf{v}^H \boldsymbol{\Phi}_{n n}^{-1} \mathbf{v}}</script><p>带回，从而解得权重的闭式解：</p>
+<script type="math/tex; mode=display">
+\mathbf{w}_{\mathrm{FD}-\mathrm{eq}-\mathrm{MVDR}}(l,f)=\frac{\boldsymbol{\Phi}_{n n}^{-1}(l,f) \mathbf{v}(f)}{\mathbf{v}^H(f) \boldsymbol{\Phi}_{n n}^{-1}(l,f) \mathbf{v}(f)}</script><h3 id="时域波束形成"><a href="#时域波束形成" class="headerlink" title="时域波束形成"></a>时域波束形成</h3><hr>
 <p>另一种波束形成方法则不使用短时傅里叶变换，而是基于时域信息。在计算过程中同样使用的是MVDR闭式解：</p>
-<p><span class="math display">\[
-\mathbf{w}_{\mathrm{TD}-\mathrm{eq}-\mathrm{MVDR}}=\frac{\mathbf{R}_{n
-n}^{-1} \mathbf{h}}{\mathbf{h}^T \mathbf{R}_{n n}^{-1} \mathbf{h}}
-\mathbf{u},
-\]</span></p>
-<p>其区别在于<span class="math inline">\(\mathbf h\)</span>和<span
-class="math inline">\(\mathbf R\)</span>的定义：</p>
+<script type="math/tex; mode=display">
+\mathbf{w}_{\mathrm{TD}-\mathrm{eq}-\mathrm{MVDR}}=\frac{\mathbf{R}_{n n}^{-1} \mathbf{h}}{\mathbf{h}^T \mathbf{R}_{n n}^{-1} \mathbf{h}} \mathbf{u},</script><p>其区别在于$\mathbf h$和$\mathbf R$的定义：</p>
 <ul>
-<li><span class="math inline">\(\mathbf{R}_{s s}=E\left[s(k)
-s(k)^T\right]\)</span>是目标语音空间相关矩阵</li>
-<li><span class="math inline">\(\mathbf{R}_{n n}=E\left[n(k)
-n(k)^T\right]\)</span>是干扰和噪音的空间相关矩阵</li>
-<li><span class="math inline">\(\mathbf
-h\)</span>是目标方向的导向矩阵</li>
-<li><span class="math inline">\(\mathbf
-u\)</span>是onehot向量，用于区分通道</li>
+<li>$\mathbf{R}_{s s}=E\left[s(k) s(k)^T\right]$是目标语音空间相关矩阵</li>
+<li>$\mathbf{R}_{n n}=E\left[n(k) n(k)^T\right]$是干扰和噪音的空间相关矩阵</li>
+<li>$\mathbf h$是目标方向的导向矩阵</li>
+<li>$\mathbf u$是onehot向量，用于区分通道</li>
 </ul>
 <p>在实际计算过程中，一般使用目标语音和噪音的估计值计算：</p>
-<p><span class="math display">\[
-\begin{aligned}\mathbf{R}_{s s}(t, n) &amp; =\hat{s}_{\mathrm{sep}}(t,
-n) \hat{s}_{\mathrm{sep}}(t, n)^T \\\mathbf{R}_{n n}(t, n) &amp;
-=\hat{n}_{\mathrm{sep}}(t, n) \hat{n}_{\mathrm{sep}}(t,
-n)^T\end{aligned}
-\]</span></p>
-<p>其中<span class="math inline">\(t\)</span>代表帧数，<span
-class="math inline">\(n\)</span>代表采样点。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}\mathbf{R}_{s s}(t, n) & =\hat{s}_{\mathrm{sep}}(t, n) \hat{s}_{\mathrm{sep}}(t, n)^T \\\mathbf{R}_{n n}(t, n) & =\hat{n}_{\mathrm{sep}}(t, n) \hat{n}_{\mathrm{sep}}(t, n)^T\end{aligned}</script><p>其中$t$代表帧数，$n$代表采样点。</p>
 <p>这两种权重矩阵也可以通过神经网络得到：</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_4.png" /></p>
-<h2 id="参考">参考</h2>
-<hr />
-<p><a
-target="_blank" rel="noopener" href="https://www.ee.columbia.edu/~dpwe/pubs/MandWE09-messl.pdf">Model-Based
-Expectation-Maximization Source Separation and Localization</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8639593">MULTI-CHANNELOVERLAPPEDSPEECHRECOGNITIONWITHLOCATIONGUIDED
-SPEECHEXTRACTIONNETWORK</a></p>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2111.11023">MULTI-CHANNEL
-MULTI-SPEAKER ASR USING 3D SPATIAL FEATURE</a></p>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2001.00391">Temporal-Spatial Neural
-Filter: Direction Informed End-to-End Multi-channel Target Speech
-Separation</a></p>
-<hr />
-<p><a
-target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8461816">On
-Spatial Features for Supervised Speech Separation and its Application to
-Beamforming and Robust ASR</a></p>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1604.03393">Robust coherence-based
-spectral enhancement for speech recognition in adverse real-world
-environments</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://arxiv.org/pdf/2212.08348#page=13&amp;zoom=100,65,790">Towards
-Unified All-Neural Beamforming for Time and Frequency Domain Speech
-Separation</a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/08/04/RH-BF/">http://raphaelhyaan.cn/2025/08/04/RH-BF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90/">波束形成</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">FastMNMF及改进</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从北京的四种毒蛇开始</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">FastMNMF及改进</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/04/21/eles-1/" title="Amplification 放大器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-21</div><div class="title">Amplification 放大器</div></div></a></div><div><a href="/2025/04/25/eles-2/" title="filtre 滤波器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-25</div><div class="title">filtre 滤波器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">180</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">波束形成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5-scm"><span class="toc-number">1.1.</span> <span class="toc-text">空间协方差矩阵 SCM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90-1"><span class="toc-number">1.2.</span> <span class="toc-text">波束形成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%9D%83%E5%BB%B6%E8%BF%9F-%E6%B1%82%E5%92%8C%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90-weighted-dsbf"><span class="toc-number">1.2.1.</span> <span class="toc-text">加权延迟-求和波束形成
-Weighted DSBF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%85%E5%BA%A6%E5%B9%B3%E6%96%B9%E7%9B%B8%E5%B9%B2-msc"><span class="toc-number">1.2.2.</span> <span class="toc-text">幅度平方相干 MSC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E8%BE%BE%E4%B8%8E%E5%BC%A5%E6%95%A3%E5%8A%9F%E7%8E%87%E6%AF%94"><span class="toc-number">1.2.3.</span> <span class="toc-text">直达与弥散功率比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%80%9A%E9%81%93%E8%AF%AD%E9%9F%B3%E5%88%86%E7%A6%BB%E5%92%8C%E7%A5%9E%E7%BB%8F%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90-mc-ssneural-beamforming"><span class="toc-number">1.3.</span> <span class="toc-text">多通道语音分离和神经波束形成
-MC-SS&amp;Neural Beamforming</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%91%E5%9F%9F%E6%96%B9%E5%90%91%E7%89%B9%E5%BE%81-fd-df"><span class="toc-number">1.3.1.</span> <span class="toc-text">频域方向特征 FD-DF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BD%9C%E5%9C%A8%E5%9F%9F%E6%96%B9%E5%90%91%E7%89%B9%E5%BE%81-ld-df"><span class="toc-number">1.3.2.</span> <span class="toc-text">潜在域方向特征 LD-DF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%8C%96%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE%E6%97%A0%E5%A4%B1%E7%9C%9F%E5%93%8D%E5%BA%94mvdr%E9%97%AD%E5%BC%8F%E8%A7%A3"><span class="toc-number">1.3.3.</span> <span class="toc-text">等化最小方差无失真响应（MVDR）闭式解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%9F%9F%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90"><span class="toc-number">1.3.4.</span> <span class="toc-text">时域波束形成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="NMF及语音分离"/></a><div class="content"><a class="title" href="/2025/06/30/RH-NMF/" title="NMF及语音分离">NMF及语音分离</a><time datetime="2025-06-30T13:30:25.000Z" title="发表于 2025-06-30 21:30:25">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-BF%2Fimage_4.png" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
+<p><a target="_blank" rel="noopener" href="https://www.ee.columbia.edu/~dpwe/pubs/MandWE09-messl.pdf">Model-Based Expectation-Maximization Source  Separation and Localization</a></p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8639593">MULTI-CHANNELOVERLAPPEDSPEECHRECOGNITIONWITHLOCATIONGUIDED  SPEECHEXTRACTIONNETWORK</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2111.11023">MULTI-CHANNEL MULTI-SPEAKER ASR USING 3D SPATIAL FEATURE</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2001.00391">Temporal-Spatial Neural Filter: Direction Informed  End-to-End Multi-channel Target Speech Separation</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8461816">On Spatial Features for Supervised Speech Separation and its Application to Beamforming and Robust ASR</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1604.03393">Robust coherence-based spectral enhancement for speech recognition in adverse real-world environments</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2212.08348#page=13&amp;zoom=100,65,790">Towards Unified All-Neural Beamforming for  Time and Frequency Domain Speech Separation</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/08/04/RH-BF/">http://raphaelhyaan.cn/2025/08/04/RH-BF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90/">波束形成</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">FastMNMF及改进</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">从北京的四种毒蛇开始</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/04/21/eles-1/" title="Amplification 放大器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-21</div><div class="title">Amplification 放大器</div></div></a></div><div><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">FastMNMF及改进</div></div></a></div><div><a href="/2025/04/25/eles-3/" title="Génération de signaux 信号发生器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-25</div><div class="title">Génération de signaux 信号发生器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">波束形成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5-SCM"><span class="toc-number">1.1.</span> <span class="toc-text">空间协方差矩阵 SCM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90-1"><span class="toc-number">1.2.</span> <span class="toc-text">波束形成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%9D%83%E5%BB%B6%E8%BF%9F-%E6%B1%82%E5%92%8C%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90-Weighted-DSBF"><span class="toc-number">1.2.1.</span> <span class="toc-text">加权延迟-求和波束形成 Weighted DSBF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%85%E5%BA%A6%E5%B9%B3%E6%96%B9%E7%9B%B8%E5%B9%B2-MSC"><span class="toc-number">1.2.2.</span> <span class="toc-text">幅度平方相干 MSC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E8%BE%BE%E4%B8%8E%E5%BC%A5%E6%95%A3%E5%8A%9F%E7%8E%87%E6%AF%94"><span class="toc-number">1.2.3.</span> <span class="toc-text">直达与弥散功率比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%80%9A%E9%81%93%E8%AF%AD%E9%9F%B3%E5%88%86%E7%A6%BB%E5%92%8C%E7%A5%9E%E7%BB%8F%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90-MC-SS-amp-Neural-Beamforming"><span class="toc-number">1.3.</span> <span class="toc-text">多通道语音分离和神经波束形成 MC-SS&amp;Neural Beamforming</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%91%E5%9F%9F%E6%96%B9%E5%90%91%E7%89%B9%E5%BE%81-FD-DF"><span class="toc-number">1.3.1.</span> <span class="toc-text">频域方向特征 FD-DF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BD%9C%E5%9C%A8%E5%9F%9F%E6%96%B9%E5%90%91%E7%89%B9%E5%BE%81-LD-DF"><span class="toc-number">1.3.2.</span> <span class="toc-text">潜在域方向特征 LD-DF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%8C%96%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE%E6%97%A0%E5%A4%B1%E7%9C%9F%E5%93%8D%E5%BA%94%EF%BC%88MVDR%EF%BC%89%E9%97%AD%E5%BC%8F%E8%A7%A3"><span class="toc-number">1.3.3.</span> <span class="toc-text">等化最小方差无失真响应（MVDR）闭式解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%9F%9F%E6%B3%A2%E6%9D%9F%E5%BD%A2%E6%88%90"><span class="toc-number">1.3.4.</span> <span class="toc-text">时域波束形成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/14/rishmangement/" title="风险管理"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="风险管理"/></a><div class="content"><a class="title" href="/2025/11/14/rishmangement/" title="风险管理">风险管理</a><time datetime="2025-11-14T05:52:50.000Z" title="发表于 2025-11-14 13:52:50">2025-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

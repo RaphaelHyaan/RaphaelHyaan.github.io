@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande C5.1 通过传递函数表示 Représentation par fonction de transfert  C5.1.1 从内部表示到外部表示  对于内部表示为： \[ \left\{\begin{array}{l}\do">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commandeC5.1 通过传递函数表示 Représentation par fonction de transfert C5.1.1 从内部表示到外部表示 对于内部表示为：  \left\{\begin{array}{l}\dot{x}(t)&#x3D;A x(t)+">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/11/11/informatique/controle/csd-5/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande C5.1 通过传递函数表示 Représentation par fonction de transfert  C5.1.1 从内部表示到外部表示  对于内部表示为： \[ \left\{\begin{array}{l}\do">
+<meta property="og:description" content="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commandeC5.1 通过传递函数表示 Représentation par fonction de transfert C5.1.1 从内部表示到外部表示 对于内部表示为：  \left\{\begin{array}{l}\dot{x}(t)&#x3D;A x(t)+">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F%E7%BE%BD.png">
 <meta property="article:published_time" content="2024-11-11T01:59:34.000Z">
@@ -154,795 +154,418 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">180</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-11T01:59:34.000Z" title="发表于 2024-11-11 09:59:34">2024-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.885Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
-id="c5-稳定性和鲁棒性分析-analyse-des-performances-et-de-robustesse-dune-loi-de-commande">C5
-稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi
-de commande</h1>
-<h2
-id="c5.1-通过传递函数表示-représentation-par-fonction-de-transfert">C5.1
-通过传递函数表示 Représentation par fonction de transfert</h2>
-<hr />
-<h3 id="c5.1.1-从内部表示到外部表示">C5.1.1 从内部表示到外部表示</h3>
-<hr />
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-11T01:59:34.000Z" title="发表于 2024-11-11 09:59:34">2024-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.885Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="C5-稳定性和鲁棒性分析-Analyse-des-performances-et-de-robustesse-d’une-loi-de-commande"><a href="#C5-稳定性和鲁棒性分析-Analyse-des-performances-et-de-robustesse-d’une-loi-de-commande" class="headerlink" title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"></a>C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</h1><h2 id="C5-1-通过传递函数表示-Representation-par-fonction-de-transfert"><a href="#C5-1-通过传递函数表示-Representation-par-fonction-de-transfert" class="headerlink" title="C5.1 通过传递函数表示 Représentation par fonction de transfert"></a>C5.1 通过传递函数表示 Représentation par fonction de transfert</h2><hr>
+<h3 id="C5-1-1-从内部表示到外部表示"><a href="#C5-1-1-从内部表示到外部表示" class="headerlink" title="C5.1.1 从内部表示到外部表示"></a>C5.1.1 从内部表示到外部表示</h3><hr>
 <p>对于内部表示为：</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}\dot{x}(t)=A x(t)+B u(t) \\y(t)=C x(t)+D
-u(t)\end{array}\right.
-\]</span></p>
-<p>的系统，其外部表示：</p>
-<p><span class="math display">\[
-H(s)=C(s I-A)^{-1} B+D=\frac{1}{\operatorname{det}(s I-A)} C
-\operatorname{com}(s I-A) B+D
-\]</span></p>
-<p>其中，<span class="math inline">\(H(s)\)</span>的极点包含在<span
-class="math inline">\(A\)</span>的特征值中；基变换不糊改变<span
-class="math inline">\(H(s)\)</span>，<span
-class="math inline">\(H(s)\)</span>不依赖<span
-class="math inline">\(S\)</span>的不可观和不可控部分。</p>
-<h3 id="c5.1.2-内部表示和外部表示的联系">C5.1.2
-内部表示和外部表示的联系</h3>
-<hr />
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}\dot{x}(t)=A x(t)+B u(t) \\y(t)=C x(t)+D u(t)\end{array}\right.</script><p>的系统，其外部表示：</p>
+<script type="math/tex; mode=display">
+H(s)=C(s I-A)^{-1} B+D=\frac{1}{\operatorname{det}(s I-A)} C \operatorname{com}(s I-A) B+D</script><p>其中，$H(s)$的极点包含在$A$的特征值中；基变换不糊改变$H(s)$，$H(s)$不依赖$S$的不可观和不可控部分。</p>
+<h3 id="C5-1-2-内部表示和外部表示的联系"><a href="#C5-1-2-内部表示和外部表示的联系" class="headerlink" title="C5.1.2 内部表示和外部表示的联系"></a>C5.1.2 内部表示和外部表示的联系</h3><hr>
 <p><strong>适当性 Propre</strong></p>
-<p>当<span class="math inline">\(\lim _{|s| \rightarrow \infty}
-F(s)\)</span>有限，则称<span class="math inline">\(F(s) \in
-\mathcal{M}_{p, m}(\mathbb{R}(s))\)</span>是适当的；如果<span
-class="math inline">\(\lim _{|s| \rightarrow \infty}
-F(s)=0\)</span>，则称<span class="math inline">\(F(s) \in
-\mathcal{M}_{p, m}(\mathbb{R}(s))\)</span>是严格适当的。</p>
-<hr />
+<p>当$\lim <em>{|s| \rightarrow \infty} F(s)$有限，则称$F(s) \in \mathcal{M}</em>{p, m}(\mathbb{R}(s))$是适当的；如果$\lim <em>{|s| \rightarrow \infty} F(s)=0$，则称$F(s) \in \mathcal{M}</em>{p, m}(\mathbb{R}(s))$是严格适当的。</p>
+<hr>
 <p><strong>传递函数实现的存在性</strong></p>
-<p>如果<span
-class="math inline">\(H(s)\)</span>是一个状态表示的传递函数实现，则<span
-class="math inline">\(H(s)\)</span>是适当的。当状态表示中，<span
-class="math inline">\(D = 0\)</span>时，<span
-class="math inline">\(H(s)\)</span>是严格适当的。</p>
-<hr />
+<p>如果$H(s)$是一个状态表示的传递函数实现，则$H(s)$是适当的。当状态表示中，$D = 0$时，$H(s)$是严格适当的。</p>
+<hr>
 <p><strong>最小实现</strong></p>
-<p>如果状态表示<span
-class="math inline">\((A,B,C,D)\)</span>的维度最小，将其称为<span
-class="math inline">\(H(s)\)</span>的最小实现。</p>
-<p>当且仅当<span class="math inline">\((A,B)\)</span>可控，<span
-class="math inline">\((A,C)\)</span>可观测时，状态表示<span
-class="math inline">\((A,B,C,D
-)\)</span>是最小实现。</p>
-<h3 id="c5.1.3-单输入单输出siso线性系统的频率相应">C5.1.3
-单输入单输出SISO线性系统的频率相应</h3>
-<hr />
-<p>对于输入<span class="math inline">\(u(t)=U_0 e^{j \omega
-t}\)</span>，输出<span class="math inline">\(y(t)=Y_0 e^{j \omega
-t}\)</span>，有：</p>
-<p><span class="math display">\[
-Y_0=H(j \omega) U_0，y(t)=|H(j \omega)|\left|U_0\right| \sin
-\left(\omega t+\operatorname{Arg}\left(U_0\right)+\operatorname{Arg}(H(j
-\omega))\right.
-\]</span></p>
-<ul>
-<li><p>增益取决于脉冲频率<span class="math inline">\(\omega\)</span></p>
-<p><span class="math display">\[
-  \text { Gain } \triangleq
-\frac{\left\|Y_0\right\|_2}{\left\|U_0\right\|_2}
-  \]</span></p></li>
-<li><p>可以通过伯德图，布莱克尼古拉图或者奈奎斯特图获得频率响应。</p></li>
+<p>如果状态表示$(A,B,C,D)$的维度最小，将其称为$H(s)$的最小实现。</p>
+<p>当且仅当$(A,B)$可控，$(A,C)$可观测时，状态表示$(A,B,C,D<br>)$是最小实现。  </p>
+<h3 id="C5-1-3-单输入单输出SISO线性系统的频率相应"><a href="#C5-1-3-单输入单输出SISO线性系统的频率相应" class="headerlink" title="C5.1.3 单输入单输出SISO线性系统的频率相应"></a>C5.1.3 单输入单输出SISO线性系统的频率相应</h3><hr>
+<p>对于输入$u(t)=U_0 e^{j \omega t}$，输出$y(t)=Y_0 e^{j \omega t}$，有：</p>
+<script type="math/tex; mode=display">
+Y_0=H(j \omega) U_0，y(t)=|H(j \omega)|\left|U_0\right| \sin \left(\omega t+\operatorname{Arg}\left(U_0\right)+\operatorname{Arg}(H(j \omega))\right.</script><ul>
+<li><p>增益取决于脉冲频率$\omega$</p>
+<script type="math/tex; mode=display">
+  \text { Gain } \triangleq \frac{\left\|Y_0\right\|_2}{\left\|U_0\right\|_2}</script></li>
+<li><p>可以通过伯德图，布莱克尼古拉图或者奈奎斯特图获得频率响应。</p>
+</li>
 </ul>
-<h3 id="ce5.1-简单的多输入多输出例子">CE5.1 简单的多输入多输出例子</h3>
-<hr />
-<p>对于传递函数<span
-class="math inline">\(H(s)=\left[\begin{array}{cc}H_1(s) &amp; 0 \\0
-&amp; H_2(s)\end{array}\right] \text {, où }\left|H_1(j
-\Omega)\right|=5,\left|H_2(j \Omega)\right|=1\)</span>，有以下情况：</p>
-<p><span class="math display">\[
+<h3 id="CE5-1-简单的多输入多输出例子"><a href="#CE5-1-简单的多输入多输出例子" class="headerlink" title="CE5.1 简单的多输入多输出例子"></a>CE5.1 简单的多输入多输出例子</h3><hr>
+<p>对于传递函数$H(s)=\left[\begin{array}{cc}H_1(s) &amp; 0 \0 &amp; H_2(s)\end{array}\right] \text {, où }\left|H_1(j \Omega)\right|=5,\left|H_2(j \Omega)\right|=1$，有以下情况：</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp; u(t)=\binom{U_1 \sin (\Omega t)}{0}, U_0=\binom{U_1}{0}
-\Longrightarrow Gain = 5 \\
-&amp; u(t)=\binom{0}{U_2 \sin (\Omega t)}, U_0=\binom{0}{U_2}
-\Longrightarrow Gain =1 \\
-&amp; u(t)=\binom{U_1 \sin (\Omega t)}{U_2 \sin (\Omega t)},
-U_0=\binom{U_1}{U_2} \Longrightarrow Gain =\frac{\|H
-u\|_2}{\|u\|_2}=\frac{\sqrt{25 U_1^2+U_2^2}}{\sqrt{U_1^2+U_2^2}}
-\end{aligned}
-\]</span></p>
-<h3
-id="c5.1.4-传递函数的奇异值分解-décomposition-en-valeurs-singulières">C5.1.4
-传递函数的奇异值分解 Décomposition en valeurs singulières</h3>
-<hr />
+& u(t)=\binom{U_1 \sin (\Omega t)}{0}, U_0=\binom{U_1}{0} \Longrightarrow Gain = 5 \\
+& u(t)=\binom{0}{U_2 \sin (\Omega t)}, U_0=\binom{0}{U_2} \Longrightarrow Gain =1 \\
+& u(t)=\binom{U_1 \sin (\Omega t)}{U_2 \sin (\Omega t)}, U_0=\binom{U_1}{U_2} \Longrightarrow Gain =\frac{\|H u\|_2}{\|u\|_2}=\frac{\sqrt{25 U_1^2+U_2^2}}{\sqrt{U_1^2+U_2^2}}
+\end{aligned}</script><h3 id="C5-1-4-传递函数的奇异值分解-Decomposition-en-valeurs-singulieres"><a href="#C5-1-4-传递函数的奇异值分解-Decomposition-en-valeurs-singulieres" class="headerlink" title="C5.1.4 传递函数的奇异值分解 Décomposition en valeurs singulières"></a>C5.1.4 传递函数的奇异值分解 Décomposition en valeurs singulières</h3><hr>
 <p><strong>奇异值分解</strong></p>
-<hr />
-<p>对于给定矩阵<span class="math inline">\(\mathbf{M} \in \mathbb{C}^{p
-\times m}\)</span>，可以分解为：</p>
-<p><span class="math display">\[
-\mathbf{M}=\mathbf{U} \Sigma \mathbf{V}^*
-\]</span></p>
-<p>其中，<span class="math inline">\(\mathbf{U} \in \mathbb{C}^{p \times
-p} ，\mathbf{V} \in \mathbb{C}^{m \times
-m}\)</span>是酉矩阵，即满足<span class="math inline">\(\mathbf{U}^*
-\mathbf{U}=I_p ，\mathbf{V}^* \mathbf{V}=I_m\)</span>。</p>
-<p><span class="math inline">\(\Sigma \in \mathbb{R}^{p \times
-m}\)</span>是一对角矩阵，其对角线元素即为奇异值<span
-class="math inline">\(\sigma_i\)</span>。</p>
-<p><span class="math display">\[
+<hr>
+<p>对于给定矩阵$\mathbf{M} \in \mathbb{C}^{p \times m}$，可以分解为：</p>
+<script type="math/tex; mode=display">
+\mathbf{M}=\mathbf{U} \Sigma \mathbf{V}^*</script><p>其中，$\mathbf{U} \in \mathbb{C}^{p \times p} ，\mathbf{V} \in \mathbb{C}^{m \times m}$是酉矩阵，即满足$\mathbf{U}^<em> \mathbf{U}=I_p ，\mathbf{V}^</em> \mathbf{V}=I_m$。</p>
+<p>$\Sigma \in \mathbb{R}^{p \times m}$是一对角矩阵，其对角线元素即为奇异值$\sigma_i$。</p>
+<script type="math/tex; mode=display">
 \left(\begin{array}{ccccccc}
-\sigma_1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; \sigma_2 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \cdots
-&amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; \sigma_p &amp; 0 &amp; \cdots &amp; 0
+\sigma_1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+0 & \sigma_2 & \cdots & 0 & 0 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots & \cdots & \vdots \\
+0 & 0 & \cdots & \sigma_p & 0 & \cdots & 0
 \end{array}\right)，\left(\begin{array}{cccc}
-\sigma_1 &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; \sigma_2 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; \sigma_m
+\sigma_1 & 0 & \cdots & 0 \\
+0 & \sigma_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \sigma_m
 \end{array}\right)，\left(\begin{array}{cccc}
-\sigma_1 &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; \sigma_2 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; \sigma_m \\
-0 &amp; 0 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \cdots &amp; \vdots
-\end{array}\right)
-\]</span></p>
-<hr />
+\sigma_1 & 0 & \cdots & 0 \\
+0 & \sigma_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \sigma_m \\
+0 & 0 & \cdots & 0 \\
+\vdots & \vdots & \cdots & \vdots
+\end{array}\right)</script><hr>
 <p><strong>奇异值的性质</strong></p>
 <ul>
-<li>奇异值是<span class="math inline">\(\mathbf{M M}^*\)</span>或者<span
-class="math inline">\(\mathbf{M}^*{M}\)</span>的特征值的平方根。有<span
-class="math inline">\(\sigma_1 \geq \sigma_2 \geq \cdots \geq
-\sigma_{\min (p, m)} \geq 0\)</span>。</li>
+<li>奇异值是$\mathbf{M M}^<em>$或者$\mathbf{M}^</em>{M}$的特征值的平方根。有$\sigma<em>1 \geq \sigma_2 \geq \cdots \geq \sigma</em>{\min (p, m)} \geq 0$。</li>
 <li>奇异值不是唯一的。</li>
-<li>如果<span class="math inline">\(U\)</span>和<span
-class="math inline">\(V\)</span>可逆，则奇异值矩阵的秩与原矩阵相等。</li>
+<li>如果$U$和$V$可逆，则奇异值矩阵的秩与原矩阵相等。</li>
 </ul>
 <p>在matlab中，可以使用<code>svd</code> 计算奇异值。</p>
-<hr />
+<hr>
 <p><strong>奇异值与增益</strong></p>
-<p><span class="math display">\[
-\begin{gathered}M \lambda v_i=\lambda U \Sigma V^* v_i=\lambda U
-\Sigma\left[\begin{array}{c}0 \\\vdots \\0 \\1 \leftarrow i \text {-ème
-terme } \\0 \\\vdots \\0\end{array}\right]=\lambda
-U\left[\begin{array}{c}0 \\\vdots \\0 \\\sigma_i \\0 \\\vdots
-\\0\end{array}\right]=\lambda \sigma_i u_i, \\\text { Gain
-}=\frac{\left\|M \lambda v_i\right\|_2}{\left\|\lambda
-v_i\right\|_2}=\frac{|\lambda|
-\sigma_i\left\|u_i\right\|_2}{|\lambda|\left\|v_i\right\|_2}=\sigma_i
-\geq 0 .\end{gathered}
-\]</span></p>
-<p>奇异值决定了其所在方向上增益。</p>
-<p><span class="math inline">\(\bar{\sigma}(A) ，
-\underline{\sigma}(A)\)</span>代表了最大的增益和最小的增益。</p>
-<hr />
+<script type="math/tex; mode=display">
+\begin{gathered}M \lambda v_i=\lambda U \Sigma V^* v_i=\lambda U \Sigma\left[\begin{array}{c}0 \\\vdots \\0 \\1 \leftarrow i \text {-ème terme } \\0 \\\vdots \\0\end{array}\right]=\lambda U\left[\begin{array}{c}0 \\\vdots \\0 \\\sigma_i \\0 \\\vdots \\0\end{array}\right]=\lambda \sigma_i u_i, \\\text { Gain }=\frac{\left\|M \lambda v_i\right\|_2}{\left\|\lambda v_i\right\|_2}=\frac{|\lambda| \sigma_i\left\|u_i\right\|_2}{|\lambda|\left\|v_i\right\|_2}=\sigma_i \geq 0 .\end{gathered}</script><p>奇异值决定了其所在方向上增益。</p>
+<p>$\bar{\sigma}(A) ， \underline{\sigma}(A)$代表了最大的增益和最小的增益。</p>
+<hr>
 <p><strong>关键性质</strong></p>
 <ul>
-<li><span class="math inline">\(\bar{\sigma}(M)=\max _{\substack{x \in
-\mathbb{C}^m \\ x \neq 0}} \frac{\|M x\|_2}{\|x\|_2}\)</span></li>
-<li><span class="math inline">\(\underline{\sigma}(M)=\min _{\substack{x
-\in \mathbb{C}^m \\ x \neq 0}} \frac{\|M x\|_2}{\|x\|_2}\)</span></li>
-<li><span class="math inline">\(\bar{\sigma}(M)=0 \Leftrightarrow
-M=0\)</span></li>
-<li><span class="math inline">\(\forall \lambda \in \mathbb{C},
-\sigma_i(\lambda M)=|\lambda| \sigma_i(M)\)</span></li>
-<li><span class="math inline">\(\bar{\sigma}(M+N) \leq
-\bar{\sigma}(M)+\bar{\sigma}(N)\)</span></li>
-<li><span class="math inline">\(\bar{\sigma}(M N) \leq \bar{\sigma}(M)
-\bar{\sigma}(N)\)</span></li>
-<li><span class="math inline">\(\text { Pour } c \in \mathbb{C},
-\bar{\sigma}(c)=\underline{\sigma}(c)=|c|\)</span></li>
-<li><span class="math inline">\(\text { Pour } r \in \mathbb{R},
-\bar{\sigma}(r)=\underline{\sigma}(r)=|r|\)</span></li>
+<li>$\bar{\sigma}(M)=\max _{\substack{x \in \mathbb{C}^m \ x \neq 0}} \frac{|M x|_2}{|x|_2}$</li>
+<li>$\underline{\sigma}(M)=\min _{\substack{x \in \mathbb{C}^m \ x \neq 0}} \frac{|M x|_2}{|x|_2}$</li>
+<li>$\bar{\sigma}(M)=0 \Leftrightarrow M=0$</li>
+<li>$\forall \lambda \in \mathbb{C}, \sigma_i(\lambda M)=|\lambda| \sigma_i(M)$</li>
+<li>$\bar{\sigma}(M+N) \leq \bar{\sigma}(M)+\bar{\sigma}(N)$</li>
+<li>$\bar{\sigma}(M N) \leq \bar{\sigma}(M) \bar{\sigma}(N)$</li>
+<li>$\text { Pour } c \in \mathbb{C}, \bar{\sigma}(c)=\underline{\sigma}(c)=|c|$</li>
+<li>$\text { Pour } r \in \mathbb{R}, \bar{\sigma}(r)=\underline{\sigma}(r)=|r|$</li>
 </ul>
-<h3 id="ce5.2">CE5.2</h3>
-<hr />
-<p><span class="math display">\[
-\begin{aligned}&amp; M=\left(\begin{array}{lll}0 &amp; 1 &amp; 1 \\1
-&amp; 0 &amp; 1 \\1 &amp; 1 &amp; 0\end{array}\right)=U \Sigma V^*
-\\&amp; =\left[\begin{array}{lll}\frac{1}{\sqrt{3}} &amp;
-\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}} \\\frac{1}{\sqrt{3}} &amp; 0
-&amp; -\frac{\sqrt{2}}{\sqrt{3}} \\\frac{1}{\sqrt{3}} &amp;
--\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{6}}\end{array}\right]
-\cdot\left[\begin{array}{lll}2 &amp; 0 &amp; 0 \\0 &amp; 1 &amp; 0 \\0
-&amp; 0 &amp; 1\end{array}\right]
-\cdot\left[\begin{array}{ccc}\frac{1}{\sqrt{3}} &amp;
--\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{6}} \\\frac{1}{\sqrt{3}} &amp;
-0 &amp; \frac{\sqrt{2}}{\sqrt{3}} \\\frac{1}{\sqrt{3}} &amp;
-\frac{1}{\sqrt{2}} &amp;
--\frac{1}{\sqrt{6}}\end{array}\right]\end{aligned}
-\]</span></p>
-<p>遂由最大增益为<span class="math inline">\(2\)</span>，最小增益为<span
-class="math inline">\(1\)</span>。</p>
-<h3 id="c5.1.5-低增益与高增益">C5.1.5 低增益与高增益</h3>
-<hr />
-<p>当<span class="math inline">\(\underline{\sigma}(H(j \omega)) \gg
-1\)</span>称为高增益，当<span class="math inline">\(\bar{\sigma}(H(j
-\omega)) \ll 1\)</span>称为低增益</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage.png" /></p>
-<h3 id="c5.1.6-h_infin范数">C5.1.6 <span
-class="math inline">\(H_{\infin}\)</span>范数</h3>
-<hr />
-<p>适用于任何稳定的，输入为<span class="math inline">\(U e^{j \omega
-t}\)</span>，输出为<span class="math inline">\(H(j \omega) U e^{j \omega
-t}\)</span>的系统。对于多输入多输出系统：</p>
-<p><span class="math display">\[
-\|H(s)\|_{\infty}:=\sup _{\omega \in \mathbb{R}} \bar{\sigma}(H(j
-\omega))
-\]</span></p>
-<p>对于单输入单输出系统：</p>
-<p><span class="math display">\[
-\|H(s)\|_{\infty}:=\sup _{\omega \in \mathbb{R}}|H(j \omega)|
-\]</span></p>
-<p><span
-class="math inline">\(H_{\infin}\)</span>范数表示系统在所有频率下的最大增益，通常用于分析系统的鲁棒性。</p>
-<hr />
+<h3 id="CE5-2"><a href="#CE5-2" class="headerlink" title="CE5.2"></a>CE5.2</h3><hr>
+<script type="math/tex; mode=display">
+\begin{aligned}& M=\left(\begin{array}{lll}0 & 1 & 1 \\1 & 0 & 1 \\1 & 1 & 0\end{array}\right)=U \Sigma V^* \\& =\left[\begin{array}{lll}\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}} \\\frac{1}{\sqrt{3}} & 0 & -\frac{\sqrt{2}}{\sqrt{3}} \\\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}\end{array}\right] \cdot\left[\begin{array}{lll}2 & 0 & 0 \\0 & 1 & 0 \\0 & 0 & 1\end{array}\right] \cdot\left[\begin{array}{ccc}\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} \\\frac{1}{\sqrt{3}} & 0 & \frac{\sqrt{2}}{\sqrt{3}} \\\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}}\end{array}\right]\end{aligned}</script><p>遂由最大增益为$2$，最小增益为$1$。</p>
+<h3 id="C5-1-5-低增益与高增益"><a href="#C5-1-5-低增益与高增益" class="headerlink" title="C5.1.5 低增益与高增益"></a>C5.1.5 低增益与高增益</h3><hr>
+<p>当$\underline{\sigma}(H(j \omega)) \gg 1$称为高增益，当$\bar{\sigma}(H(j \omega)) \ll 1$称为低增益</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage.png" alt=""></p>
+<h3 id="C5-1-6-H-infin-范数"><a href="#C5-1-6-H-infin-范数" class="headerlink" title="C5.1.6 $H_{\infin}$范数"></a>C5.1.6 $H_{\infin}$范数</h3><hr>
+<p>适用于任何稳定的，输入为$U e^{j \omega t}$，输出为$H(j \omega) U e^{j \omega t}$的系统。对于多输入多输出系统：</p>
+<script type="math/tex; mode=display">
+\|H(s)\|_{\infty}:=\sup _{\omega \in \mathbb{R}} \bar{\sigma}(H(j \omega))</script><p>对于单输入单输出系统：</p>
+<script type="math/tex; mode=display">
+\|H(s)\|_{\infty}:=\sup _{\omega \in \mathbb{R}}|H(j \omega)|</script><p>$H_{\infin}$范数表示系统在所有频率下的最大增益，通常用于分析系统的鲁棒性。</p>
+<hr>
 <p>对于串联系统：</p>
-<p><span class="math display">\[
-\left\|H_1(s) H_2(s)\right\|_{\infty}
-\leq\left\|H_1(s)\right\|_{\infty}\left\|H_2(s)\right\|_{\infty}
-\]</span></p>
-<p>对于并联系统：</p>
-<p><span class="math display">\[
-\left\|\binom{H_1(s)}{H_2(s)}\right\|_{\infty} \geq \sup
-\left(\left\|H_1(s)\right\|_{\infty},\left\|H_2(s)\right\|_{\infty}\right)
-\]</span></p>
-<p>对于加法系统：</p>
-<p><span class="math display">\[
-\left\|\left(H_1(s) H_2(s)\right)\right\|_{\infty} \geq \sup
-\left(\left\|H_1(s)\right\|_{\infty},\left\|H_2(s)\right\|_{\infty}\right)
-\]</span></p>
-<h2 id="c5.2-伺服系统表示">C5.2 伺服系统表示</h2>
-<hr />
-<h3 id="c5.2.1-经典的伺服系统">C5.2.1 经典的伺服系统</h3>
-<hr />
+<script type="math/tex; mode=display">
+\left\|H_1(s) H_2(s)\right\|_{\infty} \leq\left\|H_1(s)\right\|_{\infty}\left\|H_2(s)\right\|_{\infty}</script><p>对于并联系统：</p>
+<script type="math/tex; mode=display">
+\left\|\binom{H_1(s)}{H_2(s)}\right\|_{\infty} \geq \sup \left(\left\|H_1(s)\right\|_{\infty},\left\|H_2(s)\right\|_{\infty}\right)</script><p>对于加法系统：</p>
+<script type="math/tex; mode=display">
+\left\|\left(H_1(s) H_2(s)\right)\right\|_{\infty} \geq \sup \left(\left\|H_1(s)\right\|_{\infty},\left\|H_2(s)\right\|_{\infty}\right)</script><h2 id="C5-2-伺服系统表示"><a href="#C5-2-伺服系统表示" class="headerlink" title="C5.2 伺服系统表示"></a>C5.2 伺服系统表示</h2><hr>
+<h3 id="C5-2-1-经典的伺服系统"><a href="#C5-2-1-经典的伺服系统" class="headerlink" title="C5.2.1 经典的伺服系统"></a>C5.2.1 经典的伺服系统</h3><hr>
 <p>一个经典的私服系统可以被表示为：</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_1.png" /></p>
-<p>其中，<span class="math inline">\(K(s)\)</span>是校正，<span
-class="math inline">\(H(s)\)</span>是私服系统。</p>
-<hr />
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_1.png" alt=""></p>
+<p>其中，$K(s)$是校正，$H(s)$是私服系统。</p>
+<hr>
 <p><strong>良好定义</strong></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_2.png" /></p>
-<p>如果由<span
-class="math inline">\(H(s),K(s)\)</span>组成的环中，每次变量之间的传递函数都是正确定义且适当的，则称系统为良好定义的。</p>
-<p>如，若<span
-class="math inline">\(H(s)=\frac{s+1}{s+2}\)</span>，<span
-class="math inline">\(K(s)=-\frac{s+2}{s+1}\)</span>，则<span
-class="math inline">\(e_1\)</span>和<span
-class="math inline">\(y_1\)</span>中间的传递函数：</p>
-<p><span class="math display">\[
-\frac{1}{1+K(s) H(s)}
-\]</span></p>
-<p>并非正确定义的。</p>
-<p>再如，若<span class="math inline">\(K(s)=-1\)</span>，则<span
-class="math inline">\(e_1\)</span>和<span
-class="math inline">\(y_1\)</span>中间的传递函数：</p>
-<p><span class="math display">\[
-\frac{1}{1+K(s) H(s)}=\frac{s+2}{1}
-\]</span></p>
-<p>分子极点数量大于分母，是不适当的。</p>
-<h3 id="c5.2.2-不同传递函数之间的转换">C5.2.2
-不同传递函数之间的转换</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_3.png" /></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_2.png" alt=""></p>
+<p>如果由$H(s),K(s)$组成的环中，每次变量之间的传递函数都是正确定义且适当的，则称系统为良好定义的。</p>
+<p>如，若$H(s)=\frac{s+1}{s+2}$，$K(s)=-\frac{s+2}{s+1}$，则$e_1$和$y_1$中间的传递函数：</p>
+<script type="math/tex; mode=display">
+\frac{1}{1+K(s) H(s)}</script><p>并非正确定义的。</p>
+<p>再如，若$K(s)=-1$，则$e_1$和$y_1$中间的传递函数：</p>
+<script type="math/tex; mode=display">
+\frac{1}{1+K(s) H(s)}=\frac{s+2}{1}</script><p>分子极点数量大于分母，是不适当的。</p>
+<h3 id="C5-2-2-不同传递函数之间的转换"><a href="#C5-2-2-不同传递函数之间的转换" class="headerlink" title="C5.2.2 不同传递函数之间的转换"></a>C5.2.2 不同传递函数之间的转换</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_3.png" alt=""></p>
 <p>如上图，定义：</p>
 <ul>
-<li>开环传递函数:
-<ul>
-<li><span class="math inline">\(T_{B O}(s)=G(s) K(s)\)</span>
-：开环传递函数（在系统的输入端，或控制器的输出端）。</li>
-<li><span class="math inline">\(T_{B O}^{\prime}(s)=K(s) G(s)\)</span>：
-开环传递函数（在系统的输出端，或控制器的输入端）。</li>
-</ul></li>
-<li>灵敏度函数:
-<ul>
-<li><span class="math inline">\(S(s)=\left(I+T_{B
-O}(s)\right)^{-1}\)</span>
-：控制器输入端的灵敏度函数（或系统输出端的灵敏度函数）。</li>
-<li><span class="math inline">\(S^{\prime}(s)=\left(I+T_{B
-O}^{\prime}(s)\right)^{-1}\)</span>
-：系统输入端的灵敏度函数（或控制器输出端的灵敏度函数）。</li>
-<li><span class="math inline">\(T(s)=T_{B O}(s)\left(I+T_{B
-O}(s)\right)^{-1}\)</span>：
-控制器输入端的互补灵敏度函数（或系统输出端的互补灵敏度函数）。</li>
-<li><span class="math inline">\(T^{\prime}(s)=T_{B
-O}^{\prime}(s)\left(I+T_{B O}^{\prime}(s)\right)^{-1}\)</span>
-：系统输入端的互补灵敏度函数（或控制器堬出端的互补灵敏度函数）。</li>
-</ul></li>
+<li>开环传递函数:<ul>
+<li>$T_{B O}(s)=G(s) K(s)$ ：开环传递函数（在系统的输入端，或控制器的输出端）。</li>
+<li>$T_{B O}^{\prime}(s)=K(s) G(s)$： 开环传递函数（在系统的输出端，或控制器的输入端）。</li>
+</ul>
+</li>
+<li>灵敏度函数:<ul>
+<li>$S(s)=\left(I+T_{B O}(s)\right)^{-1}$ ：控制器输入端的灵敏度函数（或系统输出端的灵敏度函数）。</li>
+<li>$S^{\prime}(s)=\left(I+T_{B O}^{\prime}(s)\right)^{-1}$ ：系统输入端的灵敏度函数（或控制器输出端的灵敏度函数）。</li>
+<li>$T(s)=T<em>{B O}(s)\left(I+T</em>{B O}(s)\right)^{-1}$： 控制器输入端的互补灵敏度函数（或系统输出端的互补灵敏度函数）。</li>
+<li>$T^{\prime}(s)=T<em>{B O}^{\prime}(s)\left(I+T</em>{B O}^{\prime}(s)\right)^{-1}$ ：系统输入端的互补灵敏度函数（或控制器堬出端的互补灵敏度函数）。</li>
+</ul>
+</li>
 </ul>
 <p>由此，误差被表示为：</p>
-<p><span class="math display">\[
-E(s)=S(s) R(s)-G(s) S^{\prime}(s) B(s)-S(s) W(s)
-\]</span></p>
-<p>更进一步的：</p>
-<p><span class="math display">\[
-\left[\begin{array}{c}E(s) \\U(s) \\V(s) \\Y(s)
-\\M(s)\end{array}\right]=\left[\begin{array}{ccc}T_{\varepsilon /
-r}(s)=S(s) &amp; T_{\varepsilon / b}(s)=-G(s) S^{\prime}(s) &amp;
-T_{\varepsilon / w}(s)=-S(s) \\T_{u / r}(s)=K(s) S(s) &amp; T_{u /
-b}=-T^{\prime}(s) &amp; T_{u / w}(s)=-K(s) S(s) \\T_{v / r}(s)=K(s) S(s)
-&amp; T_{v / b}=S^{\prime}(s) &amp; T_{v / w}(s)=-K(s) S(s) \\T_{y /
-r}(s)=T(s) &amp; T_{y / b}(s)=G(s) S^{\prime}(s) &amp; T_{y /
-w}(s)=-T(s) \\T_{m / r}(s)=T(s) &amp; T_{m / b}(s)=G(s) S^{\prime}(s)
-&amp; T_{m / w}(s)=S(s)\end{array}\right]\left[\begin{array}{c}R(s)
-\\B(s) \\W(s)\end{array}\right] .
-\]</span></p>
-<hr />
+<script type="math/tex; mode=display">
+E(s)=S(s) R(s)-G(s) S^{\prime}(s) B(s)-S(s) W(s)</script><p>更进一步的：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{c}E(s) \\U(s) \\V(s) \\Y(s) \\M(s)\end{array}\right]=\left[\begin{array}{ccc}T_{\varepsilon / r}(s)=S(s) & T_{\varepsilon / b}(s)=-G(s) S^{\prime}(s) & T_{\varepsilon / w}(s)=-S(s) \\T_{u / r}(s)=K(s) S(s) & T_{u / b}=-T^{\prime}(s) & T_{u / w}(s)=-K(s) S(s) \\T_{v / r}(s)=K(s) S(s) & T_{v / b}=S^{\prime}(s) & T_{v / w}(s)=-K(s) S(s) \\T_{y / r}(s)=T(s) & T_{y / b}(s)=G(s) S^{\prime}(s) & T_{y / w}(s)=-T(s) \\T_{m / r}(s)=T(s) & T_{m / b}(s)=G(s) S^{\prime}(s) & T_{m / w}(s)=S(s)\end{array}\right]\left[\begin{array}{c}R(s) \\B(s) \\W(s)\end{array}\right] .</script><hr>
 <p><strong>单输入单输出情况</strong></p>
 <ul>
-<li><span class="math inline">\(T_{BO} = T_{BO}&#39;\)</span></li>
+<li>$T<em>{BO} = T</em>{BO}’$</li>
 </ul>
-<p><span class="math display">\[
-\left(\begin{array}{l}\epsilon(s) \\U(s) \\U_d(s) \\Y(s)
-\\Y_m(s)\end{array}\right)=\left(\begin{array}{ccc}S(s) &amp;
--\mathrm{H}(s) S^{\prime}(s) &amp; -S(s) \\K(s) S(s) &amp;
--T^{\prime}(s) &amp; -K(s) S(s) \\K(s) S(s) &amp; S^{\prime}(s) &amp;
--K(s) S(s) \\T(s) &amp; \mathrm{H}(s) S^{\prime}(s) &amp; -T(s) \\T(s)
-&amp; \mathrm{H}(s) S^{\prime}(s) &amp;
-S(s)\end{array}\right)\left(\begin{array}{l}Y_c(s) \\D(s)
-\\W(s)\end{array}\right)
-\]</span></p>
-<h3 id="c5.2.3-lq控制的情况">C5.2.3 LQ控制的情况</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_4.png" /></p>
+<script type="math/tex; mode=display">
+\left(\begin{array}{l}\epsilon(s) \\U(s) \\U_d(s) \\Y(s) \\Y_m(s)\end{array}\right)=\left(\begin{array}{ccc}S(s) & -\mathrm{H}(s) S^{\prime}(s) & -S(s) \\K(s) S(s) & -T^{\prime}(s) & -K(s) S(s) \\K(s) S(s) & S^{\prime}(s) & -K(s) S(s) \\T(s) & \mathrm{H}(s) S^{\prime}(s) & -T(s) \\T(s) & \mathrm{H}(s) S^{\prime}(s) & S(s)\end{array}\right)\left(\begin{array}{l}Y_c(s) \\D(s) \\W(s)\end{array}\right)</script><h3 id="C5-2-3-LQ控制的情况"><a href="#C5-2-3-LQ控制的情况" class="headerlink" title="C5.2.3 LQ控制的情况"></a>C5.2.3 LQ控制的情况</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_4.png" alt=""></p>
 <ul>
-<li>系统：<span class="math inline">\(\dot{x}(t)=A x(t)+B u(t)，y(t) =
-x(t)\)</span></li>
-<li>控制：<span class="math inline">\(u(t) =
--Kx(t)+My_c(t)\)</span></li>
-<li>开环传递函数：<span class="math inline">\(T_{BO}(s)=
-K(sI-A)^{-1}B\)</span></li>
+<li>系统：$\dot{x}(t)=A x(t)+B u(t)，y(t) = x(t)$</li>
+<li>控制：$u(t) = -Kx(t)+My_c(t)$</li>
+<li>开环传递函数：$T_{BO}(s)= K(sI-A)^{-1}B$</li>
 </ul>
-<h3 id="c5.2.4-lqg控制的情况">C5.2.4 LQG控制的情况</h3>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_5.png" /></p>
-<h2 id="c5.3-伺服系统的稳定性-单输入单输出的情况">C5.3
-伺服系统的稳定性： 单输入单输出的情况</h2>
-<hr />
-<h3 id="c5.3.1-闭环系统的稳定性">C5.3.1 闭环系统的稳定性</h3>
-<hr />
-<p><strong>闭环稳定性条件</strong>：如果所有传递函数的极点的实部都严格为负，那么系统是闭环稳定的。等价地，满足<span
-class="math inline">\(1 + T_{B0}(s) = 0\)</span>的所有s
-的实部都必须严格为负。</p>
+<h3 id="C5-2-4-LQG控制的情况"><a href="#C5-2-4-LQG控制的情况" class="headerlink" title="C5.2.4 LQG控制的情况"></a>C5.2.4 LQG控制的情况</h3><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_5.png" alt=""></p>
+<h2 id="C5-3-伺服系统的稳定性：-单输入单输出的情况"><a href="#C5-3-伺服系统的稳定性：-单输入单输出的情况" class="headerlink" title="C5.3 伺服系统的稳定性： 单输入单输出的情况"></a>C5.3 伺服系统的稳定性： 单输入单输出的情况</h2><hr>
+<h3 id="C5-3-1-闭环系统的稳定性"><a href="#C5-3-1-闭环系统的稳定性" class="headerlink" title="C5.3.1 闭环系统的稳定性"></a>C5.3.1 闭环系统的稳定性</h3><hr>
+<p><strong>闭环稳定性条件</strong>：如果所有传递函数的极点的实部都严格为负，那么系统是闭环稳定的。等价地，满足$1 + T_{B0}(s) = 0$的所有s 的实部都必须严格为负。</p>
 <ul>
-<li><strong>直接计算闭环极点</strong>：
-<ul>
+<li><strong>直接计算闭环极点</strong>：<ul>
 <li><strong>特点</strong>：直接获得系统是否稳定的“是/否”回答，但提供的信息有限。</li>
-</ul></li>
-<li><strong>Routh判据</strong>（参见建模课程）：
-<ul>
+</ul>
+</li>
+<li><strong>Routh判据</strong>（参见建模课程）：<ul>
 <li><strong>特点</strong>：仅适用于有理函数，能够研究稳定性对一个或两个参数的影响。</li>
-</ul></li>
-<li><strong>Nyquist判据</strong>（基于开环系统分析）：
-<ul>
+</ul>
+</li>
+<li><strong>Nyquist判据</strong>（基于开环系统分析）：<ul>
 <li><strong>特点</strong>：使用图形化方法，允许定义稳定裕度。</li>
-</ul></li>
 </ul>
-<hr />
-<p>一个系统在闭环下是EBSB稳定的，当且仅当开环的Nyquist轨迹（即<span
-class="math inline">\(T_{B0}(s)\)</span>对Nyquist轮廓的图像）满足以下条件：</p>
+</li>
+</ul>
+<hr>
+<p>一个系统在闭环下是EBSB稳定的，当且仅当开环的Nyquist轨迹（即$T_{B0}(s)$对Nyquist轮廓的图像）满足以下条件：</p>
 <ul>
-<li>不经过临界点 <span class="math inline">\((−1,0)\)</span>。</li>
-<li>绕点 <span class="math inline">\((−1,0)\)</span>
-逆时针方向转动的圈数等于开环传递函数中具有严格正实部的极点数量。</li>
+<li>不经过临界点 $(−1,0)$。</li>
+<li>绕点 $(−1,0)$ 逆时针方向转动的圈数等于开环传递函数中具有严格正实部的极点数量。</li>
 </ul>
-<hr />
-<p><strong>若开环系统是稳定的</strong>，则闭环系统在EBSB（扩展的增益和相位稳定性）的条件下稳定。当Nyquist轨迹按增大的频率<span
-class="math inline">\(\omega\)</span> 绘制时，临界点<span
-class="math inline">\((−1,0)\)</span>于左侧。</p>
-<hr />
-<h3 id="c5.3.2-裕度">C5.3.2 裕度</h3>
-<hr />
+<hr>
+<p><strong>若开环系统是稳定的</strong>，则闭环系统在EBSB（扩展的增益和相位稳定性）的条件下稳定。当Nyquist轨迹按增大的频率$\omega$ 绘制时，临界点$(−1,0)$于左侧。</p>
+<hr>
+<h3 id="C5-3-2-裕度"><a href="#C5-3-2-裕度" class="headerlink" title="C5.3.2 裕度"></a>C5.3.2 裕度</h3><hr>
 <p>稳定性裕度：Nyquist轨迹越远离临界点，系统的闭环稳定性越强，越远离不稳定区。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_6.png" /></p>
-<p>模值裕度：<span class="math inline">\(\Delta M=\min _\omega\left|T_{B
-O}+1\right|=\min _\omega \frac{1}{|S(j \omega)|}=\frac{1}{\max
-_\omega|S(j \omega)|}\)</span>，一般在0.5到0.7</p>
-<p>增益裕度：<span class="math inline">\(\Delta G=\frac{1}{\left|T_{B
-O}\right|} \quad \text { pour } \quad \arg \left(T_{B
-O}\right)=-180^{\circ}\)</span>，一般在3到5（10到15dB）</p>
-<p>相位裕度：<span class="math inline">\(\Delta \varphi=\arg \left(T_{B
-O}\right)-\left(-180^{\circ}\right) \text { pour }\left|T_{B
-O}\right|=1\)</span>，一般在45°到60°</p>
-<p>延迟裕度：<span class="math inline">\(\Delta \tau=\frac{\Delta
-\varphi(\mathrm{rad})}{\omega_c(\mathrm{rad} /
-\mathrm{s})}\)</span>，其中截止频率<span
-class="math inline">\(\omega_c\)</span>满足<span
-class="math inline">\(\left|T_{B 0}\left(j
-\omega_c\right)\right|=1\)</span></p>
-<h3 id="c5.3.3-开环增益选择">C5.3.3 开环增益选择</h3>
-<hr />
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_6.png" alt=""></p>
+<p>模值裕度：$\Delta M=\min <em>\omega\left|T</em>{B O}+1\right|=\min <em>\omega \frac{1}{|S(j \omega)|}=\frac{1}{\max </em>\omega|S(j \omega)|}$，一般在0.5到0.7</p>
+<p>增益裕度：$\Delta G=\frac{1}{\left|T<em>{B O}\right|} \quad \text { pour } \quad \arg \left(T</em>{B O}\right)=-180^{\circ}$，一般在3到5（10到15dB）</p>
+<p>相位裕度：$\Delta \varphi=\arg \left(T<em>{B O}\right)-\left(-180^{\circ}\right) \text { pour }\left|T</em>{B O}\right|=1$，一般在45°到60°</p>
+<p>延迟裕度：$\Delta \tau=\frac{\Delta \varphi(\mathrm{rad})}{\omega<em>c(\mathrm{rad} / \mathrm{s})}$，其中截止频率$\omega_c$满足$\left|T</em>{B 0}\left(j \omega_c\right)\right|=1$</p>
+<h3 id="C5-3-3-开环增益选择"><a href="#C5-3-3-开环增益选择" class="headerlink" title="C5.3.3 开环增益选择"></a>C5.3.3 开环增益选择</h3><hr>
 <p><strong>大增益（用于低频范围：精度、去敏感化和扰动抑制）</strong></p>
-<p>策略：当 <span class="math inline">\(\omega \ll \omega_c\)</span>
-时，实施大增益策略，即 <span class="math inline">\(\left|T_{B 0}(j
-\omega)\right| \gg 1\)</span></p>
+<p>策略：当 $\omega \ll \omega<em>c$ 时，实施大增益策略，即 $\left|T</em>{B 0}(j \omega)\right| \gg 1$</p>
 <ul>
 <li>更加精确</li>
 </ul>
-<p><span class="math display">\[
-T_{\epsilon / y_c}(s)=\frac{1}{H(s) K(s)+1} \approx 0 \quad T_{y /
-y_c}(s)=\frac{H(s) K(s)}{H(s) K(s)+1} \approx 1
-\]</span></p>
-<ul>
+<script type="math/tex; mode=display">
+T_{\epsilon / y_c}(s)=\frac{1}{H(s) K(s)+1} \approx 0 \quad T_{y / y_c}(s)=\frac{H(s) K(s)}{H(s) K(s)+1} \approx 1</script><ul>
 <li>去敏感化</li>
 </ul>
-<p><span class="math display">\[
-\tilde{T}_{\epsilon / y_c}(s)=\frac{1}{\widetilde{H}(s) K(s)+1} \approx
-0 \quad \tilde{T}_{y / y_c}(s)=\frac{\widetilde{H}(s)
-K(s)}{\widetilde{H}(s) K(s)+1} \approx 1
-\]</span></p>
-<ul>
+<script type="math/tex; mode=display">
+\tilde{T}_{\epsilon / y_c}(s)=\frac{1}{\widetilde{H}(s) K(s)+1} \approx 0 \quad \tilde{T}_{y / y_c}(s)=\frac{\widetilde{H}(s) K(s)}{\widetilde{H}(s) K(s)+1} \approx 1</script><ul>
 <li>对干扰的抑制</li>
 </ul>
-<p><span class="math display">\[
-T_{\epsilon / d}(s)=-\frac{H(s)}{H(s) K(s)+1} \approx-\frac{1}{K(s)}
-\approx 0
-\]</span></p>
-<p><strong>小增益（用于高频范围：低通滤波和鲁棒性）</strong></p>
-<p>策略：当 <span class="math inline">\(\omega \gg \omega_c\)</span>
-时，实施大增益策略，即 <span class="math inline">\(\left|T_{B 0}(j
-\omega)\right| \ll 1\)</span></p>
-<p><span class="math display">\[
-T_{y / w}(s)=-\frac{H(s) K(s)}{H(s) K(s)+1} \approx-K(s) H(s) \approx 0
-\quad T_{u / d}(s)=-\frac{H(s) K(s)}{H(s) K(s)+1} \approx-K(s) H(s)
-\approx 0
-\]</span></p>
-<ul>
+<script type="math/tex; mode=display">
+T_{\epsilon / d}(s)=-\frac{H(s)}{H(s) K(s)+1} \approx-\frac{1}{K(s)} \approx 0</script><p><strong>小增益（用于高频范围：低通滤波和鲁棒性）</strong></p>
+<p>策略：当 $\omega \gg \omega<em>c$ 时，实施大增益策略，即 $\left|T</em>{B 0}(j \omega)\right| \ll 1$</p>
+<script type="math/tex; mode=display">
+T_{y / w}(s)=-\frac{H(s) K(s)}{H(s) K(s)+1} \approx-K(s) H(s) \approx 0 \quad T_{u / d}(s)=-\frac{H(s) K(s)}{H(s) K(s)+1} \approx-K(s) H(s) \approx 0</script><ul>
 <li>抑制快速变化：低通滤波</li>
 </ul>
-<p><span class="math display">\[
-T_{u / w}(s)=-T_{u / y_c}(s)=\frac{K(s)}{H(s) K(s)+1} \approx K(s)
-\approx 0
-\]</span></p>
-<p><strong>高频鲁棒性</strong>：控制器的小增益增强了模型不确定性的鲁棒性</p>
-<h2 id="c5.4-伺服系统稳定多输入多输出的情况">C5.4
-伺服系统稳定：多输入多输出的情况</h2>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_7.png" /></p>
-<h3 id="c5.4.1-增益分析">C5.4.1 增益分析</h3>
-<hr />
+<script type="math/tex; mode=display">
+T_{u / w}(s)=-T_{u / y_c}(s)=\frac{K(s)}{H(s) K(s)+1} \approx K(s) \approx 0</script><p><strong>高频鲁棒性</strong>：控制器的小增益增强了模型不确定性的鲁棒性</p>
+<h2 id="C5-4-伺服系统稳定：多输入多输出的情况"><a href="#C5-4-伺服系统稳定：多输入多输出的情况" class="headerlink" title="C5.4 伺服系统稳定：多输入多输出的情况"></a>C5.4 伺服系统稳定：多输入多输出的情况</h2><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-5%2Fimage_7.png" alt=""></p>
+<h3 id="C5-4-1-增益分析"><a href="#C5-4-1-增益分析" class="headerlink" title="C5.4.1 增益分析"></a>C5.4.1 增益分析</h3><hr>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>需求说明</strong></th>
 <th><strong>理想的期望行为</strong></th>
 <th><strong>以开环增益表示</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>1) 误差为零</strong></td>
-<td><span class="math inline">\(T_{y/y_c}(s) = T(s) = H(s)K(s)(I +
-H(s)K(s))^{-1} \approx I\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(T_{\epsilon/y_c}(s) = S(s) = (I +
-H(s)K(s))^{-1} \approx 0\)</span></td>
-<td><span class="math inline">\(H(s)K(s)\)</span> 远大于 <span
-class="math inline">\(I\)</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>2) 输出对测量误差不敏感</strong></td>
-<td><span class="math inline">\(T_{y/w}(s) = -T(s) = -H(s)K(s)(I +
-H(s)K(s))^{-1} \approx 0\)</span></td>
-<td><span class="math inline">\(H(s)K(s)\)</span> 远小于 <span
-class="math inline">\(I\)</span></td>
-</tr>
-<tr class="even">
-<td><strong>3) 控制补偿扰动 <span
-class="math inline">\(d(t)\)</span></strong></td>
-<td><span class="math inline">\(T_{u_d/d}(s) = S&#39;(s) = (I +
-H(s)K(s))^{-1} \approx 0\)</span></td>
-<td><span class="math inline">\(H(s)K(s)\)</span> 远大于 <span
-class="math inline">\(I\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>4) 为限制能量消耗，控制不补偿指令噪声</strong></td>
-<td><span class="math inline">\(T_{u/d}(s) = -T&#39;(s) = K(s)H(s)(I +
-K(s)H(s))^{-1} \approx 0\)</span></td>
-<td><span class="math inline">\(H(s)K(s)\)</span> 远小于 <span
-class="math inline">\(I\)</span></td>
+<td>$T_{y/y_c}(s) = T(s) = H(s)K(s)(I + H(s)K(s))^{-1} \approx I$ </td>
 </tr>
 </tbody>
 </table>
+</div>
+<p> $T<em>{\epsilon/y_c}(s) = S(s) = (I + H(s)K(s))^{-1} \approx 0$  |  $H(s)K(s)$ 远大于  $I$ |<br>| <strong>2) 输出对测量误差不敏感</strong> | $T</em>{y/w}(s) = -T(s) = -H(s)K(s)(I + H(s)K(s))^{-1} \approx 0$  | $H(s)K(s)$ 远小于 $I$ |<br>| <strong>3) 控制补偿扰动 $d(t)$</strong> |  $T<em>{u_d/d}(s) = S’(s) = (I + H(s)K(s))^{-1} \approx 0$  | $H(s)K(s)$ 远大于 $I$ |<br>| <strong>4) 为限制能量消耗，控制不补偿指令噪声</strong> |  $T</em>{u/d}(s) = -T’(s) = K(s)H(s)(I + K(s)H(s))^{-1} \approx 0$  | $H(s)K(s)$ 远小于 $I$  |</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>开环增益条件</strong></th>
 <th><strong>闭环特性</strong></th>
 <th><strong>需求说明中的要求</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(\omega \ll \omega_{c 1},
-\sigma\left(T_{B O}(j \omega)\right) \gg 1\)</span></td>
-<td><span class="math inline">\(T_{\epsilon / y_c}(j \omega)=S(j \omega)
-\approx 0\)</span><span class="math inline">\(T_{y / y_c}(j \omega)=T(j
-\omega) \approx I\)</span></td>
+<tr>
+<td>$\omega \ll \omega<em>{c 1}, \sigma\left(T</em>{B O}(j \omega)\right) \gg 1$</td>
+<td>$T<em>{\epsilon / y_c}(j \omega)=S(j \omega) \approx 0$$T</em>{y / y_c}(j \omega)=T(j \omega) \approx I$</td>
 <td>响应质量：对于足够慢的参考变化，输出跟随设定值</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\omega \ll \omega_{\mathrm{cl}},
-\sigma\left(T_{B O}(j \omega)\right) \gg 1\)</span></td>
-<td>在存在模型变化<span
-class="math inline">\(\tilde{H}(s)\)</span>的情况下:<span
-class="math inline">\(\tilde{T}_{y / y_c}(j \omega) \approx I \approx
-T_{y / y_c}(j \omega)\)</span></td>
+<tr>
+<td>$\omega \ll \omega<em>{\mathrm{cl}}, \sigma\left(T</em>{B O}(j \omega)\right) \gg 1$</td>
+<td>在存在模型变化$\tilde{H}(s)$的情况下:$\tilde{T}<em>{y / y_c}(j \omega) \approx I \approx T</em>{y / y_c}(j \omega)$</td>
 <td>去敏感化：输出在高增益频率区对模型变化不敏感</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\omega \ll \omega_{c B}\)</span>和<span
-class="math inline">\(\sigma\left(T_{B O}^{\prime}(K(j \omega))\right)
-\gg 1\)</span></td>
-<td><span class="math inline">\(T_{\epsilon / d}(j \omega)=-H(j \omega)
-S^{\prime}(j \omega) \approx K(j \omega)^{-1} \approx 0\)</span></td>
+<tr>
+<td>$\omega \ll \omega<em>{c B}$和$\sigma\left(T</em>{B O}^{\prime}(K(j \omega))\right) \gg 1$</td>
+<td>$T_{\epsilon / d}(j \omega)=-H(j \omega) S^{\prime}(j \omega) \approx K(j \omega)^{-1} \approx 0$</td>
 <td>低频段抑制控制干扰</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\omega \gg \omega_{\mathrm{c} 2},
-\sigma\left(T_{B O}(j \omega)\right) \ll 1\)</span></td>
-<td><span class="math inline">\(T_{y / w}(j \omega)=-T(j \omega) \approx
-0\)</span></td>
+<tr>
+<td>$\omega \gg \omega<em>{\mathrm{c} 2}, \sigma\left(T</em>{B O}(j \omega)\right) \ll 1$</td>
+<td>$T_{y / w}(j \omega)=-T(j \omega) \approx 0$</td>
 <td>高频段滤除干扰</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\omega \gg \omega_{C 4},
-\sigma\left(T_{B O}^{\prime}(j \omega)\right) \ll 1\)</span></td>
-<td><span class="math inline">\(T_{u / d}(j \omega)=-T^{\prime}(j
-\omega) \approx 0\)</span></td>
+<tr>
+<td>$\omega \gg \omega<em>{C 4}, \sigma\left(T</em>{B O}^{\prime}(j \omega)\right) \ll 1$</td>
+<td>$T_{u / d}(j \omega)=-T^{\prime}(j \omega) \approx 0$</td>
 <td>高频段滤除干扰</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\omega \gg \omega_{c 2},
-\sigma\left(T_{B O}(j \omega)\right) \ll 1\)</span>和<span
-class="math inline">\(\sigma(K(j \omega)) \ll 1\)</span></td>
-<td><span class="math inline">\(T_{u / w}(j \omega)=-T_{u / y_c}(j
-\omega)= -K(j \omega) S(j \omega) \approx 0\)</span></td>
+<tr>
+<td>$\omega \gg \omega<em>{c 2}, \sigma\left(T</em>{B O}(j \omega)\right) \ll 1$和$\sigma(K(j \omega)) \ll 1$</td>
+<td>$T<em>{u / w}(j \omega)=-T</em>{u / y_c}(j \omega)= -K(j \omega) S(j \omega) \approx 0$</td>
 <td>限制指令变化的快速变化</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\omega \gg \omega_{c 2},
-\sigma\left(T_{B O}(j \omega)\right) \ll 1\)</span>和<span
-class="math inline">\(\bar{\sigma}(K(j \omega)) \ll 1\)</span></td>
-<td><span class="math inline">\(I+T_{B O}(j \omega)\)</span>和<span
-class="math inline">\(I+T_{B O}^{\prime}(j
-\omega)\)</span>在高频段模型变化下保持可逆</td>
+<tr>
+<td>$\omega \gg \omega<em>{c 2}, \sigma\left(T</em>{B O}(j \omega)\right) \ll 1$和$\bar{\sigma}(K(j \omega)) \ll 1$</td>
+<td>$I+T<em>{B O}(j \omega)$和$I+T</em>{B O}^{\prime}(j \omega)$在高频段模型变化下保持可逆</td>
 <td>在高频下的模型变化下的鲁棒性</td>
 </tr>
 </tbody>
 </table>
-<h3 id="c5.4.2-鲁棒性裕度">C5.4.2 鲁棒性裕度</h3>
-<hr />
+</div>
+<h3 id="C5-4-2-鲁棒性裕度"><a href="#C5-4-2-鲁棒性裕度" class="headerlink" title="C5.4.2 鲁棒性裕度"></a>C5.4.2 鲁棒性裕度</h3><hr>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>标准名称和符号</strong></th>
 <th><strong>扰动类型</strong></th>
 <th><strong>裕度定义</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><strong>增益裕度</strong><span
-class="math inline">\(\overline{\Delta G}\)</span></td>
-<td>增益变化：<span class="math inline">\(a_i = 1 + \delta a_i \in
-\mathbb{R}\)</span>（或<span class="math inline">\(b_i = 1 + \delta b_i
-\in \mathbb{R}\)</span>）</td>
-<td><span class="math inline">\(\overline{\Delta G} = \sup \{ m \mid
-\forall i \, |a_i| \le m \Rightarrow \widetilde{\text{STB}}
-\}\)</span>，其中<span class="math inline">\(a_i \in
-\mathbb{R}\)</span></td>
+<tr>
+<td><strong>增益裕度</strong>$\overline{\Delta G}$</td>
+<td>增益变化：$a_i = 1 + \delta a_i \in \mathbb{R}$（或$b_i = 1 + \delta b_i \in \mathbb{R}$）</td>
+<td>$\overline{\Delta G} = \sup { m \mid \forall i \,</td>
+<td>a_i</td>
+<td>\le m \Rightarrow \widetilde{\text{STB}} }$，其中$a_i \in \mathbb{R}$</td>
 </tr>
-<tr class="even">
-<td><strong>相位裕度</strong><span
-class="math inline">\(\overline{\Delta \varphi}\)</span></td>
-<td>相位变化（在恒定增益下）：<span class="math inline">\(a_i = e^{j
-\theta_i}\)</span>（或<span class="math inline">\(b_i = e^{j
-\theta_i}\)</span>，复数位于单位圆上）</td>
-<td><span class="math inline">\(\overline{\Delta \varphi} = \sup \{ m
-\mid \forall i \, |\theta_i| \le m \Rightarrow \widetilde{\text{STB}}
-\}\)</span></td>
+<tr>
+<td><strong>相位裕度</strong>$\overline{\Delta \varphi}$</td>
+<td>相位变化（在恒定增益下）：$a_i = e^{j \theta_i}$（或$b_i = e^{j \theta_i}$，复数位于单位圆上）</td>
+<td>$\overline{\Delta \varphi} = \sup { m \mid \forall i \,</td>
+<td>\theta_i</td>
+<td>\le m \Rightarrow \widetilde{\text{STB}} }$</td>
 </tr>
-<tr class="odd">
-<td><strong>延迟裕度</strong><span
-class="math inline">\(\overline{\Delta R}\)</span></td>
-<td>信息传递中的延迟：<span class="math inline">\(a_i = e^{-\tau_i
-s}\)</span>（或<span class="math inline">\(b_i = e^{-\tau_i
-s}\)</span>）</td>
-<td><span class="math inline">\(\overline{\Delta R} = \sup \{ r \mid
-\forall i \, 0 \le \tau_i \le r \Rightarrow \widetilde{\text{STB}}
-\}\)</span></td>
+<tr>
+<td><strong>延迟裕度</strong>$\overline{\Delta R}$</td>
+<td>信息传递中的延迟：$a_i = e^{-\tau_i s}$（或$b_i = e^{-\tau_i s}$）</td>
+<td>$\overline{\Delta R} = \sup { r \mid \forall i \, 0 \le \tau_i \le r \Rightarrow \widetilde{\text{STB}} }$</td>
 </tr>
-<tr class="even">
-<td><strong>模裕度</strong><span class="math inline">\(\overline{\Delta
-M}\)</span></td>
-<td>同时变化的增益和相位：<span class="math inline">\(a_i = (1 + \delta
-a_i)^{-1} \in \mathbb{C}\)</span>（或<span class="math inline">\(b_i =
-(1 + \delta b_i)^{-1} \in \mathbb{C}\)</span>）</td>
-<td><span class="math inline">\(\overline{\Delta M} = \sup \{ m \mid
-\forall i \, |a_i| \le m \Rightarrow \widetilde{\text{STB}}
-\}\)</span>，其中<span class="math inline">\(a_i \in
-\mathbb{C}\)</span></td>
+<tr>
+<td><strong>模裕度</strong>$\overline{\Delta M}$</td>
+<td>同时变化的增益和相位：$a_i = (1 + \delta a_i)^{-1} \in \mathbb{C}$（或$b_i = (1 + \delta b_i)^{-1} \in \mathbb{C}$）</td>
+<td>$\overline{\Delta M} = \sup { m \mid \forall i \,</td>
+<td>a_i</td>
+<td>\le m \Rightarrow \widetilde{\text{STB}} }$，其中$a_i \in \mathbb{C}$</td>
 </tr>
 </tbody>
 </table>
-<h3 id="c5.4.3-小增益定理">C5.4.3 小增益定理</h3>
-<hr />
+</div>
+<h3 id="C5-4-3-小增益定理"><a href="#C5-4-3-小增益定理" class="headerlink" title="C5.4.3 小增益定理"></a>C5.4.3 小增益定理</h3><hr>
 <p><strong>小增益定理 — LTI（线性时不变）系统</strong></p>
 <ul>
-<li><strong>假设：</strong><span class="math inline">\(G_1, G_2\)</span>
-是稳定的 LTI 系统，且 <span class="math inline">\(G_1 * G_2\)</span>
-是良好定义的。</li>
-<li><strong>定理：</strong> 如果 <span class="math inline">\(\| G_1
-\|_\infty \| G_2 \|_\infty &lt; 1\)</span>，则 <span
-class="math inline">\(G_1 * G_2\)</span> 是良好定义且稳定的。</li>
+<li><strong>假设：</strong>$G_1, G_2$ 是稳定的 LTI 系统，且 $G_1 * G_2$ 是良好定义的。</li>
+<li><strong>定理：</strong> 如果 $| G<em>1 |</em>\infty | G<em>2 |</em>\infty &lt; 1$，则 $G_1 * G_2$ 是良好定义且稳定的。</li>
 <li><strong>结论：</strong>非放大系统的稳定连接仍然是稳定的。</li>
 </ul>
 <p><strong>小增益定理 — LTI — 必要且充分条件版本</strong></p>
 <ul>
-<li><strong>假设：</strong><span class="math inline">\(G_1, G_2\)</span>
-是稳定的 LTI 系统。</li>
-<li><strong>定理：</strong><span class="math inline">\(G_1 *
-G_2\)</span> 是良好定义且稳定的，当且仅当存在 <span
-class="math inline">\(\gamma\)</span> 满足 <span
-class="math inline">\(\| G_2 \|_\infty &lt; \gamma\)</span> 并且 <span
-class="math inline">\(\| G_1 \|_\infty \le \gamma^{-1}\)</span>。</li>
-<li><strong>提醒：</strong><span class="math inline">\(\| G \|_\infty =
-\sup_{\omega \in \mathbb{R}} \overline{\sigma}(G(j\omega))\)</span></li>
+<li><strong>假设：</strong>$G_1, G_2$ 是稳定的 LTI 系统。</li>
+<li><strong>定理：</strong>$G<em>1 * G_2$ 是良好定义且稳定的，当且仅当存在 $\gamma$ 满足 $| G_2 |</em>\infty &lt; \gamma$ 并且 $| G<em>1 |</em>\infty \le \gamma^{-1}$。</li>
+<li><strong>提醒：</strong>$| G |<em>\infty = \sup</em>{\omega \in \mathbb{R}} \overline{\sigma}(G(j\omega))$</li>
 </ul>
 <p><strong>小增益定理的应用 — LTI — 必要且充分条件版本</strong></p>
 <ul>
-<li><strong>使用该定理：</strong>
-<ul>
-<li>设 <span class="math inline">\(G_1 =
-\Delta\)</span>：对标称模型的容许不确定性。</li>
-<li>设 <span class="math inline">\(G_2 =
-M(s)\)</span>：系统的闭环传递函数（标称模型）。</li>
-</ul></li>
-<li><strong>考虑的情况：</strong>
-<ul>
-<li>输出鲁棒性指标：通过研究 <span class="math inline">\(S\)</span> 和
-<span class="math inline">\(T\)</span>。</li>
-<li>输入鲁棒性指标：通过研究 <span class="math inline">\(S&#39;\)</span>
-和 <span class="math inline">\(T&#39;\)</span>。</li>
-</ul></li>
+<li><strong>使用该定理：</strong><ul>
+<li>设 $G_1 = \Delta$：对标称模型的容许不确定性。</li>
+<li>设 $G_2 = M(s)$：系统的闭环传递函数（标称模型）。</li>
 </ul>
-<h3 id="c5.4.4-mimo系统的鲁棒性度量">C5.4.4 MIMO系统的鲁棒性度量</h3>
-<hr />
+</li>
+<li><strong>考虑的情况：</strong><ul>
+<li>输出鲁棒性指标：通过研究 $S$ 和 $T$。</li>
+<li>输入鲁棒性指标：通过研究 $S’$ 和 $T’$。</li>
+</ul>
+</li>
+</ul>
+<h3 id="C5-4-4-MIMO系统的鲁棒性度量"><a href="#C5-4-4-MIMO系统的鲁棒性度量" class="headerlink" title="C5.4.4 MIMO系统的鲁棒性度量"></a>C5.4.4 MIMO系统的鲁棒性度量</h3><hr>
 <p>对于多输入多输出（MIMO）系统的鲁棒性分析，采用以下参数化：</p>
-<ol type="1">
-<li><span class="math inline">\(P_2 = I + \Delta\)</span>，其中 <span
-class="math inline">\(\Delta = \operatorname{diag}(b_1 - 1, \dots, b_m -
-1)\)</span></li>
-<li><span class="math inline">\(\gamma = \|T(s)\|_\infty\)</span></li>
+<ol>
+<li>$P_2 = I + \Delta$，其中 $\Delta = \operatorname{diag}(b_1 - 1, \dots, b_m - 1)$</li>
+<li>$\gamma = |T(s)|_\infty$</li>
 </ol>
 <p><strong>保证的裕度：</strong></p>
 <ul>
-<li><strong>增益裕度</strong>：系统对于所有 <span
-class="math inline">\(|\delta b_i| &lt; \|T(s)\|_\infty^{-1}\)</span>
-都是稳定的。
-<ul>
-<li><span class="math inline">\(\Delta G \geq
-\|T(s)\|_\infty^{-1}\)</span></li>
-</ul></li>
-<li><strong>相位裕度</strong>：系统对于所有 <span
-class="math inline">\(|\theta_i| &lt; 2 \arcsin \left(
-\frac{1}{2\|T(s)\|_\infty} \right)\)</span> 都是稳定的。
-<ul>
-<li><span class="math inline">\(\Delta \varphi \geq 2 \arcsin \left(
-\frac{1}{2\|T(s)\|_\infty} \right)\)</span></li>
-</ul></li>
-<li><strong>模裕度</strong>：系统对于所有 <span
-class="math inline">\(|\delta b_i| &lt; \frac{1}{1 +
-\|T(s)\|_\infty}\)</span> 都是稳定的。
-<ul>
-<li><span class="math inline">\(\Delta M \geq \frac{1}{1 +
-\|T(s)\|_\infty}\)</span></li>
-</ul></li>
+<li><strong>增益裕度</strong>：系统对于所有 $|\delta b<em>i| &lt; |T(s)|</em>\infty^{-1}$ 都是稳定的。<ul>
+<li>$\Delta G \geq |T(s)|_\infty^{-1}$</li>
+</ul>
+</li>
+<li><strong>相位裕度</strong>：系统对于所有 $|\theta<em>i| &lt; 2 \arcsin \left( \frac{1}{2|T(s)|</em>\infty} \right)$ 都是稳定的。<ul>
+<li>$\Delta \varphi \geq 2 \arcsin \left( \frac{1}{2|T(s)|_\infty} \right)$</li>
+</ul>
+</li>
+<li><strong>模裕度</strong>：系统对于所有 $|\delta b<em>i| &lt; \frac{1}{1 + |T(s)|</em>\infty}$ 都是稳定的。<ul>
+<li>$\Delta M \geq \frac{1}{1 + |T(s)|_\infty}$</li>
+</ul>
+</li>
 </ul>
 <p><strong>注意</strong>：这些是保证的裕度，可以进一步优化。</p>
-<hr />
-<p>对于 <span class="math inline">\(P_2 = (I - \Delta)^{-1}\)</span>
-的情况，其中 <span class="math inline">\(\Delta =
-\operatorname{diag}(b_1^{-1} - 1, \dots, b_m^{-1} -
-1)\)</span>，采用以下参数：</p>
+<hr>
+<p>对于 $P_2 = (I - \Delta)^{-1}$ 的情况，其中 $\Delta = \operatorname{diag}(b_1^{-1} - 1, \dots, b_m^{-1} - 1)$，采用以下参数：</p>
 <ul>
-<li><span class="math inline">\(\gamma = \|S(s)\|_\infty\)</span></li>
+<li>$\gamma = |S(s)|_\infty$</li>
 </ul>
 <p><strong>保证的裕度：</strong></p>
 <ul>
-<li><strong>增益裕度</strong>：系统对于所有 <span
-class="math inline">\(|\delta b_i| &lt; \frac{1}{\|S(s)\|_\infty +
-1}\)</span> 都是稳定的。
-<ul>
-<li><span class="math inline">\(\Delta G \geq \frac{1}{\|S(s)\|_\infty +
-1}\)</span></li>
-</ul></li>
-<li><strong>相位裕度</strong>：系统对于所有 <span
-class="math inline">\(|\theta_i| &lt; 2 \arcsin \left(
-\frac{1}{2\|S(s)\|_\infty} \right)\)</span> 都是稳定的。
-<ul>
-<li><span class="math inline">\(\Delta \varphi \geq 2 \arcsin \left(
-\frac{1}{2\|S(s)\|_\infty} \right)\)</span></li>
-</ul></li>
-<li><strong>模裕度</strong>：系统对于所有 <span
-class="math inline">\(|\delta b_i| &lt; \|S(s)\|_\infty^{-1}\)</span>
-都是稳定的。
-<ul>
-<li><span class="math inline">\(\Delta M \geq
-\|S(s)\|_\infty^{-1}\)</span></li>
-</ul></li>
+<li><strong>增益裕度</strong>：系统对于所有 $|\delta b<em>i| &lt; \frac{1}{|S(s)|</em>\infty + 1}$ 都是稳定的。<ul>
+<li>$\Delta G \geq \frac{1}{|S(s)|_\infty + 1}$</li>
 </ul>
-<h3 id="c5.4.5-线性二次型lq控制律的鲁棒性">C5.4.5
-线性二次型（LQ）控制律的鲁棒性</h3>
-<hr />
+</li>
+<li><strong>相位裕度</strong>：系统对于所有 $|\theta<em>i| &lt; 2 \arcsin \left( \frac{1}{2|S(s)|</em>\infty} \right)$ 都是稳定的。<ul>
+<li>$\Delta \varphi \geq 2 \arcsin \left( \frac{1}{2|S(s)|_\infty} \right)$</li>
+</ul>
+</li>
+<li><strong>模裕度</strong>：系统对于所有 $|\delta b<em>i| &lt; |S(s)|</em>\infty^{-1}$ 都是稳定的。<ul>
+<li>$\Delta M \geq |S(s)|_\infty^{-1}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="C5-4-5-线性二次型（LQ）控制律的鲁棒性"><a href="#C5-4-5-线性二次型（LQ）控制律的鲁棒性" class="headerlink" title="C5.4.5 线性二次型（LQ）控制律的鲁棒性"></a>C5.4.5 线性二次型（LQ）控制律的鲁棒性</h3><hr>
 <p>对于系统：</p>
-<p><span class="math inline">\(\dot{x}(t) = A x(t) + B u(t)\)</span></p>
+<p>$\dot{x}(t) = A x(t) + B u(t)$</p>
 <p>控制律为：</p>
-<p><span class="math inline">\(u(t) = -K x(t) + y_c(t)\)</span></p>
+<p>$u(t) = -K x(t) + y_c(t)$</p>
 <p><strong>开环传递函数</strong>：</p>
-<p><span class="math inline">\(T_{BO}(s) = K (sI - A)^{-1}
-B\)</span></p>
+<p>$T_{BO}(s) = K (sI - A)^{-1} B$</p>
 <p><strong>稳定性裕度</strong>：</p>
 <ul>
 <li>对于增益裕度，LQ控制保证了增益为无穷大（稳定性在增益变化1/2时也能保证）。</li>
 <li>对于相位裕度，保证相位裕度大于等于60°。</li>
 </ul>
-<h3 id="c5.4.6-lqgltr控制环路传递恢复">C5.4.6
-LQG/LTR控制（环路传递恢复）</h3>
-<hr />
+<h3 id="C5-4-6-LQG-LTR控制（环路传递恢复）"><a href="#C5-4-6-LQG-LTR控制（环路传递恢复）" class="headerlink" title="C5.4.6 LQG/LTR控制（环路传递恢复）"></a>C5.4.6 LQG/LTR控制（环路传递恢复）</h3><hr>
 <p>目的：通过LQG控制恢复LQ控制的裕度。</p>
-<ol type="1">
-<li>使用Kalman滤波器的权重矩阵：<span
-class="math inline">\(\begin{cases}
-V = V^T = V_0 + \alpha^2 B B^T \succeq 0 \\
-W = W^T \succ 0
-\end{cases}\)</span></li>
-<li>假设：
-<ul>
-<li>系统<span class="math inline">\((A, B)\)</span>是可稳定的，且<span
-class="math inline">\((C, A)\)</span>是可检测的。</li>
-<li>输出维度<span class="math inline">\(\dim(y) \geq
-\dim(u)\)</span></li>
-<li><span class="math inline">\(G(s)\)</span>在<span
-class="math inline">\(\operatorname{Re} \geq 0\)</span>处没有零点</li>
-</ul></li>
-<li>结果：当 <span class="math inline">\(\alpha \to \infty\)</span>
-时，传递函数 <span class="math inline">\(T_{BO}&#39;(s) =
-K(s)G(s)\)</span> 收敛至 <span class="math inline">\(K(sI -
-A)^{-1}B\)</span>，从而恢复稳定性裕度。</li>
+<ol>
+<li>使用Kalman滤波器的权重矩阵：$\begin{cases}<br>V = V^T = V_0 + \alpha^2 B B^T \succeq 0 \<br>W = W^T \succ 0<br>\end{cases}$</li>
+<li>假设：<ul>
+<li>系统$(A, B)$是可稳定的，且$(C, A)$是可检测的。</li>
+<li>输出维度$\dim(y) \geq \dim(u)$</li>
+<li>$G(s)$在$\operatorname{Re} \geq 0$处没有零点</li>
+</ul>
+</li>
+<li>结果：当 $\alpha \to \infty$ 时，传递函数 $T_{BO}’(s) = K(s)G(s)$ 收敛至 $K(sI - A)^{-1}B$，从而恢复稳定性裕度。</li>
 </ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/11/11/informatique/controle/csd-5/">http://raphaelhyaan.cn/2024/11/11/informatique/controle/csd-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/11/informatique/st5/st5-c/" title="Exemple 1 车辆的横向控制建模与侧方位通车"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Exemple 1 车辆的横向控制建模与侧方位通车</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/11/informatique/controle/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/informatique/controle/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C1 受控系统结构 Structure d’un système asservi</div></div></a></div><div><a href="/2024/09/19/informatique/controle/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité</div></div></a></div><div><a href="/2024/10/08/informatique/controle/csd-3/" title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</div></div></a></div><div><a href="/2024/11/11/informatique/controle/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">180</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c5-%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%92%8C%E9%B2%81%E6%A3%92%E6%80%A7%E5%88%86%E6%9E%90-analyse-des-performances-et-de-robustesse-dune-loi-de-commande"><span class="toc-number">1.</span> <span class="toc-text">C5
-稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi
-de commande</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#c5.1-%E9%80%9A%E8%BF%87%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E8%A1%A8%E7%A4%BA-repr%C3%A9sentation-par-fonction-de-transfert"><span class="toc-number">1.1.</span> <span class="toc-text">C5.1
-通过传递函数表示 Représentation par fonction de transfert</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.1.1-%E4%BB%8E%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA%E5%88%B0%E5%A4%96%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">C5.1.1 从内部表示到外部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.1.2-%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%96%E9%83%A8%E8%A1%A8%E7%A4%BA%E7%9A%84%E8%81%94%E7%B3%BB"><span class="toc-number">1.1.2.</span> <span class="toc-text">C5.1.2
-内部表示和外部表示的联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.1.3-%E5%8D%95%E8%BE%93%E5%85%A5%E5%8D%95%E8%BE%93%E5%87%BAsiso%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%A2%91%E7%8E%87%E7%9B%B8%E5%BA%94"><span class="toc-number">1.1.3.</span> <span class="toc-text">C5.1.3
-单输入单输出SISO线性系统的频率相应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce5.1-%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%9A%E8%BE%93%E5%85%A5%E5%A4%9A%E8%BE%93%E5%87%BA%E4%BE%8B%E5%AD%90"><span class="toc-number">1.1.4.</span> <span class="toc-text">CE5.1 简单的多输入多输出例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.1.4-%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3-d%C3%A9composition-en-valeurs-singuli%C3%A8res"><span class="toc-number">1.1.5.</span> <span class="toc-text">C5.1.4
-传递函数的奇异值分解 Décomposition en valeurs singulières</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce5.2"><span class="toc-number">1.1.6.</span> <span class="toc-text">CE5.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.1.5-%E4%BD%8E%E5%A2%9E%E7%9B%8A%E4%B8%8E%E9%AB%98%E5%A2%9E%E7%9B%8A"><span class="toc-number">1.1.7.</span> <span class="toc-text">C5.1.5 低增益与高增益</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.1.6-h_infin%E8%8C%83%E6%95%B0"><span class="toc-number">1.1.8.</span> <span class="toc-text">C5.1.6 \(H_{\infin}\)范数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c5.2-%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.</span> <span class="toc-text">C5.2 伺服系统表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.2.1-%E7%BB%8F%E5%85%B8%E7%9A%84%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">C5.2.1 经典的伺服系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.2.2-%E4%B8%8D%E5%90%8C%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.2.</span> <span class="toc-text">C5.2.2
-不同传递函数之间的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.2.3-lq%E6%8E%A7%E5%88%B6%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.2.3.</span> <span class="toc-text">C5.2.3 LQ控制的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.2.4-lqg%E6%8E%A7%E5%88%B6%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.2.4.</span> <span class="toc-text">C5.2.4 LQG控制的情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c5.3-%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7-%E5%8D%95%E8%BE%93%E5%85%A5%E5%8D%95%E8%BE%93%E5%87%BA%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.</span> <span class="toc-text">C5.3
-伺服系统的稳定性： 单输入单输出的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.3.1-%E9%97%AD%E7%8E%AF%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">C5.3.1 闭环系统的稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.3.2-%E8%A3%95%E5%BA%A6"><span class="toc-number">1.3.2.</span> <span class="toc-text">C5.3.2 裕度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.3.3-%E5%BC%80%E7%8E%AF%E5%A2%9E%E7%9B%8A%E9%80%89%E6%8B%A9"><span class="toc-number">1.3.3.</span> <span class="toc-text">C5.3.3 开环增益选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c5.4-%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F%E7%A8%B3%E5%AE%9A%E5%A4%9A%E8%BE%93%E5%85%A5%E5%A4%9A%E8%BE%93%E5%87%BA%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.4.</span> <span class="toc-text">C5.4
-伺服系统稳定：多输入多输出的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.4.1-%E5%A2%9E%E7%9B%8A%E5%88%86%E6%9E%90"><span class="toc-number">1.4.1.</span> <span class="toc-text">C5.4.1 增益分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.4.2-%E9%B2%81%E6%A3%92%E6%80%A7%E8%A3%95%E5%BA%A6"><span class="toc-number">1.4.2.</span> <span class="toc-text">C5.4.2 鲁棒性裕度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.4.3-%E5%B0%8F%E5%A2%9E%E7%9B%8A%E5%AE%9A%E7%90%86"><span class="toc-number">1.4.3.</span> <span class="toc-text">C5.4.3 小增益定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.4.4-mimo%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-number">1.4.4.</span> <span class="toc-text">C5.4.4 MIMO系统的鲁棒性度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.4.5-%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E5%9E%8Blq%E6%8E%A7%E5%88%B6%E5%BE%8B%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7"><span class="toc-number">1.4.5.</span> <span class="toc-text">C5.4.5
-线性二次型（LQ）控制律的鲁棒性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c5.4.6-lqgltr%E6%8E%A7%E5%88%B6%E7%8E%AF%E8%B7%AF%E4%BC%A0%E9%80%92%E6%81%A2%E5%A4%8D"><span class="toc-number">1.4.6.</span> <span class="toc-text">C5.4.6
-LQG&#x2F;LTR控制（环路传递恢复）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="NMF及语音分离"/></a><div class="content"><a class="title" href="/2025/06/30/RH-NMF/" title="NMF及语音分离">NMF及语音分离</a><time datetime="2025-06-30T13:30:25.000Z" title="发表于 2025-06-30 21:30:25">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/11/11/informatique/controle/csd-5/">http://raphaelhyaan.cn/2024/11/11/informatique/controle/csd-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/11/informatique/st5/st5-c/" title="Exemple 1 车辆的横向控制建模与侧方位通车"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F驰01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Exemple 1 车辆的横向控制建模与侧方位通车</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/11/informatique/controle/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/informatique/controle/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C1 受控系统结构 Structure d’un système asservi</div></div></a></div><div><a href="/2024/11/11/informatique/controle/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div><div><a href="/2024/10/08/informatique/controle/csd-3/" title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</div></div></a></div><div><a href="/2024/09/19/informatique/controle/csd-2/" title="C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité</div></div></a></div><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C5-%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%92%8C%E9%B2%81%E6%A3%92%E6%80%A7%E5%88%86%E6%9E%90-Analyse-des-performances-et-de-robustesse-d%E2%80%99une-loi-de-commande"><span class="toc-number">1.</span> <span class="toc-text">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C5-1-%E9%80%9A%E8%BF%87%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E8%A1%A8%E7%A4%BA-Representation-par-fonction-de-transfert"><span class="toc-number">1.1.</span> <span class="toc-text">C5.1 通过传递函数表示 Représentation par fonction de transfert</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-1-1-%E4%BB%8E%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA%E5%88%B0%E5%A4%96%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">C5.1.1 从内部表示到外部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-1-2-%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%96%E9%83%A8%E8%A1%A8%E7%A4%BA%E7%9A%84%E8%81%94%E7%B3%BB"><span class="toc-number">1.1.2.</span> <span class="toc-text">C5.1.2 内部表示和外部表示的联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-1-3-%E5%8D%95%E8%BE%93%E5%85%A5%E5%8D%95%E8%BE%93%E5%87%BASISO%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%A2%91%E7%8E%87%E7%9B%B8%E5%BA%94"><span class="toc-number">1.1.3.</span> <span class="toc-text">C5.1.3 单输入单输出SISO线性系统的频率相应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE5-1-%E7%AE%80%E5%8D%95%E7%9A%84%E5%A4%9A%E8%BE%93%E5%85%A5%E5%A4%9A%E8%BE%93%E5%87%BA%E4%BE%8B%E5%AD%90"><span class="toc-number">1.1.4.</span> <span class="toc-text">CE5.1 简单的多输入多输出例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-1-4-%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3-Decomposition-en-valeurs-singulieres"><span class="toc-number">1.1.5.</span> <span class="toc-text">C5.1.4 传递函数的奇异值分解 Décomposition en valeurs singulières</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE5-2"><span class="toc-number">1.1.6.</span> <span class="toc-text">CE5.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-1-5-%E4%BD%8E%E5%A2%9E%E7%9B%8A%E4%B8%8E%E9%AB%98%E5%A2%9E%E7%9B%8A"><span class="toc-number">1.1.7.</span> <span class="toc-text">C5.1.5 低增益与高增益</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-1-6-H-infin-%E8%8C%83%E6%95%B0"><span class="toc-number">1.1.8.</span> <span class="toc-text">C5.1.6 $H_{\infin}$范数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C5-2-%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.</span> <span class="toc-text">C5.2 伺服系统表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-2-1-%E7%BB%8F%E5%85%B8%E7%9A%84%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">C5.2.1 经典的伺服系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-2-2-%E4%B8%8D%E5%90%8C%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.2.</span> <span class="toc-text">C5.2.2 不同传递函数之间的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-2-3-LQ%E6%8E%A7%E5%88%B6%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.2.3.</span> <span class="toc-text">C5.2.3 LQ控制的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-2-4-LQG%E6%8E%A7%E5%88%B6%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.2.4.</span> <span class="toc-text">C5.2.4 LQG控制的情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C5-3-%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%EF%BC%9A-%E5%8D%95%E8%BE%93%E5%85%A5%E5%8D%95%E8%BE%93%E5%87%BA%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.</span> <span class="toc-text">C5.3 伺服系统的稳定性： 单输入单输出的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-3-1-%E9%97%AD%E7%8E%AF%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">C5.3.1 闭环系统的稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-3-2-%E8%A3%95%E5%BA%A6"><span class="toc-number">1.3.2.</span> <span class="toc-text">C5.3.2 裕度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-3-3-%E5%BC%80%E7%8E%AF%E5%A2%9E%E7%9B%8A%E9%80%89%E6%8B%A9"><span class="toc-number">1.3.3.</span> <span class="toc-text">C5.3.3 开环增益选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C5-4-%E4%BC%BA%E6%9C%8D%E7%B3%BB%E7%BB%9F%E7%A8%B3%E5%AE%9A%EF%BC%9A%E5%A4%9A%E8%BE%93%E5%85%A5%E5%A4%9A%E8%BE%93%E5%87%BA%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.4.</span> <span class="toc-text">C5.4 伺服系统稳定：多输入多输出的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-4-1-%E5%A2%9E%E7%9B%8A%E5%88%86%E6%9E%90"><span class="toc-number">1.4.1.</span> <span class="toc-text">C5.4.1 增益分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-4-2-%E9%B2%81%E6%A3%92%E6%80%A7%E8%A3%95%E5%BA%A6"><span class="toc-number">1.4.2.</span> <span class="toc-text">C5.4.2 鲁棒性裕度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-4-3-%E5%B0%8F%E5%A2%9E%E7%9B%8A%E5%AE%9A%E7%90%86"><span class="toc-number">1.4.3.</span> <span class="toc-text">C5.4.3 小增益定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-4-4-MIMO%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-number">1.4.4.</span> <span class="toc-text">C5.4.4 MIMO系统的鲁棒性度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-4-5-%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E5%9E%8B%EF%BC%88LQ%EF%BC%89%E6%8E%A7%E5%88%B6%E5%BE%8B%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7"><span class="toc-number">1.4.5.</span> <span class="toc-text">C5.4.5 线性二次型（LQ）控制律的鲁棒性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C5-4-6-LQG-LTR%E6%8E%A7%E5%88%B6%EF%BC%88%E7%8E%AF%E8%B7%AF%E4%BC%A0%E9%80%92%E6%81%A2%E5%A4%8D%EF%BC%89"><span class="toc-number">1.4.6.</span> <span class="toc-text">C5.4.6 LQG&#x2F;LTR控制（环路传递恢复）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/14/rishmangement/" title="风险管理"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="风险管理"/></a><div class="content"><a class="title" href="/2025/11/14/rishmangement/" title="风险管理">风险管理</a><time datetime="2025-11-14T05:52:50.000Z" title="发表于 2025-11-14 13:52:50">2025-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
