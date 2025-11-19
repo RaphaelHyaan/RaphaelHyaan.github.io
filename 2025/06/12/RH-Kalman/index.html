@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波 部分公式为使用标准写法。  Introduction 滤波是在对系统可观测信号进⾏测量的基础上，根据⼀定的滤波准则，采⽤某种统计量最优⽅法，对系统的状态进⾏估计的理论和⽅法。讲点的滤波理论包括维纳（Wiener）滤波和卡尔曼（Kalman）滤波。前者使用频域方法，后者使用时域状态空间方法。 相比于Wiener滤波方法，Kalman滤">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波  部分公式为使用标准写法。  Introduction  滤波是在对系统可观测信号进⾏测量的基础上，根据⼀定的滤波准则，采⽤某种统计量最优⽅法，对系统的状态进⾏估计的理论和⽅法。讲点的滤波理论包括维纳（Wiener）滤波和卡尔曼（Kalman）滤波。前者使用频域方法，后者使用时域状态空间方法。 相比于Wiener滤波方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波">
 <meta property="og:url" content="http://raphaelhyaan.cn/2025/06/12/RH-Kalman/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波 部分公式为使用标准写法。  Introduction 滤波是在对系统可观测信号进⾏测量的基础上，根据⼀定的滤波准则，采⽤某种统计量最优⽅法，对系统的状态进⾏估计的理论和⽅法。讲点的滤波理论包括维纳（Wiener）滤波和卡尔曼（Kalman）滤波。前者使用频域方法，后者使用时域状态空间方法。 相比于Wiener滤波方法，Kalman滤">
+<meta property="og:description" content="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波  部分公式为使用标准写法。  Introduction  滤波是在对系统可观测信号进⾏测量的基础上，根据⼀定的滤波准则，采⽤某种统计量最优⽅法，对系统的状态进⾏估计的理论和⽅法。讲点的滤波理论包括维纳（Wiener）滤波和卡尔曼（Kalman）滤波。前者使用频域方法，后者使用时域状态空间方法。 相比于Wiener滤波方">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png">
 <meta property="article:published_time" content="2025-06-12T14:50:23.000Z">
@@ -155,233 +155,543 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-12T14:50:23.000Z" title="发表于 2025-06-12 22:50:23">2025-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:05:29.068Z" title="更新于 2025-08-04 23:05:29">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><a href="#Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波" class="headerlink" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"></a>Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</h1><blockquote>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-12T14:50:23.000Z" title="发表于 2025-06-12 22:50:23">2025-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:05:29.068Z" title="更新于 2025-08-04 23:05:29">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="kalman滤波线性卡尔曼滤波扩展卡尔曼滤波无迹卡尔曼滤波">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</h1>
+<blockquote>
 <p>部分公式为使用标准写法。</p>
 </blockquote>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><hr>
+<h2 id="introduction">Introduction</h2>
+<hr />
 <p>滤波是在对系统可观测信号进⾏测量的基础上，根据⼀定的滤波准则，采⽤某种统计量最优⽅法，对系统的状态进⾏估计的理论和⽅法。讲点的滤波理论包括维纳（Wiener）滤波和卡尔曼（Kalman）滤波。前者使用频域方法，后者使用时域状态空间方法。</p>
 <p>相比于Wiener滤波方法，Kalman滤波只基于时域中的量，不仅可以对平稳的一维随机过程进行估计，也可以对非平稳的、多维随机过程进行估计，同时Kalman滤波算法是递推的，便于在计算机上实现实时应用。</p>
 <p>最早Kalman提出的滤波理论只适用于线性系统，此后研究者将其扩展到非线性系统下。其中扩展Kalman滤波（<strong>EKF</strong>）将非线性系统一阶线性化，再利用Kalman滤波。其问题在于线性化过程中产生的误差。无迹Kalman滤波（<strong>UKF</strong>）以UT变换处理均值和协方差的非线性传递，计算经济较高。除此之外，为了提升计算效率，平方根滤波和UD分解滤波也逐渐被提出。，</p>
-<h2 id="线性Kalman滤波"><a href="#线性Kalman滤波" class="headerlink" title="线性Kalman滤波"></a>线性Kalman滤波</h2><hr>
-<h3 id="射影定理"><a href="#射影定理" class="headerlink" title="射影定理"></a>射影定理</h3><hr>
-<p>由$m\times1$维随机向量$\mathbf y \in \mathbb R^ m$的线性函数估计$n\times 1$维的随机变量$\mathbf x \in \mathbb R^n$，记估计值为：</p>
-<script type="math/tex; mode=display">
-\hat{\mathbf{x}}=\mathbf{b}+\mathbf{A} \mathbf{y}, \mathbf{b} \in \mathbb R^n, \mathbf{A} \in \mathbb R^{n \times m}</script><p>设最小化性能指标为$J = \mathrm E((\mathbf x-\hat{\mathbf{x}})^T(\mathbf x-\hat{\mathbf{x}}))$，称$\hat{\mathbf{x}}$为$\mathbf x$的线性最小方差估计。</p>
+<h2 id="线性kalman滤波">线性Kalman滤波</h2>
+<hr />
+<h3 id="射影定理">射影定理</h3>
+<hr />
+<p>由<span class="math inline">\(m\times1\)</span>维随机向量<span
+class="math inline">\(\mathbf y \in \mathbb R^
+m\)</span>的线性函数估计<span class="math inline">\(n\times
+1\)</span>维的随机变量<span class="math inline">\(\mathbf x \in \mathbb
+R^n\)</span>，记估计值为：</p>
+<p><span class="math display">\[
+\hat{\mathbf{x}}=\mathbf{b}+\mathbf{A} \mathbf{y}, \mathbf{b} \in
+\mathbb R^n, \mathbf{A} \in \mathbb R^{n \times m}
+\]</span></p>
+<p>设最小化性能指标为<span class="math inline">\(J = \mathrm E((\mathbf
+x-\hat{\mathbf{x}})^T(\mathbf x-\hat{\mathbf{x}}))\)</span>，称<span
+class="math inline">\(\hat{\mathbf{x}}\)</span>为<span
+class="math inline">\(\mathbf x\)</span>的线性最小方差估计。</p>
 <p>此时，线性最小方差估计的表达式为：</p>
-<script type="math/tex; mode=display">
-\hat{\mathbf x}=\mathrm{E} \mathbf x+\operatorname{Cov}(\mathbf x,\mathbf y) \operatorname{Var}(\mathbf y)^{-1}(y-\mathrm{E}\mathbf y)</script><blockquote>
-<p>证明：<br>对$\mathbf b$求偏导并令其为零：</p>
-<script type="math/tex; mode=display">
-\frac{\partial J}{\partial b}=-2 E[x-A y-b]=0 \quad \Longrightarrow \quad E[x]-A E[y]-b=0</script><p>得：</p>
-<script type="math/tex; mode=display">
-b=E[x]-A E[y]</script><p>对$\mathbf A$求偏导并令其为零：</p>
-<script type="math/tex; mode=display">
-\frac{\partial J}{\partial A}=-2 E\left[(x-A y-b) y^T\right]=0 \quad \Longrightarrow \quad E\left[x y^T\right]-A E\left[y y^T\right]-b E[y]^T=0</script><p>带入$b = E[x]-AE[y]$，同时根据协方差和方差定义：</p>
-<script type="math/tex; mode=display">
- \operatorname{Cov}(x, y)=E\left[x y^T\right]-E[x] E[y]^T, \quad  \operatorname{Var}(y)=E\left[y y^T\right]-E[y] E[y]^T,</script><p>得到：</p>
-<script type="math/tex; mode=display">
- \operatorname{Cov}(x, y)-A\mathrm{Var}(y) = 0\Rightarrow A =\operatorname{Cov}(x, y) \mathrm{Var}(y)^{-1}.</script><p>合并结果得到：</p>
-<script type="math/tex; mode=display">
-\hat{x}=\mathrm{E} x+\operatorname{Cov}(x, y) \operatorname{Var}(y)^{-1}(y-\mathrm{E} y)</script></blockquote>
-<p>估计$\hat x$有以下性质：</p>
+<p><span class="math display">\[
+\hat{\mathbf x}=\mathrm{E} \mathbf x+\operatorname{Cov}(\mathbf
+x,\mathbf y) \operatorname{Var}(\mathbf y)^{-1}(y-\mathrm{E}\mathbf y)
+\]</span></p>
+<blockquote>
+<p>证明： 对<span class="math inline">\(\mathbf
+b\)</span>求偏导并令其为零：</p>
+<p><span class="math display">\[
+\frac{\partial J}{\partial b}=-2 E[x-A y-b]=0 \quad \Longrightarrow
+\quad E[x]-A E[y]-b=0
+\]</span></p>
+<p>得：</p>
+<p><span class="math display">\[
+b=E[x]-A E[y]
+\]</span></p>
+<p>对<span class="math inline">\(\mathbf
+A\)</span>求偏导并令其为零：</p>
+<p><span class="math display">\[
+\frac{\partial J}{\partial A}=-2 E\left[(x-A y-b) y^T\right]=0 \quad
+\Longrightarrow \quad E\left[x y^T\right]-A E\left[y y^T\right]-b
+E[y]^T=0
+\]</span></p>
+<p>带入<span class="math inline">\(b =
+E[x]-AE[y]\)</span>，同时根据协方差和方差定义：</p>
+<p><span class="math display">\[
+\operatorname{Cov}(x, y)=E\left[x y^T\right]-E[x] E[y]^T,
+\quad  \operatorname{Var}(y)=E\left[y y^T\right]-E[y] E[y]^T,
+\]</span></p>
+<p>得到：</p>
+<p><span class="math display">\[
+\operatorname{Cov}(x, y)-A\mathrm{Var}(y) = 0\Rightarrow A
+=\operatorname{Cov}(x, y) \mathrm{Var}(y)^{-1}.
+\]</span></p>
+<p>合并结果得到：</p>
+<p><span class="math display">\[
+\hat{x}=\mathrm{E} x+\operatorname{Cov}(x, y)
+\operatorname{Var}(y)^{-1}(y-\mathrm{E} y)
+\]</span></p>
+</blockquote>
+<p>估计<span class="math inline">\(\hat x\)</span>有以下性质：</p>
 <ul>
-<li>无偏性， $E \hat x = E x$</li>
-<li>正交性，$E((x-\hat x)t^T) = 0$</li>
-<li>$x-\hat x$和$y$是不相关的随机变量，称$x-\hat x$和$y$正交，记作$x-\hat{x} \perp y$。同时称$\hat x$是$x$在$y$上的投影，记作$\hat{x}=\operatorname{proj}(x \mid y)$。</li>
+<li>无偏性， <span class="math inline">\(E \hat x = E x\)</span></li>
+<li>正交性，<span class="math inline">\(E((x-\hat x)t^T) =
+0\)</span></li>
+<li><span class="math inline">\(x-\hat x\)</span>和<span
+class="math inline">\(y\)</span>是不相关的随机变量，称<span
+class="math inline">\(x-\hat x\)</span>和<span
+class="math inline">\(y\)</span>正交，记作<span
+class="math inline">\(x-\hat{x} \perp y\)</span>。同时称<span
+class="math inline">\(\hat x\)</span>是<span
+class="math inline">\(x\)</span>在<span
+class="math inline">\(y\)</span>上的投影，记作<span
+class="math inline">\(\hat{x}=\operatorname{proj}(x \mid
+y)\)</span>。</li>
 </ul>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Kalman%2Fimage.png" alt=""></p>
-<hr>
-<p>给定随机变量组$y(1), y(2), \ldots, y(k) \in \mathbb{R}^m$，他们生成的线性流型（Linear  Manifold）$L(y(1), \ldots, y(k))$定义为：</p>
-<script type="math/tex; mode=display">
-L(w) = L(y(1), \ldots, y(k))=\left\{A_1 y(1)+A_2 y(2)+\cdots+A_k y(k)+b \mid A_i \in \mathbb{R}^{n \times m}, b \in \mathbb{R}^n\right\} .</script><p>此时随机向量$x$的线性最小估计$\hat x$定义为：</p>
-<script type="math/tex; mode=display">
-\hat{x}=\operatorname{proj}(x \mid w) \triangleq \operatorname{proj}(x \mid y(1), y(2), \cdots, y(k))</script><p>称$\hat x$是$x$在线性流型$L(w)$上的投影。</p>
-<hr>
-<p>对于存在二阶矩的随机序列$y(1), y(2), \ldots, y(k) \in \mathbb{R}^m$，定义新息序列${\mathbf{ \varepsilon}(k)}$：</p>
-<script type="math/tex; mode=display">
-\varepsilon(k)=y(k)-\operatorname{proj}(y(k) \mid y(1), y(2), \cdots, y(k-1)), \quad k=1,2, \cdots</script><p>并定义$y(k)$的一组最有预报估值为：</p>
-<script type="math/tex; mode=display">
-\hat{y}(k \mid k-1)=\operatorname{proj}(y(k) \mid y(1), y(2), \cdots, y(k-1))</script><p>将新息序列定义写作：</p>
-<script type="math/tex; mode=display">
-\varepsilon(k)=y(k)-\hat{y}(k \mid k-1), \quad k=1,2, \cdots</script><p>并规定$\hat y(1|0) = E(y(1))$，以保证${\mathbf{ \varepsilon}(1)} = 0$。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Kalman%2Fimage_1.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Kalman%2Fimage.png" /></p>
+<hr />
+<p>给定随机变量组<span class="math inline">\(y(1), y(2), \ldots, y(k)
+\in \mathbb{R}^m\)</span>，他们生成的线性流型（Linear Manifold）<span
+class="math inline">\(L(y(1), \ldots, y(k))\)</span>定义为：</p>
+<p><span class="math display">\[
+L(w) = L(y(1), \ldots, y(k))=\left\{A_1 y(1)+A_2 y(2)+\cdots+A_k y(k)+b
+\mid A_i \in \mathbb{R}^{n \times m}, b \in \mathbb{R}^n\right\} .
+\]</span></p>
+<p>此时随机向量<span class="math inline">\(x\)</span>的线性最小估计<span
+class="math inline">\(\hat x\)</span>定义为：</p>
+<p><span class="math display">\[
+\hat{x}=\operatorname{proj}(x \mid w) \triangleq \operatorname{proj}(x
+\mid y(1), y(2), \cdots, y(k))
+\]</span></p>
+<p>称<span class="math inline">\(\hat x\)</span>是<span
+class="math inline">\(x\)</span>在线性流型<span
+class="math inline">\(L(w)\)</span>上的投影。</p>
+<hr />
+<p>对于存在二阶矩的随机序列<span class="math inline">\(y(1), y(2),
+\ldots, y(k) \in \mathbb{R}^m\)</span>，定义新息序列<span
+class="math inline">\({\mathbf{ \varepsilon}(k)}\)</span>：</p>
+<p><span class="math display">\[
+\varepsilon(k)=y(k)-\operatorname{proj}(y(k) \mid y(1), y(2), \cdots,
+y(k-1)), \quad k=1,2, \cdots
+\]</span></p>
+<p>并定义<span
+class="math inline">\(y(k)\)</span>的一组最有预报估值为：</p>
+<p><span class="math display">\[
+\hat{y}(k \mid k-1)=\operatorname{proj}(y(k) \mid y(1), y(2), \cdots,
+y(k-1))
+\]</span></p>
+<p>将新息序列定义写作：</p>
+<p><span class="math display">\[
+\varepsilon(k)=y(k)-\hat{y}(k \mid k-1), \quad k=1,2, \cdots
+\]</span></p>
+<p>并规定<span class="math inline">\(\hat y(1|0) =
+E(y(1))\)</span>，以保证<span class="math inline">\({\mathbf{
+\varepsilon}(1)} = 0\)</span>。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Kalman%2Fimage_1.png" /></p>
 <p>由此，可以得到推论：</p>
-<script type="math/tex; mode=display">
-\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1), \boldsymbol{y}(2), \cdots, \boldsymbol{y}(k))=\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol \varepsilon(1), \boldsymbol \varepsilon(2), \cdots, \boldsymbol \varepsilon(k))</script><blockquote>
-<p>投影运算仅依赖于目标子空间本身，而与生成它的基底或新息序列无关。因此只要证明子空间$L<em>y=L(y(1), \ldots, y(k))$与$L</em>{\varepsilon}=L(\varepsilon(1), \ldots, \varepsilon(k))$等价即可证明上式。</p>
+<p><span class="math display">\[
+\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1),
+\boldsymbol{y}(2), \cdots,
+\boldsymbol{y}(k))=\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol
+\varepsilon(1), \boldsymbol \varepsilon(2), \cdots, \boldsymbol
+\varepsilon(k))
+\]</span></p>
+<blockquote>
+<p>投影运算仅依赖于目标子空间本身，而与生成它的基底或新息序列无关。因此只要证明子空间<span
+class="math inline">\(L_y=L(y(1), \ldots, y(k))\)</span>与<span
+class="math inline">\(L_{\varepsilon}=L(\varepsilon(1), \ldots,
+\varepsilon(k))\)</span>等价即可证明上式。</p>
 </blockquote>
-<hr>
+<hr />
 <p><strong>递推射影定理</strong></p>
-<p>对于随机变量$\mathbf x\in \mathbb R^n$，随机序列$\mathbf y(1),\mathbf y(2),…,\mathbf y(k)\in \mathbb R^m$，且他们都存在二阶矩，则有递推射影公式：</p>
-<script type="math/tex; mode=display">
+<p>对于随机变量<span class="math inline">\(\mathbf x\in \mathbb
+R^n\)</span>，随机序列<span class="math inline">\(\mathbf y(1),\mathbf
+y(2),...,\mathbf y(k)\in \mathbb
+R^m\)</span>，且他们都存在二阶矩，则有递推射影公式：</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1), \boldsymbol{y}(2), \cdots, \boldsymbol{y}(k))= & \operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1), \boldsymbol{y}(2), \cdots, \boldsymbol{y}(k-1))+ \\
-& \mathrm{E}\left[\boldsymbol{x} \varepsilon^{\mathrm{T}}(k)\right]\left[\mathrm{E}\left(\varepsilon(k) \varepsilon^{\mathrm{T}}(k)\right)\right]^{-1} \varepsilon(k)
-\end{aligned}</script><blockquote>
+\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1),
+\boldsymbol{y}(2), \cdots, \boldsymbol{y}(k))= &amp;
+\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1),
+\boldsymbol{y}(2), \cdots, \boldsymbol{y}(k-1))+ \\
+&amp; \mathrm{E}\left[\boldsymbol{x}
+\varepsilon^{\mathrm{T}}(k)\right]\left[\mathrm{E}\left(\varepsilon(k)
+\varepsilon^{\mathrm{T}}(k)\right)\right]^{-1} \varepsilon(k)
+\end{aligned}
+\]</span></p>
+<blockquote>
 <p>首先应用线性最小方差投影公式：</p>
-<script type="math/tex; mode=display">
-\hat{\mathbf x}=\mathrm{E} \mathbf x+\operatorname{Cov}(\mathbf x,\mathbf \varepsilon) \operatorname{Var}(\mathbf \varepsilon)^{-1}(\varepsilon-\mathrm{E}\mathbf \varepsilon)</script><p>考虑$E\varepsilon = 0$，有：</p>
-<script type="math/tex; mode=display">
- \operatorname{proj}(x \mid \varepsilon)=E[x]+E\left[(x-E[x]) \varepsilon^T\right]\left[E\left[\varepsilon \varepsilon^T\right]\right]^{-1} \varepsilon.</script><p>由于新息之间互相正交，即$E\left[\varepsilon(i) \varepsilon^T(j)\right]=0(i \neq j)$，方差矩阵：</p>
-<script type="math/tex; mode=display">
-E\left[\varepsilon \varepsilon^T\right]=\operatorname{diag}\left\{E\left[\varepsilon(1) \varepsilon^T(1)\right], \ldots, E\left[\varepsilon(k) \varepsilon^T(k)\right]\right\} .</script><p>因而：</p>
-<script type="math/tex; mode=display">
-\operatorname{proj}(x \mid \varepsilon)=E[x]+E\left[x \varepsilon^T\right]\left(E\left[\varepsilon \varepsilon^T\right]\right)^{-1} \varepsilon=E[x]+\sum_{i=1}^k E\left[x \varepsilon^T(i)\right]\left[E\left(\varepsilon(i) \varepsilon^T(i)\right)\right]^{-1} \varepsilon(i) .</script><p>将求和部分拆分出$i = 1,…,k-1$的部分，即为$\operatorname{proj}(\boldsymbol{x} \mid \boldsymbol{y}(1), \boldsymbol{y}(2), \cdots, \boldsymbol{y}(k-1))-E(x)$，即可证明上式。</p>
+<p><span class="math display">\[
+\hat{\mathbf x}=\mathrm{E} \mathbf x+\operatorname{Cov}(\mathbf
+x,\mathbf \varepsilon) \operatorname{Var}(\mathbf
+\varepsilon)^{-1}(\varepsilon-\mathrm{E}\mathbf \varepsilon)
+\]</span></p>
+<p>考虑<span class="math inline">\(E\varepsilon = 0\)</span>，有：</p>
+<p><span class="math display">\[
+\operatorname{proj}(x \mid \varepsilon)=E[x]+E\left[(x-E[x])
+\varepsilon^T\right]\left[E\left[\varepsilon
+\varepsilon^T\right]\right]^{-1} \varepsilon.
+\]</span></p>
+<p>由于新息之间互相正交，即<span
+class="math inline">\(E\left[\varepsilon(i) \varepsilon^T(j)\right]=0(i
+\neq j)\)</span>，方差矩阵：</p>
+<p><span class="math display">\[
+E\left[\varepsilon
+\varepsilon^T\right]=\operatorname{diag}\left\{E\left[\varepsilon(1)
+\varepsilon^T(1)\right], \ldots, E\left[\varepsilon(k)
+\varepsilon^T(k)\right]\right\} .
+\]</span></p>
+<p>因而：</p>
+<p><span class="math display">\[
+\operatorname{proj}(x \mid \varepsilon)=E[x]+E\left[x
+\varepsilon^T\right]\left(E\left[\varepsilon
+\varepsilon^T\right]\right)^{-1} \varepsilon=E[x]+\sum_{i=1}^k E\left[x
+\varepsilon^T(i)\right]\left[E\left(\varepsilon(i)
+\varepsilon^T(i)\right)\right]^{-1} \varepsilon(i) .
+\]</span></p>
+<p>将求和部分拆分出<span class="math inline">\(i =
+1,...,k-1\)</span>的部分，即为<span
+class="math inline">\(\operatorname{proj}(\boldsymbol{x} \mid
+\boldsymbol{y}(1), \boldsymbol{y}(2), \cdots,
+\boldsymbol{y}(k-1))-E(x)\)</span>，即可证明上式。</p>
 </blockquote>
-<h3 id="Kalman滤波器"><a href="#Kalman滤波器" class="headerlink" title="Kalman滤波器"></a>Kalman滤波器</h3><hr>
+<h3 id="kalman滤波器">Kalman滤波器</h3>
+<hr />
 <p>考虑动态系统，包括状态方程和观测方程：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-& \boldsymbol{X}(k+1)=\boldsymbol{\Phi} \boldsymbol{X}(k)+\boldsymbol{\Gamma} \boldsymbol{W}(k) \\
-& \boldsymbol{Y}(k)=\boldsymbol{H} \boldsymbol{X}(k)+\boldsymbol{V}(k)
-\end{aligned}</script><p>称$\Phi$为状态转移举止，$\Gamma$为噪音驱动矩阵，$H$为观测矩阵。$W$为输入的白噪音，$V$为观测噪音。在本节中，$W$和$V$被假设为均值为0，方差分别为$Q$和$R$的不相关白噪音。</p>
-<p>Kalman滤波器的问题是，对于观测信号${Y(1), Y(2), \cdots, Y(k)}$，求状态$X(j)$的线性最小方差估计值$\hat{X}(j \mid k)$。我们已经证明了，问题可以归结为求投影：</p>
-<script type="math/tex; mode=display">
-\hat{X}(j \mid k)=\operatorname{proj}(X(j) \mid Y(1), Y(2), \cdots, Y(k))</script><p>式中，$j$和$k$可以不相等，在本节中仅讨论$j = k$，即常规意义下的kalman滤波器的情况。</p>
+&amp; \boldsymbol{X}(k+1)=\boldsymbol{\Phi}
+\boldsymbol{X}(k)+\boldsymbol{\Gamma} \boldsymbol{W}(k) \\
+&amp; \boldsymbol{Y}(k)=\boldsymbol{H}
+\boldsymbol{X}(k)+\boldsymbol{V}(k)
+\end{aligned}
+\]</span></p>
+<p>称<span class="math inline">\(\Phi\)</span>为状态转移举止，<span
+class="math inline">\(\Gamma\)</span>为噪音驱动矩阵，<span
+class="math inline">\(H\)</span>为观测矩阵。<span
+class="math inline">\(W\)</span>为输入的白噪音，<span
+class="math inline">\(V\)</span>为观测噪音。在本节中，<span
+class="math inline">\(W\)</span>和<span
+class="math inline">\(V\)</span>被假设为均值为0，方差分别为<span
+class="math inline">\(Q\)</span>和<span
+class="math inline">\(R\)</span>的不相关白噪音。</p>
+<p>Kalman滤波器的问题是，对于观测信号<span class="math inline">\(\{Y(1),
+Y(2), \cdots, Y(k)\}\)</span>，求状态<span
+class="math inline">\(X(j)\)</span>的线性最小方差估计值<span
+class="math inline">\(\hat{X}(j \mid
+k)\)</span>。我们已经证明了，问题可以归结为求投影：</p>
+<p><span class="math display">\[
+\hat{X}(j \mid k)=\operatorname{proj}(X(j) \mid Y(1), Y(2), \cdots,
+Y(k))
+\]</span></p>
+<p>式中，<span class="math inline">\(j\)</span>和<span
+class="math inline">\(k\)</span>可以不相等，在本节中仅讨论<span
+class="math inline">\(j =
+k\)</span>，即常规意义下的kalman滤波器的情况。</p>
 <p>根据投射定义得到递推关系：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{gathered}
-\hat{\boldsymbol{X}}(k+1 \mid k+1)=\hat{\boldsymbol{X}}(k+1 \mid k)+\boldsymbol{K}(k+1) \boldsymbol{\varepsilon}(k+1) \\
-\boldsymbol{K}(k+1)=\mathrm{E}\left[\boldsymbol{X}(k+1) \boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right]\left\{\mathrm{E} \boldsymbol{\varepsilon}(k+1) \boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right\}^{-1}
-\end{gathered}</script><p>其中$K(k+1)$被称为Kalman滤波器增益。</p>
-<hr>
+\hat{\boldsymbol{X}}(k+1 \mid k+1)=\hat{\boldsymbol{X}}(k+1 \mid
+k)+\boldsymbol{K}(k+1) \boldsymbol{\varepsilon}(k+1) \\
+\boldsymbol{K}(k+1)=\mathrm{E}\left[\boldsymbol{X}(k+1)
+\boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right]\left\{\mathrm{E}
+\boldsymbol{\varepsilon}(k+1)
+\boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right\}^{-1}
+\end{gathered}
+\]</span></p>
+<p>其中<span
+class="math inline">\(K(k+1)\)</span>被称为Kalman滤波器增益。</p>
+<hr />
 <p>递推Kalman滤波器建模如下：</p>
 <ul>
-<li>状态一部预测：$\hat{\boldsymbol X}(k+1 \mid k)=\Phi \hat{\boldsymbol X}(k \mid k)$</li>
+<li><p>状态一部预测：<span class="math inline">\(\hat{\boldsymbol X}(k+1
+\mid k)=\Phi \hat{\boldsymbol X}(k \mid k)\)</span></p></li>
 <li><p>状态更新：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
   \begin{gathered}
-  \hat{\boldsymbol{X}}(k+1 \mid k+1)=\hat{\boldsymbol{X}}(k+1 \mid k)+\boldsymbol{K}(k+1) \varepsilon(k+1) \\
-  \varepsilon(k+1)=\boldsymbol{Y}(k+1)-\boldsymbol{H} \hat{\boldsymbol{X}}(k+1 \mid k)
-  \end{gathered}</script></li>
-<li><p>滤波增益矩阵：$\boldsymbol{K}(k+1)=\boldsymbol{P}(k+1 \mid k) \boldsymbol{H}^{\mathrm{T}}\left[\boldsymbol{H P}(k+1 \mid k) \boldsymbol{H}^{\mathrm{T}}+\boldsymbol{R}\right]^{-1}$</p>
-</li>
-<li>一步预测协方差阵：$\boldsymbol{P}(k+1 \mid k)=\boldsymbol{\Phi} \boldsymbol{P}(k \mid k) \boldsymbol{\Phi}^{\mathrm{T}}+\boldsymbol{\Gamma} \boldsymbol{Q} \boldsymbol{\Gamma}^{\mathrm{T}}$</li>
-<li>协方差阵更新：$\begin{gathered}\boldsymbol{P}(k+1 \mid k+1)=\left[\boldsymbol{I}_n-\boldsymbol{K}(k+1) \boldsymbol{H}\right] \boldsymbol{P}(k+1 \mid k)\end{gathered}$</li>
-<li>$\hat{\boldsymbol{X}}(0 \mid 0)=\boldsymbol{\mu}_0, \boldsymbol{P}(0 \mid 0)=\boldsymbol{P}_0$</li>
+  \hat{\boldsymbol{X}}(k+1 \mid k+1)=\hat{\boldsymbol{X}}(k+1 \mid
+k)+\boldsymbol{K}(k+1) \varepsilon(k+1) \\
+  \varepsilon(k+1)=\boldsymbol{Y}(k+1)-\boldsymbol{H}
+\hat{\boldsymbol{X}}(k+1 \mid k)
+  \end{gathered}
+  \]</span></p></li>
+<li><p>滤波增益矩阵：<span
+class="math inline">\(\boldsymbol{K}(k+1)=\boldsymbol{P}(k+1 \mid k)
+\boldsymbol{H}^{\mathrm{T}}\left[\boldsymbol{H P}(k+1 \mid k)
+\boldsymbol{H}^{\mathrm{T}}+\boldsymbol{R}\right]^{-1}\)</span></p></li>
+<li><p>一步预测协方差阵：<span class="math inline">\(\boldsymbol{P}(k+1
+\mid k)=\boldsymbol{\Phi} \boldsymbol{P}(k \mid k)
+\boldsymbol{\Phi}^{\mathrm{T}}+\boldsymbol{\Gamma} \boldsymbol{Q}
+\boldsymbol{\Gamma}^{\mathrm{T}}\)</span></p></li>
+<li><p>协方差阵更新：<span
+class="math inline">\(\begin{gathered}\boldsymbol{P}(k+1 \mid
+k+1)=\left[\boldsymbol{I}_n-\boldsymbol{K}(k+1) \boldsymbol{H}\right]
+\boldsymbol{P}(k+1 \mid k)\end{gathered}\)</span></p></li>
+<li><p><span class="math inline">\(\hat{\boldsymbol{X}}(0 \mid
+0)=\boldsymbol{\mu}_0, \boldsymbol{P}(0 \mid
+0)=\boldsymbol{P}_0\)</span></p></li>
 </ul>
 <p>证明如下：</p>
 <blockquote>
 <p>对状态方程两边取投影得到：</p>
-<script type="math/tex; mode=display">
-\hat{X}(k+1 \mid k)=\Phi \hat{X}(k \mid k)+\Gamma \operatorname{proj}(W(t) \mid Y(1), Y(2), \cdots, Y(k))</script><p>由状态方程迭代可得：</p>
-<script type="math/tex; mode=display">
-X(k) \in L(W(k-1), \cdots, W(0), X(0))</script><p>结合观察方程：</p>
-<script type="math/tex; mode=display">
-Y(k) \in L(V(k), W(k-1), \cdots, W(0), X(0))</script><p>从而得到：</p>
-<script type="math/tex; mode=display">
-L(Y(1), \cdots, Y(k)) \subset L(V(k), \cdots, V(1), W(k-1), \cdots, W(0), X(0))</script><p>根据假设，$W(k)$与集合${X(0), W(0), \ldots, W(k-1), V(1), \ldots, V(k)}$每一个向量都保持正交关系。</p>
-<p>根据子空间正交推论：若$u$和向量组$\left{v_1, \ldots, v_m\right}$均两两正交，则$u$与向量组线性生成空间$span{v_1,\ldots,v_m}$中的任意向量也正交。</p>
+<p><span class="math display">\[
+\hat{X}(k+1 \mid k)=\Phi \hat{X}(k \mid k)+\Gamma
+\operatorname{proj}(W(t) \mid Y(1), Y(2), \cdots, Y(k))
+\]</span></p>
+<p>由状态方程迭代可得：</p>
+<p><span class="math display">\[
+X(k) \in L(W(k-1), \cdots, W(0), X(0))
+\]</span></p>
+<p>结合观察方程：</p>
+<p><span class="math display">\[
+Y(k) \in L(V(k), W(k-1), \cdots, W(0), X(0))
+\]</span></p>
+<p>从而得到：</p>
+<p><span class="math display">\[
+L(Y(1), \cdots, Y(k)) \subset L(V(k), \cdots, V(1), W(k-1), \cdots,
+W(0), X(0))
+\]</span></p>
+<p>根据假设，<span class="math inline">\(W(k)\)</span>与集合<span
+class="math inline">\(\{X(0), W(0), \ldots, W(k-1), V(1), \ldots,
+V(k)\}\)</span>每一个向量都保持正交关系。</p>
+<p>根据子空间正交推论：若<span
+class="math inline">\(u\)</span>和向量组<span
+class="math inline">\(\left\{v_1, \ldots,
+v_m\right\}\)</span>均两两正交，则<span
+class="math inline">\(u\)</span>与向量组线性生成空间<span
+class="math inline">\(span\{v_1,\ldots,v_m\}\)</span>中的任意向量也正交。</p>
 <p>因而：</p>
-<script type="math/tex; mode=display">
-W(k) \perp L(Y(1), \ldots, Y(k)) \Rightarrow cov(W,Y) = 0.</script><p>根据以上推论结论，以及$EW(k) =0$的假设，有：</p>
-<script type="math/tex; mode=display">
-\operatorname{proj}(W(k+1) \mid Y(1), Y(2), \cdots, Y(k))=0</script><p>故：</p>
-<script type="math/tex; mode=display">
-\hat{X}(k+1 \mid k)=\Phi \hat{X}(k \mid k)</script><p>同理根据观测方程，有：</p>
-<script type="math/tex; mode=display">
-\hat{Y}(k+1 \mid k)=H\hat{X}(k+1 \mid k)</script><p>引出新息表达式：</p>
-<script type="math/tex; mode=display">
-\varepsilon(k+1)=Y(k+1)-\hat{Y}(k+1 \mid k)</script><hr>
+<p><span class="math display">\[
+W(k) \perp L(Y(1), \ldots, Y(k)) \Rightarrow cov(W,Y) = 0.
+\]</span></p>
+<p>根据以上推论结论，以及<span class="math inline">\(EW(k)
+=0\)</span>的假设，有：</p>
+<p><span class="math display">\[
+\operatorname{proj}(W(k+1) \mid Y(1), Y(2), \cdots, Y(k))=0
+\]</span></p>
+<p>故：</p>
+<p><span class="math display">\[
+\hat{X}(k+1 \mid k)=\Phi \hat{X}(k \mid k)
+\]</span></p>
+<p>同理根据观测方程，有：</p>
+<p><span class="math display">\[
+\hat{Y}(k+1 \mid k)=H\hat{X}(k+1 \mid k)
+\]</span></p>
+<p>引出新息表达式：</p>
+<p><span class="math display">\[
+\varepsilon(k+1)=Y(k+1)-\hat{Y}(k+1 \mid k)
+\]</span></p>
+<hr />
 <p>记误差和方差阵：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \tilde{X}(j \mid k)=X(j)-\hat{X}(j \mid k)\\
-P(j|k) = E[\tilde X(j|k)\tilde X^T(j|k)]</script><p>由此可以写出根据此类定义得到的新的控制方程和观察方程：</p>
-<script type="math/tex; mode=display">
+P(j|k) = E[\tilde X(j|k)\tilde X^T(j|k)]
+\]</span></p>
+<p>由此可以写出根据此类定义得到的新的控制方程和观察方程：</p>
+<p><span class="math display">\[
 \tilde X(k+1|k) = \Phi\tilde X(k|k)+\Gamma W(k)\\
-\varepsilon (k+1) = H\tilde X(k+1|k)+V(k+1)</script><p>以及新的递推关系：</p>
-<script type="math/tex; mode=display">
-\tilde X(k+1|k+1) = \tilde X(k+1|k)-K(k+1)\varepsilon(k+1)</script><p>将新的观察方程带入递归关系：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\tilde X(k+1|k+1) &= \tilde X(k+1|k)-K(k+1)(H\tilde X(k+1|k)+V(k+1))\\& = (I_n-K(k+1)H)\tilde X(k+1|K)-K(k+1)V(k+1)\end{aligned}</script><hr>
+\varepsilon (k+1) = H\tilde X(k+1|k)+V(k+1)
+\]</span></p>
+<p>以及新的递推关系：</p>
+<p><span class="math display">\[
+\tilde X(k+1|k+1) = \tilde X(k+1|k)-K(k+1)\varepsilon(k+1)
+\]</span></p>
+<p>将新的观察方程带入递归关系：</p>
+<p><span class="math display">\[
+\begin{aligned}\tilde X(k+1|k+1) &amp;= \tilde X(k+1|k)-K(k+1)(H\tilde
+X(k+1|k)+V(k+1))\\&amp; = (I_n-K(k+1)H)\tilde
+X(k+1|K)-K(k+1)V(k+1)\end{aligned}
+\]</span></p>
+<hr />
 <p>同样根据控制方程，可以得到：</p>
-<script type="math/tex; mode=display">
-\tilde X(k|k) \in L(W(k-1), \cdots, W(0), \tilde X(0|k))\in L(W(k-1), \cdots, W(0),V(k-1), \cdots, V(0),  X(0))</script><p>因而有$W(k)\perp\tilde X(k|k)$，即$E(W(k)\tilde X^T(k|k)) = 0$。根据控制方程：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}P(k+1|k) &= E[\tilde X(k+1|k)\tilde X^T(k+1|k)] \\&= E[\Phi \tilde X(k|k) \tilde X^T(k|k)\Phi^T+\Gamma W(k)W^T(k)\Gamma^T] \\&= \Phi P(k|k)\Phi^T+\Gamma Q\Gamma^T\end{aligned}</script><p>考虑$V(k+1)\perp\tilde X(k+1|k)$，$E[V(k+1)\tilde X^T(k+1|k)] =0$。根据观察方程有：</p>
-<script type="math/tex; mode=display">
-\mathrm{E}\left[\varepsilon(k+1) \varepsilon^{\mathrm{T}}(k+1)\right]=H P(k+1 \mid k) H^{\mathrm{T}}+R</script><p>根据递推关系有：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\tilde X(k|k) \in L(W(k-1), \cdots, W(0), \tilde X(0|k))\in L(W(k-1),
+\cdots, W(0),V(k-1), \cdots, V(0),  X(0))
+\]</span></p>
+<p>因而有<span class="math inline">\(W(k)\perp\tilde
+X(k|k)\)</span>，即<span class="math inline">\(E(W(k)\tilde X^T(k|k)) =
+0\)</span>。根据控制方程：</p>
+<p><span class="math display">\[
+\begin{aligned}P(k+1|k) &amp;= E[\tilde X(k+1|k)\tilde X^T(k+1|k)]
+\\&amp;= E[\Phi \tilde X(k|k) \tilde X^T(k|k)\Phi^T+\Gamma
+W(k)W^T(k)\Gamma^T] \\&amp;= \Phi P(k|k)\Phi^T+\Gamma
+Q\Gamma^T\end{aligned}
+\]</span></p>
+<p>考虑<span class="math inline">\(V(k+1)\perp\tilde
+X(k+1|k)\)</span>，<span class="math inline">\(E[V(k+1)\tilde
+X^T(k+1|k)] =0\)</span>。根据观察方程有：</p>
+<p><span class="math display">\[
+\mathrm{E}\left[\varepsilon(k+1) \varepsilon^{\mathrm{T}}(k+1)\right]=H
+P(k+1 \mid k) H^{\mathrm{T}}+R
+\]</span></p>
+<p>根据递推关系有：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& P(k+1 \mid k+1)=\mathrm{E}\left[\varepsilon(k+1) \varepsilon^{\mathrm{T}}(k+1)\right] \\
-& =\left[I_n-K(k+1) H\right] P(k+1 \mid k)\left[I_n-K(t+1) H\right]^{\mathrm{T}}+K(k+1) R H^{\mathrm{T}}(k+1)\\& = [I_n-K(k+1)H]P(k+1|k)
-\end{aligned}</script><hr>
-<p>接下来，求增益$K(k+1)$。首先计算$\mathrm{E}\left[X(k+1) \varepsilon^{\mathrm{T}}(k+1)\right]$ 。展开后充分考虑正交关系，得：</p>
-<script type="math/tex; mode=display">
-E[X(k+1)\varepsilon^T(k+1)] = P(k+1|k)H^T</script><p>根据$K(k+1)=\mathrm{E}\left[X(k+1) \boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right]\left{\mathrm{E}[ \boldsymbol{\varepsilon}(k+1) \boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right]}^{-1}$，有：</p>
-<script type="math/tex; mode=display">
-K(k+1) = P(k+1|k)H^T(HP(k+1|k)H^T+R)^{-1}</script></blockquote>
-<hr>
+&amp; P(k+1 \mid k+1)=\mathrm{E}\left[\varepsilon(k+1)
+\varepsilon^{\mathrm{T}}(k+1)\right] \\
+&amp; =\left[I_n-K(k+1) H\right] P(k+1 \mid k)\left[I_n-K(t+1)
+H\right]^{\mathrm{T}}+K(k+1) R H^{\mathrm{T}}(k+1)\\&amp; =
+[I_n-K(k+1)H]P(k+1|k)
+\end{aligned}
+\]</span></p>
+<hr />
+<p>接下来，求增益<span
+class="math inline">\(K(k+1)\)</span>。首先计算<span
+class="math inline">\(\mathrm{E}\left[X(k+1)
+\varepsilon^{\mathrm{T}}(k+1)\right]\)</span>
+。展开后充分考虑正交关系，得：</p>
+<p><span class="math display">\[
+E[X(k+1)\varepsilon^T(k+1)] = P(k+1|k)H^T
+\]</span></p>
+<p>根据<span class="math inline">\(K(k+1)=\mathrm{E}\left[X(k+1)
+\boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right]\left\{\mathrm{E}[
+\boldsymbol{\varepsilon}(k+1)
+\boldsymbol{\varepsilon}^{\mathrm{T}}(k+1)\right]\}^{-1}\)</span>，有：</p>
+<p><span class="math display">\[
+K(k+1) = P(k+1|k)H^T(HP(k+1|k)H^T+R)^{-1}
+\]</span></p>
+</blockquote>
+<hr />
 <p><strong>Kalman滤波器的参数设置</strong></p>
-<p>再假设中，$W$和$V$被假设为高斯白噪声，且方差为$Q$和$R$。实际情况下，通常需要根据数据情况和传感器测量精度来确定噪音。</p>
-<p>系统的$A$、$H$通常要求使用建模方式去欸的那个。由于Kalman滤波要求系统为线性系统，这两项理论上来说是不变的。在这种情况下一般使用自适应滤波。</p>
+<p>再假设中，<span class="math inline">\(W\)</span>和<span
+class="math inline">\(V\)</span>被假设为高斯白噪声，且方差为<span
+class="math inline">\(Q\)</span>和<span
+class="math inline">\(R\)</span>。实际情况下，通常需要根据数据情况和传感器测量精度来确定噪音。</p>
+<p>系统的<span class="math inline">\(A\)</span>、<span
+class="math inline">\(H\)</span>通常要求使用建模方式去欸的那个。由于Kalman滤波要求系统为线性系统，这两项理论上来说是不变的。在这种情况下一般使用自适应滤波。</p>
 <p>假设系统噪音为有色噪音，例如线性有色噪音：</p>
-<script type="math/tex; mode=display">
-W(k) = \Pi W(k-1)+\xi(k-1)</script><p>可以直接对状态增广，与$X$一起处理。这些处理方法在之前的动态系统中都已经记录过此处不再赘述。</p>
-<h2 id="非线性Kalman滤波"><a href="#非线性Kalman滤波" class="headerlink" title="非线性Kalman滤波"></a>非线性Kalman滤波</h2><hr>
-<h3 id="扩展Kalman滤波器-EKF"><a href="#扩展Kalman滤波器-EKF" class="headerlink" title="扩展Kalman滤波器 EKF"></a>扩展Kalman滤波器 EKF</h3><hr>
+<p><span class="math display">\[
+W(k) = \Pi W(k-1)+\xi(k-1)
+\]</span></p>
+<p>可以直接对状态增广，与<span
+class="math inline">\(X\)</span>一起处理。这些处理方法在之前的动态系统中都已经记录过此处不再赘述。</p>
+<h2 id="非线性kalman滤波">非线性Kalman滤波</h2>
+<hr />
+<h3 id="扩展kalman滤波器-ekf">扩展Kalman滤波器 EKF</h3>
+<hr />
 <p>前述，Kalman滤波器只能处理线性问题。如在动态系统笔记中所述，对于非线性系统，最常用的处理方法就是利用线性化技巧将其转化近似线性的问题。扩展Kalman滤波正式基于这种原理。其线性化方法与动态系统中所述相同，都是将非线性函数展开并忽略二次以上的项，从而在稳定点周围形成线性化模型，再应用Kalman滤波处理。</p>
 <p>这一部分没有什么新的原理，结合上一节内容以及动态系统相关笔记处理即可。</p>
-<h3 id="无迹Kalman滤波-UKF"><a href="#无迹Kalman滤波-UKF" class="headerlink" title="无迹Kalman滤波 UKF"></a>无迹Kalman滤波 UKF</h3><hr>
+<h3 id="无迹kalman滤波-ukf">无迹Kalman滤波 UKF</h3>
+<hr />
 <p>无迹Kalman滤波（UKF）使用无迹变换（UT）来处理均值和协方差的非线性传递问题。其原理是对非线性函数的概率密度分布进行近似，不依赖于雅可比矩阵，也没有将高次项忽略，因此有较高的稳定性和估计精度。</p>
-<hr>
+<hr />
 <p><strong>无迹变换 UT</strong></p>
 <p>UT变换的方法是在原分布中按规则选取一些采样点，使得这些采样点的均值和协方差等于原分布的均值和协方差。将这些点带入非线性系统，得到相应的非线性函数值点集，并通过点集求出变换后的均值和协方差。</p>
-<p>设一个非线性变换$y = f(x)$，已知其均值$\bar x$和方差$P$，则可通过以下$UT$变换得到$2n+1$个Sigma点$X$和相应的权重$\omega$来计算$y$的统计特征，$n$是状态$x$的维度：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}\boldsymbol{X}^{(0)}=\overline{\boldsymbol{X}}, i=0 \\\boldsymbol{X}^{(i)}=\overline{\boldsymbol{X}}+(\sqrt{(n+\lambda) \boldsymbol{P}})_i, i=1 \sim n \\\boldsymbol{X}^{(i)}=\overline{\boldsymbol{X}}-(\sqrt{(n+\lambda) \boldsymbol{P}})_i, i=n+1 \sim 2 n\end{array}\right.</script><p>其中$(\sqrt{\boldsymbol{P}})^{\mathrm{T}}(\sqrt{\boldsymbol{P}})=\boldsymbol{P}$，角标$(\sqrt{\boldsymbol{P}})_i$表示矩阵方根的第$i$列。其中</p>
-<p>然后计算采样点的权重，下表$m$和$c$分别为均值的权重和方差的权重：</p>
-<script type="math/tex; mode=display">
+<p>设一个非线性变换<span class="math inline">\(y =
+f(x)\)</span>，已知其均值<span class="math inline">\(\bar
+x\)</span>和方差<span
+class="math inline">\(P\)</span>，则可通过以下<span
+class="math inline">\(UT\)</span>变换得到<span
+class="math inline">\(2n+1\)</span>个Sigma点<span
+class="math inline">\(X\)</span>和相应的权重<span
+class="math inline">\(\omega\)</span>来计算<span
+class="math inline">\(y\)</span>的统计特征，<span
+class="math inline">\(n\)</span>是状态<span
+class="math inline">\(x\)</span>的维度：</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}\boldsymbol{X}^{(0)}=\overline{\boldsymbol{X}},
+i=0 \\\boldsymbol{X}^{(i)}=\overline{\boldsymbol{X}}+(\sqrt{(n+\lambda)
+\boldsymbol{P}})_i, i=1 \sim n
+\\\boldsymbol{X}^{(i)}=\overline{\boldsymbol{X}}-(\sqrt{(n+\lambda)
+\boldsymbol{P}})_i, i=n+1 \sim 2 n\end{array}\right.
+\]</span></p>
+<p>其中<span
+class="math inline">\((\sqrt{\boldsymbol{P}})^{\mathrm{T}}(\sqrt{\boldsymbol{P}})=\boldsymbol{P}\)</span>，角标<span
+class="math inline">\((\sqrt{\boldsymbol{P}})_i\)</span>表示矩阵方根的第<span
+class="math inline">\(i\)</span>列。其中</p>
+<p>然后计算采样点的权重，下表<span
+class="math inline">\(m\)</span>和<span
+class="math inline">\(c\)</span>分别为均值的权重和方差的权重：</p>
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 \omega_{\mathrm{m}}^{(0)}=\frac{\lambda}{n+\lambda} \\
-\omega_{\mathrm{c}}^{(0)}=\frac{\lambda}{n+\lambda}+\left(1-a^2+\beta\right) \\
-\omega_{\mathrm{m}}^{(i)}=\omega_{\mathrm{c}}^{(i)}=\frac{\lambda}{2(n+\lambda)}, i=1 \sim 2 n
-\end{array}\right.</script><p>在上两个式子中，参数$\lambda=a^2(n+\kappa)-n$是比例缩放参数，用来降低预测误差。$a$用来控制采样点的分布状态。在选取时，矩阵$(n+\lambda)P$必须是一个半正定矩阵。</p>
+\omega_{\mathrm{c}}^{(0)}=\frac{\lambda}{n+\lambda}+\left(1-a^2+\beta\right)
+\\
+\omega_{\mathrm{m}}^{(i)}=\omega_{\mathrm{c}}^{(i)}=\frac{\lambda}{2(n+\lambda)},
+i=1 \sim 2 n
+\end{array}\right.
+\]</span></p>
+<p>在上两个式子中，参数<span
+class="math inline">\(\lambda=a^2(n+\kappa)-n\)</span>是比例缩放参数，用来降低预测误差。<span
+class="math inline">\(a\)</span>用来控制采样点的分布状态。在选取时，矩阵<span
+class="math inline">\((n+\lambda)P\)</span>必须是一个半正定矩阵。</p>
 <p>点集具备以下性质：</p>
 <ul>
 <li>Sigma点集与样本的均值和方差相同</li>
 <li>任何正态分布的Sigma点集都由标准正态分布的Sigma点集变换而来。</li>
 </ul>
-<hr>
+<hr />
 <p><strong>无迹Kalman滤波</strong></p>
 <p>假设非线性系统有下式描述：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 X(k+1)=f(x(k), W(k)) \\
 Z(k)=h(x(k), V(k))
-\end{array}\right.</script><p>其余假设与线性Kalman滤波的假设相同。无迹Kalman滤波的基本算法：</p>
+\end{array}\right.
+\]</span></p>
+<p>其余假设与线性Kalman滤波的假设相同。无迹Kalman滤波的基本算法：</p>
 <ul>
-<li>根据UT变换获得Sigma点集及其对应权值：$\boldsymbol{X}^{(i)}(k \mid k)$</li>
+<li><p>根据UT变换获得Sigma点集及其对应权值：<span
+class="math inline">\(\boldsymbol{X}^{(i)}(k \mid k)\)</span></p></li>
 <li><p>计算Sigma点集的一步预测</p>
-<script type="math/tex; mode=display">
-  \boldsymbol{X}^{(i)}(k+1 \mid k)=f\left[k, \boldsymbol{X}^{(i)}(k \mid k)\right]</script></li>
+<p><span class="math display">\[
+  \boldsymbol{X}^{(i)}(k+1 \mid k)=f\left[k, \boldsymbol{X}^{(i)}(k \mid
+k)\right]
+  \]</span></p></li>
 <li><p>根据Sigma点集的预测值加权计算状态量的一步预测和协方差矩阵：</p>
-<script type="math/tex; mode=display">
-  \begin{gathered}\hat{\boldsymbol{X}}(k+1 \mid k)=\sum_{i=0}^{2 n} \omega^{(i)} \boldsymbol{X}^{(i)}(k+1 \mid k) \\\boldsymbol{P}(k+1 \mid k)=\sum_{i=0}^{2 n} \omega^{(i)}\left[\hat{\boldsymbol{X}}(k+1 \mid k)-\boldsymbol{X}^{(i)}(k+1 \mid k)\right]\left[\hat{\boldsymbol{X}}(k+1 \mid k)-\boldsymbol{X}^{(i)}(k+1 \mid k)\right]^{\top}+\boldsymbol{Q}\end{gathered}</script></li>
-<li><p>根据一步预测值，在使用$UT$变换得到新的Sigma点集：$X^{(i)}(k+1 \mid k)$</p>
-</li>
-<li>将预测的Sigma点集带入观测方程，得到Sigma点集的预测观测量：</li>
+<p><span class="math display">\[
+  \begin{gathered}\hat{\boldsymbol{X}}(k+1 \mid k)=\sum_{i=0}^{2 n}
+\omega^{(i)} \boldsymbol{X}^{(i)}(k+1 \mid k) \\\boldsymbol{P}(k+1 \mid
+k)=\sum_{i=0}^{2 n} \omega^{(i)}\left[\hat{\boldsymbol{X}}(k+1 \mid
+k)-\boldsymbol{X}^{(i)}(k+1 \mid k)\right]\left[\hat{\boldsymbol{X}}(k+1
+\mid k)-\boldsymbol{X}^{(i)}(k+1 \mid
+k)\right]^{\top}+\boldsymbol{Q}\end{gathered}
+  \]</span></p></li>
+<li><p>根据一步预测值，在使用<span
+class="math inline">\(UT\)</span>变换得到新的Sigma点集：<span
+class="math inline">\(X^{(i)}(k+1 \mid k)\)</span></p></li>
+<li><p>将预测的Sigma点集带入观测方程，得到Sigma点集的预测观测量：</p></li>
 </ul>
-<script type="math/tex; mode=display">
-\boldsymbol{Z}^{(i)}(k+1 \mid k)=\boldsymbol{h}\left[\boldsymbol{X}^{(i)}(k+1 \mid k)\right]</script><ul>
+<p><span class="math display">\[
+\boldsymbol{Z}^{(i)}(k+1 \mid
+k)=\boldsymbol{h}\left[\boldsymbol{X}^{(i)}(k+1 \mid k)\right]
+\]</span></p>
+<ul>
 <li>再加权计算系统预测观测值的均值和协方差：</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{gathered}\overline{\boldsymbol{Z}}(k+1 \mid k)=\sum_{i=0}^{2 n} \omega^{(i)} \boldsymbol{Z}^{(i)}(k+1 \mid k) \\\left.\left.\boldsymbol{P}_{z_k, z_k}=\sum_{i=0}^{2 n} \omega^{(i)}\left[\boldsymbol{Z}^{(i)}(k+1 \mid k)-\overline{\boldsymbol{Z}}^* k+1 \mid k\right)\right]\left[\boldsymbol{Z}^{(i)}(k+1 \mid k)-\overline{\boldsymbol{Z}}^* k+1 \mid k\right)\right]^{\mathrm{T}}+R \\\boldsymbol{P}_{x_k, z_k}=\sum_{i=0}^{2 n} \omega^{(i)}\left[\boldsymbol{X}^{(i)}(k+1 \mid k)-\overline{\boldsymbol{Z}}(k+1 \mid k)\right]\left[\boldsymbol{Z}^{(i)}(k+1 \mid k)-\overline{\boldsymbol{Z}}(k+1 \mid k)\right]^{\mathrm{T}}\end{gathered}</script><ul>
+<p><span class="math display">\[
+\begin{gathered}\overline{\boldsymbol{Z}}(k+1 \mid k)=\sum_{i=0}^{2 n}
+\omega^{(i)} \boldsymbol{Z}^{(i)}(k+1 \mid k)
+\\\left.\left.\boldsymbol{P}_{z_k, z_k}=\sum_{i=0}^{2 n}
+\omega^{(i)}\left[\boldsymbol{Z}^{(i)}(k+1 \mid
+k)-\overline{\boldsymbol{Z}}^* k+1 \mid
+k\right)\right]\left[\boldsymbol{Z}^{(i)}(k+1 \mid
+k)-\overline{\boldsymbol{Z}}^* k+1 \mid k\right)\right]^{\mathrm{T}}+R
+\\\boldsymbol{P}_{x_k, z_k}=\sum_{i=0}^{2 n}
+\omega^{(i)}\left[\boldsymbol{X}^{(i)}(k+1 \mid
+k)-\overline{\boldsymbol{Z}}(k+1 \mid
+k)\right]\left[\boldsymbol{Z}^{(i)}(k+1 \mid
+k)-\overline{\boldsymbol{Z}}(k+1 \mid
+k)\right]^{\mathrm{T}}\end{gathered}
+\]</span></p>
+<ul>
 <li>计算Kalman增益矩阵</li>
 </ul>
-<script type="math/tex; mode=display">
-\boldsymbol{K}(k+1)=\boldsymbol{P}_{x_i z_i} \boldsymbol{P}_{z_i z_i}^{-1}</script><ul>
+<p><span class="math display">\[
+\boldsymbol{K}(k+1)=\boldsymbol{P}_{x_i z_i} \boldsymbol{P}_{z_i
+z_i}^{-1}
+\]</span></p>
+<ul>
 <li>最后，计算系统状态更新和协方差更新：</li>
 </ul>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{gathered}
-\hat{\boldsymbol{X}}(k+1 \mid k+1)=\hat{\boldsymbol{X}}(k+1 \mid k)+\boldsymbol{K}(k+1)[\boldsymbol{Z}(k+1)-\hat{\boldsymbol{Z}}(k+1 \mid k)] \\
-\boldsymbol{P}(k+1 \mid k+1)=\boldsymbol{P}(k+1 \mid k)-\boldsymbol{K}(k+1) \boldsymbol{P}_{z_k z_k} \boldsymbol{K}^{\mathrm{T}}(k+1)
-\end{gathered}</script><p>由此可以看出，无迹Kalman滤波使用统计估计近似得到状态概率密度函数，其实质是一种统计近似，而非解。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><hr>
-<p>黄小平, 王岩. <em>卡尔曼滤波原理及应用: MATLAB仿真</em>［M］. 北京: 电子工业出版社, 2015.</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/06/12/RH-Kalman/">http://raphaelhyaan.cn/2025/06/12/RH-Kalman/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%8E%A7%E5%88%B6/">控制</a><a class="post-meta__tags" href="/tags/Kalman%E6%BB%A4%E6%B3%A2/">Kalman滤波</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NMF及语音分离</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/04/21/eles-1/" title="Amplification 放大器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-21</div><div class="title">Amplification 放大器</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">FastMNMF及改进</div></div></a></div><div><a href="/2025/04/25/eles-3/" title="Génération de signaux 信号发生器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-25</div><div class="title">Génération de signaux 信号发生器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kalman%E6%BB%A4%E6%B3%A2%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%EF%BC%8C%E6%89%A9%E5%B1%95%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%EF%BC%8C%E6%97%A0%E8%BF%B9%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.</span> <span class="toc-text">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7Kalman%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.2.</span> <span class="toc-text">线性Kalman滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%84%E5%BD%B1%E5%AE%9A%E7%90%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">射影定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kalman%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">Kalman滤波器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7Kalman%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.3.</span> <span class="toc-text">非线性Kalman滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95Kalman%E6%BB%A4%E6%B3%A2%E5%99%A8-EKF"><span class="toc-number">1.3.1.</span> <span class="toc-text">扩展Kalman滤波器 EKF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E8%BF%B9Kalman%E6%BB%A4%E6%B3%A2-UKF"><span class="toc-number">1.3.2.</span> <span class="toc-text">无迹Kalman滤波 UKF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.3.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/14/rishmangement/" title="风险管理"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="风险管理"/></a><div class="content"><a class="title" href="/2025/11/14/rishmangement/" title="风险管理">风险管理</a><time datetime="2025-11-14T05:52:50.000Z" title="发表于 2025-11-14 13:52:50">2025-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+\hat{\boldsymbol{X}}(k+1 \mid k+1)=\hat{\boldsymbol{X}}(k+1 \mid
+k)+\boldsymbol{K}(k+1)[\boldsymbol{Z}(k+1)-\hat{\boldsymbol{Z}}(k+1 \mid
+k)] \\
+\boldsymbol{P}(k+1 \mid k+1)=\boldsymbol{P}(k+1 \mid
+k)-\boldsymbol{K}(k+1) \boldsymbol{P}_{z_k z_k}
+\boldsymbol{K}^{\mathrm{T}}(k+1)
+\end{gathered}
+\]</span></p>
+<p>由此可以看出，无迹Kalman滤波使用统计估计近似得到状态概率密度函数，其实质是一种统计近似，而非解。</p>
+<h3 id="参考">参考</h3>
+<hr />
+<p>黄小平, 王岩. <em>卡尔曼滤波原理及应用: MATLAB仿真</em>［M］. 北京:
+电子工业出版社, 2015.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/06/12/RH-Kalman/">http://raphaelhyaan.cn/2025/06/12/RH-Kalman/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E6%8E%A7%E5%88%B6/">控制</a><a class="post-meta__tags" href="/tags/Kalman%E6%BB%A4%E6%B3%A2/">Kalman滤波</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NMF及语音分离</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/04/21/eles-1/" title="Amplification 放大器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-21</div><div class="title">Amplification 放大器</div></div></a></div><div><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">FastMNMF及改进</div></div></a></div><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/04/25/eles-4/" title="锁相环 Phase Locked Loop, PLL"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-25</div><div class="title">锁相环 Phase Locked Loop, PLL</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#kalman%E6%BB%A4%E6%B3%A2%E7%BA%BF%E6%80%A7%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E6%89%A9%E5%B1%95%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E6%97%A0%E8%BF%B9%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.</span> <span class="toc-text">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#introduction"><span class="toc-number">1.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7kalman%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.2.</span> <span class="toc-text">线性Kalman滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%84%E5%BD%B1%E5%AE%9A%E7%90%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">射影定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kalman%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">Kalman滤波器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7kalman%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.3.</span> <span class="toc-text">非线性Kalman滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95kalman%E6%BB%A4%E6%B3%A2%E5%99%A8-ekf"><span class="toc-number">1.3.1.</span> <span class="toc-text">扩展Kalman滤波器 EKF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E8%BF%B9kalman%E6%BB%A4%E6%B3%A2-ukf"><span class="toc-number">1.3.2.</span> <span class="toc-text">无迹Kalman滤波 UKF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.3.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/14/rishmangement/" title="风险管理"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="风险管理"/></a><div class="content"><a class="title" href="/2025/11/14/rishmangement/" title="风险管理">风险管理</a><time datetime="2025-11-14T05:52:50.000Z" title="发表于 2025-11-14 13:52:50">2025-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

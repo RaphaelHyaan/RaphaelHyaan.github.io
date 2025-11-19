@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第10章 蒸汽和联合动力循环 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第10章 蒸汽和联合动力循环 在本章中，我们考虑工作流体交替汽化和冷凝的蒸汽动力循环。我们还考虑发电与过程加热相结合，称为热电联产。  卡诺循环 尽管卡诺循环时两个指定温度限制之间最有效的循环，但存在以下问题： 两相等温过程严重限制了最高温度，提高最高温度会涉及到单相工作流体，这将很难实现等温过程。 等熵膨胀可以通过涡轮机实现，但涡轮机被侵蚀是难以避免的 …   因此，卡诺循环无法在实际设备中近似">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第10章 蒸汽和联合动力循环 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第10章 蒸汽和联合动力循环  在本章中，我们考虑工作流体交替汽化和冷凝的蒸汽动力循环。我们还考虑发电与过程加热相结合，称为热电联产。  卡诺循环  尽管卡诺循环时两个指定温度限制之间最有效的循环，但存在以下问题：  两相等温过程严重限制了最高温度，提高最高温度会涉及到单相工作流体，这将很难实现等温过程。 等熵膨胀可以通过涡轮机实现，但涡轮机被侵蚀是难以避免的 …  因此，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第10章 蒸汽和联合动力循环">
 <meta property="og:url" content="http://raphaelhyaan.cn/2023/11/23/physique/Thermo/Thermo-10/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="第10章 蒸汽和联合动力循环 在本章中，我们考虑工作流体交替汽化和冷凝的蒸汽动力循环。我们还考虑发电与过程加热相结合，称为热电联产。  卡诺循环 尽管卡诺循环时两个指定温度限制之间最有效的循环，但存在以下问题： 两相等温过程严重限制了最高温度，提高最高温度会涉及到单相工作流体，这将很难实现等温过程。 等熵膨胀可以通过涡轮机实现，但涡轮机被侵蚀是难以避免的 …   因此，卡诺循环无法在实际设备中近似">
+<meta property="og:description" content="第10章 蒸汽和联合动力循环  在本章中，我们考虑工作流体交替汽化和冷凝的蒸汽动力循环。我们还考虑发电与过程加热相结合，称为热电联产。  卡诺循环  尽管卡诺循环时两个指定温度限制之间最有效的循环，但存在以下问题：  两相等温过程严重限制了最高温度，提高最高温度会涉及到单相工作流体，这将很难实现等温过程。 等熵膨胀可以通过涡轮机实现，但涡轮机被侵蚀是难以避免的 …  因此，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg">
 <meta property="article:published_time" content="2023-11-23T13:01:25.000Z">
@@ -154,227 +154,336 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第10章 蒸汽和联合动力循环</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-23T13:01:25.000Z" title="发表于 2023-11-23 21:01:25">2023-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.860Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%BE%AA%E7%8E%AF/">热力学循环</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第10章 蒸汽和联合动力循环"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第10章-蒸汽和联合动力循环"><a href="#第10章-蒸汽和联合动力循环" class="headerlink" title="第10章 蒸汽和联合动力循环"></a>第10章 蒸汽和联合动力循环</h1><blockquote>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第10章 蒸汽和联合动力循环</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-23T13:01:25.000Z" title="发表于 2023-11-23 21:01:25">2023-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.860Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%BE%AA%E7%8E%AF/">热力学循环</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第10章 蒸汽和联合动力循环"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第10章-蒸汽和联合动力循环">第10章 蒸汽和联合动力循环</h1>
+<blockquote>
 <p>在本章中，我们考虑工作流体交替汽化和冷凝的蒸汽动力循环。我们还考虑发电与过程加热相结合，称为热电联产。</p>
 </blockquote>
-<h3 id="卡诺循环"><a href="#卡诺循环" class="headerlink" title="卡诺循环"></a>卡诺循环</h3><ul>
-<li>尽管卡诺循环时两个指定温度限制之间最有效的循环，但存在以下问题：<ul>
+<h3 id="卡诺循环">卡诺循环</h3>
+<ul>
+<li>尽管卡诺循环时两个指定温度限制之间最有效的循环，但存在以下问题：
+<ul>
 <li>两相等温过程严重限制了最高温度，提高最高温度会涉及到单相工作流体，这将很难实现等温过程。</li>
 <li>等熵膨胀可以通过涡轮机实现，但涡轮机被侵蚀是难以避免的</li>
 <li>…</li>
-</ul>
-</li>
+</ul></li>
 <li>因此，卡诺循环无法在实际设备中近似，并且不是蒸汽动力循环的现实模型</li>
 </ul>
-<h1 id="蓝金-Rankine-循环：蒸汽动力循环的理想过程"><a href="#蓝金-Rankine-循环：蒸汽动力循环的理想过程" class="headerlink" title="蓝金**Rankine**循环：蒸汽动力循环的理想过程"></a>蓝金<code>**Rankine**</code>循环：蒸汽动力循环的理想过程</h1><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled.png" alt=""></p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_1.png" alt=""></p>
-<h3 id="循环过程"><a href="#循环过程" class="headerlink" title="循环过程"></a>循环过程</h3><ul>
-<li>1-2 泵中的等熵压缩<ul>
+<h1
+id="蓝金rankine循环蒸汽动力循环的理想过程">蓝金<code>**Rankine**</code>循环：蒸汽动力循环的理想过程</h1>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled.png" /></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_1.png" /></p>
+<h3 id="循环过程">循环过程</h3>
+<ul>
+<li>1-2 泵中的等熵压缩
+<ul>
 <li>水以饱和液体状态进入泵，并被等熵压缩至锅炉的工作压力。在此等熵压缩过程中，由于水的比容略有下降，水温略有升高。</li>
-</ul>
-</li>
-<li>2-3 锅炉中的恒压热量补充<ul>
-<li>水以状态 2 的压缩液体形式进入锅炉<code>**boiler**</code>，并以状态 3 的过热蒸汽<code>**superheated vapor**</code>形式离开。</li>
-<li>锅炉与蒸汽过热的部分（过热器 <code>**the super-heater**</code>）通常称为蒸汽发生器<code>**steam generator**</code></li>
-</ul>
-</li>
-<li>3-4 涡轮机中的等熵膨胀<ul>
-<li>处于状态 3 的过热蒸汽进入涡轮机<code>**turbine**</code>，在涡轮机中等熵膨胀，并通过旋转连接到发电机的轴来产生功。</li>
-</ul>
-</li>
-<li>4-1 冷凝器中的恒压排热<ul>
+</ul></li>
+<li>2-3 锅炉中的恒压热量补充
+<ul>
+<li>水以状态 2 的压缩液体形式进入锅炉<code>**boiler**</code>，并以状态 3
+的过热蒸汽<code>**superheated vapor**</code>形式离开。</li>
+<li>锅炉与蒸汽过热的部分（过热器
+<code>**the super-heater**</code>）通常称为蒸汽发生器<code>**steam generator**</code></li>
+</ul></li>
+<li>3-4 涡轮机中的等熵膨胀
+<ul>
+<li>处于状态 3
+的过热蒸汽进入涡轮机<code>**turbine**</code>，在涡轮机中等熵膨胀，并通过旋转连接到发电机的轴来产生功。</li>
+</ul></li>
+<li>4-1 冷凝器中的恒压排热
+<ul>
 <li>蒸汽在冷凝器<code>**condenser**</code>中以恒定压力冷凝，冷凝器基本上是一个大型热交换器，通过将热量排放到冷却介质（例如湖泊、河流或大气）中。</li>
 <li>在水资源珍贵的地区，发电厂采用空气冷却而不是水冷却。这种冷却方法也用于汽车发动机，称为干冷却<code>**dry cooling**</code>。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>T-s 图上的过程曲线下的面积代表内部可逆过程的传热，我们看到过程曲线 2-3 下的面积代表传递到锅炉中的水的热量以及过程下的面积曲线 4-1 表示冷凝器中排出的热量。两者之间的差值（循环曲线围成的面积）是循环期间产生的净功。</p>
-<h2 id="能量分析"><a href="#能量分析" class="headerlink" title="能量分析"></a>能量分析</h2><h3 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h3><blockquote>
+<p>T-s 图上的过程曲线下的面积代表内部可逆过程的传热，我们看到过程曲线
+2-3 下的面积代表传递到锅炉中的水的热量以及过程下的面积曲线 4-1
+表示冷凝器中排出的热量。两者之间的差值（循环曲线围成的面积）是循环期间产生的净功。</p>
+<h2 id="能量分析">能量分析</h2>
+<h3 id="假设">假设</h3>
+<blockquote>
 <p>蓝金循环可以被假设为稳流过程<code>steady-flow process</code></p>
+</blockquote>
+<blockquote>
 <p>动能和势能变换相比于功和热很少，可以忽略</p>
+</blockquote>
+<blockquote>
 <p>由于循环过程中两个热变化过程都是恒压过程，考虑焓变而不是内容变化</p>
 </blockquote>
-<h3 id="能量守恒"><a href="#能量守恒" class="headerlink" title="能量守恒"></a>能量守恒</h3><ul>
+<h3 id="能量守恒">能量守恒</h3>
+<ul>
 <li>基于以上假设，得到热力学第一定理：</li>
 </ul>
-<script type="math/tex; mode=display">
-\left(q_{\text {in }}-q_{\text {out }}\right)+\left(w_{\text {in }}-w_{\text {out }}\right)=h_e-h_i \quad(\mathrm{~kJ} / \mathrm{kg})</script><ul>
-<li>考虑焓变时，恒压过程不做功，而对于两个等熵过程，热应该为0：</li>
-<li>因此，各个过程带来的功/热变化：<ul>
-<li>泵：$w_{\text {pump, in }}=h_2-h_1 = u\left(P_2-P_1\right)$<ul>
-<li>其中：$h<em>1=h</em>{f @ P<em>1} \text { and } \quad u \cong u_1=u</em>{f @ P_1}$</li>
-<li>即认为这个过程在液相发生，体积近似于不变</li>
-</ul>
-</li>
-<li>锅炉：$q_{\text {in }}=h_3-h_2$</li>
-<li>涡轮：$w_{\text {turb,out }}=h_3-h_4$</li>
-<li>冷却器：$q_{\text {out }}=h_4-h_1$</li>
-</ul>
-</li>
-</ul>
-<h3 id="热机效率"><a href="#热机效率" class="headerlink" title="热机效率"></a>热机效率</h3><ul>
-<li><p>由此得到热机效率：</p>
-<script type="math/tex; mode=display">
-  \eta_{\text {th }}=\frac{w_{\text {net }}}{q_{\text {in }}}=1-\frac{q_{\text {out }}}{q_{\text {in }}}</script><ul>
-<li>其中：$w<em>{\text {net }}=q</em>{\text {in }}-q<em>{\text {out }}=w</em>{\text {turb,out }}-w_{\text {pump,in }}$</li>
-</ul>
-</li>
-<li><p>愚蠢的美国人会使用愚蠢的单位便是的热效率<strong><code>heat rate</code></strong>：</p>
-<script type="math/tex; mode=display">
-  \eta_{\text {th }}=\frac{3412(\mathrm{Btu} / \mathrm{kWh})}{\text { Heat rate }(\mathrm{Btu} / \mathrm{kWh})}</script></li>
-</ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>P_547</p>
-<h2 id="实际的蒸汽动力循环"><a href="#实际的蒸汽动力循环" class="headerlink" title="实际的蒸汽动力循环"></a>实际的蒸汽动力循环</h2><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_2.png" alt=""></p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_3.png" alt=""></p>
+<p><span class="math display">\[
+\left(q_{\text {in }}-q_{\text {out }}\right)+\left(w_{\text {in
+}}-w_{\text {out }}\right)=h_e-h_i \quad(\mathrm{~kJ} / \mathrm{kg})
+\]</span></p>
 <ul>
-<li>各种摩擦<code>**friction**</code>，热丧失<code>**heat loss**</code>导致热机效率降低，对设备的要求升高</li>
-<li><p>特别重要的是泵需要更大的功输入，而涡轮机产生较小的功输出。我们使用等熵效率来比较实际情况与理想情况的功的差距</p>
-<script type="math/tex; mode=display">
-  \begin{aligned}&\eta_P=\frac{w_s}{w_a}=\frac{h_{2 s}-h_1}{h_{2 a}-h_1}&\eta_T=\frac{w_a}{w_s}=\frac{h_3-h_{4 a}}{h_3-h_{4 s}}\end{aligned}</script></li>
+<li>考虑焓变时，恒压过程不做功，而对于两个等熵过程，热应该为0：</li>
+<li>因此，各个过程带来的功/热变化：
+<ul>
+<li>泵：<span class="math inline">\(w_{\text {pump, in }}=h_2-h_1 =
+u\left(P_2-P_1\right)\)</span>
+<ul>
+<li>其中：<span class="math inline">\(h_1=h_{f @ P_1} \text { and }
+\quad u \cong u_1=u_{f @ P_1}\)</span></li>
+<li>即认为这个过程在液相发生，体积近似于不变</li>
+</ul></li>
+<li>锅炉：<span class="math inline">\(q_{\text {in
+}}=h_3-h_2\)</span></li>
+<li>涡轮：<span class="math inline">\(w_{\text {turb,out
+}}=h_3-h_4\)</span></li>
+<li>冷却器：<span class="math inline">\(q_{\text {out
+}}=h_4-h_1\)</span></li>
+</ul></li>
 </ul>
-<h3 id="实际情况的例子"><a href="#实际情况的例子" class="headerlink" title="实际情况的例子"></a>实际情况的例子</h3><p>P_549</p>
-<h2 id="提高蓝金循环效率"><a href="#提高蓝金循环效率" class="headerlink" title="提高蓝金循环效率"></a>提高蓝金循环效率</h2><blockquote>
+<h3 id="热机效率">热机效率</h3>
+<ul>
+<li><p>由此得到热机效率：</p>
+<p><span class="math display">\[
+  \eta_{\text {th }}=\frac{w_{\text {net }}}{q_{\text {in
+}}}=1-\frac{q_{\text {out }}}{q_{\text {in }}}
+  \]</span></p>
+<ul>
+<li>其中：<span class="math inline">\(w_{\text {net }}=q_{\text {in
+}}-q_{\text {out }}=w_{\text {turb,out }}-w_{\text {pump,in
+}}\)</span></li>
+</ul></li>
+<li><p>愚蠢的美国人会使用愚蠢的单位便是的热效率<strong><code>heat rate</code></strong>：</p>
+<p><span class="math display">\[
+  \eta_{\text {th }}=\frac{3412(\mathrm{Btu} / \mathrm{kWh})}{\text {
+Heat rate }(\mathrm{Btu} / \mathrm{kWh})}
+  \]</span></p></li>
+</ul>
+<h3 id="示例">示例</h3>
+<p>P_547</p>
+<h2 id="实际的蒸汽动力循环">实际的蒸汽动力循环</h2>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_2.png" /></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_3.png" /></p>
+<ul>
+<li><p>各种摩擦<code>**friction**</code>，热丧失<code>**heat loss**</code>导致热机效率降低，对设备的要求升高</p></li>
+<li><p>特别重要的是泵需要更大的功输入，而涡轮机产生较小的功输出。我们使用等熵效率来比较实际情况与理想情况的功的差距</p>
+<p><span class="math display">\[
+  \begin{aligned}&amp;\eta_P=\frac{w_s}{w_a}=\frac{h_{2 s}-h_1}{h_{2
+a}-h_1}&amp;\eta_T=\frac{w_a}{w_s}=\frac{h_3-h_{4 a}}{h_3-h_{4
+s}}\end{aligned}
+  \]</span></p></li>
+</ul>
+<h3 id="实际情况的例子">实际情况的例子</h3>
+<p>P_549</p>
+<h2 id="提高蓝金循环效率">提高蓝金循环效率</h2>
+<blockquote>
 <p>所有旨在提高动力循环热效率的修改背后的基本思想都是相同的：提高热量传递到锅炉中工作流体的平均温度，或降低热量从锅炉中排出的工作流体的平均温度。</p>
 </blockquote>
-<h3 id="降低冷凝器压力"><a href="#降低冷凝器压力" class="headerlink" title="降低冷凝器压力"></a>降低冷凝器压力</h3><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_4.png" alt=""></p>
+<h3 id="降低冷凝器压力">降低冷凝器压力</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_4.png" /></p>
 <ul>
 <li>冷凝器的饱和温度与压力相对应，因此降低冷凝器的工作压力会降低蒸汽的温度。</li>
 <li>然而，一般来说，可以使用的冷凝器的压力有下限，其不能低于与冷凝介质温度相对应的饱和压力。比如，如果我们的冷凝介质时15℃的河流，则冷凝器压力必须要高于3.2KPa</li>
 <li>此外，可能导致空气泄漏到冷凝器中。更重要的是，它增加了汽轮机末级蒸汽的含水量</li>
 </ul>
-<h3 id="将蒸汽过热至更高温度"><a href="#将蒸汽过热至更高温度" class="headerlink" title="将蒸汽过热至更高温度"></a>将蒸汽过热至更高温度</h3><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_5.png" alt=""></p>
+<h3 id="将蒸汽过热至更高温度">将蒸汽过热至更高温度</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_5.png" /></p>
 <ul>
 <li>由于将蒸汽过热到更高的温度，净功和热量输入都会增加。</li>
 <li>它降低了汽轮机出口处蒸汽的含水量</li>
-<li>然而，由于冶金方面的考虑，蒸汽可以过热的温度受到限制。目前涡轮机入口允许的最高蒸汽温度约为 620°C (1150°F)</li>
+<li>然而，由于冶金方面的考虑，蒸汽可以过热的温度受到限制。目前涡轮机入口允许的最高蒸汽温度约为
+620°C (1150°F)</li>
 </ul>
-<h3 id="增加涡轮压力"><a href="#增加涡轮压力" class="headerlink" title="增加涡轮压力"></a>增加涡轮压力</h3><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_6.png" alt=""></p>
+<h3 id="增加涡轮压力">增加涡轮压力</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_6.png" /></p>
 <ul>
 <li>提高沸腾发生的温度。这反过来又提高了热量传递到蒸汽的平均温度，从而提高了循环的热效率。</li>
 <li>出口处的蒸汽的水分含量增加</li>
 <li>这种不良副作用可以通过重新加热蒸汽来纠正</li>
 </ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>P_553</p>
-<h2 id="理想再热-Reheat-蓝金循环"><a href="#理想再热-Reheat-蓝金循环" class="headerlink" title="理想再热**Reheat**蓝金循环"></a>理想再热<code>**Reheat**</code>蓝金循环</h2><blockquote>
+<h3 id="例子">例子</h3>
+<p>P_553</p>
+<h2
+id="理想再热reheat蓝金循环">理想再热<code>**Reheat**</code>蓝金循环</h2>
+<blockquote>
 <p>要减少涡轮输出端的水分有两种方法，一种是之前提到的提高蒸汽温度，但这受到了涡轮材料上的限制。第二种则是引入再热机制。再热是解决汽轮机水分过多问题的实用方法，在现代蒸汽发电厂中普遍采用</p>
 </blockquote>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_7.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_7.png" /></p>
 <ul>
-<li>膨胀过程分两个阶段进行。在第一级（高压涡轮）中，蒸汽等熵膨胀至中间压力，然后送回锅炉，在锅炉中以恒定压力重新加热，通常达到第一涡轮级的入口温度。然后蒸汽在第二级（低压涡轮）中等熵膨胀至冷凝器压力。</li>
+<li><p>膨胀过程分两个阶段进行。在第一级（高压涡轮）中，蒸汽等熵膨胀至中间压力，然后送回锅炉，在锅炉中以恒定压力重新加热，通常达到第一涡轮级的入口温度。然后蒸汽在第二级（低压涡轮）中等熵膨胀至冷凝器压力。</p></li>
 <li><p>在这种情况下，锅炉的输入热转变为：</p>
-<script type="math/tex; mode=display">
-  q_{\text {in }}=q_{\text {primary }}+q_{\text {reheat }}=\left(h_3-h_2\right)+\left(h_5-h_4\right)</script></li>
+<p><span class="math display">\[
+  q_{\text {in }}=q_{\text {primary }}+q_{\text {reheat
+}}=\left(h_3-h_2\right)+\left(h_5-h_4\right)
+  \]</span></p></li>
 <li><p>涡轮的输出功转变为：</p>
-<script type="math/tex; mode=display">
-  w_{\text {turb,out }}=w_{\text {turb, } \mathrm{I}}+w_{\text {turb,II }}=\left(h_3-h_4\right)+\left(h_5-h_6\right)</script></li>
-<li><p>二次再热仅用于超临界压力（P &gt; 22.06 MPa）发电厂。第三次再加热阶段将使循环效率提高大约是第二次再加热所达到的改进的一半。这一收益太小，无法证明增加的成本和复杂性是合理的</p>
-</li>
+<p><span class="math display">\[
+  w_{\text {turb,out }}=w_{\text {turb, } \mathrm{I}}+w_{\text {turb,II
+}}=\left(h_3-h_4\right)+\left(h_5-h_6\right)
+  \]</span></p></li>
+<li><p>二次再热仅用于超临界压力（P &gt; 22.06
+MPa）发电厂。第三次再加热阶段将使循环效率提高大约是第二次再加热所达到的改进的一半。这一收益太小，无法证明增加的成本和复杂性是合理的</p></li>
 </ul>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>P_557</p>
-<h2 id="理想再生Regenerative蓝金循环"><a href="#理想再生Regenerative蓝金循环" class="headerlink" title="理想再生Regenerative蓝金循环"></a>理想再生<strong><code>Regenerative</code></strong>蓝金循环</h2><blockquote>
+<h3 id="例子-1">例子</h3>
+<p>P_557</p>
+<h2
+id="理想再生regenerative蓝金循环">理想再生<strong><code>Regenerative</code></strong>蓝金循环</h2>
+<blockquote>
 <p>我们寻找方法在离开泵的液体（称为给水<code>**feedwater**</code>）进入锅炉之前提高其温度。通过再生对给水进行加热的装置称为再生器，或给水加热器（FWH）。再生不仅提高了循环效率，而且还提供了一种方便的给水脱气方法（去除冷凝器中泄漏的空气），以防止锅炉腐蚀</p>
 </blockquote>
-<h3 id="开放式给水加热器"><a href="#开放式给水加热器" class="headerlink" title="开放式给水加热器"></a>开放式给水加热器</h3><blockquote>
+<h3 id="开放式给水加热器">开放式给水加热器</h3>
+<blockquote>
 <p>开放式<strong><code>open</code></strong>（或直接接触式<strong><code>direct-contact</code></strong>）给水加热器基本上是一个混合室，从涡轮机中提取的蒸汽与排出的给水混合</p>
 </blockquote>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_8.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_8.png" /></p>
 <ul>
-<li><strong>循环过程</strong><ul>
-<li>蒸汽在锅炉压力（状态 5）下进入涡轮机并等熵膨胀至中间压力（状态 6）。</li>
+<li><strong>循环过程</strong>
+<ul>
+<li>蒸汽在锅炉压力（状态 5）下进入涡轮机并等熵膨胀至中间压力（状态
+6）。</li>
 <li>在此状态下提取一些蒸汽并输送至给水加热器，而剩余蒸汽继续等熵膨胀至冷凝器压力（状态7）。</li>
 <li>该蒸汽在冷凝器压力下以饱和液体形式离开冷凝器（状态 1）。</li>
-<li>冷凝水（也称为给水）随后进入等熵泵，在其中被压缩至给水加热器压力（状态 2），并被输送至给水加热器，与从涡轮机提取的蒸汽混合。</li>
+<li>冷凝水（也称为给水）随后进入等熵泵，在其中被压缩至给水加热器压力（状态
+2），并被输送至给水加热器，与从涡轮机提取的蒸汽混合。</li>
 <li>提取的蒸汽部分使得混合物在加热器压力下作为饱和液体离开加热器（状态3）。</li>
 <li>第二个泵将水压升高至锅炉压力（状态 4）。</li>
 <li>通过将锅炉中的水加热到涡轮入口状态（状态5）来完成该循环。</li>
-</ul>
-</li>
-<li>定义提取的蒸汽分数<strong><code>fraction of stream extracted</code></strong>：<ul>
-<li>$y=\dot{m}_6 / \dot{m}_5$</li>
-</ul>
-</li>
-<li><strong>能量分析</strong><ul>
-<li>在这种情况下，锅炉输入的热量不变：$q_{in} = h_5-h_4$</li>
-<li>但冷却器输出的热量：$q_{\text {out }}=(1-y)\left(h_7-h_1\right)$</li>
-<li>涡轮输出功：$w_{\text {turb,out }}=\left(h_5-h_6\right)+(1-y)\left(h_6-h_7\right)$</li>
-<li>两个泵输入功：$w<em>{\text {pump,in }}=(1-y) w</em>{\text {pump I,in }}+w_{\text {pump II,in }}$<ul>
-<li>其中：$\begin{aligned}&amp; w<em>{\text {pump I,in }}=V_1\left(P_2-P_1\right) &amp; w</em>{\text {pump II,in }}=V_3\left(P_4-P_3\right)\end{aligned}$</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+<li>定义提取的蒸汽分数<strong><code>fraction of stream extracted</code></strong>：
+<ul>
+<li><span class="math inline">\(y=\dot{m}_6 / \dot{m}_5\)</span></li>
+</ul></li>
+<li><strong>能量分析</strong>
+<ul>
+<li>在这种情况下，锅炉输入的热量不变：<span class="math inline">\(q_{in}
+= h_5-h_4\)</span></li>
+<li>但冷却器输出的热量：<span class="math inline">\(q_{\text {out
+}}=(1-y)\left(h_7-h_1\right)\)</span></li>
+<li>涡轮输出功：<span class="math inline">\(w_{\text {turb,out
+}}=\left(h_5-h_6\right)+(1-y)\left(h_6-h_7\right)\)</span></li>
+<li>两个泵输入功：<span class="math inline">\(w_{\text {pump,in }}=(1-y)
+w_{\text {pump I,in }}+w_{\text {pump II,in }}\)</span>
+<ul>
+<li>其中：<span class="math inline">\(\begin{aligned}&amp; w_{\text
+{pump I,in }}=V_1\left(P_2-P_1\right) &amp; w_{\text {pump II,in
+}}=V_3\left(P_4-P_3\right)\end{aligned}\)</span></li>
+</ul></li>
+</ul></li>
 <li>如今，许多运行中的大型工厂使用多达八个给水加热器。给水加热器的最佳数量是从经济考虑确定的。使用额外的给水加热器是不合理的，除非它节省的燃料成本比其本身的成本更多。</li>
 </ul>
-<h3 id="封闭式给水加热器"><a href="#封闭式给水加热器" class="headerlink" title="封闭式给水加热器"></a>封闭式给水加热器</h3><blockquote>
+<h3 id="封闭式给水加热器">封闭式给水加热器</h3>
+<blockquote>
 <p>封闭式<code>**closed**</code>给水加热器，其中热量从抽取的蒸汽传递到给水，而不发生任何混合</p>
 </blockquote>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_9.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_9.png" /></p>
 <ul>
 <li>开放式给水加热器结构简单、成本低廉，并且具有良好的传热特性。它们还使给水达到饱和状态。然而，每个加热器都需要一个泵来处理给水。</li>
 <li>由于内部管网的原因，封闭式给水加热器更加复杂，因此价格也更加昂贵。由于不允许两股水流直接接触，封闭式给水加热器中的传热效率也较低。然而，封闭式给水加热器不需要为每个加热器配备单独的泵，因为提取的蒸汽和给水可以处于不同的压力。</li>
 </ul>
-<h3 id="综合使用开放式和封闭式给水加热器"><a href="#综合使用开放式和封闭式给水加热器" class="headerlink" title="综合使用开放式和封闭式给水加热器"></a>综合使用开放式和封闭式给水加热器</h3><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_10.png" alt=""></p>
-<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><p>P_563</p>
+<h3
+id="综合使用开放式和封闭式给水加热器">综合使用开放式和封闭式给水加热器</h3>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_10.png" /></p>
+<h3 id="例子-2">例子</h3>
+<p>P_563</p>
 <p>P_565</p>
-<h1 id="蒸汽动力循环的热力学第二定律分析"><a href="#蒸汽动力循环的热力学第二定律分析" class="headerlink" title="蒸汽动力循环的热力学第二定律分析"></a>蒸汽动力循环的热力学第二定律分析</h1><ul>
+<h1
+id="蒸汽动力循环的热力学第二定律分析">蒸汽动力循环的热力学第二定律分析</h1>
+<ul>
 <li>蓝金循环时内部可逆循环，其<strong>㶲破坏</strong><code>exergy destruction</code>的变化为:</li>
 </ul>
-<script type="math/tex; mode=display">
-\dot{X}_{\text {dest }}=T_0 \dot{S}_{\text {gen }}=T_0\left(\dot{S}_{\text {out }}-\dot{S}_{\text {in }}\right)=T_0\left(\sum_{\text {out }} \dot{m} s+\frac{\dot{Q}_{\text {out }}}{T_{b, \text { out }}}-\sum_{\text {in }} \dot{m} s-\frac{\dot{Q}_{\text {in }}}{T_{b, \text { in }}}\right) （kW）</script><ul>
-<li><p>或者在单位质量，单进-单出<strong><code>one-inlet, one-exit</code></strong>，稳流假设下：</p>
-<script type="math/tex; mode=display">
-  x_{\text {dest }}=T_0 s_{\text {gen }}=T_0\left(s_e-s_i+\frac{q_{\text {out }}}{T_{b, \text { out }}}-\frac{q_{\text {in }}}{T_{b, \text { in }}}\right) \quad(\mathrm{kJ} / \mathrm{kg})</script></li>
-<li><p>在循环中，其㶲可以表示为：</p>
-<script type="math/tex; mode=display">
-  x_{\text {dest }}=T_0\left(\sum \frac{q_{\text {out }}}{T_{b, \text { out }}}-\sum \frac{q_{\text {in }}}{T_{b, \text { in }}}\right) \quad(\mathrm{kJ} / \mathrm{kg})\\=T_0\left(\frac{q_{\text {out }}}{T_L}-\frac{q_{\text {in }}}{T_H}\right) \quad(\mathrm{kJ} / \mathrm{kg})</script></li>
-<li><p>由此，㶲可以被表示为：</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-\psi=\left(h-h_0\right)-T_0\left(s-s_0\right)+\frac{V^2}{2}+g z \quad(\mathrm{~kJ} / \mathrm{kg})</script><h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p>P_568</p>
-<h1 id="热电联产-COGENERATION"><a href="#热电联产-COGENERATION" class="headerlink" title="热电联产 **COGENERATION**"></a>热电联产 <code>**COGENERATION**</code></h1><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_11.png" alt=""></p>
+<p><span class="math display">\[
+\dot{X}_{\text {dest }}=T_0 \dot{S}_{\text {gen
+}}=T_0\left(\dot{S}_{\text {out }}-\dot{S}_{\text {in
+}}\right)=T_0\left(\sum_{\text {out }} \dot{m} s+\frac{\dot{Q}_{\text
+{out }}}{T_{b, \text { out }}}-\sum_{\text {in }} \dot{m}
+s-\frac{\dot{Q}_{\text {in }}}{T_{b, \text { in }}}\right) （kW）
+\]</span></p>
 <ul>
-<li>理想汽轮机热电联产装置最显着的特征可能是没有冷凝器。因此，该工厂不会将任何热量作为废热排出。换句话说，在锅炉中传递给蒸汽的所有能量都被用作工艺热或电力。</li>
-<li><p>利用系数：</p>
-<script type="math/tex; mode=display">
-  \epsilon_u=\frac{\text { Net power output }+ \text { Process heat delivered }}{\text { Total heat input }}=\frac{\dot{W}_{\text {net }}+\dot{Q}_p}{\dot{Q}_{\text {in }}}</script></li>
-<li><p>或者：</p>
-</li>
+<li><p>或者在单位质量，单进-单出<strong><code>one-inlet, one-exit</code></strong>，稳流假设下：</p>
+<p><span class="math display">\[
+  x_{\text {dest }}=T_0 s_{\text {gen }}=T_0\left(s_e-s_i+\frac{q_{\text
+{out }}}{T_{b, \text { out }}}-\frac{q_{\text {in }}}{T_{b, \text { in
+}}}\right) \quad(\mathrm{kJ} / \mathrm{kg})
+  \]</span></p></li>
+<li><p>在循环中，其㶲可以表示为：</p>
+<p><span class="math display">\[
+  x_{\text {dest }}=T_0\left(\sum \frac{q_{\text {out }}}{T_{b, \text {
+out }}}-\sum \frac{q_{\text {in }}}{T_{b, \text { in }}}\right)
+\quad(\mathrm{kJ} / \mathrm{kg})\\=T_0\left(\frac{q_{\text {out
+}}}{T_L}-\frac{q_{\text {in }}}{T_H}\right) \quad(\mathrm{kJ} /
+\mathrm{kg})
+  \]</span></p></li>
+<li><p>由此，㶲可以被表示为：</p></li>
 </ul>
-<script type="math/tex; mode=display">
-\epsilon_u=1-\frac{\dot{Q}_{\text {out }}}{\dot{Q}_{\text {in }}}</script><h3 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h3><p>P_572</p>
-<h1 id="气体-蒸汽联合动力循环"><a href="#气体-蒸汽联合动力循环" class="headerlink" title="气体-蒸汽联合动力循环"></a>气体-蒸汽联合动力循环</h1><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_12.png" alt=""></p>
-<h3 id="例子-4"><a href="#例子-4" class="headerlink" title="例子"></a>例子</h3><p>P_576</p>
-<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ul>
+<p><span class="math display">\[
+\psi=\left(h-h_0\right)-T_0\left(s-s_0\right)+\frac{V^2}{2}+g z
+\quad(\mathrm{~kJ} / \mathrm{kg})
+\]</span></p>
+<h3 id="例子-3">例子：</h3>
+<p>P_568</p>
+<h1 id="热电联产-cogeneration">热电联产
+<code>**COGENERATION**</code></h1>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_11.png" /></p>
+<ul>
+<li><p>理想汽轮机热电联产装置最显着的特征可能是没有冷凝器。因此，该工厂不会将任何热量作为废热排出。换句话说，在锅炉中传递给蒸汽的所有能量都被用作工艺热或电力。</p></li>
+<li><p>利用系数：</p>
+<p><span class="math display">\[
+  \epsilon_u=\frac{\text { Net power output }+ \text { Process heat
+delivered }}{\text { Total heat input }}=\frac{\dot{W}_{\text {net
+}}+\dot{Q}_p}{\dot{Q}_{\text {in }}}
+  \]</span></p></li>
+<li><p>或者：</p></li>
+</ul>
+<p><span class="math display">\[
+\epsilon_u=1-\frac{\dot{Q}_{\text {out }}}{\dot{Q}_{\text {in }}}
+\]</span></p>
+<h3 id="例子-4">例子</h3>
+<p>P_572</p>
+<h1 id="气体-蒸汽联合动力循环">气体-蒸汽联合动力循环</h1>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FThermo-10%2FUntitled_12.png" /></p>
+<h3 id="例子-5">例子</h3>
+<p>P_576</p>
+<h1 id="summary">Summary</h1>
+<ul>
 <li>卡诺循环并不能适用于蒸汽动力循环，因为它在实际应用中无法被近似。</li>
-<li>蒸汽动力循环的模型循环是兰肯循环，由四个内部可逆过程组成：锅炉中的恒压热量添加，涡轮机中的等熵膨胀，冷凝器中的恒压热量排放，和泵中的等熵压缩。<ul>
-<li>蒸汽以冷凝器压力下的饱和液体状态离开冷凝器。<ul>
+<li>蒸汽动力循环的模型循环是兰肯循环，由四个内部可逆过程组成：锅炉中的恒压热量添加，涡轮机中的等熵膨胀，冷凝器中的恒压热量排放，和泵中的等熵压缩。
+<ul>
+<li>蒸汽以冷凝器压力下的饱和液体状态离开冷凝器。
+<ul>
 <li>兰肯循环的热效率可以通过增加传递热量至工作流体的平均温度和/或降低排放热量至冷却介质的平均温度来提高。</li>
 <li>降低涡轮出口压力可以降低传热拒绝的平均温度。因此，大多数蒸汽动力厂的冷凝器压力远低于大气压。</li>
 <li>通过提高锅炉压力或将流体过热至高温度可以提高传热添加的平均温度。但是，由于流体温度不允许超过冶金上安全的值，所以过热程度有限。</li>
 <li>超热也有降低涡轮出口处蒸汽湿度的额外优点。然而，降低排气压力或提高锅炉压力会增加湿度。</li>
-</ul>
-</li>
-<li>为了利用在更高锅炉压力和更低冷凝器压力下的改进效率，蒸汽通常在高压涡轮中部分膨胀后进行再热。<ul>
+</ul></li>
+<li>为了利用在更高锅炉压力和更低冷凝器压力下的改进效率，蒸汽通常在高压涡轮中部分膨胀后进行再热。
+<ul>
 <li>通过增加膨胀和再热阶段的数量，再热过程的平均温度，从而循环的热效率，可以提高。随着阶段数量的增加，膨胀和再热过程接近最大温度下的等温过程。再热也降低了涡轮出口处的水分含量。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>增加兰肯循环的热效率的另一种方法是再生。在再生过程中，离开泵的液态水（称为给水）在称为给水加热器的设备中被从涡轮机中在某个中间压力下抽出的蒸汽加热。<ul>
+</ul></li>
+</ul></li>
+<li>增加兰肯循环的热效率的另一种方法是再生。在再生过程中，离开泵的液态水（称为给水）在称为给水加热器的设备中被从涡轮机中在某个中间压力下抽出的蒸汽加热。
+<ul>
 <li>在开放式给水加热器中，两种流体混合，混合物以加热器压力下的饱和液体状态离开加热器。在封闭式给水加热器中，蒸汽与给水传递热量，但不混合。</li>
-</ul>
-</li>
-<li>从同一能源产生多种有用形式的能量（如工艺热和电能）称为热电联产。热电联产厂在满足某些工业过程的工艺热需求的同时产生电力。<ul>
+</ul></li>
+<li>从同一能源产生多种有用形式的能量（如工艺热和电能）称为热电联产。热电联产厂在满足某些工业过程的工艺热需求的同时产生电力。
+<ul>
 <li>这样，锅炉中传递给流体的能量中有更多的部分用于有用目的。用于工艺热或发电的能量的部分称为热电联产厂的利用因子。</li>
-</ul>
-</li>
-<li>通过使用联合循环可以提高发电厂的整体热效率。最常见的联合循环是气-蒸汽联合循环，其中气轮机循环在高温范围内运行，蒸汽轮机循环在低温范围内运行。<ul>
+</ul></li>
+<li>通过使用联合循环可以提高发电厂的整体热效率。最常见的联合循环是气-蒸汽联合循环，其中气轮机循环在高温范围内运行，蒸汽轮机循环在低温范围内运行。
+<ul>
 <li>蒸汽由离开燃气轮机的高温尾气加热。联合循环的热效率高于单独运行的蒸汽或燃气轮机循环。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/11/23/physique/Thermo/Thermo-10/">http://raphaelhyaan.cn/2023/11/23/physique/Thermo/Thermo-10/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6/">热力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/23/physique/Thermo/Thermo-11/" title="第11章 制冷循环 Refrigeration Cycles"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第11章 制冷循环 Refrigeration Cycles</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/23/physique/Thermo/Thermo-1/" title="Chapter 1 Introduction And Basic Concepts."><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Chapter 1 Introduction And Basic Concepts.</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/31/physique/Thermo/" title="工程热力学课程总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-31</div><div class="title">工程热力学课程总览</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-1/" title="Chapter 1 Introduction And Basic Concepts."><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Chapter 1 Introduction And Basic Concepts.</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-11/" title="第11章 制冷循环 Refrigeration Cycles"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">第11章 制冷循环 Refrigeration Cycles</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-2/" title="Chapter 2 energy, energy transfer, general energy analysis"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Chapter 2 energy, energy transfer, general energy analysis</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-4/" title="Chapter 4 Energy Analysis of Closed Systems"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Chapter 4 Energy Analysis of Closed Systems</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-cycle/" title="Thermodynamic cycle"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Thermodynamic cycle</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC10%E7%AB%A0-%E8%92%B8%E6%B1%BD%E5%92%8C%E8%81%94%E5%90%88%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.</span> <span class="toc-text">第10章 蒸汽和联合动力循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%A1%E8%AF%BA%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.0.1.</span> <span class="toc-text">卡诺循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%93%9D%E9%87%91-Rankine-%E5%BE%AA%E7%8E%AF%EF%BC%9A%E8%92%B8%E6%B1%BD%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E6%83%B3%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">蓝金**Rankine**循环：蒸汽动力循环的理想过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%BF%87%E7%A8%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">循环过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">能量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE"><span class="toc-number">2.1.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E9%87%8F%E5%AE%88%E6%81%92"><span class="toc-number">2.1.2.</span> <span class="toc-text">能量守恒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E6%9C%BA%E6%95%88%E7%8E%87"><span class="toc-number">2.1.3.</span> <span class="toc-text">热机效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.1.4.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E7%9A%84%E8%92%B8%E6%B1%BD%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.2.</span> <span class="toc-text">实际的蒸汽动力循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%83%85%E5%86%B5%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">2.2.1.</span> <span class="toc-text">实际情况的例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E8%93%9D%E9%87%91%E5%BE%AA%E7%8E%AF%E6%95%88%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">提高蓝金循环效率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E5%86%B7%E5%87%9D%E5%99%A8%E5%8E%8B%E5%8A%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">降低冷凝器压力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E8%92%B8%E6%B1%BD%E8%BF%87%E7%83%AD%E8%87%B3%E6%9B%B4%E9%AB%98%E6%B8%A9%E5%BA%A6"><span class="toc-number">2.3.2.</span> <span class="toc-text">将蒸汽过热至更高温度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E6%B6%A1%E8%BD%AE%E5%8E%8B%E5%8A%9B"><span class="toc-number">2.3.3.</span> <span class="toc-text">增加涡轮压力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.3.4.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E5%86%8D%E7%83%AD-Reheat-%E8%93%9D%E9%87%91%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.4.</span> <span class="toc-text">理想再热**Reheat**蓝金循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-number">2.4.1.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E5%86%8D%E7%94%9FRegenerative%E8%93%9D%E9%87%91%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.5.</span> <span class="toc-text">理想再生Regenerative蓝金循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E5%BC%8F%E7%BB%99%E6%B0%B4%E5%8A%A0%E7%83%AD%E5%99%A8"><span class="toc-number">2.5.1.</span> <span class="toc-text">开放式给水加热器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E9%97%AD%E5%BC%8F%E7%BB%99%E6%B0%B4%E5%8A%A0%E7%83%AD%E5%99%A8"><span class="toc-number">2.5.2.</span> <span class="toc-text">封闭式给水加热器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E4%BD%BF%E7%94%A8%E5%BC%80%E6%94%BE%E5%BC%8F%E5%92%8C%E5%B0%81%E9%97%AD%E5%BC%8F%E7%BB%99%E6%B0%B4%E5%8A%A0%E7%83%AD%E5%99%A8"><span class="toc-number">2.5.3.</span> <span class="toc-text">综合使用开放式和封闭式给水加热器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-number">2.5.4.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%92%B8%E6%B1%BD%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">蒸汽动力循环的热力学第二定律分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-number">3.0.1.</span> <span class="toc-text">例子：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%94%B5%E8%81%94%E4%BA%A7-COGENERATION"><span class="toc-number">4.</span> <span class="toc-text">热电联产 **COGENERATION**</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-3"><span class="toc-number">4.0.1.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B0%94%E4%BD%93-%E8%92%B8%E6%B1%BD%E8%81%94%E5%90%88%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.</span> <span class="toc-text">气体-蒸汽联合动力循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-4"><span class="toc-number">5.0.1.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary"><span class="toc-number">6.</span> <span class="toc-text">Summary</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/14/rishmangement/" title="风险管理"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="风险管理"/></a><div class="content"><a class="title" href="/2025/11/14/rishmangement/" title="风险管理">风险管理</a><time datetime="2025-11-14T05:52:50.000Z" title="发表于 2025-11-14 13:52:50">2025-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2023/11/23/physique/Thermo/Thermo-10/">http://raphaelhyaan.cn/2023/11/23/physique/Thermo/Thermo-10/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6/">热力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/23/physique/Thermo/Thermo-11/" title="第11章 制冷循环 Refrigeration Cycles"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第11章 制冷循环 Refrigeration Cycles</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/23/physique/Thermo/Thermo-1/" title="Chapter 1 Introduction And Basic Concepts."><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Chapter 1 Introduction And Basic Concepts.</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/31/physique/Thermo/" title="工程热力学课程总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-31</div><div class="title">工程热力学课程总览</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-1/" title="Chapter 1 Introduction And Basic Concepts."><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Chapter 1 Introduction And Basic Concepts.</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-2/" title="Chapter 2 energy, energy transfer, general energy analysis"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Chapter 2 energy, energy transfer, general energy analysis</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-11/" title="第11章 制冷循环 Refrigeration Cycles"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">第11章 制冷循环 Refrigeration Cycles</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-4/" title="Chapter 4 Energy Analysis of Closed Systems"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">Chapter 4 Energy Analysis of Closed Systems</div></div></a></div><div><a href="/2023/11/23/physique/Thermo/Thermo-9/" title="第9章 气体动力循环 Gas Power Cycles"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FThermo2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-23</div><div class="title">第9章 气体动力循环 Gas Power Cycles</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">181</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">60</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC10%E7%AB%A0-%E8%92%B8%E6%B1%BD%E5%92%8C%E8%81%94%E5%90%88%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.</span> <span class="toc-text">第10章 蒸汽和联合动力循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%A1%E8%AF%BA%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.0.1.</span> <span class="toc-text">卡诺循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%93%9D%E9%87%91rankine%E5%BE%AA%E7%8E%AF%E8%92%B8%E6%B1%BD%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E6%83%B3%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">蓝金**Rankine**循环：蒸汽动力循环的理想过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%BF%87%E7%A8%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">循环过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">能量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E8%AE%BE"><span class="toc-number">2.1.1.</span> <span class="toc-text">假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E9%87%8F%E5%AE%88%E6%81%92"><span class="toc-number">2.1.2.</span> <span class="toc-text">能量守恒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E6%9C%BA%E6%95%88%E7%8E%87"><span class="toc-number">2.1.3.</span> <span class="toc-text">热机效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.1.4.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E7%9A%84%E8%92%B8%E6%B1%BD%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.2.</span> <span class="toc-text">实际的蒸汽动力循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%83%85%E5%86%B5%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">2.2.1.</span> <span class="toc-text">实际情况的例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E8%93%9D%E9%87%91%E5%BE%AA%E7%8E%AF%E6%95%88%E7%8E%87"><span class="toc-number">2.3.</span> <span class="toc-text">提高蓝金循环效率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E5%86%B7%E5%87%9D%E5%99%A8%E5%8E%8B%E5%8A%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">降低冷凝器压力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E8%92%B8%E6%B1%BD%E8%BF%87%E7%83%AD%E8%87%B3%E6%9B%B4%E9%AB%98%E6%B8%A9%E5%BA%A6"><span class="toc-number">2.3.2.</span> <span class="toc-text">将蒸汽过热至更高温度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E6%B6%A1%E8%BD%AE%E5%8E%8B%E5%8A%9B"><span class="toc-number">2.3.3.</span> <span class="toc-text">增加涡轮压力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.3.4.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E5%86%8D%E7%83%ADreheat%E8%93%9D%E9%87%91%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.4.</span> <span class="toc-text">理想再热**Reheat**蓝金循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-number">2.4.1.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E5%86%8D%E7%94%9Fregenerative%E8%93%9D%E9%87%91%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.5.</span> <span class="toc-text">理想再生Regenerative蓝金循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E5%BC%8F%E7%BB%99%E6%B0%B4%E5%8A%A0%E7%83%AD%E5%99%A8"><span class="toc-number">2.5.1.</span> <span class="toc-text">开放式给水加热器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E9%97%AD%E5%BC%8F%E7%BB%99%E6%B0%B4%E5%8A%A0%E7%83%AD%E5%99%A8"><span class="toc-number">2.5.2.</span> <span class="toc-text">封闭式给水加热器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E4%BD%BF%E7%94%A8%E5%BC%80%E6%94%BE%E5%BC%8F%E5%92%8C%E5%B0%81%E9%97%AD%E5%BC%8F%E7%BB%99%E6%B0%B4%E5%8A%A0%E7%83%AD%E5%99%A8"><span class="toc-number">2.5.3.</span> <span class="toc-text">综合使用开放式和封闭式给水加热器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-number">2.5.4.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%92%B8%E6%B1%BD%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">蒸汽动力循环的热力学第二定律分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-3"><span class="toc-number">3.0.1.</span> <span class="toc-text">例子：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%AD%E7%94%B5%E8%81%94%E4%BA%A7-cogeneration"><span class="toc-number">4.</span> <span class="toc-text">热电联产
+**COGENERATION**</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-4"><span class="toc-number">4.0.1.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B0%94%E4%BD%93-%E8%92%B8%E6%B1%BD%E8%81%94%E5%90%88%E5%8A%A8%E5%8A%9B%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.</span> <span class="toc-text">气体-蒸汽联合动力循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-5"><span class="toc-number">5.0.1.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#summary"><span class="toc-number">6.</span> <span class="toc-text">Summary</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/14/rishmangement/" title="风险管理"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="风险管理"/></a><div class="content"><a class="title" href="/2025/11/14/rishmangement/" title="风险管理">风险管理</a><time datetime="2025-11-14T05:52:50.000Z" title="发表于 2025-11-14 13:52:50">2025-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="梵蒂冈之囚"/></a><div class="content"><a class="title" href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚">梵蒂冈之囚</a><time datetime="2025-10-20T17:29:55.000Z" title="发表于 2025-10-21 01:29:55">2025-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="FastMNMF及改进"/></a><div class="content"><a class="title" href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进">FastMNMF及改进</a><time datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/04/RH-BF/" title="波束形成"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="波束形成"/></a><div class="content"><a class="title" href="/2025/08/04/RH-BF/" title="波束形成">波束形成</a><time datetime="2025-08-04T14:59:11.000Z" title="发表于 2025-08-04 22:59:11">2025-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fsnake-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="从北京的四种毒蛇开始"/></a><div class="content"><a class="title" href="/2025/06/30/snake-1/" title="从北京的四种毒蛇开始">从北京的四种毒蛇开始</a><time datetime="2025-06-30T14:22:54.000Z" title="发表于 2025-06-30 22:22:54">2025-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
