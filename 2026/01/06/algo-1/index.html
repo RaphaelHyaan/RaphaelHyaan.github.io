@@ -1,0 +1,914 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology) | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第一部分：算法分析基础与开发规范 (Foundations &amp; Methodology)  1.1 算法核心概念 (Core Concepts of Algorithms) 1.1.1 算法的定义与本质 (Definition &amp; Nature) 算法是执行特定任务的一组指令集（A set of instructions for performing a task">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)">
+<meta property="og:url" content="http://raphaelhyaan.cn/2026/01/06/algo-1/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="第一部分：算法分析基础与开发规范 (Foundations &amp; Methodology)  1.1 算法核心概念 (Core Concepts of Algorithms) 1.1.1 算法的定义与本质 (Definition &amp; Nature) 算法是执行特定任务的一组指令集（A set of instructions for performing a task">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png">
+<meta property="article:published_time" content="2026-01-05T16:07:10.000Z">
+<meta property="article:modified_time" content="2026-01-05T16:09:56.572Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png"><link rel="shortcut icon" href="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flana cat 002.png"><link rel="canonical" href="http://raphaelhyaan.cn/2026/01/06/algo-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '第一部分-算法分析基础与开发规范 (Foundations & Methodology)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-01-06 00:09:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:10.000Z" title="发表于 2026-01-06 00:07:10">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:09:56.572Z" title="更新于 2026-01-06 00:09:56">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="第一部分算法分析基础与开发规范-foundations-methodology">第一部分：算法分析基础与开发规范
+(Foundations &amp; Methodology)</h1>
+<hr />
+<h2 id="算法核心概念-core-concepts-of-algorithms">1.1 算法核心概念 (Core
+Concepts of Algorithms)</h2>
+<h3 id="算法的定义与本质-definition-nature">1.1.1 算法的定义与本质
+(Definition &amp; Nature)</h3>
+<p>算法是执行特定任务的一组指令集（A set of instructions for performing
+a
+task）。程序通常会输入（Input）必要的数值，以正确的方式进行处理，然后将结果输出（Output）给用户。因此，程序通常被看作算法
+（alogorithm）和数据（data）的结合。</p>
+<p><strong>算法的静态与动态</strong> * 静态 (Static)：
+算法在纸面或代码中由作者编写的形式。 * 动态 (Dynamic)：
+算法被处理器（Processor）执行时的过程。</p>
+<hr />
+<p><strong>算法的四个核心特征</strong></p>
+<ol type="1">
+<li>清晰且可执行 (Clear and Executable)：
+每一条指令必须明确无歧义，且能够被执行。</li>
+<li>确定性 (Determinate)：
+在任何给定状态下，下一步的操作必须是唯一的，不存在二义性。</li>
+<li>有穷性 (Terminate)：
+算法必须在有限的步骤内结束，不能陷入无限循环。</li>
+<li>目标达成 (Goal Achieved)：
+过程结束后，必须产生预期的结果或输出。</li>
+</ol>
+<hr />
+<p><strong>算法的结构要素</strong></p>
+<p>现代算法通常包含以下逻辑结构：</p>
+<ul>
+<li>声明 (Declarations)： 对涉及的对象（数据）进行定义。</li>
+<li>指令序列 (Sequential Instructions)： 按顺序执行的操作。</li>
+<li>决策/分支 (Decisions)： 根据当前状态选择执行路径（如
+<code>if-then-else</code>）。</li>
+<li>重复/迭代 (Repetition/Iteration)： 多次执行某些部分（如
+<code>loops</code>），直到满足特定状态（如“烤到表面金黄”）。</li>
+<li>过程/方法 (Procedures/Methods)：
+将一组指令封装为子算法（Sub-algorithm），用于解决子问题。</li>
+</ul>
+<hr />
+<h3 id="算法分析-algorithms-analysis">1.1.2 算法分析 algorithms
+analysis</h3>
+<p>算法分析的目的子啊与改进算法和选择算法。在设计或选择算法时，通常从以下五个维度进行评估：</p>
+<ul>
+<li><p>正确性（Correctness）：算法是否能得到预期结果。</p></li>
+<li><p>工作量（Amount of Work Done）：通常指时间复杂度（Time
+Complexity）。</p></li>
+<li><p>空间占用（Amount of Space Used）：通常指空间复杂度（Space
+Complexity）。</p></li>
+<li><p>简单性（Simplicity）：算法是否易于理解、实现和维护。</p></li>
+<li><p>最优性（Optimality）：该算法是否已经是解决该类问题的效率极限。</p></li>
+</ul>
+<hr />
+<h4 id="正确性-correctness"><strong>正确性 Correctness</strong></h4>
+<p>一个算法是正确的，是指当给定合法输入时，它能在有限的时间内运行结束并产生正确的答案。</p>
+<p>正确性的证明方法包括：非正式方法（检查细节和手动模拟），模块化分解和数学归纳法</p>
+<hr />
+<p>以顺序查找（Sequential Search）为例：</p>
+<p>其精确的正确性陈述：给定一个包含 <span
+class="math inline">\(n\)</span> 个元素（<span class="math inline">\(n
+\geq 0\)</span>）的数组 <span class="math inline">\(L\)</span> 和目标值
+<span class="math inline">\(X\)</span>，顺序查找算法在终止时：若 <span
+class="math inline">\(X\)</span> 存在，则 <span
+class="math inline">\(j\)</span> 为 <span
+class="math inline">\(X\)</span> 在 <span
+class="math inline">\(L\)</span> 中第一次出现的索引；否则 <span
+class="math inline">\(j = 0\)</span>。</p>
+<p>其伪代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Sequential search</span><br><span class="line">Input: L,n,X (search X in L, where L is an array with n entries)</span><br><span class="line">Output: l (indice of X in L)</span><br><span class="line">j &lt;- 1</span><br><span class="line">while j&lt;=n and L(j)!=X</span><br><span class="line">    do j &lt;- j+1</span><br><span class="line">end while do</span><br><span class="line">if j&gt;n then j &lt;- 0</span><br></pre></td></tr></table></figure>
+<p>证明</p>
+<blockquote>
+<p>为了应用归纳法，我们需要证明一个更强的命题。 命题： 对于 <span
+class="math inline">\(1 \leq k \leq n+1\)</span>，当控制流第 <span
+class="math inline">\(k\)</span> 次到达第 2 行的测试时，满足以下条件： -
+<span class="math inline">\(j = k\)</span>，且对于所有 <span
+class="math inline">\(1 \leq i &lt; k\)</span>，均有 <span
+class="math inline">\(L(i) \neq X\)</span>。 - 若 <span
+class="math inline">\(k \leq n\)</span> 且 <span
+class="math inline">\(L(k) = X\)</span>，算法将在执行测试和第 4
+行后终止，且 <span class="math inline">\(j\)</span> 仍等于 <span
+class="math inline">\(k\)</span>。 - 若 <span class="math inline">\(k =
+n+1\)</span>，算法将在执行测试和第 4 行后终止，且 <span
+class="math inline">\(j = 0\)</span>。 证明步骤： - 基础步骤（Base Case,
+<span class="math inline">\(k = 1\)</span>）： - 根据第 1 行，<span
+class="math inline">\(j = 1 = k\)</span>。由于没有 <span
+class="math inline">\(i &lt; 1\)</span> 的情况，条件 1
+的第二部分自然成立。 - 若 <span class="math inline">\(1 \leq n\)</span>
+且 <span class="math inline">\(L(1) = X\)</span>，第 2
+行测试失败，跳至第 4 行，由于 <span class="math inline">\(j = 1 \leq
+n\)</span>，<span class="math inline">\(j\)</span> 保持不变，符合条件
+2。 - 若 <span class="math inline">\(k = n+1\)</span>（即 <span
+class="math inline">\(n=0\)</span>，空列表），<span
+class="math inline">\(j=1\)</span>，第 2 行测试失败，第 4 行将 <span
+class="math inline">\(j\)</span> 设为 <span
+class="math inline">\(0\)</span>，符合条件 3。 - 归纳假设（Inductive
+Step）：假设命题对某个 <span class="math inline">\(k &lt; n+1\)</span>
+成立，证明其对 <span class="math inline">\(k+1\)</span> 也成立。
+当控制流第 <span class="math inline">\(k+1\)</span> 次到达第 2
+行测试时： - 关于条件 1：由于此前第 <span
+class="math inline">\(k\)</span> 次测试成功（即 <span
+class="math inline">\(L(k) \neq X\)</span>）并执行了第 3 行的 <span
+class="math inline">\(j \leftarrow j+1\)</span>，故当前 <span
+class="math inline">\(j = k+1\)</span>。根据假设，已知 <span
+class="math inline">\(1 \leq i &lt; k\)</span> 时 <span
+class="math inline">\(L(i) \neq X\)</span>，结合 <span
+class="math inline">\(L(k) \neq X\)</span>，得出对于 <span
+class="math inline">\(1 \leq i &lt; k+1\)</span>，<span
+class="math inline">\(L(i) \neq X\)</span> 成立。 - 关于条件 2 和
+3：逻辑推导与基础步骤类似，若在 <span class="math inline">\(k+1\)</span>
+处找到匹配或达到边界，算法将按预期在第 4 行处理 <span
+class="math inline">\(j\)</span> 的最终值。</p>
+</blockquote>
+<p>通过证明，我们可以得出：第 2 行的测试最多执行 <span
+class="math inline">\(n+1\)</span> 次。输出 <span
+class="math inline">\(j=0\)</span> 当且仅当 <span
+class="math inline">\(X\)</span> 不在 <span
+class="math inline">\(L\)</span> 中。输出 <span
+class="math inline">\(j=k\)</span> 当且仅当 <span
+class="math inline">\(k\)</span> 是 <span
+class="math inline">\(X\)</span>
+第一次出现的索引。因此，该算法是正确的。</p>
+<hr />
+<h4 id="工作量-amount-of-work-done"><strong>工作量 amount of work
+done</strong></h4>
+<p>为了排除硬件差异，通常通过计算基本操作的执行次数（Number of Basic
+Operations
+Done）来评估效率。为了简化计算，我们通常假定一条编程语句等同于一个时间单位。</p>
+<p>运行时间的分类程序的运行时间不仅取决于输入规模，还取决于输入的具体内容。因此，我们将运行时间进一步分类：
+- 最坏情况（Worst Case, <span
+class="math inline">\(T_{worst}(n)\)</span>）：算法在任何规模为 <span
+class="math inline">\(n\)</span>
+的输入上执行的最大操作次数。它最容易计算，且具有重要的实际指导意义。 -
+平均情况（Average Case, <span
+class="math inline">\(T_{avg}(n)\)</span>）：在所有可能输入情况下的期望执行次数。
+- 最好情况（Best Case, <span
+class="math inline">\(T_{best}(n)\)</span>）：执行次数最少的情况，实际应用中较少使用。</p>
+<hr />
+<p>考虑伪代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Algorithm FINDMAX</span><br><span class="line">Input: L, n</span><br><span class="line">Output: max</span><br><span class="line"></span><br><span class="line">max&lt;- a[0]</span><br><span class="line">for i = 1 to n</span><br><span class="line">    if a[i] &gt; max</span><br><span class="line">        max = a[i]</span><br><span class="line">    end if</span><br><span class="line">    i &lt;- i+1</span><br><span class="line">end for</span><br></pre></td></tr></table></figure>
+<p>易见</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">情况类型 (Case Type)</th>
+<th style="text-align: left;">执行逻辑描述 (Logic Description)</th>
+<th style="text-align: left;">计算公式 (Formula)</th>
+<th style="text-align: left;">最终结果 <span
+class="math inline">\(T(n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>最坏情况 (Worst
+Case)</strong></td>
+<td style="text-align: left;">数组递增（如 {1,2,3,4}），每次 if
+都为真，都要执行赋值。</td>
+<td style="text-align: left;"><span class="math inline">\(1(max初值) +
+2(for初值+首次测试) + 4(n-1)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4n -
+1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>平均情况 (Average
+Case)</strong></td>
+<td style="text-align: left;">假设平均每隔一个元素更新一次 max。</td>
+<td style="text-align: left;"><span class="math inline">\(3 + 3(n-1) +
+\frac{n-1}{2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3.5n -
+0.5\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>最好情况 (Best Case)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(a[0]\)</span>
+即为最大值，if 后的赋值从未执行。</td>
+<td style="text-align: left;"><span class="math inline">\(3 +
+3(n-1)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(3n\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>时间复杂度</strong></p>
+<ul>
+<li>平均情况（Average Case）设 <span class="math inline">\(D_n\)</span>
+为规模为 <span class="math inline">\(n\)</span>
+的所有可能输入的集合，<span class="math inline">\(I\)</span>
+是其中的一个元素。
+<ul>
+<li><span class="math inline">\(p(I)\)</span> 是输入 <span
+class="math inline">\(I\)</span> 出现的概率。<span
+class="math inline">\(t(I)\)</span> 是算法处理输入 <span
+class="math inline">\(I\)</span> 时执行的基本操作次数。平均行为 <span
+class="math inline">\(A(n)\)</span> 定义为： <span
+class="math display">\[A(n) = \sum_{I \in D_n} p(I) \cdot
+t(I)\]</span></li>
+<li><span class="math inline">\(t(I)\)</span>
+可以通过分析算法得出，但概率 <span class="math inline">\(p(I)\)</span>
+通常难以分析确定，通常需要经验数据或特定应用背景。</li>
+</ul></li>
+<li>最坏情况（Worst Case）最坏情况 <span
+class="math inline">\(W(n)\)</span>
+定义为所有输入中操作次数的最大值：<span class="math display">\[W(n) =
+\max_{I \in D_n} t(I)\]</span></li>
+</ul>
+<hr />
+<p>以顺序查找为例</p>
+<p>平均行为分析：设 <span class="math inline">\(q\)</span> 为目标元素
+<span class="math inline">\(X\)</span> 在列表中的概率，并假设 <span
+class="math inline">\(X\)</span> 出现在列表任意位置的概率相等（即 <span
+class="math inline">\(q/n\)</span>）。若 <span
+class="math inline">\(X\)</span> 在第 <span
+class="math inline">\(i\)</span> 个位置，比较次数为 <span
+class="math inline">\(i\)</span>。若 <span
+class="math inline">\(X\)</span> 不在列表中（概率为 <span
+class="math inline">\(1-q\)</span>），比较次数为 <span
+class="math inline">\(n\)</span>。</p>
+<p>因此，计算公式显然为：</p>
+<p><span class="math display">\[A(n) = \left( \sum_{i=1}^{n} \frac{q}{n}
+\cdot i \right) + (1-q) \cdot n = \frac{q(n+1)}{2} + n(1-q)\]</span></p>
+<p>最坏情况分析：当 <span class="math inline">\(X\)</span>
+位于列表最后一个位置，或者 <span class="math inline">\(X\)</span>
+完全不在列表中时，算法需要扫描所有元素。<span
+class="math display">\[W(n) = n\]</span></p>
+<hr />
+<p>时间复杂度作为一个量化指标，常用于对比算法 如：</p>
+<p>算法 A 和算法 B： - <span class="math inline">\(T_a(n) =
+2n^2\)</span> - <span class="math inline">\(T_b(n) = 100n\)</span></p>
+<p>当 <span class="math inline">\(n\)</span> 较小时（例如 <span
+class="math inline">\(n=10\)</span>），算法 A (<span
+class="math inline">\(T=200\)</span>) 优于算法 B (<span
+class="math inline">\(T=1000\)</span>)。当 <span
+class="math inline">\(n\)</span> 较大时（例如 <span
+class="math inline">\(n=100\)</span>），算法 B (<span
+class="math inline">\(T=10,000\)</span>) 远优于算法 A (<span
+class="math inline">\(T=20,000\)</span>)。计算得交点为<span
+class="math inline">\(n = 50\)</span>。</p>
+<hr />
+<p><strong>大O表示法</strong></p>
+<p>大O表示法允许我们在评估程序的运行时间时忽略常数。更精确地说，如果存在
+<span class="math inline">\(n_0 \le n\)</span> 且 <span
+class="math inline">\(c &gt; 0\)</span>，使得 <span
+class="math inline">\(T(n) \le c f(n)\)</span> 成立。，则<span
+class="math inline">\(T(n) = O(f(n))\)</span>。</p>
+<p>考虑 <span class="math inline">\(T(n) =
+(n+1)^2\)</span>。在这种情况下，我们可以说 <span
+class="math inline">\(T(n)\)</span> 是 <span
+class="math inline">\(O(n^2)\)</span>。因为：<span
+class="math inline">\(n^2 + 2n + 1 \le n^2 + 2n^2 + n^2 =
+4n^2\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">大O表示法 (Big-Oh)</th>
+<th style="text-align: left;">非正式名称 (Informal Name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">O(1)</td>
+<td style="text-align: left;">常数阶 (constant)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O(log n)</td>
+<td style="text-align: left;">对数阶 (logarithmic)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">线性阶 (linear)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O(n log n)</td>
+<td style="text-align: left;">n log n 阶</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">O(n^2)</td>
+<td style="text-align: left;">平方阶 (quadratic)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O(n^3)</td>
+<td style="text-align: left;">立方阶 (cubic)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">O(2^n)</td>
+<td style="text-align: left;">指数阶 (exponential)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O(n!)</td>
+<td style="text-align: left;">阶乘阶 (factorial)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>除此之外还有其他渐进复杂度符号：</p>
+<ul>
+<li><p>Ω-符号（<span
+class="math inline">\(\Omega\)</span>-notation）：如果函数 <span
+class="math inline">\(t(n)\)</span> 被 <span
+class="math inline">\(g(n)\)</span> 的某个常数倍从下方限定（Bounded
+below），则称 <span class="math inline">\(t(n)\)</span> 属于 <span
+class="math inline">\(\Omega(g(n))\)</span>，记作 <span
+class="math inline">\(t(n) \in
+\Omega(g(n))\)</span>。即：如果存在某个正数常数 <span
+class="math inline">\(c\)</span> 和某个非负整数 <span
+class="math inline">\(n_0\)</span>，使得对于所有 <span
+class="math inline">\(n \ge n_0\)</span>，有： <span
+class="math display">\[t(n) \ge c g(n)\]</span></p></li>
+<li><p>Θ-符号（<span
+class="math inline">\(\Theta\)</span>-notation）：如果函数 <span
+class="math inline">\(t(n)\)</span> 对于所有足够大的 <span
+class="math inline">\(n\)</span>，同时被 <span
+class="math inline">\(g(n)\)</span> 的正数常数倍从上方和下方限定，则称
+<span class="math inline">\(t(n)\)</span> 属于 <span
+class="math inline">\(\Theta(g(n))\)</span>，记作 <span
+class="math inline">\(t(n) \in
+\Theta(g(n))\)</span>。即：如果存在正数常数 <span
+class="math inline">\(c_1\)</span> 和 <span
+class="math inline">\(c_2\)</span> 以及某个非负整数 <span
+class="math inline">\(n_0\)</span>，使得对于所有 <span
+class="math inline">\(n \ge n_0\)</span>，有： <span
+class="math display">\[c_2 g(n) \le t(n) \le c_1 g(n)\]</span></p></li>
+</ul>
+<p>除此之外还有相对并不常用的两个非紧确上下界：o，<span
+class="math inline">\(\omega\)</span></p>
+<hr />
+<p>运算法和数学性质</p>
+<ul>
+<li><span class="math inline">\(O(f(n)) + O(g(n)) = O(\max\{f(n),
+g(n)\})\)</span></li>
+<li><span class="math inline">\(O(f(n)) + O(g(n)) = O(f(n) +
+g(n))\)</span></li>
+<li><span class="math inline">\(O(f(n)) \times O(g(n)) = O(f(n) \times
+g(n))\)</span></li>
+<li><span class="math inline">\(O(c f(n)) = O(f(n))\)</span></li>
+<li>传递性（Transitivity）：若 <span class="math inline">\(f(n) =
+O(g(n))\)</span> 且 <span class="math inline">\(g(n) =
+O(h(n))\)</span>，则 <span class="math inline">\(f(n) =
+O(h(n))\)</span>。同样适用于 <span class="math inline">\(\Omega\)</span>
+和 <span class="math inline">\(\Theta\)</span>。</li>
+<li>对称性（Symmetry）：<span class="math inline">\(f(n) = \Theta(g(n))
+\iff g(n) = \Theta(f(n))\)</span>。</li>
+<li>转置对称性（Transpose Symmetry）：<span class="math inline">\(f(n) =
+O(g(n)) \iff g(n) = \Omega(f(n))\)</span>。</li>
+<li>自反性（Reflexivity）：<span class="math inline">\(f(n) =
+\Theta(f(n))\)</span>；<span class="math inline">\(f(n) =
+O(f(n))\)</span>；<span class="math inline">\(f(n) =
+\Omega(f(n))\)</span>。</li>
+</ul>
+<hr />
+<h4 id="空间占用量">空间占用量</h4>
+<p>即空间复杂度：程序使用的内存单元（Memory
+cells）数量。其重要性体现在：</p>
+<ul>
+<li><p>预测运行程序所需的内存空间是否足够。</p></li>
+<li><p>在多用户系统中为程序分配内存。</p></li>
+<li><p>估算算法能够解决的问题规模。</p></li>
+</ul>
+<p>所有关于时间复杂度的增长阶和渐近界限定义均适用于空间复杂度。显然，辅助工作空间不会超过算法的运行时间，因为向每个内存单元写入数据至少需要常数时间。</p>
+<p>若 <span class="math inline">\(t(n)\)</span> 和 <span
+class="math inline">\(s(n)\)</span>
+分别表示算法的时间和空间复杂度，则：<span class="math display">\[s(n) =
+O(t(n))\]</span></p>
+<hr />
+<h4 id="简洁性simplicity">简洁性（Simplicity）</h4>
+<p>通常情况下，解决问题最简单、最直接的方法往往不是最高效的。然而，算法的简洁性是一个非常理想的特性：</p>
+<p>它使验证算法的正确性变得更容易。</p>
+<p>它使程序的编写、调试和修改更加容易。
+在选择算法时，应考虑开发调试程序所需的时间；但如果程序会被频繁使用，其效率通常是决定性的因素</p>
+<hr />
+<h4 id="最优性optimality">最优性（Optimality）</h4>
+<p>如果在研究的同类算法中，没有其他算法在最坏情况（Worst
+case）下执行的基本操作（Basic operations）更少，则称该算法是最优的。</p>
+<p>通常不需要逐个分析同类中的每一个算法。通常可以证明关于下界的定理，确定解决该问题所需的最小操作次数。任何达到该下界操作数的算法即为最优算法。</p>
+<hr />
+<p>示例：寻找 <span class="math inline">\(n\)</span> 个数中的最大值</p>
+<ul>
+<li><p>上界（Upper bound）： 算法 FINDMAX 依次比较元素。比较操作在第 3
+行执行，共执行了 <span class="math inline">\(n-1\)</span>
+次。因此，<span class="math inline">\(n-1\)</span>
+是最坏情况下寻找最大值所需比较次数的一个上界。</p></li>
+<li><p>下界（Lower bound）： 假设列表中的元素各不相同。在 <span
+class="math inline">\(n\)</span> 个不同的元素中，有 <span
+class="math inline">\(n-1\)</span>
+个元素不是最大值。只有当一个元素小于至少一个其他元素时，我们才能断定它不是最大值。因此，这
+<span class="math inline">\(n-1\)</span>
+个元素必须在算法的比较中成为“输家”。由于每次比较只能产生一个输家，因此至少必须进行
+<span class="math inline">\(n-1\)</span> 次比较。 得出结论：<span
+class="math inline">\(F(n) = n-1\)</span>
+是所需比较次数的下界。</p></li>
+</ul>
+<p>结论： 由于上界与下界相等（均为 <span
+class="math inline">\(n-1\)</span>），FINDMAX 算法是最优的。</p>
+<h3 id="算法设计流程">1.1.3 算法设计流程</h3>
+<p>算法开发的完整流程（Complete Development of an Algo.）</p>
+<p>一个算法从构思到落地的过程通常包含以下八个核心阶段：</p>
+<ul>
+<li><p>问题陈述（Statement of the problem）</p></li>
+<li><p>模型建立（Development of a Model）</p></li>
+<li><p>算法设计（Design of the algorithm）</p></li>
+<li><p>算法正确性验证（Correctness of the algorithm）</p></li>
+<li><p>实现（Implementation）</p></li>
+<li><p>算法分析与复杂度（Analysis and complexity of the
+algorithm）</p></li>
+<li><p>程序测试（Program testing）</p></li>
+<li><p>文档编制（Documentation）</p></li>
+</ul>
+<h2 id="算法开发示例最小费用通讯网络构建">1.2
+算法开发示例：最小费用通讯网络构建</h2>
+<p>任务背景（The Task）
+决策是否在不同站点（Sites）之间建立计算机网络。需考虑的因素包括：</p>
+<ul>
+<li><p>各站点可用的计算资源；</p></li>
+<li><p>预期的站点使用水平；</p></li>
+<li><p>系统的峰值需求（Peak demands）；</p></li>
+<li><p>主要设施可能出现的系统性能退化（System degradation）；</p></li>
+<li><p>……</p></li>
+<li><p>拟建网络的成本（The cost of the proposed network）。</p></li>
+</ul>
+<p>其中</p>
+<p>拟建网络的成本主要包括： - 设备采购费用； - 通讯链路（Communication
+links）的建立费用； - 系统维护费用； -
+在特定站点运行特定类型作业的成本。</p>
+<p>在分析租用线路成本时，需考虑： - 站点间的地理距离； -
+所需的传输速率（Transmission rate）； - 线路所需的传输容量。</p>
+<hr />
+<p>经过讨论，我们得到了站点 <span class="math inline">\(i\)</span> 与
+<span class="math inline">\(j\)</span> 之间的成本 <span
+class="math inline">\(C_{ij}\)</span>，这是一个对称成本矩阵（Symmetric
+cost matrix）。</p>
+<h3 id="问题陈述与建模-problem-statement-modeling">1.2.1 问题陈述与建模
+(Problem Statement &amp; Modeling)</h3>
+<p><strong>问题陈述</strong></p>
+<p>在已知网络中任意两点间建立链路的花费<span
+class="math inline">\(C_{ij}\)</span>的前提下，需要建立一个最小费用的通讯网络，使得网络中任何站点之间都可以相互通讯。</p>
+<hr />
+<p><strong>模型建立</strong></p>
+<p>最终的解将由原始成本矩阵 <span class="math inline">\(C\)</span>
+修改后的矩阵 <span class="math inline">\(C&#39;\)</span>
+构成：如果不建立链路，则 <span class="math inline">\((i, j)\)</span> 和
+<span class="math inline">\((j, i)\)</span> 的条目等于 <span
+class="math inline">\(\infty\)</span>。如果建立链路，则条目等于 <span
+class="math inline">\(C_{ij}\)</span>。[为什么不是0呢]。</p>
+<p>解并不难定义，问题在于连接性约束。我们先来考虑第一种可能</p>
+<blockquote>
+<p>约束v1：<span class="math inline">\(C&#39;\)</span>
+的每一行和每一列至少会有一个有限值（Finite entry）。</p>
+</blockquote>
+<p>显然，这个约束并不能保证连通性。如果我们在这个基础上修改，约束可以变成：</p>
+<blockquote>
+<p>约束v2：<span class="math inline">\(C&#39;\)</span>
+的每一行和每一列至少会有一个有限值（Finite
+entry），且每个有限值的上下左右至少有两个非无穷元素。</p>
+</blockquote>
+<p>然而即便如此，图可能被分割成几个孤立的“岛屿”（例如 A-B 互连，C-D
+互连，但 AB 与 CD 不通）。这将约束导向：</p>
+<blockquote>
+<p>约束v3：<span class="math inline">\(C&#39;\)</span>
+的每一行和每一列至少会有一个有限值（Finite
+entry），且整个图是一个单一的连通分量。</p>
+</blockquote>
+<p>除此之外，还应该考虑，图应该是无环的，如果图中包含环，那么通过移除该环中成本最高的链路，可以找到一个成本更低的解。由此，约束可以写成：</p>
+<blockquote>
+<p>约束v4：含所有顶点（即前文中的有限值约束）、连通且无回路</p>
+</blockquote>
+<p>这将这个问题的解导向为<strong>生成树</strong>（即满足以上条件的子网络）。</p>
+<hr />
+<p><strong>数学化描述</strong></p>
+<p>给定一个加权连通网络（Weighted, connected network） <span
+class="math inline">\(C\)</span>，寻找 <span
+class="math inline">\(C\)</span> 的一个最小生成树（Minimum-cost spanning
+tree, MCST / MST）。</p>
+<p>模型（Model）：设 <span class="math inline">\(C=(V, E)\)</span>
+是一个连通无向图；<span class="math inline">\(w(u, v)\)</span>
+是连接顶点 <span class="math inline">\(u, v \in V\)</span>
+的成本；寻找一个无回路的子集 <span class="math inline">\(T \subseteq
+E\)</span>，它连接 <span class="math inline">\(V\)</span>
+中的所有顶点，且使得权值之和最小： <span class="math display">\[w(T) =
+\sum_{(u, v) \in T} w(u, v)\]</span></p>
+<h3 id="算法设计演进从直觉到-prim-算法-design-evolution">1.2.2
+算法设计演进：从直觉到 Prim 算法 (Design Evolution)</h3>
+<h4 id="贪心算法">贪心算法</h4>
+<p>由此，可以提出第一种出于直觉的算法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Algorithm A_GREEDY</span><br><span class="line">Input: C, N</span><br><span class="line">Output: T (minimum-weight spanning tree T)</span><br><span class="line">T &lt;- a network consisting of N vertices and no edges(a 2-dim array where all elements are infinite.)</span><br><span class="line">H &lt;- C</span><br><span class="line">while T is not a connected network </span><br><span class="line">    Get (U,V) the lightest edge in H;</span><br><span class="line">    if T+(U,V) has no cycles</span><br><span class="line">    then set T &lt;- T + (U,V)</span><br><span class="line">    end if</span><br><span class="line">    Set H &lt;- H - (U,V)</span><br></pre></td></tr></table></figure>
+<hr />
+<p>算法检查： - 算法A一定会停止，H中的有限条边总会被完全移除 -
+停止时，T总是C的生成树，前提是C本身是联通的 -
+T是最小生成树。图论证明指出，对于图中的任意切割（将顶点分为两部分），横跨该切割的最小权重的边一定属于某个最小生成树。算法
+A
+的逻辑隐式地利用了这一性质，确保每次选择的都是当前安全且成本最低的边。因此，最终生成的
+<span class="math inline">\(T\)</span> 权值之和 <span
+class="math inline">\(w(T)\)</span> 是最小的。 -
+算法A不是自包含的，连通性检查和回路检测都未实现。 -
+算法A效率极低，总的时间复杂度可能接近于O(MN)</p>
+<blockquote>
+<p>证明横跨切割的最小权重边一定属于某个最小生成树 设 <span
+class="math inline">\(G = (V, E)\)</span>
+是一个连通加权无向图。将顶点集合 <span class="math inline">\(V\)</span>
+划分为两个不相交的集合 <span class="math inline">\((S,
+V-S)\)</span>。横跨边为任何一条连接 <span
+class="math inline">\(S\)</span> 中顶点和 <span
+class="math inline">\(V-S\)</span> 中顶点的边。设 <span
+class="math inline">\(e = (u, v)\)</span>
+是横跨该切割的所有边中权重最小的一条。 证明：边 <span
+class="math inline">\(e\)</span> 必定包含在图 <span
+class="math inline">\(G\)</span> 的某棵最小生成树（MST）中。</p>
+<p>假设 <span class="math inline">\(T\)</span> 是图 <span
+class="math inline">\(G\)</span> 的一棵最小生成树，但 <span
+class="math inline">\(e \notin T\)</span>。 由于 <span
+class="math inline">\(T\)</span> 是生成树，它包含连接 <span
+class="math inline">\(V\)</span> 中所有顶点的路径。因此，在 <span
+class="math inline">\(T\)</span> 中必然存在一条唯一的路径连接 <span
+class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span>。 当我们把边 <span
+class="math inline">\(e = (u, v)\)</span> 加入到 <span
+class="math inline">\(T\)</span> 中时，这就形成了一个回路。 记这个新图为
+<span class="math inline">\(T + \{e\}\)</span>。 由于 <span
+class="math inline">\(u \in S\)</span> 且 <span class="math inline">\(v
+\in V-S\)</span>，连接 <span class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 的那条路径必须从集合 <span
+class="math inline">\(S\)</span> 跨越到集合 <span
+class="math inline">\(V-S\)</span>。 这意味着，在 <span
+class="math inline">\(T\)</span> 中连接 <span
+class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 的路径上，至少存在另一条边 <span
+class="math inline">\(e&#39;\)</span> 也横跨了切割 <span
+class="math inline">\((S, V-S)\)</span>。 <span
+class="math inline">\(e\)</span>
+是横跨该切割的权重最小的边。因此，我们可以得出结论：<span
+class="math display">\[w(e) \le w(e&#39;)\]</span> 从图 <span
+class="math inline">\(T + \{e\}\)</span> 中移除边 <span
+class="math inline">\(e&#39;\)</span>。 由于 <span
+class="math inline">\(e&#39;\)</span>
+处于回路中，移除它并不会破坏图的连通性。同时，图的顶点数不变，边数恢复为
+<span class="math inline">\(N-1\)</span>。因此，我们得到了一棵新的生成树
+<span class="math inline">\(T&#39; = (T \setminus \{e&#39;\}) \cup
+\{e\}\)</span>。 有<span class="math display">\[w(T&#39;) \le
+w(T)\]</span> <span class="math inline">\(T&#39;\)</span>
+必定也是一棵最小生成树</p>
+</blockquote>
+<hr />
+<h4 id="prim-算法">Prim 算法</h4>
+<p>如果我们能发现一种构建生成树的方法，能够自动保证生成的网络既连通又无回路，而无需每次进行显式检查，那么算法
+A 就能得到改进。</p>
+<p>回忆之前对约束的描述。考虑向部分解中添加边，为了保证联通，需保证边的一个端点属于当前部分解。为了保证无环，需保证另一个端点不再当前部分解中。</p>
+<p>由此，可以写出算法B：</p>
+<p>Algorithm PRIM T &lt;- a network consisting N vertices and no edges Q
+&lt;- all vertices in C U &lt;- a random vertice in Q Q.pop(U) while
+len(Q) != 0 V &lt;- the vertex for which (U,V) is the shortest edge
+connected to U T &lt;- T + (U,V) U &lt;- Q.pop(V) end while</p>
+<p>这个算法大体上是自包含的，且比A更高效</p>
+<hr />
+<h4 id="prim算法的正确性验证">Prim算法的正确性验证</h4>
+<p><strong>定理 1 (Theorem 1)</strong> 在算法 B 的步骤 2
+每次执行完成时，当前 <span class="math inline">\(T\)</span>
+中的边在当前已选顶点集上构成一棵树。 - 若 <span class="math inline">\(K
+= 1\)</span>，则存在两个已选顶点和 <span
+class="math inline">\(T\)</span> 中连接它们的一条边，显然构成树。 -
+假设在执行 <span class="math inline">\(K\)</span> 次后，当前 <span
+class="math inline">\(T\)</span> 中的边在已选顶点上构成一棵树，记为
+<span class="math inline">\(T_c\)</span>。 - 考虑第 <span
+class="math inline">\((K + 1)\)</span> 次执行：这本质上是向 <span
+class="math inline">\(T_c\)</span>
+添加一个新顶点和一条新边。由于这条新边是连接该新顶点与 <span
+class="math inline">\(T_c\)</span> 的唯一边，因此不会在 <span
+class="math inline">\(T_c\)</span> 中产生回路（Cycle），且保持了连通性。
+- 因此，<span class="math inline">\(T_c\)</span> 仍然是一棵树。</p>
+<p><strong>定理 2 (Theorem 2)</strong> 在算法 B 结束时，<span
+class="math inline">\(T\)</span> 是 <span
+class="math inline">\(G\)</span> 的一棵生成树（Spanning tree）。
+显然</p>
+<p><strong>定理 3 (Theorem 3)</strong> 记 <span
+class="math inline">\(T\)</span> 是网络 <span
+class="math inline">\(G\)</span> 的一个子树，且令 <span
+class="math inline">\(e\)</span> 为连接 <span
+class="math inline">\(T\)</span> 中节点与不在 <span
+class="math inline">\(T\)</span> 中节点的最轻边。则 <span
+class="math inline">\(G\)</span> 中存在一棵包含 <span
+class="math inline">\(T\)</span> 和 <span
+class="math inline">\(e\)</span> 的生成树 <span
+class="math inline">\(T&#39;\)</span>，使得对于任意包含 <span
+class="math inline">\(T\)</span> 的生成树 <span
+class="math inline">\(T&#39;&#39;\)</span>，都有 <span
+class="math inline">\(W(T&#39;) \le W(T&#39;&#39;)\)</span>。
+同之前的贪心算法中的证明</p>
+<p><strong>定理 4 (Theorem 4)</strong> 设 <span class="math inline">\(G
+= (V, E)\)</span> 为加权连通网络，<span class="math inline">\(e = (v,
+w)\)</span> 是关联于顶点 <span class="math inline">\(v\)</span>
+的最轻边。则存在一棵包含 <span class="math inline">\(e\)</span>
+的最小生成树（MST）<span class="math inline">\(T\)</span>。 - 设 <span
+class="math inline">\(T\)</span> 是不包含 <span
+class="math inline">\(e\)</span> 的 MST。考虑 <span
+class="math inline">\(T \cup
+\{e\}\)</span>，它恰好包含一个环。该环包含两条关联于 <span
+class="math inline">\(v\)</span> 的边，即 <span class="math inline">\(e
+= (v, w)\)</span> 和另一条边 <span class="math inline">\(f = (u,
+v)\)</span>。根据题设 <span class="math inline">\(w(e) \le
+w(f)\)</span>，故 <span class="math inline">\((T - \{f\}) \cup
+\{e\}\)</span> 也是包含 <span class="math inline">\(e\)</span> 的
+MST。</p>
+<p><strong>定理 5 (Theorem 5)</strong> 算法 B 能够找到加权连通网络 <span
+class="math inline">\(G\)</span> 的一棵最小生成树 <span
+class="math inline">\(T\)</span>。 - 根据定理 2，算法 B 找到一棵生成树。
+- 根据定理 4，存在包含算法 B 所选第一条边 <span
+class="math inline">\(e_1\)</span> 的 MST <span
+class="math inline">\(T_1\)</span>。 - 根据定理 3，存在包含 <span
+class="math inline">\(e_1\)</span> 和 <span
+class="math inline">\(e_2\)</span> 的生成树 <span
+class="math inline">\(T_2\)</span>，且其权值在所有包含 <span
+class="math inline">\(e_1\)</span> 的生成树中最小；即 <span
+class="math inline">\(W(T_2) = W(T_1)\)</span>，因此 <span
+class="math inline">\(T_2\)</span> 也是 MST。 - 通过重复此过程，定理 3
+保证了对于所有 <span class="math inline">\(k = 1, 2, \dots,
+N-1\)</span>，都存在包含算法 B 所选前 <span
+class="math inline">\(k\)</span> 条边的 MST。 - 最终得到的 <span
+class="math inline">\(W(T_{N-1}) = W(T_1)\)</span>。</p>
+<hr />
+<p><strong>一种改进技术</strong></p>
+<p>之前我们说这种算法基本自包含，是因为这种算法并没有规定the vertex for
+which (U,V) is the shortest edge 是如何选择的。</p>
+<p>可以将伪代码扩展为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Algorithm PRIM-C</span><br><span class="line">Input G,C a weighted, connected network with N vertices and M edges , and a cost matrix C[i,j]</span><br><span class="line">Output T</span><br><span class="line"></span><br><span class="line">T &lt;- a network consisting N vertices and no edges</span><br><span class="line">UNCHSH &lt;- all vertices in C</span><br><span class="line">NUMUN &lt;- N</span><br><span class="line"></span><br><span class="line">UNCHSN[1] &lt;- UNCHSN[NUMUN] # 覆盖</span><br><span class="line">NUMUN &lt;- NUMUN - 1</span><br><span class="line"></span><br><span class="line">for I from 1 to NUMUN:</span><br><span class="line">    TargetNode &lt;- UNCHSN[I]</span><br><span class="line">    LIGHT[I] &lt;- C[StartNode, TargetNode]  </span><br><span class="line">    VERTEX[I] &lt;- StartNode             </span><br><span class="line"></span><br><span class="line">while NUMUN &gt; 0</span><br><span class="line">    K &lt;- argmin(LIGHT[1..NUMUN])</span><br><span class="line">    V &lt;- UNCHSN[K]</span><br><span class="line">    U &lt;- VERTEX[K]</span><br><span class="line">    T &lt;- T + (U,V)</span><br><span class="line">    if K != NUMUN:</span><br><span class="line">        UNCHSN[K] &lt;- UNCHSN(NUMUN)</span><br><span class="line">        LIGHT[K] &lt;- LIGHT(NUMUN)</span><br><span class="line">        VERTEX[K] &lt;- VERTEX[NUMUN]</span><br><span class="line">    end if</span><br><span class="line">    NUMUN &lt;- NUMUN - 1</span><br><span class="line">    for I &lt; NUMUN:</span><br><span class="line">        if C(V,UNCHSN[I]) &lt; LIGHT[I]</span><br><span class="line">            LIGHT[I] = C(V,UNCHSN[I])</span><br><span class="line">            VERTEX[I] = V</span><br><span class="line">        end if </span><br><span class="line">    end for</span><br><span class="line">end while</span><br></pre></td></tr></table></figure>
+<p>算法 C 是算法 B 的高效实现版本。由于其逻辑严格遵循了定理 1 至定理 5
+的证明过程，因此它能够保证找到加权连通图的最小生成树。</p>
+<hr />
+<p><strong>时间复杂度</strong></p>
+<p>分析其时间复杂度： - 初始化：O(N) - 寻找最轻边：第 <span
+class="math inline">\(i\)</span> 次迭代需要比较 <span
+class="math inline">\(N-i\)</span> 个元素。总计 <span
+class="math inline">\(\sum_{i=1}^{N-1} (N-i) = \frac{N(N-1)}{2}\)</span>
+次比较。 - 更新 LIGHT 数组：同上，总计约 <span
+class="math inline">\(\frac{N(N-1)}{2}\)</span> 次比较与更新 -
+总算法复杂度：<span class="math display">\[O(N+N(N-1)) =
+O(N^2)\]</span></p>
+<p>因此，这种算法的时间复杂度与边数无关，非常适合稠密图。</p>
+<p>实际上，其复杂度 <span class="math inline">\(O(N^2)\)</span>
+在渐近意义上达到了读取输入数据的下界，因此在处理稠密图时是具有最优性的。</p>
+<p>后续的工作包括程序测试和文档编制，在此不再涉及。</p>
+<h3 id="kruskal-算法">1.2.3 Kruskal 算法</h3>
+<p>虽然 Prim 算法在稠密图中表现优异，但一种被称作 Kruskal
+的算法配合高效的不相交集合（Disjoint
+Set）数据结构，在边数较少时效率极高。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Kruskal</span><br><span class="line">A &lt;- ∅</span><br><span class="line">for vertex in all vertices of G</span><br><span class="line">    MAKE_SET(vertex)</span><br><span class="line">end for</span><br><span class="line">Sort edges by weight</span><br><span class="line">for edge in all edge of G</span><br><span class="line">    if FIND_SET(u) != FIND_SET(v) // if u and v don&#x27;t belong to the same set</span><br><span class="line">        A &lt;- A ∪ &#123;(u, v)&#125;</span><br><span class="line">        UNION(u,v)</span><br><span class="line">    end if</span><br><span class="line">end for</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这种算法很好理解，使用了排序保证了最小，使用了集合操作保证了连通性和无环性。</p>
+<p>这种算法速度的关键在于集合的维护。如果使用链表方式维护集合，并且使用加权合并启发式策略，始终将较短的链表连接到较长的链表之后，最终的时间复杂度为O(m+nlog(n))。</p>
+<p>最快的实现方式是使用不相交集合森林。这种方法使用树来表示集合。</p>
+<p>这种树种每个节点代表集合中的一个成员，每个节点仅包含一个指向父节点的指针，根节点的父节点指向自己。为了避免树退化为一条长链，为每棵树维护一个rank，表示该树的一个高度上街。在合并时，使用保证rank小的树指向rank大的数的树根。
+- 如果两棵树 rank 不同：大树吞并小树，新根的 rank 不变。</p>
+<ul>
+<li>如果两棵树 rank 相同：任意合并，但新根的 rank 必须加 1。</li>
+</ul>
+<p>如此，包含 <span class="math inline">\(n\)</span>
+个节点的树，其高度最多为 <span class="math inline">\(\lfloor \log_2 n
+\rfloor\)</span>。</p>
+<p>这种算法的时间复杂度是<span class="math inline">\(O(m \cdot \alpha(m,
+n))\)</span>，可以近似认为O(mlogm)。</p>
+<p>对于森林的操作，可以参照以下伪代码，关注其中的路径压缩。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Algorithm MAKE_SET(x)</span><br><span class="line">p[x] &lt;- x // the root node is x, that mean the parent node of x is x</span><br><span class="line">rank[x] &lt;- 0</span><br><span class="line"></span><br><span class="line">Algorithm FIND_SET(x)</span><br><span class="line">if x != p[x]</span><br><span class="line">    p[x] &lt;- FIND_SET(p[x])</span><br><span class="line">    // To find the root of element x in this tree, we follow the parent pointers from x upwards. If x is not the root, we recursively find the root of its parent. During this search, we apply path compression by updating the parent of each visited node directly to the root once it is found.</span><br><span class="line">end if</span><br><span class="line"></span><br><span class="line">Algorithm UNION(x,y)</span><br><span class="line">if rank[x] &gt; rank [y]</span><br><span class="line">    p[y] &lt;- x</span><br><span class="line">else p[x] &lt;- y</span><br><span class="line">    if rank[x] = rank[y]</span><br><span class="line">        rank[y] &lt;- rank[y]+1</span><br><span class="line">    end if</span><br><span class="line">end if</span><br></pre></td></tr></table></figure>
+<p>因此，通常Kruskal 算法：<span class="math inline">\(O(E \log
+E)\)</span>，更适合稀疏图（Sparse graphs）。Prim 算法 (算法 C)：<span
+class="math inline">\(O(V^2)\)</span>，更适合稠密图（Dense
+graphs）。</p>
+<h3 id="基于优先队列的prim算法">1.2.4 基于优先队列的Prim算法</h3>
+<p>为了提高 Prim
+算法的效率，关键在于如何快速选择要添加到当前部分解（集合 <span
+class="math inline">\(A\)</span>）中的新边。我们可以使用优先队列（Priority
+Queue）来实现这一点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Algorithm PRIM-D</span><br><span class="line">Q &lt;- V[G]   // put all of vertex in priority queue</span><br><span class="line">for u in Q</span><br><span class="line">    key[u] &lt;- infinity  </span><br><span class="line">end for</span><br><span class="line">key[r] &lt;- 0</span><br><span class="line">Pi[r] &lt;- Null</span><br><span class="line">while Q is not empty</span><br><span class="line">    u &lt;- EXTRACT_MIN(Q) // extract the vertex with the minimum key from the queue</span><br><span class="line">    for v in Adj[u]</span><br><span class="line">        if v in Q and w(u,v) &lt; key[v]</span><br><span class="line">            Pi[v] &lt;- u</span><br><span class="line">            key[v] &lt;- w(u,v)</span><br><span class="line">        end if</span><br><span class="line">    end for</span><br><span class="line">end while</span><br></pre></td></tr></table></figure>
+<p>这种Prim算法只会维护一颗单一的树，算法不断寻找与树相连但尚未加入树的顶点中，最近的一个。
+由于EXTRACR_MIN的特性，key值越小的Q中的元素，越早被弹出。</p>
+<p>第一步，由于只有key[r]被设置为0，因此一定会弹出r。然后，程序会考察所有r的相邻元素的key值。如此，不断重复，key值中始终储存的是到达已经生成的树的最短距离。</p>
+<p>这与Prim-C的算法实际上很像。回忆，Prim-C的算法维护了一个Light数组和一个Vertex数组，用于记录每个节点与当前树的最短路径和最短距离。
+C算法的每一条边都是从生成树上的某个节点（储存在VERTEX中的某个元素），向最近的节点连接；而D算法使用了父节点来保证这样的连接。即，VERTEX中储存的元素，如今被储存在Pi中。唯一不同的是，C算法每一步需要在LIGHT中搜索最小值，D算法使用堆等数据结构给出最小值。</p>
+<p>还有一点是，C算法通常要求（或者说形式上假设了，因此在这种情况下也比较有利）图是稠密的，即所有节点两两相连，即C算法通常依赖于一个邻接矩阵C使用；D算法通常配合邻接表使用，不要求所有节点两两相连。</p>
+<p>根据使用的堆的实现方式，D算法的效率也有所不同：</p>
+<ul>
+<li><strong>二叉堆</strong>（Binary Heap）：
+<ul>
+<li>EXTRACT-MIN 耗时 <span class="math inline">\(O(\log
+V)\)</span>。</li>
+<li>DECREASE-KEY（更新 key 值）耗时 <span class="math inline">\(O(\log
+V)\)</span>。</li>
+<li>总复杂度：<span class="math inline">\(O(E \log V)\)</span>。</li>
+</ul></li>
+<li><strong>斐波那契堆</strong>（Fibonacci Heap）：
+<ul>
+<li>DECREASE-KEY 摊还时间为 <span
+class="math inline">\(O(1)\)</span>。</li>
+<li>总复杂度：<span class="math inline">\(O(E + V \log
+V)\)</span>，这是目前理论上最快的实现。</li>
+</ul></li>
+</ul>
+<p>当然，如果图本社是稠密的，<span class="math inline">\(E \approx
+V^2\)</span>，D算法与C算法的时间复杂度相差不大。</p>
+<hr />
+<h4 id="二叉堆-binary-heap">二叉堆 Binary Heap</h4>
+<p>二叉堆是一种基于数组的数据结构，逻辑上被视作一棵近似完全二叉树（除了最底层之外，每一层都是满的）。对于下表为i的节点，其父节点下表为(i-2)/2，左右子节点下标为(2i+1),(2i+2)</p>
+<p>由于堆是完全的，包含n各元素的堆高度严格固定为 <span
+class="math inline">\(\lfloor \log_2 n
+\rfloor\)</span>。堆的所有核心操作（如插入、删除、修改键值）的时间复杂度都与树高成正比，即
+<span class="math inline">\(O(\log
+n)\)</span>。这比简单的数组扫描（<span
+class="math inline">\(O(n)\)</span>）要快得多。</p>
+<p>包括以下操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Algorithm HEAPIFY(A,i)</span><br><span class="line">// The function of HEAPIFY is to let the value of A[i] &quot;float down&quot; within the heap, thereby ensuring that the subtree rooted at index i satisfies the heap property.</span><br><span class="line">l &lt;- LEFT[i]</span><br><span class="line">r &lt;- RIGHT[i]</span><br><span class="line">// the heapift operation at index i only affects the subtree rooted at i</span><br><span class="line">if l&lt;=heap-size[A] and A[l]&gt;A[i]</span><br><span class="line">    largest &lt;- l</span><br><span class="line">else</span><br><span class="line">    largest &lt;- i</span><br><span class="line">end if</span><br><span class="line">if r&lt;=heap-size[A] and A[r]&gt;A[largest]</span><br><span class="line">    largest &lt;- r</span><br><span class="line">end if</span><br><span class="line">if largest != i</span><br><span class="line">    exchange A[i] and A[largest]</span><br><span class="line">    HEAPFY(A,largest)</span><br><span class="line">end if</span><br></pre></td></tr></table></figure>
+<p>对于二叉堆，大的元素应该尽可能接近树根。因此只需要比较i与左右子节点，将最小的子节点（或者自己），下沉，再对下沉后的子节点重排即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BUILD-HEAP(A)</span><br><span class="line">heap-size[A] &lt;- length[A]</span><br><span class="line">for i &lt;- length[A]/2 down to 1</span><br><span class="line">    HEAPIFY(A,i)</span><br><span class="line">end for</span><br></pre></td></tr></table></figure>
+<p>即堆排序。这与完全堆的性质有关。length[A]/2一定是最后一个“叶节点的父节点”。</p>
+<p>对于提取最大值，直接选择第一个元素，然后再重排1即可。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-1/">http://raphaelhyaan.cn/2026/01/06/algo-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div class="next-post pull-right"><a href="/2025/11/14/rishmangement/" title="风险管理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">风险管理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-foundations-methodology"><span class="toc-text">第一部分：算法分析基础与开发规范
+(Foundations &amp; Methodology)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-core-concepts-of-algorithms"><span class="toc-text">1.1 算法核心概念 (Core
+Concepts of Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%9C%AC%E8%B4%A8-definition-nature"><span class="toc-text">1.1.1 算法的定义与本质
+(Definition &amp; Nature)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-algorithms-analysis"><span class="toc-text">1.1.2 算法分析 algorithms
+analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%A7-correctness"><span class="toc-text">正确性 Correctness</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E9%87%8F-amount-of-work-done"><span class="toc-text">工作量 amount of work
+done</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%8D%A0%E7%94%A8%E9%87%8F"><span class="toc-text">空间占用量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E6%B4%81%E6%80%A7simplicity"><span class="toc-text">简洁性（Simplicity）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E6%80%A7optimality"><span class="toc-text">最优性（Optimality）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B"><span class="toc-text">1.1.3 算法设计流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%BC%80%E5%8F%91%E7%A4%BA%E4%BE%8B%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E9%80%9A%E8%AE%AF%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA"><span class="toc-text">1.2
+算法开发示例：最小费用通讯网络构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E9%99%88%E8%BF%B0%E4%B8%8E%E5%BB%BA%E6%A8%A1-problem-statement-modeling"><span class="toc-text">1.2.1 问题陈述与建模
+(Problem Statement &amp; Modeling)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%BC%94%E8%BF%9B%E4%BB%8E%E7%9B%B4%E8%A7%89%E5%88%B0-prim-%E7%AE%97%E6%B3%95-design-evolution"><span class="toc-text">1.2.2
+算法设计演进：从直觉到 Prim 算法 (Design Evolution)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#prim-%E7%AE%97%E6%B3%95"><span class="toc-text">Prim 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#prim%E7%AE%97%E6%B3%95%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E9%AA%8C%E8%AF%81"><span class="toc-text">Prim算法的正确性验证</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kruskal-%E7%AE%97%E6%B3%95"><span class="toc-text">1.2.3 Kruskal 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E7%9A%84prim%E7%AE%97%E6%B3%95"><span class="toc-text">1.2.4 基于优先队列的Prim算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E5%A0%86-binary-heap"><span class="toc-text">二叉堆 Binary Heap</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</a><time datetime="2026-01-05T16:07:10.000Z" title="发表于 2026-01-06 00:07:10">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
