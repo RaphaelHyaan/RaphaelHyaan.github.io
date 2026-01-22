@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RM6 4G 和 5G | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="RM6 4G 和 5G4G中的资源分配  正交频分复用（Orthogonal Frequency Division Multiplexing, OFDM） 将频带分为窄的子载波。   OFDM接入（OFDMA）确保资源分配的灵活性 在时间和频率上分配资源。 根据用户需求分配资源。    LTE协议 频率划分  一个子带称为资源块（Resource Block, RB）或物理资源块（Physical">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RM6 4G 和 5G | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="RM6 4G 和 5G 4G中的资源分配   正交频分复用（Orthogonal Frequency Division Multiplexing, OFDM）  将频带分为窄的子载波。  OFDM接入（OFDMA）确保资源分配的灵活性  在时间和频率上分配资源。 根据用户需求分配资源。   LTE协议  频率划分  一个子带称为资源块（Resource Bloc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RM6 4G 和 5G">
 <meta property="og:url" content="http://raphaelhyaan.cn/2025/02/11/informatique/rm/rm-6/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="RM6 4G 和 5G4G中的资源分配  正交频分复用（Orthogonal Frequency Division Multiplexing, OFDM） 将频带分为窄的子载波。   OFDM接入（OFDMA）确保资源分配的灵活性 在时间和频率上分配资源。 根据用户需求分配资源。    LTE协议 频率划分  一个子带称为资源块（Resource Block, RB）或物理资源块（Physical">
+<meta property="og:description" content="RM6 4G 和 5G 4G中的资源分配   正交频分复用（Orthogonal Frequency Division Multiplexing, OFDM）  将频带分为窄的子载波。  OFDM接入（OFDMA）确保资源分配的灵活性  在时间和频率上分配资源。 根据用户需求分配资源。   LTE协议  频率划分  一个子带称为资源块（Resource Bloc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png">
 <meta property="article:published_time" content="2025-02-11T00:18:54.000Z">
@@ -155,202 +155,296 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RM6 4G 和 5G</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-11T00:18:54.000Z" title="发表于 2025-02-11 08:18:54">2025-02-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.807Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">移动网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RM6 4G 和 5G"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="RM6-4G-和-5G"><a href="#RM6-4G-和-5G" class="headerlink" title="RM6 4G 和 5G"></a>RM6 4G 和 5G</h1><h2 id="4G中的资源分配"><a href="#4G中的资源分配" class="headerlink" title="4G中的资源分配"></a>4G中的资源分配</h2><hr>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RM6 4G 和 5G</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-11T00:18:54.000Z" title="发表于 2025-02-11 08:18:54">2025-02-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.807Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">移动网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RM6 4G 和 5G"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="rm6-4g-和-5g">RM6 4G 和 5G</h1>
+<h2 id="g中的资源分配">4G中的资源分配</h2>
+<hr />
 <ul>
-<li>正交频分复用（Orthogonal Frequency Division Multiplexing, OFDM）<ul>
+<li>正交频分复用（Orthogonal Frequency Division Multiplexing, OFDM）
+<ul>
 <li>将频带分为窄的子载波。</li>
-</ul>
-</li>
-<li>OFDM接入（OFDMA）确保资源分配的灵活性<ul>
+</ul></li>
+<li>OFDM接入（OFDMA）确保资源分配的灵活性
+<ul>
 <li>在时间和频率上分配资源。</li>
 <li>根据用户需求分配资源。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="LTE协议"><a href="#LTE协议" class="headerlink" title="LTE协议"></a>LTE协议</h3><hr>
+<h3 id="lte协议">LTE协议</h3>
+<hr />
 <p><strong>频率划分</strong></p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage.png" alt=""></p>
-<p>一个子带称为<strong>资源块（Resource Block, RB）或物理资源块（Physical Resource Block, PRB）</strong>。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage.png" /></p>
+<p>一个子带称为<strong>资源块（Resource Block,
+RB）或物理资源块（Physical Resource Block, PRB）</strong>。</p>
 <ul>
 <li><strong>时间视角</strong>：每0.5毫秒发射7个符号到一个子载波。</li>
-<li><strong>Radio Element (RE)</strong>：在一个子载波上的一个符号发射单位：</li>
+<li><strong>Radio Element
+(RE)</strong>：在一个子载波上的一个符号发射单位：</li>
 </ul>
-<script type="math/tex; mode=display">
-1 \, \text{RE} = 15 \, \text{kHz} \times 0.072 \, \text{ms}</script><hr>
+<p><span class="math display">\[
+1 \, \text{RE} = 15 \, \text{kHz} \times 0.072 \, \text{ms}
+\]</span></p>
+<hr />
 <p><strong>时间划分</strong></p>
 <ul>
-<li>1帧由10毫秒构成，由2个slot形成1个子帧，10个子帧构成1帧。<ul>
+<li>1帧由10毫秒构成，由2个slot形成1个子帧，10个子帧构成1帧。
+<ul>
 <li>1个格子 = 1个Radio Element (RE)</li>
-<li>不同RE的用途：<ul>
+<li>不同RE的用途：
+<ul>
 <li>参考信号（Reference Signal, RS）：允许手机向网络宣布其存在。</li>
-<li>物理下行控制信道（Physical Downlink Control Channel, PDCCH）：指示分配给RE的用途。</li>
-<li>物理下行共享信道（Physical Downlink Shared Channel, PDSCH）：传输数据到手机的信道。</li>
-</ul>
-</li>
+<li>物理下行控制信道（Physical Downlink Control Channel,
+PDCCH）：指示分配给RE的用途。</li>
+<li>物理下行共享信道（Physical Downlink Shared Channel,
+PDSCH）：传输数据到手机的信道。</li>
+</ul></li>
 <li>只有PDSCH实际传输有用数据。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<hr>
+<hr />
 <p><strong>完整帧结构</strong></p>
 <ul>
 <li>2个slot构成1个子帧，10个子帧构成1个帧。</li>
 </ul>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_1.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_1.png" /></p>
 <ul>
-<li>颜色标记说明：<ul>
+<li>颜色标记说明：
+<ul>
 <li>橙色：PDCCH（控制信道）</li>
 <li>红色：RS（参考信号）</li>
 <li>其他颜色：其他信道</li>
 <li>白色：PDSCH（传输有用信息）</li>
-</ul>
-</li>
+</ul></li>
 <li>通常情况下，<strong>PDSCH占用77.9%的RE，用于传输有用数据。</strong></li>
 </ul>
-<h3 id="从LTE帧到有效速率"><a href="#从LTE帧到有效速率" class="headerlink" title="从LTE帧到有效速率"></a>从LTE帧到有效速率</h3><hr>
+<h3 id="从lte帧到有效速率">从LTE帧到有效速率</h3>
+<hr />
 <ul>
-<li><strong>1 RE</strong>（15 kHz，持续0.072 ms）对应一个调制和信道编码链。</li>
-<li>以<strong>QPSK（正交相移键控）</strong>或<strong>4-QAM</strong>调制为例：<ul>
+<li><strong>1 RE</strong>（15 kHz，持续0.072
+ms）对应一个调制和信道编码链。</li>
+<li>以<strong>QPSK（正交相移键控）</strong>或<strong>4-QAM</strong>调制为例：
+<ul>
 <li>1 RE可以承载2位数据。</li>
-<li>每个<strong>RB包含12个RE</strong>，持续0.072 ms，因此：$2 \times 12 = 24 \, \text{bits}$</li>
+<li>每个<strong>RB包含12个RE</strong>，持续0.072 ms，因此：<span
+class="math inline">\(2 \times 12 = 24 \, \text{bits}\)</span></li>
+</ul></li>
+<li>每RB的速率为：<span class="math inline">\(\frac{24}{0.072} = 336 \,
+\text{Kbit/s}\)</span></li>
+<li>此速率包括所有RE（包括控制RE），有效数据速率为：<span
+class="math inline">\(0.779 \times 336 = 262 \,
+\text{Kbit/s}\)</span></li>
+<li>此速率为总速率，包含信道编码。例如，<strong>QPSK
+1/2</strong>（编码效率为0.5）的有效速率为：<span
+class="math inline">\(262 \times 0.5 = 131 \,
+\text{Kbit/s}\)</span></li>
+<li>一般情况下，使用<strong>M-QAM调制</strong>且编码效率为<span
+class="math inline">\(R\)</span>：<span
+class="math inline">\(\text{有效速率} = 131 \cdot \log_2(M) \cdot R \,
+\text{Kbit/s/RB}\)</span>
+<ul>
+<li>例如，<strong>64-QAM，编码效率为3/4</strong>时：<span
+class="math inline">\(\text{速率} = 590 \,
+\text{Kbit/s/RB}\)</span></li>
+</ul></li>
 </ul>
-</li>
-<li>每RB的速率为：$\frac{24}{0.072} = 336 \, \text{Kbit/s}$</li>
-<li>此速率包括所有RE（包括控制RE），有效数据速率为：$0.779 \times 336 = 262 \, \text{Kbit/s}$</li>
-<li>此速率为总速率，包含信道编码。例如，<strong>QPSK 1/2</strong>（编码效率为0.5）的有效速率为：$262 \times 0.5 = 131 \, \text{Kbit/s}$</li>
-<li>一般情况下，使用<strong>M-QAM调制</strong>且编码效率为$R$：$\text{有效速率} = 131 \cdot \log_2(M) \cdot R \, \text{Kbit/s/RB}$<ul>
-<li>例如，<strong>64-QAM，编码效率为3/4</strong>时：$\text{速率} = 590 \, \text{Kbit/s/RB}$</li>
-</ul>
-</li>
-</ul>
-<h3 id="干扰和自适应调制"><a href="#干扰和自适应调制" class="headerlink" title="干扰和自适应调制"></a>干扰和自适应调制</h3><hr>
+<h3 id="干扰和自适应调制">干扰和自适应调制</h3>
+<hr />
 <ul>
 <li>同一小区内用户之间没有干扰<strong>。</strong></li>
 <li>小区间干扰是由于邻近小区中使用相同资源（发生冲突）造成的。</li>
-<li>在小区边界：<ul>
+<li>在小区边界：
+<ul>
 <li>干扰较强。</li>
 <li>有效信号较弱。</li>
 <li>SINR较低：</li>
-</ul>
-</li>
+</ul></li>
 <li>低SINR会导致较高的丢包率。</li>
 </ul>
-<h3 id="调制与编码方案的自适应"><a href="#调制与编码方案的自适应" class="headerlink" title="调制与编码方案的自适应"></a>调制与编码方案的自适应</h3><hr>
+<h3 id="调制与编码方案的自适应">调制与编码方案的自适应</h3>
+<hr />
 <ul>
-<li>在 4G 中，可以采用多种调制与编码方案（QPSK、16 QAM 和 64 QAM，具有不同的编码率）。</li>
-<li>测量 SINR 后，选择最佳 MCS，这是 <strong>MCS 的自适应</strong>。</li>
-<li>聚合的最终曲线是通过为每个 SINR 选择能够最大化吞吐量乘以 (1 - 错误率) 的 MCS 得到的。</li>
+<li>在 4G 中，可以采用多种调制与编码方案（QPSK、16 QAM 和 64
+QAM，具有不同的编码率）。</li>
+<li>测量 SINR 后，选择最佳 MCS，这是 <strong>MCS
+的自适应</strong>。</li>
+<li>聚合的最终曲线是通过为每个 SINR 选择能够最大化吞吐量乘以 (1 -
+错误率) 的 MCS 得到的。</li>
 </ul>
-<h3 id="流量三角形"><a href="#流量三角形" class="headerlink" title="流量三角形"></a>流量三角形</h3><hr>
+<h3 id="流量三角形">流量三角形</h3>
+<hr />
 <ul>
-<li><strong>容量 Capacité</strong>：网络根据其资源所能提供的：<ul>
+<li><strong>容量 Capacité</strong>：网络根据其资源所能提供的：
+<ul>
 <li>距离 50 米时为 90 Mbps</li>
 <li>距离 1 公里时为 8 Mbps</li>
 <li>超过该距离则没有容量。</li>
-</ul>
-</li>
-<li><strong>流量 Trafic</strong>：取决于用户，而非网络：<ul>
+</ul></li>
+<li><strong>流量 Trafic</strong>：取决于用户，而非网络：
+<ul>
 <li>100 个用户，每月 50 GB 的流量包。</li>
 <li>1000 台设备，每台设备每秒发送一条消息。</li>
-</ul>
-</li>
-<li><strong>服务质量 (QoS)</strong>：取决于容量和流量的组合：<ul>
+</ul></li>
+<li><strong>服务质量 (QoS)</strong>：取决于容量和流量的组合：
+<ul>
 <li>文件下载的典型时间。</li>
 <li>1 毫秒内收到的数据包百分比。</li>
-</ul>
-</li>
-<li><strong>Erlang方法 Méthodes d’Erlang</strong>：<ul>
+</ul></li>
+<li><strong>Erlang方法 Méthodes d’Erlang</strong>：
+<ul>
 <li>如果已知两个顶点，可以计算第三个顶点。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="现实吞吐量分布的队列模型：M-G-1-PS"><a href="#现实吞吐量分布的队列模型：M-G-1-PS" class="headerlink" title="现实吞吐量分布的队列模型：M/G/1-PS"></a>现实吞吐量分布的队列模型：M/G/1-PS</h3><hr>
-<p><strong>如果所有用户具有相同的吞吐量…</strong></p>
+<h3
+id="现实吞吐量分布的队列模型mg1-ps">现实吞吐量分布的队列模型：M/G/1-PS</h3>
+<hr />
+<p><strong>如果所有用户具有相同的吞吐量...</strong></p>
 <ul>
-<li>假设所有用户的链路吞吐量均为  $C$ ，例如所有用户聚集在同一位置（如 500 米处，28 Mbps）。</li>
-<li>每个用户下载一个平均大小为  $F$  的文件，服从指数分布。</li>
-<li><strong>M/M/1 共享处理队列</strong>：类似于 EDGE 网络，具有以下特性：<ul>
-<li>泊松到达率为  $\lambda$  次/秒，服务时间为平均  $F/C$  秒的指数分布。</li>
+<li>假设所有用户的链路吞吐量均为 <span class="math inline">\(C\)</span>
+，例如所有用户聚集在同一位置（如 500 米处，28 Mbps）。</li>
+<li>每个用户下载一个平均大小为 <span class="math inline">\(F\)</span>
+的文件，服从指数分布。</li>
+<li><strong>M/M/1 共享处理队列</strong>：类似于 EDGE
+网络，具有以下特性：
+<ul>
+<li>泊松到达率为 <span class="math inline">\(\lambda\)</span>
+次/秒，服务时间为平均 <span class="math inline">\(F/C\)</span>
+秒的指数分布。</li>
+</ul></li>
+<li>如果有 <span class="math inline">\(n\)</span> 个活跃用户，每人获得
+<span class="math inline">\(1/n\)</span> 的资源，其服务时间为平均 <span
+class="math inline">\(F/(C/n)\)</span> 。</li>
+<li>系统的<strong>服务速率</strong> <span class="math inline">\(\mu =
+C/F\)</span> 。当 <span class="math inline">\(n\)</span>
+个独立的指数随机变量具有平均 <span class="math inline">\(F/(C/n) =
+1/\mu\)</span> 时，它们的聚合效果相当于一个平均值为 <span
+class="math inline">\(1/\mu\)</span> 的随机变量。</li>
 </ul>
-</li>
-<li>如果有  $n$  个活跃用户，每人获得  $1/n$  的资源，其服务时间为平均 $F/(C/n)$ 。</li>
-<li>系统的<strong>服务速率</strong>  $\mu = C/F$ 。当  $n$  个独立的指数随机变量具有平均  $F/(C/n) = 1/\mu$  时，它们的聚合效果相当于一个平均值为  $1/\mu$  的随机变量。</li>
-</ul>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_2.png" alt=""></p>
-<script type="math/tex; mode=display">
-p_n=\rho^n(1-\rho)</script><p>平均流量公式：</p>
-<script type="math/tex; mode=display">
-\rho = \frac{\lambda F}{C}, \quad \text{流量 } d = C(1 - \rho) = C - \lambda F</script><hr>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_2.png" /></p>
+<p><span class="math display">\[
+p_n=\rho^n(1-\rho)
+\]</span></p>
+<p>平均流量公式：</p>
+<p><span class="math display">\[
+\rho = \frac{\lambda F}{C}, \quad \text{流量 } d = C(1 - \rho) = C -
+\lambda F
+\]</span></p>
+<hr />
 <p><strong>用户吞吐量不相同时</strong></p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_3.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_3.png" /></p>
 <ul>
-<li>实际上，用户对频谱的利用不同：<ul>
-<li>分为  $J$  类，属于类  $j$  的用户如果独占频谱，其吞吐量为  $C_j$ 。</li>
-<li>$j$  类用户的概率为  $q_j$ 。</li>
-</ul>
-</li>
-<li>服务时间不再服从指数分布：<ul>
-<li>文件大小服从具有平均值  $F$  的一般分布。</li>
-<li>类  $j$  的单个用户服务时间为  $F/C_j$ 。</li>
+<li>实际上，用户对频谱的利用不同：
+<ul>
+<li>分为 <span class="math inline">\(J\)</span> 类，属于类 <span
+class="math inline">\(j\)</span> 的用户如果独占频谱，其吞吐量为 <span
+class="math inline">\(C_j\)</span> 。</li>
+<li><span class="math inline">\(j\)</span> 类用户的概率为 <span
+class="math inline">\(q_j\)</span> 。</li>
+</ul></li>
+<li>服务时间不再服从指数分布：
+<ul>
+<li>文件大小服从具有平均值 <span class="math inline">\(F\)</span>
+的一般分布。</li>
+<li>类 <span class="math inline">\(j\)</span> 的单个用户服务时间为 <span
+class="math inline">\(F/C_j\)</span> 。</li>
 <li>边缘用户需要更长时间活跃以传输相同数据量。</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>平均服务时间：</p>
-<script type="math/tex; mode=display">
-T = \sum_j q_j \frac{F}{C_j} = \frac{F}{\sum_j \frac{q_j}{C_j}} = \frac{F}{\bar{C}}</script><p>其中，等效容量为：</p>
-<script type="math/tex; mode=display">
-\bar{C} = \frac{1}{\sum_j \frac{q_j}{C_j}}</script><h2 id="5G中的资源分配"><a href="#5G中的资源分配" class="headerlink" title="5G中的资源分配"></a>5G中的资源分配</h2><hr>
-<h3 id="系统建模"><a href="#系统建模" class="headerlink" title="系统建模"></a>系统建模</h3><hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_4.png" alt=""></p>
+<p><span class="math display">\[
+T = \sum_j q_j \frac{F}{C_j} = \frac{F}{\sum_j \frac{q_j}{C_j}} =
+\frac{F}{\bar{C}}
+\]</span></p>
+<p>其中，等效容量为：</p>
+<p><span class="math display">\[
+\bar{C} = \frac{1}{\sum_j \frac{q_j}{C_j}}
+\]</span></p>
+<h2 id="g中的资源分配-1">5G中的资源分配</h2>
+<hr />
+<h3 id="系统建模">系统建模</h3>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_4.png" /></p>
 <ul>
-<li><strong>到达</strong>：<ul>
-<li>数据包到达建模为泊松过程（每个时隙到达  $\lambda$  个数据包）。</li>
-<li>服务是确定性的（1 个时隙），每个时隙中有  $K$  个数据包在频域中复用。</li>
-</ul>
-</li>
-<li><strong>Kendall 表示法</strong>：<ul>
+<li><strong>到达</strong>：
+<ul>
+<li>数据包到达建模为泊松过程（每个时隙到达 <span
+class="math inline">\(\lambda\)</span> 个数据包）。</li>
+<li>服务是确定性的（1 个时隙），每个时隙中有 <span
+class="math inline">\(K\)</span> 个数据包在频域中复用。</li>
+</ul></li>
+<li><strong>Kendall 表示法</strong>：
+<ul>
 <li>最佳模型为 M/D/K（泊松到达、确定性服务、K 个服务器）。</li>
-<li>泊松到达（用  $M$  表示），确定性服务（用  $D$  表示）；解决方案为数值解。</li>
+<li>泊松到达（用 <span class="math inline">\(M\)</span>
+表示），确定性服务（用 <span class="math inline">\(D\)</span>
+表示）；解决方案为数值解。</li>
+</ul></li>
+<li>通过 M/M/K 模型近似系统，以找到解析解：
+<ul>
+<li>服务建模为泊松过程（用 <span class="math inline">\(M\)</span>
+表示），平均服务时间为每个数据包 1 个时隙。</li>
+</ul></li>
 </ul>
-</li>
-<li>通过 M/M/K 模型近似系统，以找到解析解：<ul>
-<li>服务建模为泊松过程（用  $M$  表示），平均服务时间为每个数据包 1 个时隙。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_5.png" alt=""></p>
-<hr>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Frm-6%2Fimage_5.png" /></p>
+<hr />
 <p><strong>等待概率</strong></p>
 <ul>
 <li>等待概率可以根据可用资源计算：</li>
 </ul>
-<script type="math/tex; mode=display">
-p_w(K) = \sum_{n=K}^{\infty} p_n = p_0 \frac{(\lambda T)^K}{K!} \sum_{n=K}^{\infty} \frac{(\lambda T/K)^{n-K}}{(n-K)!} = p_0 \frac{(\lambda T)^K}{K!} \cdot \frac{1}{1 - \lambda T / K}</script><ul>
+<p><span class="math display">\[
+p_w(K) = \sum_{n=K}^{\infty} p_n = p_0 \frac{(\lambda T)^K}{K!}
+\sum_{n=K}^{\infty} \frac{(\lambda T/K)^{n-K}}{(n-K)!} = p_0
+\frac{(\lambda T)^K}{K!} \cdot \frac{1}{1 - \lambda T / K}
+\]</span></p>
+<ul>
 <li>其中：</li>
 </ul>
-<script type="math/tex; mode=display">
-p_0 = \left( \sum_{n=0}^{K-1} \frac{(\lambda T)^n}{n!} + \frac{(\lambda T)^K}{K!} \cdot \frac{1}{1 - \lambda T / K} \right)^{-1}</script><ul>
-<li>等待概率可以用作 URLLC 服务的 QoS 衡量标准，因为这类服务对延迟有严格要求。</li>
-<li>通过寻找最小  $K$  的值使得等待概率  $p_w(K) = \epsilon &gt; 0$ ，可以进行系统容量的优化设计。</li>
+<p><span class="math display">\[
+p_0 = \left( \sum_{n=0}^{K-1} \frac{(\lambda T)^n}{n!} + \frac{(\lambda
+T)^K}{K!} \cdot \frac{1}{1 - \lambda T / K} \right)^{-1}
+\]</span></p>
+<ul>
+<li>等待概率可以用作 URLLC 服务的 QoS
+衡量标准，因为这类服务对延迟有严格要求。</li>
+<li>通过寻找最小 <span class="math inline">\(K\)</span> 的值使得等待概率
+<span class="math inline">\(p_w(K) = \epsilon &gt; 0\)</span>
+，可以进行系统容量的优化设计。</li>
 </ul>
-<hr>
+<hr />
 <p><strong>等待时间的分布</strong></p>
 <ul>
-<li><p>等待时间  $W$  的分布也可以计算如下：</p>
-<script type="math/tex; mode=display">
-  \Pr[W > t] = \Pr[W > t \mid n < K] \Pr[n < K] + \Pr[W > t \mid n \geq K] \Pr[n \geq K]</script><p>  ·其中  $\Pr[n \geq K] = p_w$  是等待概率。</p>
-</li>
-<li><p>当所有服务器都已满负载时，需要等待一个服务器空闲才能处理队列头的数据包，此时  $K$  个服务器表现为一个服务速率为  $T/K$ （比单一服务器快  $K$  倍）的指数分布服务。</p>
-</li>
-<li><p>若  $m$  是队列中正在等待的用户数，则可以通过以下马尔可夫链建模：</p>
-<script type="math/tex; mode=display">
-  \Pr[m] = (1 - \lambda T / K) (\lambda T / K)^m</script></li>
-<li><p>等待时间是  $m+1$  个随机变量的和，每个随机变量服从  $\text{Exp}(K/T)$ 。可以证明，等待时间服从随机变量  $\text{Exp}(K/T - \lambda)$ ，因此：</p>
-</li>
+<li><p>等待时间 <span class="math inline">\(W\)</span>
+的分布也可以计算如下：</p>
+<p><span class="math display">\[
+  \Pr[W &gt; t] = \Pr[W &gt; t \mid n &lt; K] \Pr[n &lt; K] + \Pr[W &gt;
+t \mid n \geq K] \Pr[n \geq K]
+  \]</span></p>
+<p>·其中 <span class="math inline">\(\Pr[n \geq K] = p_w\)</span>
+是等待概率。</p></li>
+<li><p>当所有服务器都已满负载时，需要等待一个服务器空闲才能处理队列头的数据包，此时
+<span class="math inline">\(K\)</span> 个服务器表现为一个服务速率为
+<span class="math inline">\(T/K\)</span> （比单一服务器快 <span
+class="math inline">\(K\)</span> 倍）的指数分布服务。</p></li>
+<li><p>若 <span class="math inline">\(m\)</span>
+是队列中正在等待的用户数，则可以通过以下马尔可夫链建模：</p>
+<p><span class="math display">\[
+  \Pr[m] = (1 - \lambda T / K) (\lambda T / K)^m
+  \]</span></p></li>
+<li><p>等待时间是 <span class="math inline">\(m+1\)</span>
+个随机变量的和，每个随机变量服从 <span
+class="math inline">\(\text{Exp}(K/T)\)</span>
+。可以证明，等待时间服从随机变量 <span
+class="math inline">\(\text{Exp}(K/T - \lambda)\)</span>
+，因此：</p></li>
 </ul>
-<script type="math/tex; mode=display">
-\Pr[W > t] = p_w e^{-(K/T - \lambda)t}</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/02/11/informatique/rm/rm-6/">http://raphaelhyaan.cn/2025/02/11/informatique/rm/rm-6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">移动网络</a><a class="post-meta__tags" href="/tags/2G-4G/">2G&amp;4G</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/02/11/informatique/java/java-1/" title="J01 引言：面向对象和程序设计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">J01 引言：面向对象和程序设计</div></div></a></div><div class="next-post pull-right"><a href="/2025/02/11/informatique/rm/rm-5/" title="RM5 Erlang 容量"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RM5 Erlang 容量</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/11/informatique/rm/rm-3-2/" title="RM3 CDMA的性能：误码率，能量控制和容量估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM3 CDMA的性能：误码率，能量控制和容量估计</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-3-1/" title="RM3.5 TDMA,FDMA,OFDMA"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM3.5 TDMA,FDMA,OFDMA</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-1/" title="RM1 移动网络简介和多址接入"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM1 移动网络简介和多址接入</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-2/" title="RM2 CDMA编码和干扰"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM2 CDMA编码和干扰</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-4/" title="RM4 链路预算和干扰管理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM4 链路预算和干扰管理</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-5/" title="RM5 Erlang 容量"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM5 Erlang 容量</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RM6-4G-%E5%92%8C-5G"><span class="toc-text">RM6 4G 和 5G</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4G%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D"><span class="toc-text">4G中的资源分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LTE%E5%8D%8F%E8%AE%AE"><span class="toc-text">LTE协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8ELTE%E5%B8%A7%E5%88%B0%E6%9C%89%E6%95%88%E9%80%9F%E7%8E%87"><span class="toc-text">从LTE帧到有效速率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B2%E6%89%B0%E5%92%8C%E8%87%AA%E9%80%82%E5%BA%94%E8%B0%83%E5%88%B6"><span class="toc-text">干扰和自适应调制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%88%B6%E4%B8%8E%E7%BC%96%E7%A0%81%E6%96%B9%E6%A1%88%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-text">调制与编码方案的自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-text">流量三角形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%AE%9E%E5%90%9E%E5%90%90%E9%87%8F%E5%88%86%E5%B8%83%E7%9A%84%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B%EF%BC%9AM-G-1-PS"><span class="toc-text">现实吞吐量分布的队列模型：M&#x2F;G&#x2F;1-PS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5G%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D"><span class="toc-text">5G中的资源分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BB%BA%E6%A8%A1"><span class="toc-text">系统建模</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p><span class="math display">\[
+\Pr[W &gt; t] = p_w e^{-(K/T - \lambda)t}
+\]</span></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/02/11/informatique/rm/rm-6/">http://raphaelhyaan.cn/2025/02/11/informatique/rm/rm-6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">移动网络</a><a class="post-meta__tags" href="/tags/2G-4G/">2G&amp;4G</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/02/11/informatique/java/java-1/" title="J01 引言：面向对象和程序设计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fanon cat 006.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">J01 引言：面向对象和程序设计</div></div></a></div><div class="next-post pull-right"><a href="/2025/02/11/informatique/rm/rm-5/" title="RM5 Erlang 容量"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RM5 Erlang 容量</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/11/informatique/rm/rm-1/" title="RM1 移动网络简介和多址接入"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM1 移动网络简介和多址接入</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-2/" title="RM2 CDMA编码和干扰"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM2 CDMA编码和干扰</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-3-1/" title="RM3.5 TDMA,FDMA,OFDMA"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM3.5 TDMA,FDMA,OFDMA</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-4/" title="RM4 链路预算和干扰管理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM4 链路预算和干扰管理</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-5/" title="RM5 Erlang 容量"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM5 Erlang 容量</div></div></a></div><div><a href="/2025/02/11/informatique/rm/rm-3-2/" title="RM3 CDMA的性能：误码率，能量控制和容量估计"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-12.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-11</div><div class="title">RM3 CDMA的性能：误码率，能量控制和容量估计</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#rm6-4g-%E5%92%8C-5g"><span class="toc-text">RM6 4G 和 5G</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#g%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D"><span class="toc-text">4G中的资源分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lte%E5%8D%8F%E8%AE%AE"><span class="toc-text">LTE协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8Elte%E5%B8%A7%E5%88%B0%E6%9C%89%E6%95%88%E9%80%9F%E7%8E%87"><span class="toc-text">从LTE帧到有效速率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B2%E6%89%B0%E5%92%8C%E8%87%AA%E9%80%82%E5%BA%94%E8%B0%83%E5%88%B6"><span class="toc-text">干扰和自适应调制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%88%B6%E4%B8%8E%E7%BC%96%E7%A0%81%E6%96%B9%E6%A1%88%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-text">调制与编码方案的自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-text">流量三角形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%AE%9E%E5%90%9E%E5%90%90%E9%87%8F%E5%88%86%E5%B8%83%E7%9A%84%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8Bmg1-ps"><span class="toc-text">现实吞吐量分布的队列模型：M&#x2F;G&#x2F;1-PS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#g%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-1"><span class="toc-text">5G中的资源分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BB%BA%E6%A8%A1"><span class="toc-text">系统建模</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="123"/></a><div class="content"><a class="title" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123">123</a><time datetime="2026-01-22T18:19:45.000Z" title="发表于 2026-01-23 02:19:45">2026-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

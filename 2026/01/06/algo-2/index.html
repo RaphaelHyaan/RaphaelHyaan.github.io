@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第二部分-基于规模的策略：分解与变换 (Structure Decomposition) | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第二部分：基于规模的策略：分解与变换 (Structure Decomposition)2.1 分治法2.1.1 分而治之分治的基本逻辑是将原始问题分解为若干子问题，在逐个解决各个子问题的基础上，得到原始问题的解。那么最基础的，根据如何由分解出的子问题得出原始问题的解，分治策略可分为两种情形：  原始问题的解只存在于分解出的某一个（或某几个）子问题中，则只需要在这一（或这几个）子问题中求解即可">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第二部分-基于规模的策略：分解与变换 (Structure Decomposition) | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第二部分：基于规模的策略：分解与变换 (Structure Decomposition) 2.1 分治法 2.1.1 分而治之 分治的基本逻辑是将原始问题分解为若干子问题，在逐个解决各 个子问题的基础上，得到原始问题的解。那么最基础的，根据如何由分解出的子问题得出原始问题的解， 分治策略可分为两种情形：  原始问题的解只存在于分解出的某一个（或某几个） 子问题中，则只需要在这一（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">
 <meta property="og:url" content="http://raphaelhyaan.cn/2026/01/06/algo-2/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="第二部分：基于规模的策略：分解与变换 (Structure Decomposition)2.1 分治法2.1.1 分而治之分治的基本逻辑是将原始问题分解为若干子问题，在逐个解决各个子问题的基础上，得到原始问题的解。那么最基础的，根据如何由分解出的子问题得出原始问题的解，分治策略可分为两种情形：  原始问题的解只存在于分解出的某一个（或某几个）子问题中，则只需要在这一（或这几个）子问题中求解即可">
+<meta property="og:description" content="第二部分：基于规模的策略：分解与变换 (Structure Decomposition) 2.1 分治法 2.1.1 分而治之 分治的基本逻辑是将原始问题分解为若干子问题，在逐个解决各 个子问题的基础上，得到原始问题的解。那么最基础的，根据如何由分解出的子问题得出原始问题的解， 分治策略可分为两种情形：  原始问题的解只存在于分解出的某一个（或某几个） 子问题中，则只需要在这一（">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png">
 <meta property="article:published_time" content="2026-01-05T16:07:11.000Z">
@@ -153,218 +153,389 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:12:15.856Z" title="更新于 2026-01-06 00:12:15">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第二部分：基于规模的策略：分解与变换-Structure-Decomposition"><a href="#第二部分：基于规模的策略：分解与变换-Structure-Decomposition" class="headerlink" title="第二部分：基于规模的策略：分解与变换 (Structure Decomposition)"></a>第二部分：基于规模的策略：分解与变换 (Structure Decomposition)</h1><h2 id="2-1-分治法"><a href="#2-1-分治法" class="headerlink" title="2.1 分治法"></a>2.1 分治法</h2><h3 id="2-1-1-分而治之"><a href="#2-1-1-分而治之" class="headerlink" title="2.1.1 分而治之"></a>2.1.1 分而治之</h3><p>分治的基本逻辑是将原始问题分解为若干子问题，在逐个解决各<br>个子问题的基础上，得到原始问题的解。那么最基础的，根据如何由分解出的子问题得出原始问题的解，<br>分治策略可分为两种情形：</p>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:12:15.856Z" title="更新于 2026-01-06 00:12:15">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="第二部分基于规模的策略分解与变换-structure-decomposition">第二部分：基于规模的策略：分解与变换
+(Structure Decomposition)</h1>
+<h2 id="分治法">2.1 分治法</h2>
+<h3 id="分而治之">2.1.1 分而治之</h3>
+<p>分治的基本逻辑是将原始问题分解为若干子问题，在逐个解决各
+个子问题的基础上，得到原始问题的解。那么最基础的，根据如何由分解出的子问题得出原始问题的解，
+分治策略可分为两种情形：</p>
 <ul>
-<li><p>原始问题的解只存在于分解出的某一个（或某几个）<br>子问题中，则只需要在这一（或这几个）子问题中求<br>解即可</p>
-</li>
-<li><p>原始问题的解需要由各个子问题的解再经过综合处理<br>得到</p>
-</li>
+<li><p>原始问题的解只存在于分解出的某一个（或某几个）
+子问题中，则只需要在这一（或这几个）子问题中求 解即可</p></li>
+<li><p>原始问题的解需要由各个子问题的解再经过综合处理 得到</p></li>
 </ul>
-<hr>
-<h4 id="同时寻找最大值和最小值："><a href="#同时寻找最大值和最小值：" class="headerlink" title="同时寻找最大值和最小值："></a>同时寻找最大值和最小值：</h4><p>直接算法是</p>
+<hr />
+<h4 id="同时寻找最大值和最小值">同时寻找最大值和最小值：</h4>
+<p>直接算法是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. x ← A[1]; y ← A[1]</span><br><span class="line">2. for i ← 2 to n</span><br><span class="line">3.    if A[i] &lt; x then x ← A[i]</span><br><span class="line">4.    if A[i] &gt; y then y ← A[i]</span><br><span class="line">5. end for</span><br><span class="line">6. return (x, y)</span><br></pre></td></tr></table></figure>
-<p>总比较次数为$2(n-1) = 2n - 2$。</p>
+<p>总比较次数为<span class="math inline">\(2(n-1) = 2n -
+2\)</span>。</p>
 <p>如果利用分支思想将数组对半分割，分别求出左右两半的最大最小值，再进行合并。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Algorithm MINMAX (low, high)</span><br><span class="line">1. if high – low = 1 then  // Base case: only 2 elements</span><br><span class="line">2.    if A[low] &lt; A[high] then return (A[low], A[high])</span><br><span class="line">3.    else return (A[high], A[low])</span><br><span class="line">4. else</span><br><span class="line">5.    mid ← ⌊(low + high) / 2⌋</span><br><span class="line">6.    (x1, y1) ← MINMAX (low, mid)       // recursively slove the left half</span><br><span class="line">7.    (x2, y2) ← MINMAX (mid + 1, high)   // recursively solve the right half</span><br><span class="line">8.    x ← min &#123;x1, x2&#125;                   </span><br><span class="line">9.    y ← max &#123;y1, y2&#125;                   // merge</span><br><span class="line">10.   return (x, y)</span><br><span class="line">11. end if</span><br></pre></td></tr></table></figure>
-<p>根据代码可得递推关系式：</p>
-<ul>
-<li>当 $n = 2$ 时，$C(2) = 1$</li>
-<li>当 $n &gt; 2$ 时，$C(n) = 2C(n/2) + 2$</li>
-</ul>
-<p>解得$C(n) = \frac{3n}{2} - 2$</p>
-<hr>
-<h4 id="二分搜索-（binary-search）"><a href="#二分搜索-（binary-search）" class="headerlink" title="二分搜索 （binary search）"></a>二分搜索 （binary search）</h4><p>递归版本</p>
+<p>根据代码可得递推关系式： - 当 <span class="math inline">\(n =
+2\)</span> 时，<span class="math inline">\(C(2) = 1\)</span> - 当 <span
+class="math inline">\(n &gt; 2\)</span> 时，<span
+class="math inline">\(C(n) = 2C(n/2) + 2\)</span></p>
+<p>解得<span class="math inline">\(C(n) = \frac{3n}{2} - 2\)</span></p>
+<hr />
+<h4 id="二分搜索-binary-search">二分搜索 （binary search）</h4>
+<p>递归版本</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BINARYSEARCH (low, high)</span><br><span class="line">1. if low &gt; high then return 0</span><br><span class="line">2. else</span><br><span class="line">3.    mid ← ⌊(low + high) / 2⌋</span><br><span class="line">4.    if x = A[mid] then return mid</span><br><span class="line">5.    else if x &lt; A[mid] then return BINARYSEARCH (low, mid-1)</span><br><span class="line">6.    else return BINARYSEARCH (mid + 1, high)</span><br><span class="line">7. end if</span><br></pre></td></tr></table></figure>
-<p>对于最坏情况，即当 $x$ 不在数组中时<br>有递推公式</p>
-<ul>
-<li>$C(1) = 1$</li>
-<li>$C(n) \le 1 + C(\lfloor n/2 \rfloor)$，当 $n \ge 2$ 时。<br>解得$C(n) \le \lfloor \log n \rfloor + 1$，因此有时间复杂度$O(\log n)$。</li>
-</ul>
-<p>循环结构可以避免递归调用产生的栈空间开销：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BINARYSEARCH (low, high)</span><br><span class="line">1. low ← 1; high ← n; j ← 0</span><br><span class="line">2. while (low &lt;= high) and (j = 0)</span><br><span class="line">3.    mid ← ⌊(low + high) / 2⌋</span><br><span class="line">4.    if x = A[mid] then j ← mid</span><br><span class="line">5.    else if x &lt; A[mid] then high ← mid - 1</span><br><span class="line">6.    else low ← mid + 1</span><br><span class="line">7. end while</span><br><span class="line">8. return j</span><br></pre></td></tr></table></figure></p>
+<p>对于最坏情况，即当 <span class="math inline">\(x\)</span>
+不在数组中时 有递推公式 - <span class="math inline">\(C(1) = 1\)</span>
+- <span class="math inline">\(C(n) \le 1 + C(\lfloor n/2
+\rfloor)\)</span>，当 <span class="math inline">\(n \ge 2\)</span> 时。
+解得<span class="math inline">\(C(n) \le \lfloor \log n \rfloor +
+1\)</span>，因此有时间复杂度<span class="math inline">\(O(\log
+n)\)</span>。</p>
+<p>循环结构可以避免递归调用产生的栈空间开销： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BINARYSEARCH (low, high)</span><br><span class="line">1. low ← 1; high ← n; j ← 0</span><br><span class="line">2. while (low &lt;= high) and (j = 0)</span><br><span class="line">3.    mid ← ⌊(low + high) / 2⌋</span><br><span class="line">4.    if x = A[mid] then j ← mid</span><br><span class="line">5.    else if x &lt; A[mid] then high ← mid - 1</span><br><span class="line">6.    else low ← mid + 1</span><br><span class="line">7. end while</span><br><span class="line">8. return j</span><br></pre></td></tr></table></figure></p>
 <p>本质上是不断维护low和high两个指针。</p>
-<p>由于递归调用栈，空间复杂度为 $O(\log n)$。非递归版本仅使用常数个辅助变量，空间复杂度为 $\Theta(1)$。</p>
-<hr>
-<h4 id="合并排序（Merge-Sort）"><a href="#合并排序（Merge-Sort）" class="headerlink" title="合并排序（Merge Sort）"></a>合并排序（Merge Sort）</h4><p>合并排序比堆排序理解起来简单得多。其过程包括三个步骤：</p>
+<p>由于递归调用栈，空间复杂度为 <span class="math inline">\(O(\log
+n)\)</span>。非递归版本仅使用常数个辅助变量，空间复杂度为 <span
+class="math inline">\(\Theta(1)\)</span>。</p>
+<hr />
+<h4 id="合并排序merge-sort">合并排序（Merge Sort）</h4>
+<p>合并排序比堆排序理解起来简单得多。其过程包括三个步骤：</p>
 <ul>
-<li><p>分解：将待排序数组对半分成两个子数组。</p>
-</li>
-<li><p>治理：分别对两个子数组进行递归排序。</p>
-</li>
-<li><p>合并：将两个已排序的子数组合并为一个有序数组。</p>
-</li>
+<li><p>分解：将待排序数组对半分成两个子数组。</p></li>
+<li><p>治理：分别对两个子数组进行递归排序。</p></li>
+<li><p>合并：将两个已排序的子数组合并为一个有序数组。</p></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">Algorithm MERGESORT (A, low, high)</span><br><span class="line">1. if low &lt; high then</span><br><span class="line">2.    mid ← ⌊(low + high) / 2⌋</span><br><span class="line">3.    mergesort(A, low, mid)      </span><br><span class="line">4.    mergesort(A, mid + 1, high) </span><br><span class="line">5.    MERGE(A, low, mid, high)    </span><br><span class="line">6. end if</span><br><span class="line"></span><br><span class="line">Algorithm MERGE (A, low, mid, high)</span><br><span class="line">   i ← low      // 左子数组指针</span><br><span class="line">   j ← mid + 1  // 右子数组指针</span><br><span class="line">   k ← low      // 辅助数组 B 的指针</span><br><span class="line">   B ← copy of A // 或分配临时数组</span><br><span class="line"></span><br><span class="line">   while i ≤ mid and j ≤ high do</span><br><span class="line">       if A[i] ≤ A[j] then</span><br><span class="line">           B[k] ← A[i]</span><br><span class="line">           i ← i + 1</span><br><span class="line">       else</span><br><span class="line">           B[k] ← A[j]</span><br><span class="line">           j ← j + 1</span><br><span class="line">       end if</span><br><span class="line">       k ← k + 1</span><br><span class="line">   end while</span><br><span class="line"></span><br><span class="line">   while i ≤ mid do</span><br><span class="line">       B[k] ← A[i]</span><br><span class="line">       k ← k + 1; i ← i + 1</span><br><span class="line">   end while</span><br><span class="line">   </span><br><span class="line">   while j ≤ high do</span><br><span class="line">       B[k] ← A[j]</span><br><span class="line">       k ← k + 1; j ← j + 1</span><br><span class="line">   end while</span><br><span class="line"></span><br><span class="line">   for k ← low to high do</span><br><span class="line">       A[k] ← B[k]</span><br><span class="line">   end for</span><br></pre></td></tr></table></figure>
 <blockquote>
-<h4 id="通用递推公式"><a href="#通用递推公式" class="headerlink" title="通用递推公式"></a>通用递推公式</h4><p>对于递推方程：</p>
-<script type="math/tex; mode=display">f(n) = \begin{cases} d & \text{若 } n=1 \\a f(n/c) + b n^x & \text{若 } n \ge 2 \end{cases}</script><p>其解分为两种情况</p>
-<ul>
-<li>若 $a = c^x$<script type="math/tex; mode=display">f(n) = b n^x \log_c n + d n^x</script></li>
-<li>若 $a \neq c^x$<script type="math/tex; mode=display">f(n) = \left( d + \frac{bc^x}{a - c^x} \right) n^{\log_c a} - \left( \frac{bc^x}{a - c^x} \right) n^x</script></li>
-</ul>
+<h4 id="通用递推公式">通用递推公式</h4>
+<p>对于递推方程： <span class="math display">\[f(n) = \begin{cases} d
+&amp; \text{若 } n=1 \\a f(n/c) + b n^x &amp; \text{若 } n \ge 2
+\end{cases}\]</span> 其解分为两种情况 - 若 <span class="math inline">\(a
+= c^x\)</span> <span class="math display">\[f(n) = b n^x \log_c n + d
+n^x\]</span> - 若 <span class="math inline">\(a \neq c^x\)</span> <span
+class="math display">\[f(n) = \left( d + \frac{bc^x}{a - c^x} \right)
+n^{\log_c a} - \left( \frac{bc^x}{a - c^x} \right) n^x\]</span></p>
 </blockquote>
 <p>考虑合并排序的最大和最小比较次数</p>
 <ul>
-<li>最小比较次数：每次比较后都有元素加入结果，且其中一个子数组先耗尽，仅需 $n/2$ 次比较。<script type="math/tex; mode=display">C(n) = \begin{cases} 
-0 & \text{若 } n=1 \\
-2C(n/2) + n/2 & \text{若 } n \ge 2 
-\end{cases}</script></li>
+<li>最小比较次数：每次比较后都有元素加入结果，且其中一个子数组先耗尽，仅需
+<span class="math inline">\(n/2\)</span> 次比较。 <span
+class="math display">\[C(n) = \begin{cases}
+0 &amp; \text{若 } n=1 \\
+2C(n/2) + n/2 &amp; \text{若 } n \ge 2
+\end{cases}\]</span></li>
 </ul>
-<p>有$a=2, c=2, x=1$，故 $a = c^x$ ($2=2^1$)，解为<script type="math/tex">C(n) \approx (n \log n) / 2</script></p>
+<p>有<span class="math inline">\(a=2, c=2, x=1\)</span>，故 <span
+class="math inline">\(a = c^x\)</span> (<span
+class="math inline">\(2=2^1\)</span>)，解为<span
+class="math display">\[C(n) \approx (n \log n) / 2\]</span></p>
 <ul>
-<li>最大比较次数：两子数组元素交替加入，需 $n-1$ 次比较。<script type="math/tex; mode=display">C(n) = \begin{cases} 
-0 & \text{若 } n=1 \\
-2C(n/2) + n - 1 & \text{若 } n \ge 2 
-\end{cases}</script></li>
+<li>最大比较次数：两子数组元素交替加入，需 <span
+class="math inline">\(n-1\)</span> 次比较。 <span
+class="math display">\[C(n) = \begin{cases}
+0 &amp; \text{若 } n=1 \\
+2C(n/2) + n - 1 &amp; \text{若 } n \ge 2
+\end{cases}\]</span></li>
 </ul>
-<p>最后考虑-1的问题，易得<script type="math/tex">C(n) = n \log n - n + 1</script></p>
+<p>最后考虑-1的问题，易得<span class="math display">\[C(n) = n \log n -
+n + 1\]</span></p>
 <ul>
-<li>考虑任意正整数 n 的情况<script type="math/tex; mode=display">C(n) = \begin{cases} 
-0 & \text{若 } n=1 \\
-C(\lfloor n/2 \rfloor) + C(\lceil n/2 \rceil) + bn & \text{若 } n \ge 2 
-\end{cases}</script></li>
+<li>考虑任意正整数 n 的情况 <span class="math display">\[C(n) =
+\begin{cases}
+0 &amp; \text{若 } n=1 \\
+C(\lfloor n/2 \rfloor) + C(\lceil n/2 \rceil) + bn &amp; \text{若 } n
+\ge 2
+\end{cases}\]</span></li>
 </ul>
-<p>根据通用公式，可知b只会影响$nlogn$前的常数，得到：</p>
-<script type="math/tex; mode=display">C(n) = \Theta(n \log n)</script><h4 id="寻找第-k-小元素-Finding-the-k-th-Smallest-Element"><a href="#寻找第-k-小元素-Finding-the-k-th-Smallest-Element" class="headerlink" title="寻找第 k 小元素 (Finding the k-th Smallest Element)"></a>寻找第 k 小元素 (Finding the k-th Smallest Element)</h4><p>输入：$n$ 个元素的数组 $A[1 \dots n]$ 和整数 $k$ ($1 \le k \le n$)。<br>输出：$A$ 中的第 $k$ 小元素。</p>
+<p>根据通用公式，可知b只会影响<span
+class="math inline">\(nlogn\)</span>前的常数，得到： <span
+class="math display">\[C(n) = \Theta(n \log n)\]</span></p>
+<h4 id="寻找第-k-小元素-finding-the-k-th-smallest-element">寻找第 k
+小元素 (Finding the k-th Smallest Element)</h4>
+<p>输入：<span class="math inline">\(n\)</span> 个元素的数组 <span
+class="math inline">\(A[1 \dots n]\)</span> 和整数 <span
+class="math inline">\(k\)</span> (<span class="math inline">\(1 \le k
+\le n\)</span>)。 输出：<span class="math inline">\(A\)</span> 中的第
+<span class="math inline">\(k\)</span> 小元素。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Algorithm SELECT (A, low, high, k)</span><br><span class="line">p ← high – low + 1</span><br><span class="line">if p &lt; 44 then</span><br><span class="line">    sort A  //If it is smaller than this value, it is better to sort directly; we will prove this later.</span><br><span class="line">    return (A[k])</span><br><span class="line">end if</span><br><span class="line">q ← ⌊p / 5⌋</span><br><span class="line">Divide A into q groups, with each group containng 5 elements. If 5 does not divide p evenly, the remaining elements are excluded.</span><br><span class="line">Sort each of the $q$ groups individually and find their respective medians. Let the set of all these medians be $M$.</span><br><span class="line">mm ← SELECT(M, 1, q, ⌈q / 2⌉)  // mm is the median of the set of all these medians</span><br><span class="line"></span><br><span class="line">// divide A into 3 groups</span><br><span class="line">A1 = &#123;a | a &lt; mm&#125;</span><br><span class="line">A2 = &#123;a | a = mm&#125;</span><br><span class="line">A3 = &#123;a | a &gt; mm&#125;</span><br><span class="line"></span><br><span class="line">case</span><br><span class="line">    |A1| ≥ k:// number of elements, cardinality</span><br><span class="line">        return SELECT(A1, 1, |A1|, k)</span><br><span class="line">    |A1| + |A2| ≥ k:</span><br><span class="line">        return mm</span><br><span class="line">    |A1| + |A2| &lt; k:</span><br><span class="line">        return SELECT(A3, 1, |A3|, k - |A1| - |A2|)</span><br><span class="line">end case</span><br></pre></td></tr></table></figure>
-<hr>
-<p>例如：输入：数组 $A$ 包含 26 个元素，寻找 $k=13$（第 13 小）。</p>
-<p>序列：8, 33, 17, 51, 57, 49, 35, 11, 25, 37, 14, 3, 2, 13, 52, 12, 6, 29, 32, 54, 5, 16, 22, 23, 23, 7</p>
+<hr />
+<p>例如：输入：数组 <span class="math inline">\(A\)</span> 包含 26
+个元素，寻找 <span class="math inline">\(k=13\)</span>（第 13 小）。</p>
+<p>序列：8, 33, 17, 51, 57, 49, 35, 11, 25, 37, 14, 3, 2, 13, 52, 12, 6,
+29, 32, 54, 5, 16, 22, 23, 23, 7</p>
 <p>分组：将前 25 个元素分为 5 组（排除最后的 7）。</p>
 <p>组内排序并取中项</p>
 <ul>
-<li>(8, 17, 33, 51, 57) $\to$ 33</li>
-<li>(11, 25, 35, 37, 49) $\to$ 35</li>
-<li>(2, 3, 13, 14, 52) $\to$ 13</li>
-<li>(6, 12, 29, 32, 54) $\to$ 29</li>
-<li>(5, 16, 22, 23, 23) $\to$ 22 </li>
+<li>(8, 17, 33, 51, 57) <span class="math inline">\(\to\)</span> 33</li>
+<li>(11, 25, 35, 37, 49) <span class="math inline">\(\to\)</span>
+35</li>
+<li>(2, 3, 13, 14, 52) <span class="math inline">\(\to\)</span> 13</li>
+<li>(6, 12, 29, 32, 54) <span class="math inline">\(\to\)</span> 29</li>
+<li>(5, 16, 22, 23, 23) <span class="math inline">\(\to\)</span> 22</li>
 </ul>
-<p>中项集 M：{33, 35, 13, 29, 22}，递归调用找出 $M$ 的中项 $mm = 29$。</p>
-<p>划分：</p>
-<ul>
-<li>$A_1 (&lt;29)$：{8, 17, 11, 25, 14, 3, 2, 13, 12, 6, 5, 16, 22, 23, 7} (15个)</li>
-<li>$A_2 (=29)$：{29}</li>
-<li>$A_3 (&gt;29)$：{32, 51, 57, 49, 35, 37, 52, 32, 54}</li>
-</ul>
-<p>判断：$k=13$。因为 $13 \le |A_1| (15)$，所以在 $A_1$ 中继续寻找。</p>
-<p>…</p>
+<p>中项集 M：{33, 35, 13, 29, 22}，递归调用找出 <span
+class="math inline">\(M\)</span> 的中项 <span class="math inline">\(mm =
+29\)</span>。</p>
+<p>划分： - <span class="math inline">\(A_1 (&lt;29)\)</span>：{8, 17,
+11, 25, 14, 3, 2, 13, 12, 6, 5, 16, 22, 23, 7} (15个) - <span
+class="math inline">\(A_2 (=29)\)</span>：{29} - <span
+class="math inline">\(A_3 (&gt;29)\)</span>：{32, 51, 57, 49, 35, 37,
+52, 32, 54}</p>
+<p>判断：<span class="math inline">\(k=13\)</span>。因为 <span
+class="math inline">\(13 \le |A_1| (15)\)</span>，所以在 <span
+class="math inline">\(A_1\)</span> 中继续寻找。</p>
+<p>...</p>
 <p>这种算法可以达到常数时间复杂度。</p>
-<h3 id="2-1-2-划分算法"><a href="#2-1-2-划分算法" class="headerlink" title="2.1.2 划分算法"></a>2.1.2 划分算法</h3><h4 id="low-in-position划分"><a href="#low-in-position划分" class="headerlink" title="low in position划分"></a>low in position划分</h4><p>算法根据一个基准值（Pivot，即代码中的 $x$） 将数组划分为两部分：</p>
-<ul>
-<li>左半部分： 所有小于或等于 $x$ 的元素。</li>
-<li>右半部分： 所有大于 $x$ 的元素。</li>
-<li>中间： 也就是 $x$ 本身，算法结束时，它会被放置在它在有序数组中最终应当所在的正确位置（归位）。</li>
-</ul>
+<h3 id="划分算法">2.1.2 划分算法</h3>
+<h4 id="low-in-position划分">low in position划分</h4>
+<p>算法根据一个基准值（Pivot，即代码中的 <span
+class="math inline">\(x\)</span>） 将数组划分为两部分： - 左半部分：
+所有小于或等于 <span class="math inline">\(x\)</span> 的元素。 -
+右半部分： 所有大于 <span class="math inline">\(x\)</span> 的元素。 -
+中间： 也就是 <span class="math inline">\(x\)</span>
+本身，算法结束时，它会被放置在它在有序数组中最终应当所在的正确位置（归位）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Algorithm SPLIT (A, low, high)</span><br><span class="line">    i ← low</span><br><span class="line">    x ← A[low]</span><br><span class="line">    for j ← low + 1 to high</span><br><span class="line">        if A[j] ≤ x then</span><br><span class="line">            i ← i + 1</span><br><span class="line">            if i ≠ j then </span><br><span class="line">                swap A[i] and A[j]</span><br><span class="line">            end if</span><br><span class="line">        end if</span><br><span class="line">    end for</span><br><span class="line">    swap A[low] and A[i]</span><br><span class="line">    w ← i</span><br><span class="line">    return A and w</span><br></pre></td></tr></table></figure>
 <p>简单来说，算法记录了小于某个值（A[low]）的元素数，并将这些元素交换到元素数的位置之前。复杂度是n-1次元素比较。</p>
-<hr>
-<h4 id="快速排序-quicksort"><a href="#快速排序-quicksort" class="headerlink" title="快速排序 (quicksort)"></a>快速排序 (quicksort)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Algorithm QUICKSORT (A, low, high)</span><br><span class="line">    if low &lt; high then</span><br><span class="line">        SPLIT (A, low, high, w)  // w is the new position of A[low]</span><br><span class="line">        QUICKSORT (A, low, w - 1)</span><br><span class="line">        QUICKSORT (A, w + 1, high)</span><br><span class="line">    end if</span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="快速排序-quicksort">快速排序 (quicksort)</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Algorithm QUICKSORT (A, low, high)</span><br><span class="line">    if low &lt; high then</span><br><span class="line">        SPLIT (A, low, high, w)  // w is the new position of A[low]</span><br><span class="line">        QUICKSORT (A, low, w - 1)</span><br><span class="line">        QUICKSORT (A, w + 1, high)</span><br><span class="line">    end if</span><br></pre></td></tr></table></figure>
 <p>一目了然。</p>
 <p>考虑最坏情况时间复杂度，即数组已经有序的情况下，每次划分都需要L-1次比较，其中L为这次划分的数组的长度。因此时间复杂度为：</p>
-<script type="math/tex; mode=display">T(n) = (n-1) + (n-2) + (n-3) + \dots + 2 + 1 = \frac{(n-1) \cdot n}{2} = \frac{n^2 - n}{2} = \Theta(n^2)</script><p>考虑平均时间复杂度，实际上这里描述的是理想平衡下的情况，假设每次Split都能把数组完美的一分为二。</p>
-<script type="math/tex; mode=display">T(n) = 2T(n/2) + n-1</script><p>根据之前给出的通用公式，即可得到</p>
-<script type="math/tex; mode=display">T_{average} = \Theta(n \lg n)</script><hr>
-<h3 id="2-1-3-其他分治算法的例子"><a href="#2-1-3-其他分治算法的例子" class="headerlink" title="2.1.3 其他分治算法的例子"></a>2.1.3 其他分治算法的例子</h3><h4 id="各种类型的乘法"><a href="#各种类型的乘法" class="headerlink" title="各种类型的乘法"></a>各种类型的乘法</h4><p>设 $u$ 和 $v$ 是两个 $n$ 位的整数（二进制），传统的乘法算法需要 $\Theta(n^2)$ 数字相乘来计算 $u$ 和 $v$ 的乘积。</p>
-<p>把每个整数分为两部分，每部分为 $n/2$ 位，则 $u$ 和 $v$ 可重写为 $u = w2^{n/2} + x$ 和 $v = y2^{n/2} + z$。</p>
+<p><span class="math display">\[T(n) = (n-1) + (n-2) + (n-3) + \dots + 2
++ 1 = \frac{(n-1) \cdot n}{2} = \frac{n^2 - n}{2} =
+\Theta(n^2)\]</span></p>
+<p>考虑平均时间复杂度，实际上这里描述的是理想平衡下的情况，假设每次Split都能把数组完美的一分为二。
+<span class="math display">\[T(n) = 2T(n/2) + n-1\]</span>
+根据之前给出的通用公式，即可得到 <span
+class="math display">\[T_{average} = \Theta(n \lg n)\]</span></p>
+<hr />
+<h3 id="其他分治算法的例子">2.1.3 其他分治算法的例子</h3>
+<h4 id="各种类型的乘法">各种类型的乘法</h4>
+<p>设 <span class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 是两个 <span
+class="math inline">\(n\)</span> 位的整数（二进制），传统的乘法算法需要
+<span class="math inline">\(\Theta(n^2)\)</span> 数字相乘来计算 <span
+class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 的乘积。</p>
+<p>把每个整数分为两部分，每部分为 <span
+class="math inline">\(n/2\)</span> 位，则 <span
+class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 可重写为 <span class="math inline">\(u
+= w2^{n/2} + x\)</span> 和 <span class="math inline">\(v = y2^{n/2} +
+z\)</span>。</p>
 <p><strong>基本分治法</strong></p>
-<script type="math/tex; mode=display">uv = (w2^{n/2} + x)(y2^{n/2} + z) = wy2^n + (wz + xy)2^{n/2} + xz</script><p>用 $2^n$ 做乘法运算相当于简单地左移 $n$ 位，它需要 $\theta(n)$ 时间。</p>
-<p>注意到在这个公式中，有 4次乘法运算 和 3次加法运算，这蕴含着以下递推式成立：</p>
-<ul>
-<li><script type="math/tex; mode=display">T(n) = 4T(n/2) + bn \quad (n > 1)</script></li>
-<li><script type="math/tex; mode=display">T(n) = d \quad (n = 1)</script></li>
-</ul>
-<p>这里需要用到$a\ne c^x$的情况，$T(n) = (d+b)n^2-bn = O(n^2)$</p>
-<hr>
+<p><span class="math display">\[uv = (w2^{n/2} + x)(y2^{n/2} + z) =
+wy2^n + (wz + xy)2^{n/2} + xz\]</span></p>
+<p>用 <span class="math inline">\(2^n\)</span>
+做乘法运算相当于简单地左移 <span class="math inline">\(n\)</span>
+位，它需要 <span class="math inline">\(\theta(n)\)</span> 时间。</p>
+<p>注意到在这个公式中，有 4次乘法运算 和
+3次加法运算，这蕴含着以下递推式成立： - <span
+class="math display">\[T(n) = 4T(n/2) + bn \quad (n &gt; 1)\]</span> -
+<span class="math display">\[T(n) = d \quad (n = 1)\]</span></p>
+<p>这里需要用到<span class="math inline">\(a\ne
+c^x\)</span>的情况，<span class="math inline">\(T(n) = (d+b)n^2-bn =
+O(n^2)\)</span></p>
+<hr />
 <p><strong>改进的分治法</strong></p>
-<p>对于$wz + xy$，考虑使用以下公式替代</p>
-<script type="math/tex; mode=display">wz + xy = (w + x)(y + z) - wy - xz</script><p>由此有：</p>
-<script type="math/tex; mode=display">uv = wy2^n + ((w + x)(y + z) - wy - xz)2^{n/2} + xz</script><p>这样 $u$ 和 $v$ 的乘法运算简化为 3次 $n/2$ 规模整数的乘法运算 和 6次加法运算</p>
-<p>得到递推式</p>
-<ul>
-<li><script type="math/tex; mode=display">T(n) = 3T(n/2) + bn \quad (n > 1)</script></li>
-<li><script type="math/tex; mode=display">T(n) = d \quad (n = 1)</script></li>
-</ul>
-<p>依旧是使用$a\ne c^x$的情况，得到</p>
-<script type="math/tex; mode=display">T(n) = \Theta(n^{\log_2 3}) = O(n^{1.59})</script><hr>
+<p>对于<span class="math inline">\(wz +
+xy\)</span>，考虑使用以下公式替代 <span class="math display">\[wz + xy =
+(w + x)(y + z) - wy - xz\]</span> 由此有： <span
+class="math display">\[uv = wy2^n + ((w + x)(y + z) - wy - xz)2^{n/2} +
+xz\]</span></p>
+<p>这样 <span class="math inline">\(u\)</span> 和 <span
+class="math inline">\(v\)</span> 的乘法运算简化为 3次 <span
+class="math inline">\(n/2\)</span> 规模整数的乘法运算 和 6次加法运算</p>
+<p>得到递推式 - <span class="math display">\[T(n) = 3T(n/2) + bn \quad
+(n &gt; 1)\]</span> - <span class="math display">\[T(n) = d \quad (n =
+1)\]</span></p>
+<p>依旧是使用<span class="math inline">\(a\ne c^x\)</span>的情况，得到
+<span class="math display">\[T(n) = \Theta(n^{\log_2 3}) =
+O(n^{1.59})\]</span></p>
+<hr />
 <p><strong>矩阵的乘法</strong></p>
-<p>$A$ 和 $B$ 是两个 $n \times n$ 的矩阵，我们希望计算它们的乘积 $C = AB$。</p>
+<p><span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 是两个 <span class="math inline">\(n
+\times n\)</span> 的矩阵，我们希望计算它们的乘积 <span
+class="math inline">\(C = AB\)</span>。</p>
 <p>传统算法中，</p>
-<script type="math/tex; mode=display">C(i, j) = \sum_{k=1}^{n} A(i, k)B(k, j)</script><p>算法需要 $n^3$ 次乘法运算和 $n^3 - n^2$ 次加法运算，导致其时间复杂性为 $\Theta(n^3)$。</p>
+<p><span class="math display">\[C(i, j) = \sum_{k=1}^{n} A(i, k)B(k,
+j)\]</span></p>
+<p>算法需要 <span class="math inline">\(n^3\)</span> 次乘法运算和 <span
+class="math inline">\(n^3 - n^2\)</span> 次加法运算，导致其时间复杂性为
+<span class="math inline">\(\Theta(n^3)\)</span>。</p>
 <p><strong>分治算法</strong></p>
-<p>设 $A = \begin{pmatrix} a<em>{11} &amp; a</em>{12} \ a<em>{21} &amp; a</em>{22} \end{pmatrix}$ 和 $B = \begin{pmatrix} b<em>{11} &amp; b</em>{12} \ b<em>{21} &amp; b</em>{22} \end{pmatrix}$<br>计算 $C = \begin{pmatrix} c<em>{11} &amp; c</em>{12} \ c<em>{21} &amp; c</em>{22} \end{pmatrix}$</p>
-<p>在此不再展开书写，其递推关系式为</p>
-<script type="math/tex; mode=display">T(n) = 8T(n/2) + 4(n/2)^2 a$$$$T(n) = mn^3 + an^3 - an^2</script><p>结果同传统方法。</p>
-<hr>
+<p>设 <span class="math inline">\(A = \begin{pmatrix} a_{11} &amp;
+a_{12} \\ a_{21} &amp; a_{22} \end{pmatrix}\)</span> 和 <span
+class="math inline">\(B = \begin{pmatrix} b_{11} &amp; b_{12} \\ b_{21}
+&amp; b_{22} \end{pmatrix}\)</span> 计算 <span class="math inline">\(C =
+\begin{pmatrix} c_{11} &amp; c_{12} \\ c_{21} &amp; c_{22}
+\end{pmatrix}\)</span></p>
+<p>在此不再展开书写，其递推关系式为 <span class="math display">\[T(n) =
+8T(n/2) + 4(n/2)^2 a\]</span><span class="math display">\[T(n) = mn^3 +
+an^3 - an^2\]</span> 结果同传统方法。</p>
+<hr />
 <p><strong>STRASSEN 算法</strong></p>
 <p>与之前的改进相同，希望通过增加加减法来减少乘除法</p>
-<p>具体来说</p>
-<ul>
-<li><script type="math/tex; mode=display">d_1 = (a_{11} + a_{22})(b_{11} + b_{22})</script></li>
-<li><script type="math/tex; mode=display">d_2 = (a_{21} + a_{22})b_{11}</script></li>
-<li><script type="math/tex; mode=display">d_3 = a_{11}(b_{12} - b_{22})</script></li>
-<li><script type="math/tex; mode=display">d_4 = a_{22}(b_{21} - b_{11})</script></li>
-<li><script type="math/tex; mode=display">d_5 = (a_{11} + a_{12})b_{22}</script></li>
-<li><script type="math/tex; mode=display">d_6 = (a_{21} - a_{11})(b_{11} + b_{12})</script></li>
-<li><script type="math/tex; mode=display">d_7 = (a_{12} - a_{22})(b_{21} + b_{22})</script></li>
-</ul>
-<p>然后计算C</p>
-<ul>
-<li><script type="math/tex; mode=display">c_{11} = d_1 + d_4 - d_5 + d_7</script></li>
-<li><script type="math/tex; mode=display">c_{12} = d_3 + d_5</script></li>
-<li><script type="math/tex; mode=display">c_{21} = d_2 + d_4</script></li>
-<li><script type="math/tex; mode=display">c_{22} = d_1 + d_3 - d_2 + d_6</script></li>
-</ul>
-<p>这种算法的时间复杂度为 $\Theta(n^{\log_2 7}) = O(n^{2.81})$。</p>
-<hr>
-<h4 id="与几何相关的算法"><a href="#与几何相关的算法" class="headerlink" title="与几何相关的算法"></a>与几何相关的算法</h4><p><strong>最近点对问题</strong></p>
-<p>算法旨在寻找二维平面上一组点中，距离最近的两个点。如果使用蛮力法（Brute Force）计算所有点对的距离，复杂度为 $O(n^2)$</p>
-<p>分解：将所有点按照 $x$ 坐标排序。在中间画一条垂直线 $x = m$，将点集分为左右两个子集 $S_L$ 和 $S_R$，每个包含 $n/2$ 个点。</p>
-<p>解决：递归地在 $S_L$ 中寻找最近距离 $\delta_L$。递归地在 $S_R$ 中寻找最近距离 $\delta_R$。令 $\delta = \min(\delta_L, \delta_R)$。此时，$\delta$ 是左右两边内部的最小距离。</p>
-<p>合并：只需要检查分界线两侧距离不超过 $\delta$ 的“带状区域”内的点。对于带状区域内的点，按 $y$ 坐标排序。对于每个点，只需检查它上方（或下方）紧邻的若干（7）个点。</p>
-<p>这种算法的时间复杂度：</p>
-<script type="math/tex; mode=display">T(n) = 2T(n/2) + O(n) \implies T(n) = \Theta(n \log n)</script><blockquote>
-<p><strong>鸽巢原理：为什么检查周围的7个点</strong><br>假设目前的最小距离是 $\delta$，我们在分界线 $x=m$ 左右各画出一条宽为 $\delta$ 的线，形成一个宽为 $2\delta$ 的带状区域（Strip）。我们取带状区域内的一个点 $P$，只想知道：有没有另一个点 $Q$，使得 $P$ 和 $Q$ 的距离小于 $\delta$<br>为了找到这样的 $Q$，它必须落在以 $P$ 为底边中心、宽为 $2\delta$、高为 $\delta$ 的矩形区域内（只用检查一边，防止重复）。<br>在这个 $2\delta \times \delta$ 的矩形里，最多能塞进几个点？<br>为了回答这个问题，我们将这个大矩形划分成 8 个小正方形，每个小正方形的边长为 $\frac{\delta}{2}$。<br>此时，每个小正方形的对角线长度是 $\sqrt{(\frac{\delta}{2})^2 + (\frac{\delta}{2})^2} = \frac{\delta}{\sqrt{2}} \approx 0.707\delta$。这意味着，一个小正方形内最多只能有 1 个点。<br>既然一共有 8 个小格子，且每个格子里最多只能有 1 个点。<br>那么，在这个 $2\delta \times \delta$ 的矩形区域内，最多只能存在 8 个点，在这 8 个点中，有一个点是 $P$ 自己。<br>除去 $P$ 自己，矩形内最多只剩下 7 个其他的点。</p>
+<p>具体来说 - <span class="math display">\[d_1 = (a_{11} +
+a_{22})(b_{11} + b_{22})\]</span> - <span class="math display">\[d_2 =
+(a_{21} + a_{22})b_{11}\]</span> - <span class="math display">\[d_3 =
+a_{11}(b_{12} - b_{22})\]</span> - <span class="math display">\[d_4 =
+a_{22}(b_{21} - b_{11})\]</span> - <span class="math display">\[d_5 =
+(a_{11} + a_{12})b_{22}\]</span> - <span class="math display">\[d_6 =
+(a_{21} - a_{11})(b_{11} + b_{12})\]</span> - <span
+class="math display">\[d_7 = (a_{12} - a_{22})(b_{21} +
+b_{22})\]</span></p>
+<p>然后计算C - <span class="math display">\[c_{11} = d_1 + d_4 - d_5 +
+d_7\]</span> - <span class="math display">\[c_{12} = d_3 + d_5\]</span>
+- <span class="math display">\[c_{21} = d_2 + d_4\]</span> - <span
+class="math display">\[c_{22} = d_1 + d_3 - d_2 + d_6\]</span></p>
+<p>这种算法的时间复杂度为 <span class="math inline">\(\Theta(n^{\log_2
+7}) = O(n^{2.81})\)</span>。</p>
+<hr />
+<h4 id="与几何相关的算法">与几何相关的算法</h4>
+<p><strong>最近点对问题</strong></p>
+<p>算法旨在寻找二维平面上一组点中，距离最近的两个点。如果使用蛮力法（Brute
+Force）计算所有点对的距离，复杂度为 <span
+class="math inline">\(O(n^2)\)</span></p>
+<p>分解：将所有点按照 <span class="math inline">\(x\)</span>
+坐标排序。在中间画一条垂直线 <span class="math inline">\(x =
+m\)</span>，将点集分为左右两个子集 <span
+class="math inline">\(S_L\)</span> 和 <span
+class="math inline">\(S_R\)</span>，每个包含 <span
+class="math inline">\(n/2\)</span> 个点。</p>
+<p>解决：递归地在 <span class="math inline">\(S_L\)</span>
+中寻找最近距离 <span class="math inline">\(\delta_L\)</span>。递归地在
+<span class="math inline">\(S_R\)</span> 中寻找最近距离 <span
+class="math inline">\(\delta_R\)</span>。令 <span
+class="math inline">\(\delta = \min(\delta_L,
+\delta_R)\)</span>。此时，<span class="math inline">\(\delta\)</span>
+是左右两边内部的最小距离。</p>
+<p>合并：只需要检查分界线两侧距离不超过 <span
+class="math inline">\(\delta\)</span>
+的“带状区域”内的点。对于带状区域内的点，按 <span
+class="math inline">\(y\)</span>
+坐标排序。对于每个点，只需检查它上方（或下方）紧邻的若干（7）个点。</p>
+<p>这种算法的时间复杂度： <span class="math display">\[T(n) = 2T(n/2) +
+O(n) \implies T(n) = \Theta(n \log n)\]</span></p>
+<blockquote>
+<p><strong>鸽巢原理：为什么检查周围的7个点</strong> 假设目前的最小距离是
+<span class="math inline">\(\delta\)</span>，我们在分界线 <span
+class="math inline">\(x=m\)</span> 左右各画出一条宽为 <span
+class="math inline">\(\delta\)</span> 的线，形成一个宽为 <span
+class="math inline">\(2\delta\)</span>
+的带状区域（Strip）。我们取带状区域内的一个点 <span
+class="math inline">\(P\)</span>，只想知道：有没有另一个点 <span
+class="math inline">\(Q\)</span>，使得 <span
+class="math inline">\(P\)</span> 和 <span
+class="math inline">\(Q\)</span> 的距离小于 <span
+class="math inline">\(\delta\)</span> 为了找到这样的 <span
+class="math inline">\(Q\)</span>，它必须落在以 <span
+class="math inline">\(P\)</span> 为底边中心、宽为 <span
+class="math inline">\(2\delta\)</span>、高为 <span
+class="math inline">\(\delta\)</span>
+的矩形区域内（只用检查一边，防止重复）。 在这个 <span
+class="math inline">\(2\delta \times \delta\)</span>
+的矩形里，最多能塞进几个点？ 为了回答这个问题，我们将这个大矩形划分成 8
+个小正方形，每个小正方形的边长为 <span
+class="math inline">\(\frac{\delta}{2}\)</span>。
+此时，每个小正方形的对角线长度是 <span
+class="math inline">\(\sqrt{(\frac{\delta}{2})^2 + (\frac{\delta}{2})^2}
+= \frac{\delta}{\sqrt{2}} \approx
+0.707\delta\)</span>。这意味着，一个小正方形内最多只能有 1 个点。
+既然一共有 8 个小格子，且每个格子里最多只能有 1 个点。 那么，在这个
+<span class="math inline">\(2\delta \times \delta\)</span>
+的矩形区域内，最多只能存在 8 个点，在这 8 个点中，有一个点是 <span
+class="math inline">\(P\)</span> 自己。 除去 <span
+class="math inline">\(P\)</span> 自己，矩形内最多只剩下 7
+个其他的点。</p>
 </blockquote>
 <p><strong>凸包问题</strong></p>
 <p>凸包问题的目标是找到一个最小的凸多边形，使得点集中的所有点都包含在多边形内部或边界上。算法包括蛮力法和快包法（QuickHull）。</p>
-<p><strong>蛮力法</strong>：对于集中的每一对点 $(p_i, p_j)$，判断其余所有 $n-2$ 个点是否都在这两个点连线的同一侧。如果是，则 $(p_i, p_j)$ 是凸包的一条边。</p>
-<p>这种算法点对组合数：$C(n, 2) = \frac{n(n-1)}{2} \approx O(n^2)$。每次检查需要遍历其余 $n-2$ 个点，即 $O(n)$。总复杂度：$O(n^2) \times O(n) = \Theta(n^3)$。</p>
-<p><strong>快包法</strong>：找到 $x$ 坐标最小的点 $A$ 和最大的点 $B$。这两个点一定在凸包上。连接 $AB$，将点集分为“上包”和“下包”两部分。</p>
-<p>对于线段 $AB$ 一侧的点集，找到距离直线 $AB$ 最远的点 $P$。点 $P$ 必在凸包上。显然，三角形 $\triangle ABP$ 内部的所有点都不可能是凸包顶点，直接丢弃（这一步极大减少了计算量）。将问题分解为两个子问题：处理线段 $AP$ 外侧的点，和线段 $PB$ 外侧的点。</p>
-<p>平均情况 (Average)：每次能丢弃大量内部点，类似快速排序的平衡划分。效率为 $\Theta(n \log n)$。</p>
-<p>最坏情况 (Worst)：如果所有点都在凸包上（例如点分布在一个圆周上），每次递归只能找出一个点，无法丢弃任何点。效率退化为 $\Theta(n^2)$。</p>
-<h2 id="2-2-减治法"><a href="#2-2-减治法" class="headerlink" title="2.2 减治法"></a>2.2 减治法</h2><p>减治技术利用了一种关系：一个问题给定实例的解和同样问题较小实例的解之间的关系。 一旦建立了这样一种关系，我们既可以递归地，也可以非递归地来运用减治技术。</p>
-<p>换句话说，相比于分治法递归式中常常出现的$f(n) = af(n/c)+bn^x$这种形式，减治法的递归式常为：</p>
-<ul>
-<li><script type="math/tex; mode=display">f(n) = f(n-1) * a \quad (n > 1)</script></li>
-<li><script type="math/tex; mode=display">a^n = (a^{n/2})^2 \quad (n \text{ 是偶数})$$$$a^n = (a^{(n-1)/2})^2 * a \quad (n \text{ 是大于 1 的奇数})</script></li>
-<li><script type="math/tex; mode=display">\text{gcd}(m, n) = \text{gcd}(n, m \bmod n)</script></li>
-</ul>
+<p><strong>蛮力法</strong>：对于集中的每一对点 <span
+class="math inline">\((p_i, p_j)\)</span>，判断其余所有 <span
+class="math inline">\(n-2\)</span>
+个点是否都在这两个点连线的同一侧。如果是，则 <span
+class="math inline">\((p_i, p_j)\)</span> 是凸包的一条边。</p>
+<p>这种算法点对组合数：<span class="math inline">\(C(n, 2) =
+\frac{n(n-1)}{2} \approx O(n^2)\)</span>。每次检查需要遍历其余 <span
+class="math inline">\(n-2\)</span> 个点，即 <span
+class="math inline">\(O(n)\)</span>。总复杂度：<span
+class="math inline">\(O(n^2) \times O(n) = \Theta(n^3)\)</span>。</p>
+<p><strong>快包法</strong>：找到 <span class="math inline">\(x\)</span>
+坐标最小的点 <span class="math inline">\(A\)</span> 和最大的点 <span
+class="math inline">\(B\)</span>。这两个点一定在凸包上。连接 <span
+class="math inline">\(AB\)</span>，将点集分为“上包”和“下包”两部分。</p>
+<p>对于线段 <span class="math inline">\(AB\)</span>
+一侧的点集，找到距离直线 <span class="math inline">\(AB\)</span>
+最远的点 <span class="math inline">\(P\)</span>。点 <span
+class="math inline">\(P\)</span> 必在凸包上。显然，三角形 <span
+class="math inline">\(\triangle ABP\)</span>
+内部的所有点都不可能是凸包顶点，直接丢弃（这一步极大减少了计算量）。将问题分解为两个子问题：处理线段
+<span class="math inline">\(AP\)</span> 外侧的点，和线段 <span
+class="math inline">\(PB\)</span> 外侧的点。</p>
+<p>平均情况
+(Average)：每次能丢弃大量内部点，类似快速排序的平衡划分。效率为 <span
+class="math inline">\(\Theta(n \log n)\)</span>。</p>
+<p>最坏情况
+(Worst)：如果所有点都在凸包上（例如点分布在一个圆周上），每次递归只能找出一个点，无法丢弃任何点。效率退化为
+<span class="math inline">\(\Theta(n^2)\)</span>。</p>
+<h2 id="减治法">2.2 减治法</h2>
+<p>减治技术利用了一种关系：一个问题给定实例的解和同样问题较小实例的解之间的关系。
+一旦建立了这样一种关系，我们既可以递归地，也可以非递归地来运用减治技术。</p>
+<p>换句话说，相比于分治法递归式中常常出现的<span
+class="math inline">\(f(n) =
+af(n/c)+bn^x\)</span>这种形式，减治法的递归式常为： - <span
+class="math display">\[f(n) = f(n-1) * a \quad (n &gt; 1)\]</span> -
+<span class="math display">\[a^n = (a^{n/2})^2 \quad (n \text{
+是偶数})\]</span><span class="math display">\[a^n = (a^{(n-1)/2})^2 * a
+\quad (n \text{ 是大于 1 的奇数})\]</span> - <span
+class="math display">\[\text{gcd}(m, n) = \text{gcd}(n, m \bmod
+n)\]</span></p>
 <p>这种形式。</p>
-<p>首先来关注前两组递归式，第一种被称作<strong>减去一个常量</strong>的减治法。即$f(n) = a^n$可以用递归定义来计算，如此，每次减治规模减少1。第二种常被称作<strong>减去一个常数因子</strong>，在实例中，常数因子等于2，也就是$a^n = (a^{n/2})^2$，每次计算规模减半。注意，规模减半不同于分治法对两个规模为 $n/2$ 的指数问题实例分别求解。</p>
-<p>然后关注<strong>欧几里得算法</strong>，其伪代码如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Euclid (m, n)</span><br><span class="line">While n ≠ 0 do</span><br><span class="line">    r ← m mod n</span><br><span class="line">    m ← n</span><br><span class="line">    n ← r</span><br><span class="line">end While</span><br><span class="line">return m</span><br></pre></td></tr></table></figure><br>此算法中，$m$ 和 $n$ 既不是以常数，也不是以常数因子的方式减小。称为<strong>减去的规模是可变的</strong>。</p>
-<h3 id="2-2-1-减一算法示例"><a href="#2-2-1-减一算法示例" class="headerlink" title="2.2.1 减一算法示例"></a>2.2.1 减一算法示例</h3><h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>考虑较小数组 $A[0 \dots n-2]$ 排序的问题已经解决了，我们得到了一个大小为 $n-1$ 的有序数组：$A[0] \le \dots \le A[n-2]$。考虑$A[n-1]$，显然，应为 $A[n-1]$ 找到一个合适的位置，并插入。</p>
-<p>Algorithm InsertionSort(A[0…n-1])</p>
-<ol>
-<li>for i ← 1 to n-1 do</li>
-<li>w ← A[i]</li>
-<li>j ← i-1</li>
-<li>While j ≥ 0 and A[j] &gt; w do</li>
-<li>A[j+1] ← A[j]</li>
-<li>j ← j-1</li>
-<li>end While</li>
-<li>A[j+1] ← w</li>
-<li>end for</li>
-</ol>
-<p>最坏情况下入是一个严格递减的数组。对于这种输入的键值比较次数是：</p>
-<script type="math/tex; mode=display">C_{worst}(n) = \sum_{i=1}^{n-1} i = \frac{n(n-1)}{2} \in \Theta(n^2)</script><p>最佳情况：</p>
-<script type="math/tex; mode=display">C_{best}(n) = \sum_{i=1}^{n-1} 1 = n-1 \in \Theta(n)</script><p>平均情况下，对于随机序列的数组，插入排序的平均比较次数是降序数组的一半：</p>
-<script type="math/tex; mode=display">C_{avg} \approx \frac{n^2}{4}</script><p>一般不会完全应用这种$O(n^2)$的排序算法，但可以与快排结合，但子数组规模小于某些预定的值时，直接使用插入排序停止迭代。另外，既然提到了快排，也很容易发现快排本身可以是做插入排序的改进，区别在于快排利用了比较中获得的相对大小信息，实现了划分。</p>
-<h4 id="拓扑排序-例"><a href="#拓扑排序-例" class="headerlink" title="拓扑排序-例"></a>拓扑排序-例</h4><p>考虑五门必修课的一个集合 ${C_1, C_2, C_3, C_4, C_5}$，一个在职的学生必须在某个阶段修完这几门课程。可以按照任何次序学习这些课程，只要满足下面这些条件：</p>
+<p>首先来关注前两组递归式，第一种被称作<strong>减去一个常量</strong>的减治法。即<span
+class="math inline">\(f(n) =
+a^n\)</span>可以用递归定义来计算，如此，每次减治规模减少1。第二种常被称作<strong>减去一个常数因子</strong>，在实例中，常数因子等于2，也就是<span
+class="math inline">\(a^n =
+(a^{n/2})^2\)</span>，每次计算规模减半。注意，规模减半不同于分治法对两个规模为
+<span class="math inline">\(n/2\)</span> 的指数问题实例分别求解。</p>
+<p>然后关注<strong>欧几里得算法</strong>，其伪代码如下： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Euclid (m, n)</span><br><span class="line">While n ≠ 0 do</span><br><span class="line">    r ← m mod n</span><br><span class="line">    m ← n</span><br><span class="line">    n ← r</span><br><span class="line">end While</span><br><span class="line">return m</span><br></pre></td></tr></table></figure>
+此算法中，<span class="math inline">\(m\)</span> 和 <span
+class="math inline">\(n\)</span>
+既不是以常数，也不是以常数因子的方式减小。称为<strong>减去的规模是可变的</strong>。</p>
+<h3 id="减一算法示例">2.2.1 减一算法示例</h3>
+<h4 id="插入排序">插入排序</h4>
+<p>考虑较小数组 <span class="math inline">\(A[0 \dots n-2]\)</span>
+排序的问题已经解决了，我们得到了一个大小为 <span
+class="math inline">\(n-1\)</span> 的有序数组：<span
+class="math inline">\(A[0] \le \dots \le A[n-2]\)</span>。考虑<span
+class="math inline">\(A[n-1]\)</span>，显然，应为 <span
+class="math inline">\(A[n-1]\)</span> 找到一个合适的位置，并插入。</p>
+<p>Algorithm InsertionSort(A[0...n-1]) 1. for i ← 1 to n-1 do 2. w ←
+A[i] 3. j ← i-1 4. While j ≥ 0 and A[j] &gt; w do 5. A[j+1] ← A[j] 6. j
+← j-1 7. end While 8. A[j+1] ← w 9. end for</p>
+<p>最坏情况下入是一个严格递减的数组。对于这种输入的键值比较次数是：
+<span class="math display">\[C_{worst}(n) = \sum_{i=1}^{n-1} i =
+\frac{n(n-1)}{2} \in \Theta(n^2)\]</span></p>
+<p>最佳情况： <span class="math display">\[C_{best}(n) =
+\sum_{i=1}^{n-1} 1 = n-1 \in \Theta(n)\]</span></p>
+<p>平均情况下，对于随机序列的数组，插入排序的平均比较次数是降序数组的一半：
+<span class="math display">\[C_{avg} \approx \frac{n^2}{4}\]</span></p>
+<p>一般不会完全应用这种<span
+class="math inline">\(O(n^2)\)</span>的排序算法，但可以与快排结合，但子数组规模小于某些预定的值时，直接使用插入排序停止迭代。另外，既然提到了快排，也很容易发现快排本身可以是做插入排序的改进，区别在于快排利用了比较中获得的相对大小信息，实现了划分。</p>
+<h4 id="拓扑排序-例">拓扑排序-例</h4>
+<p>考虑五门必修课的一个集合 <span class="math inline">\(\{C_1, C_2, C_3,
+C_4,
+C_5\}\)</span>，一个在职的学生必须在某个阶段修完这几门课程。可以按照任何次序学习这些课程，只要满足下面这些条件：</p>
 <ul>
-<li>$C_1$ 和 $C_2$ 没有任何先决条件</li>
-<li>修完 $C_1$ 和 $C_2$ 才能修 $C_3$</li>
-<li>修完 $C_3$ 才能修 $C_4$</li>
-<li>修完 $C_3$、$C_4$ 才能修 $C_5$</li>
+<li><span class="math inline">\(C_1\)</span> 和 <span
+class="math inline">\(C_2\)</span> 没有任何先决条件</li>
+<li>修完 <span class="math inline">\(C_1\)</span> 和 <span
+class="math inline">\(C_2\)</span> 才能修 <span
+class="math inline">\(C_3\)</span></li>
+<li>修完 <span class="math inline">\(C_3\)</span> 才能修 <span
+class="math inline">\(C_4\)</span></li>
+<li>修完 <span class="math inline">\(C_3\)</span>、<span
+class="math inline">\(C_4\)</span> 才能修 <span
+class="math inline">\(C_5\)</span></li>
 <li>这个学生每个学期只能修一门课程</li>
 </ul>
 <p>问题是学生学习顺序。</p>
@@ -374,183 +545,303 @@ C(\lfloor n/2 \rfloor) + C(\lceil n/2 \rceil) + bn & \text{若 } n \ge 2
 <p><strong>减治技术</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Algorithm TopologicalSort(G)</span><br><span class="line">1. Q &lt;- Empty Queue</span><br><span class="line">2. n &lt;- number of vertex in G</span><br><span class="line">3. while V[G] is not empty do</span><br><span class="line">4.      C &lt;- SearchSource(G)</span><br><span class="line">5.      Push C into Q</span><br><span class="line">6.      Remove C and all edge connected to C in G</span><br><span class="line">7. end while</span><br></pre></td></tr></table></figure>
 <p>简单来说就是先将所有叶节点加入队列，移除与叶节点相连的边，再重复这个步骤。</p>
-<h4 id="生成排列"><a href="#生成排列" class="headerlink" title="生成排列"></a>生成排列</h4><p>目的是生成 ${1, \dots, n}$ 的所有 $n!$ 个排列的问题。应用减治的思想，容易想到要生成 ${1, \dots, n-1}$ 的所有 $(n-1)!$ 个排列，然后把 $n$ 插入到 $n-1$ 个元素的每一种排列中的 $n$ 个可能位置中去，来得到较大规模问题的一个解。并且它们的总数量应该是 $n(n-1)! = n!$。这样，我们得到了 ${1, \dots, n}$ 的所有排列。</p>
-<p>我们直接来看Johnson-Trotter算法。这种算法给一个排列中的每个分量 $k$ 赋予一个方向，如果分量 $k$ 的箭头指向一个相邻的较小元素，我们说它在这个以箭头标记的排列中是可移动的。</p>
-<p>Algorithm JohnsonTrotter(n)<br>// 输入：一个正整数 n<br>// 输出：{1, …, n} 的所有排列的列表</p>
-<ol>
-<li>将第一个排列初始化为    &lt;1 &lt;2 … &lt;n</li>
-<li>While 存在可移动整数 do</li>
-<li>求最大的可移动整数 k</li>
-<li>把 k 和它箭头指向的相邻整数互换</li>
-<li>调转所有大于 k 的整数的方向</li>
-<li>输出排列</li>
-<li>end While</li>
-</ol>
-<p>忽略最大的元素 $n$，剩下的元素 $1, \dots, n-1$ 也在按照 Johnson-Trotter 的规则缓慢变化。最大的元素 $n$ 是最活跃的。它在一个固定的 $n-1$ 排列中，从一端移到另一端。当 $n$ 移到底（碰到边界或更大的元素）时，$n$ 暂时“动不了”了。此时，必须轮到 $n-1$ 这个层级里的某个数动一下（生成 $n-1$ 的下一个排列）。一旦 $n-1$ 变了，$n$ 就调转方向，在这个新的排列里再次穿梭。</p>
-<p>阶段一：子问题状态为 1 2 此时，算法让 3 在 1 2 的缝隙中从右向左穿梭。</p>
+<h4 id="生成排列">生成排列</h4>
+<p>目的是生成 <span class="math inline">\(\{1, \dots, n\}\)</span>
+的所有 <span class="math inline">\(n!\)</span>
+个排列的问题。应用减治的思想，容易想到要生成 <span
+class="math inline">\(\{1, \dots, n-1\}\)</span> 的所有 <span
+class="math inline">\((n-1)!\)</span> 个排列，然后把 <span
+class="math inline">\(n\)</span> 插入到 <span
+class="math inline">\(n-1\)</span> 个元素的每一种排列中的 <span
+class="math inline">\(n\)</span>
+个可能位置中去，来得到较大规模问题的一个解。并且它们的总数量应该是 <span
+class="math inline">\(n(n-1)! = n!\)</span>。这样，我们得到了 <span
+class="math inline">\(\{1, \dots, n\}\)</span> 的所有排列。</p>
+<p>我们直接来看Johnson-Trotter算法。这种算法给一个排列中的每个分量 <span
+class="math inline">\(k\)</span> 赋予一个方向，如果分量 <span
+class="math inline">\(k\)</span>
+的箭头指向一个相邻的较小元素，我们说它在这个以箭头标记的排列中是可移动的。</p>
+<p>Algorithm JohnsonTrotter(n) // 输入：一个正整数 n // 输出：{1, ...,
+n} 的所有排列的列表 1. 将第一个排列初始化为 &lt;1 &lt;2 ... &lt;n 2.
+While 存在可移动整数 do 3. 求最大的可移动整数 k 4. 把 k
+和它箭头指向的相邻整数互换 5. 调转所有大于 k 的整数的方向 6. 输出排列 7.
+end While</p>
+<p>忽略最大的元素 <span class="math inline">\(n\)</span>，剩下的元素
+<span class="math inline">\(1, \dots, n-1\)</span> 也在按照
+Johnson-Trotter 的规则缓慢变化。最大的元素 <span
+class="math inline">\(n\)</span> 是最活跃的。它在一个固定的 <span
+class="math inline">\(n-1\)</span> 排列中，从一端移到另一端。当 <span
+class="math inline">\(n\)</span> 移到底（碰到边界或更大的元素）时，<span
+class="math inline">\(n\)</span> 暂时“动不了”了。此时，必须轮到 <span
+class="math inline">\(n-1\)</span> 这个层级里的某个数动一下（生成 <span
+class="math inline">\(n-1\)</span> 的下一个排列）。一旦 <span
+class="math inline">\(n-1\)</span> 变了，<span
+class="math inline">\(n\)</span>
+就调转方向，在这个新的排列里再次穿梭。</p>
+<p>阶段一：子问题状态为 1 2 此时，算法让 3 在 1 2
+的缝隙中从右向左穿梭。</p>
 <ul>
-<li><p>1 2 3</p>
-</li>
-<li><p>1 3 2</p>
-</li>
-<li><p>3 1 2 (此时忽略 3，背景一直是 1 2)</p>
-</li>
+<li><p>1 2 3</p></li>
+<li><p>1 3 2</p></li>
+<li><p>3 1 2 (此时忽略 3，背景一直是 1 2)</p></li>
 </ul>
-<p>阶段一的终止：3 撞到了最左边的墙，动不了了。算法去寻找下一个最大的可移动数——是 2。 2 和 1 交换，子问题从 1 2 变成了 2 1。 同时，3 调头。</p>
-<p>阶段二：子问题状态为 2 1 此时，算法让 3 在 2 1 的缝隙中从左向右穿梭。 </p>
+<p>阶段一的终止：3
+撞到了最左边的墙，动不了了。算法去寻找下一个最大的可移动数——是 2。 2 和
+1 交换，子问题从 1 2 变成了 2 1。 同时，3 调头。</p>
+<p>阶段二：子问题状态为 2 1 此时，算法让 3 在 2 1
+的缝隙中从左向右穿梭。</p>
 <p>所以这个算法尽管看起来不怎么减治，但是还是有一点减治的思想在里边的。</p>
-<p>这种算法的时间复杂度是$\Theta(n!)$，已经达到最优。</p>
-<h3 id="2-2-2-减常因子示例"><a href="#2-2-2-减常因子示例" class="headerlink" title="2.2.2 减常因子示例"></a>2.2.2 减常因子示例</h3><h4 id="假币问题"><a href="#假币问题" class="headerlink" title="假币问题"></a>假币问题</h4><p>给定 $n$ 枚硬币，其中一枚是较轻的假币。我们的目标是用最少的称量次数找到它。</p>
-<p>将硬币分为三堆 $A, B, C$，每堆数量约为 $n/3$。将 $A$ 和 $B$ 放在天平两端。</p>
+<p>这种算法的时间复杂度是<span
+class="math inline">\(\Theta(n!)\)</span>，已经达到最优。</p>
+<h3 id="减常因子示例">2.2.2 减常因子示例</h3>
+<h4 id="假币问题">假币问题</h4>
+<p>给定 <span class="math inline">\(n\)</span>
+枚硬币，其中一枚是较轻的假币。我们的目标是用最少的称量次数找到它。</p>
+<p>将硬币分为三堆 <span class="math inline">\(A, B,
+C\)</span>，每堆数量约为 <span class="math inline">\(n/3\)</span>。将
+<span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 放在天平两端。</p>
 <ul>
-<li>情况 1 (平衡)：假币在 $C$ 堆中。</li>
-<li>情况 2 (A 轻)：假币在 $A$ 堆中。</li>
-<li>情况 3 (B 轻)：假币在 $B$ 堆中。</li>
+<li>情况 1 (平衡)：假币在 <span class="math inline">\(C\)</span>
+堆中。</li>
+<li>情况 2 (A 轻)：假币在 <span class="math inline">\(A\)</span>
+堆中。</li>
+<li>情况 3 (B 轻)：假币在 <span class="math inline">\(B\)</span>
+堆中。</li>
 </ul>
-<p>此时的递推式$W(n) = W(n/3) + 1$。每次减少至之前规模的1/3</p>
-<p>复杂度是$\log_3 n$。</p>
+<p>此时的递推式<span class="math inline">\(W(n) = W(n/3) +
+1\)</span>。每次减少至之前规模的1/3</p>
+<p>复杂度是<span class="math inline">\(\log_3 n\)</span>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Algorithm FakeCoin(S)</span><br><span class="line">1. n ← |S|  // 获取硬币数量</span><br><span class="line">2. if n = 1 then</span><br><span class="line">3.    return S[1]  // 基本情况：只剩一枚，它就是假币</span><br><span class="line">4. end if</span><br><span class="line">5. 将 S 分为三个集合 A, B, C</span><br><span class="line">6. if weight(A) = weight(B) then</span><br><span class="line">7.    return FakeCoin(C)</span><br><span class="line">8. else if weight(A) &lt; weight(B) then</span><br><span class="line">9.    return FakeCoin(A)</span><br><span class="line">10. else</span><br><span class="line">11.   return FakeCoin(B)</span><br><span class="line">12. end if</span><br></pre></td></tr></table></figure>
-<h4 id="俄式乘法"><a href="#俄式乘法" class="headerlink" title="俄式乘法"></a>俄式乘法</h4><p>要计算 $n \times m$。不断将 $n$ 减半（Decrease by factor 2），同时将 $m$ 加倍。</p>
-<p>具体来说，</p>
-<ul>
-<li>如果 $n$ 是偶数，则 $n \times m = (n/2) \times 2m$。</li>
-<li>如果 $n$ 是奇数，则 $n \times m = ((n-1)/2) \times 2m + m$</li>
-<li>当 $n=1$ 时，结束</li>
-</ul>
+<h4 id="俄式乘法">俄式乘法</h4>
+<p>要计算 <span class="math inline">\(n \times m\)</span>。不断将 <span
+class="math inline">\(n\)</span> 减半（Decrease by factor 2），同时将
+<span class="math inline">\(m\)</span> 加倍。</p>
+<p>具体来说， - 如果 <span class="math inline">\(n\)</span> 是偶数，则
+<span class="math inline">\(n \times m = (n/2) \times 2m\)</span>。 -
+如果 <span class="math inline">\(n\)</span> 是奇数，则 <span
+class="math inline">\(n \times m = ((n-1)/2) \times 2m + m\)</span> - 当
+<span class="math inline">\(n=1\)</span> 时，结束</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Algorithm RussianPeasant(n, m)</span><br><span class="line">1. result ← 0</span><br><span class="line">2. While n &gt; 0 do</span><br><span class="line">3.    if n is odd then</span><br><span class="line">4.       result ← result + m</span><br><span class="line">5.    end if</span><br><span class="line">6.    n ← floor(n / 2)</span><br><span class="line">7.    m ← m * 2 </span><br><span class="line">8. end While</span><br><span class="line">9. return result</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这种算法实际上就是将n转化为二进制：例如26*1：</p>
-<script type="math/tex; mode=display">26 = 11010_2 = 1 \cdot 2^4 + 1 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0</script><p>奇数累加的部分就是二进制位为1的项。</p>
-<h3 id="2-2-3-减可变规模示例"><a href="#2-2-3-减可变规模示例" class="headerlink" title="2.2.3 减可变规模示例"></a>2.2.3 减可变规模示例</h3><h4 id="插值查找"><a href="#插值查找" class="headerlink" title="插值查找"></a>插值查找</h4><p>二分查找盲目地选择中间点（总是假设目标在 $1/2$ 处）。而插值查找则试图根据目标值 $v$ 在整个取值范围中的相对位置来猜测其索引。</p>
-<p>位置 $x$ 的计算公式实际上是一个线性插值方程：</p>
-<script type="math/tex; mode=display">x = l + \left\lfloor \underbrace{\frac{v - A[l]}{A[r] - A[l]}}_{\text{数值占比}} \times \underbrace{(r - l)}_{\text{索引范围}} \right\rfloor</script><ul>
-<li>$\frac{v - A[l]}{A[r] - A[l]}$：计算目标值 $v$ 在当前数值范围（最小值 $A[l]$ 到最大值 $A[r]$）中处于什么比例位置</li>
-<li>$(r - l)$：当前搜索范围的长度。</li>
-<li>$l + \dots$：将计算出的偏移量加到起始索引上。</li>
+<p>这种算法实际上就是将n转化为二进制：例如26*1： <span
+class="math display">\[26 = 11010_2 = 1 \cdot 2^4 + 1 \cdot 2^3 + 0
+\cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0\]</span></p>
+<p>奇数累加的部分就是二进制位为1的项。</p>
+<h3 id="减可变规模示例">2.2.3 减可变规模示例</h3>
+<h4 id="插值查找">插值查找</h4>
+<p>二分查找盲目地选择中间点（总是假设目标在 <span
+class="math inline">\(1/2\)</span> 处）。而插值查找则试图根据目标值
+<span class="math inline">\(v\)</span>
+在整个取值范围中的相对位置来猜测其索引。</p>
+<p>位置 <span class="math inline">\(x\)</span>
+的计算公式实际上是一个线性插值方程： <span class="math display">\[x = l
++ \left\lfloor \underbrace{\frac{v - A[l]}{A[r] -
+A[l]}}_{\text{数值占比}} \times \underbrace{(r - l)}_{\text{索引范围}}
+\right\rfloor\]</span></p>
+<ul>
+<li><span class="math inline">\(\frac{v - A[l]}{A[r] -
+A[l]}\)</span>：计算目标值 <span class="math inline">\(v\)</span>
+在当前数值范围（最小值 <span class="math inline">\(A[l]\)</span>
+到最大值 <span
+class="math inline">\(A[r]\)</span>）中处于什么比例位置</li>
+<li><span class="math inline">\((r -
+l)\)</span>：当前搜索范围的长度。</li>
+<li><span class="math inline">\(l +
+\dots\)</span>：将计算出的偏移量加到起始索引上。</li>
 </ul>
 <p>通常这种方法在数据分布均匀时效率较高</p>
-<h4 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h4><p>这种方法的可变体现在二叉高度不一定相等</p>
+<h4 id="二叉查找树">二叉查找树</h4>
+<p>这种方法的可变体现在二叉高度不一定相等</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BSTSearch(root, v)</span><br><span class="line">1. if root = NULL then</span><br><span class="line">2.    return NULL</span><br><span class="line">3. end if</span><br><span class="line">4. if v = root.value then</span><br><span class="line">5.    return root</span><br><span class="line">6. else if v &lt; root.value then</span><br><span class="line">7.    return BSTSearch(root.left, v)</span><br><span class="line">8. else</span><br><span class="line">9.    return BSTSearch(root.right, v)</span><br><span class="line">10. end if</span><br></pre></td></tr></table></figure>
-<h2 id="2-3-变治法"><a href="#2-3-变治法" class="headerlink" title="2.3 变治法"></a>2.3 变治法</h2><p>变治思想有 3 种主要类型：</p>
+<h2 id="变治法">2.3 变治法</h2>
+<p>变治思想有 3 种主要类型：</p>
 <ul>
-<li><p>实例化简：变换为同样问题的一个更简单或者更方便的实例。</p>
-</li>
-<li><p>改变表现：变换为同样实例的不同表现。</p>
-</li>
-<li><p>问题规约：变换为另一个问题的实例，这种问题的算法是已知的。</p>
-</li>
+<li><p>实例化简：变换为同样问题的一个更简单或者更方便的实例。</p></li>
+<li><p>改变表现：变换为同样实例的不同表现。</p></li>
+<li><p>问题规约：变换为另一个问题的实例，这种问题的算法是已知的。</p></li>
 </ul>
-<h3 id="2-3-1-实例化简"><a href="#2-3-1-实例化简" class="headerlink" title="2.3.1 实例化简"></a>2.3.1 实例化简</h3><h4 id="预排序"><a href="#预排序" class="headerlink" title="预排序"></a>预排序</h4><p>最常见的实例化简方法是预排序，如果列表是有序的，许多问题更容易求解。</p>
+<h3 id="实例化简">2.3.1 实例化简</h3>
+<h4 id="预排序">预排序</h4>
+<p>最常见的实例化简方法是预排序，如果列表是有序的，许多问题更容易求解。</p>
 <p>如检验数组中元素的惟一性，先对数组排序，然后只检查它的连续元素：如果该数组有相等的元素，则一定有一对元素是相互紧挨着的，反之亦然。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Algorithm PresortElementUniqueness(A[1..n])</span><br><span class="line">1. sort A</span><br><span class="line">2. for i ← 1 to n-1 do</span><br><span class="line">3.    if A[i] = A[i+1] return false</span><br><span class="line">4. end for</span><br><span class="line">5. return true</span><br></pre></td></tr></table></figure>
-<p>可以将算法复杂度降低至<script type="math/tex">T(n) = T_{sort}(n) + T_{scan}(n) \in \Theta(n \log n) + \Theta(n) = \Theta(n \log n)</script></p>
-<h4 id="高斯消去法"><a href="#高斯消去法" class="headerlink" title="高斯消去法"></a>高斯消去法</h4><p>高斯消去法的思路是把 $n$ 个线性方程构成的 $n$ 元联立方程组变换为一个等价的方程组。</p>
+<p>可以将算法复杂度降低至<span class="math display">\[T(n) = T_{sort}(n)
++ T_{scan}(n) \in \Theta(n \log n) + \Theta(n) = \Theta(n \log
+n)\]</span></p>
+<h4 id="高斯消去法">高斯消去法</h4>
+<p>高斯消去法的思路是把 <span class="math inline">\(n\)</span>
+个线性方程构成的 <span class="math inline">\(n\)</span>
+元联立方程组变换为一个等价的方程组。</p>
 <p>最简单的做法是模拟手算的过程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Algorithm GaussElimination(A[1..n, 1..n], b[1..n])</span><br><span class="line">1. for i ← 1 to n do A[i, n+1] ← b[i] // 扩展该矩阵</span><br><span class="line">2. for i ← 1 to n-1 do // Eliminate/Diag</span><br><span class="line">3.    for j ← i+1 to n do // Row</span><br><span class="line">4.       for k ← i to n+1 do // Col</span><br><span class="line">5.          A[j, k] ← A[j, k] - A[i, k] * A[j, i] / A[i, i]</span><br><span class="line">6.       end for</span><br><span class="line">7.    end for</span><br><span class="line">8. end for</span><br></pre></td></tr></table></figure>
-<p>两个问题：</p>
-<ul>
-<li>$A[i,i] = 0$</li>
-<li>$A[i,i]$ 可能会非常小，比例因子 $A[j,i]/A[i,i]$ 非常大，以至于 $A[j,k]$ 的新值会因为舍入而严重失真</li>
-</ul>
-<p>解决办法：</p>
-<ul>
-<li>每次都去找第 $i$ 列系数的绝对值最大的行，然后把它作为第 $i$ 次迭代的基点。</li>
-<li>保证比例因子的绝对值永远不会大于 1。</li>
-</ul>
+<p>两个问题： - <span class="math inline">\(A[i,i] = 0\)</span> - <span
+class="math inline">\(A[i,i]\)</span> 可能会非常小，比例因子 <span
+class="math inline">\(A[j,i]/A[i,i]\)</span> 非常大，以至于 <span
+class="math inline">\(A[j,k]\)</span> 的新值会因为舍入而严重失真</p>
+<p>解决办法： - 每次都去找第 <span class="math inline">\(i\)</span>
+列系数的绝对值最大的行，然后把它作为第 <span
+class="math inline">\(i\)</span> 次迭代的基点。 -
+保证比例因子的绝对值永远不会大于 1。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BetterGaussElimination(A[1..n, 1..n], b[1..n])</span><br><span class="line">1.  for i ← 1 to n do A[i, n+1] ← b[i]</span><br><span class="line">2.  for i ← 1 to n-1 do</span><br><span class="line">3.     pivotrow ← i</span><br><span class="line">4.     for j ← i+1 to n do // E(col)</span><br><span class="line">5.        if |A[j, i]| &gt; |A[pivotrow, i]| then pivotrow ← j</span><br><span class="line">6.     end for</span><br><span class="line">7.     for k ← i to n+1 do // Row</span><br><span class="line">8.        swap(A[i, k], A[pivotrow, k])</span><br><span class="line">9.     end for</span><br><span class="line">10.    for j ← i+1 to n do</span><br><span class="line">11.       temp ← A[j, i] / A[i, i]</span><br><span class="line">12.       for k ← i to n+1 do // Row</span><br><span class="line">13.          A[j, k] ← A[j, k] - A[i, k] * temp</span><br><span class="line">14.       end for</span><br><span class="line">15.    end for</span><br><span class="line">16. end for</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>LU分解</strong><br>为了解这个方程，设</p>
+<hr />
+<p><strong>LU分解</strong> 为了解这个方程，设 - L：由主对角线上的 1
+和在高斯消去过程中，行的乘数所构成的下三角矩阵 -
+U：高斯消去过程后的上三角矩阵 求解过程： - 设 <span
+class="math inline">\(y=Ux\)</span>，则 <span
+class="math inline">\(Ly=b\)</span> - 解 <span
+class="math inline">\(Ly=b\)</span>，得 <span
+class="math inline">\(y\)</span> - 再解 <span
+class="math inline">\(Ux=y\)</span>，得到 <span
+class="math inline">\(x\)</span></p>
+<h4 id="avl树">AVL树</h4>
+<p>AVL树是一个要求树每个节点的左右子树的高度差不能超过
+1的二叉查找树（BST），因此也包括红黑树、分裂树等数据结构。因此，可被视作一种实例化简的示例。</p>
+<p>理论上，所有包含 <span class="math inline">\(n\)</span> 个节点的 AVL
+树的高度 <span class="math inline">\(h\)</span> 都满足这个不等式</p>
+<p><span class="math display">\[\lfloor \log_2 n \rfloor \le h &lt;
+1.4405 \log_2(n+2) - 1.3277\]</span></p>
+<p>在平均情况下，查找一棵 AVL 树需要的比较次数和用折半查找 (Binary
+Search) 查找一个有序数组是几乎相同的。</p>
+<h3 id="改变表现">2.3.2 改变表现</h3>
+<h4 id="树">2-3树</h4>
+<p>除了avl树，另一种思路是允许一个节点不止包含一个键，也就是改变BST的表现。
+2-3 树 是一种可以包含两种类型节点的树：2 节点、3 节点</p>
 <ul>
-<li>L：由主对角线上的 1 和在高斯消去过程中，行的乘数所构成的下三角矩阵</li>
-<li>U：高斯消去过程后的上三角矩阵<br>求解过程：</li>
-<li>设 $y=Ux$，则 $Ly=b$</li>
-<li>解 $Ly=b$，得 $y$</li>
-<li>再解 $Ux=y$，得到 $x$</li>
+<li><p>2 节点：只包含一个键 <span class="math inline">\(K\)</span>
+和两个子女（子节点）：左子节点作为一棵所有键都小于 <span
+class="math inline">\(K\)</span>
+的子树的根。右子节点作为一棵所有键都大于 <span
+class="math inline">\(K\)</span> 的子树的根。</p></li>
+<li><p>3 节点：包含两个有序的键 <span class="math inline">\(K_1\)</span>
+和 <span class="math inline">\(K_2\)</span> (<span
+class="math inline">\(K_1 &lt; K_2\)</span>) 并且有 3
+个子节点：最左边的子节点作为键值小于 <span
+class="math inline">\(K_1\)</span> 的子树的根。中间的子节点作为键值位于
+<span class="math inline">\(K_1\)</span> 和 <span
+class="math inline">\(K_2\)</span>
+之间的子树的根。最右边的子节点作为键值大于 <span
+class="math inline">\(K_2\)</span> 的子树的根。</p></li>
+<li><p>树中的所有叶子必须位于同一层</p></li>
 </ul>
-<h4 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h4><p>AVL树是一个要求树每个节点的左右子树的高度差不能超过 1的二叉查找树（BST），因此也包括红黑树、分裂树等数据结构。因此，可被视作一种实例化简的示例。</p>
-<p>理论上，所有包含 $n$ 个节点的 AVL 树的高度 $h$ 都满足这个不等式</p>
-<script type="math/tex; mode=display">\lfloor \log_2 n \rfloor \le h < 1.4405 \log_2(n+2) - 1.3277</script><p>在平均情况下，查找一棵 AVL 树需要的比较次数和用折半查找 (Binary Search) 查找一个有序数组是几乎相同的。</p>
-<h3 id="2-3-2-改变表现"><a href="#2-3-2-改变表现" class="headerlink" title="2.3.2 改变表现"></a>2.3.2 改变表现</h3><h4 id="2-3树"><a href="#2-3树" class="headerlink" title="2-3树"></a>2-3树</h4><p>除了avl树，另一种思路是允许一个节点不止包含一个键，也就是改变BST的表现。<br>2-3 树 是一种可以包含两种类型节点的树：2 节点、3 节点</p>
-<ul>
-<li><p>2 节点：只包含一个键 $K$ 和两个子女（子节点）：左子节点作为一棵所有键都小于 $K$ 的子树的根。右子节点作为一棵所有键都大于 $K$ 的子树的根。</p>
-</li>
-<li><p>3 节点：包含两个有序的键 $K_1$ 和 $K_2$ ($K_1 &lt; K_2$) 并且有 3 个子节点：最左边的子节点作为键值小于 $K_1$ 的子树的根。中间的子节点作为键值位于 $K_1$ 和 $K_2$ 之间的子树的根。最右边的子节点作为键值大于 $K_2$ 的子树的根。</p>
-</li>
-<li><p>树中的所有叶子必须位于同一层</p>
-</li>
-</ul>
-<hr>
+<hr />
 <p><strong>查找和插入</strong></p>
 <p>查找不难理解</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Algorithm TwoThreeSearch(node, key)</span><br><span class="line">// 输入：当前节点 node，目标键 key</span><br><span class="line">// 输出：找到的节点或 NULL</span><br><span class="line"></span><br><span class="line">1. if node = NULL then return NULL</span><br><span class="line"></span><br><span class="line">// Case 1: 节点是 2-node (只有 k1)</span><br><span class="line">2. if node is 2-node then</span><br><span class="line">3.    if key = node.k1 then return node</span><br><span class="line">4.    else if key &lt; node.k1 then return TwoThreeSearch(node.left, key)</span><br><span class="line">5.    else return TwoThreeSearch(node.right, key)</span><br><span class="line"></span><br><span class="line">// Case 2: 节点是 3-node (有 k1, k2)</span><br><span class="line">6. else </span><br><span class="line">7.    if key = node.k1 or key = node.k2 then return node</span><br><span class="line">8.    else if key &lt; node.k1 then return TwoThreeSearch(node.left, key)</span><br><span class="line">9.    else if key &gt; node.k2 then return TwoThreeSearch(node.right, key)</span><br><span class="line">10.   else return TwoThreeSearch(node.middle, key) // k1 &lt; key &lt; k2</span><br><span class="line">11. end if</span><br></pre></td></tr></table></figure>
 <p>插入涉及到节点分裂和向上提升，可以参见之后的例子</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Algorithm TwoThreeInsert(root, key)</span><br><span class="line">1. (promoted_key, new_node) ← Put(root, key)</span><br><span class="line">2. if promoted_key ≠ NULL then</span><br><span class="line">      // 根节点分裂了，创建新的根 (树高 +1)</span><br><span class="line">3.    new_root ← New Node(promoted_key)</span><br><span class="line">4.    new_root.left ← root</span><br><span class="line">5.    new_root.right ← new_node</span><br><span class="line">6.    root ← new_root</span><br><span class="line">7. end if</span><br><span class="line"></span><br><span class="line">Algorithm Put(node, key)</span><br><span class="line">// 返回值：(提升的键, 新分裂出的右兄弟节点)</span><br><span class="line">// 如果没有分裂，返回 (NULL, NULL)</span><br><span class="line"></span><br><span class="line">1. if node is Leaf then</span><br><span class="line">      // </span><br><span class="line">---</span><br><span class="line"> 叶子节点处理 </span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">2.    if node has 1 key then</span><br><span class="line">3.        Add key to node (sort keys), return (NULL, NULL)</span><br><span class="line">4.    else // node has 2 keys (Overflow!)</span><br><span class="line">5.        return SplitNode(node, key, NULL, NULL)</span><br><span class="line">6.    end if</span><br><span class="line"></span><br><span class="line">   // </span><br><span class="line">---</span><br><span class="line"> 内部节点递归 </span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">7. else </span><br><span class="line">8.    child ← find correct child for key (left, middle, or right)</span><br><span class="line">9.    (p_key, p_node) ← Put(child, key) // 递归向下</span><br><span class="line"></span><br><span class="line">10.   if p_key = NULL then return (NULL, NULL) // 子节点没分裂，结束</span><br><span class="line">      </span><br><span class="line">      // 子节点分裂了，当前节点需要接纳提升上来的 p_key</span><br><span class="line">11.   if node has 1 key then</span><br><span class="line">          // 当前是 2-node，变成 3-node，容纳 p_key 和 p_node</span><br><span class="line">12.       Absorb(node, p_key, p_node) </span><br><span class="line">13.       return (NULL, NULL)</span><br><span class="line">14.   else</span><br><span class="line">          // 当前是 3-node，再次发生溢出，继续向上传递</span><br><span class="line">15.       return SplitNode(node, p_key, p_node)</span><br><span class="line">16.   end if</span><br><span class="line">17. end if</span><br><span class="line"></span><br><span class="line">Algorithm SplitNode(node, new_key, new_child)</span><br><span class="line">// 将 3 个键 (原来的两个 + 新插入的) 排序为 s, m, l</span><br><span class="line">// m (中间键) 被提升，s 留要在原节点，l 放到新节点</span><br><span class="line">1. small, middle, large ← Sort(node.k1, node.k2, new_key)</span><br><span class="line">2. node.keys ← &#123;small&#125; // 原节点只保留最小的</span><br><span class="line">3. new_sibling ← New Node(large) // 新节点存放最大的</span><br><span class="line">4. Handle children reassignment for internal nodes...</span><br><span class="line">5. return (middle, new_sibling)</span><br></pre></td></tr></table></figure>
-<hr>
+<hr />
 <p>例如，为列表 9, 5, 8, 3, 2, 4, 7 构造一棵 2-3 树。</p>
 <ul>
 <li>插入 9；树为空，创建根；<strong>[9]</strong></li>
-<li>插入 5；5 &lt; 9，根是 2-node，直接放入；<strong>[5, 9]</strong></li>
-<li>插入 8；第一次分裂，最小 5 留在左边，最大 9 去新右节点，中间 8 提升成为新根；<strong>[5]&lt;-[8]-&gt;[9]</strong></li>
-<li>插入 3；3 &lt; 8，进入左子树 [5]，[5] 是 2-node，直接变为 [3, 5]；<strong>[3,5]&lt;-[8]-&gt;[9]</strong></li>
-<li>插入 2；第二次分裂，最小 2 留左，最大 5 去右，中间 3 提升，父节点 [8] 是 2-node，容纳 3 变为 [3, 8]  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    [3, 8]</span><br><span class="line">    /  |   \</span><br><span class="line">[2] [5]  [9]</span><br></pre></td></tr></table></figure></li>
-<li>插入4；  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   [3, 8]</span><br><span class="line">  /  |   \</span><br><span class="line">[2] [4,5] [9]</span><br></pre></td></tr></table></figure></li>
-<li>插入 7；<ul>
-<li>7 在 3 和 8 之间，进入中间子树 [4, 5]溢出，4 留，7 去新右，中间 5 提升;</li>
-<li>父节点是 [3, 8]溢出，最小 3 留左，最大 8 去右，中间 5 继续提升，5 成为新的根节点<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   [3, 8]</span><br><span class="line">  /  |   \</span><br><span class="line">[2] [4,5,7] [9]</span><br><span class="line">     ↓</span><br><span class="line">   [3, 5, 8]</span><br><span class="line">  /  |  | \</span><br><span class="line">[2] [4] [7] [9]</span><br><span class="line">     ↓</span><br><span class="line">     [5]</span><br><span class="line">     / \</span><br><span class="line">   [3] [8]</span><br><span class="line">  /  |  | \</span><br><span class="line">[2] [4] [7] [9]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
+<li>插入 5；5 &lt; 9，根是 2-node，直接放入；<strong>[5,
+9]</strong></li>
+<li>插入 8；第一次分裂，最小 5 留在左边，最大 9 去新右节点，中间 8
+提升成为新根；<strong>[5]&lt;-[8]-&gt;[9]</strong></li>
+<li>插入 3；3 &lt; 8，进入左子树 [5]，[5] 是 2-node，直接变为 [3,
+5]；<strong>[3,5]&lt;-[8]-&gt;[9]</strong></li>
+<li>插入 2；第二次分裂，最小 2 留左，最大 5 去右，中间 3 提升，父节点
+[8] 是 2-node，容纳 3 变为 [3, 8] <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    [3, 8]</span><br><span class="line">    /  |   \</span><br><span class="line">[2] [5]  [9]</span><br></pre></td></tr></table></figure></li>
+<li>插入4； <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   [3, 8]</span><br><span class="line">  /  |   \</span><br><span class="line">[2] [4,5] [9]</span><br></pre></td></tr></table></figure></li>
+<li>插入 7；
+<ul>
+<li>7 在 3 和 8 之间，进入中间子树 [4, 5]溢出，4 留，7 去新右，中间 5
+提升;</li>
+<li>父节点是 [3, 8]溢出，最小 3 留左，最大 8 去右，中间 5 继续提升，5
+成为新的根节点 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   [3, 8]</span><br><span class="line">  /  |   \</span><br><span class="line">[2] [4,5,7] [9]</span><br><span class="line">     ↓</span><br><span class="line">   [3, 5, 8]</span><br><span class="line">  /  |  | \</span><br><span class="line">[2] [4] [7] [9]</span><br><span class="line">     ↓</span><br><span class="line">     [5]</span><br><span class="line">     / \</span><br><span class="line">   [3] [8]</span><br><span class="line">  /  |  | \</span><br><span class="line">[2] [4] [7] [9]</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<hr>
-<p>一个具有最少节点的高度为 $h$ 的 2-3 树是一颗全部由 2 节点构成的满树</p>
-<p>对于任何包含 $n$ 个节点、高度为 $h$ 的 2-3 树，有</p>
-<script type="math/tex; mode=display">n \ge 1 + 2 + \dots + 2^h = 2^{h+1} - 1</script><p>一个具有最多节点的高度为 $h$ 的 2-3 树是一棵全部由 3 节点构成的满树，每个节点都包含两个键和三个子女</p>
-<p>对于任何 $n$ 个节点的 2-3 树，有</p>
-<script type="math/tex; mode=display">n \le 2 \cdot 1 + 2 \cdot 3 + \dots + 2 \cdot 3^h = 2(1 + 3 + \dots + 3^h) = 3^{h+1} - 1</script><p>故有</p>
-<script type="math/tex; mode=display">\log_3(n+1) - 1 \le h \le \log_2(n+1) - 1</script><p>无论在最差情况还是在平均情况，2-3树的查找、插入和删除的时间效率都属于 $\Theta(\log n)$</p>
-<hr>
-<h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><p>在上一章我们应用的堆重组数组的形式现实也是一种改变表现，再次不再赘述</p>
-<hr>
-<h4 id="霍纳法"><a href="#霍纳法" class="headerlink" title="霍纳法"></a>霍纳法</h4><p>对于多项式 $p(x) = 2x^4 - x^3 + 3x^2 + x - 5$，有：</p>
-<script type="math/tex; mode=display">
+<hr />
+<p>一个具有最少节点的高度为 <span class="math inline">\(h\)</span> 的
+2-3 树是一颗全部由 2 节点构成的满树</p>
+<p>对于任何包含 <span class="math inline">\(n\)</span> 个节点、高度为
+<span class="math inline">\(h\)</span> 的 2-3 树，有</p>
+<p><span class="math display">\[n \ge 1 + 2 + \dots + 2^h = 2^{h+1} -
+1\]</span></p>
+<p>一个具有最多节点的高度为 <span class="math inline">\(h\)</span> 的
+2-3 树是一棵全部由 3 节点构成的满树，每个节点都包含两个键和三个子女</p>
+<p>对于任何 <span class="math inline">\(n\)</span> 个节点的 2-3
+树，有</p>
+<p><span class="math display">\[n \le 2 \cdot 1 + 2 \cdot 3 + \dots + 2
+\cdot 3^h = 2(1 + 3 + \dots + 3^h) = 3^{h+1} - 1\]</span></p>
+<p>故有</p>
+<p><span class="math display">\[\log_3(n+1) - 1 \le h \le \log_2(n+1) -
+1\]</span></p>
+<p>无论在最差情况还是在平均情况，2-3树的查找、插入和删除的时间效率都属于
+<span class="math inline">\(\Theta(\log n)\)</span></p>
+<hr />
+<h4 id="堆排序">堆排序</h4>
+<p>在上一章我们应用的堆重组数组的形式现实也是一种改变表现，再次不再赘述</p>
+<hr />
+<h4 id="霍纳法">霍纳法</h4>
+<p>对于多项式 <span class="math inline">\(p(x) = 2x^4 - x^3 + 3x^2 + x -
+5\)</span>，有：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& p(x)=2 x^4-x^3+3 x^2+x-5 \\
-& =x\left(2 x^3-x^2+3 x+1\right)-5 \\
-& =x\left(x\left(2 x^2-x+3\right)+1\right)-5 \\
-& =x(x(x(2 x-1)+3)+1)-5
-\end{aligned}</script><p>表格计算法使用一个两行的表来帮助计算，第一行包含了该多项式的系数；第二行中，除了第一个单元用来存储 $a_n$，其他单元都用来存储中间结果。用第二行的最后一个单元乘以 $x$ 的值再加上第一行的下一个系数，来算出表格下一个单元的值。以这种方式算出的最后一个单元的值，就是该多项式的值。</p>
-<script type="math/tex; mode=display">\begin{array}{llllll}
-\text { 系数 } & 2 & -1 & 3 & 1 & -5 \\
-\mathbf{X = 3} & 2 & 3 * 2+(-1)=5 & 3 * 5+3=18 & 3 * 18+1=55 & 3 * 55-5=160
-\end{array}</script><hr>
-<p>但是这种方法在计算$a^n$ 时，退化成了一种对 $a$ 自乘的蛮力算法，以及一些无用的加法。</p>
-<p>有两种基于改变表现 (Representation Change) 思想的计算 $a^n$ 的算法</p>
-<p>设 $n = b_I \dots b_i \dots b_0$ 是在二进制系统中表示一个正整数 $n$ 的比特串，则可以通过以下多项式的值来计算 $n$：</p>
-<script type="math/tex; mode=display">p(x) = b_I x^I + \dots + b_i x^i + \dots + b_0</script><p>其中， $x=2$，可以应用霍纳法计算。</p>
+&amp; p(x)=2 x^4-x^3+3 x^2+x-5 \\
+&amp; =x\left(2 x^3-x^2+3 x+1\right)-5 \\
+&amp; =x\left(x\left(2 x^2-x+3\right)+1\right)-5 \\
+&amp; =x(x(x(2 x-1)+3)+1)-5
+\end{aligned}
+\]</span></p>
+<p>表格计算法使用一个两行的表来帮助计算，第一行包含了该多项式的系数；第二行中，除了第一个单元用来存储
+<span
+class="math inline">\(a_n\)</span>，其他单元都用来存储中间结果。用第二行的最后一个单元乘以
+<span class="math inline">\(x\)</span>
+的值再加上第一行的下一个系数，来算出表格下一个单元的值。以这种方式算出的最后一个单元的值，就是该多项式的值。</p>
+<p><span class="math display">\[\begin{array}{llllll}
+\text { 系数 } &amp; 2 &amp; -1 &amp; 3 &amp; 1 &amp; -5 \\
+\mathbf{X = 3} &amp; 2 &amp; 3 * 2+(-1)=5 &amp; 3 * 5+3=18 &amp; 3 *
+18+1=55 &amp; 3 * 55-5=160
+\end{array}\]</span></p>
+<hr />
+<p>但是这种方法在计算<span class="math inline">\(a^n\)</span>
+时，退化成了一种对 <span class="math inline">\(a\)</span>
+自乘的蛮力算法，以及一些无用的加法。</p>
+<p>有两种基于改变表现 (Representation Change) 思想的计算 <span
+class="math inline">\(a^n\)</span> 的算法</p>
+<p>设 <span class="math inline">\(n = b_I \dots b_i \dots b_0\)</span>
+是在二进制系统中表示一个正整数 <span class="math inline">\(n\)</span>
+的比特串，则可以通过以下多项式的值来计算 <span
+class="math inline">\(n\)</span>：</p>
+<p><span class="math display">\[p(x) = b_I x^I + \dots + b_i x^i + \dots
++ b_0\]</span></p>
+<p>其中， <span
+class="math inline">\(x=2\)</span>，可以应用霍纳法计算。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p ← 1  </span><br><span class="line">for i ← I-1 downto 0 do</span><br><span class="line">    p ← 2*p + b_i</span><br><span class="line">end for</span><br></pre></td></tr></table></figure>
-<p>其中每一步都需要计算$2*p + b_i$</p>
-<p>由于 $a^n = a^{p(2)}$，有</p>
-<script type="math/tex; mode=display">a^{2p + b_i} = a^{2p} \cdot a^{b_i} = (a^p)^2 \cdot a^{b_i}</script><p>即可替代上述伪代码中的$p ← 2*p + b_i$一步。</p>
+<p>其中每一步都需要计算<span class="math inline">\(2*p +
+b_i\)</span></p>
+<p>由于 <span class="math inline">\(a^n = a^{p(2)}\)</span>，有</p>
+<p><span class="math display">\[a^{2p + b_i} = a^{2p} \cdot a^{b_i} =
+(a^p)^2 \cdot a^{b_i}\]</span></p>
+<p>即可替代上述伪代码中的<span class="math inline">\(p ← 2*p +
+b_i\)</span>一步。</p>
 <p><strong>从左至右二进制幂算法</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Algorithm LeftRightBinaryExponentiation(a, b(n))</span><br><span class="line">// 用从左至右二进制幂算法计算 a^n</span><br><span class="line">1. product ← a</span><br><span class="line">2. for i ← I-1 downto 0 do</span><br><span class="line">3.    product ← product * product</span><br><span class="line">4.    if b_i = 1 then </span><br><span class="line">5.       product ← product * a</span><br><span class="line">6.    end if</span><br><span class="line">7. end for</span><br><span class="line">8. return product</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-3-问题规约"><a href="#2-3-3-问题规约" class="headerlink" title="2.3.3 问题规约"></a>2.3.3 问题规约</h3><p>即使用已解问题解决未解问题</p>
+<h3 id="问题规约">2.3.3 问题规约</h3>
+<p>即使用已解问题解决未解问题</p>
 <p>比如使用最小公倍数和最大公因数的乘积等于两个数本身的成绩，用求解最大公因数的方法求解最小公倍数</p>
-<hr>
-<h4 id="规约为线性规划问题"><a href="#规约为线性规划问题" class="headerlink" title="规约为线性规划问题"></a>规约为线性规划问题</h4><p>线性规划问题是一个多变量线性函数的最优化问题，这些变量所要满足的一些约束是以线性等式或线性不等式的形式出现的。</p>
+<hr />
+<h4 id="规约为线性规划问题">规约为线性规划问题</h4>
+<p>线性规划问题是一个多变量线性函数的最优化问题，这些变量所要满足的一些约束是以线性等式或线性不等式的形式出现的。</p>
 <p>标准形式：</p>
-<script type="math/tex; mode=display">\begin{aligned}
-&\text { opt } z=c_1 x_1+\cdots+c_n x_n\\
-&\text { s.t. } \quad a_{11} x_1+\cdots+a_{1 n} x_n \leq b_1\\
-&\text { ⋯ }\\
-&a_{m 1} x_1+\cdots+a_{m n} x_n \leq b_m
-\end{aligned}</script><hr>
+<p><span class="math display">\[\begin{aligned}
+&amp;\text { opt } z=c_1 x_1+\cdots+c_n x_n\\
+&amp;\text { s.t. } \quad a_{11} x_1+\cdots+a_{1 n} x_n \leq b_1\\
+&amp;\text { ⋯ }\\
+&amp;a_{m 1} x_1+\cdots+a_{m n} x_n \leq b_m
+\end{aligned}\]</span></p>
+<hr />
 <p><strong>背包问题</strong></p>
 <p>背包问题的连续版本按照线性规划规约：</p>
-<script type="math/tex; mode=display">\begin{gathered}
+<p><span class="math display">\[\begin{gathered}
 \max \sum_{j=1}^n v_j x_j \\
 \text { s.t. } \quad \sum_{j=1}^n w_j x_j \leq W \\
 0 \leq x_j \leq 1, \quad j=1, \ldots, n
-\end{gathered}</script><p>我们会在动态规划的部分讨论离散情况（或许吧）</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-2/">http://raphaelhyaan.cn/2026/01/06/algo-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第三部分-精确最优化策略</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E5%9F%BA%E4%BA%8E%E8%A7%84%E6%A8%A1%E7%9A%84%E7%AD%96%E7%95%A5%EF%BC%9A%E5%88%86%E8%A7%A3%E4%B8%8E%E5%8F%98%E6%8D%A2-Structure-Decomposition"><span class="toc-text">第二部分：基于规模的策略：分解与变换 (Structure Decomposition)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%88%86%E6%B2%BB%E6%B3%95"><span class="toc-text">2.1 分治法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B"><span class="toc-text">2.1.1 分而治之</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E5%AF%BB%E6%89%BE%E6%9C%80%E5%A4%A7%E5%80%BC%E5%92%8C%E6%9C%80%E5%B0%8F%E5%80%BC%EF%BC%9A"><span class="toc-text">同时寻找最大值和最小值：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2-%EF%BC%88binary-search%EF%BC%89"><span class="toc-text">二分搜索 （binary search）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8F%EF%BC%88Merge-Sort%EF%BC%89"><span class="toc-text">合并排序（Merge Sort）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F"><span class="toc-text">通用递推公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E7%AC%AC-k-%E5%B0%8F%E5%85%83%E7%B4%A0-Finding-the-k-th-Smallest-Element"><span class="toc-text">寻找第 k 小元素 (Finding the k-th Smallest Element)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E5%88%92%E5%88%86%E7%AE%97%E6%B3%95"><span class="toc-text">2.1.2 划分算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#low-in-position%E5%88%92%E5%88%86"><span class="toc-text">low in position划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F-quicksort"><span class="toc-text">快速排序 (quicksort)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E5%85%B6%E4%BB%96%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">2.1.3 其他分治算法的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%B9%98%E6%B3%95"><span class="toc-text">各种类型的乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E5%87%A0%E4%BD%95%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">与几何相关的算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%87%8F%E6%B2%BB%E6%B3%95"><span class="toc-text">2.2 减治法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E5%87%8F%E4%B8%80%E7%AE%97%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.2.1 减一算法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F-%E4%BE%8B"><span class="toc-text">拓扑排序-例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%8E%92%E5%88%97"><span class="toc-text">生成排列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E5%87%8F%E5%B8%B8%E5%9B%A0%E5%AD%90%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.2.2 减常因子示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%87%E5%B8%81%E9%97%AE%E9%A2%98"><span class="toc-text">假币问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%84%E5%BC%8F%E4%B9%98%E6%B3%95"><span class="toc-text">俄式乘法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E5%87%8F%E5%8F%AF%E5%8F%98%E8%A7%84%E6%A8%A1%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.2.3 减可变规模示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="toc-text">插值查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">二叉查找树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%8F%98%E6%B2%BB%E6%B3%95"><span class="toc-text">2.3 变治法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%AE%80"><span class="toc-text">2.3.1 实例化简</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%8E%92%E5%BA%8F"><span class="toc-text">预排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95"><span class="toc-text">高斯消去法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AVL%E6%A0%91"><span class="toc-text">AVL树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E6%94%B9%E5%8F%98%E8%A1%A8%E7%8E%B0"><span class="toc-text">2.3.2 改变表现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E6%A0%91"><span class="toc-text">2-3树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-text">堆排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%8D%E7%BA%B3%E6%B3%95"><span class="toc-text">霍纳法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E9%97%AE%E9%A2%98%E8%A7%84%E7%BA%A6"><span class="toc-text">2.3.3 问题规约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E7%BA%A6%E4%B8%BA%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-text">规约为线性规划问题</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+\end{gathered}\]</span></p>
+<p>我们会在动态规划的部分讨论离散情况（或许吧）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-2/">http://raphaelhyaan.cn/2026/01/06/algo-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第三部分-精确最优化策略</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E5%9F%BA%E4%BA%8E%E8%A7%84%E6%A8%A1%E7%9A%84%E7%AD%96%E7%95%A5%E5%88%86%E8%A7%A3%E4%B8%8E%E5%8F%98%E6%8D%A2-structure-decomposition"><span class="toc-text">第二部分：基于规模的策略：分解与变换
+(Structure Decomposition)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%B2%BB%E6%B3%95"><span class="toc-text">2.1 分治法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B"><span class="toc-text">2.1.1 分而治之</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E5%AF%BB%E6%89%BE%E6%9C%80%E5%A4%A7%E5%80%BC%E5%92%8C%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-text">同时寻找最大值和最小值：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2-binary-search"><span class="toc-text">二分搜索 （binary search）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8Fmerge-sort"><span class="toc-text">合并排序（Merge Sort）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F"><span class="toc-text">通用递推公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E7%AC%AC-k-%E5%B0%8F%E5%85%83%E7%B4%A0-finding-the-k-th-smallest-element"><span class="toc-text">寻找第 k
+小元素 (Finding the k-th Smallest Element)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%92%E5%88%86%E7%AE%97%E6%B3%95"><span class="toc-text">2.1.2 划分算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#low-in-position%E5%88%92%E5%88%86"><span class="toc-text">low in position划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F-quicksort"><span class="toc-text">快速排序 (quicksort)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">2.1.3 其他分治算法的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%B9%98%E6%B3%95"><span class="toc-text">各种类型的乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E5%87%A0%E4%BD%95%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">与几何相关的算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%8F%E6%B2%BB%E6%B3%95"><span class="toc-text">2.2 减治法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E4%B8%80%E7%AE%97%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.2.1 减一算法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F-%E4%BE%8B"><span class="toc-text">拓扑排序-例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%8E%92%E5%88%97"><span class="toc-text">生成排列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E5%B8%B8%E5%9B%A0%E5%AD%90%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.2.2 减常因子示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%87%E5%B8%81%E9%97%AE%E9%A2%98"><span class="toc-text">假币问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%84%E5%BC%8F%E4%B9%98%E6%B3%95"><span class="toc-text">俄式乘法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E5%8F%AF%E5%8F%98%E8%A7%84%E6%A8%A1%E7%A4%BA%E4%BE%8B"><span class="toc-text">2.2.3 减可变规模示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="toc-text">插值查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">二叉查找树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E6%B2%BB%E6%B3%95"><span class="toc-text">2.3 变治法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%AE%80"><span class="toc-text">2.3.1 实例化简</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%8E%92%E5%BA%8F"><span class="toc-text">预排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95"><span class="toc-text">高斯消去法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#avl%E6%A0%91"><span class="toc-text">AVL树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E5%8F%98%E8%A1%A8%E7%8E%B0"><span class="toc-text">2.3.2 改变表现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">2-3树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-text">堆排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%8D%E7%BA%B3%E6%B3%95"><span class="toc-text">霍纳法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%84%E7%BA%A6"><span class="toc-text">2.3.3 问题规约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E7%BA%A6%E4%B8%BA%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-text">规约为线性规划问题</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="123"/></a><div class="content"><a class="title" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123">123</a><time datetime="2026-01-22T18:19:45.000Z" title="发表于 2026-01-23 02:19:45">2026-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

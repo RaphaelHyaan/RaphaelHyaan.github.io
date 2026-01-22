@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第五部分-应对不确定性与大规模问题 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第五部分：应对不确定性与大规模问题本部分聚焦于处理动态输入、超大规模搜索空间及实际工程中的复杂优化问题。 5.1 在线算法 (Online Algorithms)5.1.1 在线算法离线和在线离线算法 (Offline Algorithm)：在计算开始前，问题的所有输入数据（整个序列）均已知。算法可以统筹全局做出最优决策。在线算法 (Online Algorithm)：输入是以序列形式逐步到来的">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第五部分-应对不确定性与大规模问题 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第五部分：应对不确定性与大规模问题 本部分聚焦于处理动态输入、超大规模搜索空间及实际工程中的复杂优化问题。 5.1 在线算法 (Online Algorithms) 5.1.1 在线算法 离线和在线 离线算法 (Offline Algorithm)：在计算开始前，问题的所有输入数据（整个序列）均已知。算法可以统筹全局做出最优决策。 在线算法 (Online Algorithm)：输">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五部分-应对不确定性与大规模问题">
 <meta property="og:url" content="http://raphaelhyaan.cn/2026/01/06/algo-5/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="第五部分：应对不确定性与大规模问题本部分聚焦于处理动态输入、超大规模搜索空间及实际工程中的复杂优化问题。 5.1 在线算法 (Online Algorithms)5.1.1 在线算法离线和在线离线算法 (Offline Algorithm)：在计算开始前，问题的所有输入数据（整个序列）均已知。算法可以统筹全局做出最优决策。在线算法 (Online Algorithm)：输入是以序列形式逐步到来的">
+<meta property="og:description" content="第五部分：应对不确定性与大规模问题 本部分聚焦于处理动态输入、超大规模搜索空间及实际工程中的复杂优化问题。 5.1 在线算法 (Online Algorithms) 5.1.1 在线算法 离线和在线 离线算法 (Offline Algorithm)：在计算开始前，问题的所有输入数据（整个序列）均已知。算法可以统筹全局做出最优决策。 在线算法 (Online Algorithm)：输">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png">
 <meta property="article:published_time" content="2026-01-05T16:07:15.000Z">
@@ -153,425 +153,652 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第五部分-应对不确定性与大规模问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:09:41.445Z" title="更新于 2026-01-06 00:09:41">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第五部分-应对不确定性与大规模问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第五部分：应对不确定性与大规模问题"><a href="#第五部分：应对不确定性与大规模问题" class="headerlink" title="第五部分：应对不确定性与大规模问题"></a>第五部分：应对不确定性与大规模问题</h1><p>本部分聚焦于处理动态输入、超大规模搜索空间及实际工程中的复杂优化问题。</p>
-<h2 id="5-1-在线算法-Online-Algorithms"><a href="#5-1-在线算法-Online-Algorithms" class="headerlink" title="5.1 在线算法 (Online Algorithms)"></a>5.1 在线算法 (Online Algorithms)</h2><h3 id="5-1-1-在线算法"><a href="#5-1-1-在线算法" class="headerlink" title="5.1.1 在线算法"></a>5.1.1 在线算法</h3><h4 id="离线和在线"><a href="#离线和在线" class="headerlink" title="离线和在线"></a>离线和在线</h4><p><strong>离线算法 (Offline Algorithm)</strong>：在计算开始前，问题的所有输入数据（整个序列）均已知。算法可以统筹全局做出最优决策。<br><strong>在线算法 (Online Algorithm)</strong>：输入是以序列形式逐步到来的 ($x_1, x_2, \dots$)。算法必须在接收到每一个输入 $x_i$ 时立即做出决策，且该决策通常是不可逆的。算法无法预知未来的输入。</p>
-<h4 id="在线算法分析和竞争比"><a href="#在线算法分析和竞争比" class="headerlink" title="在线算法分析和竞争比"></a>在线算法分析和竞争比</h4><p>在线算法的分析通常被建模为在线选手 (Online Player) 与 恶意对手 (Malicious Adversary) 之间的博弈：</p>
-<ul>
-<li>在线选手运行在线算法。</li>
-<li>恶意对手了解选手的算法逻辑，并精心构造一组最坏情况的输入序列，试图最大化在线选手的代价。</li>
-</ul>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第五部分-应对不确定性与大规模问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:09:41.445Z" title="更新于 2026-01-06 00:09:41">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第五部分-应对不确定性与大规模问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="第五部分应对不确定性与大规模问题">第五部分：应对不确定性与大规模问题</h1>
+<p>本部分聚焦于处理动态输入、超大规模搜索空间及实际工程中的复杂优化问题。</p>
+<h2 id="在线算法-online-algorithms">5.1 在线算法 (Online
+Algorithms)</h2>
+<h3 id="在线算法">5.1.1 在线算法</h3>
+<h4 id="离线和在线">离线和在线</h4>
+<p><strong>离线算法 (Offline
+Algorithm)</strong>：在计算开始前，问题的所有输入数据（整个序列）均已知。算法可以统筹全局做出最优决策。
+<strong>在线算法 (Online Algorithm)</strong>：输入是以序列形式逐步到来的
+(<span class="math inline">\(x_1, x_2,
+\dots\)</span>)。算法必须在接收到每一个输入 <span
+class="math inline">\(x_i\)</span>
+时立即做出决策，且该决策通常是不可逆的。算法无法预知未来的输入。</p>
+<h4 id="在线算法分析和竞争比">在线算法分析和竞争比</h4>
+<p>在线算法的分析通常被建模为在线选手 (Online Player) 与 恶意对手
+(Malicious Adversary) 之间的博弈： - 在线选手运行在线算法。 -
+恶意对手了解选手的算法逻辑，并精心构造一组最坏情况的输入序列，试图最大化在线选手的代价。</p>
 <p>目标：设计一种算法，使得即使在对手最恶毒的攻击下，其表现也不会比拥有上帝视角的离线最优算法差太多。</p>
-<p>设 $A$ 是一个在线算法，$C<em>A(I)$ 是其在输入序列 $I$ 上的代价；$OPT$ 是离线最优算法，$C</em>{OPT}(I)$ 是其代价。<br>如果存在常数 $\alpha$ 和 $b$，使得对于任意输入序列 $I$，均满足：</p>
-<script type="math/tex; mode=display">C_A(I) \le \alpha \cdot C_{OPT}(I) + b</script><p>则称算法 $A$ 是 $\alpha$-竞争 的，$\alpha$ 称为竞争比。</p>
-<ul>
-<li>$\alpha$ 越小，算法在最坏情况下的鲁棒性越好。</li>
-<li>对于最小化问题，$\alpha \ge 1$。</li>
-</ul>
-<h3 id="5-1-2-经典在线问题"><a href="#5-1-2-经典在线问题" class="headerlink" title="5.1.2 经典在线问题"></a>5.1.2 经典在线问题</h3><h4 id="滑雪租赁问题"><a href="#滑雪租赁问题" class="headerlink" title="滑雪租赁问题"></a>滑雪租赁问题</h4><p>情境：计划去滑雪，但不知道天气何时变坏导致滑雪场关闭（即不知道总天数 $n$）。</p>
-<ul>
-<li>租 (Rent)：每天 1 元。</li>
-<li>买 (Buy)：一次性支付 $b$ 元。<br>目标：最小化总花费。</li>
-</ul>
-<h4 id="盈亏平衡算法"><a href="#盈亏平衡算法" class="headerlink" title="盈亏平衡算法"></a>盈亏平衡算法</h4><p>策略：先租 $b-1$ 天；如果第 $b$ 天还能滑，则购买滑雪板。</p>
-<p>情况 1 ($n &lt; b$)：一直租。代价 $C<em>A(n) = n$，最优代价 $C</em>{OPT}(n) = n$，比值：$1$。<br>情况 2 ($n \ge b$)：最坏情况发生在刚买完滑雪板后，滑雪场立即关闭（即 $n=b$），代价 $C<em>A(n) = (b-1) + b = 2b - 1$，最优代价 $C</em>{OPT}(n) = b$，比值：$\frac{2b-1}{b} &lt; 2$。</p>
+<p>设 <span class="math inline">\(A\)</span> 是一个在线算法，<span
+class="math inline">\(C_A(I)\)</span> 是其在输入序列 <span
+class="math inline">\(I\)</span> 上的代价；<span
+class="math inline">\(OPT\)</span> 是离线最优算法，<span
+class="math inline">\(C_{OPT}(I)\)</span> 是其代价。 如果存在常数 <span
+class="math inline">\(\alpha\)</span> 和 <span
+class="math inline">\(b\)</span>，使得对于任意输入序列 <span
+class="math inline">\(I\)</span>，均满足：</p>
+<p><span class="math display">\[C_A(I) \le \alpha \cdot C_{OPT}(I) +
+b\]</span></p>
+<p>则称算法 <span class="math inline">\(A\)</span> 是 <span
+class="math inline">\(\alpha\)</span>-竞争 的，<span
+class="math inline">\(\alpha\)</span> 称为竞争比。 - <span
+class="math inline">\(\alpha\)</span>
+越小，算法在最坏情况下的鲁棒性越好。 - 对于最小化问题，<span
+class="math inline">\(\alpha \ge 1\)</span>。</p>
+<h3 id="经典在线问题">5.1.2 经典在线问题</h3>
+<h4 id="滑雪租赁问题">滑雪租赁问题</h4>
+<p>情境：计划去滑雪，但不知道天气何时变坏导致滑雪场关闭（即不知道总天数
+<span class="math inline">\(n\)</span>）。 - 租 (Rent)：每天 1 元。 - 买
+(Buy)：一次性支付 <span class="math inline">\(b\)</span> 元。
+目标：最小化总花费。</p>
+<h4 id="盈亏平衡算法">盈亏平衡算法</h4>
+<p>策略：先租 <span class="math inline">\(b-1\)</span> 天；如果第 <span
+class="math inline">\(b\)</span> 天还能滑，则购买滑雪板。</p>
+<p>情况 1 (<span class="math inline">\(n &lt; b\)</span>)：一直租。代价
+<span class="math inline">\(C_A(n) = n\)</span>，最优代价 <span
+class="math inline">\(C_{OPT}(n) = n\)</span>，比值：<span
+class="math inline">\(1\)</span>。 情况 2 (<span class="math inline">\(n
+\ge b\)</span>)：最坏情况发生在刚买完滑雪板后，滑雪场立即关闭（即 <span
+class="math inline">\(n=b\)</span>），代价 <span
+class="math inline">\(C_A(n) = (b-1) + b = 2b - 1\)</span>，最优代价
+<span class="math inline">\(C_{OPT}(n) = b\)</span>，比值：<span
+class="math inline">\(\frac{2b-1}{b} &lt; 2\)</span>。</p>
 <p>盈亏平衡算法是 2-竞争 (2-Competitive) 的。</p>
-<h4 id="最优缓存问题"><a href="#最优缓存问题" class="headerlink" title="最优缓存问题"></a>最优缓存问题</h4><p>缓存容量为 $k$，主存容量为 $N$ ($N \gg k$)，输入是页面请求序列 $\sigma = <r_1, r_2, \dots, r_n>$。</p>
+<h4 id="最优缓存问题">最优缓存问题</h4>
+<p>缓存容量为 <span class="math inline">\(k\)</span>，主存容量为 <span
+class="math inline">\(N\)</span> (<span class="math inline">\(N \gg
+k\)</span>)，输入是页面请求序列 <span class="math inline">\(\sigma =
+&lt;r_1, r_2, \dots, r_n&gt;\)</span>。 - 命中 (Page
+Hit)：请求页在缓存中 <span class="math inline">\(\to\)</span> 代价 0。 -
+缺页 (Page Fault)：请求页不在缓存中 <span
+class="math inline">\(\to\)</span> 代价 1。 -
+此时，若缓存已满，必须选择一页剔除 (Evict)，并将新页载入。
+目标：设计页面剔除策略，最小化缺页中断次数。</p>
+<p>这个算法的离线最优是贪心算法，即选择缓存中在未来最长时间内不会被访问的那个页面。若某页未来不再被访问，则优先剔除。这个算法被称作<strong>最远将来(Farthest-in-Future,
+FIF)</strong>。</p>
+<h4 id="常见在线策略">常见在线策略</h4>
 <ul>
-<li>命中 (Page Hit)：请求页在缓存中 $\to$ 代价 0。</li>
-<li>缺页 (Page Fault)：请求页不在缓存中 $\to$ 代价 1。<ul>
-<li>此时，若缓存已满，必须选择一页剔除 (Evict)，并将新页载入。<br>目标：设计页面剔除策略，最小化缺页中断次数。</li>
+<li><p>LIFO (Last-In
+First-Out，后进先出)：剔除最新进入缓存的页面。</p></li>
+<li><p>LFU (Least Frequently
+Used，最少频繁使用)：剔除过去被访问次数最少的页面。</p></li>
+<li><p>FIFO (First-In
+First-Out，先进先出)：剔除最早进入缓存的页面</p></li>
+<li><p>LRU (Least Recently
+Used，最少最近使用)：剔除距离当前时刻最久未被访问的页面</p></li>
 </ul>
-</li>
-</ul>
-<p>这个算法的离线最优是贪心算法，即选择缓存中在未来最长时间内不会被访问的那个页面。若某页未来不再被访问，则优先剔除。这个算法被称作<strong>最远将来(Farthest-in-Future, FIF)</strong>。</p>
-<h4 id="常见在线策略"><a href="#常见在线策略" class="headerlink" title="常见在线策略"></a>常见在线策略</h4><ul>
-<li><p>LIFO (Last-In First-Out，后进先出)：剔除最新进入缓存的页面。</p>
-</li>
-<li><p>LFU (Least Frequently Used，最少频繁使用)：剔除过去被访问次数最少的页面。</p>
-</li>
-<li><p>FIFO (First-In First-Out，先进先出)：剔除最早进入缓存的页面</p>
-</li>
-<li><p>LRU (Least Recently Used，最少最近使用)：剔除距离当前时刻最久未被访问的页面</p>
-</li>
-</ul>
-<p>尽管 LIFO 和 LFU 在特定场景下有其逻辑，但在对抗性分析（面对恶意对手）中，它们的表现是灾难性的，竞争比无法被常数界定。<br>以LIFO为例：</p>
+<p>尽管 LIFO 和 LFU
+在特定场景下有其逻辑，但在对抗性分析（面对恶意对手）中，它们的表现是灾难性的，竞争比无法被常数界定。
+以LIFO为例： - 缓存容量 <span class="math inline">\(k\)</span>，当前内容
+<span class="math inline">\(\{1, \dots, k\}\)</span>，最后载入的是 <span
+class="math inline">\(k\)</span>。 - 攻击序列：<span
+class="math inline">\(k+1, k, k+1, k, \dots\)</span> - LIFO 会在 <span
+class="math inline">\(k\)</span> 和 <span
+class="math inline">\(k+1\)</span>
+之间反复“抖动”，每一次请求都导致缺页。 - <span
+class="math inline">\(C_{LIFO} \to \infty\)</span>（相对于 <span
+class="math inline">\(C_{OPT}=1\)</span>）。</p>
+<p>定理：对于缓存容量为 <span class="math inline">\(k\)</span>
+的系统，任何确定性在线算法 <span class="math inline">\(A\)</span>
+的竞争比至少为 <span class="math inline">\(k\)</span>。 - 假设系统共有
+<span class="math inline">\(k+1\)</span> 个页面。 -
+在每一步，对手总是请求当前不在算法 <span
+class="math inline">\(A\)</span> 缓存中的那个页面。 - 由于只有 <span
+class="math inline">\(k+1\)</span> 个页且缓存大小为 <span
+class="math inline">\(k\)</span>，总有 1 个页在缓存外。 - 这导致算法
+<span class="math inline">\(A\)</span> 每一次请求都发生缺页。对于长度为
+<span class="math inline">\(L\)</span> 的序列，<span
+class="math inline">\(C_A = L\)</span> - 对于离线算法，OPT 会查看这
+<span class="math inline">\(k+1\)</span>
+个页中哪一个在未来最晚被请求，并剔除它。 - 在 <span
+class="math inline">\(k+1\)</span> 个页面的循环请求中，OPT 平均每 <span
+class="math inline">\(k\)</span> 次请求才需要缺页一次
+因此竞争比约等于k</p>
+<p>LRU 策略是 <span class="math inline">\(k\)</span>-竞争的</p>
 <ul>
-<li>缓存容量 $k$，当前内容 ${1, \dots, k}$，最后载入的是 $k$。</li>
-<li>攻击序列：$k+1, k, k+1, k, \dots$</li>
-<li>LIFO 会在 $k$ 和 $k+1$ 之间反复“抖动”，每一次请求都导致缺页。</li>
-<li>$C<em>{LIFO} \to \infty$（相对于 $C</em>{OPT}=1$）。</li>
+<li><p>将请求序列 <span class="math inline">\(\sigma\)</span>
+划分为若干阶段 <span class="math inline">\(P_1, P_2,
+\dots\)</span>，每个阶段恰好包含 <span class="math inline">\(k\)</span>
+个不同的页面。一旦请求序列中出现了第 <span
+class="math inline">\(k+1\)</span>
+个不同的页面，当前阶段结束，新阶段开始。第 <span
+class="math inline">\(i\)</span> 阶段结束时的请求页与第 <span
+class="math inline">\(i+1\)</span> 阶段开始时的请求页必然不同。</p></li>
+<li><p>在每个阶段 <span class="math inline">\(P_i\)</span> 内，LRU
+策略最多发生 <span class="math inline">\(k\)</span> 次缺页，设总阶段数为
+<span class="math inline">\(N\)</span>，则 <span
+class="math inline">\(C_{LRU} \le k \cdot N\)</span></p></li>
 </ul>
-<p>定理：对于缓存容量为 $k$ 的系统，任何确定性在线算法 $A$ 的竞争比至少为 $k$。</p>
-<ul>
-<li>假设系统共有 $k+1$ 个页面。</li>
-<li>在每一步，对手总是请求当前不在算法 $A$ 缓存中的那个页面。<ul>
-<li>由于只有 $k+1$ 个页且缓存大小为 $k$，总有 1 个页在缓存外。</li>
-<li>这导致算法 $A$ 每一次请求都发生缺页。对于长度为 $L$ 的序列，$C_A = L$</li>
-</ul>
-</li>
-<li>对于离线算法，OPT 会查看这 $k+1$ 个页中哪一个在未来最晚被请求，并剔除它。<ul>
-<li>在 $k+1$ 个页面的循环请求中，OPT 平均每 $k$ 次请求才需要缺页一次<br>因此竞争比约等于k</li>
-</ul>
-</li>
-</ul>
-<p>LRU 策略是 $k$-竞争的</p>
-<ul>
-<li><p>将请求序列 $\sigma$ 划分为若干阶段 $P_1, P_2, \dots$，每个阶段恰好包含 $k$ 个不同的页面。一旦请求序列中出现了第 $k+1$ 个不同的页面，当前阶段结束，新阶段开始。第 $i$ 阶段结束时的请求页与第 $i+1$ 阶段开始时的请求页必然不同。</p>
-</li>
-<li><p>在每个阶段 $P<em>i$ 内，LRU 策略最多发生 $k$ 次缺页，设总阶段数为 $N$，则 $C</em>{LRU} \le k \cdot N$</p>
-</li>
-</ul>
-<p>此时的FIF算法：</p>
-<ul>
-<li>每当从阶段 $P<em>i$ 进入 $P</em>{i+1}$ 时，必须处理一个新的页面 $p_{new}$</li>
-<li>在 $P<em>i$ 结束时，OPT 的缓存中存有 $k$ 个页。$P</em>{i+1}$ 的第一个请求必然是 $P_i$ 中从未出现过的第 $k+1$ 个不同页，因此 OPT 在新阶段开始时必然缺页。</li>
-<li>FIF 在每个阶段（除第一个外）至少发生 1 次缺页。$C_{OPT} \ge N - 1$。</li>
-</ul>
-<h4 id="随机在线算法和标记算法"><a href="#随机在线算法和标记算法" class="headerlink" title="随机在线算法和标记算法"></a>随机在线算法和标记算法</h4><p>如前所述，任何确定性在线缓存算法的竞争比至少为 $k$。为了获得更好的性能，我们引入随机性。</p>
-<p>我们采用不经意对手 (Oblivious Adversary) 模型，对手必须在算法执行前构造好整个请求序列 $I$，对手知道算法的代码，但不知道算法执行过程中的随机选择结果。</p>
-<p><strong>标记算法 (Marker Algorithm)</strong>通过维护页面的“标记”状态来辅助随机剔除</p>
-<p>缓存中的每个位置（共 $k$ 个）有一个标记位，初始全为 0</p>
-<ul>
-<li>对于每个请求 $r_i$</li>
-<li>命中：若 $r_i$ 在缓存中，将其对应位置标记设为 1</li>
-<li>缺页：若 $r_i$ 不在缓存中，检查是否存在标记为 0 的页<ul>
-<li>有 0 标记：在所有标记为 0 的页中，均匀随机选择一个进行剔除。将新页 $r_i$ 载入并标记为 1。</li>
-<li>全 1 标记：说明当前阶段结束。将所有标记重置为 0，开始新阶段。然后按“有 0 标记”的情况处理（即随机剔除一个，载入新页并标记）。</li>
-</ul>
-</li>
-</ul>
-<p>Marker 算法对不经意对手是 $2H_k$-竞争 的，其中 $H_k = 1 + 1/2 + \dots + 1/k \approx \ln k$</p>
-<p>定义：除了最后一个阶段外，每个阶段恰好包含 $k$ 个不同的被标记页面。即每当有 $k$ 个不同页被请求后，阶段结束。</p>
-<ul>
-<li>$P_i$：第 $i$ 阶段出现的所有 $k$ 个页面的集合。</li>
-<li>新页 (New Pages)：$N<em>i = P_i \setminus P</em>{i-1}$，既在当前阶段出现但上一阶段未出现的页。令 $|N_i| = n_i$。</li>
-<li>旧页 (Old Pages)：$O<em>i = P_i \cap P</em>{i-1}$，即在上一阶段也出现过的页。$|O_i| = k - n_i$。<br>理论上，每一阶段都会将所有缓存的标记全部标为1，并在进入下一阶段时全部置零。这一阶段结束时，缓存中包含的页面就是这一阶段中出现的所有页面。</li>
-</ul>
-<p>分析第 $i$ 阶段的期望缺页数</p>
-<ul>
-<li>新页 ($N_i$)：必然不在缓存中（因为上一阶段没用到，早已被剔除或从未载入）。这就贡献了 $n_i$ 次缺页。</li>
-<li>旧页 ($O_i$)：旧页在上一阶段结束时全部包含在缓存中，但在这一阶段的进行中可能被剔除。<ul>
-<li>假设 $O<em>i$ 中的旧页在当前阶段第一次被请求的顺序为 $y_1, y_2, \dots, y</em>{k-n_i}$</li>
-<li>当请求 $y_j$ 时，已有 $n_i$ 个新页和 $j-1$ 个旧页被标记为 1。此时缓存中“未标记”的空位（即可能保留旧页的位置）还有 $k - (n_i + j - 1)$ 个、</li>
-<li>$y_j$ 被剔除的概率上限为 $n_i / (k - j + 1)$</li>
-<li>对所有旧页求和，期望缺页数 $\le \sum<em>{j=1}^{k-n_i} \frac{n_i}{k-j+1} = n_i (H_k - H</em>{n<em>i})$。<br>总期望：$E[\text{Faults}_i] \le n_i + n_i(H_k - H</em>{n_i}) \le n_i H_k$。</li>
-</ul>
-</li>
-</ul>
-<p>FIF的下界：$C_{OPT} \ge \frac{1}{2} \sum n_i$</p>
+<p>此时的FIF算法： - 每当从阶段 <span class="math inline">\(P_i\)</span>
+进入 <span class="math inline">\(P_{i+1}\)</span>
+时，必须处理一个新的页面 <span class="math inline">\(p_{new}\)</span> -
+在 <span class="math inline">\(P_i\)</span> 结束时，OPT 的缓存中存有
+<span class="math inline">\(k\)</span> 个页。<span
+class="math inline">\(P_{i+1}\)</span> 的第一个请求必然是 <span
+class="math inline">\(P_i\)</span> 中从未出现过的第 <span
+class="math inline">\(k+1\)</span> 个不同页，因此 OPT
+在新阶段开始时必然缺页。 - FIF 在每个阶段（除第一个外）至少发生 1
+次缺页。<span class="math inline">\(C_{OPT} \ge N - 1\)</span>。</p>
+<h4 id="随机在线算法和标记算法">随机在线算法和标记算法</h4>
+<p>如前所述，任何确定性在线缓存算法的竞争比至少为 <span
+class="math inline">\(k\)</span>。为了获得更好的性能，我们引入随机性。</p>
+<p>我们采用不经意对手 (Oblivious Adversary)
+模型，对手必须在算法执行前构造好整个请求序列 <span
+class="math inline">\(I\)</span>，对手知道算法的代码，但不知道算法执行过程中的随机选择结果。</p>
+<p><strong>标记算法 (Marker
+Algorithm)</strong>通过维护页面的“标记”状态来辅助随机剔除</p>
+<p>缓存中的每个位置（共 <span class="math inline">\(k\)</span>
+个）有一个标记位，初始全为 0 - 对于每个请求 <span
+class="math inline">\(r_i\)</span> - 命中：若 <span
+class="math inline">\(r_i\)</span> 在缓存中，将其对应位置标记设为 1 -
+缺页：若 <span class="math inline">\(r_i\)</span>
+不在缓存中，检查是否存在标记为 0 的页 - 有 0 标记：在所有标记为 0
+的页中，均匀随机选择一个进行剔除。将新页 <span
+class="math inline">\(r_i\)</span> 载入并标记为 1。 - 全 1
+标记：说明当前阶段结束。将所有标记重置为 0，开始新阶段。然后按“有 0
+标记”的情况处理（即随机剔除一个，载入新页并标记）。</p>
+<p>Marker 算法对不经意对手是 <span
+class="math inline">\(2H_k\)</span>-竞争 的，其中 <span
+class="math inline">\(H_k = 1 + 1/2 + \dots + 1/k \approx \ln
+k\)</span></p>
+<p>定义：除了最后一个阶段外，每个阶段恰好包含 <span
+class="math inline">\(k\)</span> 个不同的被标记页面。即每当有 <span
+class="math inline">\(k\)</span> 个不同页被请求后，阶段结束。 - <span
+class="math inline">\(P_i\)</span>：第 <span
+class="math inline">\(i\)</span> 阶段出现的所有 <span
+class="math inline">\(k\)</span> 个页面的集合。 - 新页 (New
+Pages)：<span class="math inline">\(N_i = P_i \setminus
+P_{i-1}\)</span>，既在当前阶段出现但上一阶段未出现的页。令 <span
+class="math inline">\(|N_i| = n_i\)</span>。 - 旧页 (Old Pages)：<span
+class="math inline">\(O_i = P_i \cap
+P_{i-1}\)</span>，即在上一阶段也出现过的页。<span
+class="math inline">\(|O_i| = k - n_i\)</span>。
+理论上，每一阶段都会将所有缓存的标记全部标为1，并在进入下一阶段时全部置零。这一阶段结束时，缓存中包含的页面就是这一阶段中出现的所有页面。</p>
+<p>分析第 <span class="math inline">\(i\)</span> 阶段的期望缺页数 - 新页
+(<span
+class="math inline">\(N_i\)</span>)：必然不在缓存中（因为上一阶段没用到，早已被剔除或从未载入）。这就贡献了
+<span class="math inline">\(n_i\)</span> 次缺页。 - 旧页 (<span
+class="math inline">\(O_i\)</span>)：旧页在上一阶段结束时全部包含在缓存中，但在这一阶段的进行中可能被剔除。
+- 假设 <span class="math inline">\(O_i\)</span>
+中的旧页在当前阶段第一次被请求的顺序为 <span class="math inline">\(y_1,
+y_2, \dots, y_{k-n_i}\)</span> - 当请求 <span
+class="math inline">\(y_j\)</span> 时，已有 <span
+class="math inline">\(n_i\)</span> 个新页和 <span
+class="math inline">\(j-1\)</span> 个旧页被标记为
+1。此时缓存中“未标记”的空位（即可能保留旧页的位置）还有 <span
+class="math inline">\(k - (n_i + j - 1)\)</span> 个、 - <span
+class="math inline">\(y_j\)</span> 被剔除的概率上限为 <span
+class="math inline">\(n_i / (k - j + 1)\)</span> -
+对所有旧页求和，期望缺页数 <span class="math inline">\(\le
+\sum_{j=1}^{k-n_i} \frac{n_i}{k-j+1} = n_i (H_k - H_{n_i})\)</span>。
+总期望：<span class="math inline">\(E[\text{Faults}_i] \le n_i + n_i(H_k
+- H_{n_i}) \le n_i H_k\)</span>。</p>
+<p>FIF的下界：<span class="math inline">\(C_{OPT} \ge \frac{1}{2} \sum
+n_i\)</span></p>
 <p>竞争比：</p>
-<script type="math/tex; mode=display">\frac{\sum n_i H_k}{\frac{1}{2} \sum n_i} = 2H_k</script><hr>
-<h2 id="5-2-现代启发式算法"><a href="#5-2-现代启发式算法" class="headerlink" title="5.2 现代启发式算法"></a>5.2 现代启发式算法</h2><p>当问题规模巨大且对解的精度要求不苛刻时，启发式算法是工程首选。</p>
+<p><span class="math display">\[\frac{\sum n_i H_k}{\frac{1}{2} \sum
+n_i} = 2H_k\]</span></p>
+<hr />
+<h2 id="现代启发式算法">5.2 现代启发式算法</h2>
+<p>当问题规模巨大且对解的精度要求不苛刻时，启发式算法是工程首选。</p>
 <p><strong>启发式算法</strong>利用基于经验（Experience-based）的技术寻找问题的满意解，而非绝对最优解。</p>
-<p>具备以下特点：</p>
+<p>具备以下特点： -
+经验导向：模仿自然现象（如物理退火、生物进化）或人类直觉。</p>
 <ul>
-<li><p>经验导向：模仿自然现象（如物理退火、生物进化）或人类直觉。</p>
-</li>
-<li><p>近似性：通常不能保证收敛到全局最优，但实用性强。</p>
-</li>
-<li><p>高效性：相比精确算法（如穷举），计算时间大幅减少。</p>
-</li>
-<li><p>问题依赖性：通用性较弱，需针对特定问题设计。</p>
-</li>
+<li><p>近似性：通常不能保证收敛到全局最优，但实用性强。</p></li>
+<li><p>高效性：相比精确算法（如穷举），计算时间大幅减少。</p></li>
+<li><p>问题依赖性：通用性较弱，需针对特定问题设计。</p></li>
 </ul>
-<p>以兔子爬山为例，一些启发式算法的思想如下所示：</p>
+<p>以兔子爬山为例，一些启发式算法的思想如下所示： - 局部搜索 (Local
+Search)：“视力不好的兔子”。采用贪心策略，每步只向周围比现在高的地方跳。
+- 禁忌搜索 (Tabu
+Search)：“有记忆力的兔子”。记住走过的路并留下记号，优先探索未涉足区域，避免重复。
+- 模拟退火 (Simulated
+Annealing)：“会瞬移的兔子”。在体力好（高温）时可能跳向低处（概率接受劣解），从而跳出局部陷阱。
+- 遗传算法 (Genetic
+Algorithm)：“多产的兔子群”。通过优胜劣汰，海拔高的兔子繁衍后代，种群自动向高峰迁移。</p>
+<h3 id="个体算法">5.2.1 个体算法</h3>
+<h4 id="邻域搜索算法-ns">邻域搜索算法 NS</h4>
+<p>从一个初始解 <span class="math inline">\(x\)</span>
+出发，通过定义邻域动作（如交换、插入、反转），在当前解的邻域 <span
+class="math inline">\(N(x)\)</span> 中寻找更好的解。 - 生成初始解。</p>
 <ul>
-<li>局部搜索 (Local Search)：“视力不好的兔子”。采用贪心策略，每步只向周围比现在高的地方跳。</li>
-<li>禁忌搜索 (Tabu Search)：“有记忆力的兔子”。记住走过的路并留下记号，优先探索未涉足区域，避免重复。</li>
-<li>模拟退火 (Simulated Annealing)：“会瞬移的兔子”。在体力好（高温）时可能跳向低处（概率接受劣解），从而跳出局部陷阱。</li>
-<li>遗传算法 (Genetic Algorithm)：“多产的兔子群”。通过优胜劣汰，海拔高的兔子繁衍后代，种群自动向高峰迁移。</li>
-</ul>
-<h3 id="5-2-1-个体算法"><a href="#5-2-1-个体算法" class="headerlink" title="5.2.1 个体算法"></a>5.2.1 个体算法</h3><h4 id="邻域搜索算法-NS"><a href="#邻域搜索算法-NS" class="headerlink" title="邻域搜索算法 NS"></a>邻域搜索算法 NS</h4><p>从一个初始解 $x$ 出发，通过定义邻域动作（如交换、插入、反转），在当前解的邻域 $N(x)$ 中寻找更好的解。</p>
-<ul>
-<li><p>生成初始解。</p>
-</li>
-<li><p>在邻域中产生候选解。</p>
-</li>
-<li><p>贪心接受：若候选解优于当前解，则移动；否则尝试其他邻居或停止。</p>
-</li>
-<li><p>重复直至满足终止条件（如找不到更好的解）。</p>
-</li>
+<li><p>在邻域中产生候选解。</p></li>
+<li><p>贪心接受：若候选解优于当前解，则移动；否则尝试其他邻居或停止。</p></li>
+<li><p>重复直至满足终止条件（如找不到更好的解）。</p></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Lin-Kernighan (LK)</span><br><span class="line">输入：距离矩阵 D，初始路径 T (通常由贪心算法生成)</span><br><span class="line">输出：优化后的路径 T_best</span><br><span class="line"></span><br><span class="line">1. T_best ← T</span><br><span class="line">2. improved ← true</span><br><span class="line">3. while improved do</span><br><span class="line">4.    improved ← false</span><br><span class="line">5.    // 遍历所有节点作为搜索的起点 t1</span><br><span class="line">6.    for each node t1 in T do</span><br><span class="line">7.       // 选择 t1 的邻居 t2，构成第一条要断开的边 x1 = (t1, t2)</span><br><span class="line">8.       for each neighbor t2 of t1 in T do</span><br><span class="line">9.          // 尝试寻找能够改进路径的移动序列 (k-opt)</span><br><span class="line">10.         (is_improved, new_tour) ← Execute-LK-Move(T, t1, t2)</span><br><span class="line">11.         if is_improved then</span><br><span class="line">12.            T ← new_tour</span><br><span class="line">13.            T_best ← new_tour</span><br><span class="line">14.            improved ← true</span><br><span class="line">15.            goto Step 3 (一旦找到改进，立即重新开始主循环 - 贪心策略)</span><br><span class="line">16.         end if</span><br><span class="line">17.      end for</span><br><span class="line">18.   end for</span><br><span class="line">19. end while</span><br><span class="line">20. return T_best</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>其中的Execute-LK-Move是一种变深度搜索策略，简单起见，以下使用2-opt的示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Algorithm EXECUTE-2OPT-MOVE</span><br><span class="line">Input: 当前路径 T，第一条要断开边的端点 t1, t2。</span><br><span class="line">Output: 元组 (improved, T)，其中 improved 为布尔值。</span><br><span class="line">1. x1_cost ← dist(t1, t2)</span><br><span class="line">2. for 每一个节点 t3 ∈ T do</span><br><span class="line">3.    // 过滤无效节点：t3 不能是 t1, t2，且构成的边不能相邻</span><br><span class="line">4.    if t3 ∉ &#123;t1, t2&#125; and t3 is not adjacent to t1 or t2 then</span><br><span class="line">5.       t4 ← next_node(t3)</span><br><span class="line">6.       x2_cost ← dist(t3, t4)</span><br><span class="line">7.       // 计算 2-opt 交换后的新连接成本</span><br><span class="line">8.       y1_cost ← dist(t1, t3)</span><br><span class="line">9.       y2_cost ← dist(t2, t4)</span><br><span class="line">10.      // 计算增益：(断开的边总长) - (新连接的边总长)</span><br><span class="line">11.      gain ← (x1_cost + x2_cost) - (y1_cost + y2_cost)</span><br><span class="line">12.      if gain &gt; 0 then</span><br><span class="line">13.         // 执行 2-opt 反转操作：将 t2 到 t3 之间的路径段反转</span><br><span class="line">14.         Reverse_Segment(T, t2, t3)</span><br><span class="line">15.         return (true, T)</span><br><span class="line">16.      end if</span><br><span class="line">17.   end if</span><br><span class="line">18. end for</span><br><span class="line">19. return (false, T)</span><br></pre></td></tr></table></figure>
 <p>领域搜索算法与梯度下降算法相近，两者都是通过迭代改进当前解，逐步逼近局部最优解。这种算法适用于离散空间优化，而后者适用于有一阶导的连续可微函数的优化。另外，这两种算法都比较依赖初始点的选择。</p>
-<p><strong>变邻域搜索算法(Variable Neighborhood Search, VNS)</strong>使用多种领域结构，并在其中交替搜索。</p>
-<h4 id="禁忌搜索算法-TS"><a href="#禁忌搜索算法-TS" class="headerlink" title="禁忌搜索算法 TS"></a>禁忌搜索算法 TS</h4><p>禁忌搜索是对局部邻域搜索的一种扩展，旨在实现全局寻优。</p>
+<p><strong>变邻域搜索算法(Variable Neighborhood Search,
+VNS)</strong>使用多种领域结构，并在其中交替搜索。</p>
+<h4 id="禁忌搜索算法-ts">禁忌搜索算法 TS</h4>
+<p>禁忌搜索是对局部邻域搜索的一种扩展，旨在实现全局寻优。</p>
 <p>在搜索过程中，标记已经搜索过的局部最优解（或移动操作）为“禁忌”，在接下来的迭代中尽量避开这些禁忌对象。它允许算法接受劣解（即目标函数值变差的解），以此来跳出局部最优陷阱。</p>
-<p>禁忌搜索算法的构成要素包括：<br><strong>禁忌表 (Tabu List)</strong>：记录近期的历史移动或状态，防止搜索循环</p>
-<ul>
-<li>禁忌对象：放入表中的元素，可以为状态本身、状态分量或者目标值</li>
-<li>禁忌任期 (Tabu Tenure)：对象在表中滞留的步数<br>在当前解 $x$ 的邻域 $N(x)$ 中，选择不在禁忌表中的最优候选解 $s_k(x)$，即使该解的目标值比当前解差（$c(s_k(x)) &gt; c(x)$）。</li>
-</ul>
-<p>但如果某个候选解虽然在禁忌表中，但其目标值优于历史最好解（或满足特定渴望水平），则无视禁忌状态，直接接受该解。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Algorithm TABU-SEARCH</span><br><span class="line">Input: 初始解 x_0，禁忌长度 L，最大迭代次数 k_max。</span><br><span class="line">Output: 全局最优解 x^*。</span><br><span class="line">1. x ← x_0</span><br><span class="line">2. x^* ← x_0                     // 初始化全局最优解</span><br><span class="line">3. T ← ∅                         // T 为禁忌表 (队列结构)</span><br><span class="line">4. k ← 0</span><br><span class="line">5. while k &lt; k_max</span><br><span class="line">6.    k ← k + 1</span><br><span class="line">7.    BestCandidate ← null</span><br><span class="line">8.    BestVal ← -∞</span><br><span class="line">9.    ChosenMove ← null</span><br><span class="line">10.   for 每一个候选解 y ∈ N(x) do</span><br><span class="line">11.      move ← 从 x 变换到 y 的操作 (例如: Swap(i, j))</span><br><span class="line">12.      is_tabu ← (move ∈ T)</span><br><span class="line">13.      is_aspiration ← (f(y) &gt; f(x^*))</span><br><span class="line">14.      if (not is_tabu) or is_aspiration then</span><br><span class="line">15.         // 在所有合法候选中寻找最优 (允许劣解)</span><br><span class="line">16.         if f(y) &gt; BestVal then</span><br><span class="line">17.            BestCandidate ← y</span><br><span class="line">18.            BestVal ← f(y)</span><br><span class="line">19.            ChosenMove ← move</span><br><span class="line">20.         end if</span><br><span class="line">21.      end if</span><br><span class="line">22.   end for</span><br><span class="line">23.   if BestCandidate = null then break   //陷入死胡同，提前终止</span><br><span class="line">24.   x ← BestCandidate</span><br><span class="line">25.   if f(x) &gt; f(x^*) then x^* ← x</span><br><span class="line">26.   T ← T ∪ &#123;ChosenMove&#125;</span><br><span class="line">27.   if |T| &gt; L then</span><br><span class="line">28.      从 T 中移除最早进入的移动 (FIFO)</span><br><span class="line">29.   end if</span><br><span class="line">30. end while</span><br><span class="line">31. output x^*</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>主动禁忌搜索</strong><br>基本 TS 的难点在于禁忌长度（Tabu Size）的设定：太短导致循环，太长限制搜索。主动 TS 通过反馈机制自动调整参数。</p>
+<p>禁忌搜索算法的构成要素包括： <strong>禁忌表 (Tabu
+List)</strong>：记录近期的历史移动或状态，防止搜索循环 -
+禁忌对象：放入表中的元素，可以为状态本身、状态分量或者目标值 - 禁忌任期
+(Tabu Tenure)：对象在表中滞留的步数 在当前解 <span
+class="math inline">\(x\)</span> 的邻域 <span
+class="math inline">\(N(x)\)</span> 中，选择不在禁忌表中的最优候选解
+<span
+class="math inline">\(s_k(x)\)</span>，即使该解的目标值比当前解差（<span
+class="math inline">\(c(s_k(x)) &gt; c(x)\)</span>）。</p>
+<p>但如果某个候选解虽然在禁忌表中，但其目标值优于历史最好解（或满足特定渴望水平），则无视禁忌状态，直接接受该解。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Algorithm TABU-SEARCH</span><br><span class="line">Input: 初始解 x_0，禁忌长度 L，最大迭代次数 k_max。</span><br><span class="line">Output: 全局最优解 x^*。</span><br><span class="line">1. x ← x_0</span><br><span class="line">2. x^* ← x_0                     // 初始化全局最优解</span><br><span class="line">3. T ← ∅                         // T 为禁忌表 (队列结构)</span><br><span class="line">4. k ← 0</span><br><span class="line">5. while k &lt; k_max</span><br><span class="line">6.    k ← k + 1</span><br><span class="line">7.    BestCandidate ← null</span><br><span class="line">8.    BestVal ← -∞</span><br><span class="line">9.    ChosenMove ← null</span><br><span class="line">10.   for 每一个候选解 y ∈ N(x) do</span><br><span class="line">11.      move ← 从 x 变换到 y 的操作 (例如: Swap(i, j))</span><br><span class="line">12.      is_tabu ← (move ∈ T)</span><br><span class="line">13.      is_aspiration ← (f(y) &gt; f(x^*))</span><br><span class="line">14.      if (not is_tabu) or is_aspiration then</span><br><span class="line">15.         // 在所有合法候选中寻找最优 (允许劣解)</span><br><span class="line">16.         if f(y) &gt; BestVal then</span><br><span class="line">17.            BestCandidate ← y</span><br><span class="line">18.            BestVal ← f(y)</span><br><span class="line">19.            ChosenMove ← move</span><br><span class="line">20.         end if</span><br><span class="line">21.      end if</span><br><span class="line">22.   end for</span><br><span class="line">23.   if BestCandidate = null then break   //陷入死胡同，提前终止</span><br><span class="line">24.   x ← BestCandidate</span><br><span class="line">25.   if f(x) &gt; f(x^*) then x^* ← x</span><br><span class="line">26.   T ← T ∪ &#123;ChosenMove&#125;</span><br><span class="line">27.   if |T| &gt; L then</span><br><span class="line">28.      从 T 中移除最早进入的移动 (FIFO)</span><br><span class="line">29.   end if</span><br><span class="line">30. end while</span><br><span class="line">31. output x^*</span><br></pre></td></tr></table></figure></p>
+<hr />
+<p><strong>主动禁忌搜索</strong> 基本 TS 的难点在于禁忌长度（Tabu
+Size）的设定：太短导致循环，太长限制搜索。主动 TS
+通过反馈机制自动调整参数。</p>
 <ul>
 <li>算法记录所有访问过的解：用于检测是否陷入长周期的循环。</li>
-<li>如果发现当前解以前访问过（重复），说明陷入循环，将 $t$ 乘以 $N_{IN} &gt; 1$（加强禁忌）。</li>
-<li>如果连续多步没有重复解，说明搜索路径健康，将 $t$ 乘以 $N_{DE} &lt; 1$（放松禁忌）。</li>
-<li>如果解的重复次数超过阈值（$num_esc$），说明单纯调整禁忌长度无效。执行随机扰动（随机移动若干步），强行跳出当前区域。</li>
+<li>如果发现当前解以前访问过（重复），说明陷入循环，将 <span
+class="math inline">\(t\)</span> 乘以 <span class="math inline">\(N_{IN}
+&gt; 1\)</span>（加强禁忌）。</li>
+<li>如果连续多步没有重复解，说明搜索路径健康，将 <span
+class="math inline">\(t\)</span> 乘以 <span class="math inline">\(N_{DE}
+&lt; 1\)</span>（放松禁忌）。</li>
+<li>如果解的重复次数超过阈值（<span
+class="math inline">\(num\_esc\)</span>），说明单纯调整禁忌长度无效。执行随机扰动（随机移动若干步），强行跳出当前区域。</li>
 </ul>
-<h4 id="模拟退火算法-SA"><a href="#模拟退火算法-SA" class="headerlink" title="模拟退火算法 SA"></a>模拟退火算法 SA</h4><p><strong>Metropolis准则</strong><br>设当前状态为 $i$，能量为 $E_i$；新状态为 $j$，能量为 $E_j$。<br>能量差 $\Delta E = E_j - E_i$。<br>接受新状态 $j$ 的概率 $P$ 为：</p>
-<script type="math/tex; mode=display">P = \begin{cases} 1, & \text{若 } \Delta E < 0 \text{ (能量降低，解变优)} \\ \exp(-\frac{\Delta E}{kT}), & \text{若 } \Delta E > 0 \text{ (能量升高，解变差)} \end{cases}</script><p>粒子允许以一定概率接受劣解，从而具备跳出局部最优的能力。温度 $T$ 越高，接受劣解的概率越大。</p>
+<h4 id="模拟退火算法-sa">模拟退火算法 SA</h4>
+<p><strong>Metropolis准则</strong> 设当前状态为 <span
+class="math inline">\(i\)</span>，能量为 <span
+class="math inline">\(E_i\)</span>；新状态为 <span
+class="math inline">\(j\)</span>，能量为 <span
+class="math inline">\(E_j\)</span>。 能量差 <span
+class="math inline">\(\Delta E = E_j - E_i\)</span>。 接受新状态 <span
+class="math inline">\(j\)</span> 的概率 <span
+class="math inline">\(P\)</span> 为： <span class="math display">\[P =
+\begin{cases} 1, &amp; \text{若 } \Delta E &lt; 0 \text{
+(能量降低，解变优)} \\ \exp(-\frac{\Delta E}{kT}), &amp; \text{若 }
+\Delta E &gt; 0 \text{ (能量升高，解变差)} \end{cases}\]</span></p>
+<p>粒子允许以一定概率接受劣解，从而具备跳出局部最优的能力。温度 <span
+class="math inline">\(T\)</span> 越高，接受劣解的概率越大。</p>
 <p><strong>马尔科夫链</strong></p>
 <p>SA 算法的随机搜索过程可以被建模为一个马尔可夫链 (Markov Chain)。</p>
-<p>从状态 $i$ 转移到状态 $j$ 的概率 $p_{ij}$ 由两部分组成：</p>
-<ul>
-<li>生成概率 (Generation Probability, $g<em>{ij}$)：在 $i$ 的邻域中选择 $j$ 的概率。通常假设是对称的，即 $g</em>{ij} = g_{ji}$。</li>
-<li>接受概率 (Acceptance Probability, $a_{ij}$)：基于 Metropolis 准则。<script type="math/tex; mode=display">a_{ij}(T) = \min \left( 1, \exp \left( -\frac{f(j) - f(i)}{T} \right) \right)</script>转移概率为 $p<em>{ij} = g</em>{ij} \cdot a_{ij}$。</li>
-</ul>
-<p>根据热力学统计物理，在温度 $T$ 下达到热平衡时，系统处于状态 $i$ 的概率遵循 Boltzmann 分布：</p>
-<script type="math/tex; mode=display">P_i(T) = \frac{\exp(-E_i/T)}{\sum_{j=1}^n \exp(-E_j/T)}</script><p>由于转移概率满足细致平衡条件：$P<em>i(T) p</em>{ij} = P<em>j(T) p</em>{ji}$，因此 Boltzmann 分布确实是该马尔可夫链的平稳分布。</p>
-<ul>
-<li>在高温下，系统处于各个状态的概率几乎相等。算法行为近似于随机游走 (Random Walk)，进行广域搜索。</li>
-<li>当温度趋近于 0 时，系统以概率 1 收敛于最低能量状态（全局最优解）。</li>
-</ul>
+<p>从状态 <span class="math inline">\(i\)</span> 转移到状态 <span
+class="math inline">\(j\)</span> 的概率 <span
+class="math inline">\(p_{ij}\)</span> 由两部分组成： - 生成概率
+(Generation Probability, <span
+class="math inline">\(g_{ij}\)</span>)：在 <span
+class="math inline">\(i\)</span> 的邻域中选择 <span
+class="math inline">\(j\)</span> 的概率。通常假设是对称的，即 <span
+class="math inline">\(g_{ij} = g_{ji}\)</span>。 - 接受概率 (Acceptance
+Probability, <span class="math inline">\(a_{ij}\)</span>)：基于
+Metropolis 准则。 <span class="math display">\[a_{ij}(T) = \min \left(
+1, \exp \left( -\frac{f(j) - f(i)}{T} \right) \right)\]</span>
+转移概率为 <span class="math inline">\(p_{ij} = g_{ij} \cdot
+a_{ij}\)</span>。</p>
+<p>根据热力学统计物理，在温度 <span class="math inline">\(T\)</span>
+下达到热平衡时，系统处于状态 <span class="math inline">\(i\)</span>
+的概率遵循 Boltzmann 分布： <span class="math display">\[P_i(T) =
+\frac{\exp(-E_i/T)}{\sum_{j=1}^n \exp(-E_j/T)}\]</span>
+由于转移概率满足细致平衡条件：<span class="math inline">\(P_i(T) p_{ij}
+= P_j(T) p_{ji}\)</span>，因此 Boltzmann
+分布确实是该马尔可夫链的平稳分布。 -
+在高温下，系统处于各个状态的概率几乎相等。算法行为近似于随机游走 (Random
+Walk)，进行广域搜索。 - 当温度趋近于 0 时，系统以概率 1
+收敛于最低能量状态（全局最优解）。</p>
 <p>但是，理论上要求无限满的降温才能保证系统的每一步近似为稳态（热平衡），才能最终收敛到全局最优解。通常需要设计合理的冷却进度表提供较好的近似解。</p>
-<p>对于算法：</p>
-<ul>
-<li>初始温度 ($T_0$)要求足够高，使得 $\exp(-\Delta E/T_0) \approx 1$，保证算法初期能自由探索解空间，不依赖初始解，避免过早陷入局部最优</li>
-<li>等温过程长度要求在每个温度下的迭代次数足够多，通常设为问题规模的函数（如 $n$ 或 $n^2$）</li>
-<li>降温策略可以选择几何降温$T<em>{k+1} = \alpha \cdot T_k$或者算数降温$T</em>{k+1} = T_k - \Delta T$。</li>
-<li>终止温度要求足够低，以锁定最终解</li>
-</ul>
+<p>对于算法： - 初始温度 (<span
+class="math inline">\(T_0\)</span>)要求足够高，使得 <span
+class="math inline">\(\exp(-\Delta E/T_0) \approx
+1\)</span>，保证算法初期能自由探索解空间，不依赖初始解，避免过早陷入局部最优
+-
+等温过程长度要求在每个温度下的迭代次数足够多，通常设为问题规模的函数（如
+<span class="math inline">\(n\)</span> 或 <span
+class="math inline">\(n^2\)</span>） - 降温策略可以选择几何降温<span
+class="math inline">\(T_{k+1} = \alpha \cdot
+T_k\)</span>或者算数降温<span class="math inline">\(T_{k+1} = T_k -
+\Delta T\)</span>。 - 终止温度要求足够低，以锁定最终解</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Algorithm SIMULATED-ANNEALING</span><br><span class="line">输入：初始解 s_0，初始温度 T_0，等温过程迭代次数 L，冷却系数 α (0.95 ~ 0.99)，终止温度 T_f。</span><br><span class="line">输出：全局最优解 s_best。</span><br><span class="line">1. s ← s_0</span><br><span class="line">2. s_best ← s_0</span><br><span class="line">3. T ← T_0</span><br><span class="line">4. while T &gt; T_f</span><br><span class="line">5.    // 内循环：在当前温度下进行 L 次迭代以达到热平衡</span><br><span class="line">6.    for k ← 1 to L</span><br><span class="line">7.       s&#x27; ← GenerateNeighbor(s)      // 在邻域内生成一个新的候选解</span><br><span class="line">8.       ΔE ← Cost(s&#x27;) - Cost(s)       // 计算能量差（目标函数值变化）</span><br><span class="line">9.       if ΔE &lt; 0 then</span><br><span class="line">10.         // 情况 A：新解更优 (能量更低)，贪心接受</span><br><span class="line">11.         s ← s&#x27;</span><br><span class="line">12.         if Cost(s) &lt; Cost(s_best) then s_best ← s</span><br><span class="line">13.      else</span><br><span class="line">14.         // 情况 B：新解较差 (能量更高)，按概率接受</span><br><span class="line">15.         p ← exp(-ΔE / T)           // Metropolis 准则</span><br><span class="line">16.         r ← Random(0, 1)           // 生成 [0, 1) 之间的随机数</span><br><span class="line">17.         if r &lt; p then s ← s&#x27;       // 即使是劣解也接受，以跳出局部最优</span><br><span class="line">18.      end if</span><br><span class="line">19.   end for</span><br><span class="line">20.   T ← α * T                        // 几何降温过程</span><br><span class="line">21. end while</span><br><span class="line">22. output s_best</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-2-群体算法"><a href="#5-2-2-群体算法" class="headerlink" title="5.2.2 群体算法"></a>5.2.2 群体算法</h3><h4 id="遗传算法-GA"><a href="#遗传算法-GA" class="headerlink" title="遗传算法 GA"></a>遗传算法 GA</h4><p>算法模仿达尔文的生物进化论——“物竞天择，适者生存”。通过模拟生物种群的繁衍、变异和自然选择，让解群体在迭代中不断进化，最终逼近全局最优解。</p>
-<div class="table-container">
+<h3 id="群体算法">5.2.2 群体算法</h3>
+<h4 id="遗传算法-ga">遗传算法 GA</h4>
+<p>算法模仿达尔文的生物进化论——“物竞天择，适者生存”。通过模拟生物种群的繁衍、变异和自然选择，让解群体在迭代中不断进化，最终逼近全局最优解。</p>
 <table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">生物学术语</th>
-<th style="text-align:left">优化问题对应</th>
-<th style="text-align:left">含义</th>
+<tr class="header">
+<th style="text-align: left;">生物学术语</th>
+<th style="text-align: left;">优化问题对应</th>
+<th style="text-align: left;">含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">个体 (Individual)</td>
-<td style="text-align:left">解 (Solution)</td>
-<td style="text-align:left">问题的某一个可行解</td>
+<tr class="odd">
+<td style="text-align: left;">个体 (Individual)</td>
+<td style="text-align: left;">解 (Solution)</td>
+<td style="text-align: left;">问题的某一个可行解</td>
 </tr>
-<tr>
-<td style="text-align:left">种群 (Population)</td>
-<td style="text-align:left">解集 (Set of Solutions)</td>
-<td style="text-align:left">一组可行解的集合，并行搜索的基础</td>
+<tr class="even">
+<td style="text-align: left;">种群 (Population)</td>
+<td style="text-align: left;">解集 (Set of Solutions)</td>
+<td style="text-align: left;">一组可行解的集合，并行搜索的基础</td>
 </tr>
-<tr>
-<td style="text-align:left">染色体 (Chromosome)</td>
-<td style="text-align:left">编码 (Encoding)</td>
-<td style="text-align:left">解的数字化表示（如二进制串）</td>
+<tr class="odd">
+<td style="text-align: left;">染色体 (Chromosome)</td>
+<td style="text-align: left;">编码 (Encoding)</td>
+<td style="text-align: left;">解的数字化表示（如二进制串）</td>
 </tr>
-<tr>
-<td style="text-align:left">基因 (Gene)</td>
-<td style="text-align:left">特征/分量 (Feature)</td>
-<td style="text-align:left">解的某一特定维度或属性</td>
+<tr class="even">
+<td style="text-align: left;">基因 (Gene)</td>
+<td style="text-align: left;">特征/分量 (Feature)</td>
+<td style="text-align: left;">解的某一特定维度或属性</td>
 </tr>
-<tr>
-<td style="text-align:left">适应度 (Fitness)</td>
-<td style="text-align:left">目标函数值 (Objective Value)</td>
-<td style="text-align:left">衡量解质量好坏的标准</td>
+<tr class="odd">
+<td style="text-align: left;">适应度 (Fitness)</td>
+<td style="text-align: left;">目标函数值 (Objective Value)</td>
+<td style="text-align: left;">衡量解质量好坏的标准</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>算法每一代包含以下步骤:</p>
-<ul>
-<li>种群初始化: 随机生成 $N$ 个初始个体构成第一代种群。</li>
-<li>适应度评估：计算每个个体的适应度值 $F(x)$，适应度通常要求非负且越大越好，对于最小化问题，需进行转换（如取倒数或相反数）。</li>
-<li>选择操作：优胜劣汰，让适应度高的个体有更多机会遗传给下一代<ul>
-<li>轮盘赌选择 (Roulette Wheel Selection)：个体被选中的概率与其适应度成正比。概率 $P_i = F_i / \sum F_j$</li>
-<li>锦标赛选择 (Tournament Selection)：随机选取 $k$ 个个体，其中最优者胜出</li>
-<li>精英保留 (Elitism)：强制将当代最优个体直接复制到下一代，防止最佳基因丢失</li>
-</ul>
-</li>
-<li>遗传算子：<ul>
-<li>交叉：按交叉概率 $P_c$（通常较大，如 0.9）选择两个父代个体，交换其部分染色体片段。</li>
-<li>变异：按变异概率 $P_m$（通常极小，如 0.01~0.1）随机改变染色体上的某一位（如 0 变 1）。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>以0-1 背包问题为例：给定 $n$ 个物品（价值 $p_i$，重量 $w_i$）和背包容量 $W$，选择物品子集使得总价值最大且总重量不超过 $W$。</p>
-<p>编码：常用二进制编码 $X = (x_1, \dots, x_n)$，$x_i \in {0, 1}$</p>
-<p>对于随机生成或交叉产生的子代可能违反重量约束，可以在适应性函数中加入惩罚项，也可以将非法解修复为合法解：</p>
-<ul>
-<li>贪心修复：计算物品的性价比 $p_i/w_i$ 并降序排列；对于超重的非法解，优先保留性价比高的物品，贪心地移除性价比低的物品，直到满足约束。</li>
-</ul>
+<p>算法每一代包含以下步骤: - 种群初始化: 随机生成 <span
+class="math inline">\(N\)</span> 个初始个体构成第一代种群。 -
+适应度评估：计算每个个体的适应度值 <span
+class="math inline">\(F(x)\)</span>，适应度通常要求非负且越大越好，对于最小化问题，需进行转换（如取倒数或相反数）。
+- 选择操作：优胜劣汰，让适应度高的个体有更多机会遗传给下一代 -
+轮盘赌选择 (Roulette Wheel
+Selection)：个体被选中的概率与其适应度成正比。概率 <span
+class="math inline">\(P_i = F_i / \sum F_j\)</span> - 锦标赛选择
+(Tournament Selection)：随机选取 <span class="math inline">\(k\)</span>
+个个体，其中最优者胜出 - 精英保留
+(Elitism)：强制将当代最优个体直接复制到下一代，防止最佳基因丢失 -
+遗传算子： - 交叉：按交叉概率 <span
+class="math inline">\(P_c\)</span>（通常较大，如
+0.9）选择两个父代个体，交换其部分染色体片段。 - 变异：按变异概率 <span
+class="math inline">\(P_m\)</span>（通常极小，如
+0.01~0.1）随机改变染色体上的某一位（如 0 变 1）。</p>
+<hr />
+<p>以0-1 背包问题为例：给定 <span class="math inline">\(n\)</span>
+个物品（价值 <span class="math inline">\(p_i\)</span>，重量 <span
+class="math inline">\(w_i\)</span>）和背包容量 <span
+class="math inline">\(W\)</span>，选择物品子集使得总价值最大且总重量不超过
+<span class="math inline">\(W\)</span>。</p>
+<p>编码：常用二进制编码 <span class="math inline">\(X = (x_1, \dots,
+x_n)\)</span>，<span class="math inline">\(x_i \in \{0, 1\}\)</span></p>
+<p>对于随机生成或交叉产生的子代可能违反重量约束，可以在适应性函数中加入惩罚项，也可以将非法解修复为合法解：
+- 贪心修复：计算物品的性价比 <span
+class="math inline">\(p_i/w_i\)</span>
+并降序排列；对于超重的非法解，优先保留性价比高的物品，贪心地移除性价比低的物品，直到满足约束。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Algorithm GENETIC-KNAPSACK</span><br><span class="line">Input:  n 个物品的集合 (价值 p, 重量 w)，背包容量 W，</span><br><span class="line">        种群大小 N_pop，最大迭代次数 MaxGen，</span><br><span class="line">        交叉概率 P_c，变异概率 P_m。</span><br><span class="line">Output: 全局最优解 BestSol。</span><br><span class="line"></span><br><span class="line">1. R_order ← Sort indices by (p_i / w_i) ascending</span><br><span class="line">2. Population ← Generate N_pop random binary vectors</span><br><span class="line">3. for each individual S in Population do</span><br><span class="line">4.    GREEDY-REPAIR(S, W, R_order)   </span><br><span class="line">5.    Evaluate Fitness(S)            </span><br><span class="line">6. end for</span><br><span class="line">7.  BestSol ← GetBest(Population)</span><br><span class="line">8.  for gen ← 1 to MaxGen do</span><br><span class="line">9.     NewPop ← ∅</span><br><span class="line">10.    // 精英保留策略</span><br><span class="line">11.    NewPop ← NewPop ∪ &#123;BestSol&#125;</span><br><span class="line">12.    while |NewPop| &lt; N_pop do</span><br><span class="line">13.       // 锦标赛选择</span><br><span class="line">14.       Parent1 ← TournamentSelect(Population)</span><br><span class="line">15.       Parent2 ← TournamentSelect(Population)</span><br><span class="line">16.       // 2. 交叉 (Crossover)</span><br><span class="line">17.       if Random(0, 1) &lt; P_c then</span><br><span class="line">18.          (Child1, Child2) ← OnePointCrossover(Parent1, Parent2)</span><br><span class="line">19.       else</span><br><span class="line">20.          (Child1, Child2) ← (Parent1, Parent2)</span><br><span class="line">21.       end if</span><br><span class="line">22.       Mutate(Child1, P_m)</span><br><span class="line">23.       Mutate(Child2, P_m)</span><br><span class="line">24.       GREEDY-REPAIR(Child1, W, R_order)</span><br><span class="line">25.       GREEDY-REPAIR(Child2, W, R_order)</span><br><span class="line">26.       Evaluate Fitness(Child1)</span><br><span class="line">27.       Evaluate Fitness(Child2)</span><br><span class="line">28.       NewPop ← NewPop ∪ &#123;Child1, Child2&#125;</span><br><span class="line">29.    end while</span><br><span class="line">30.    Population ← NewPop</span><br><span class="line">31.    CurrentBest ← GetBest(Population)</span><br><span class="line">32.    if Fitness(CurrentBest) &gt; Fitness(BestSol) then BestSol ← CurrentBest</span><br><span class="line">33. end for</span><br><span class="line">34. output BestSol</span><br><span class="line"></span><br><span class="line">Algorithm GREEDY-REPAIR</span><br><span class="line">Input:  个体解 S (二进制向量 x_1...x_n)，背包容量 W，</span><br><span class="line">        排序索引列表 R_order (性价比从小到大)。</span><br><span class="line">Output: 修复后的合法解 S (原地修改)。</span><br><span class="line">1. CurrentWeight ← CalculateWeight(S)</span><br><span class="line">2. if CurrentWeight &gt; W then</span><br><span class="line">3.    for each index i in R_order do</span><br><span class="line">4.       if S[i] == 1 then</span><br><span class="line">5.          S[i] ← 0                </span><br><span class="line">6.          CurrentWeight ← CurrentWeight - w_i</span><br><span class="line">7.          if CurrentWeight ≤ W then break  /</span><br><span class="line">8.       end if</span><br><span class="line">9.    end for</span><br><span class="line">10. end if</span><br></pre></td></tr></table></figure>
-<h4 id="免疫算法-IA"><a href="#免疫算法-IA" class="headerlink" title="免疫算法 IA"></a>免疫算法 IA</h4><p>将生物免疫系统的概念（如抗原识别、抗体克隆、免疫记忆）引入遗传算法，旨在保留原算法优良特性的前提下，抑制早熟收敛和种群退化。</p>
-<p>算法的流程为：</p>
-<ul>
-<li>初始化 (Initialization)：随机生成初始抗体种群（候选解集）。</li>
-<li>亲和度计算 (Affinity Calculation)：评估每个抗体的质量（如计算目标函数值）。</li>
-<li>选择与克隆 (Selection &amp; Cloning)：<ul>
-<li>对优秀抗体进行复制。关键点：克隆的数量与亲和度成正比（越优秀的解，复制的副本越多）。</li>
-</ul>
-</li>
-<li>超变异 (Hypermutation)<ul>
-<li>对克隆后的抗体进行变异操作以探索局部区域，对克隆后的抗体进行变异操作以探索局部区域</li>
-</ul>
-</li>
-<li>抑制与多样性保持 (Suppression)<ul>
-<li>计算抗体间的相似度（如欧氏距离、汉明距离）,若抗体过于相似（浓度过高），则移除或抑制冗余抗体，防止同质化</li>
-<li>补充随机生成的“新抗体”以维持种群多样性</li>
-</ul>
-</li>
-<li>免疫记忆 (Immune Memory)：将历代最优抗体存入记忆库，用于加速后续搜索或应对动态环境变化。</li>
-<li>终止判断：达到最大迭代次数或满足精度要求。</li>
-</ul>
+<h4 id="免疫算法-ia">免疫算法 IA</h4>
+<p>将生物免疫系统的概念（如抗原识别、抗体克隆、免疫记忆）引入遗传算法，旨在保留原算法优良特性的前提下，抑制早熟收敛和种群退化。</p>
+<p>算法的流程为： - 初始化
+(Initialization)：随机生成初始抗体种群（候选解集）。 - 亲和度计算
+(Affinity Calculation)：评估每个抗体的质量（如计算目标函数值）。 -
+选择与克隆 (Selection &amp; Cloning)： -
+对优秀抗体进行复制。关键点：克隆的数量与亲和度成正比（越优秀的解，复制的副本越多）。
+- 超变异 (Hypermutation) -
+对克隆后的抗体进行变异操作以探索局部区域，对克隆后的抗体进行变异操作以探索局部区域
+- 抑制与多样性保持 (Suppression) -
+计算抗体间的相似度（如欧氏距离、汉明距离）,若抗体过于相似（浓度过高），则移除或抑制冗余抗体，防止同质化
+- 补充随机生成的“新抗体”以维持种群多样性 - 免疫记忆 (Immune
+Memory)：将历代最优抗体存入记忆库，用于加速后续搜索或应对动态环境变化。
+- 终止判断：达到最大迭代次数或满足精度要求。</p>
 <p>免疫算法比遗传算法更适合用来进行多模态优化和动态环境优化。</p>
-<h4 id="蚁群算法-ACO"><a href="#蚁群算法-ACO" class="headerlink" title="蚁群算法 ACO"></a>蚁群算法 ACO</h4><p>蚂蚁在寻找食物过程中会分泌为信息素。由于短路径往返时间短，单位时间内通过的蚂蚁更多，留下的信息素累积更快，从而吸引更多后续蚂蚁，最终形成信息正反馈，使整个群体集中到最短路径上。</p>
+<h4 id="蚁群算法-aco">蚁群算法 ACO</h4>
+<p>蚂蚁在寻找食物过程中会分泌为信息素。由于短路径往返时间短，单位时间内通过的蚂蚁更多，留下的信息素累积更快，从而吸引更多后续蚂蚁，最终形成信息正反馈，使整个群体集中到最短路径上。</p>
 <p>基本蚁群算法采用人工蚂蚁的行走路线表示可行解，通过信息素交换路径信息，形成集体自催化行为寻找最优路径。</p>
-<p>以TSP问题为例：<br>蚂蚁 $k$ 在 $t$ 时刻由城市 $i$ 转移到城市 $j$ 的概率 $P_{ij}^k(t)$ 定义为：</p>
-<script type="math/tex; mode=display">P_{ij}^k(t) = \frac{[\tau_{ij}(t)]^\alpha \cdot [\eta_{ij}]^\beta}{\sum_{s \in allowed_k} [\tau_{is}(t)]^\alpha \cdot [\eta_{is}]^\beta}</script><ul>
-<li>$\tau_{ij}(t)$：边 $(i, j)$ 上的残留信息量。</li>
-<li>$\eta<em>{ij} = 1/d</em>{ij}$：启发式因子，反映由 $i$ 转移到 $j$ 的期望程度。</li>
-<li>$\alpha, \beta$：分别为信息启发因子和期望启发因子，反映了信息素与距离的相对重要程度。</li>
-<li>$allowed_k$：蚂蚁 $k$ 下一步允许选择的城市集合。</li>
-</ul>
-<p>信息素更新更新公式：</p>
-<script type="math/tex; mode=display">\tau_{ij}(t+n) = (1-\rho) \tau_{ij}(t) + \Delta \tau_{ij}</script><ul>
-<li>$\rho \in [0, 1)$：信息素挥发系数</li>
-<li>$\Delta \tau<em>{ij} = \sum</em>{k=1}^m \Delta \tau_{ij}^k$：本轮全体蚂蚁在路径 $(i, j)$ 上留下的信息素增量</li>
-</ul>
-<p>常见的更新策略</p>
+<p>以TSP问题为例： 蚂蚁 <span class="math inline">\(k\)</span> 在 <span
+class="math inline">\(t\)</span> 时刻由城市 <span
+class="math inline">\(i\)</span> 转移到城市 <span
+class="math inline">\(j\)</span> 的概率 <span
+class="math inline">\(P_{ij}^k(t)\)</span> 定义为：</p>
+<p><span class="math display">\[P_{ij}^k(t) =
+\frac{[\tau_{ij}(t)]^\alpha \cdot [\eta_{ij}]^\beta}{\sum_{s \in
+allowed_k} [\tau_{is}(t)]^\alpha \cdot [\eta_{is}]^\beta}\]</span></p>
 <ul>
-<li>蚁周模型 (Ant-Cycle Model)：利用整体信息，在蚂蚁完成一个循环后更新路径信息素。释放量 $\Delta \tau_{ij}^k = Q/L_k$</li>
-<li>蚁量模型 (Ant-Quantity Model)：利用局部信息，蚂蚁每走一步更新一次。释放量 $\Delta \tau<em>{ij}^k = Q/d</em>{ij}$。</li>
+<li><span class="math inline">\(\tau_{ij}(t)\)</span>：边 <span
+class="math inline">\((i, j)\)</span> 上的残留信息量。</li>
+<li><span class="math inline">\(\eta_{ij} =
+1/d_{ij}\)</span>：启发式因子，反映由 <span
+class="math inline">\(i\)</span> 转移到 <span
+class="math inline">\(j\)</span> 的期望程度。</li>
+<li><span class="math inline">\(\alpha,
+\beta\)</span>：分别为信息启发因子和期望启发因子，反映了信息素与距离的相对重要程度。</li>
+<li><span class="math inline">\(allowed_k\)</span>：蚂蚁 <span
+class="math inline">\(k\)</span> 下一步允许选择的城市集合。</li>
 </ul>
+<p>信息素更新更新公式： <span class="math display">\[\tau_{ij}(t+n) =
+(1-\rho) \tau_{ij}(t) + \Delta \tau_{ij}\]</span> - <span
+class="math inline">\(\rho \in [0, 1)\)</span>：信息素挥发系数 - <span
+class="math inline">\(\Delta \tau_{ij} = \sum_{k=1}^m \Delta
+\tau_{ij}^k\)</span>：本轮全体蚂蚁在路径 <span class="math inline">\((i,
+j)\)</span> 上留下的信息素增量</p>
+<p>常见的更新策略 - 蚁周模型 (Ant-Cycle
+Model)：利用整体信息，在蚂蚁完成一个循环后更新路径信息素。释放量 <span
+class="math inline">\(\Delta \tau_{ij}^k = Q/L_k\)</span> - 蚁量模型
+(Ant-Quantity Model)：利用局部信息，蚂蚁每走一步更新一次。释放量 <span
+class="math inline">\(\Delta \tau_{ij}^k = Q/d_{ij}\)</span>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">Algorithm ANT-COLONY-OPTIMIZATION-TSP</span><br><span class="line">输入：城市坐标或距离矩阵 D，蚂蚁数量 m，最大迭代次数 Gen_max，</span><br><span class="line">      信息启发因子 α，期望启发因子 β，挥发系数 ρ，信息素强度 Q。</span><br><span class="line">输出：全局最优路径 BestTour 及其长度 BestLength。</span><br><span class="line"></span><br><span class="line">1. 初始化所有边 (i, j) 上的初始信息素 τ_&#123;ij&#125; 为一常数 (如 1.0)</span><br><span class="line">2. BestLength ← ∞</span><br><span class="line">3. BestTour ← ∅</span><br><span class="line">4. k_gen ← 0</span><br><span class="line">5. while k_gen &lt; Gen_max</span><br><span class="line">6.    k_gen ← k_gen + 1</span><br><span class="line">7.    for k ← 1 to m</span><br><span class="line">8.       随机选择一个起始城市放入蚂蚁 k 的禁忌表 tabu_k 中</span><br><span class="line">9.    end for</span><br><span class="line">10.   // 蚂蚁构建路径 (逐步移动直至走完所有城市)</span><br><span class="line">11.   for step ← 1 to n - 1    </span><br><span class="line">12.      for k ← 1 to m</span><br><span class="line">13.         i ← 蚂蚁 k 当前所在城市</span><br><span class="line">14.         根据状态转移概率 P_&#123;ij&#125;^k(t) 选择下一个城市 j:</span><br><span class="line">15.         将城市 j 加入 tabu_k，更新当前城市为 j</span><br><span class="line">16.      end for</span><br><span class="line">17.   end for</span><br><span class="line">18.   // 计算并更新本轮最优解</span><br><span class="line">19.   for k ← 1 to m</span><br><span class="line">20.      L_k ← 蚂蚁 k 经过的路径总长度</span><br><span class="line">21.      if L_k &lt; BestLength then</span><br><span class="line">22.         BestLength ← L_k</span><br><span class="line">23.         BestTour ← tabu_k</span><br><span class="line">24.      end if</span><br><span class="line">25.   end for</span><br><span class="line">26.   // 息素更新 (基于蚁周模型)</span><br><span class="line">27.   for 每一条边 (i, j) in E do</span><br><span class="line">28.      τ_&#123;ij&#125; ← (1 - ρ) * τ_&#123;ij&#125;</span><br><span class="line">29.   end for</span><br><span class="line">30.   for k ← 1 to m</span><br><span class="line">31.      Δτ_k ← Q / L_k</span><br><span class="line">32.      for 每一条属于 tabu_k 的边 (i, j) do</span><br><span class="line">33.         τ_&#123;ij&#125; ← τ_&#123;ij&#125; + Δτ_k</span><br><span class="line">34.      end for</span><br><span class="line">35.   end for</span><br><span class="line">36.   for k ← 1 to m do tabu_k ← ∅</span><br><span class="line">37. end while</span><br><span class="line">38. output BestTour, BestLength</span><br></pre></td></tr></table></figure>
-<h4 id="粒子群优化算法-PSO"><a href="#粒子群优化算法-PSO" class="headerlink" title="粒子群优化算法 PSO"></a>粒子群优化算法 PSO</h4><p>设想一群鸟在随机搜索食物，区域内只有一块食物，鸟儿不知道食物位置，但知道当前离食物有多远（通过适值函数评估）。 寻找食物的最优策略是搜寻目前离食物最近的鸟的周围区域。</p>
-<p>PSO 将问题的每一个可行解看作解空间中的一个“粒子”。粒子在 $D$ 维空间中以一定的速度飞翔，其位置随迭代动态变化。</p>
-<ul>
-<li>第 $i$ 个粒子的位置：$x_{id}^k$，代表当前的候选解。</li>
-<li>第 $i$ 个粒子的速度：$v_{id}^k$，决定飞行的方向和距离。</li>
-<li>个体极值 ($pbest<em>i$)：$p</em>{id}^k$，粒子 $i$ 自身搜索到的历史最好点。</li>
-<li>全局极值 ($gbest$)：$p_{gd}^k$，群体内（或邻域内）所有粒子所经过的历史最好点。</li>
-</ul>
-<p>演化方程</p>
-<ul>
-<li>速度更新方程<script type="math/tex; mode=display">v_{id}^{k+1} = \underbrace{v_{id}^k}_{\text{惯性作用}} + \underbrace{c_1 \xi (p_{id}^k - x_{id}^k)}_{\text{自我认知（经验）}} + \underbrace{c_2 \eta (p_{gd}^k - x_{id}^k)}_{\text{社会经验（学习）}}</script><ul>
-<li>$\xi, \eta$ 为 $[0, 1]$ 上的独立随机变量。</li>
-<li>$c_1, c_2$ 为加速因子 (Learning Factors)，调节向个体最优和群体最优靠近的步长</li>
-</ul>
-</li>
-<li>位置更新方程<script type="math/tex; mode=display">x_{id}^{k+1} = x_{id}^k + v_{id}^{k+1}</script></li>
-</ul>
+<h4 id="粒子群优化算法-pso">粒子群优化算法 PSO</h4>
+<p>设想一群鸟在随机搜索食物，区域内只有一块食物，鸟儿不知道食物位置，但知道当前离食物有多远（通过适值函数评估）。
+寻找食物的最优策略是搜寻目前离食物最近的鸟的周围区域。</p>
+<p>PSO 将问题的每一个可行解看作解空间中的一个“粒子”。粒子在 <span
+class="math inline">\(D\)</span>
+维空间中以一定的速度飞翔，其位置随迭代动态变化。 - 第 <span
+class="math inline">\(i\)</span> 个粒子的位置：<span
+class="math inline">\(x_{id}^k\)</span>，代表当前的候选解。 - 第 <span
+class="math inline">\(i\)</span> 个粒子的速度：<span
+class="math inline">\(v_{id}^k\)</span>，决定飞行的方向和距离。 -
+个体极值 (<span class="math inline">\(pbest_i\)</span>)：<span
+class="math inline">\(p_{id}^k\)</span>，粒子 <span
+class="math inline">\(i\)</span> 自身搜索到的历史最好点。 - 全局极值
+(<span class="math inline">\(gbest\)</span>)：<span
+class="math inline">\(p_{gd}^k\)</span>，群体内（或邻域内）所有粒子所经过的历史最好点。</p>
+<p>演化方程 - 速度更新方程 <span class="math display">\[v_{id}^{k+1} =
+\underbrace{v_{id}^k}_{\text{惯性作用}} + \underbrace{c_1 \xi (p_{id}^k
+- x_{id}^k)}_{\text{自我认知（经验）}} + \underbrace{c_2 \eta (p_{gd}^k
+- x_{id}^k)}_{\text{社会经验（学习）}}\]</span> - <span
+class="math inline">\(\xi, \eta\)</span> 为 <span
+class="math inline">\([0, 1]\)</span> 上的独立随机变量。 - <span
+class="math inline">\(c_1, c_2\)</span> 为加速因子 (Learning
+Factors)，调节向个体最优和群体最优靠近的步长 - 位置更新方程 <span
+class="math display">\[x_{id}^{k+1} = x_{id}^k +
+v_{id}^{k+1}\]</span></p>
 <p>算法每一步都根据演化方程维护所有粒子状态，直至终止。</p>
-<hr>
-<h2 id="5-3-综述：最短路径问题的多维视角-Review-Shortest-Path"><a href="#5-3-综述：最短路径问题的多维视角-Review-Shortest-Path" class="headerlink" title="5.3 综述：最短路径问题的多维视角 (Review: Shortest Path)"></a>5.3 综述：最短路径问题的多维视角 (Review: Shortest Path)</h2><p>本节以“最短路径”为线索，串联全课算法思想。</p>
-<h3 id="5-3-1-问题描述"><a href="#5-3-1-问题描述" class="headerlink" title="5.3.1 问题描述"></a>5.3.1 问题描述</h3><p>单源最短路径问题：在一个连通的有向无环图（或一般图）中，每条边带有非负权重（距离）。给定起点（源点）和终点，目标是找到一条路径，使得该路径上所有边的权重之和最小。</p>
-<p>给定一个有向加权图 $G = (V, E, W)$</p>
-<ul>
-<li>顶点集 (Vertex Set)：$V = {v_1, v_2, \dots, v_n}$，表示网络中的所有节点。</li>
-<li>边集 (Edge Set)：$E \subseteq V \times V$，其中每条边 $e = (u, v)$ 表示从节点 $u$ 到节点 $v$ 的直接路径。</li>
-<li>权重函数 (Weight Function)：$w: E \rightarrow \mathbb{R}_{\geq 0}$。对于每一条边 $(u, v) \in E$，有一个非负实数权重 $w(u, v)$，代表物理距离、时间或成本。</li>
-</ul>
-<p>路径定义 (Path Definition)：定义一条从起点 $s$ 到终点 $d$ 的路径 $P$ 为顶点的序列：</p>
-<script type="math/tex; mode=display">P = (v_0, v_1, v_2, \dots, v_k)</script><p>其中：$v<em>0 = s$，$v_k = d$。对于所有的 $0 \leq i &lt; k$，满足 $(v_i, v</em>{i+1}) \in E$。</p>
-<p>目标函数 (Objective Function)定义路径 $P$ 的总成本 $C(P)$ 为该路径上所有边权重的累加和：</p>
-<script type="math/tex; mode=display">C(P) = \sum_{i=0}^{k-1} w(v_i, v_{i+1})</script><p>我们的目标是寻找一条最优路径 $P^*$，使得：</p>
-<script type="math/tex; mode=display">C(P^*) = \min \{ C(P) \mid P \text{ 是从 } s \text{ 到 } d \text{ 的可行路径} \}</script><div class="table-container">
+<hr />
+<h2 id="综述最短路径问题的多维视角-review-shortest-path">5.3
+综述：最短路径问题的多维视角 (Review: Shortest Path)</h2>
+<p>本节以“最短路径”为线索，串联全课算法思想。</p>
+<h3 id="问题描述">5.3.1 问题描述</h3>
+<p>单源最短路径问题：在一个连通的有向无环图（或一般图）中，每条边带有非负权重（距离）。给定起点（源点）和终点，目标是找到一条路径，使得该路径上所有边的权重之和最小。</p>
+<p>给定一个有向加权图 <span class="math inline">\(G = (V, E, W)\)</span>
+- 顶点集 (Vertex Set)：<span class="math inline">\(V = \{v_1, v_2,
+\dots, v_n\}\)</span>，表示网络中的所有节点。 - 边集 (Edge Set)：<span
+class="math inline">\(E \subseteq V \times V\)</span>，其中每条边 <span
+class="math inline">\(e = (u, v)\)</span> 表示从节点 <span
+class="math inline">\(u\)</span> 到节点 <span
+class="math inline">\(v\)</span> 的直接路径。 - 权重函数 (Weight
+Function)：<span class="math inline">\(w: E \rightarrow \mathbb{R}_{\geq
+0}\)</span>。对于每一条边 <span class="math inline">\((u, v) \in
+E\)</span>，有一个非负实数权重 <span class="math inline">\(w(u,
+v)\)</span>，代表物理距离、时间或成本。</p>
+<p>路径定义 (Path Definition)：定义一条从起点 <span
+class="math inline">\(s\)</span> 到终点 <span
+class="math inline">\(d\)</span> 的路径 <span
+class="math inline">\(P\)</span> 为顶点的序列： <span
+class="math display">\[P = (v_0, v_1, v_2, \dots, v_k)\]</span>
+其中：<span class="math inline">\(v_0 = s\)</span>，<span
+class="math inline">\(v_k = d\)</span>。对于所有的 <span
+class="math inline">\(0 \leq i &lt; k\)</span>，满足 <span
+class="math inline">\((v_i, v_{i+1}) \in E\)</span>。</p>
+<p>目标函数 (Objective Function)定义路径 <span
+class="math inline">\(P\)</span> 的总成本 <span
+class="math inline">\(C(P)\)</span> 为该路径上所有边权重的累加和： <span
+class="math display">\[C(P) = \sum_{i=0}^{k-1} w(v_i, v_{i+1})\]</span>
+我们的目标是寻找一条最优路径 <span
+class="math inline">\(P^*\)</span>，使得： <span
+class="math display">\[C(P^*) = \min \{ C(P) \mid P \text{ 是从 } s
+\text{ 到 } d \text{ 的可行路径} \}\]</span></p>
 <table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">算法名称</th>
-<th style="text-align:left">时间复杂度 (Time Complexity)</th>
-<th style="text-align:left">空间复杂度 (Space Complexity)</th>
-<th style="text-align:left">备注 (Remarks)</th>
+<tr class="header">
+<th style="text-align: left;">算法名称</th>
+<th style="text-align: left;">时间复杂度 (Time Complexity)</th>
+<th style="text-align: left;">空间复杂度 (Space Complexity)</th>
+<th style="text-align: left;">备注 (Remarks)</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left"><strong>蛮力/穷举法 (Brute Force)</strong></td>
-<td style="text-align:left">$O(V \cdot V!)$</td>
-<td style="text-align:left">$O(V)$</td>
-<td style="text-align:left">尝试所有全排列，仅适用于极小规模图。</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>蛮力/穷举法 (Brute
+Force)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(O(V \cdot
+V!)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V)\)</span></td>
+<td style="text-align: left;">尝试所有全排列，仅适用于极小规模图。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>图的 BFS (广度优先)</strong></td>
-<td style="text-align:left">$O(V!)$</td>
-<td style="text-align:left">$O(V \cdot V!)$</td>
-<td style="text-align:left">允许顶点重复访问以穷尽路径，内存消耗极高。</td>
+<tr class="even">
+<td style="text-align: left;"><strong>图的 BFS (广度优先)</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V!)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(O(V \cdot
+V!)\)</span></td>
+<td
+style="text-align: left;">允许顶点重复访问以穷尽路径，内存消耗极高。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>图的 DFS (深度优先)</strong></td>
-<td style="text-align:left">$O(V!)$</td>
-<td style="text-align:left">$O(V)$</td>
-<td style="text-align:left">允许重复访问。内存消耗较少，但搜索时间极长。</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>图的 DFS (深度优先)</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V!)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V)\)</span></td>
+<td
+style="text-align: left;">允许重复访问。内存消耗较少，但搜索时间极长。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>回溯法 (Backtracking)</strong></td>
-<td style="text-align:left">$O(V!)$ (最坏情况)</td>
-<td style="text-align:left">$O(V)$</td>
-<td style="text-align:left">引入可行性剪枝。对 DAG 或稀疏图效率显著提升。</td>
+<tr class="even">
+<td style="text-align: left;"><strong>回溯法
+(Backtracking)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(O(V!)\)</span>
+(最坏情况)</td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V)\)</span></td>
+<td style="text-align: left;">引入可行性剪枝。对 DAG
+或稀疏图效率显著提升。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>分支定界法 (Branch &amp; Bound)</strong></td>
-<td style="text-align:left">$O(V!)$ (最坏情况)</td>
-<td style="text-align:left">$O(V^2)$ 或更多</td>
-<td style="text-align:left">基于 BFS + 最优性剪枝（如当前路径已超已知最短则舍弃）。</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>分支定界法 (Branch &amp;
+Bound)</strong></td>
+<td style="text-align: left;"><span class="math inline">\(O(V!)\)</span>
+(最坏情况)</td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V^2)\)</span> 或更多</td>
+<td style="text-align: left;">基于 BFS +
+最优性剪枝（如当前路径已超已知最短则舍弃）。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>动态规划 (DP)</strong></td>
-<td style="text-align:left">$O(V+E)$</td>
-<td style="text-align:left">$O(V)$</td>
-<td style="text-align:left">仅适用于有向无环图 (DAG)，利用拓扑序计算。</td>
+<tr class="even">
+<td style="text-align: left;"><strong>动态规划 (DP)</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V+E)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V)\)</span></td>
+<td style="text-align: left;">仅适用于有向无环图
+(DAG)，利用拓扑序计算。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>Dijkstra 算法</strong></td>
-<td style="text-align:left">$O(V^2)$</td>
-<td style="text-align:left">$O(V)$</td>
-<td style="text-align:left">贪心策略。使用斐波那契堆可优化至 $O(E + V \log V)$。</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dijkstra 算法</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V^2)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V)\)</span></td>
+<td style="text-align: left;">贪心策略。使用斐波那契堆可优化至 <span
+class="math inline">\(O(E + V \log V)\)</span>。</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>Floyd-Warshall 算法</strong></td>
-<td style="text-align:left">$O(V^3)$</td>
-<td style="text-align:left">$O(V^2)$</td>
-<td style="text-align:left">解决任意两点间的最短路径，而非单源。</td>
+<tr class="even">
+<td style="text-align: left;"><strong>Floyd-Warshall 算法</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V^3)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(O(V^2)\)</span></td>
+<td style="text-align: left;">解决任意两点间的最短路径，而非单源。</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="5-3-2-穷举法"><a href="#5-3-2-穷举法" class="headerlink" title="5.3.2 穷举法"></a>5.3.2 穷举法</h3><p>基础的穷举法列出全排列路径，对于$n$个节点的列表，总共有：</p>
-<script type="math/tex; mode=display">1+\sum_{i = 1}^{n-2}\left(\prod_{j = 1}^{i}(x-j)\right) = O(n!)</script><p>种排列。对于每一种排列，需要$O(n)$的时间复杂度验证是否可行和计算权重。因此，这种算法的时间复杂度为$O(n\cdot n!)$</p>
+<h3 id="穷举法">5.3.2 穷举法</h3>
+<p>基础的穷举法列出全排列路径，对于<span
+class="math inline">\(n\)</span>个节点的列表，总共有： <span
+class="math display">\[1+\sum_{i = 1}^{n-2}\left(\prod_{j =
+1}^{i}(x-j)\right) = O(n!)\]</span></p>
+<p>种排列。对于每一种排列，需要<span
+class="math inline">\(O(n)\)</span>的时间复杂度验证是否可行和计算权重。因此，这种算法的时间复杂度为<span
+class="math inline">\(O(n\cdot n!)\)</span></p>
 <p>这种算法的伪代码可以写作：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Algorithm EXHAUSTIVESEARCH(V,s,d，E,W)</span><br><span class="line">Input: 顶点集V，起点s，终点d，权重矩阵W，。</span><br><span class="line">Output：最短路径P_m</span><br><span class="line"></span><br><span class="line">V_mid &lt;- V / &#123;s,d&#125;</span><br><span class="line">P_m &lt;- ∅</span><br><span class="line">w_m &lt;- infinity</span><br><span class="line"></span><br><span class="line">for i &lt;- 1 to |V_mid| do</span><br><span class="line">    Cur_P = &#123;s&#125; ∪ sub_P ∪ &#123;d&#125;</span><br><span class="line">    Cur_w = 0</span><br><span class="line">    isValid = true</span><br><span class="line">    for 子排列 Sub_P in V_mid的所有i个元素的排列 do</span><br><span class="line">        for i &lt;- 0 to |Sub_P| do</span><br><span class="line">            if (Cur_P(i),Cur_P(i+1)) in E then</span><br><span class="line">                Cur_w &lt;- Cur_w + W(u,v)</span><br><span class="line">            else</span><br><span class="line">                isValid = false</span><br><span class="line">                break</span><br><span class="line">            end if</span><br><span class="line">        end for</span><br><span class="line">        if isValid and Cur_w &lt; W_m then</span><br><span class="line">            P_m &lt;- Cur_P</span><br><span class="line">            w_m &lt;- Cur_w</span><br><span class="line">        end if</span><br><span class="line">    end for</span><br><span class="line">end for</span><br><span class="line">output P_m,w_m</span><br></pre></td></tr></table></figure>
-<h3 id="5-3-3-广度优先搜索-BFS"><a href="#5-3-3-广度优先搜索-BFS" class="headerlink" title="5.3.3 广度优先搜索 BFS"></a>5.3.3 广度优先搜索 BFS</h3><p>广度搜索都能保证搜索到的路径一定是合法的。</p>
+<h3 id="广度优先搜索-bfs">5.3.3 广度优先搜索 BFS</h3>
+<p>广度搜索都能保证搜索到的路径一定是合法的。</p>
 <ul>
 <li>从起点开始进行广度优先搜索，并维护一个储存(u,d)（顶点和到达该顶点的代价）的队列</li>
-<li>每一步搜索从队列中取出$(u, d)$，遍历 $u$ 的所有邻居 $v$，对于每一个邻居，构造新状态 $(v, d + w(u, v))$ 并入队</li>
-<li>如果 $v$ 是终点 $G$，且当前路径长度 $d + w(u, v)$ 小于已记录的全局最短距离 $dist_min$，则更新 $dist_min$，对于此节点，不再加入新节点到队列。</li>
-<li>当队列空时，或已经计算的元素数大于$\frac{n^n-1}{n-1}$（n层的n叉完全树的总节点数）时截止计算（事实上，因为图是无环的，总计算书不会超过这个值）。</li>
+<li>每一步搜索从队列中取出<span class="math inline">\((u,
+d)\)</span>，遍历 <span class="math inline">\(u\)</span> 的所有邻居
+<span class="math inline">\(v\)</span>，对于每一个邻居，构造新状态 <span
+class="math inline">\((v, d + w(u, v))\)</span> 并入队</li>
+<li>如果 <span class="math inline">\(v\)</span> 是终点 <span
+class="math inline">\(G\)</span>，且当前路径长度 <span
+class="math inline">\(d + w(u, v)\)</span> 小于已记录的全局最短距离
+<span class="math inline">\(dist\_min\)</span>，则更新 <span
+class="math inline">\(dist\_min\)</span>，对于此节点，不再加入新节点到队列。</li>
+<li>当队列空时，或已经计算的元素数大于<span
+class="math inline">\(\frac{n^n-1}{n-1}\)</span>（n层的n叉完全树的总节点数）时截止计算（事实上，因为图是无环的，总计算书不会超过这个值）。</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BFS</span><br><span class="line">w_m &lt;- infinity</span><br><span class="line">Queue &lt;- empty queue</span><br><span class="line">Queue.enqueue((s,0))</span><br><span class="line">while Queue is not empty:</span><br><span class="line">    (v,w_curr) &lt;- Queue.dequeue()</span><br><span class="line">    for each edge (u,v) in E do</span><br><span class="line">        w_new &lt;- w_curr+w(u,v)</span><br><span class="line">        if v == d then</span><br><span class="line">            if w_new &lt; w_m then</span><br><span class="line">                w_m = w_new</span><br><span class="line">            end if</span><br><span class="line">        else</span><br><span class="line">            Queue.enqueue((v,w_new))</span><br><span class="line">        end if</span><br><span class="line">    end for</span><br><span class="line">end while</span><br><span class="line">output w_m</span><br></pre></td></tr></table></figure>
 <p>注意以上伪代码展示的算法没有将路径加入队列元素中。</p>
-<p>算法的时间复杂度为$O(n!)$，相当于不需要检查可行性的枚举法。</p>
-<p>算法的空间复杂度，如果需要储存路径，为$O(n\cdot n!)$</p>
-<h3 id="5-3-4-深度优先搜索-amp-回溯法"><a href="#5-3-4-深度优先搜索-amp-回溯法" class="headerlink" title="5.3.4 深度优先搜索&amp;回溯法"></a>5.3.4 深度优先搜索&amp;回溯法</h3><p>深度优先搜索策略：</p>
+<p>算法的时间复杂度为<span
+class="math inline">\(O(n!)\)</span>，相当于不需要检查可行性的枚举法。</p>
+<p>算法的空间复杂度，如果需要储存路径，为<span
+class="math inline">\(O(n\cdot n!)\)</span></p>
+<h3 id="深度优先搜索回溯法">5.3.4 深度优先搜索&amp;回溯法</h3>
+<p>深度优先搜索策略：</p>
 <ul>
 <li>从起点开始进行深度搜索，并维护一个储存(u,d)的栈</li>
 <li>其余部分与广度搜索策略基本完全相似</li>
 </ul>
-<p>使用深度优先搜索可以将路径额外储存在一个长度为$n$的列表中，动态维护列表。为了保证能够正确回溯，需要使用递归方式来进行深度优先搜索。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Algorithm DFS</span><br><span class="line">    p_m &lt;- empty list [n]</span><br><span class="line">    p_curr &lt;- empty list [n]</span><br><span class="line">    w_m &lt;- infinity</span><br><span class="line"></span><br><span class="line">    DFS(s,0)</span><br><span class="line">    output w_m,p_m</span><br><span class="line"></span><br><span class="line">Procedure DFS(u,w_curr)</span><br><span class="line">    p_curr.append(u)</span><br><span class="line">    if u = d then</span><br><span class="line">        if w_curr &lt; w_m then</span><br><span class="line">            w_m &lt;- w_curr</span><br><span class="line">            p_m &lt;- p_curr.copy()</span><br><span class="line">        end if</span><br><span class="line">    else</span><br><span class="line">        for each edge (u, v) ∈ E do</span><br><span class="line">            w_new &lt;- w_curr + w(u, v)</span><br><span class="line">            if w_new &lt; w_m then</span><br><span class="line">                DFS(v,w_new)</span><br><span class="line">            end if</span><br><span class="line">        end for</span><br><span class="line">    end if</span><br><span class="line">    p_curr.pop()</span><br></pre></td></tr></table></figure></p>
+<p>使用深度优先搜索可以将路径额外储存在一个长度为<span
+class="math inline">\(n\)</span>的列表中，动态维护列表。为了保证能够正确回溯，需要使用递归方式来进行深度优先搜索。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Algorithm DFS</span><br><span class="line">    p_m &lt;- empty list [n]</span><br><span class="line">    p_curr &lt;- empty list [n]</span><br><span class="line">    w_m &lt;- infinity</span><br><span class="line"></span><br><span class="line">    DFS(s,0)</span><br><span class="line">    output w_m,p_m</span><br><span class="line"></span><br><span class="line">Procedure DFS(u,w_curr)</span><br><span class="line">    p_curr.append(u)</span><br><span class="line">    if u = d then</span><br><span class="line">        if w_curr &lt; w_m then</span><br><span class="line">            w_m &lt;- w_curr</span><br><span class="line">            p_m &lt;- p_curr.copy()</span><br><span class="line">        end if</span><br><span class="line">    else</span><br><span class="line">        for each edge (u, v) ∈ E do</span><br><span class="line">            w_new &lt;- w_curr + w(u, v)</span><br><span class="line">            if w_new &lt; w_m then</span><br><span class="line">                DFS(v,w_new)</span><br><span class="line">            end if</span><br><span class="line">        end for</span><br><span class="line">    end if</span><br><span class="line">    p_curr.pop()</span><br></pre></td></tr></table></figure></p>
 <p>这种方法不改变时间复杂度，但是将空间复杂度降低到线性。</p>
 <p>为了进一步优化性能，可以引入剪枝的思想，即当当前分支的w_curr已经超过w_m时，直接回溯。</p>
-<h3 id="5-3-5-分支定界法"><a href="#5-3-5-分支定界法" class="headerlink" title="5.3.5 分支定界法"></a>5.3.5 分支定界法</h3><p>这是一个最小化问题，因此v_m可以直接作为上界。我们寻找一种分支下界（可能能达到的最小值）的计算方法。</p>
-<p>考虑算法结构，从s出发，s的所有邻域节点v都是可能的下个分支。一种可能的下界确定法：</p>
-<ul>
-<li>预计计算整个图中，除去起点所有节点的最小进入权重，也就是对于任意节点w，所有(x,w)的最大权重。</li>
-<li>对于邻域v，其下界为已选路径权重（对于当前情况就是w(s,v)）+未选节点最小权重和<br>也就是贪心最小边下界</li>
-</ul>
+<h3 id="分支定界法">5.3.5 分支定界法</h3>
+<p>这是一个最小化问题，因此v_m可以直接作为上界。我们寻找一种分支下界（可能能达到的最小值）的计算方法。</p>
+<p>考虑算法结构，从s出发，s的所有邻域节点v都是可能的下个分支。一种可能的下界确定法：
+-
+预计计算整个图中，除去起点所有节点的最小进入权重，也就是对于任意节点w，所有(x,w)的最大权重。
+-
+对于邻域v，其下界为已选路径权重（对于当前情况就是w(s,v)）+未选节点最小权重和
+也就是贪心最小边下界</p>
 <p>相同问题的下界确定法是v到终点的欧几里得距离或者哈密顿距离，但是问题没有相关约束，因此不能使用。</p>
 <p>除此之外还可以想到，可以为每个顶点维护一个最短路径状态，即从原点到该顶点的已知端点距离。如果当前路径的这一项大于已知最短距离，则直接放弃该分支。</p>
 <p>数据结构方面，我们使用优先队列，这是一种出列优先级最大的元素的队列。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BB</span><br><span class="line">输入：图 G=(V, E)，起点 s，终点 d，下界函数 LB(u)。</span><br><span class="line">输出：最短距离 d_m，最短路径p_m</span><br><span class="line"></span><br><span class="line">d_m &lt;- ∞</span><br><span class="line">PQ &lt;- empty priority queue</span><br><span class="line">PQ.push( (s, 0, emptylist, LB([s])) )</span><br><span class="line">p_m &lt;- empty List</span><br><span class="line">Shorted_path &lt;- empty Map</span><br><span class="line">for vertex in V do</span><br><span class="line">    Shorted_path.put((vertex,∞))</span><br><span class="line">Shorted_path[s] &lt;- 0</span><br><span class="line"></span><br><span class="line">while PQ is not empty do</span><br><span class="line">    (u, curr_w,curr_path, curr_bound) ← PQ.pop_min()</span><br><span class="line">    // 两种剪枝可能</span><br><span class="line">    if curr_w &gt; Shorted_path[u] then</span><br><span class="line">        continue</span><br><span class="line">    else</span><br><span class="line">        Shorted_path[u] = curr_w</span><br><span class="line">    end if</span><br><span class="line">    if curr_bound &gt;= d_m then</span><br><span class="line">        continue</span><br><span class="line">    end if</span><br><span class="line"></span><br><span class="line">    for each neighbor v of u do</span><br><span class="line">        new_w &lt;- curr_w + w(u,v)</span><br><span class="line">        new_path = curr_path.append(v)</span><br><span class="line">        if v = d then</span><br><span class="line">            if new_w &lt; d_m then</span><br><span class="line">                d_m &lt;- new_w</span><br><span class="line">                p_m &lt;- new_path</span><br><span class="line">        else</span><br><span class="line">            new_bound &lt;- LB(new_path )+curr_w</span><br><span class="line">            if new_bound &gt; d_m then</span><br><span class="line">                continue</span><br><span class="line">            end if</span><br><span class="line">            PQ.enqueue((v,new_w,new_path,new_bound))</span><br><span class="line">        end if</span><br><span class="line">    end for</span><br><span class="line">end while</span><br><span class="line">output d_m,p_m</span><br></pre></td></tr></table></figure>
-<p>这种算法的时间和空间复杂度都依赖于优先队列的大小$E$，分别为$O(|E| \log |V|)$和$O(|E| \cdot |V|)$，这种算法的最坏时间和空间复杂度与广度搜索相同（甚至因为使用了优先队列而更差）。</p>
-<h3 id="5-3-6-动态规划"><a href="#5-3-6-动态规划" class="headerlink" title="5.3.6 动态规划"></a>5.3.6 动态规划</h3><p>该问题与各种分割问题，比如矩阵最少乘法问题相似。有递归式：</p>
-<script type="math/tex; mode=display">T(i,j) = min_{k\in i到j的中间节点集}(T(i,k)+T(k,j))</script><p>问题主要在于中间节点集合如何求取。一种可行的设想是对节点进行拓扑排序</p>
-<p>使得如果图中存在边 $(u, v)$，则在排序结果中 $u$ 必须出现在 $v$ 之前。</p>
+<p>这种算法的时间和空间复杂度都依赖于优先队列的大小<span
+class="math inline">\(E\)</span>，分别为<span
+class="math inline">\(O(|E| \log |V|)\)</span>和<span
+class="math inline">\(O(|E| \cdot
+|V|)\)</span>，这种算法的最坏时间和空间复杂度与广度搜索相同（甚至因为使用了优先队列而更差）。</p>
+<h3 id="动态规划">5.3.6 动态规划</h3>
+<p>该问题与各种分割问题，比如矩阵最少乘法问题相似。有递归式：</p>
+<p><span class="math display">\[T(i,j) = min_{k\in
+i到j的中间节点集}(T(i,k)+T(k,j)) \]</span></p>
+<p>问题主要在于中间节点集合如何求取。一种可行的设想是对节点进行拓扑排序</p>
+<p>使得如果图中存在边 <span class="math inline">\((u,
+v)\)</span>，则在排序结果中 <span class="math inline">\(u\)</span>
+必须出现在 <span class="math inline">\(v\)</span> 之前。</p>
 <p>直接写出自定而上的伪代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Algorithm DP</span><br><span class="line"></span><br><span class="line">T &lt;- double-dim List [n,n] initial with infinity</span><br><span class="line">D &lt;- TopologicalSort(s) // 为了方便，假定D[i]返回的是排序后i对应的位置</span><br><span class="line">for i &lt;- 0 to n do</span><br><span class="line">    T[i,i] = 0</span><br><span class="line"></span><br><span class="line">Check(s,d)//假定s、d为对应节点的编号</span><br><span class="line"></span><br><span class="line">Procedure Check(i,j)</span><br><span class="line"></span><br><span class="line">if D[i]&gt;D[j] then</span><br><span class="line">    return infinity //理论上不会进入这一步</span><br><span class="line"></span><br><span class="line">if T[i,j] is not inifinity then</span><br><span class="line">    return T[i,j]</span><br><span class="line"></span><br><span class="line">if (i,j) in E then</span><br><span class="line">    base_length = w(i,j)</span><br><span class="line">else</span><br><span class="line">    base_length = infinity</span><br><span class="line">end if</span><br><span class="line"></span><br><span class="line">for each k that D[k] &lt; D[j] and D[i] &lt; D[k] do</span><br><span class="line">    possible_length = Check(i,k)+Check(k,j)</span><br><span class="line">    if possible_length &lt; base_length then</span><br><span class="line">        base_length = possible_length</span><br><span class="line">    end if</span><br><span class="line">end for</span><br><span class="line">T[i,j] &lt;- base_length</span><br><span class="line">return T[i,j]</span><br></pre></td></tr></table></figure>
 <p>其中TopologicalSort是我们讨论过的tanh算法，不断寻找并移除那些不依赖任何其他节点的节点。</p>
@@ -580,44 +807,69 @@
 <p>这个算法为什么会复杂那么多呢？这个算法，如其的递归形式，实际上可以计算任意两点间的最短路径，并没有使用到起点和终点唯一的约束。</p>
 <p>实际上，这个算法已经与Floyd-Warshall算法复杂度相同，因此不如直接使用Floyd-Warshall算法。区别仅在于中间节点集合如何求取的问题。</p>
 <p>现在使用拓扑排序是在有向无环图假设下，限制了k的规模，使得T[i,k]和T[k,j]一定已经得到计算（或者说T[i,k]和T[k,j]的计算不依赖于T[i,j]的计算）。Floyd-Warshall算法则将T在逻辑上拓展为三维：T[i,j,k]，在计算时状态转移方程变化为：</p>
-<script type="math/tex; mode=display">dp[k][i][j] = \min(dp[k-1][i][j], \quad dp[k-1][i][k] + dp[k-1][k][j])</script><p>也就是k被放在最外环运行：</p>
+<p><span class="math display">\[dp[k][i][j] = \min(dp[k-1][i][j], \quad
+dp[k-1][i][k] + dp[k-1][k][j])\]</span></p>
+<p>也就是k被放在最外环运行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Algorithm FLOYD-WARSHALL</span><br><span class="line">1. D ← W 的拷贝</span><br><span class="line">2. // k 在最外层！这是动态规划“阶段”的体现。</span><br><span class="line">3. for k ← 1 to n do</span><br><span class="line">4.    for i ← 1 to n do</span><br><span class="line">5.       for j ← 1 to n do</span><br><span class="line">6.          if D[i][k] + D[k][j] &lt; D[i][j] then</span><br><span class="line">7.             D[i][j] ← D[i][k] + D[k][j]</span><br><span class="line">8.          end if</span><br><span class="line">9.       end for</span><br><span class="line">10.   end for</span><br><span class="line">11. end for</span><br><span class="line">12. </span><br><span class="line">13. output D</span><br></pre></td></tr></table></figure>
 <p>伪代码中可以看到，虽然形式上T被拓展为三维数组，当实际操作中只需要使用2维数组。很巧妙的算法。</p>
-<hr>
+<hr />
 <p>重新考虑这个动规问题的阶段的定义。从起点开始，我们可以定义每增加一个节点是一个状态。此时的递归公式转换为：</p>
-<script type="math/tex; mode=display">T[v] = \min(T[u] + w(u, v))</script><p>变成了一个线性的动规问题。</p>
+<p><span class="math display">\[T[v] = \min(T[u] + w(u, v))\]</span></p>
+<p>变成了一个线性的动规问题。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Algorithm DP-SHORTEST-PATH-DAG</span><br><span class="line">输入：有向无环图 G=(V, E)，起点 s，终点 d。</span><br><span class="line">输出：最短距离 dist[d]。</span><br><span class="line"></span><br><span class="line">1.  // 1. 预处理：拓扑排序 (确保计算 v 时，其所有前驱节点已计算完成)</span><br><span class="line">2.  L ← TopologicalSort(G) </span><br><span class="line">3.  </span><br><span class="line">4.  // 2. 初始化状态数组</span><br><span class="line">5.  dist ← Map &#123;v: ∞ for v in V&#125;</span><br><span class="line">6.  dist[s] ← 0</span><br><span class="line">7.  parent ← Map &#123;v: null for v in V&#125; // 用于回溯路径</span><br><span class="line">8.  </span><br><span class="line">9.  // 3. 状态转移 (自底向上/线性扫描)</span><br><span class="line">10. for each node u in L (从起点 s 所在的顺序开始) do</span><br><span class="line">11.    if dist[u] &lt; ∞ then</span><br><span class="line">12.       for each neighbor v of u do</span><br><span class="line">13.          // 核心转移方程：dist[v] = min(dist[v], dist[u] + w(u, v))</span><br><span class="line">14.          if dist[u] + w(u, v) &lt; dist[v] then</span><br><span class="line">15.             dist[v] ← dist[u] + w(u, v)</span><br><span class="line">16.             parent[v] ← u</span><br><span class="line">17.          end if</span><br><span class="line">18.       end for</span><br><span class="line">19.    end if</span><br><span class="line">20. end for</span><br><span class="line">21. </span><br><span class="line">22. // 4. 重构路径</span><br><span class="line">23. p_m ← ReconstructPath(parent, d)</span><br><span class="line">24. output dist[d], p_m</span><br></pre></td></tr></table></figure>
-<p>在这个动规中，实际上维护了从起点到每个节点的可能的最近信息。这种算法的时间复杂度取决于拓扑排序，为$O(E+V)$</p>
+<p>在这个动规中，实际上维护了从起点到每个节点的可能的最近信息。这种算法的时间复杂度取决于拓扑排序，为<span
+class="math inline">\(O(E+V)\)</span></p>
 <p>这个算法是有向无环图 (DAG) 的最优解法。</p>
-<h3 id="5-3-7-贪心算法"><a href="#5-3-7-贪心算法" class="headerlink" title="5.3.7 贪心算法"></a>5.3.7 贪心算法</h3><h4 id="Dijkstra-算法"><a href="#Dijkstra-算法" class="headerlink" title="Dijkstra 算法"></a>Dijkstra 算法</h4><p>这是非负权单源图最短路路径的最优解，在这个图中，目前离起点最近的那个未访问节点，不可能通过绕路变得更近，也就是说，当准备计算离起点地n进的起点时，只有比它更近的节点可能会影响计算。</p>
-<p>流程：</p>
-<ul>
-<li>在这个图中，目前离起点最近的那个未访问节点，不可能通过绕路变得更近</li>
-<li>从堆中弹出距离最小的节点 $u$</li>
-<li>将 $u$ 标记为“已确定”（后续不再处理）</li>
-<li>遍历 $u$ 的邻居 $v$。如果 $dist[u] + w(u, v) &lt; dist[v]$，则更新 $dist[v]$ 并将 $v$ 压入堆（或更新堆中 $v$ 的优先级）。</li>
-</ul>
+<h3 id="贪心算法">5.3.7 贪心算法</h3>
+<h4 id="dijkstra-算法">Dijkstra 算法</h4>
+<p>这是非负权单源图最短路路径的最优解，在这个图中，目前离起点最近的那个未访问节点，不可能通过绕路变得更近，也就是说，当准备计算离起点地n进的起点时，只有比它更近的节点可能会影响计算。</p>
+<p>流程： -
+在这个图中，目前离起点最近的那个未访问节点，不可能通过绕路变得更近 -
+从堆中弹出距离最小的节点 <span class="math inline">\(u\)</span> - 将
+<span class="math inline">\(u\)</span> 标记为“已确定”（后续不再处理） -
+遍历 <span class="math inline">\(u\)</span> 的邻居 <span
+class="math inline">\(v\)</span>。如果 <span
+class="math inline">\(dist[u] + w(u, v) &lt; dist[v]\)</span>，则更新
+<span class="math inline">\(dist[v]\)</span> 并将 <span
+class="math inline">\(v\)</span> 压入堆（或更新堆中 <span
+class="math inline">\(v\)</span> 的优先级）。</p>
 <p>这种算法的时间复杂度为O(ElogV)，即遍历边、最优队列每次维护的代价是logV</p>
-<h4 id="大规模图预处理：收缩层次结构"><a href="#大规模图预处理：收缩层次结构" class="headerlink" title="大规模图预处理：收缩层次结构"></a>大规模图预处理：收缩层次结构</h4><p>节点重要性排序 (Node Ordering)给图中的每一个节点 $v$ 赋予一个等级 $Rank(v)$：</p>
-<ul>
-<li>试探性地移除节点 $v$，计算需要增加多少条“捷径”边，减去 $v$ 原本的边数。需要增加的捷径越少，说明 $v$ 越不重要（越处于死角），应该越先被移除</li>
-</ul>
-<p>节点收缩，按照 Rank 从低到高，依次“收缩”（移除）节点。<br>假设我们要移除节点 $v$：</p>
-<ul>
-<li>找到所有能到达 $v$ 的邻居 $U = {u_1, u_2, \dots}$</li>
-<li>找到所有从 $v$ 出发的邻居 $W = {w_1, w_2, \dots}$</li>
-<li>对于每一对 $(u, w)$，原本有一条路径 $u \to v \to w$。我们必须检查：在不经过 $v$ 的情况下，是否还存在另一条比 $u \to v \to w$ 更短或相等的路径<ul>
-<li>如果存在：说明 $v$ 对这条路不重要，直接删掉 $v$</li>
-<li>如果不存在：说明 $v$ 是必经之路。为了保持图的连通性和距离正确性，我们必须在 $u$ 和 $w$ 之间添加一条人工边，其权重为 $w(u,v) + w(v,w)$</li>
-</ul>
-</li>
-</ul>
-<p>查询变为双向 Dijkstra 搜索</p>
-<ul>
-<li>从起点 $s$ 出发，只走 $Rank(neighbor) &gt; Rank(current)$ 的边</li>
-<li>从终点 $t$ 出发，只走 $Rank(neighbor) &gt; Rank(current)$ 的反向边<br>两个搜索会在某个最高等级的节点 $v<em>{top}$ 相遇，最短路径长度 = $\min(dist</em>{fwd}[v] + dist_{bwd}[v])$。</li>
-</ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-5/">http://raphaelhyaan.cn/2026/01/06/algo-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第四部分-计算复杂性与近似解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86%EF%BC%9A%E5%BA%94%E5%AF%B9%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%97%AE%E9%A2%98"><span class="toc-text">第五部分：应对不确定性与大规模问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95-Online-Algorithms"><span class="toc-text">5.1 在线算法 (Online Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-1-%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95"><span class="toc-text">5.1.1 在线算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E5%92%8C%E5%9C%A8%E7%BA%BF"><span class="toc-text">离线和在线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E7%AB%9E%E4%BA%89%E6%AF%94"><span class="toc-text">在线算法分析和竞争比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-2-%E7%BB%8F%E5%85%B8%E5%9C%A8%E7%BA%BF%E9%97%AE%E9%A2%98"><span class="toc-text">5.1.2 经典在线问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%91%E9%9B%AA%E7%A7%9F%E8%B5%81%E9%97%AE%E9%A2%98"><span class="toc-text">滑雪租赁问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%88%E4%BA%8F%E5%B9%B3%E8%A1%A1%E7%AE%97%E6%B3%95"><span class="toc-text">盈亏平衡算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="toc-text">最优缓存问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%A8%E7%BA%BF%E7%AD%96%E7%95%A5"><span class="toc-text">常见在线策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95%E5%92%8C%E6%A0%87%E8%AE%B0%E7%AE%97%E6%B3%95"><span class="toc-text">随机在线算法和标记算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E7%8E%B0%E4%BB%A3%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95"><span class="toc-text">5.2 现代启发式算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E4%B8%AA%E4%BD%93%E7%AE%97%E6%B3%95"><span class="toc-text">5.2.1 个体算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%BB%E5%9F%9F%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-NS"><span class="toc-text">邻域搜索算法 NS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%81%E5%BF%8C%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-TS"><span class="toc-text">禁忌搜索算法 TS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95-SA"><span class="toc-text">模拟退火算法 SA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-%E7%BE%A4%E4%BD%93%E7%AE%97%E6%B3%95"><span class="toc-text">5.2.2 群体算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95-GA"><span class="toc-text">遗传算法 GA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8D%E7%96%AB%E7%AE%97%E6%B3%95-IA"><span class="toc-text">免疫算法 IA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95-ACO"><span class="toc-text">蚁群算法 ACO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-PSO"><span class="toc-text">粒子群优化算法 PSO</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E7%BB%BC%E8%BF%B0%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%BB%B4%E8%A7%86%E8%A7%92-Review-Shortest-Path"><span class="toc-text">5.3 综述：最短路径问题的多维视角 (Review: Shortest Path)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">5.3.1 问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-2-%E7%A9%B7%E4%B8%BE%E6%B3%95"><span class="toc-text">5.3.2 穷举法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-3-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-BFS"><span class="toc-text">5.3.3 广度优先搜索 BFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-4-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-amp-%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="toc-text">5.3.4 深度优先搜索&amp;回溯法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-5-%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95"><span class="toc-text">5.3.5 分支定界法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-6-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">5.3.6 动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-7-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">5.3.7 贪心算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dijkstra-%E7%AE%97%E6%B3%95"><span class="toc-text">Dijkstra 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%9B%BE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%9A%E6%94%B6%E7%BC%A9%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-text">大规模图预处理：收缩层次结构</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<h4 id="大规模图预处理收缩层次结构">大规模图预处理：收缩层次结构</h4>
+<p>节点重要性排序 (Node Ordering)给图中的每一个节点 <span
+class="math inline">\(v\)</span> 赋予一个等级 <span
+class="math inline">\(Rank(v)\)</span>： - 试探性地移除节点 <span
+class="math inline">\(v\)</span>，计算需要增加多少条“捷径”边，减去 <span
+class="math inline">\(v\)</span> 原本的边数。需要增加的捷径越少，说明
+<span class="math inline">\(v\)</span>
+越不重要（越处于死角），应该越先被移除</p>
+<p>节点收缩，按照 Rank 从低到高，依次“收缩”（移除）节点。
+假设我们要移除节点 <span class="math inline">\(v\)</span>： -
+找到所有能到达 <span class="math inline">\(v\)</span> 的邻居 <span
+class="math inline">\(U = \{u_1, u_2, \dots\}\)</span> - 找到所有从
+<span class="math inline">\(v\)</span> 出发的邻居 <span
+class="math inline">\(W = \{w_1, w_2, \dots\}\)</span> - 对于每一对
+<span class="math inline">\((u, w)\)</span>，原本有一条路径 <span
+class="math inline">\(u \to v \to w\)</span>。我们必须检查：在不经过
+<span class="math inline">\(v\)</span> 的情况下，是否还存在另一条比
+<span class="math inline">\(u \to v \to w\)</span> 更短或相等的路径 -
+如果存在：说明 <span class="math inline">\(v\)</span>
+对这条路不重要，直接删掉 <span class="math inline">\(v\)</span> -
+如果不存在：说明 <span class="math inline">\(v\)</span>
+是必经之路。为了保持图的连通性和距离正确性，我们必须在 <span
+class="math inline">\(u\)</span> 和 <span
+class="math inline">\(w\)</span> 之间添加一条人工边，其权重为 <span
+class="math inline">\(w(u,v) + w(v,w)\)</span></p>
+<p>查询变为双向 Dijkstra 搜索 - 从起点 <span
+class="math inline">\(s\)</span> 出发，只走 <span
+class="math inline">\(Rank(neighbor) &gt; Rank(current)\)</span> 的边 -
+从终点 <span class="math inline">\(t\)</span> 出发，只走 <span
+class="math inline">\(Rank(neighbor) &gt; Rank(current)\)</span>
+的反向边 两个搜索会在某个最高等级的节点 <span
+class="math inline">\(v_{top}\)</span> 相遇，最短路径长度 = <span
+class="math inline">\(\min(dist_{fwd}[v] + dist_{bwd}[v])\)</span>。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-5/">http://raphaelhyaan.cn/2026/01/06/algo-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第四部分-计算复杂性与近似解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86%E5%BA%94%E5%AF%B9%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%97%AE%E9%A2%98"><span class="toc-text">第五部分：应对不确定性与大规模问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95-online-algorithms"><span class="toc-text">5.1 在线算法 (Online
+Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95"><span class="toc-text">5.1.1 在线算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E5%92%8C%E5%9C%A8%E7%BA%BF"><span class="toc-text">离线和在线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E7%AB%9E%E4%BA%89%E6%AF%94"><span class="toc-text">在线算法分析和竞争比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%9C%A8%E7%BA%BF%E9%97%AE%E9%A2%98"><span class="toc-text">5.1.2 经典在线问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%91%E9%9B%AA%E7%A7%9F%E8%B5%81%E9%97%AE%E9%A2%98"><span class="toc-text">滑雪租赁问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%88%E4%BA%8F%E5%B9%B3%E8%A1%A1%E7%AE%97%E6%B3%95"><span class="toc-text">盈亏平衡算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="toc-text">最优缓存问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%A8%E7%BA%BF%E7%AD%96%E7%95%A5"><span class="toc-text">常见在线策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%9C%A8%E7%BA%BF%E7%AE%97%E6%B3%95%E5%92%8C%E6%A0%87%E8%AE%B0%E7%AE%97%E6%B3%95"><span class="toc-text">随机在线算法和标记算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95"><span class="toc-text">5.2 现代启发式算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BD%93%E7%AE%97%E6%B3%95"><span class="toc-text">5.2.1 个体算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%BB%E5%9F%9F%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-ns"><span class="toc-text">邻域搜索算法 NS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%81%E5%BF%8C%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95-ts"><span class="toc-text">禁忌搜索算法 TS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95-sa"><span class="toc-text">模拟退火算法 SA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%A4%E4%BD%93%E7%AE%97%E6%B3%95"><span class="toc-text">5.2.2 群体算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95-ga"><span class="toc-text">遗传算法 GA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8D%E7%96%AB%E7%AE%97%E6%B3%95-ia"><span class="toc-text">免疫算法 IA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95-aco"><span class="toc-text">蚁群算法 ACO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-pso"><span class="toc-text">粒子群优化算法 PSO</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%BB%B4%E8%A7%86%E8%A7%92-review-shortest-path"><span class="toc-text">5.3
+综述：最短路径问题的多维视角 (Review: Shortest Path)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">5.3.1 问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%B7%E4%B8%BE%E6%B3%95"><span class="toc-text">5.3.2 穷举法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-bfs"><span class="toc-text">5.3.3 广度优先搜索 BFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="toc-text">5.3.4 深度优先搜索&amp;回溯法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95"><span class="toc-text">5.3.5 分支定界法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">5.3.6 动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">5.3.7 贪心算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dijkstra-%E7%AE%97%E6%B3%95"><span class="toc-text">Dijkstra 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%9B%BE%E9%A2%84%E5%A4%84%E7%90%86%E6%94%B6%E7%BC%A9%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-text">大规模图预处理：收缩层次结构</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="123"/></a><div class="content"><a class="title" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123">123</a><time datetime="2026-01-22T18:19:45.000Z" title="发表于 2026-01-23 02:19:45">2026-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

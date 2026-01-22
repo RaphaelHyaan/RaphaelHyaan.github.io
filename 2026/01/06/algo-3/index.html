@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第三部分-精确最优化策略 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第三部分：精确最优化策略本部分聚焦于解决多阶段决策过程、和组合优化问题，旨在寻找全局最优解。 3.1 动态规划 (Dynamic Programming)3.1.1 动态规划和多阶段决策动态规划是解决多阶段决策过程 (Multi-stage decision process) 最优化的一种方法。对于离散问题，解析数学无法施展，动态规划则成为一个非常有效的工具。 不同于线性规划等方法，动态规划建立目">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第三部分-精确最优化策略 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第三部分：精确最优化策略 本部分聚焦于解决多阶段决策过程、和组合优化问题，旨在寻找全局最优解。 3.1 动态规划 (Dynamic Programming) 3.1.1 动态规划和多阶段决策 动态规划是解决多阶段决策过程 (Multi-stage decision process) 最优化的一种方法。对于离散问题，解析数学无法施展，动态规划则成为一个非常有效的工具。 不同于线性规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三部分-精确最优化策略">
 <meta property="og:url" content="http://raphaelhyaan.cn/2026/01/06/algo-3/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="第三部分：精确最优化策略本部分聚焦于解决多阶段决策过程、和组合优化问题，旨在寻找全局最优解。 3.1 动态规划 (Dynamic Programming)3.1.1 动态规划和多阶段决策动态规划是解决多阶段决策过程 (Multi-stage decision process) 最优化的一种方法。对于离散问题，解析数学无法施展，动态规划则成为一个非常有效的工具。 不同于线性规划等方法，动态规划建立目">
+<meta property="og:description" content="第三部分：精确最优化策略 本部分聚焦于解决多阶段决策过程、和组合优化问题，旨在寻找全局最优解。 3.1 动态规划 (Dynamic Programming) 3.1.1 动态规划和多阶段决策 动态规划是解决多阶段决策过程 (Multi-stage decision process) 最优化的一种方法。对于离散问题，解析数学无法施展，动态规划则成为一个非常有效的工具。 不同于线性规划">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png">
 <meta property="article:published_time" content="2026-01-05T16:07:12.000Z">
@@ -153,484 +153,929 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第三部分-精确最优化策略</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:37:31.637Z" title="更新于 2026-01-06 00:37:31">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第三部分-精确最优化策略"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第三部分：精确最优化策略"><a href="#第三部分：精确最优化策略" class="headerlink" title="第三部分：精确最优化策略"></a>第三部分：精确最优化策略</h1><p>本部分聚焦于解决多阶段决策过程、和组合优化问题，旨在寻找全局最优解。</p>
-<h2 id="3-1-动态规划-Dynamic-Programming"><a href="#3-1-动态规划-Dynamic-Programming" class="headerlink" title="3.1 动态规划 (Dynamic Programming)"></a>3.1 动态规划 (Dynamic Programming)</h2><h3 id="3-1-1-动态规划和多阶段决策"><a href="#3-1-1-动态规划和多阶段决策" class="headerlink" title="3.1.1 动态规划和多阶段决策"></a>3.1.1 动态规划和多阶段决策</h3><p><strong>动态规划</strong>是解决多阶段决策过程 (Multi-stage decision process) 最优化的一种方法。对于离散问题，解析数学无法施展，动态规划则成为一个非常有效的工具。</p>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第三部分-精确最优化策略</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:37:31.637Z" title="更新于 2026-01-06 00:37:31">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第三部分-精确最优化策略"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第三部分精确最优化策略">第三部分：精确最优化策略</h1>
+<p>本部分聚焦于解决多阶段决策过程、和组合优化问题，旨在寻找全局最优解。</p>
+<h2 id="动态规划-dynamic-programming">3.1 动态规划 (Dynamic
+Programming)</h2>
+<h3 id="动态规划和多阶段决策">3.1.1 动态规划和多阶段决策</h3>
+<p><strong>动态规划</strong>是解决多阶段决策过程 (Multi-stage decision
+process)
+最优化的一种方法。对于离散问题，解析数学无法施展，动态规划则成为一个非常有效的工具。</p>
 <p>不同于线性规划等方法，动态规划建立目标函数方程后，没有通用的求解算法，需结合具体问题特性采用相应的数学技巧，且随着状态变量维度的增加，计算量呈指数级增长。</p>
-<p>依据决策过程的时间参量与演变性质，动态规划模型可划分为以下四个维度：</p>
+<p>依据决策过程的时间参量与演变性质，动态规划模型可划分为以下四个维度：
+- 时间参量维度： 离散决策过程 (Discrete)：过程可被划分为有限个阶段。</p>
+<pre><code>连续决策过程 (Continuous)：过程随时间连续变化。</code></pre>
 <ul>
-<li><p>时间参量维度：<br>  离散决策过程 (Discrete)：过程可被划分为有限个阶段。</p>
-<p>  连续决策过程 (Continuous)：过程随时间连续变化。</p>
-</li>
-<li><p>演变性质维度：<br>  确定性决策过程 (Deterministic)：状态转移是确定的。</p>
-<p>  随机性决策过程 (Stochastic)：状态转移服从某种概率分布。</p>
-</li>
+<li><p>演变性质维度： 确定性决策过程
+(Deterministic)：状态转移是确定的。</p>
+<p>随机性决策过程 (Stochastic)：状态转移服从某种概率分布。</p></li>
 </ul>
 <p>通常来说，动态规划算法时间复杂度为多项式级，最终的目标是获得最优策略族，即每一个中间节点到重点的最优路线。</p>
-<hr>
+<hr />
 <p><strong>多阶段决策</strong>通常具备以下特征：</p>
 <ul>
-<li><p>阶段划分：过程可分解为若干相互关联的时序阶段。</p>
-</li>
-<li><p>决策关联性：当前阶段的决策不仅决定当前状态的输出，更直接影响下一阶段的状态及决策环境，从而通过状态转移决定整个过程的轨迹。</p>
-</li>
-<li><p>策略 (Strategy)：各阶段决策构成的有序序列称为策略。</p>
-</li>
-<li><p>最优化目标：在可行策略集合中，根据预设的评价标准，甄选出使活动效果达到最佳的最优策略 (Optimal Strategy)。</p>
-</li>
+<li><p>阶段划分：过程可分解为若干相互关联的时序阶段。</p></li>
+<li><p>决策关联性：当前阶段的决策不仅决定当前状态的输出，更直接影响下一阶段的状态及决策环境，从而通过状态转移决定整个过程的轨迹。</p></li>
+<li><p>策略 (Strategy)：各阶段决策构成的有序序列称为策略。</p></li>
+<li><p>最优化目标：在可行策略集合中，根据预设的评价标准，甄选出使活动效果达到最佳的最优策略
+(Optimal Strategy)。</p></li>
 </ul>
 <p>例如最短路径问题、分配问题（之前提到的背包问题）、生产与库存规划问题等等。</p>
 <blockquote>
-<p>多阶段决策问题的无后效性 (Markov Property)：某阶段之后的过程发展，仅取决于该阶段的状态，而与该阶段之前的过程如何演变无关。</p>
+<p>多阶段决策问题的无后效性 (Markov
+Property)：某阶段之后的过程发展，仅取决于该阶段的状态，而与该阶段之前的过程如何演变无关。</p>
 </blockquote>
-<hr>
-<h4 id="DP-模型"><a href="#DP-模型" class="headerlink" title="DP 模型"></a>DP 模型</h4><p><strong>阶段 (Stage)</strong><br>将问题全过程按时间或空间特征，恰当地划分为若干个相互联系的子过程，称为阶段。通常用变量 $k$ 表示阶段序号。</p>
-<p><strong>状态 (State)</strong><br>描述某阶段出发位置或状况的变量。状态既是当前阶段某支路的起点，也是前一阶段某支路的终点。常用 $x_k$ 表示第 $k$ 阶段的某一状态。第 $k$ 阶段所有可能状态的集合记为 $X_k$。<script type="math/tex">X_k = \{ x_k(1), x_k(2), \dots, x_k(r) \}</script></p>
-<p><strong>决策 (Decision)</strong><br>当某阶段状态给定后，从该状态演变到下一阶段某状态的选择行为。常用 $u_k(x_k)$ 表示第 $k$ 阶段处于状态 $x_k$ 时的决策变量。决策变量的取值范围称为允许决策集合，记为 $D_k(x_k)$。</p>
-<p><strong>策略 (Policy)</strong><br>由各个阶段的决策组成的序列。从第 1 阶段到终点的完整决策序列被称为<strong>全过程策略</strong>，记为 $p_{1,n}$。</p>
-<script type="math/tex; mode=display">p_{1,n}(x_1) = \{ u_1(x_1), u_2(x_2), \dots, u_n(x_n) \}</script><p>从第 $k$ 阶段到终点的后部子过程决策序列被称为<strong>子策略</strong>，记为 $p<em>{k,n}$。$$p</em>{k,n}(x<em>k) = { u_k(x_k), u</em>{k+1}(x_{k+1}), \dots, u_n(x_n) }$$<br>在允许策略集合 $P$ 中，使目标达到最优效果的策略被称为<strong>最佳策略</strong>。</p>
-<p><strong>指标函数 (Objective Function)</strong><br>衡量过程优劣的数量指标，是定义在全过程或后部子过程上的函数。常用 $V<em>{k,n}$ 表示从第 $k$ 阶段到终点的指标函数。$$V</em>{k,n} = V<em>{k,n}(x_k, u_k, x</em>{k+1}, \dots, x<em>{n+1})$$<br>第 $k$ 阶段从状态 $x_k$ 采取决策 $u_k$ 所产生的直接效益或成本，成为<strong>阶段指标</strong>，记为 $d_k(x_k, u_k)$。<br>指标函数 $V</em>{k,n}$ 在最优策略下达到的极值（最大值或最小值）被称为<strong>最优指标函数 (Optimal Value Function)</strong>，记为 $f_k(x_k)$，表示从第 $k$ 阶段的状态 $x_k$ 出发，到终点所能达到的最短距离（或最大利润等）。</p>
-<hr>
-<h4 id="最优化原理"><a href="#最优化原理" class="headerlink" title="最优化原理"></a>最优化原理</h4><p>贝尔曼 (Bellman) 的最优化原理：</p>
-<blockquote>
-<p>如果一条路线是起始点到终点的最优路径（最短路线），那么该路线上任意一点到终点的子路径，对于从该点出发到达终点的所有可能选择来说，也必定是最优的。</p>
-</blockquote>
-<p>基于上述原理，动态规划通常采用逆序递推 (Backward Induction) 的方法：从终点出发，逐段向始点方向寻找最优子策略。</p>
-<hr>
-<h4 id="基本方程"><a href="#基本方程" class="headerlink" title="基本方程"></a>基本方程</h4><p>如上所述，动态规划利用相邻两个阶段（$k$ 与 $k+1$）之间的递推关系来求解。其核心方程（贝尔曼方程形式）如下：</p>
-<script type="math/tex; mode=display">\begin{aligned}
-&f_k\left(x_k\right)=\min _{u_k \in D_k\left(x_k\right)}\left\{d_k\left(x_k, u_k\left(x_k\right)\right)+f_{k+1}\left(x_{k+1}\right)\right\}\\
-&k=n, n-1, \ldots, 1
-\end{aligned}</script><p>当前状态 $x<em>k$ 的最优指标等于“当前阶段实施决策 $u_k$ 的即时效益”与“由此进入下一状态 $x</em>{k+1}$ 后的最优后续效益”之和的极值。</p>
-<hr>
+<hr />
+<h4 id="dp-模型">DP 模型</h4>
+<p><strong>阶段 (Stage)</strong>
+将问题全过程按时间或空间特征，恰当地划分为若干个相互联系的子过程，称为阶段。通常用变量
+<span class="math inline">\(k\)</span> 表示阶段序号。</p>
+<p><strong>状态 (State)</strong>
+描述某阶段出发位置或状况的变量。状态既是当前阶段某支路的起点，也是前一阶段某支路的终点。常用
+<span class="math inline">\(x_k\)</span> 表示第 <span
+class="math inline">\(k\)</span> 阶段的某一状态。第 <span
+class="math inline">\(k\)</span> 阶段所有可能状态的集合记为 <span
+class="math inline">\(X_k\)</span>。<span class="math display">\[X_k =
+\{ x_k(1), x_k(2), \dots, x_k(r) \}\]</span></p>
+<p><strong>决策 (Decision)</strong>
+当某阶段状态给定后，从该状态演变到下一阶段某状态的选择行为。常用 <span
+class="math inline">\(u_k(x_k)\)</span> 表示第 <span
+class="math inline">\(k\)</span> 阶段处于状态 <span
+class="math inline">\(x_k\)</span>
+时的决策变量。决策变量的取值范围称为允许决策集合，记为 <span
+class="math inline">\(D_k(x_k)\)</span>。</p>
+<p><strong>策略 (Policy)</strong> 由各个阶段的决策组成的序列。从第 1
+阶段到终点的完整决策序列被称为<strong>全过程策略</strong>，记为 <span
+class="math inline">\(p_{1,n}\)</span>。 <span
+class="math display">\[p_{1,n}(x_1) = \{ u_1(x_1), u_2(x_2), \dots,
+u_n(x_n) \}\]</span> 从第 <span class="math inline">\(k\)</span>
+阶段到终点的后部子过程决策序列被称为<strong>子策略</strong>，记为 <span
+class="math inline">\(p_{k,n}\)</span>。<span
+class="math display">\[p_{k,n}(x_k) = \{ u_k(x_k), u_{k+1}(x_{k+1}),
+\dots, u_n(x_n) \}\]</span> 在允许策略集合 <span
+class="math inline">\(P\)</span>
+中，使目标达到最优效果的策略被称为<strong>最佳策略</strong>。</p>
+<p><strong>指标函数 (Objective Function)</strong>
+衡量过程优劣的数量指标，是定义在全过程或后部子过程上的函数。常用 <span
+class="math inline">\(V_{k,n}\)</span> 表示从第 <span
+class="math inline">\(k\)</span> 阶段到终点的指标函数。<span
+class="math display">\[V_{k,n} = V_{k,n}(x_k, u_k, x_{k+1}, \dots,
+x_{n+1})\]</span> 第 <span class="math inline">\(k\)</span> 阶段从状态
+<span class="math inline">\(x_k\)</span> 采取决策 <span
+class="math inline">\(u_k\)</span>
+所产生的直接效益或成本，成为<strong>阶段指标</strong>，记为 <span
+class="math inline">\(d_k(x_k, u_k)\)</span>。 指标函数 <span
+class="math inline">\(V_{k,n}\)</span>
+在最优策略下达到的极值（最大值或最小值）被称为<strong>最优指标函数
+(Optimal Value Function)</strong>，记为 <span
+class="math inline">\(f_k(x_k)\)</span>，表示从第 <span
+class="math inline">\(k\)</span> 阶段的状态 <span
+class="math inline">\(x_k\)</span>
+出发，到终点所能达到的最短距离（或最大利润等）。</p>
+<hr />
+<h4 id="最优化原理">最优化原理</h4>
+<p>贝尔曼 (Bellman) 的最优化原理： &gt;
+如果一条路线是起始点到终点的最优路径（最短路线），那么该路线上任意一点到终点的子路径，对于从该点出发到达终点的所有可能选择来说，也必定是最优的。</p>
+<p>基于上述原理，动态规划通常采用逆序递推 (Backward Induction)
+的方法：从终点出发，逐段向始点方向寻找最优子策略。</p>
+<hr />
+<h4 id="基本方程">基本方程</h4>
+<p>如上所述，动态规划利用相邻两个阶段（<span
+class="math inline">\(k\)</span> 与 <span
+class="math inline">\(k+1\)</span>）之间的递推关系来求解。其核心方程（贝尔曼方程形式）如下：</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;f_k\left(x_k\right)=\min _{u_k \in
+D_k\left(x_k\right)}\left\{d_k\left(x_k,
+u_k\left(x_k\right)\right)+f_{k+1}\left(x_{k+1}\right)\right\}\\
+&amp;k=n, n-1, \ldots, 1
+\end{aligned}\]</span></p>
+<p>当前状态 <span class="math inline">\(x_k\)</span>
+的最优指标等于“当前阶段实施决策 <span class="math inline">\(u_k\)</span>
+的即时效益”与“由此进入下一状态 <span
+class="math inline">\(x_{k+1}\)</span> 后的最优后续效益”之和的极值。</p>
+<hr />
 <p>由此，动态规划模型要求满足四个核心要素：</p>
 <ul>
 <li>状态变量必须满足无后效性 (Markov Property)</li>
-<li>确定每个阶段的决策变量 $u_k$，以及在该状态下的允许决策集合 $D_k(x_k)$。</li>
-<li>描述由第 $k$ 段状态演变至第 $k+1$ 段状态的规律，即状态转移方程。下一阶段状态由当前状态和当前决策唯一确定。<script type="math/tex">x_{k+1} = T_k(x_k, u_k)</script></li>
-<li>标函数 $V<em>{k,n}$ 必须定义在全过程或后部子过程上，并满足递推关系（通常由分离性条件保证）：$$V</em>{k,n}[x<em>k, p</em>{k,n}] = \psi [d<em>k(x_k, u_k), V</em>{k+1, n}(x<em>{k+1}, p</em>{k+1, n})]$$<br>函数 $\psi$ 需对变元 $V_{k+1, n}$ 严格单调。</li>
+<li>确定每个阶段的决策变量 <span
+class="math inline">\(u_k\)</span>，以及在该状态下的允许决策集合 <span
+class="math inline">\(D_k(x_k)\)</span>。</li>
+<li>描述由第 <span class="math inline">\(k\)</span> 段状态演变至第 <span
+class="math inline">\(k+1\)</span>
+段状态的规律，即状态转移方程。下一阶段状态由当前状态和当前决策唯一确定。<span
+class="math display">\[x_{k+1} = T_k(x_k, u_k)\]</span></li>
+<li>标函数 <span class="math inline">\(V_{k,n}\)</span>
+必须定义在全过程或后部子过程上，并满足递推关系（通常由分离性条件保证）：<span
+class="math display">\[V_{k,n}[x_k, p_{k,n}] = \psi [d_k(x_k, u_k),
+V_{k+1, n}(x_{k+1}, p_{k+1, n})]\]</span> 函数 <span
+class="math inline">\(\psi\)</span> 需对变元 <span
+class="math inline">\(V_{k+1, n}\)</span> 严格单调。</li>
 </ul>
-<hr>
-<h3 id="3-1-2-经典应用实例"><a href="#3-1-2-经典应用实例" class="headerlink" title="3.1.2 经典应用实例"></a>3.1.2 经典应用实例</h3><h4 id="资源分配问题"><a href="#资源分配问题" class="headerlink" title="资源分配问题"></a>资源分配问题</h4><p>资源分配问题旨在将有限的资源（如资金、设备、原材料等）分配给若干个使用者（或生产项目），以使系统的整体效用（如总收益、总产量）最大化。</p>
-<p>设资源总量为 $a$，用于 $n$ 种产品的生产。</p>
+<hr />
+<h3 id="经典应用实例">3.1.2 经典应用实例</h3>
+<h4 id="资源分配问题">资源分配问题</h4>
+<p>资源分配问题旨在将有限的资源（如资金、设备、原材料等）分配给若干个使用者（或生产项目），以使系统的整体效用（如总收益、总产量）最大化。</p>
+<p>设资源总量为 <span class="math inline">\(a\)</span>，用于 <span
+class="math inline">\(n\)</span> 种产品的生产。</p>
 <ul>
-<li>阶段：按分配给每个使用者的过程划分，通常第 $k$ 阶段对应第 $k$ 种产品的分配。</li>
-<li>状态变量 ( $x_k$)：表示分配给第 $k$ 种至第 $n$ 种产品的可用资源总量。</li>
-<li>决策变量 ($u_k$)：分配给第 $k$ 种产品的具体资源量。允许决策集合：$0 \le u_k \le x_k$（不能超出可用资源总量）。</li>
-<li>状态转移：$x_{k+1} = x_k - u_k$。即剩余资源量等于当前资源量减去当前决策分配量。</li>
-<li>基本方程：令 $g_k(u_k)$ 为第 $k$ 种产品获得资源 $u_k$ 时的收益，$f_k(x_k)$ 为从第 $k$ 种产品开始分配，拥有资源 $x_k$ 时的最大总收益。<script type="math/tex; mode=display">f_k(x_k) = \max_{0 \le u_k \le x_k} \{ g_k(u_k) + f_{k+1}(x_k - u_k) \}</script></li>
-<li>边界条件：$f_{n+1}(x) = 0$。（只是用于终止递归，本身并无含义）</li>
+<li>阶段：按分配给每个使用者的过程划分，通常第 <span
+class="math inline">\(k\)</span> 阶段对应第 <span
+class="math inline">\(k\)</span> 种产品的分配。</li>
+<li>状态变量 ( <span class="math inline">\(x_k\)</span>)：表示分配给第
+<span class="math inline">\(k\)</span> 种至第 <span
+class="math inline">\(n\)</span> 种产品的可用资源总量。</li>
+<li>决策变量 (<span class="math inline">\(u_k\)</span>)：分配给第 <span
+class="math inline">\(k\)</span> 种产品的具体资源量。允许决策集合：<span
+class="math inline">\(0 \le u_k \le
+x_k\)</span>（不能超出可用资源总量）。</li>
+<li>状态转移：<span class="math inline">\(x_{k+1} = x_k -
+u_k\)</span>。即剩余资源量等于当前资源量减去当前决策分配量。</li>
+<li>基本方程：令 <span class="math inline">\(g_k(u_k)\)</span> 为第
+<span class="math inline">\(k\)</span> 种产品获得资源 <span
+class="math inline">\(u_k\)</span> 时的收益，<span
+class="math inline">\(f_k(x_k)\)</span> 为从第 <span
+class="math inline">\(k\)</span> 种产品开始分配，拥有资源 <span
+class="math inline">\(x_k\)</span> 时的最大总收益。 <span
+class="math display">\[f_k(x_k) = \max_{0 \le u_k \le x_k} \{ g_k(u_k) +
+f_{k+1}(x_k - u_k) \}\]</span></li>
+<li>边界条件：<span class="math inline">\(f_{n+1}(x) =
+0\)</span>。（只是用于终止递归，本身并无含义）</li>
 </ul>
-<hr>
-<h4 id="生产与存储问题"><a href="#生产与存储问题" class="headerlink" title="生产与存储问题"></a>生产与存储问题</h4><p>在满足各时期市场需求且期末库存归零的约束下，确定各阶段的产量（决策变量），使得全周期的生产成本与库存费用之和最小。通常在离散时间上求解。</p>
+<hr />
+<h4 id="生产与存储问题">生产与存储问题</h4>
+<p>在满足各时期市场需求且期末库存归零的约束下，确定各阶段的产量（决策变量），使得全周期的生产成本与库存费用之和最小。通常在离散时间上求解。</p>
 <ul>
 <li>阶段：离散时间</li>
 <li>状态：库存</li>
 <li>决策变量：生产的量</li>
-<li>状态转移：<script type="math/tex">x_{k+1} = x_k + u_k - d_k</script></li>
-<li>基本方程：$J<em>k(x_k) = \min</em>{u<em>k} { \text{生产成本}(u_k) + \text{存储费用}(x_k+u_k-d_k) + J</em>{k+1}(x_{k+1}) }$。</li>
+<li>状态转移：<span class="math display">\[x_{k+1} = x_k + u_k -
+d_k\]</span></li>
+<li>基本方程：<span class="math inline">\(J_k(x_k) = \min_{u_k} \{
+\text{生产成本}(u_k) + \text{存储费用}(x_k+u_k-d_k) + J_{k+1}(x_{k+1})
+\}\)</span>。</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Algorithm ProductionInventory(N, MaxInv, D, CostP, CostS)</span><br><span class="line">// 输入：N (周期数), MaxInv (最大库容), D[k] (第 k 期需求), CostP(u) (生产 u 的成本), CostS(x) (存储 x 的费用)</span><br><span class="line">// 输出：最小总成本 MinCost</span><br><span class="line"></span><br><span class="line">1. // 初始化边界：第 N+1 期（结束时）要求库存为 0，成本为 0</span><br><span class="line">2. F[N+1, 0] ← 0</span><br><span class="line">3. for x ← 1 to MaxInv do F[N+1, x] ← infinity</span><br><span class="line"></span><br><span class="line">4. // 逆序递推</span><br><span class="line">5. for k ← N down to 1 do</span><br><span class="line">6.    for x_curr ← 0 to MaxInv do</span><br><span class="line">7.       min_c ← infinity</span><br><span class="line">8.       // 决策 u (产量) 需满足：不缺货且不爆仓</span><br><span class="line">9.       // 约束：x_next = x_curr + u - D[k]</span><br><span class="line">10.      for u ← 0 to (MaxInv + D[k] - x_curr) do</span><br><span class="line">11.         x_next ← x_curr + u - D[k]</span><br><span class="line">12.         if x_next ≥ 0 then</span><br><span class="line">13.            val ← CostP(u) + CostS(x_next) + F[k+1, x_next]</span><br><span class="line">14.            if val &lt; min_c then min_c ← val</span><br><span class="line">15.         end if</span><br><span class="line">16.      end for</span><br><span class="line">17.      F[k, x_curr] ← min_c</span><br><span class="line">18.   end for</span><br><span class="line">19. end for</span><br><span class="line">20. return F[1, 0] // 假设初始库存为 0</span><br></pre></td></tr></table></figure>
 <p>值得注意的是，这里我们是从后往前构建F表，因为我们首先知道F表的最后一行。第一次迭代计算倒数第二行，以此类推。</p>
-<hr>
-<h4 id="复合系统工作可靠性问题"><a href="#复合系统工作可靠性问题" class="headerlink" title="复合系统工作可靠性问题"></a>复合系统工作可靠性问题</h4><p>对于一个由 $N$ 个部件串联组成的系统，其整体可靠性取决于各部件的可靠性乘积。通过为每个部件 $i$ 增加备用件 $z_i$（并联冗余），可以提高该部件的可靠性 $p_i(z_i)$，但会受到总成本 $C$ 和总重量 $W$ 的约束。</p>
+<hr />
+<h4 id="复合系统工作可靠性问题">复合系统工作可靠性问题</h4>
+<p>对于一个由 <span class="math inline">\(N\)</span>
+个部件串联组成的系统，其整体可靠性取决于各部件的可靠性乘积。通过为每个部件
+<span class="math inline">\(i\)</span> 增加备用件 <span
+class="math inline">\(z_i\)</span>（并联冗余），可以提高该部件的可靠性
+<span class="math inline">\(p_i(z_i)\)</span>，但会受到总成本 <span
+class="math inline">\(C\)</span> 和总重量 <span
+class="math inline">\(W\)</span> 的约束。</p>
 <p>注意到系统受到成本和重量两重制约，因此需要构建二维状态。</p>
 <ul>
 <li>阶段：考虑部件i</li>
-<li>状态：第i步的总重量和总成本$(x<em>{w,i},x</em>{c,i})^t$</li>
+<li>状态：第i步的总重量和总成本<span
+class="math inline">\((x_{w,i},x_{c,i})^t\)</span></li>
 <li>决策变量：在第二部是否增加备用件，增加多少</li>
-<li>状态转移：$x<em>{k+1} = x</em>{k}+N(w,c)^t$</li>
-<li>基本方程：$f<em>k(w_k，c_k) = max</em>{u<em>k}{p_k(u_k)f</em>{k-1}(w_k-u_kw,c_k-u_kc)}$</li>
+<li>状态转移：<span class="math inline">\(x_{k+1} =
+x_{k}+N(w,c)^t\)</span></li>
+<li>基本方程：<span class="math inline">\(f_k(w_k，c_k) =
+max_{u_k}\{p_k(u_k)f_{k-1}(w_k-u_kw,c_k-u_kc)\}\)</span></li>
 </ul>
-<p>注意，这里使用已经选择的总成本和总重量作为状态。因此，在基本方程中并不像之前我们使用的那样，建立$x<em>k$和$x</em>{k+1}$的关系。换句话说，我们在这里使用了一种正向的做法，而非之前提到的逆向做法。这两种做法是等价的，只要我们更换状态的定义就可以互相转换。</p>
+<p>注意，这里使用已经选择的总成本和总重量作为状态。因此，在基本方程中并不像之前我们使用的那样，建立<span
+class="math inline">\(x_k\)</span>和<span
+class="math inline">\(x_{k+1}\)</span>的关系。换句话说，我们在这里使用了一种正向的做法，而非之前提到的逆向做法。这两种做法是等价的，只要我们更换状态的定义就可以互相转换。</p>
 <p>对于如最短路径问题，因为约束是起点的路程为0，如果我们正向计算，很容易得知表格的第一行的内容，因此我们倾向于正向计算；而对于上一个生产与储存问题，因为约束要求最终的储存量为0，我们知道表格最后一行的内容，因此我们倾向于逆向计算。对于这个问题，因为我们既知道总成本和总重量的约束，又知道开始时的成本和重量势必为0，因此使用那种方法区别不大。</p>
 <p>以下给出逆向的伪代码，可以与以上方程进行比较：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Algorithm SystemReliability(N, TotalC, TotalW, P, C, W)</span><br><span class="line">// 输入：N, TotalC, TotalW,  P[k, z] (部件 k 装 z 个备件的可靠性), C[k, z] (费用), W[k, z] (重量)</span><br><span class="line"></span><br><span class="line">1. // 初始化：第 N+1 阶段可靠性为 1 (乘法单位元)</span><br><span class="line">2. for c ← 0 to TotalC do</span><br><span class="line">3.    for w ← 0 to TotalW do</span><br><span class="line">4.       F[N+1, c, w] ← 1</span><br><span class="line">5.    end for</span><br><span class="line">6. end for</span><br><span class="line"></span><br><span class="line">7. // 逆序递推</span><br><span class="line">8. for k ← N down to 1 do</span><br><span class="line">9.    for c ← 0 to TotalC do</span><br><span class="line">10.      for w ← 0 to TotalW do</span><br><span class="line">11.         max_rel ← 0</span><br><span class="line">12.         // 决策 z: 备用件数量，从 1 开始 (至少 1 个)</span><br><span class="line">13.         z ← 1</span><br><span class="line">14.         While C[k, z] ≤ c and W[k, z] ≤ w do</span><br><span class="line">15.            curr_rel ← P[k, z] * F[k+1, c - C[k, z], w - W[k, z]]</span><br><span class="line">16.            if curr_rel &gt; max_rel then max_rel ← curr_rel</span><br><span class="line">17.            z ← z + 1</span><br><span class="line">18.         end While</span><br><span class="line">19.         F[k, c, w] ← max_rel</span><br><span class="line">20.      end for</span><br><span class="line">21.   end for</span><br><span class="line">22. end for</span><br><span class="line"></span><br><span class="line">23. return F[1, TotalC, TotalW]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a>排序问题</h4><p>$n$ 个工件需依次在机床 A 和机床 B 上加工，已知各工件在 A、B 上的加工时间分别为 $a_k, b_k$。目标是确定加工顺序，使总加工时间（Makespan）最短。</p>
+<hr />
+<h4 id="排序问题">排序问题</h4>
+<p><span class="math inline">\(n\)</span> 个工件需依次在机床 A 和机床 B
+上加工，已知各工件在 A、B 上的加工时间分别为 <span
+class="math inline">\(a_k,
+b_k\)</span>。目标是确定加工顺序，使总加工时间（Makespan）最短。</p>
 <ul>
 <li>阶段：考虑第i个被加工的元件</li>
 <li>状态：已经加工的工件集合S</li>
 <li>决策变量：选择第u_i的零件作为第i个被加工的零件k</li>
-<li>转移方程：$K = U<em>i$，另有 $(t</em>{i+1,a},t<em>{i+1,b}) = (t</em>{i,a},t<em>{i,b}) + PUNISH(t</em>{i,a},t<em>{i,b}, a</em>{u<em>i},b</em>{u_i})$<br>其中PUNISH函数是为了保证依次加工所需的额外等待时间。分类讨论可得以下情况：</li>
-<li>如果$t<em>{i,b}-t</em>{i,a} &gt;= a_{u_i}, PUNISH = (0,0)$</li>
-<li>如果$t<em>{i,b}-t</em>{i,a} &lt; a<em>{u_i}$且 $t</em>{i,b}-t<em>{i,a} &gt;= 0$[事实上这项总是成立]， $PUNISH = (a</em>{u<em>i}-(t</em>{i,b}-t_{i,a}))$，这意味着机器B已经完成上一个工件的加工，但是A还没完成这个工件的加工，因此B要等待一段时间。</li>
-<li>基本方程：$f<em>i(S) = min</em>{k\in S \&amp; k != u<em>i}(f</em>{i-1}(k)+t<em>{i,b}+t</em>{i,a}+PUNISH(t<em>{i,a},t</em>{i,b}, a<em>{u_i},b</em>{u_i}))$</li>
+<li>转移方程：<span class="math inline">\(K = U_i\)</span>，另有 <span
+class="math inline">\((t_{i+1,a},t_{i+1,b}) = (t_{i,a},t_{i,b}) +
+PUNISH(t_{i,a},t_{i,b}, a_{u_i},b_{u_i})\)</span>
+其中PUNISH函数是为了保证依次加工所需的额外等待时间。分类讨论可得以下情况：</li>
+<li>如果<span class="math inline">\(t_{i,b}-t_{i,a} &gt;= a_{u_i},
+PUNISH = (0,0)\)</span></li>
+<li>如果<span class="math inline">\(t_{i,b}-t_{i,a} &lt;
+a_{u_i}\)</span>且 <span class="math inline">\(t_{i,b}-t_{i,a} &gt;=
+0\)</span>[事实上这项总是成立]， <span class="math inline">\(PUNISH =
+(a_{u_i}-(t_{i,b}-t_{i,a}))\)</span>，这意味着机器B已经完成上一个工件的加工，但是A还没完成这个工件的加工，因此B要等待一段时间。</li>
+<li>基本方程：<span class="math inline">\(f_i(S) = min_{k\in S \&amp; k
+!= u_i}(f_{i-1}(k)+t_{i,b}+t_{i,a}+PUNISH(t_{i,a},t_{i,b},
+a_{u_i},b_{u_i}))\)</span></li>
 </ul>
-<p>根据这个基本方程，由于选择了被加工的工件集合作为状态，那么总共的可能的集合数量$2^n$势必会出现在时间复杂度中，因此这个方法至少是一个$O(2^n)$的算法。</p>
-<p>基于动态规划框架的修改包括选取 $(X, t)$ 为状态，其中 $X$ 是待加工工件集合，$t$ 是机床 B 滞后于机床 A 的相对时间。如此可以代替PUNISH函数的复杂定义。更好的方法是将问题转化为贪心算法：</p>
+<p>根据这个基本方程，由于选择了被加工的工件集合作为状态，那么总共的可能的集合数量<span
+class="math inline">\(2^n\)</span>势必会出现在时间复杂度中，因此这个方法至少是一个<span
+class="math inline">\(O(2^n)\)</span>的算法。</p>
+<p>基于动态规划框架的修改包括选取 <span class="math inline">\((X,
+t)\)</span> 为状态，其中 <span class="math inline">\(X\)</span>
+是待加工工件集合，<span class="math inline">\(t\)</span> 是机床 B
+滞后于机床 A
+的相对时间。如此可以代替PUNISH函数的复杂定义。更好的方法是将问题转化为贪心算法：</p>
 <ul>
-<li>在所有未排序工件的加工时间 ${a_1 \dots a_n, b_1 \dots b_n}$ 中寻找最小值。</li>
-<li>若最小值为 $a_i$（在机床 A 上的时间），则将工件 $i$ 排在最前面。</li>
-<li>若最小值为 $b_i$（在机床 B 上的时间），则将工件 $i$ 排在最后面。</li>
+<li>在所有未排序工件的加工时间 <span class="math inline">\(\{a_1 \dots
+a_n, b_1 \dots b_n\}\)</span> 中寻找最小值。</li>
+<li>若最小值为 <span class="math inline">\(a_i\)</span>（在机床 A
+上的时间），则将工件 <span class="math inline">\(i\)</span>
+排在最前面。</li>
+<li>若最小值为 <span class="math inline">\(b_i\)</span>（在机床 B
+上的时间），则将工件 <span class="math inline">\(i\)</span>
+排在最后面。</li>
 <li>从集合中移除该工件，重复上述步骤直至排完。</li>
 </ul>
 <p>这种算法被称为<strong>约翰逊法则</strong>。</p>
-<h3 id="3-1-3-使用动态规划思想的示例"><a href="#3-1-3-使用动态规划思想的示例" class="headerlink" title="3.1.3 使用动态规划思想的示例"></a>3.1.3 使用动态规划思想的示例</h3><h4 id="计算二项式系数、最长公共子序列、矩阵链相乘"><a href="#计算二项式系数、最长公共子序列、矩阵链相乘" class="headerlink" title="计算二项式系数、最长公共子序列、矩阵链相乘"></a>计算二项式系数、最长公共子序列、矩阵链相乘</h4><p>除此之外，计算二项式系数、最长公共子序列和矩阵链相乘也可以使用动态规划算法求解，将问题展示于此：</p>
-<p>二项式系数 $C(n, k)$ 表示从 $n$ 个元素集合中选取 $k$ 个元素的组合数（子集数量），其中 $0 \le k \le n$。它因出现在二项式定理的展开式系数中而得名。</p>
-<p>边界条件：$C(n, 0) = 1$/$C(n, n) = 1$</p>
-<p>递推关系：<script type="math/tex">C(n, k) = C(n-1, k-1) + C(n-1, k)</script></p>
+<h3 id="使用动态规划思想的示例">3.1.3 使用动态规划思想的示例</h3>
+<h4
+id="计算二项式系数最长公共子序列矩阵链相乘">计算二项式系数、最长公共子序列、矩阵链相乘</h4>
+<p>除此之外，计算二项式系数、最长公共子序列和矩阵链相乘也可以使用动态规划算法求解，将问题展示于此：</p>
+<p>二项式系数 <span class="math inline">\(C(n, k)\)</span> 表示从 <span
+class="math inline">\(n\)</span> 个元素集合中选取 <span
+class="math inline">\(k\)</span> 个元素的组合数（子集数量），其中 <span
+class="math inline">\(0 \le k \le
+n\)</span>。它因出现在二项式定理的展开式系数中而得名。</p>
+<p>边界条件：<span class="math inline">\(C(n, 0) = 1\)</span>/<span
+class="math inline">\(C(n, n) = 1\)</span></p>
+<p>递推关系：<span class="math display">\[C(n, k) = C(n-1, k-1) + C(n-1,
+k)\]</span></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Binomial(n, k)</span><br><span class="line">    for i ← 0 to n do</span><br><span class="line">        for j ← 0 to min(i, k) do</span><br><span class="line">            if j = 0 or j = i then</span><br><span class="line">                C[i, j] ← 1</span><br><span class="line">            else</span><br><span class="line">                C[i, j] ← C[i-1, j-1] + C[i-1, j]</span><br><span class="line">    return C[n, k]</span><br></pre></td></tr></table></figure>
-<hr>
-<p>子序列是在原序列中删除若干元素（也可以不删）后得到的序列，保持相对顺序不变。例如$X = {A, B, C, B, D, A, B}$，其子序列可以是 ${B, C, D, B}$。</p>
-<p>给定两个序列 $X={x_1, \dots, x_m}$ 和 $Y={y_1, \dots, y_n}$，找出它们的一个最长公共子序列。</p>
+<hr />
+<p>子序列是在原序列中删除若干元素（也可以不删）后得到的序列，保持相对顺序不变。例如<span
+class="math inline">\(X = \{A, B, C, B, D, A,
+B\}\)</span>，其子序列可以是 <span class="math inline">\(\{B, C, D,
+B\}\)</span>。</p>
+<p>给定两个序列 <span class="math inline">\(X=\{x_1, \dots,
+x_m\}\)</span> 和 <span class="math inline">\(Y=\{y_1, \dots,
+y_n\}\)</span>，找出它们的一个最长公共子序列。</p>
 <p>动规的思想是维护一个二维表格，记录到第一个序列的位置i和第二个序列的位置j，可形成的最长子序列的长度。</p>
-<p>其动规递推公式为：</p>
-<script type="math/tex; mode=display">L[i, j] = \begin{cases}
-0 & \text{若 } i=0 \text{ 或 } j=0 \\
-L[i-1, j-1] + 1 & \text{若 } x\_i = y\_j \\
-\max(L[i, j-1], L[i-1, j]) & \text{若 } x\_i \neq y\_j
-\end{cases}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Algorithm LCS(A, B, n, m)</span><br><span class="line">    // 初始化边界</span><br><span class="line">    for i ← 0 to n do L[i, 0] ← 0</span><br><span class="line">    for j ← 0 to m do L[0, j] ← 0</span><br><span class="line">    </span><br><span class="line">    // 填表</span><br><span class="line">    for i ← 1 to n dos</span><br><span class="line">        for j ← 1 to m do</span><br><span class="line">            if A[i] = B[j] then</span><br><span class="line">                L[i, j] ← L[i-1, j-1] + 1</span><br><span class="line">            else</span><br><span class="line">                L[i, j] ← max(L[i, j-1], L[i-1, j])</span><br><span class="line">    return L[n, m]</span><br></pre></td></tr></table></figure>
-<hr>
-<p>矩阵乘法满足结合律，即 $(M_1 M_2) M_3 = M_1 (M_2 M_3)$，但不同的计算顺序（加括号的方式）会导致极为不同的标量乘法次数。</p>
-<p>给定 $n$ 个矩阵的链，找到一种加括号方案，使得总的数量乘法次数最少。</p>
+<p>其动规递推公式为： <span class="math display">\[L[i, j] =
+\begin{cases}
+0 &amp; \text{若 } i=0 \text{ 或 } j=0 \\
+L[i-1, j-1] + 1 &amp; \text{若 } x\_i = y\_j \\
+\max(L[i, j-1], L[i-1, j]) &amp; \text{若 } x\_i \neq y\_j
+\end{cases}\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Algorithm LCS(A, B, n, m)</span><br><span class="line">    // 初始化边界</span><br><span class="line">    for i ← 0 to n do L[i, 0] ← 0</span><br><span class="line">    for j ← 0 to m do L[0, j] ← 0</span><br><span class="line">    </span><br><span class="line">    // 填表</span><br><span class="line">    for i ← 1 to n dos</span><br><span class="line">        for j ← 1 to m do</span><br><span class="line">            if A[i] = B[j] then</span><br><span class="line">                L[i, j] ← L[i-1, j-1] + 1</span><br><span class="line">            else</span><br><span class="line">                L[i, j] ← max(L[i, j-1], L[i-1, j])</span><br><span class="line">    return L[n, m]</span><br></pre></td></tr></table></figure>
+<hr />
+<p>矩阵乘法满足结合律，即 <span class="math inline">\((M_1 M_2) M_3 =
+M_1 (M_2
+M_3)\)</span>，但不同的计算顺序（加括号的方式）会导致极为不同的标量乘法次数。</p>
+<p>给定 <span class="math inline">\(n\)</span>
+个矩阵的链，找到一种加括号方案，使得总的数量乘法次数最少。</p>
 <p>这种算法本身有点类似于双指针问题，与子序列算法很像：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Algorithm MemoizedMatrixChain(r)</span><br><span class="line">1. n ← length[r] - 1</span><br><span class="line">2. for i ← 1 to n do</span><br><span class="line">3.    for j ← 1 to n do</span><br><span class="line">4.       M[i, j] ← Infinity</span><br><span class="line">5.    end for</span><br><span class="line">6. end for</span><br><span class="line">7. return LookupChain(M, r, 1, n)</span><br><span class="line"></span><br><span class="line">Algorithm LookupChain(M, r, i, j)</span><br><span class="line">1. if M[i, j] &lt; Infinity then</span><br><span class="line">2.    return M[i, j]</span><br><span class="line">3. end if</span><br><span class="line">4. if i = j then</span><br><span class="line">5.    M[i, j] ← 0</span><br><span class="line">6.    return 0</span><br><span class="line">7. end if</span><br><span class="line">8.  for k ← i + 1 to j do</span><br><span class="line">9.     q ← LookupChain(M, r, i, k-1) + LookupChain(M, r, k, j) + r[i] * r[k] * r[j+1]</span><br><span class="line">10.    if q &lt; M[i, j] then</span><br><span class="line">11.       M[i, j] ← q</span><br><span class="line">12.    end if</span><br><span class="line">13. end for</span><br><span class="line">14. return M[i, j]</span><br></pre></td></tr></table></figure>
 <p>以上伪代码使用了自顶向上的写法，可做参考。</p>
-<h4 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0/1背包问题"></a>0/1背包问题</h4><p>$U={u_1, u_2, \dots, u_n}$ 是一个准备放入容量为 $C$ 的背包中的 $n$ 项物品的集合。对于 $1 \le j \le n$，令 $s_j$ 和 $v_j$ 分别为第 $j$ 项物品的体积和价值，$C, s_j, v_j$ 都是正整数。</p>
-<p>用 $U$ 中的一些物品来装背包，这些物品的总体积不超过 $C$，然而要使它们的总价值最大。假设每项物品的体积不大于 $C$，给出有 $n$ 项物品的 $U$，我们要找出一个子集合 $S \subseteq U$，使得 $\sum<em>{u_i \in S} v_i$ 在约束条件 $\sum</em>{u_i \in S} s_i \le C$ 下最大。</p>
+<h4 id="背包问题">0/1背包问题</h4>
+<p><span class="math inline">\(U=\{u_1, u_2, \dots, u_n\}\)</span>
+是一个准备放入容量为 <span class="math inline">\(C\)</span> 的背包中的
+<span class="math inline">\(n\)</span> 项物品的集合。对于 <span
+class="math inline">\(1 \le j \le n\)</span>，令 <span
+class="math inline">\(s_j\)</span> 和 <span
+class="math inline">\(v_j\)</span> 分别为第 <span
+class="math inline">\(j\)</span> 项物品的体积和价值，<span
+class="math inline">\(C, s_j, v_j\)</span> 都是正整数。</p>
+<p>用 <span class="math inline">\(U\)</span>
+中的一些物品来装背包，这些物品的总体积不超过 <span
+class="math inline">\(C\)</span>，然而要使它们的总价值最大。假设每项物品的体积不大于
+<span class="math inline">\(C\)</span>，给出有 <span
+class="math inline">\(n\)</span> 项物品的 <span
+class="math inline">\(U\)</span>，我们要找出一个子集合 <span
+class="math inline">\(S \subseteq U\)</span>，使得 <span
+class="math inline">\(\sum_{u_i \in S} v_i\)</span> 在约束条件 <span
+class="math inline">\(\sum_{u_i \in S} s_i \le C\)</span> 下最大。</p>
 <p>这是一个组合问题。类似的问题我们在排序问题中见到过，如果直接使用每次选择的集合作为状态变量，会导致指数级别的时间复杂度。</p>
 <p>如果我们希望考虑第k的物体要不要放进去，递推式应该类似于：</p>
-<script type="math/tex; mode=display">V_k = min\{V_{k-1}(-)+v_k, V_{k-1}(-)\}</script><p>V_k应该与某个状态有关，但为了避免指数级别的时间复杂度，应该避免直接使用已经选择的集合作为状态变量，唯一剩余的性质，也就是占用的空间大小了。最终的递归式应该类似于：</p>
-<script type="math/tex; mode=display">V[i, j]= \begin{cases}0 & \text { 若 } i=0 \text { 或 } j=0 \\ V[i-1, j] & \text { 若 } j \backslash<s_{-} i \\ \max V[i-1, j], V\left[i-1, j-s_{-} i\right]+v_{-} i & \text { 若 } j \geq s_{-} i\end{cases}</script><p>这个算法的复杂度是$O(n \cdot C)$，但是注意，这并不是一个多项式算法，这个算法的复杂度取决于背包容量C，因此当C非常大时，算法效率会降低，通常被称作伪多项式算法。</p>
-<hr>
-<h4 id="所有点对的最短路径问题"><a href="#所有点对的最短路径问题" class="headerlink" title="所有点对的最短路径问题"></a>所有点对的最短路径问题</h4><p>设 $G = (V, E)$ 是一个有向图，其中的每条边 $(i, j)$ 有一个非负的长度 $l[i, j]$。如果从顶点 $i$ 到顶点 $j$ 没有边，则 $l[i, j] = \infty$。</p>
-<p>问题：找出从每个顶点到其他所有顶点的距离（从顶点 $x$ 到顶点 $y$ 的距离是指从 $x$ 到 $y$ 的最短路径的长度）。</p>
-<p>假设 $V = {1, 2, \dots, n}$。设 $i$ 和 $j$ 是 $V$ 中两个不同的顶点，容易想到$d_{i,j}$是出现在递归方程中，递归方程应该符合类似于：</p>
-<script type="math/tex; mode=display">d_{i,j}(?) = min(d_{i,j}(?-1) + cost)</script><p>的形式。与上一个问题缺少状态不同，这个问题缺少了阶段的定义。定义 $d^k_{i,j}$ 是从 $i$ 到 $j$，并且不经过 ${k+1, k+2, \dots, n}$ 中任何顶点的最短路径的长度，即可得到递归式：</p>
-<script type="math/tex; mode=display">d^k_{i,j} = \begin{cases} l[i, j] & \text{若 } k=0 \\ \min \{ d^{k-1}_{i,j}, \quad d^{k-1}_{i,k} + d^{k-1}_{k,j} \} & \text{若 } 1 \le k \le n \end{cases}</script><p>在上述递归式中，使用$n\times n$的矩阵$D_k$来代替张量进行迭代，极为Floyd算法，能计算出每个顶点到其他所有顶点的距离。</p>
+<p><span class="math display">\[V_k = min\{V_{k-1}(-)+v_k,
+V_{k-1}(-)\}\]</span></p>
+<p>V_k应该与某个状态有关，但为了避免指数级别的时间复杂度，应该避免直接使用已经选择的集合作为状态变量，唯一剩余的性质，也就是占用的空间大小了。最终的递归式应该类似于：</p>
+<p><span class="math display">\[V[i, j]= \begin{cases}0 &amp; \text { 若
+} i=0 \text { 或 } j=0 \\ V[i-1, j] &amp; \text { 若 } j
+\backslash&lt;s_{-} i \\ \max V[i-1, j], V\left[i-1, j-s_{-}
+i\right]+v_{-} i &amp; \text { 若 } j \geq s_{-}
+i\end{cases}\]</span></p>
+<p>这个算法的复杂度是<span class="math inline">\(O(n \cdot
+C)\)</span>，但是注意，这并不是一个多项式算法，这个算法的复杂度取决于背包容量C，因此当C非常大时，算法效率会降低，通常被称作伪多项式算法。</p>
+<hr />
+<h4 id="所有点对的最短路径问题">所有点对的最短路径问题</h4>
+<p>设 <span class="math inline">\(G = (V, E)\)</span>
+是一个有向图，其中的每条边 <span class="math inline">\((i, j)\)</span>
+有一个非负的长度 <span class="math inline">\(l[i,
+j]\)</span>。如果从顶点 <span class="math inline">\(i\)</span> 到顶点
+<span class="math inline">\(j\)</span> 没有边，则 <span
+class="math inline">\(l[i, j] = \infty\)</span>。</p>
+<p>问题：找出从每个顶点到其他所有顶点的距离（从顶点 <span
+class="math inline">\(x\)</span> 到顶点 <span
+class="math inline">\(y\)</span> 的距离是指从 <span
+class="math inline">\(x\)</span> 到 <span
+class="math inline">\(y\)</span> 的最短路径的长度）。</p>
+<p>假设 <span class="math inline">\(V = \{1, 2, \dots, n\}\)</span>。设
+<span class="math inline">\(i\)</span> 和 <span
+class="math inline">\(j\)</span> 是 <span
+class="math inline">\(V\)</span> 中两个不同的顶点，容易想到<span
+class="math inline">\(d_{i,j}\)</span>是出现在递归方程中，递归方程应该符合类似于：</p>
+<p><span class="math display">\[d_{i,j}(?) = min(d_{i,j}(?-1) + cost)
+\]</span></p>
+<p>的形式。与上一个问题缺少状态不同，这个问题缺少了阶段的定义。定义
+<span class="math inline">\(d^k_{i,j}\)</span> 是从 <span
+class="math inline">\(i\)</span> 到 <span
+class="math inline">\(j\)</span>，并且不经过 <span
+class="math inline">\(\{k+1, k+2, \dots, n\}\)</span>
+中任何顶点的最短路径的长度，即可得到递归式： <span
+class="math display">\[d^k_{i,j} = \begin{cases} l[i, j] &amp; \text{若
+} k=0 \\ \min \{ d^{k-1}_{i,j}, \quad d^{k-1}_{i,k} + d^{k-1}_{k,j} \}
+&amp; \text{若 } 1 \le k \le n \end{cases}\]</span></p>
+<p>在上述递归式中，使用<span class="math inline">\(n\times
+n\)</span>的矩阵<span
+class="math inline">\(D_k\)</span>来代替张量进行迭代，极为Floyd算法，能计算出每个顶点到其他所有顶点的距离。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Algorithm FLOYD</span><br><span class="line">1. D ← l  </span><br><span class="line">2. for k ← 1 to n do</span><br><span class="line">3.    for i ← 1 to n do</span><br><span class="line">4.       for j ← 1 to n do</span><br><span class="line">5.          D[i,j] = min&#123; D[i,j], D[i,k] + D[k,j] &#125;</span><br><span class="line">6.       end for</span><br><span class="line">7.    end for</span><br><span class="line">8. end for</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="分组背包问题"><a href="#分组背包问题" class="headerlink" title="分组背包问题"></a>分组背包问题</h4><p>给定背包容量 $W$ 与 $N$ 个物品，每个物品 $i$ 定义为三元组 $(w<em>i, v_i, q_i)$，其中 $w_i$ 为重量，$v_i$ 为价值，$q_i$ 为依赖索引（若 $q_i=0$ 则 $i$ 为主件；若 $q_i&gt;0$ 则 $i$ 为依赖于主件 $q_i$ 的附件，且每个主件最多有 2 个附件）；目标是寻找二元决策向量 $\mathbf{x} = {x_1, x_2, …, x_N} \in {0,1}^N$，在满足容量约束 $\sum</em>{i=1}^N w<em>i x_i \le W$ 以及依赖约束 $\forall i: q_i &gt; 0, x_i = 1 \implies x</em>{q<em>i} = 1$ 的前提下，最大化总价值 $Z = \sum</em>{i=1}^N v_i x_i$。</p>
+<hr />
+<h4 id="分组背包问题">分组背包问题</h4>
+<p>给定背包容量 <span class="math inline">\(W\)</span> 与 <span
+class="math inline">\(N\)</span> 个物品，每个物品 <span
+class="math inline">\(i\)</span> 定义为三元组 <span
+class="math inline">\((w_i, v_i, q_i)\)</span>，其中 <span
+class="math inline">\(w_i\)</span> 为重量，<span
+class="math inline">\(v_i\)</span> 为价值，<span
+class="math inline">\(q_i\)</span> 为依赖索引（若 <span
+class="math inline">\(q_i=0\)</span> 则 <span
+class="math inline">\(i\)</span> 为主件；若 <span
+class="math inline">\(q_i&gt;0\)</span> 则 <span
+class="math inline">\(i\)</span> 为依赖于主件 <span
+class="math inline">\(q_i\)</span> 的附件，且每个主件最多有 2
+个附件）；目标是寻找二元决策向量 <span class="math inline">\(\mathbf{x}
+= \{x_1, x_2, ..., x_N\} \in \{0,1\}^N\)</span>，在满足容量约束 <span
+class="math inline">\(\sum_{i=1}^N w_i x_i \le W\)</span> 以及依赖约束
+<span class="math inline">\(\forall i: q_i &gt; 0, x_i = 1 \implies
+x_{q_i} = 1\)</span> 的前提下，最大化总价值 <span
+class="math inline">\(Z = \sum_{i=1}^N v_i x_i\)</span>。</p>
 <p>与0/1背包问题相似，我们容易看出递推方程应该符合</p>
-<script type="math/tex; mode=display">Z_i(?) = min(Z_{i-1}(?(w_i,q_i))+v_i, Z_{i-1}(?(0,0)))</script><p>同样需要定义状态。如果我们要记录主件，也会导致如之前提及的指数级别的时间复杂度。注意到，附件只依赖于对应主件，因此可以分组解决该问题，重新定义阶段为考虑第i个主件。</p>
-<p>写出递归方程（先不考虑边界）：</p>
-<script type="math/tex; mode=display">V[i,j] = \max \left( V[i-1,j], \quad \max_{(w, v) \in S_k \text{ 且 } w \le j} \{ V[i-1,j - w] + v \} \right)</script><hr>
-<h4 id="戳气球"><a href="#戳气球" class="headerlink" title="戳气球"></a>戳气球</h4><p>给定一个正整数序列 $N = (n<em>1, n_2, \dots, n_k)$，代表 $k$ 个气球上的标号。<br>为了方便处理边界，我们预先在序列两端添加两个虚拟气球，标号均为 1。<br>现在的序列为 $A = (a_0, a_1, \dots, a</em>{k}, a<em>{k+1})$，其中 $a_0 = a</em>{k+1} = 1$，且 $a_i = n_i$ (对于 $1 \le i \le k$)。</p>
-<p>每次选择一个索引 $i$ ($1 \le i \le k$) 进行“戳破”。<br>获得收益 $V = a<em>{left} \times a_i \times a</em>{right}$。</p>
-<p>寻找一个消除序列（即 $1$ 到 $k$ 的全排列），使得依次戳破所有气球（仅剩两个虚拟边界）后，获得的总收益 $\sum V$ 最大。</p>
+<p><span class="math display">\[Z_i(?) = min(Z_{i-1}(?(w_i,q_i))+v_i,
+Z_{i-1}(?(0,0)))\]</span></p>
+<p>同样需要定义状态。如果我们要记录主件，也会导致如之前提及的指数级别的时间复杂度。注意到，附件只依赖于对应主件，因此可以分组解决该问题，重新定义阶段为考虑第i个主件。</p>
+<p>写出递归方程（先不考虑边界）： <span class="math display">\[V[i,j] =
+\max \left( V[i-1,j], \quad \max_{(w, v) \in S_k \text{ 且 } w \le j} \{
+V[i-1,j - w] + v \} \right)\]</span></p>
+<hr />
+<h4 id="戳气球">戳气球</h4>
+<p>给定一个正整数序列 <span class="math inline">\(N = (n_1, n_2, \dots,
+n_k)\)</span>，代表 <span class="math inline">\(k\)</span>
+个气球上的标号。
+为了方便处理边界，我们预先在序列两端添加两个虚拟气球，标号均为 1。
+现在的序列为 <span class="math inline">\(A = (a_0, a_1, \dots, a_{k},
+a_{k+1})\)</span>，其中 <span class="math inline">\(a_0 = a_{k+1} =
+1\)</span>，且 <span class="math inline">\(a_i = n_i\)</span> (对于
+<span class="math inline">\(1 \le i \le k\)</span>)。</p>
+<p>每次选择一个索引 <span class="math inline">\(i\)</span> (<span
+class="math inline">\(1 \le i \le k\)</span>) 进行“戳破”。 获得收益
+<span class="math inline">\(V = a_{left} \times a_i \times
+a_{right}\)</span>。</p>
+<p>寻找一个消除序列（即 <span class="math inline">\(1\)</span> 到 <span
+class="math inline">\(k\)</span>
+的全排列），使得依次戳破所有气球（仅剩两个虚拟边界）后，获得的总收益
+<span class="math inline">\(\sum V\)</span> 最大。</p>
 <p>我们希望去得到一个排列，如果直接输出，显然时间复杂度是指数级别。为此，我们应该用表格构建过程中的某个中间量来指示序列。理想情况下，表格每次迭代可能会指出排列的位置。</p>
 <p>我们之前的方法，比如0/1背包问题，将“选择谁不选择谁”的问题，转化为了在如果一个片段已经最优化，那增加一个元素时会发生什么的问题。增加的元素如果被接纳，那么这个元素的序号被记录。</p>
 <p>而这个问题，包括之前讨论过的矩阵相乘问题。它本质上是结构划分问题，每一次决策都是在将大区间切割成两个独立的子结构。某种意义上，可以认为是分治和减治的差异。所以那个切割点正是我们要记录进排列中的内容。</p>
 <p>递归方程：</p>
-<script type="math/tex; mode=display">dp[i][j] = \max_{i < k < j} \{ dp[i][k] + dp[k][j] + \mathbf{nums[i] \cdot nums[k] \cdot nums[j]} \}</script><p>这种问题还包括：</p>
-<p>有一个凸多边形，顶点按顺时针方向依次标记为 $A[0], A[1], …, A[N-1]$。每个顶点 $A[i]$ 都有一个正整数权值 $v_i$。要将这个凸多边形剖分成 $N-2$ 个三角形：</p>
-<ul>
-<li>你可以连接任意两个不相邻的顶点形成一条对角线，但对角线之间不能在多边形内部相交。</li>
-<li>每形成一个三角形（由顶点 $i, j, k$ 组成），该三角形的“得分”为三个顶点权值的乘积：$v_i \times v_j \times v_k$</li>
-</ul>
+<p><span class="math display">\[dp[i][j] = \max_{i &lt; k &lt; j} \{
+dp[i][k] + dp[k][j] + \mathbf{nums[i] \cdot nums[k] \cdot nums[j]}
+\}\]</span></p>
+<p>这种问题还包括：</p>
+<p>有一个凸多边形，顶点按顺时针方向依次标记为 <span
+class="math inline">\(A[0], A[1], ..., A[N-1]\)</span>。每个顶点 <span
+class="math inline">\(A[i]\)</span> 都有一个正整数权值 <span
+class="math inline">\(v_i\)</span>。要将这个凸多边形剖分成 <span
+class="math inline">\(N-2\)</span> 个三角形： -
+你可以连接任意两个不相邻的顶点形成一条对角线，但对角线之间不能在多边形内部相交。
+- 每形成一个三角形（由顶点 <span class="math inline">\(i, j, k\)</span>
+组成），该三角形的“得分”为三个顶点权值的乘积：<span
+class="math inline">\(v_i \times v_j \times v_k\)</span></p>
 <p>相比于这个问题可能更加清晰一些。</p>
-<hr>
-<h4 id="有向图的传递闭包"><a href="#有向图的传递闭包" class="headerlink" title="有向图的传递闭包"></a>有向图的传递闭包</h4><p>定义一个 $n$ 顶点有向图的传递闭包为一个 $n$ 阶布尔矩阵 $T = {t<em>{ij}}$。如果从顶点 $i$ 到顶点 $j$ 存在一条有效的有向路径，则 $t</em>{ij}=1$，否则为 0。</p>
-<p>直接遍历（DFS/BFS）效率较低，<strong>Warshall 算法</strong> 提供了一种基于矩阵计算的高效方法。</p>
-<p>该算法构造一系列矩阵 $R^{(0)}, \dots, R^{(n)}$。其中 $R^{(k)}$ 的元素 $r_{ij}^{(k)}$ 为 1 当且仅当存在一条从 $v_i$ 到 $v_j$ 的路径，且路径上所有中间顶点的编号均不大于 $k$。</p>
-<ul>
-<li>$R^{(0)}$：邻接矩阵（无中间顶点）。</li>
-<li>$R^{(n)}$：传递闭包（允许所有顶点作为中间点）。</li>
-</ul>
-<p>对于 $R^{(k)}$ 中的元素，路径分为两种互斥情况：</p>
-<ol>
-<li>不经过 $v<em>k$：路径完全包含在 $1 \dots k-1$ 的范围内，即 $r</em>{ij}^{(k-1)}$。</li>
-<li>经过 $v_k$：路径分解为 $v_i \to v_k$ 和 $v_k \to v_j$，且这两段子路径的中间顶点均 $\le k-1$。</li>
+<hr />
+<h4 id="有向图的传递闭包">有向图的传递闭包</h4>
+<p>定义一个 <span class="math inline">\(n\)</span>
+顶点有向图的传递闭包为一个 <span class="math inline">\(n\)</span>
+阶布尔矩阵 <span class="math inline">\(T =
+\{t_{ij}\}\)</span>。如果从顶点 <span class="math inline">\(i\)</span>
+到顶点 <span class="math inline">\(j\)</span> 存在一条有效的有向路径，则
+<span class="math inline">\(t_{ij}=1\)</span>，否则为 0。</p>
+<p>直接遍历（DFS/BFS）效率较低，<strong>Warshall 算法</strong>
+提供了一种基于矩阵计算的高效方法。</p>
+<p>该算法构造一系列矩阵 <span class="math inline">\(R^{(0)}, \dots,
+R^{(n)}\)</span>。其中 <span class="math inline">\(R^{(k)}\)</span>
+的元素 <span class="math inline">\(r_{ij}^{(k)}\)</span> 为 1
+当且仅当存在一条从 <span class="math inline">\(v_i\)</span> 到 <span
+class="math inline">\(v_j\)</span>
+的路径，且路径上所有中间顶点的编号均不大于 <span
+class="math inline">\(k\)</span>。 * <span
+class="math inline">\(R^{(0)}\)</span>：邻接矩阵（无中间顶点）。 * <span
+class="math inline">\(R^{(n)}\)</span>：传递闭包（允许所有顶点作为中间点）。</p>
+<p>对于 <span class="math inline">\(R^{(k)}\)</span>
+中的元素，路径分为两种互斥情况： 1. 不经过 <span
+class="math inline">\(v_k\)</span>：路径完全包含在 <span
+class="math inline">\(1 \dots k-1\)</span> 的范围内，即 <span
+class="math inline">\(r_{ij}^{(k-1)}\)</span>。 2. 经过 <span
+class="math inline">\(v_k\)</span>：路径分解为 <span
+class="math inline">\(v_i \to v_k\)</span> 和 <span
+class="math inline">\(v_k \to v_j\)</span>，且这两段子路径的中间顶点均
+<span class="math inline">\(\le k-1\)</span>。</p>
+<p><span class="math display">\[r_{ij}^{(k)} = r_{ij}^{(k-1)} \lor
+(r_{ik}^{(k-1)} \land r_{kj}^{(k-1)})\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Warshall(A[1..n, 1..n])</span><br><span class="line">1. R ← A</span><br><span class="line">2. for k ← 1 to n do</span><br><span class="line">3.    for i ← 1 to n do</span><br><span class="line">4.       for j ← 1 to n do</span><br><span class="line">5.          R[i, j] ← R[i, j] or (R[i, k] and R[k, j])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>此算法的时间复杂度为 <span
+class="math inline">\(\Theta(n^3)\)</span>。</p>
+<hr />
+<h4 id="最优二叉查找树">最优二叉查找树</h4>
+<p>在键值查找概率已知（且不均等）的情况下，OBST
+旨在构建一棵平均键值比较次数（即加权路径长度）最低的二叉查找树。这与传统的平衡二叉树不同，高频元素应更靠近根节点。</p>
+<p>设 <span class="math inline">\(a_1, \dots, a_n\)</span>
+为有序键，<span class="math inline">\(p_1, \dots, p_n\)</span>
+为查找概率。令 <span class="math inline">\(C[i, j]\)</span> 为由键 <span
+class="math inline">\(a_i, \dots, a_j\)</span>
+构成的最优二叉树的最小平均查找次数。当选择 <span
+class="math inline">\(a_k\)</span> (<span class="math inline">\(i \le k
+\le j\)</span>) 作为根节点时，左子树 <span class="math inline">\(T_{i,
+k-1}\)</span> 和右子树 <span class="math inline">\(T_{k+1, j}\)</span>
+的所有节点深度均增加
+1。这意味着总成本增加了该子树内所有节点的概率之和。</p>
+<p>递推方程<span class="math display">\[C[i, j] = \min_{i \le k \le j}
+\{ C[i, k-1] + C[k+1, j] \} + \sum_{s=i}^{j} p_s\]</span></p>
+<hr />
+<h3 id="最优性近似与策略迭代">3.1.4最优性近似与策略迭代</h3>
+<p>针对阶段数不确定或无限的多阶段决策问题（如不定步数最短路），传统的递推无法确定边界
+<span
+class="math inline">\(N\)</span>。此类问题通常通过迭代逼近求解。</p>
+<ol type="1">
+<li><p>逐次逼近法 (Successive Approximation)即值迭代 (Value
+Iteration)。通过不断增加步数 <span
+class="math inline">\(k\)</span>，计算指标函数 <span
+class="math inline">\(f_k(i)\)</span> 直至收敛： <span
+class="math display">\[f_k(i) = \min_j \{ c_{ij} + f_{k-1}(j)
+\}\]</span></p></li>
+<li><p>策略迭代法 (Policy
+Iteration)将“策略”与“价值”解耦，通过交替更新来逼近最优。
+初始化：选择一个无回路的初始策略 <span
+class="math inline">\(u_0(i)\)</span>（即在状态 <span
+class="math inline">\(i\)</span> 下采取的动作）。 策略评估 (Policy
+Evaluation)：基于当前策略 <span
+class="math inline">\(u_k\)</span>，求解方程组得到该策略下的价值函数
+<span class="math inline">\(f_k(i)\)</span>：<span
+class="math display">\[f_k(i) = c_{i, u_k(i)} + f_k[u_k(i)]\]</span>
+策略改进 (Policy Improvement)：利用计算出的 <span
+class="math inline">\(f_k\)</span>，贪心地寻找更优策略 <span
+class="math inline">\(u_{k+1}\)</span>：<span
+class="math display">\[u_{k+1}(i) \leftarrow \arg\min_u \{ c_{i,u} +
+f_k(u) \}\]</span> 重复上述步骤，直到 <span class="math inline">\(u_k(i)
+= u_{k-1}(i)\)</span> 对所有 <span class="math inline">\(i\)</span>
+成立，此时获得最优策略。</p></li>
 </ol>
-<script type="math/tex; mode=display">r_{ij}^{(k)} = r_{ij}^{(k-1)} \lor (r_{ik}^{(k-1)} \land r_{kj}^{(k-1)})</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Warshall(A[1..n, 1..n])</span><br><span class="line">1. R ← A</span><br><span class="line">2. for k ← 1 to n do</span><br><span class="line">3.    for i ← 1 to n do</span><br><span class="line">4.       for j ← 1 to n do</span><br><span class="line">5.          R[i, j] ← R[i, j] or (R[i, k] and R[k, j])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>此算法的时间复杂度为 $\Theta(n^3)$。</p>
-<hr>
-<h4 id="最优二叉查找树"><a href="#最优二叉查找树" class="headerlink" title="最优二叉查找树"></a>最优二叉查找树</h4><p>在键值查找概率已知（且不均等）的情况下，OBST 旨在构建一棵平均键值比较次数（即加权路径长度）最低的二叉查找树。这与传统的平衡二叉树不同，高频元素应更靠近根节点。</p>
-<p>设 $a<em>1, \dots, a_n$ 为有序键，$p_1, \dots, p_n$ 为查找概率。令 $C[i, j]$ 为由键 $a_i, \dots, a_j$ 构成的最优二叉树的最小平均查找次数。当选择 $a_k$ ($i \le k \le j$) 作为根节点时，左子树 $T</em>{i, k-1}$ 和右子树 $T_{k+1, j}$ 的所有节点深度均增加 1。这意味着总成本增加了该子树内所有节点的概率之和。</p>
-<p>递推方程<script type="math/tex">C[i, j] = \min_{i \le k \le j} \{ C[i, k-1] + C[k+1, j] \} + \sum_{s=i}^{j} p_s</script></p>
-<hr>
-<h3 id="3-1-4最优性近似与策略迭代"><a href="#3-1-4最优性近似与策略迭代" class="headerlink" title="3.1.4最优性近似与策略迭代"></a>3.1.4最优性近似与策略迭代</h3><p>针对阶段数不确定或无限的多阶段决策问题（如不定步数最短路），传统的递推无法确定边界 $N$。此类问题通常通过迭代逼近求解。</p>
-<ol>
-<li><p>逐次逼近法 (Successive Approximation)即值迭代 (Value Iteration)。通过不断增加步数 $k$，计算指标函数 $f_k(i)$ 直至收敛：</p>
-<script type="math/tex; mode=display">f_k(i) = \min_j \{ c_{ij} + f_{k-1}(j) \}</script></li>
-<li><p>策略迭代法 (Policy Iteration)将“策略”与“价值”解耦，通过交替更新来逼近最优。<br> 初始化：选择一个无回路的初始策略 $u<em>0(i)$（即在状态 $i$ 下采取的动作）。<br> 策略评估 (Policy Evaluation)：基于当前策略 $u_k$，求解方程组得到该策略下的价值函数 $f_k(i)$：$$f_k(i) = c</em>{i, u<em>k(i)} + f_k[u_k(i)]$$<br> 策略改进 (Policy Improvement)：利用计算出的 $f_k$，贪心地寻找更优策略 $u</em>{k+1}$：<script type="math/tex">u_{k+1}(i) \leftarrow \arg\min_u \{ c_{i,u} + f_k(u) \}</script><br> 重复上述步骤，直到 $u<em>k(i) = u</em>{k-1}(i)$ 对所有 $i$ 成立，此时获得最优策略。</p>
-</li>
-</ol>
-<h2 id="3-2-回溯法-Backtracking"><a href="#3-2-回溯法-Backtracking" class="headerlink" title="3.2 回溯法 (Backtracking)"></a>3.2 回溯法 (Backtracking)</h2><p>许多问题都可以穷尽有限搜索空间来得到解，而又存在许多仅有穷尽搜索一种解法的算法。对于这些算法，通常需要减少搜索空间。</p>
+<h2 id="回溯法-backtracking">3.2 回溯法 (Backtracking)</h2>
+<p>许多问题都可以穷尽有限搜索空间来得到解，而又存在许多仅有穷尽搜索一种解法的算法。对于这些算法，通常需要减少搜索空间。</p>
 <blockquote>
-<p><strong>P问题和NP问题</strong><br><strong>P 类问题</strong> (Polynomial time)是可以在多项式时间 (Polynomial Time) 内被计算机解决的问题<br><strong>NP 类问题</strong>是可以在多项式时间内被验证 (Verify) 一个解的问题。如哈密尔顿回路：给你一张图，让你找回路很难。但如果我给你一条路径，你检查它是否经过所有点且首尾相连，非常快。<br><strong>NP-完全</strong> (NP-Complete) 需要满足问题 $X$ 本身的解可以在多项式时间内被验证。任何 NP 问题都可以在多项式时间内归约 (Reduce) 为问题 $X$。[如果能找到一个多项式时间的算法来解决问题 $X$，那么所有的 NP 问题（比如哈密尔顿回路、3着色、背包问题）都可以转化为 $X$ 并在多项式时间内解决。NP-Hard]</p>
+<p><strong>P问题和NP问题</strong> <strong>P 类问题</strong> (Polynomial
+time)是可以在多项式时间 (Polynomial Time) 内被计算机解决的问题
+<strong>NP 类问题</strong>是可以在多项式时间内被验证 (Verify)
+一个解的问题。如哈密尔顿回路：给你一张图，让你找回路很难。但如果我给你一条路径，你检查它是否经过所有点且首尾相连，非常快。
+<strong>NP-完全</strong> (NP-Complete) 需要满足问题 <span
+class="math inline">\(X\)</span> 本身的解可以在多项式时间内被验证。任何
+NP 问题都可以在多项式时间内归约 (Reduce) 为问题 <span
+class="math inline">\(X\)</span>。[如果能找到一个多项式时间的算法来解决问题
+<span class="math inline">\(X\)</span>，那么所有的 NP
+问题（比如哈密尔顿回路、3着色、背包问题）都可以转化为 <span
+class="math inline">\(X\)</span> 并在多项式时间内解决。NP-Hard]</p>
 </blockquote>
 <p>组织搜索的一般技术之一是<strong>回溯法</strong>。这种算法设计技术可以被描述为有组织的穷尽搜索，它常常可以避免搜索所有的可能性。</p>
-<h3 id="3-2-1-回溯法"><a href="#3-2-1-回溯法" class="headerlink" title="3.2.1 回溯法"></a>3.2.1 回溯法</h3><p>回溯法针对所要做的选择：</p>
-<ul>
-<li>构造一棵所谓的 状态空间树，树的每一层节点代表了对解的每一个分量所做的选择。</li>
-<li>用深度优先法 (DFS) 搜索状态空间树。</li>
-<li>在状态空间树中的任一节点，满足一定条件的情况下，搜索回溯（即：如果当前节点不包含有效解，则停止沿该分支的搜索，返回上一层）。</li>
-</ul>
-<h3 id="3-2-2-典型应用"><a href="#3-2-2-典型应用" class="headerlink" title="3.2.2 典型应用"></a>3.2.2 典型应用</h3><h4 id="3着色问题"><a href="#3着色问题" class="headerlink" title="3着色问题"></a>3着色问题</h4><p>给出一个无向图 $G=(V, E)$，需要用三种颜色之一为 $V$ 中的每个顶点着色，三种颜色分别为 1，2 和 3，使得没有两个邻接的顶点有同样的颜色。</p>
-<p>一种着色可以用 $n$ 元组 ${c_1, c_2, \dots, c_n}$ 来表示，使 $c_i \in {1, 2, 3}, 1 \le i \le n$。</p>
-<p>一个 $n$ 个顶点的图共有 $3^n$ 种可能的着色，所有可能的着色的集合可以用一棵完全的三叉树来表示，称为搜索树。那么后续的步骤很好理解：</p>
+<h3 id="回溯法">3.2.1 回溯法</h3>
+<p>回溯法针对所要做的选择： - 构造一棵所谓的
+状态空间树，树的每一层节点代表了对解的每一个分量所做的选择。 -
+用深度优先法 (DFS) 搜索状态空间树。 -
+在状态空间树中的任一节点，满足一定条件的情况下，搜索回溯（即：如果当前节点不包含有效解，则停止沿该分支的搜索，返回上一层）。</p>
+<h3 id="典型应用">3.2.2 典型应用</h3>
+<h4 id="着色问题">3着色问题</h4>
+<p>给出一个无向图 <span class="math inline">\(G=(V,
+E)\)</span>，需要用三种颜色之一为 <span class="math inline">\(V\)</span>
+中的每个顶点着色，三种颜色分别为 1，2 和
+3，使得没有两个邻接的顶点有同样的颜色。</p>
+<p>一种着色可以用 <span class="math inline">\(n\)</span> 元组 <span
+class="math inline">\(\{c_1, c_2, \dots, c_n\}\)</span> 来表示，使 <span
+class="math inline">\(c_i \in \{1, 2, 3\}, 1 \le i \le n\)</span>。</p>
+<p>一个 <span class="math inline">\(n\)</span> 个顶点的图共有 <span
+class="math inline">\(3^n\)</span>
+种可能的着色，所有可能的着色的集合可以用一棵完全的三叉树来表示，称为搜索树。那么后续的步骤很好理解：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Algorithm 3-COLORREC</span><br><span class="line">输入：无向图 G=(V, E)。</span><br><span class="line">输出：G 的顶点的 3 着色 c[1...n], 其中每个 c[j] 为 1，2 或 3。</span><br><span class="line">1. for k ← 1 to n</span><br><span class="line">2.    c[k] ← 0</span><br><span class="line">3. end for</span><br><span class="line">4. flag ← false</span><br><span class="line">5. graphcolor(1)</span><br><span class="line">6. if flag then output c</span><br><span class="line">7. else output “no solution”</span><br><span class="line"></span><br><span class="line">Algorithm graphcolor(k)</span><br><span class="line">1. for color = 1 to 3</span><br><span class="line">2.    c[k] ← color</span><br><span class="line">3.    if c 为原问题的合法解 then flag ← true and exit</span><br><span class="line">4.    else if c 是部分解 then graphcolor(k + 1)</span><br><span class="line">5. end for</span><br></pre></td></tr></table></figure>
-<p>代码中的合法解和部分解分别代表：</p>
-<ul>
-<li>如果从根到当前节点的路径对应于一个合法着色，且图中所有点均已着色，过程终止</li>
-<li>如果这条路径的长度小于 $n$，并且相应的着色是合法的</li>
-</ul>
-<p>这种算法的最坏时间复杂度就是树的大小乘以合法性检查所需要O(n)的时间复杂度：$T_{worst} = O(n3^n)$。合法性检查需要遍历某个顶点所有的邻接顶点，因此是O(n)。</p>
-<h4 id="N-皇后问题"><a href="#N-皇后问题" class="headerlink" title="N 皇后问题"></a>N 皇后问题</h4><p>8 皇后问题：如何在 $8 \times 8$ 的国际象棋棋盘上安排 8 个皇后，使得没有两个皇后能互相攻击？（如果两个皇后处在同一行、同一列或同一条对角线上，则她们能互相攻击。）</p>
-<p>因为没有两个皇后能放在同一行或列上，则解向量必须是数 $1, 2, \dots, n$ 的一个排列。即一有 8 个分量的向量 $x={x_1, x_2, x_3, x_4,\dots}$ 来描述。$x_i$ 的值为棋盘上第 $i$ 行的皇后所处的列。</p>
+<p>代码中的合法解和部分解分别代表： -
+如果从根到当前节点的路径对应于一个合法着色，且图中所有点均已着色，过程终止
+- 如果这条路径的长度小于 <span
+class="math inline">\(n\)</span>，并且相应的着色是合法的</p>
+<p>这种算法的最坏时间复杂度就是树的大小乘以合法性检查所需要O(n)的时间复杂度：<span
+class="math inline">\(T_{worst} =
+O(n3^n)\)</span>。合法性检查需要遍历某个顶点所有的邻接顶点，因此是O(n)。</p>
+<h4 id="n-皇后问题">N 皇后问题</h4>
+<p>8 皇后问题：如何在 <span class="math inline">\(8 \times 8\)</span>
+的国际象棋棋盘上安排 8
+个皇后，使得没有两个皇后能互相攻击？（如果两个皇后处在同一行、同一列或同一条对角线上，则她们能互相攻击。）</p>
+<p>因为没有两个皇后能放在同一行或列上，则解向量必须是数 <span
+class="math inline">\(1, 2, \dots, n\)</span> 的一个排列。即一有 8
+个分量的向量 <span class="math inline">\(x=\{x_1, x_2, x_3,
+x_4,\dots\}\)</span> 来描述。<span class="math inline">\(x_i\)</span>
+的值为棋盘上第 <span class="math inline">\(i\)</span>
+行的皇后所处的列。</p>
 <p>以4皇后问题为例，应该生成一颗完全四叉树，树的根对应于没有放置皇后的情况。第一层的节点对应于皇后在第一行的可能放置情况，第二层的节点对应于皇后在第二行的可能放置情况，依次类推。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Algorithm 4-QUEENS</span><br><span class="line">输入：空。</span><br><span class="line">输出：对应于 4 皇后问题的解的向量 x[1...4]。</span><br><span class="line">1. for k ← 1 to 4</span><br><span class="line">2.    x[k] ← 0 &#123;棋盘上无皇后&#125;</span><br><span class="line">3. end for</span><br><span class="line">4. flag ← false</span><br><span class="line">5. k ← 1</span><br><span class="line">6. while k ≥ 1</span><br><span class="line">7.    while x[k] ≤ 3</span><br><span class="line">8.       x[k] ← x[k] + 1    // 不断尝试第k个皇后能放置的位置</span><br><span class="line">9.       if x 为原问题的合法解 then </span><br><span class="line">            flag ← true 且从两个 while 循环退出</span><br><span class="line">10.      else if x 是部分解 then </span><br><span class="line">            k ← k + 1 &#123;前进&#125;</span><br><span class="line">11.   end while</span><br><span class="line">12.   x[k] ← 0</span><br><span class="line">13.   k ← k - 1 &#123;回溯&#125;</span><br><span class="line">14. end while</span><br><span class="line">15. if flag then output x</span><br><span class="line">16. else output “no solution”</span><br></pre></td></tr></table></figure>
-<p>回溯法最坏情况为 $n^n$。据经验它在有效性上远远超过蛮力方法的 $O(n!)$ 时间，作为它的可期望运行时间通常要快得多。</p>
-<h4 id="哈密尔顿回路-Hamiltonian-Circuit"><a href="#哈密尔顿回路-Hamiltonian-Circuit" class="headerlink" title="哈密尔顿回路 (Hamiltonian Circuit)"></a>哈密尔顿回路 (Hamiltonian Circuit)</h4><p>给定一个包含 $n$ 个顶点的连通图 $G = (V, E)$。<br>哈密尔顿回路（Hamiltonian Circuit，又称哈密尔顿圈）是指一条路径，它经过图中的每一个顶点恰好一次，并且最终回到出发点。</p>
-<p>使用一个数组 x[0…n-1] 来记录路径。x[k] 表示路径中第 $k$ 个访问的顶点。</p>
-<p>在为 x[k] 选择下一个顶点 v 时，必须满足以下两个条件，否则剪枝（回溯）：</p>
-<ul>
-<li>顶点 x[k-1] 和 v 之间必须有边相连。</li>
-<li>顶点 v 不能出现在当前的路径 x[0…k-1] 中。<br>当 k = n 时（所有顶点都已访问），检查最后一个顶点 x[n-1] 和起点 x[0] 之间是否有边。如果有，则找到了一条回路。</li>
-</ul>
+<p>回溯法最坏情况为 <span
+class="math inline">\(n^n\)</span>。据经验它在有效性上远远超过蛮力方法的
+<span class="math inline">\(O(n!)\)</span>
+时间，作为它的可期望运行时间通常要快得多。</p>
+<h4 id="哈密尔顿回路-hamiltonian-circuit">哈密尔顿回路 (Hamiltonian
+Circuit)</h4>
+<p>给定一个包含 <span class="math inline">\(n\)</span> 个顶点的连通图
+<span class="math inline">\(G = (V, E)\)</span>。
+哈密尔顿回路（Hamiltonian
+Circuit，又称哈密尔顿圈）是指一条路径，它经过图中的每一个顶点恰好一次，并且最终回到出发点。</p>
+<p>使用一个数组 x[0...n-1] 来记录路径。x[k] 表示路径中第 <span
+class="math inline">\(k\)</span> 个访问的顶点。</p>
+<p>在为 x[k] 选择下一个顶点 v
+时，必须满足以下两个条件，否则剪枝（回溯）： - 顶点 x[k-1] 和 v
+之间必须有边相连。 - 顶点 v 不能出现在当前的路径 x[0...k-1] 中。 当 k =
+n 时（所有顶点都已访问），检查最后一个顶点 x[n-1] 和起点 x[0]
+之间是否有边。如果有，则找到了一条回路。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Algorithm Hamiltonian(k)</span><br><span class="line">// 输入：图 G=(V, E)，当前路径深度 k</span><br><span class="line">// 全局变量：解向量 x[0...n-1]，其中 x[0] 固定为起始点（如顶点 1）</span><br><span class="line">1. 循环 v ← 2 到 n  // 尝试每一个可能的下一个顶点</span><br><span class="line">2.    if (x[k-1], v) ∈ E AND v 不在 x[0...k-1] 中 then</span><br><span class="line">3.        x[k] ← v    // 做出选择</span><br><span class="line">4.        if k = n then</span><br><span class="line">5.            if (x[n], x[0]) ∈ E then</span><br><span class="line">6.                Output x[0...n] // 找到回路</span><br><span class="line">7.                return // 找到一个解即可退出，若求所有解则 continue</span><br><span class="line">8.        else</span><br><span class="line">9.            Hamiltonian(k + 1) // 递归进入下一层</span><br><span class="line">10.       x[k] ← 0    // 回溯：撤销选择</span><br><span class="line">11.   end if</span><br><span class="line">12. end loop</span><br></pre></td></tr></table></figure>
-<p>最坏时间复杂度：$O(n!)$。因为解空间是排列树，除了起点外，第一个位置有 $n-1$ 种选择，第二个有 $n-2$ 种… 总共约 $n!$ 个叶子节点。</p>
-<hr>
-<h3 id="3-2-3-一般回溯算法"><a href="#3-2-3-一般回溯算法" class="headerlink" title="3.2.3 一般回溯算法"></a>3.2.3 一般回溯算法</h3><p>一般回溯算法可以作为一种系统的搜索方法应用到一类搜索问题当中，这类问题的解由满足事先定义好的某个约束的向量 $(x_1, x_2, \dots, x_i)$ 组成。</p>
+<p>最坏时间复杂度：<span
+class="math inline">\(O(n!)\)</span>。因为解空间是排列树，除了起点外，第一个位置有
+<span class="math inline">\(n-1\)</span> 种选择，第二个有 <span
+class="math inline">\(n-2\)</span> 种... 总共约 <span
+class="math inline">\(n!\)</span> 个叶子节点。</p>
+<hr />
+<h3 id="一般回溯算法">3.2.3 一般回溯算法</h3>
+<p>一般回溯算法可以作为一种系统的搜索方法应用到一类搜索问题当中，这类问题的解由满足事先定义好的某个约束的向量
+<span class="math inline">\((x_1, x_2, \dots, x_i)\)</span> 组成。</p>
 <p><strong>PARTITION 问题变形</strong></p>
-<p>给定一个 $n$ 个整数的集合 $X = {x_1, x_2, \dots, x_n}$ 和整数 $y$，找出和等于 $y$ 的 $X$ 的子集 $Y$</p>
-<p>解的布尔向量表示类似${1, 1, 1, 0, 0, 0}$。</p>
-<p>假定算法已经找到部分解为 $(x<em>1, x_2, \dots, x_j)$，然后再考虑向量 $v = (x_1, x_2, \dots, x_j, x</em>{j+1})$，有下面的情况（解向量中每个 $x_i$ 都属于一个有限的线序集 $X_i$）</p>
-<ul>
-<li>成功：如果 $v$ 表示问题的最后解，算法记录下它作为一个解，在仅希望获得一个解时终止，或者继续去找出其他解。</li>
-<li>前进 (Forward)：如果 $v$ 表示一个部分解，算法通过选择集合 $X_{j+2}$ 中的第一个元素向前。</li>
-<li>如果 $v$ 既不是最终的解，也不是部分解，则有两种子情况<ul>
-<li>如果从集合 $X<em>{j+1}$ 中还有其他的元素可选择，算法将 $x</em>{j+1}$ 置为 $X_{j+1}$ 中的下一个元素。</li>
-<li>如果从集合 $X<em>{j+1}$ 中没有更多的元素可选择，算法通过将 $x_j$ 置为 $X_j$ 中的下一个元素回溯；如果从集合 $X_j$ 中仍然没有其他的元素可以选择，算法通过将 $x</em>{j-1}$ 置为 $X_{j-1}$ 中的下一个元素回溯，依次类推。</li>
-</ul>
-</li>
-</ul>
+<p>给定一个 <span class="math inline">\(n\)</span> 个整数的集合 <span
+class="math inline">\(X = \{x_1, x_2, \dots, x_n\}\)</span> 和整数 <span
+class="math inline">\(y\)</span>，找出和等于 <span
+class="math inline">\(y\)</span> 的 <span
+class="math inline">\(X\)</span> 的子集 <span
+class="math inline">\(Y\)</span></p>
+<p>解的布尔向量表示类似<span class="math inline">\(\{1, 1, 1, 0, 0,
+0\}\)</span>。</p>
+<p>假定算法已经找到部分解为 <span class="math inline">\((x_1, x_2,
+\dots, x_j)\)</span>，然后再考虑向量 <span class="math inline">\(v =
+(x_1, x_2, \dots, x_j, x_{j+1})\)</span>，有下面的情况（解向量中每个
+<span class="math inline">\(x_i\)</span> 都属于一个有限的线序集 <span
+class="math inline">\(X_i\)</span>） - 成功：如果 <span
+class="math inline">\(v\)</span>
+表示问题的最后解，算法记录下它作为一个解，在仅希望获得一个解时终止，或者继续去找出其他解。
+- 前进 (Forward)：如果 <span class="math inline">\(v\)</span>
+表示一个部分解，算法通过选择集合 <span
+class="math inline">\(X_{j+2}\)</span> 中的第一个元素向前。 - 如果 <span
+class="math inline">\(v\)</span>
+既不是最终的解，也不是部分解，则有两种子情况 - 如果从集合 <span
+class="math inline">\(X_{j+1}\)</span> 中还有其他的元素可选择，算法将
+<span class="math inline">\(x_{j+1}\)</span> 置为 <span
+class="math inline">\(X_{j+1}\)</span> 中的下一个元素。 - 如果从集合
+<span class="math inline">\(X_{j+1}\)</span>
+中没有更多的元素可选择，算法通过将 <span
+class="math inline">\(x_j\)</span> 置为 <span
+class="math inline">\(X_j\)</span> 中的下一个元素回溯；如果从集合 <span
+class="math inline">\(X_j\)</span>
+中仍然没有其他的元素可以选择，算法通过将 <span
+class="math inline">\(x_{j-1}\)</span> 置为 <span
+class="math inline">\(X_{j-1}\)</span>
+中的下一个元素回溯，依次类推。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Algorithm BACKTRACKREC</span><br><span class="line">输入：集合 X_1，X_2，…，X_n 的清楚的或隐含的描述。</span><br><span class="line">输出：解向量 v = (x_1, x_2, …, x_i), i ≤ n。</span><br><span class="line">1. v ← Φ</span><br><span class="line">2. flag ← false</span><br><span class="line">3. backrec(1)</span><br><span class="line">4. if flag then output v</span><br><span class="line">5. else output “no solution”</span><br><span class="line"></span><br><span class="line">Procedure backrec (k)</span><br><span class="line">1. for 每个 x ∈ X_k</span><br><span class="line">2.    x_k ← x; 将 x_k 加入 v</span><br><span class="line">3.    if v 为最终解 then set flag ← true and exit</span><br><span class="line">4.    else if v 是部分解 then backrec(k + 1)</span><br><span class="line">5. end for</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-分支定界法-Branch-and-Bound"><a href="#3-3-分支定界法-Branch-and-Bound" class="headerlink" title="3.3 分支定界法 (Branch and Bound)"></a>3.3 分支定界法 (Branch and Bound)</h2><p>在组合优化领域，决策问题通常分为判定性问题与最优化问题。以图着色问题（Graph Coloring Problem）为例：</p>
-<ul>
-<li>判定问题：给定图 $G$，是否存在一种合法的 $N$ 着色方案（3-Coloring/N-Coloring）？</li>
-<li>最优化问题：给定图 $G$，对其进行合法着色所需的最少颜色数量是多少？</li>
-</ul>
-<p><strong>分支定界法</strong>（Branch and Bound）是解决此类<strong>离散优化及整数规划</strong>（Integer Programming）问题的核心算法。它通过系统地枚举解空间，并利用界限信息来避免搜索无望的子空间（即剪枝），从而高效地寻找全局最优解。</p>
-<h3 id="3-3-1-从线性规划到整数规划"><a href="#3-3-1-从线性规划到整数规划" class="headerlink" title="3.3.1 从线性规划到整数规划"></a>3.3.1 从线性规划到整数规划</h3><p>整数规划（Integer Programming）的数学模型建立在一般线性规划的基础之上，但增加了变量必须为整数的约束。</p>
+<h2 id="分支定界法-branch-and-bound">3.3 分支定界法 (Branch and
+Bound)</h2>
+<p>在组合优化领域，决策问题通常分为判定性问题与最优化问题。以图着色问题（Graph
+Coloring Problem）为例： - 判定问题：给定图 <span
+class="math inline">\(G\)</span>，是否存在一种合法的 <span
+class="math inline">\(N\)</span> 着色方案（3-Coloring/N-Coloring）？ -
+最优化问题：给定图 <span
+class="math inline">\(G\)</span>，对其进行合法着色所需的最少颜色数量是多少？</p>
+<p><strong>分支定界法</strong>（Branch and
+Bound）是解决此类<strong>离散优化及整数规划</strong>（Integer
+Programming）问题的核心算法。它通过系统地枚举解空间，并利用界限信息来避免搜索无望的子空间（即剪枝），从而高效地寻找全局最优解。</p>
+<h3 id="从线性规划到整数规划">3.3.1 从线性规划到整数规划</h3>
+<p>整数规划（Integer
+Programming）的数学模型建立在一般线性规划的基础之上，但增加了变量必须为整数的约束。</p>
 <p>其通用形式如下：</p>
-<p>目标函数（Objective Function）：</p>
-<script type="math/tex; mode=display">Max(Min) \ z = c_1x_1 + c_2x_2 + \dots + c_nx_n</script><p>约束条件（Constraints）：</p>
-<script type="math/tex; mode=display">\begin{cases}
+<p>目标函数（Objective Function）： <span
+class="math display">\[Max(Min) \ z = c_1x_1 + c_2x_2 + \dots +
+c_nx_n\]</span> 约束条件（Constraints）： <span
+class="math display">\[  \begin{cases}
   a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n \le (=, \ge) \ b_1 \\
   \dots \\
   a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n \le (=, \ge) \ b_m \\
   x_j \ge 0, \quad j=1, \dots, n \\
   x_j \in \text{Integer} \quad (\text{整数约束})
-  \end{cases}</script><p>例如，某厂需托运甲、乙两种货物，已知每箱的体积、重量限制及利润如下表所示：<br>| 货物名称 | 体积/箱 (Volume/Box) | 重量/箱 (Weight/Box) | 利润/箱 (Profit/Box) |<br>| :—- | :—-: | :—-: | :—-: |<br>| 甲 ($x_1$) | 9 | 7 | 40 |<br>| 乙 ($x_2$) | 7 | 20 | 90 |<br>| <strong>托运限制</strong> (Constraints) | <strong>56</strong> | <strong>70</strong> | <strong>目标函数 (Max $z$)</strong> |</p>
+  \end{cases}\]</span></p>
+<p>例如，某厂需托运甲、乙两种货物，已知每箱的体积、重量限制及利润如下表所示：
+| 货物名称 | 体积/箱 (Volume/Box) | 重量/箱 (Weight/Box) | 利润/箱
+(Profit/Box) | | :--- | :---: | :---: | :---: | | 甲 (<span
+class="math inline">\(x_1\)</span>) | 9 | 7 | 40 | | 乙 (<span
+class="math inline">\(x_2\)</span>) | 7 | 20 | 90 | |
+<strong>托运限制</strong> (Constraints) | <strong>56</strong> |
+<strong>70</strong> | <strong>目标函数 (Max <span
+class="math inline">\(z\)</span>)</strong> |</p>
 <p>对应的整数规划形式为：</p>
-<script type="math/tex; mode=display">Max \ z = 40x_1 + 90x_2 \quad (1)</script><p>以及约束：</p>
-<script type="math/tex; mode=display">\begin{cases}
+<p><span class="math display">\[Max \ z = 40x_1 + 90x_2 \quad
+(1)\]</span> 以及约束： <span class="math display">\[\begin{cases}
 9x_1 + 7x_2 \le 56 \quad (2) \\
 7x_1 + 20x_2 \le 70 \quad (3) \\
 x_1, x_2 \ge 0 \quad (4) \\
 x_1, x_2 \in \text{Integer} \quad (5)
-\end{cases}</script><h3 id="3-3-2-分支定界法"><a href="#3-3-2-分支定界法" class="headerlink" title="3.3.2  分支定界法"></a>3.3.2  分支定界法</h3><h4 id="使用分支定界法解决整数规划问题"><a href="#使用分支定界法解决整数规划问题" class="headerlink" title="使用分支定界法解决整数规划问题"></a>使用分支定界法解决整数规划问题</h4><p><strong>步骤一</strong>：<strong>松弛求解</strong>（Relaxation） 首先暂时忽略整数约束（条件5），求解对应的线性规划问题</p>
-<p>解（$R_1$）：$x_1 = 4.809, x_2 = 1.817, z = 355.890$，此解非整数，需进行分支。</p>
-<p><strong>步骤二：分支</strong>（Branching）<br>任选一个非整数变量（如 $x_1=4.809$），将其分为两个互斥的子问题：</p>
-<ul>
-<li>分支 1：$x_1 \le 4$</li>
-<li>分支 2：$x_1 \ge 5$</li>
-</ul>
-<p><strong>步骤三：迭代求解子问题</strong></p>
-<ul>
-<li>在 $R_1$ 基础上增加 $x_1 \le 4$约束<ul>
-<li>结果：$x_1 = 4.000, x_2 = 2.100, z = 349.000$</li>
-<li>状态：$x_2$ 仍非整数，需继续对 $R_2$ 进行分支（$x_2 \le 2$ 或 $x_2 \ge 3$）。</li>
-</ul>
-</li>
-<li>在 $R_1$ 基础上增加 $x_1 \ge 5$<ul>
-<li>结果：$x_1 = 5.000, x_2 = 1.571, z = 341.390$</li>
-<li>状态：$x_2$ 非整数，需继续分支。</li>
-</ul>
-</li>
-</ul>
-<p><strong>步骤四：深入分支与剪枝</strong>（Pruning）<br>继续对 $R_2$ 进行分支：</p>
-<ul>
-<li>$x_1 \le 4$ 且 $x_2 \le 2$<ul>
-<li>结果：$x_1 = 4.000, x_2 = 2.000, z = 340$</li>
-<li>状态：获得可行整数解。此时 $z=340$ 成为当前最优解的下界。</li>
-</ul>
-</li>
-<li>$x_1 \le 4$ 且 $x_2 \ge 3$<ul>
-<li>结果：$x_1 = 1.428, x_2 = 3.000, z = 327.120$</li>
-<li>状态：虽然可能有整数解，但其上限 $327.12$ 小于已有的最优解 $340$，故该分支被剪枝。</li>
-</ul>
-</li>
-<li>$x_1 \ge 5$ 且 $x_2 \le 1$<ul>
-<li>结果：$x_1 = 5.444, x_2 = 1.000, z = 307.760$</li>
-<li>状态：目标值 $307.76 &lt; 340$，剪枝。</li>
-</ul>
-</li>
-<li>$x_1 \ge 5$ 且 $x_2 \ge 2$<ul>
-<li>结果：无可行解（Infeasible）。</li>
-</ul>
-</li>
-</ul>
-<p>结论：最终最优整数解为 $x_1=4, x_2=2$，最大利润 $z=340$。</p>
+\end{cases}\]</span></p>
+<h3 id="分支定界法">3.3.2 分支定界法</h3>
+<h4
+id="使用分支定界法解决整数规划问题">使用分支定界法解决整数规划问题</h4>
+<p><strong>步骤一</strong>：<strong>松弛求解</strong>（Relaxation）
+首先暂时忽略整数约束（条件5），求解对应的线性规划问题</p>
+<p>解（<span class="math inline">\(R_1\)</span>）：<span
+class="math inline">\(x_1 = 4.809, x_2 = 1.817, z =
+355.890\)</span>，此解非整数，需进行分支。</p>
+<p><strong>步骤二：分支</strong>（Branching） 任选一个非整数变量（如
+<span
+class="math inline">\(x_1=4.809\)</span>），将其分为两个互斥的子问题： -
+分支 1：<span class="math inline">\(x_1 \le 4\)</span> - 分支 2：<span
+class="math inline">\(x_1 \ge 5\)</span></p>
+<p><strong>步骤三：迭代求解子问题</strong> - 在 <span
+class="math inline">\(R_1\)</span> 基础上增加 <span
+class="math inline">\(x_1 \le 4\)</span>约束 - 结果：<span
+class="math inline">\(x_1 = 4.000, x_2 = 2.100, z = 349.000\)</span> -
+状态：<span class="math inline">\(x_2\)</span> 仍非整数，需继续对 <span
+class="math inline">\(R_2\)</span> 进行分支（<span
+class="math inline">\(x_2 \le 2\)</span> 或 <span
+class="math inline">\(x_2 \ge 3\)</span>）。 - 在 <span
+class="math inline">\(R_1\)</span> 基础上增加 <span
+class="math inline">\(x_1 \ge 5\)</span> - 结果：<span
+class="math inline">\(x_1 = 5.000, x_2 = 1.571, z = 341.390\)</span> -
+状态：<span class="math inline">\(x_2\)</span> 非整数，需继续分支。</p>
+<p><strong>步骤四：深入分支与剪枝</strong>（Pruning） 继续对 <span
+class="math inline">\(R_2\)</span> 进行分支： - <span
+class="math inline">\(x_1 \le 4\)</span> 且 <span
+class="math inline">\(x_2 \le 2\)</span> - 结果：<span
+class="math inline">\(x_1 = 4.000, x_2 = 2.000, z = 340\)</span> -
+状态：获得可行整数解。此时 <span class="math inline">\(z=340\)</span>
+成为当前最优解的下界。 - <span class="math inline">\(x_1 \le 4\)</span>
+且 <span class="math inline">\(x_2 \ge 3\)</span> - 结果：<span
+class="math inline">\(x_1 = 1.428, x_2 = 3.000, z = 327.120\)</span> -
+状态：虽然可能有整数解，但其上限 <span
+class="math inline">\(327.12\)</span> 小于已有的最优解 <span
+class="math inline">\(340\)</span>，故该分支被剪枝。 - <span
+class="math inline">\(x_1 \ge 5\)</span> 且 <span
+class="math inline">\(x_2 \le 1\)</span> - 结果：<span
+class="math inline">\(x_1 = 5.444, x_2 = 1.000, z = 307.760\)</span> -
+状态：目标值 <span class="math inline">\(307.76 &lt;
+340\)</span>，剪枝。 - <span class="math inline">\(x_1 \ge 5\)</span> 且
+<span class="math inline">\(x_2 \ge 2\)</span> -
+结果：无可行解（Infeasible）。</p>
+<p>结论：最终最优整数解为 <span class="math inline">\(x_1=4,
+x_2=2\)</span>，最大利润 <span
+class="math inline">\(z=340\)</span>。</p>
 <blockquote>
-<p><strong>关于求解线性规划</strong><br>线性规划的基本定理告诉我们：最优解一定出现在可行域的顶点上，也就是约束边界直线的交点上。<br>因此我们直接计算下式的解：</p>
-<script type="math/tex; mode=display">\begin{cases}
+<p><strong>关于求解线性规划</strong>
+线性规划的基本定理告诉我们：最优解一定出现在可行域的顶点上，也就是约束边界直线的交点上。
+因此我们直接计算下式的解： <span class="math display">\[\begin{cases}
 9x_1 + 7x_2 = 56 \quad (\text{式A}) \\
 7x_1 + 20x_2 = 70 \quad (\text{式B})
-\end{cases}</script><p>即可得到x1,x2和z<br>再增加约束后，们需要看这条新线与哪条旧线相交构成了新的“最右上角[两个变量越大，利润越高，因此是右上角]”<br>如果 $x_1 = 4$，代入约束 1 ($9x_1 + 7x_2 = 56$)：<br>$36 + 7x_2 = 56 \implies 7x_2 = 20 \implies x_2 \approx 2.857$<br>如果 $x_1 = 4$，代入约束 2 ($7x_1 + 20x_2 = 70$)：<br>$28 + 20x_2 = 70 \implies 20x_2 = 42 \implies x_2 = \mathbf{2.1}$<br>因为 $2.1 &lt; 2.857$，说明在 $x_1=4$ 这条线上，约束 2 更紧。<br>新的最优顶点是直线 $x_1=4$ 与直线 $7x_1 + 20x_2 = 70$ 的交点。</p>
+\end{cases}\]</span> 即可得到x1,x2和z
+再增加约束后，们需要看这条新线与哪条旧线相交构成了新的“最右上角[两个变量越大，利润越高，因此是右上角]”
+如果 <span class="math inline">\(x_1 = 4\)</span>，代入约束 1 (<span
+class="math inline">\(9x_1 + 7x_2 = 56\)</span>)： <span
+class="math inline">\(36 + 7x_2 = 56 \implies 7x_2 = 20 \implies x_2
+\approx 2.857\)</span> 如果 <span class="math inline">\(x_1 =
+4\)</span>，代入约束 2 (<span class="math inline">\(7x_1 + 20x_2 =
+70\)</span>)： <span class="math inline">\(28 + 20x_2 = 70 \implies
+20x_2 = 42 \implies x_2 = \mathbf{2.1}\)</span> 因为 <span
+class="math inline">\(2.1 &lt; 2.857\)</span>，说明在 <span
+class="math inline">\(x_1=4\)</span> 这条线上，约束 2 更紧。
+新的最优顶点是直线 <span class="math inline">\(x_1=4\)</span> 与直线
+<span class="math inline">\(7x_1 + 20x_2 = 70\)</span> 的交点。</p>
 </blockquote>
-<hr>
-<h4 id="分支定界法算法"><a href="#分支定界法算法" class="headerlink" title="分支定界法算法"></a>分支定界法算法</h4><p><strong>一般步骤</strong></p>
-<ul>
-<li>初始化：将原整数规划问题设为 A，对应的松弛线性规划问题设为 B。</li>
-<li>求解松弛问题：若 B 无解，则 A 无解；若 B 的最优解符合整数条件，则该解即为 A 的最优解。</li>
-<li>分支（Branching）：若 B 的解中有变量 $x_j=b_j$ 不符合整数条件，构造两个后继问题，分别添加约束：<ul>
-<li>$x_j \le \lfloor b_j \rfloor$ （小于 $b_j$ 的最大整数）</li>
-<li>$x_j \ge \lceil b_j \rceil$ （大于 $b_j$ 的最小整数）</li>
-</ul>
-</li>
-<li>定界与选择：在所有待处理的子问题中，选择目标函数最优的节点继续分支。</li>
-<li>剪枝（Pruning）：若某分支的最优可能值（边界）劣于当前已知的最佳整数解，则放弃该分支。</li>
-</ul>
-<hr>
-<p><strong>关键概念</strong></p>
-<ul>
-<li>可行解/不可行解（Feasible/Infeasible Solution）：满足约束条件的解。</li>
-<li>部分解（Partial Solution）：决策树中非叶子节点的解。</li>
-<li>最优解（Optimal Solution）：目标函数值达到极值的可行解。</li>
-<li>遍历（Traverse）与回溯（Backtracking）：在解空间树中的搜索移动方式。</li>
-<li>搜索策略：深度优先搜索（DFS）、广度优先搜索（BFS）、前沿搜索（Frontier Search）。</li>
-</ul>
-<hr>
+<hr />
+<h4 id="分支定界法算法">分支定界法算法</h4>
+<p><strong>一般步骤</strong> - 初始化：将原整数规划问题设为
+A，对应的松弛线性规划问题设为 B。 - 求解松弛问题：若 B 无解，则 A
+无解；若 B 的最优解符合整数条件，则该解即为 A 的最优解。 -
+分支（Branching）：若 B 的解中有变量 <span
+class="math inline">\(x_j=b_j\)</span>
+不符合整数条件，构造两个后继问题，分别添加约束： - <span
+class="math inline">\(x_j \le \lfloor b_j \rfloor\)</span> （小于 <span
+class="math inline">\(b_j\)</span> 的最大整数） - <span
+class="math inline">\(x_j \ge \lceil b_j \rceil\)</span> （大于 <span
+class="math inline">\(b_j\)</span> 的最小整数） -
+定界与选择：在所有待处理的子问题中，选择目标函数最优的节点继续分支。 -
+剪枝（Pruning）：若某分支的最优可能值（边界）劣于当前已知的最佳整数解，则放弃该分支。</p>
+<hr />
+<p><strong>关键概念</strong> - 可行解/不可行解（Feasible/Infeasible
+Solution）：满足约束条件的解。 - 部分解（Partial
+Solution）：决策树中非叶子节点的解。 - 最优解（Optimal
+Solution）：目标函数值达到极值的可行解。 -
+遍历（Traverse）与回溯（Backtracking）：在解空间树中的搜索移动方式。 -
+搜索策略：深度优先搜索（DFS）、广度优先搜索（BFS）、前沿搜索（Frontier
+Search）。</p>
+<hr />
 <p>分支定界法的效率依赖于<strong>界限</strong>的计算与更新。该方法比单纯的回溯法增加了两个核心条件：</p>
 <ul>
-<li><p>计算子树目标函数值的边界的方法。</p>
-</li>
-<li><p>记录目前求得的最佳解。</p>
-</li>
+<li><p>计算子树目标函数值的边界的方法。</p></li>
+<li><p>记录目前求得的最佳解。</p></li>
 </ul>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">特性</th>
-<th style="text-align:left">回溯法 (Backtracking)</th>
-<th style="text-align:left">分支定界法 (Branch and Bound)</th>
+<tr class="header">
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">回溯法 (Backtracking)</th>
+<th style="text-align: left;">分支定界法 (Branch and Bound)</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left"><strong>搜索方式</strong> (Search Strategy)</td>
-<td style="text-align:left">深度优先 (DFS)</td>
-<td style="text-align:left">广度优先 (BFS) 或 最佳优先 (Best-First)</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>搜索方式</strong> (Search
+Strategy)</td>
+<td style="text-align: left;">深度优先 (DFS)</td>
+<td style="text-align: left;">广度优先 (BFS) 或 最佳优先
+(Best-First)</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>数据结构</strong> (Data Structure)</td>
-<td style="text-align:left">栈 (Stack / Recursion)</td>
-<td style="text-align:left">队列 (Queue) 或 优先队列 (Priority Queue / Heap)</td>
+<tr class="even">
+<td style="text-align: left;"><strong>数据结构</strong> (Data
+Structure)</td>
+<td style="text-align: left;">栈 (Stack / Recursion)</td>
+<td style="text-align: left;">队列 (Queue) 或 优先队列 (Priority Queue /
+Heap)</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>主要目标</strong> (Primary Goal)</td>
-<td style="text-align:left">找出所有解 / 满足条件的解</td>
-<td style="text-align:left">找出最优解 (Max / Min)</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>主要目标</strong> (Primary
+Goal)</td>
+<td style="text-align: left;">找出所有解 / 满足条件的解</td>
+<td style="text-align: left;">找出最优解 (Max / Min)</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>剪枝依据</strong> (Pruning Criteria)</td>
-<td style="text-align:left">约束函数 (Constraint Function - 是否合法?)</td>
-<td style="text-align:left">限界函数 (Bounding Function - 是否有潜力超过当前最优?)</td>
+<tr class="even">
+<td style="text-align: left;"><strong>剪枝依据</strong> (Pruning
+Criteria)</td>
+<td style="text-align: left;">约束函数 (Constraint Function -
+是否合法?)</td>
+<td style="text-align: left;">限界函数 (Bounding Function -
+是否有潜力超过当前最优?)</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>空间复杂度</strong> (Space Complexity)</td>
-<td style="text-align:left">低 (线性 $O(n)$，节省内存)</td>
-<td style="text-align:left">高 (指数级，可能耗尽内存)</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>空间复杂度</strong> (Space
+Complexity)</td>
+<td style="text-align: left;">低 (线性 <span
+class="math inline">\(O(n)\)</span>，节省内存)</td>
+<td style="text-align: left;">高 (指数级，可能耗尽内存)</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>求解效率</strong> (Efficiency)</td>
-<td style="text-align:left">较慢 (遍历性强)</td>
-<td style="text-align:left">较快 (如果是求最优解，跳过大量分支)</td>
+<tr class="even">
+<td style="text-align: left;"><strong>求解效率</strong>
+(Efficiency)</td>
+<td style="text-align: left;">较慢 (遍历性强)</td>
+<td style="text-align: left;">较快 (如果是求最优解，跳过大量分支)</td>
 </tr>
-<tr>
-<td style="text-align:left"><strong>典型应用</strong> (Typical Applications)</td>
-<td style="text-align:left">8皇后、迷宫、数独、哈密尔顿回路</td>
-<td style="text-align:left">TSP (旅行商问题)、整数规划、0/1背包优化版</td>
+<tr class="odd">
+<td style="text-align: left;"><strong>典型应用</strong> (Typical
+Applications)</td>
+<td style="text-align: left;">8皇后、迷宫、数独、哈密尔顿回路</td>
+<td style="text-align: left;">TSP
+(旅行商问题)、整数规划、0/1背包优化版</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="3-3-2-简单示例"><a href="#3-3-2-简单示例" class="headerlink" title="3.3.2 简单示例"></a>3.3.2 简单示例</h3><h4 id="0-1背包问题-1"><a href="#0-1背包问题-1" class="headerlink" title="0/1背包问题"></a>0/1背包问题</h4><p>我们使用线性松弛方法，计算每条路径的上界，即假设物品可以切分，填满背包所能达到的理论最大价值。</p>
-<p>例如，</p>
+<h3 id="简单示例">3.3.2 简单示例</h3>
+<h4 id="背包问题-1">0/1背包问题</h4>
+<p>我们使用线性松弛方法，计算每条路径的上界，即假设物品可以切分，填满背包所能达到的理论最大价值。</p>
+<p>例如， - Item 1: <span class="math inline">\(w=4, v=40\)</span> (密度
+10) - Item 2: <span class="math inline">\(w=7, v=42\)</span> (密度 6) -
+Item 3: <span class="math inline">\(w=5, v=25\)</span> (密度 5) - Item
+4: <span class="math inline">\(w=3, v=12\)</span> (密度 4)</p>
+<p>计算上界：<span class="math inline">\(UB = 40 + 6 \times (\text{Item
+2 密度}) = 40 + 6 \times 6 = 76\)</span></p>
+<p>分支 1：装入 Item 1 (左节点 <span
+class="math inline">\(x_1=1\)</span>) - 计算上界：<span
+class="math inline">\(UB = 40  + 6 \times 6  = 76\)</span>。 分支
+2：不装入 Item 1 (右节点 <span class="math inline">\(x_1=0\)</span>) -
+计算上界：<span class="math inline">\(UB = 42 + 3 \times 5 =
+57\)</span>。 左节点潜力 (76) &gt; 右节点潜力 (57)。我们优先探索左节点。
+分支 1-1：装入 Item 2 (左-左节点 <span
+class="math inline">\(x_2=1\)</span>) - <span class="math inline">\(11
+&gt; 10\)</span> (超重)，剪枝。 分支 1-2：不装入 Item 2 (左-右节点 <span
+class="math inline">\(x_2=0\)</span>) - 计算上界：<span
+class="math inline">\(UB = 40 + 25 + 1 \times 4 = 69\)</span> -
+整数解：<span class="math inline">\(Z_{best} = 65\)</span> 分支 2
+(右节点，不装 Item 1) - 上界小于最优解，剪枝 得到最优解为65</p>
+<hr />
+<h4 id="tsp旅行商问题">TSP旅行商问题</h4>
+<p>分支通常是选择某条边 <span class="math inline">\((i, j)\)</span>
+是“包含在路径中”还是“不包含”，通常计算下界。</p>
+<p><strong>无向图 TSP：1-Tree 下界</strong> 将每个城市 <span
+class="math inline">\(i\)</span> 的“最短两条边之和”加起来除以 2。
+假设我们在树的一个节点，决定了<strong>“必须走边 <span
+class="math inline">\((A, D)\)</span>”</strong>，则必须选取边 <span
+class="math inline">\((A, D)\)</span> 的权重，哪怕它不是 <span
+class="math inline">\(A\)</span> 连接的最短边。然后再选一条除 <span
+class="math inline">\((A,D)\)</span> 外最短的边，同理计算 <span
+class="math inline">\(D\)</span> 的 <span
+class="math inline">\(s_D\)</span>。</p>
+<p><strong>有向图 TSP：矩阵规约法</strong> 这是处理非对称 TSP（如 <span
+class="math inline">\(A \to B\)</span> 和 <span class="math inline">\(B
+\to A\)</span> 距离不同）的经典方法。</p>
+<p>TSP 路径在距离矩阵中对应着：每一行选一个数，每一列选一个数。
+如果我们将矩阵的某一行所有元素都减去同一个常数 <span
+class="math inline">\(k\)</span>，路径的总长度减少 <span
+class="math inline">\(k\)</span>，但相对的最优路径不变。</p>
 <ul>
-<li>Item 1: $w=4, v=40$ (密度 10)</li>
-<li>Item 2: $w=7, v=42$ (密度 6)</li>
-<li>Item 3: $w=5, v=25$ (密度 5)</li>
-<li>Item 4: $w=3, v=12$ (密度 4)</li>
-</ul>
-<p>计算上界：$UB = 40 + 6 \times (\text{Item 2 密度}) = 40 + 6 \times 6 = 76$</p>
-<p>分支 1：装入 Item 1 (左节点 $x_1=1$)</p>
+<li>行规约：遍历每一行，找到该行的最小值 <span
+class="math inline">\(min_i\)</span>，该行所有元素减去 <span
+class="math inline">\(min_i\)</span>，使得该行至少有一个 0。
 <ul>
-<li>计算上界：$UB = 40  + 6 \times 6  = 76$。<br>分支 2：不装入 Item 1 (右节点 $x_1=0$)</li>
-<li>计算上界：$UB = 42 + 3 \times 5 = 57$。<br>左节点潜力 (76) &gt; 右节点潜力 (57)。我们优先探索左节点。<br>分支 1-1：装入 Item 2 (左-左节点 $x_2=1$)</li>
-<li>$11 &gt; 10$ (超重)，剪枝。<br>分支 1-2：不装入 Item 2 (左-右节点 $x_2=0$)</li>
-<li>计算上界：$UB = 40 + 25 + 1 \times 4 = 69$</li>
-<li>整数解：$Z_{best} = 65$<br>分支 2 (右节点，不装 Item 1)</li>
-<li>上界小于最优解，剪枝<br>得到最优解为65</li>
-</ul>
-<hr>
-<h4 id="TSP旅行商问题"><a href="#TSP旅行商问题" class="headerlink" title="TSP旅行商问题"></a>TSP旅行商问题</h4><p>分支通常是选择某条边 $(i, j)$ 是“包含在路径中”还是“不包含”，通常计算下界。</p>
-<p><strong>无向图 TSP：1-Tree 下界</strong><br>将每个城市 $i$ 的“最短两条边之和”加起来除以 2。<br>假设我们在树的一个节点，决定了<strong>“必须走边 $(A, D)$”</strong>，则必须选取边 $(A, D)$ 的权重，哪怕它不是 $A$ 连接的最短边。然后再选一条除 $(A,D)$ 外最短的边，同理计算 $D$ 的 $s_D$。</p>
-<p><strong>有向图 TSP：矩阵规约法</strong><br>这是处理非对称 TSP（如 $A \to B$ 和 $B \to A$ 距离不同）的经典方法。</p>
-<p>TSP 路径在距离矩阵中对应着：每一行选一个数，每一列选一个数。<br>如果我们将矩阵的某一行所有元素都减去同一个常数 $k$，路径的总长度减少 $k$，但相对的最优路径不变。</p>
+<li><span class="math inline">\(LB \leftarrow LB + \sum
+min_i\)</span></li>
+</ul></li>
+<li>列规约：在行规约后的矩阵基础上，遍历每一列，找到该列最小值 <span
+class="math inline">\(min_j\)</span>，该列所有元素减去 <span
+class="math inline">\(min_j\)</span>。
 <ul>
-<li>行规约：遍历每一行，找到该行的最小值 $min_i$，该行所有元素减去 $min_i$，使得该行至少有一个 0。<ul>
-<li>$LB \leftarrow LB + \sum min_i$</li>
+<li><span class="math inline">\(LB \leftarrow LB + \sum
+min_j\)</span></li>
+</ul></li>
 </ul>
-</li>
-<li>列规约：在行规约后的矩阵基础上，遍历每一列，找到该列最小值 $min_j$，该列所有元素减去 $min_j$。<ul>
-<li>$LB \leftarrow LB + \sum min_j$</li>
-</ul>
-</li>
-</ul>
-<p>在选择时，基于最大遗憾，即如果不选它，代价最大</p>
-<ul>
-<li>找到矩阵中所有的 0 元素</li>
-<li>对于每个 0 元素 $(i, j)$，计算它的遗憾值 = (第 $i$ 行次小值) + (第 $j$ 列次小值)</li>
-<li>选择遗憾值最大的那个 $(i, j)$ 进行分支</li>
-</ul>
-<p>分支 1：包含边 $(i, j)$</p>
-<ul>
-<li>删除第 $i$ 行和第 $j$ 列</li>
-<li>将 $(j, i)$ 设为 $\infty$</li>
-<li>对剩下的矩阵再次进行行/列规约</li>
-<li>该分支新 $LB$ = 旧 $LB$ + 新的规约值</li>
-</ul>
-<p>分支 2：不包含边 $(i, j)$</p>
-<ul>
-<li>将矩阵元素 $M[i][j]$ 设为 $\infty$</li>
-<li>对矩阵再次进行行/列规约</li>
-<li>该分支新 $LB$ = 旧 $LB$ + 新的规约值</li>
-</ul>
-<h3 id="3-3-3-指派问题和匈牙利算法"><a href="#3-3-3-指派问题和匈牙利算法" class="headerlink" title="3.3.3 指派问题和匈牙利算法"></a>3.3.3 指派问题和匈牙利算法</h3><h4 id="指派问题"><a href="#指派问题" class="headerlink" title="指派问题"></a>指派问题</h4><p>假设存在 $n$ 项任务需由 $n$ 个代理（人或机器）完成，且任务与代理之间一一对应。由于各代理的专长不同，完成不同任务的效率（或成本、时间）存在差异。</p>
-<p>效率矩阵：定义矩阵 $C = (c<em>{ij})</em>{n \times n}$，其中元素 $c_{ij} &gt; 0$ 表示第 $i$ 个代理完成第 $j$ 项任务的成本。</p>
-<p>引入 0-1 变量 $x_{ij}$：</p>
-<script type="math/tex; mode=display">x_{ij} = \begin{cases} 1, & \text{若指派第 } i \text{ 人完成第 } j \text{ 项任务} \\ 0, & \text{否则} \end{cases}</script><p>数学表达为：</p>
-<script type="math/tex; mode=display">\min z = \sum_{i=1}^{n} \sum_{j=1}^{n} c_{ij} x_{ij}</script><script type="math/tex; mode=display">\text{s.t.} \begin{cases} \sum_{j=1}^{n} x_{ij} = 1, & i=1, 2, \dots, n \quad (\text{每个人只能完成一项任务}) \\ \sum_{i=1}^{n} x_{ij} = 1, & j=1, 2, \dots, n \quad (\text{每项任务只能由一人完成}) \\ x_{ij} \in \{0, 1\} \end{cases}</script><p>已发现，这个表达式与TSP问题很像，唯一不同的是TSP解要求形成一个包含所有节点的大环，指派问题按照TSP的形式，是允许小环出现的。相差的约束就是MTZ 约束 (Miller-Tucker-Zemlin formulation)，它使得无法形成任何不包含起点的闭环。同时也是没有这个约束，匈牙利算法可以以多项式速度解决指派问题。</p>
-<h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><p>如上所述，指派问题的下界也可以通过矩阵规约方法求解。但在匈牙利算法中，矩阵规约知乎不使用最大遗憾值之类的选择方法，而是寻找<strong>最小直线覆盖</strong>：通过最少数量的直线覆盖矩阵中所有的 0。</p>
-<ul>
-<li>从含 0 最少的行开始，标记一个 0（记为 ◎），并划去同行同列的其他 0（记为 Ø）。若能找到 $n$ 个 ◎，则对应 $x_{ij}=1$ 的解即为最优解，此时目标函数值 $z_b=0$。</li>
-<li>对没有 ◎ 的行打 √，对打 √ 行中所有含 0 的列打 √，对打 √ 列中含 ◎ 的行打 √</li>
-<li>对没有打 √ 的行画横线，对打 √ 的列画纵线。<br>然后进行<strong>矩阵变换</strong>，旨在增加独立零元素的数量</li>
-<li>在未被直线覆盖的区域中找出最小元素 $k$。</li>
-<li>对所有未被直线覆盖的行元素减去 $k$。对所有被直线覆盖的列元素加上 $k$。（也就是所有打√ 的部分）</li>
-<li>直线交叉处的元素值增加 $k$，未覆盖处减小 $k$，单线覆盖处不变。此变换确保产生了新的 0 元素。</li>
-<li>转回步骤 2 重复进行，直至找到最优解。</li>
-</ul>
-<hr>
+<p>在选择时，基于最大遗憾，即如果不选它，代价最大 - 找到矩阵中所有的 0
+元素 - 对于每个 0 元素 <span class="math inline">\((i,
+j)\)</span>，计算它的遗憾值 = (第 <span class="math inline">\(i\)</span>
+行次小值) + (第 <span class="math inline">\(j\)</span> 列次小值) -
+选择遗憾值最大的那个 <span class="math inline">\((i, j)\)</span>
+进行分支</p>
+<p>分支 1：包含边 <span class="math inline">\((i, j)\)</span> - 删除第
+<span class="math inline">\(i\)</span> 行和第 <span
+class="math inline">\(j\)</span> 列 - 将 <span class="math inline">\((j,
+i)\)</span> 设为 <span class="math inline">\(\infty\)</span> -
+对剩下的矩阵再次进行行/列规约 - 该分支新 <span
+class="math inline">\(LB\)</span> = 旧 <span
+class="math inline">\(LB\)</span> + 新的规约值</p>
+<p>分支 2：不包含边 <span class="math inline">\((i, j)\)</span> -
+将矩阵元素 <span class="math inline">\(M[i][j]\)</span> 设为 <span
+class="math inline">\(\infty\)</span> - 对矩阵再次进行行/列规约 -
+该分支新 <span class="math inline">\(LB\)</span> = 旧 <span
+class="math inline">\(LB\)</span> + 新的规约值</p>
+<h3 id="指派问题和匈牙利算法">3.3.3 指派问题和匈牙利算法</h3>
+<h4 id="指派问题">指派问题</h4>
+<p>假设存在 <span class="math inline">\(n\)</span> 项任务需由 <span
+class="math inline">\(n\)</span>
+个代理（人或机器）完成，且任务与代理之间一一对应。由于各代理的专长不同，完成不同任务的效率（或成本、时间）存在差异。</p>
+<p>效率矩阵：定义矩阵 <span class="math inline">\(C = (c_{ij})_{n \times
+n}\)</span>，其中元素 <span class="math inline">\(c_{ij} &gt; 0\)</span>
+表示第 <span class="math inline">\(i\)</span> 个代理完成第 <span
+class="math inline">\(j\)</span> 项任务的成本。</p>
+<p>引入 0-1 变量 <span class="math inline">\(x_{ij}\)</span>： <span
+class="math display">\[x_{ij} = \begin{cases} 1, &amp; \text{若指派第 }
+i \text{ 人完成第 } j \text{ 项任务} \\ 0, &amp; \text{否则}
+\end{cases}\]</span></p>
+<p>数学表达为： <span class="math display">\[\min z = \sum_{i=1}^{n}
+\sum_{j=1}^{n} c_{ij} x_{ij}\]</span> <span
+class="math display">\[\text{s.t.} \begin{cases} \sum_{j=1}^{n} x_{ij} =
+1, &amp; i=1, 2, \dots, n \quad (\text{每个人只能完成一项任务}) \\
+\sum_{i=1}^{n} x_{ij} = 1, &amp; j=1, 2, \dots, n \quad
+(\text{每项任务只能由一人完成}) \\ x_{ij} \in \{0, 1\}
+\end{cases}\]</span></p>
+<p>已发现，这个表达式与TSP问题很像，唯一不同的是TSP解要求形成一个包含所有节点的大环，指派问题按照TSP的形式，是允许小环出现的。相差的约束就是MTZ
+约束 (Miller-Tucker-Zemlin
+formulation)，它使得无法形成任何不包含起点的闭环。同时也是没有这个约束，匈牙利算法可以以多项式速度解决指派问题。</p>
+<h4 id="匈牙利算法">匈牙利算法</h4>
+<p>如上所述，指派问题的下界也可以通过矩阵规约方法求解。但在匈牙利算法中，矩阵规约知乎不使用最大遗憾值之类的选择方法，而是寻找<strong>最小直线覆盖</strong>：通过最少数量的直线覆盖矩阵中所有的
+0。 - 从含 0 最少的行开始，标记一个 0（记为 ◎），并划去同行同列的其他
+0（记为 Ø）。若能找到 <span class="math inline">\(n\)</span> 个
+◎，则对应 <span class="math inline">\(x_{ij}=1\)</span>
+的解即为最优解，此时目标函数值 <span
+class="math inline">\(z_b=0\)</span>。 - 对没有 ◎ 的行打 √，对打 √
+行中所有含 0 的列打 √，对打 √ 列中含 ◎ 的行打 √ - 对没有打 √
+的行画横线，对打 √ 的列画纵线。
+然后进行<strong>矩阵变换</strong>，旨在增加独立零元素的数量 -
+在未被直线覆盖的区域中找出最小元素 <span
+class="math inline">\(k\)</span>。 - 对所有未被直线覆盖的行元素减去
+<span class="math inline">\(k\)</span>。对所有被直线覆盖的列元素加上
+<span class="math inline">\(k\)</span>。（也就是所有打√ 的部分） -
+直线交叉处的元素值增加 <span
+class="math inline">\(k\)</span>，未覆盖处减小 <span
+class="math inline">\(k\)</span>，单线覆盖处不变。此变换确保产生了新的 0
+元素。 - 转回步骤 2 重复进行，直至找到最优解。</p>
+<hr />
 <p>例如以下矩阵：</p>
-<script type="math/tex; mode=display">C = \begin{bmatrix}
-12 & 7 & 9 & 7 & 9 \\
-8 & 9 & 6 & 6 & 6 \\
-7 & 17 & 12 & 14 & 12 \\
-15 & 14 & 6 & 6 & 10 \\
-4 & 10 & 7 & 10 & 6
-\end{bmatrix}</script><p>行规约</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-5 & \mathbf{0} & 2 & \mathbf{0} & 2 \\
-2 & 3 & \mathbf{0} & \mathbf{0} & \mathbf{0} \\
-\mathbf{0} & 10 & 5 & 7 & 5 \\
-9 & 8 & \mathbf{0} & \mathbf{0} & 4 \\
-\mathbf{0} & 6 & 3 & 6 & 2
+<p><span class="math display">\[C = \begin{bmatrix}
+12 &amp; 7 &amp; 9 &amp; 7 &amp; 9 \\
+8 &amp; 9 &amp; 6 &amp; 6 &amp; 6 \\
+7 &amp; 17 &amp; 12 &amp; 14 &amp; 12 \\
+15 &amp; 14 &amp; 6 &amp; 6 &amp; 10 \\
+4 &amp; 10 &amp; 7 &amp; 10 &amp; 6
+\end{bmatrix}\]</span></p>
+<p>行规约</p>
+<p><span class="math display">\[\begin{bmatrix}
+5 &amp; \mathbf{0} &amp; 2 &amp; \mathbf{0} &amp; 2 \\
+2 &amp; 3 &amp; \mathbf{0} &amp; \mathbf{0} &amp; \mathbf{0} \\
+\mathbf{0} &amp; 10 &amp; 5 &amp; 7 &amp; 5 \\
+9 &amp; 8 &amp; \mathbf{0} &amp; \mathbf{0} &amp; 4 \\
+\mathbf{0} &amp; 6 &amp; 3 &amp; 6 &amp; 2
 \end{bmatrix}
 \begin{matrix}
 \leftarrow \text{减 } 7 \\
@@ -638,335 +1083,592 @@ x_1, x_2 \in \text{Integer} \quad (5)
 \leftarrow \text{减 } 7 \\
 \leftarrow \text{减 } 6 \\
 \leftarrow \text{减 } 4
-\end{matrix}</script><p>列规约：矩阵没有变化，因为每列都已经包含了至少一个 0。</p>
-<p>分配独立零元素</p>
+\end{matrix}\]</span></p>
+<p>列规约：矩阵没有变化，因为每列都已经包含了至少一个 0。</p>
+<p>分配独立零元素 - R3 只有一个 0 <span
+class="math inline">\(\to\)</span> 选 <span
+class="math inline">\((3,1)\)</span>。列1 的其他 0 划掉（<span
+class="math inline">\((5,1)\)</span> 变为 Ø）。 - R1 有两个 0，选 <span
+class="math inline">\((1,2)\)</span>。 - R4 有两个 0，选 <span
+class="math inline">\((4,3)\)</span>。列3 的其他 0 划掉（<span
+class="math inline">\((2,3)\)</span> 变为 Ø）。行4 的其他 0 划掉（<span
+class="math inline">\((4,4)\)</span> 变为 Ø）。 - R2 剩下 <span
+class="math inline">\((2,4)\)</span> 和 <span
+class="math inline">\((2,5)\)</span>。选 <span
+class="math inline">\((2,4)\)</span>。行2 的其他 0 划掉（<span
+class="math inline">\((2,5)\)</span> 变为 Ø）。 - R5 原本的 <span
+class="math inline">\((5,1)\)</span> 被 R3 占了，R5 没有可用的 0。</p>
+<p><span class="math display">\[\begin{bmatrix}
+5 &amp; ◎ &amp; 2 &amp; 0 &amp; 2 \\
+2 &amp; 3 &amp; Ø &amp; ◎ &amp; Ø \\
+◎ &amp; 10 &amp; 5 &amp; 7 &amp; 5 \\
+9 &amp; 8 &amp; ◎ &amp; Ø &amp; 4 \\
+Ø &amp; 6 &amp; 3 &amp; 6 &amp; 2
+\end{bmatrix}\]</span></p>
+<p>只有 4 个独立零元素（<span class="math inline">\(N=4 &lt;
+5\)</span>），不是最优解。需要进行最小直线覆盖。</p>
 <ul>
-<li>R3 只有一个 0 $\to$ 选 $(3,1)$。列1 的其他 0 划掉（$(5,1)$ 变为 Ø）。</li>
-<li>R1 有两个 0，选 $(1,2)$。</li>
-<li>R4 有两个 0，选 $(4,3)$。列3 的其他 0 划掉（$(2,3)$ 变为 Ø）。行4 的其他 0 划掉（$(4,4)$ 变为 Ø）。</li>
-<li>R2 剩下 $(2,4)$ 和 $(2,5)$。选 $(2,4)$。行2 的其他 0 划掉（$(2,5)$ 变为 Ø）。</li>
-<li>R5 原本的 $(5,1)$ 被 R3 占了，R5 没有可用的 0。</li>
-</ul>
-<script type="math/tex; mode=display">\begin{bmatrix}
-5 & ◎ & 2 & 0 & 2 \\
-2 & 3 & Ø & ◎ & Ø \\
-◎ & 10 & 5 & 7 & 5 \\
-9 & 8 & ◎ & Ø & 4 \\
-Ø & 6 & 3 & 6 & 2
-\end{bmatrix}</script><p>只有 4 个独立零元素（$N=4 &lt; 5$），不是最优解。需要进行最小直线覆盖。</p>
-<ul>
-<li>对没有 ◎ 的行打 √：Row 5 没有分配任务 $\to$ √ Row 5</li>
-<li>对打 √ 行中所有含 0 的列打 √：Row 5 在 Col 1 有个 0（虽然被划掉了，仍算 0 元素）$\to$ √ Col 1</li>
-<li>对打 √ 列中含 ◎ 的行打 √：Col 1 的 ◎ 在 Row 3 $\to$ √ Row 3</li>
+<li>对没有 ◎ 的行打 √：Row 5 没有分配任务 <span
+class="math inline">\(\to\)</span> √ Row 5</li>
+<li>对打 √ 行中所有含 0 的列打 √：Row 5 在 Col 1 有个
+0（虽然被划掉了，仍算 0 元素）<span class="math inline">\(\to\)</span> √
+Col 1</li>
+<li>对打 √ 列中含 ◎ 的行打 √：Col 1 的 ◎ 在 Row 3 <span
+class="math inline">\(\to\)</span> √ Row 3</li>
 <li>继续循环：Row 3 的 0 在 Col 1（已勾），无新列。停止</li>
-<li>画横线：没有打 √ 的行 $\to$ Row 1, Row 2, Row 4。画纵线：打 √ 的列 $\to$ Col 1。<script type="math/tex; mode=display">\begin{array}{c|ccccc}
-& \mathbf{L} & & & & \\
+<li>画横线：没有打 √ 的行 <span class="math inline">\(\to\)</span> Row
+1, Row 2, Row 4。画纵线：打 √ 的列 <span
+class="math inline">\(\to\)</span> Col 1。 <span
+class="math display">\[\begin{array}{c|ccccc}
+&amp; \mathbf{L} &amp; &amp; &amp; &amp; \\
 \hline
-\mathbf{L} & 5 & 0 & 2 & 0 & 2 \\
-\mathbf{L} & 2 & 3 & 0 & 0 & 0 \\
- & 0 & 10 & 5 & 7 & 5 \\
-\mathbf{L} & 9 & 8 & 0 & 0 & 4 \\
- & 0 & 6 & 3 & 6 & 2
-\end{array}</script></li>
+\mathbf{L} &amp; 5 &amp; 0 &amp; 2 &amp; 0 &amp; 2 \\
+\mathbf{L} &amp; 2 &amp; 3 &amp; 0 &amp; 0 &amp; 0 \\
+&amp; 0 &amp; 10 &amp; 5 &amp; 7 &amp; 5 \\
+\mathbf{L} &amp; 9 &amp; 8 &amp; 0 &amp; 0 &amp; 4 \\
+&amp; 0 &amp; 6 &amp; 3 &amp; 6 &amp; 2
+\end{array}\]</span></li>
 </ul>
-<p>找出未被覆盖区域的最小元素 $k$ $k = 2$</p>
-<ul>
-<li>未覆盖元素（R3, R5 的后四列）：减去 $2$</li>
-<li>单线覆盖元素（不变）</li>
-<li>双线交叉点（R1, R2, R4 与 C1 的交点）：加上 $2$。</li>
-<li><script type="math/tex; mode=display">\begin{bmatrix}
-    5\mathbf{+2} & 0 & 2 & 0 & 2 \\
-    2\mathbf{+2} & 3 & 0 & 0 & 0 \\
-    0 & 10\mathbf{-2} & 5\mathbf{-2} & 7\mathbf{-2} & 5\mathbf{-2} \\
-    9\mathbf{+2} & 8 & 0 & 0 & 4 \\
-    0 & 6\mathbf{-2} & 3\mathbf{-2} & 6\mathbf{-2} & 2\mathbf{-2}
-    \end{bmatrix}
-    \rightarrow
-    \begin{bmatrix}
-    7 & \mathbf{0} & 2 & \mathbf{0} & 2 \\
-    4 & 3 & \mathbf{0} & \mathbf{0} & \mathbf{0} \\
-    \mathbf{0} & 8 & 3 & 5 & 3 \\
-    11 & 8 & \mathbf{0} & \mathbf{0} & 4 \\
-    \mathbf{0} & 4 & 1 & 4 & \mathbf{0} 
-    \end{bmatrix}</script></li>
-</ul>
-<p>再次进行最优解试探：</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-7 & ◎ & 2 & 0 & 2 \\
-4 & 3 & 0 & ◎ & Ø \\
-◎ & 8 & 3 & 5 & 3 \\
-11 & 8 & ◎ & Ø & 4 \\
-Ø & 4 & 1 & 4 & ◎
-\end{bmatrix}</script><p>回到原始矩阵查找成本，最小总成本 = $7 + 6 + 7 + 6 + 6 = \mathbf{32}$。</p>
-<hr>
-<p>对于最大化指派问题，使用 $b<em>{ij} = M - c</em>{ij}$将其转化为最小化问题。</p>
-<hr>
-<h3 id="3-3-4-最小耗费网络流设计"><a href="#3-3-4-最小耗费网络流设计" class="headerlink" title="3.3.4 最小耗费网络流设计"></a>3.3.4 最小耗费网络流设计</h3><p>在给定节点集合中，构建一个满足所有流量需求且总耗费最小的网络结构。</p>
-<p>设 $G$ 为 $n$ 个节点上所有无向图的集合。任意图 $G \in \mathcal{G}$ 可由邻接矩阵 $B$（上三角部分）表示，元素 $b_{ij}$ 描述连接状态。</p>
-<ul>
-<li>任意源-目的节点对 $(O-D)$ 间存在需传输的数据量 $d_{ij}$。</li>
-<li>每条边 $(i,j)$ 存在最大负载限制 $k_{ij}$。</li>
-<li>建立边 $(i,j)$ 的花费为 $c_{ij}$。</li>
-</ul>
-<p>寻找最优子图 $G^* \in \mathcal{G}$，即在满足所有边容量限制 $k<em>{ij}$ 的前提下，承载所有 $d</em>{ij}$ 流量，并使得网络建设总成本最小。</p>
-<p>引入 0-1 变量 $x_{ij}$：</p>
-<script type="math/tex; mode=display">x_{ij} = \begin{cases} 1, & \text{若边 } (i,j) \text{ 被选中构建} \\ 0, & \text{若边 } (i,j) \text{ 未被选中} \end{cases}</script><hr>
+<p>找出未被覆盖区域的最小元素 <span class="math inline">\(k\)</span>
+<span class="math inline">\(k = 2\)</span> - 未覆盖元素（R3, R5
+的后四列）：减去 <span class="math inline">\(2\)</span> -
+单线覆盖元素（不变） - 双线交叉点（R1, R2, R4 与 C1 的交点）：加上 <span
+class="math inline">\(2\)</span>。 - <span
+class="math display">\[\begin{bmatrix}
+      5\mathbf{+2} &amp; 0 &amp; 2 &amp; 0 &amp; 2 \\
+      2\mathbf{+2} &amp; 3 &amp; 0 &amp; 0 &amp; 0 \\
+      0 &amp; 10\mathbf{-2} &amp; 5\mathbf{-2} &amp; 7\mathbf{-2} &amp;
+5\mathbf{-2} \\
+      9\mathbf{+2} &amp; 8 &amp; 0 &amp; 0 &amp; 4 \\
+      0 &amp; 6\mathbf{-2} &amp; 3\mathbf{-2} &amp; 6\mathbf{-2} &amp;
+2\mathbf{-2}
+      \end{bmatrix}
+      \rightarrow
+      \begin{bmatrix}
+      7 &amp; \mathbf{0} &amp; 2 &amp; \mathbf{0} &amp; 2 \\
+      4 &amp; 3 &amp; \mathbf{0} &amp; \mathbf{0} &amp; \mathbf{0} \\
+      \mathbf{0} &amp; 8 &amp; 3 &amp; 5 &amp; 3 \\
+      11 &amp; 8 &amp; \mathbf{0} &amp; \mathbf{0} &amp; 4 \\
+      \mathbf{0} &amp; 4 &amp; 1 &amp; 4 &amp; \mathbf{0}
+      \end{bmatrix}\]</span></p>
+<p>再次进行最优解试探： <span class="math display">\[\begin{bmatrix}
+7 &amp; ◎ &amp; 2 &amp; 0 &amp; 2 \\
+4 &amp; 3 &amp; 0 &amp; ◎ &amp; Ø \\
+◎ &amp; 8 &amp; 3 &amp; 5 &amp; 3 \\
+11 &amp; 8 &amp; ◎ &amp; Ø &amp; 4 \\
+Ø &amp; 4 &amp; 1 &amp; 4 &amp; ◎
+\end{bmatrix}\]</span></p>
+<p>回到原始矩阵查找成本，最小总成本 = <span class="math inline">\(7 + 6
++ 7 + 6 + 6 = \mathbf{32}\)</span>。</p>
+<hr />
+<p>对于最大化指派问题，使用 <span class="math inline">\(b_{ij} = M -
+c_{ij}\)</span>将其转化为最小化问题。</p>
+<hr />
+<h3 id="最小耗费网络流设计">3.3.4 最小耗费网络流设计</h3>
+<p>在给定节点集合中，构建一个满足所有流量需求且总耗费最小的网络结构。</p>
+<p>设 <span class="math inline">\(G\)</span> 为 <span
+class="math inline">\(n\)</span> 个节点上所有无向图的集合。任意图 <span
+class="math inline">\(G \in \mathcal{G}\)</span> 可由邻接矩阵 <span
+class="math inline">\(B\)</span>（上三角部分）表示，元素 <span
+class="math inline">\(b_{ij}\)</span> 描述连接状态。 - 任意源-目的节点对
+<span class="math inline">\((O-D)\)</span> 间存在需传输的数据量 <span
+class="math inline">\(d_{ij}\)</span>。 - 每条边 <span
+class="math inline">\((i,j)\)</span> 存在最大负载限制 <span
+class="math inline">\(k_{ij}\)</span>。 - 建立边 <span
+class="math inline">\((i,j)\)</span> 的花费为 <span
+class="math inline">\(c_{ij}\)</span>。</p>
+<p>寻找最优子图 <span class="math inline">\(G^* \in
+\mathcal{G}\)</span>，即在满足所有边容量限制 <span
+class="math inline">\(k_{ij}\)</span> 的前提下，承载所有 <span
+class="math inline">\(d_{ij}\)</span>
+流量，并使得网络建设总成本最小。</p>
+<p>引入 0-1 变量 <span class="math inline">\(x_{ij}\)</span>：</p>
+<p><span class="math display">\[x_{ij} = \begin{cases} 1, &amp;
+\text{若边 } (i,j) \text{ 被选中构建} \\ 0, &amp; \text{若边 } (i,j)
+\text{ 未被选中} \end{cases}\]</span></p>
+<hr />
 <p>这是我们之前的最小费用通信网络的扩展。之前我们使用各种方式生成了该图的情况下的最小生成树，现在的问题只是在之前的问题上增加了流量和容量两个约束。</p>
-<p>假设候选边数为m个，定义二叉搜索树为m层，每一层对应一条边的候选决策：</p>
-<ul>
-<li>左分支 (Left Branch)：代表 $x_{ij}=1$，即选择该边加入网络。</li>
-<li>右分支 (Right Branch)：代表 $x_{ij}=0$，即放弃该边。</li>
-</ul>
-<p>从根节点 (Vertex 1) 开始，在下行扩展时，总是优先选择左分支，尝试加入边。当发生以下任一情况时，停止当前路径并回溯：</p>
-<ul>
-<li>当前选择的边组合无法满足约束（如不连通或容量溢出）</li>
-<li>已找到一个满足条件的可行解</li>
-<li>触发定界条件</li>
-</ul>
-<p>定界条件与我们之前的设置相同，为最小成本的下界，即UB = Cost(已经选择的边)+minCost(连接剩下所有节点)。一种方法是按照之前的旅行商问题的下界定义。更好的方法是受限最小生成树问题，称为<strong>SMST算法</strong>，因为主要考虑边的问题，所以使用Kruskal算法。</p>
+<p>假设候选边数为m个，定义二叉搜索树为m层，每一层对应一条边的候选决策：
+- 左分支 (Left Branch)：代表 <span
+class="math inline">\(x_{ij}=1\)</span>，即选择该边加入网络。 - 右分支
+(Right Branch)：代表 <span
+class="math inline">\(x_{ij}=0\)</span>，即放弃该边。</p>
+<p>从根节点 (Vertex 1)
+开始，在下行扩展时，总是优先选择左分支，尝试加入边。当发生以下任一情况时，停止当前路径并回溯：
+- 当前选择的边组合无法满足约束（如不连通或容量溢出） -
+已找到一个满足条件的可行解 - 触发定界条件</p>
+<p>定界条件与我们之前的设置相同，为最小成本的下界，即UB =
+Cost(已经选择的边)+minCost(连接剩下所有节点)。一种方法是按照之前的旅行商问题的下界定义。更好的方法是受限最小生成树问题，称为<strong>SMST算法</strong>，因为主要考虑边的问题，所以使用Kruskal算法。</p>
 <blockquote>
 <p>回忆Kruskal算法，这是一种维护不相交集合的算法。每一步选择合法的最短边，并合并该边连接的两个集合。</p>
 </blockquote>
-<hr>
+<hr />
 <p>算法有一个显著的弱点，若位于搜索树上层（较早被决策）的某条边容量很小，算法可能会在深层搜索很久后才发现其导致的容量溢出。我们引入<strong>容量约束违背预测</strong></p>
 <p>这种预测利用最大流最小割定理的一个推论：</p>
 <p>网络中任意一个“割”（将网络切成两部分的划分），其割边的总容量必须大于等于跨越该割的总流量需求。</p>
-<p>即在 Kruskal 算法的某一步，我们考虑选择边 $(u, v)$ 来连接两个原本独立的连通分量（集合）$S<em>1$ 和 $S_2$，计算必须跨越 $S_1$ 和 $S_2$ 之间的总流量需求 $D</em>{cross}$：</p>
-<script type="math/tex; mode=display">D_{cross} = \sum_{i \in S_1, j \in S_2} (d_{ij} + d_{ji})</script><p>即：所有源点在 $S_1$、终点在 $S_2$（或反之）的数据流总和。</p>
-<p>然后计算当前割容量，在当前的决策分支中，我们要看连接 $S<em>1$ 和 $S_2$ 的边一共有哪些，在标准Kruskal算法中通常只有准备连接的一条边：$K</em>{cut} = k_{uv}$。</p>
-<p>判断是否满足$K<em>{cut} &lt; D</em>{cross}$，如果成立（容量不足）：说明仅靠当前这条边（以及已选的边），物理上无法承载两个集合间的通信需求。</p>
-<p>但是，直接说明这种选择不可行也是不合理的。引入强制增边：为了满足 D<em>{cross} 的需求，我们必须从 $S_1$ 和 $S_2$ 之间的候选边集合中，继续寻找次便宜的边 $e_2, e_3…$，直到它们的总容量 $\sum k \ge D</em>{cross}$。如此，这个分支的成本下界提高，如果超过了上界，则立即剪枝。</p>
-<hr>
+<p>即在 Kruskal 算法的某一步，我们考虑选择边 <span
+class="math inline">\((u, v)\)</span>
+来连接两个原本独立的连通分量（集合）<span
+class="math inline">\(S_1\)</span> 和 <span
+class="math inline">\(S_2\)</span>，计算必须跨越 <span
+class="math inline">\(S_1\)</span> 和 <span
+class="math inline">\(S_2\)</span> 之间的总流量需求 <span
+class="math inline">\(D_{cross}\)</span>：</p>
+<p><span class="math display">\[D_{cross} = \sum_{i \in S_1, j \in S_2}
+(d_{ij} + d_{ji})\]</span></p>
+<p>即：所有源点在 <span class="math inline">\(S_1\)</span>、终点在 <span
+class="math inline">\(S_2\)</span>（或反之）的数据流总和。</p>
+<p>然后计算当前割容量，在当前的决策分支中，我们要看连接 <span
+class="math inline">\(S_1\)</span> 和 <span
+class="math inline">\(S_2\)</span>
+的边一共有哪些，在标准Kruskal算法中通常只有准备连接的一条边：<span
+class="math inline">\(K_{cut} = k_{uv}\)</span>。</p>
+<p>判断是否满足<span class="math inline">\(K_{cut} &lt;
+D_{cross}\)</span>，如果成立（容量不足）：说明仅靠当前这条边（以及已选的边），物理上无法承载两个集合间的通信需求。</p>
+<p>但是，直接说明这种选择不可行也是不合理的。引入强制增边：为了满足
+D_{cross} 的需求，我们必须从 <span class="math inline">\(S_1\)</span> 和
+<span class="math inline">\(S_2\)</span>
+之间的候选边集合中，继续寻找次便宜的边 <span class="math inline">\(e_2,
+e_3...\)</span>，直到它们的总容量 <span class="math inline">\(\sum k \ge
+D_{cross}\)</span>。如此，这个分支的成本下界提高，如果超过了上界，则立即剪枝。</p>
+<hr />
 <p>另一种下界改进方式被称为<strong>未来流量界</strong>。简单来说，容量约束违背预测算的是准备连接的这条链路可能的额外成本。</p>
 <p>未来流量界考察目前所有未被连通的子树，也就是Kruskal算法中的不交叉集合。为了让这些子树可以互通，未来至少要引入一些链路，这些链路的成本为Y。将Y加入LB公式中，可以让下界进一步精确。</p>
-<hr>
+<hr />
 <p>改进还包括<strong>链路度</strong>，这种方法提前计算每条链路可车挂载的最大节点数。在计算SMST算法中，由于有生成树约束，系统无环，可以用这一点快速检查是否满足容量要求。</p>
-<hr>
-<p>除此之外可以做的优化包括：</p>
+<hr />
+<p>除此之外可以做的优化包括： - 把所有边从便宜到贵排序 -
+在分支定界算法运行前，先运行一个修正版的Prim算法生成一颗满足单一约束（比如容量约束）的最小生成树。然后将这个成本作为上界，避免算法早期的盲目搜索</p>
+<h2 id="贪心算法-greedy-algorithms">3.4 贪心算法 (Greedy
+Algorithms)</h2>
+<p>贪心算法是一种“非回溯算法”，其特征在于基于局部信息做出具有全局意义的、不可撤销的决策。</p>
+<h3 id="贪心算法">3.4.1 贪心算法</h3>
+<p>个有效的贪心策略必须严格满足以下三要素：</p>
 <ul>
-<li>把所有边从便宜到贵排序</li>
-<li>在分支定界算法运行前，先运行一个修正版的Prim算法生成一颗满足单一约束（比如容量约束）的最小生成树。然后将这个成本作为上界，避免算法早期的盲目搜索</li>
-</ul>
-<h2 id="3-4-贪心算法-Greedy-Algorithms"><a href="#3-4-贪心算法-Greedy-Algorithms" class="headerlink" title="3.4 贪心算法 (Greedy Algorithms)"></a>3.4 贪心算法 (Greedy Algorithms)</h2><p>贪心算法是一种“非回溯算法”，其特征在于基于局部信息做出具有全局意义的、不可撤销的决策。</p>
-<h3 id="3-4-1-贪心算法"><a href="#3-4-1-贪心算法" class="headerlink" title="3.4.1 贪心算法"></a>3.4.1 贪心算法</h3><p>个有效的贪心策略必须严格满足以下三要素：</p>
-<ul>
-<li><p>可行性 (Feasible)：每一步所做的选择必须严格满足问题的约束条件。</p>
-</li>
-<li><p>局部最优 (Locally Optimal)：在当前步骤的所有可行选择中，选取局部最佳方案。</p>
-</li>
-<li><p>不可取消性 (Irrevocable)：选择一旦做出，在算法的后续步骤中无法更改或撤销。</p>
-</li>
+<li><p>可行性
+(Feasible)：每一步所做的选择必须严格满足问题的约束条件。</p></li>
+<li><p>局部最优 (Locally
+Optimal)：在当前步骤的所有可行选择中，选取局部最佳方案。</p></li>
+<li><p>不可取消性
+(Irrevocable)：选择一旦做出，在算法的后续步骤中无法更改或撤销。</p></li>
 </ul>
 <p>此类算法通常易于设计，且因其线性或线性对数级的时间复杂度，易于分析运行效率。然而，其主要挑战在于正确性证明，即证明一系列局部最优选择最终能收敛至全局最优解。</p>
-<h3 id="3-4-2-区间调度问题和区间划分问题"><a href="#3-4-2-区间调度问题和区间划分问题" class="headerlink" title="3.4.2 区间调度问题和区间划分问题"></a>3.4.2 区间调度问题和区间划分问题</h3><h4 id="区间调度问题"><a href="#区间调度问题" class="headerlink" title="区间调度问题"></a>区间调度问题</h4><p>已知包含 $n$ 项任务的集合 $S={1, 2, \dots, n}$，每项任务 $i$ 拥有固定的开始时间 $s_i$ 和结束时间 $f_i$。任务 $i$ 与 $j$ 相容，当且仅当 $s_i \ge f_j$ 或 $s_j \ge f_i$（即时间区间不重叠）。</p>
-<p>寻找一个基数最大的两两相容的任务子集 $A$。</p>
-<p>优先选择结束时间最早的任务，能够尽早释放资源，从而为后续任务保留最大的时间余量。因此优先选择结束时间早的废。</p>
-<ul>
-<li>将所有任务按结束时间 $f_i$ 进行非递减排序。</li>
-<li>初始化 $A$ 为空，遍历排序后的任务序列。</li>
-<li>设 $j$ 为上一个加入 $A$ 的任务。对于当前任务 $i$，若 $s_i \ge f_j$（即与已选集合相容），则将 $i$ 加入 $A$。</li>
-</ul>
-<p>这个算法的时间消耗在于排序，总的时间复杂度为$O(n \log n)$</p>
-<hr>
-<p>证明贪心算法返回的任务集合 $A$ 是最优的。</p>
-<p>假设贪心算法生成的解为 $A = {i_1, i_2, \dots, i_k}$（按添加顺序），最优解为 $O = {j_1, j_2, \dots, j_m}$。显然 $m \ge k$。我们只需证明 $m=k$。</p>
-<p>易证贪心解在每一步都“领先”或不落后于最优解。即证明对于任意 $r \le k$，有 $f<em>{i_r} \le f</em>{j_r}$。</p>
-<p>假设贪心解不是最优的，即 $m &gt; k$。根据上述结论，有 $f<em>{i_k} \le f</em>{j<em>k}$。<br>考虑最优解中的第 $k+1$ 个任务 $j</em>{k+1}$。由定义知 $s<em>{j</em>{k+1}} \ge f<em>{j_k}$。<br>因此 $s</em>{j<em>{k+1}} \ge f</em>{j<em>k} \ge f</em>{i<em>k}$。这意味着 $j</em>{k+1}$ 与贪心解集 $A$ 相容。然而，贪心算法会在 $i<em>k$ 处停止，说明后续没有相容任务。这与存在 $j</em>{k+1}$ 相矛盾。<br>故假设不成立，必须有 $m=k$，即贪心解即为最优解。</p>
-<hr>
-<p><strong>扩展：加权区间调度问题</strong><br>当引入权重因素，即每个任务具有权重 $w_i$，目标变为寻找总权重最大的相容子集时。</p>
+<h3 id="区间调度问题和区间划分问题">3.4.2
+区间调度问题和区间划分问题</h3>
+<h4 id="区间调度问题">区间调度问题</h4>
+<p>已知包含 <span class="math inline">\(n\)</span> 项任务的集合 <span
+class="math inline">\(S=\{1, 2, \dots, n\}\)</span>，每项任务 <span
+class="math inline">\(i\)</span> 拥有固定的开始时间 <span
+class="math inline">\(s_i\)</span> 和结束时间 <span
+class="math inline">\(f_i\)</span>。任务 <span
+class="math inline">\(i\)</span> 与 <span
+class="math inline">\(j\)</span> 相容，当且仅当 <span
+class="math inline">\(s_i \ge f_j\)</span> 或 <span
+class="math inline">\(s_j \ge f_i\)</span>（即时间区间不重叠）。</p>
+<p>寻找一个基数最大的两两相容的任务子集 <span
+class="math inline">\(A\)</span>。</p>
+<p>优先选择结束时间最早的任务，能够尽早释放资源，从而为后续任务保留最大的时间余量。因此优先选择结束时间早的废。
+- 将所有任务按结束时间 <span class="math inline">\(f_i\)</span>
+进行非递减排序。 - 初始化 <span class="math inline">\(A\)</span>
+为空，遍历排序后的任务序列。 - 设 <span class="math inline">\(j\)</span>
+为上一个加入 <span class="math inline">\(A\)</span> 的任务。对于当前任务
+<span class="math inline">\(i\)</span>，若 <span
+class="math inline">\(s_i \ge f_j\)</span>（即与已选集合相容），则将
+<span class="math inline">\(i\)</span> 加入 <span
+class="math inline">\(A\)</span>。</p>
+<p>这个算法的时间消耗在于排序，总的时间复杂度为<span
+class="math inline">\(O(n \log n)\)</span></p>
+<hr />
+<p>证明贪心算法返回的任务集合 <span class="math inline">\(A\)</span>
+是最优的。</p>
+<p>假设贪心算法生成的解为 <span class="math inline">\(A = \{i_1, i_2,
+\dots, i_k\}\)</span>（按添加顺序），最优解为 <span
+class="math inline">\(O = \{j_1, j_2, \dots, j_m\}\)</span>。显然 <span
+class="math inline">\(m \ge k\)</span>。我们只需证明 <span
+class="math inline">\(m=k\)</span>。</p>
+<p>易证贪心解在每一步都“领先”或不落后于最优解。即证明对于任意 <span
+class="math inline">\(r \le k\)</span>，有 <span
+class="math inline">\(f_{i_r} \le f_{j_r}\)</span>。</p>
+<p>假设贪心解不是最优的，即 <span class="math inline">\(m &gt;
+k\)</span>。根据上述结论，有 <span class="math inline">\(f_{i_k} \le
+f_{j_k}\)</span>。 考虑最优解中的第 <span
+class="math inline">\(k+1\)</span> 个任务 <span
+class="math inline">\(j_{k+1}\)</span>。由定义知 <span
+class="math inline">\(s_{j_{k+1}} \ge f_{j_k}\)</span>。 因此 <span
+class="math inline">\(s_{j_{k+1}} \ge f_{j_k} \ge
+f_{i_k}\)</span>。这意味着 <span class="math inline">\(j_{k+1}\)</span>
+与贪心解集 <span class="math inline">\(A\)</span>
+相容。然而，贪心算法会在 <span class="math inline">\(i_k\)</span>
+处停止，说明后续没有相容任务。这与存在 <span
+class="math inline">\(j_{k+1}\)</span> 相矛盾。 故假设不成立，必须有
+<span class="math inline">\(m=k\)</span>，即贪心解即为最优解。</p>
+<hr />
+<p><strong>扩展：加权区间调度问题</strong>
+当引入权重因素，即每个任务具有权重 <span
+class="math inline">\(w_i\)</span>，目标变为寻找总权重最大的相容子集时。</p>
 <p>这个问题要用动态规划方法做。</p>
-<p>一种思路是维护一个T(结束时间f，i)的记录在结束时间为f时，前i个任务可以达到的最大权重。实际上，结束时间的维度一般与i同规模。这个算法的时间复杂度为$O(n^2)$</p>
-<p>更简单的算法是首先将任务按照结束时间排序，在进行动态规划前维护一个数组，记录每个任务的前驱任务，即与 $j$ 相容的任务的最大索引。</p>
+<p>一种思路是维护一个T(结束时间f，i)的记录在结束时间为f时，前i个任务可以达到的最大权重。实际上，结束时间的维度一般与i同规模。这个算法的时间复杂度为<span
+class="math inline">\(O(n^2)\)</span></p>
+<p>更简单的算法是首先将任务按照结束时间排序，在进行动态规划前维护一个数组，记录每个任务的前驱任务，即与
+<span class="math inline">\(j\)</span> 相容的任务的最大索引。</p>
 <p>由此，递推公式为：</p>
-<script type="math/tex; mode=display">OPT(j) = \max \begin{cases} w_j + OPT(p(j)) & \text{(选择任务 } j\text{)} \\ OPT(j-1) & \text{(不选任务 } j\text{)} \end{cases}</script><p>算法的时间复杂度下降到 $O(n \log n)$。</p>
-<hr>
-<h4 id="区间划分问题"><a href="#区间划分问题" class="headerlink" title="区间划分问题"></a>区间划分问题</h4><p>包含 $n$ 门课程的集合，每门课 $j$ 具有固定的开始时间 $s_j$ 和结束时间 $f_j$。寻找最小数目的教室，使得所有课程均能被安排，且同一教室在同一时间仅能容纳一门课。</p>
-<p>策略：按开始时间 $s_j$ 对所有课程进行排序。</p>
+<p><span class="math display">\[OPT(j) = \max \begin{cases} w_j +
+OPT(p(j)) &amp; \text{(选择任务 } j\text{)} \\ OPT(j-1) &amp;
+\text{(不选任务 } j\text{)} \end{cases}\]</span></p>
+<p>算法的时间复杂度下降到 <span class="math inline">\(O(n \log
+n)\)</span>。</p>
+<hr />
+<h4 id="区间划分问题">区间划分问题</h4>
+<p>包含 <span class="math inline">\(n\)</span> 门课程的集合，每门课
+<span class="math inline">\(j\)</span> 具有固定的开始时间 <span
+class="math inline">\(s_j\)</span> 和结束时间 <span
+class="math inline">\(f_j\)</span>。寻找最小数目的教室，使得所有课程均能被安排，且同一教室在同一时间仅能容纳一门课。</p>
+<p>策略：按开始时间 <span class="math inline">\(s_j\)</span>
+对所有课程进行排序。 - 初始化教室集合为空。 -
+遍历排序后的课程。对于当前课程 <span
+class="math inline">\(j\)</span>，检查现有教室中是否有一间是空闲的（即该教室上一门课的结束时间
+<span class="math inline">\(\le s_j\)</span>）。 - 若有兼容教室，将课程
+<span class="math inline">\(j\)</span>
+安排进去（更新该教室的结束时间）。 -
+若无兼容教室，开启一间新教室并安排课程 <span
+class="math inline">\(j\)</span>。</p>
+<p>算法使用优先队列 (Priority Queue)
+维护所有教室最后加入课程的完成时间（最小堆），排序耗时 <span
+class="math inline">\(O(n \log n)\)</span>，优先队列操作耗时 <span
+class="math inline">\(O(n \log n)\)</span>，总计 <span
+class="math inline">\(O(n \log n)\)</span></p>
+<hr />
+<p>证明上述贪心算法使用的教室数目等于区间集合的深度 <span
+class="math inline">\(d\)</span>，即该算法能找到最小数目的教室。 -
+假设算法最终开启了 <span class="math inline">\(d\)</span> 间教室。 -
+考虑当第 <span class="math inline">\(d\)</span>
+间教室被开启的时刻，意味着待安排的课程 <span
+class="math inline">\(j\)</span> 与前面 <span
+class="math inline">\(d-1\)</span>
+间教室中正在进行的课程均不相容（即存在重叠）。 - 这表明在 <span
+class="math inline">\(s_j\)</span> 这一时刻，包括课程 <span
+class="math inline">\(j\)</span> 在内，共有 <span
+class="math inline">\(d\)</span> 门课程同时进行。 -
+根据深度的定义，此时区间集合的深度至少为 <span
+class="math inline">\(d\)</span>。 - 结合下界性质（<span
+class="math inline">\(Classrooms \ge
+Depth\)</span>），可知算法所用的教室数 <span
+class="math inline">\(d\)</span> 恰好等于深度下界，因此是最优解。</p>
+<h3 id="最小延迟调度问题">3.4.3 最小延迟调度问题</h3>
+<p>输入：单个处理资源，处理 <span class="math inline">\(n\)</span>
+个任务。每个任务 <span class="math inline">\(j\)</span> 包含处理时长
+<span class="math inline">\(t_j\)</span> 和截止时间 <span
+class="math inline">\(d_j\)</span>。 - <span
+class="math inline">\(s_j\)</span>：任务开始时间。 - <span
+class="math inline">\(f_j = s_j + t_j\)</span>：任务完成时间。延迟
+(Lateness)： - <span class="math inline">\(l_j = \max\{0, f_j -
+d_j\}\)</span>。 目标：最小化最大延迟 <span
+class="math inline">\(L_{\max} = \max_j l_j\)</span>。</p>
+<p><span class="math inline">\(l_j = \max\{0, s_j + t_j -
+d_j\}\)</span>，为了保证最大延迟最小，应该保证对于第j的元素，<span
+class="math inline">\(s_j\)</span>和<span
+class="math inline">\(t_j\)</span>尽可能小，<span
+class="math inline">\(d_j\)</span>尽可能大。这个问题是最早截止时间优先。</p>
+<hr />
+<p>证明定理：按截止时间排序的贪心调度 <span
+class="math inline">\(S\)</span> 是最优的。</p>
+<p>假设 <span class="math inline">\(S^*\)</span>
+是某一最优调度。我们将通过一系列不增加最大延迟的交换操作，将 <span
+class="math inline">\(S^*\)</span> 转化为 <span
+class="math inline">\(S\)</span>。</p>
 <ul>
-<li>初始化教室集合为空。</li>
-<li>遍历排序后的课程。对于当前课程 $j$，检查现有教室中是否有一间是空闲的（即该教室上一门课的结束时间 $\le s_j$）。</li>
-<li>若有兼容教室，将课程 $j$ 安排进去（更新该教室的结束时间）。</li>
-<li>若无兼容教室，开启一间新教室并安排课程 $j$。</li>
-</ul>
-<p>算法使用优先队列 (Priority Queue) 维护所有教室最后加入课程的完成时间（最小堆），排序耗时 $O(n \log n)$，优先队列操作耗时 $O(n \log n)$，总计 $O(n \log n)$</p>
-<hr>
-<p>证明上述贪心算法使用的教室数目等于区间集合的深度 $d$，即该算法能找到最小数目的教室。</p>
+<li>在调度 <span class="math inline">\(S\)</span> 中，若任务 <span
+class="math inline">\(i\)</span> 和 <span
+class="math inline">\(j\)</span> 满足 <span class="math inline">\(d_i
+\le d_j\)</span>（即 <span class="math inline">\(i\)</span>
+应该先做），但实际调度中 <span class="math inline">\(j\)</span> 排在
+<span class="math inline">\(i\)</span> 之前，则称 <span
+class="math inline">\((i, j)\)</span> 为一个逆序。
 <ul>
-<li>假设算法最终开启了 $d$ 间教室。</li>
-<li>考虑当第 $d$ 间教室被开启的时刻，意味着待安排的课程 $j$ 与前面 $d-1$ 间教室中正在进行的课程均不相容（即存在重叠）。</li>
-<li>这表明在 $s_j$ 这一时刻，包括课程 $j$ 在内，共有 $d$ 门课程同时进行。</li>
-<li>根据深度的定义，此时区间集合的深度至少为 $d$。</li>
-<li>结合下界性质（$Classrooms \ge Depth$），可知算法所用的教室数 $d$ 恰好等于深度下界，因此是最优解。</li>
-</ul>
-<h3 id="3-4-3-最小延迟调度问题"><a href="#3-4-3-最小延迟调度问题" class="headerlink" title="3.4.3 最小延迟调度问题"></a>3.4.3 最小延迟调度问题</h3><p>输入：单个处理资源，处理 $n$ 个任务。每个任务 $j$ 包含处理时长 $t_j$ 和截止时间 $d_j$。</p>
+<li>贪心调度 <span class="math inline">\(S\)</span>
+中不存在任何逆序。若任何其他调度包含逆序，必存在一对相邻的逆序任务。</li>
+</ul></li>
+<li>假设在调度中存在相邻的逆序任务 <span
+class="math inline">\(j\)</span> 和 <span
+class="math inline">\(i\)</span>（<span class="math inline">\(j\)</span>
+在前，但 <span class="math inline">\(d_i &lt;
+d_j\)</span>）。交换二者的顺序后，新调度的最大延迟不会增加。
 <ul>
-<li>$s_j$：任务开始时间。</li>
-<li>$f_j = s_j + t_j$：任务完成时间。延迟 (Lateness)：</li>
-<li>$l<em>j = \max{0, f_j - d_j}$。<br>目标：最小化最大延迟 $L</em>{\max} = \max_j l_j$。</li>
+<li>假设在调度中存在相邻的逆序任务 <span
+class="math inline">\(j\)</span> 和 <span
+class="math inline">\(i\)</span>（<span class="math inline">\(j\)</span>
+在前，但 <span class="math inline">\(d_i &lt;
+d_j\)</span>）。交换二者的顺序后，新调度的最大延迟不会增加。</li>
+<li>任务 <span class="math inline">\(i\)</span>
+(交换后提前)：完成时间变早，延迟 <span class="math inline">\(l&#39;_i
+\le l_i\)</span>，不会变差。</li>
+<li>任务 <span class="math inline">\(j\)</span> (交换后推迟)： 交换后
+<span class="math inline">\(j\)</span> 的新完成时间 <span
+class="math inline">\(f&#39;_j\)</span> 等于交换前 <span
+class="math inline">\(i\)</span> 的完成时间 <span
+class="math inline">\(f_i\)</span>。 新延迟 <span
+class="math inline">\(l&#39;_j = f&#39;_j - d_j = f_i - d_j\)</span>。
+由于存在逆序 <span class="math inline">\(d_i &lt; d_j\)</span>，故 <span
+class="math inline">\(-d_j &lt; -d_i\)</span>。 所以 <span
+class="math inline">\(l&#39;_j &lt; f_i - d_i = l_i\)</span>。
+这表明，<span class="math inline">\(j\)</span> 的新延迟甚至不超过交换前
+<span class="math inline">\(i\)</span> 的延迟。</li>
+</ul></li>
+<li>交换后的局部最大延迟 <span class="math inline">\(\max(l&#39;_i,
+l&#39;_j) \le l_i\)</span>，即总体的最大延迟不会恶化。</li>
+<li>最优调度 <span class="math inline">\(S^*\)</span> 中最多存在 <span
+class="math inline">\(C_n^2\)</span>
+个逆序。通过反复交换相邻逆序对，可以将 <span
+class="math inline">\(S^*\)</span> 转化为没有任何逆序的调度（即贪心调度
+<span
+class="math inline">\(S\)</span>），且整个过程最大延迟非增。因此，<span
+class="math inline">\(S\)</span> 也是最优的。</li>
 </ul>
-<p>$l_j = \max{0, s_j + t_j - d_j}$，为了保证最大延迟最小，应该保证对于第j的元素，$s_j$和$t_j$尽可能小，$d_j$尽可能大。这个问题是最早截止时间优先。</p>
-<hr>
-<p>证明定理：按截止时间排序的贪心调度 $S$ 是最优的。</p>
-<p>假设 $S^<em>$ 是某一最优调度。我们将通过一系列不增加最大延迟的交换操作，将 $S^</em>$ 转化为 $S$。</p>
+<hr />
+<p>若任务引入释放时间 <span
+class="math inline">\(r_j\)</span>（即任务不能早于 <span
+class="math inline">\(r_j\)</span>
+开始），并要求判断是否存在调度使得所有任务均无延迟（<span
+class="math inline">\(L_{\max}=0\)</span>）。该问题是 NP-完全
+(NP-Complete) 问题，目前尚未发现多项式时间算法</p>
+<h3 id="理论基础拟阵-matroids">3.4.4 理论基础：拟阵 (Matroids)</h3>
+<h4 id="拟阵">拟阵</h4>
+<p>一个拟阵定义为有序对 <span class="math inline">\(M = (S,
+I)\)</span>，需满足以下三个条件 - <span class="math inline">\(S\)</span>
+是一个非空的有限集合。 - <span class="math inline">\(I\)</span> 是 <span
+class="math inline">\(S\)</span>
+的子集构成的非空族（这些子集称为独立子集）。若 <span
+class="math inline">\(B \in I\)</span> 且 <span class="math inline">\(A
+\subseteq B\)</span>，则 <span class="math inline">\(A \in
+I\)</span>。（即独立集的任意子集仍是独立的）。 - 若 <span
+class="math inline">\(A, B \in I\)</span> 且 <span
+class="math inline">\(|A| &lt; |B|\)</span>，则必存在元素 <span
+class="math inline">\(x \in B - A\)</span>，使得 <span
+class="math inline">\(A \cup \{x\} \in I\)</span>。</p>
+<p>例如： - <strong>矩阵拟阵</strong> - ：给定实数域上的矩阵 <span
+class="math inline">\(T\)</span>。令 <span
+class="math inline">\(S\)</span> 为 <span
+class="math inline">\(T\)</span> 的列向量集合，<span
+class="math inline">\(I\)</span> 为所有线性无关的列向量子集 - <span
+class="math inline">\((S, I)\)</span>
+构成一个拟阵，其性质直接对应向量空间中的线性无关性。</p>
 <ul>
-<li>在调度 $S$ 中，若任务 $i$ 和 $j$ 满足 $d_i \le d_j$（即 $i$ 应该先做），但实际调度中 $j$ 排在 $i$ 之前，则称 $(i, j)$ 为一个逆序。<ul>
-<li>贪心调度 $S$ 中不存在任何逆序。若任何其他调度包含逆序，必存在一对相邻的逆序任务。</li>
-</ul>
-</li>
-<li>假设在调度中存在相邻的逆序任务 $j$ 和 $i$（$j$ 在前，但 $d_i &lt; d_j$）。交换二者的顺序后，新调度的最大延迟不会增加。<ul>
-<li>假设在调度中存在相邻的逆序任务 $j$ 和 $i$（$j$ 在前，但 $d_i &lt; d_j$）。交换二者的顺序后，新调度的最大延迟不会增加。</li>
-<li>任务 $i$ (交换后提前)：完成时间变早，延迟 $l’_i \le l_i$，不会变差。</li>
-<li>任务 $j$ (交换后推迟)：<br>交换后 $j$ 的新完成时间 $f’_j$ 等于交换前 $i$ 的完成时间 $f_i$。<br>新延迟 $l’_j = f’_j - d_j = f_i - d_j$。<br>由于存在逆序 $d_i &lt; d_j$，故 $-d_j &lt; -d_i$。<br>所以 $l’_j &lt; f_i - d_i = l_i$。<br>这表明，$j$ 的新延迟甚至不超过交换前 $i$ 的延迟。</li>
-</ul>
-</li>
-<li>交换后的局部最大延迟 $\max(l’_i, l’_j) \le l_i$，即总体的最大延迟不会恶化。</li>
-<li>最优调度 $S^<em>$ 中最多存在 $C_n^2$ 个逆序。通过反复交换相邻逆序对，可以将 $S^</em>$ 转化为没有任何逆序的调度（即贪心调度 $S$），且整个过程最大延迟非增。因此，$S$ 也是最优的。</li>
-</ul>
-<hr>
-<p>若任务引入释放时间 $r<em>j$（即任务不能早于 $r_j$ 开始），并要求判断是否存在调度使得所有任务均无延迟（$L</em>{\max}=0$）。该问题是 NP-完全 (NP-Complete) 问题，目前尚未发现多项式时间算法</p>
-<h3 id="3-4-4-理论基础：拟阵-Matroids"><a href="#3-4-4-理论基础：拟阵-Matroids" class="headerlink" title="3.4.4 理论基础：拟阵 (Matroids)"></a>3.4.4 理论基础：拟阵 (Matroids)</h3><h4 id="拟阵"><a href="#拟阵" class="headerlink" title="拟阵"></a>拟阵</h4><p>一个拟阵定义为有序对 $M = (S, I)$，需满足以下三个条件</p>
+<li><strong>图拟阵</strong>
 <ul>
-<li>$S$ 是一个非空的有限集合。</li>
-<li>$I$ 是 $S$ 的子集构成的非空族（这些子集称为独立子集）。若 $B \in I$ 且 $A \subseteq B$，则 $A \in I$。（即独立集的任意子集仍是独立的）。</li>
-<li>若 $A, B \in I$ 且 $|A| &lt; |B|$，则必存在元素 $x \in B - A$，使得 $A \cup {x} \in I$。</li>
+<li>给定无向图 <span class="math inline">\(G = (V, E)\)</span>。令 <span
+class="math inline">\(S_G\)</span> 为边集 <span
+class="math inline">\(E\)</span>，<span
+class="math inline">\(I_G\)</span> 为无环边集的族（即森林）。则 <span
+class="math inline">\(M_G = (S_G, I_G)\)</span> 构成一个拟阵。</li>
+</ul></li>
 </ul>
-<p>例如：</p>
-<ul>
-<li><p><strong>矩阵拟阵</strong></p>
-<ul>
-<li>：给定实数域上的矩阵 $T$。令 $S$ 为 $T$ 的列向量集合，$I$ 为所有线性无关的列向量子集</li>
-<li>$(S, I)$ 构成一个拟阵，其性质直接对应向量空间中的线性无关性。</li>
-</ul>
-</li>
-<li><p><strong>图拟阵</strong></p>
-<ul>
-<li>给定无向图 $G = (V, E)$。令 $S_G$ 为边集 $E$，$I_G$ 为无环边集的族（即森林）。则 $M_G = (S_G, I_G)$ 构成一个拟阵。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="核心性质"><a href="#核心性质" class="headerlink" title="核心性质"></a>核心性质</h4><p><strong>扩展与基</strong>：</p>
-<ul>
-<li>扩展：给定独立子集 $A \in I$，若存在 $x \notin A$ 使得 $A \cup {x} \in I$，则称 $x$ 为 $A$ 的一个扩展。</li>
-<li>若独立子集 $A$ 不存在任何扩展，则称 $A$ 为拟阵的基。<br>定理 1：拟阵 $M$ 中所有极大独立子集（基）具有相同的大小</li>
-<li>在图拟阵中，极大独立子集即为图的生成树（Spanning Tree），其边数恒为 $|V|-1$。</li>
-</ul>
-<p><strong>加权拟阵</strong></p>
-<ul>
-<li>若拟阵 $M=(S, I)$ 关联一个权函数 $w$，使得对任意 $x \in S$ 有 $w(x) &gt; 0$，则称其为加权拟阵。</li>
-<li>子集 $A$ 的权值定义为元素权值之和：$w(A) = \sum_{x \in A} w(x)$。</li>
-<li>具有最大权值的独立子集是最优子集。由于权值为正，最优子集必然也是极大独立子集。</li>
-</ul>
-<hr>
-<h4 id="拟阵上的通用贪心算法"><a href="#拟阵上的通用贪心算法" class="headerlink" title="拟阵上的通用贪心算法"></a>拟阵上的通用贪心算法</h4><p>给定一个具有正权函数 $w$ 的加权拟阵 $M = (S, I)$，寻找 $S$ 的一个独立子集 $A \in I$，使得其总权值 $w(A)$ 最大。称 $A$ 为拟阵 $M$ 的最优子集 (Optimal Subset)。</p>
-<p>由于所有元素的权值 $w(x)$ 均为正数，最优子集必然也是一个极大独立子集（即不存在可扩展元素）。</p>
+<hr />
+<h4 id="核心性质">核心性质</h4>
+<p><strong>扩展与基</strong>： - 扩展：给定独立子集 <span
+class="math inline">\(A \in I\)</span>，若存在 <span
+class="math inline">\(x \notin A\)</span> 使得 <span
+class="math inline">\(A \cup \{x\} \in I\)</span>，则称 <span
+class="math inline">\(x\)</span> 为 <span
+class="math inline">\(A\)</span> 的一个扩展。 - 若独立子集 <span
+class="math inline">\(A\)</span> 不存在任何扩展，则称 <span
+class="math inline">\(A\)</span> 为拟阵的基。 定理 1：拟阵 <span
+class="math inline">\(M\)</span> 中所有极大独立子集（基）具有相同的大小
+- 在图拟阵中，极大独立子集即为图的生成树（Spanning Tree），其边数恒为
+<span class="math inline">\(|V|-1\)</span>。</p>
+<p><strong>加权拟阵</strong> - 若拟阵 <span class="math inline">\(M=(S,
+I)\)</span> 关联一个权函数 <span
+class="math inline">\(w\)</span>，使得对任意 <span
+class="math inline">\(x \in S\)</span> 有 <span
+class="math inline">\(w(x) &gt; 0\)</span>，则称其为加权拟阵。 - 子集
+<span class="math inline">\(A\)</span> 的权值定义为元素权值之和：<span
+class="math inline">\(w(A) = \sum_{x \in A} w(x)\)</span>。 -
+具有最大权值的独立子集是最优子集。由于权值为正，最优子集必然也是极大独立子集。</p>
+<hr />
+<h4 id="拟阵上的通用贪心算法">拟阵上的通用贪心算法</h4>
+<p>给定一个具有正权函数 <span class="math inline">\(w\)</span>
+的加权拟阵 <span class="math inline">\(M = (S, I)\)</span>，寻找 <span
+class="math inline">\(S\)</span> 的一个独立子集 <span
+class="math inline">\(A \in I\)</span>，使得其总权值 <span
+class="math inline">\(w(A)\)</span> 最大。称 <span
+class="math inline">\(A\)</span> 为拟阵 <span
+class="math inline">\(M\)</span> 的最优子集 (Optimal Subset)。</p>
+<p>由于所有元素的权值 <span class="math inline">\(w(x)\)</span>
+均为正数，最优子集必然也是一个极大独立子集（即不存在可扩展元素）。</p>
 <p>存在通用贪心算法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Algorithm GREEDY(M, w)</span><br><span class="line">输入：具有正权函数 w 的加权拟阵 M = (S, I)</span><br><span class="line">输出：M 的最优子集 A</span><br><span class="line">1.  A ← ∅</span><br><span class="line">2.  将 S 中的元素按权值 w 单调递减排序</span><br><span class="line">3.  for each x ∈ S  do</span><br><span class="line">4.      if A ∪ &#123;x&#125; ∈ I then    // 独立性检查</span><br><span class="line">5.          A ← A ∪ &#123;x&#125;</span><br><span class="line">6.      end if</span><br><span class="line">7.  end for</span><br><span class="line">8.  return A</span><br></pre></td></tr></table></figure>
 <p>即满足条件的从大到小向A中加入S中的元素即可得到最优子集。</p>
-<hr>
+<hr />
 <p><strong>算法正确性证明</strong></p>
-<p>定理 2：如果 $M=(S, I)$ 是具有正权函数 $w$ 的加权拟阵，则调用 GREEDY(M, w) 必定返回一个最优子集。</p>
-<p>引理 1：贪心选择性质 (Greedy Choice Property)</p>
+<p>定理 2：如果 <span class="math inline">\(M=(S, I)\)</span>
+是具有正权函数 <span class="math inline">\(w\)</span> 的加权拟阵，则调用
+GREEDY(M, w) 必定返回一个最优子集。</p>
+<p>引理 1：贪心选择性质 (Greedy Choice Property) - 设 <span
+class="math inline">\(M=(S, I)\)</span>
+是加权拟阵，元素已按权值降序排列。设 <span class="math inline">\(x \in
+S\)</span> 是第一个使得 <span class="math inline">\(\{x\}\)</span>
+为独立子集的元素，则存在 <span class="math inline">\(S\)</span>
+的一个最优子集 <span class="math inline">\(A\)</span> 包含 <span
+class="math inline">\(x\)</span>。 - 若不存在这样的 <span
+class="math inline">\(x\)</span>，则定理显然成立。<br />
+- 设 <span class="math inline">\(B\)</span> 是任意一个非空的最优子集。 -
+若 <span class="math inline">\(x \in B\)</span>，则令 <span
+class="math inline">\(A=B\)</span>，定理得证。 - 若 <span
+class="math inline">\(x \notin B\)</span>： - 由于 <span
+class="math inline">\(x\)</span> 是第一个单元素独立集，且 <span
+class="math inline">\(B\)</span> 中的任意元素 <span
+class="math inline">\(y\)</span> 构成的单元素集 <span
+class="math inline">\(\{y\}\)</span> 均独立（遗传性质），故 <span
+class="math inline">\(w(x) \ge w(y), \forall y \in B\)</span>。 -
+构造包含 <span class="math inline">\(x\)</span> 的最优解：设初始 <span
+class="math inline">\(A=\{x\}\)</span>。若 <span
+class="math inline">\(|B| &gt; |A|\)</span>，反复利用交换性质 ，从 <span
+class="math inline">\(B\)</span> 中选择元素扩展 <span
+class="math inline">\(A\)</span>，直到 <span class="math inline">\(|A| =
+|B|\)</span>。 - 在此过程中，必然存在一个元素 <span
+class="math inline">\(y \in B\)</span> 且 <span class="math inline">\(y
+\notin A\)</span>，使得 <span class="math inline">\(A = (B - \{y\}) \cup
+\{x\}\)</span> 且 <span class="math inline">\(A \in I\)</span>。 -
+计算权值：<span class="math inline">\(w(A) = w(B) - w(y) +
+w(x)\)</span>。 - 因 <span class="math inline">\(w(x) \ge
+w(y)\)</span>，故 <span class="math inline">\(w(A) \ge
+w(B)\)</span>。又因 <span class="math inline">\(B\)</span>
+是最优子集，故 <span class="math inline">\(w(A) = w(B)\)</span>。 -
+结论：<span class="math inline">\(A\)</span> 也是一个最优子集，且 <span
+class="math inline">\(x \in A\)</span>。</p>
+<p>引理 2：元素的不可撤销性 - 若 <span class="math inline">\(S\)</span>
+中元素 <span class="math inline">\(x\)</span> 不是空集 <span
+class="math inline">\(\emptyset\)</span> 的可扩展元素（即 <span
+class="math inline">\(\{x\} \notin I\)</span>），则 <span
+class="math inline">\(x\)</span> 不可能是 <span
+class="math inline">\(S\)</span> 中任一独立子集 <span
+class="math inline">\(A\)</span> 的可扩展元素。 - 假设 <span
+class="math inline">\(x\)</span> 不是 <span
+class="math inline">\(\emptyset\)</span> 的扩展（即 <span
+class="math inline">\(\{x\}\)</span> 相关），但存在独立子集 <span
+class="math inline">\(A\)</span> 使得 <span class="math inline">\(A \cup
+\{x\} \in I\)</span>。根据遗传性质，<span class="math inline">\(A \cup
+\{x\}\)</span> 的子集 <span class="math inline">\(\{x\}\)</span>
+必须是独立的。这与假设矛盾。 -
+算法在初始化阶段或后续步骤中被判定为“不可加入”并舍弃的元素，可以被永久安全地丢弃，不会影响最优解的构造。</p>
+<p>引理 3：最优子结构性质 - 设 <span class="math inline">\(x\)</span>
+是贪心算法选中的第一个元素。原问题可简化为求解收缩拟阵 (Contraction
+Matroid) <span class="math inline">\(M&#39; = (S&#39;, I&#39;)\)</span>
+的最优子集问题。 - <span class="math inline">\(S&#39; = \{y \in S \mid
+\{x, y\} \in I\}\)</span>（即 <span class="math inline">\(y\)</span> 是
+<span class="math inline">\(\{x\}\)</span> 的可扩展元素）。 - <span
+class="math inline">\(I&#39; = \{B \subseteq S-\{x\} \mid B \cup \{x\}
+\in I\}\)</span>。 - <span class="math inline">\(M&#39;\)</span>
+的权函数是 <span class="math inline">\(M\)</span> 在 <span
+class="math inline">\(S&#39;\)</span> 上的限制。 - <span
+class="math inline">\(M\)</span> 中包含 <span
+class="math inline">\(x\)</span> 的最优子集，由 <span
+class="math inline">\(\{x\}\)</span> 与 <span
+class="math inline">\(M&#39;\)</span> 的最优子集并集构成。</p>
+<p>基于上述三个引理，我们可以归纳证明 GREEDY 算法的正确性： -
+第一步选择：由引理 1，算法选中的第一个元素 <span
+class="math inline">\(x\)</span> 必然属于某个最优子集。 -
+舍弃安全：由引理 2，算法舍弃的元素永远不会被最优解需要。 -
+递归结构：由引理 3，选中 <span class="math inline">\(x\)</span>
+后，剩余问题转化为在收缩拟阵 <span class="math inline">\(M&#39;\)</span>
+上寻找最优子集。
+由于每一步选择都是安全的（包含在最优解中），且问题规模不断缩小但结构不变，归纳可得算法最终输出的集合
+<span class="math inline">\(A\)</span> 即为全局最优子集。</p>
+<hr />
+<h4 id="最小生成树问题">最小生成树问题</h4>
+<p>我们已经多次提到最小生成树问题旨在寻找无向连通图 <span
+class="math inline">\(G=(V, E)\)</span>
+中权值和最小的生成树。虽然拟阵的通用贪心法通常用于求解最大权独立子集，但
+MST 问题可以通过简单的权值变换适配该框架 - 令 <span
+class="math inline">\(w_0\)</span> 为足够大的常数，定义新权值 <span
+class="math inline">\(w&#39;(e) = w_0 - w(e) &gt;
+0\)</span>。（最大值变最小值）</p>
+<p>Kruskal
+算法完全对应于拟阵的通用贪心框架。它维护一个无环的边集（森林），即图拟阵中的独立集。
+- 初始化独立集 <span class="math inline">\(A = \emptyset\)</span>。 -
+将所有边按权值从小到大排序。 - 依次考察每条边 <span
+class="math inline">\((u,
+v)\)</span>：若加入该边不形成回路（即保持独立性），则 <span
+class="math inline">\(A \leftarrow A \cup \{(u, v)\}\)</span>。
+从这个例子可以看出，通常我们不会得到拟阵中真正的I，A ∪ {x} ∈
+I的一步通常对应独立性检查。</p>
+<hr />
+<h4 id="单位时间任务调度问题">单位时间任务调度问题</h4>
+<p>输入：<span class="math inline">\(n\)</span> 个单位时间任务集合 <span
+class="math inline">\(S = \{a_1, \dots, a_n\}\)</span>。 - 截止时间
+<span class="math inline">\(d_i\)</span>：任务 <span
+class="math inline">\(i\)</span> 期望在时间 <span
+class="math inline">\(d_i\)</span> 之前完成。 - 误时惩罚 <span
+class="math inline">\(w_i\)</span>：若任务未按时完成，将招致 <span
+class="math inline">\(w_i\)</span> 的惩罚。</p>
+<p>目标：寻找一个调度序列，使得总误时惩罚最小。
+<strong>等价目标：寻找一个权值和最大的早任务 (Early Task)
+集合（即按时完成的任务子集）。</strong></p>
+<p>为了应用贪心法，我们需要定义任务集上的拟阵结构。 - 任务子集 <span
+class="math inline">\(A\)</span>
+被称为独立的，当且仅当存在一个调度方案，使得 <span
+class="math inline">\(A\)</span> 中所有任务均不误时（即都是早任务）。 -
+子集 <span class="math inline">\(A\)</span>
+是独立的，当且仅当对于任意时间 <span
+class="math inline">\(t\)</span>，集合 <span
+class="math inline">\(A\)</span> 中截止时间不晚于 <span
+class="math inline">\(t\)</span> 的任务数量不超过 <span
+class="math inline">\(t\)</span>。即： - <span
+class="math display">\[N_t(A) = |\{a_i \in A \mid d_i \le t\}\le t,
+\quad \text{for } t=1, 2, \dots, n\]</span></p>
+<p>证明有序对 <span class="math inline">\((S, I)\)</span> 构成一个拟阵：
+- 若任务集 <span class="math inline">\(B\)</span> 可按时完成，其子集
+<span class="math inline">\(A \subseteq B\)</span> 显然也可按时完成 - 设
+<span class="math inline">\(A, B\)</span> 为独立集且 <span
+class="math inline">\(|B| &gt; |A|\)</span> - 设 <span
+class="math inline">\(k\)</span> 为满足 <span
+class="math inline">\(N_t(B) \le N_t(A)\)</span> 的最大时间点。由于
+<span class="math inline">\(|B| &gt; |A|\)</span>，在时间 <span
+class="math inline">\(n\)</span> 时 <span class="math inline">\(N_n(B)
+&gt; N_n(A)\)</span>，故必然存在时间点 <span
+class="math inline">\(k\)</span> 使得 <span class="math inline">\(k &lt;
+n\)</span> - 可以证明，在 <span class="math inline">\(B\)</span>
+中存在一个截止时间为 <span class="math inline">\(k+1\)</span> 的任务
+<span class="math inline">\(x \notin A\)</span>，将其加入 <span
+class="math inline">\(A\)</span> 后，新的集合 <span
+class="math inline">\(A&#39; = A \cup \{x\}\)</span> 仍然满足独立性判据
+<span class="math inline">\(N_t(A&#39;) \le t\)</span>。</p>
+<p>该问题转化为在加权拟阵上求最大权独立子集 - 将所有任务按惩罚 <span
+class="math inline">\(w_i\)</span> 单调递减排序 - 初始化 <span
+class="math inline">\(A = \emptyset\)</span>。依次考察每个任务 <span
+class="math inline">\(x\)</span>： - 对所有 <span
+class="math inline">\(t\)</span>，是否 <span class="math inline">\(N_t(A
+\cup \{x\}) \le t\)</span> - 若满足，则 <span class="math inline">\(A
+\leftarrow A \cup \{x\}\)</span>（该任务被标记为按时完成） -
+若不满足，则该任务必须被丢弃（标记为迟任务，接受惩罚） - 将集合 <span
+class="math inline">\(A\)</span>
+中的任务按截止时间递增排序（早任务优先形式） - 将迟任务 (<span
+class="math inline">\(S - A\)</span>) 随意安排在 <span
+class="math inline">\(A\)</span> 之后</p>
+<hr />
+<p>实例：给定任务集，按惩罚 <span class="math inline">\(w_i\)</span>
+排序后为 <span class="math inline">\(\{1(4,70), 2(2,60), 3(4,50),
+4(3,40), 5(1,30), 6(4,20), 7(6,10)\}\)</span></p>
 <ul>
-<li>设 $M=(S, I)$ 是加权拟阵，元素已按权值降序排列。设 $x \in S$ 是第一个使得 ${x}$ 为独立子集的元素，则存在 $S$ 的一个最优子集 $A$ 包含 $x$。<ul>
-<li>若不存在这样的 $x$，则定理显然成立。  </li>
-<li>设 $B$ 是任意一个非空的最优子集。<ul>
-<li>若 $x \in B$，则令 $A=B$，定理得证。</li>
-<li>若 $x \notin B$：<ul>
-<li>由于 $x$ 是第一个单元素独立集，且 $B$ 中的任意元素 $y$ 构成的单元素集 ${y}$ 均独立（遗传性质），故 $w(x) \ge w(y), \forall y \in B$。</li>
-<li>构造包含 $x$ 的最优解：设初始 $A={x}$。若 $|B| &gt; |A|$，反复利用交换性质 ，从 $B$ 中选择元素扩展 $A$，直到 $|A| = |B|$。</li>
-<li>在此过程中，必然存在一个元素 $y \in B$ 且 $y \notin A$，使得 $A = (B - {y}) \cup {x}$ 且 $A \in I$。</li>
-<li>计算权值：$w(A) = w(B) - w(y) + w(x)$。</li>
-<li>因 $w(x) \ge w(y)$，故 $w(A) \ge w(B)$。又因 $B$ 是最优子集，故 $w(A) = w(B)$。</li>
-<li>结论：$A$ 也是一个最优子集，且 $x \in A$。</li>
+<li>加入 1, 2, 3, 4：均满足 <span class="math inline">\(N_t \le
+t\)</span>，保留。</li>
+<li>尝试加入 5 (<span class="math inline">\(d_5=1\)</span>)：此时 <span
+class="math inline">\(d=1\)</span> 的任务有 <span
+class="math inline">\(\{1, 5\}\)</span>，数量为 2，大于时间
+1。违反独立性，舍弃 5。</li>
+<li>尝试加入 6 (<span
+class="math inline">\(d_6=4\)</span>)：加入后导致截止时间 <span
+class="math inline">\(\le 4\)</span> 的任务数超标。舍弃 6。</li>
+<li>尝试加入 7 (<span
+class="math inline">\(d_7=6\)</span>)：满足条件，保留。</li>
+<li>最终最优解：<span class="math inline">\(A = \{1, 2, 3, 4,
+7\}\)</span>。</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>引理 2：元素的不可撤销性</p>
-<ul>
-<li>若 $S$ 中元素 $x$ 不是空集 $\emptyset$ 的可扩展元素（即 ${x} \notin I$），则 $x$ 不可能是 $S$ 中任一独立子集 $A$ 的可扩展元素。<ul>
-<li>假设 $x$ 不是 $\emptyset$ 的扩展（即 ${x}$ 相关），但存在独立子集 $A$ 使得 $A \cup {x} \in I$。根据遗传性质，$A \cup {x}$ 的子集 ${x}$ 必须是独立的。这与假设矛盾。</li>
-<li>算法在初始化阶段或后续步骤中被判定为“不可加入”并舍弃的元素，可以被永久安全地丢弃，不会影响最优解的构造。</li>
-</ul>
-</li>
-</ul>
-<p>引理 3：最优子结构性质</p>
-<ul>
-<li>设 $x$ 是贪心算法选中的第一个元素。原问题可简化为求解收缩拟阵 (Contraction Matroid) $M’ = (S’, I’)$ 的最优子集问题。<ul>
-<li>$S’ = {y \in S \mid {x, y} \in I}$（即 $y$ 是 ${x}$ 的可扩展元素）。</li>
-<li>$I’ = {B \subseteq S-{x} \mid B \cup {x} \in I}$。</li>
-<li>$M’$ 的权函数是 $M$ 在 $S’$ 上的限制。</li>
-</ul>
-</li>
-<li>$M$ 中包含 $x$ 的最优子集，由 ${x}$ 与 $M’$ 的最优子集并集构成。</li>
-</ul>
-<p>基于上述三个引理，我们可以归纳证明 GREEDY 算法的正确性：</p>
-<ul>
-<li>第一步选择：由引理 1，算法选中的第一个元素 $x$ 必然属于某个最优子集。</li>
-<li>舍弃安全：由引理 2，算法舍弃的元素永远不会被最优解需要。</li>
-<li>递归结构：由引理 3，选中 $x$ 后，剩余问题转化为在收缩拟阵 $M’$ 上寻找最优子集。<br>由于每一步选择都是安全的（包含在最优解中），且问题规模不断缩小但结构不变，归纳可得算法最终输出的集合 $A$ 即为全局最优子集。</li>
-</ul>
-<hr>
-<h4 id="最小生成树问题"><a href="#最小生成树问题" class="headerlink" title="最小生成树问题"></a>最小生成树问题</h4><p>我们已经多次提到最小生成树问题旨在寻找无向连通图 $G=(V, E)$ 中权值和最小的生成树。虽然拟阵的通用贪心法通常用于求解最大权独立子集，但 MST 问题可以通过简单的权值变换适配该框架</p>
-<ul>
-<li>令 $w_0$ 为足够大的常数，定义新权值 $w’(e) = w_0 - w(e) &gt; 0$。（最大值变最小值）</li>
-</ul>
-<p>Kruskal 算法完全对应于拟阵的通用贪心框架。它维护一个无环的边集（森林），即图拟阵中的独立集。</p>
-<ul>
-<li>初始化独立集 $A = \emptyset$。</li>
-<li>将所有边按权值从小到大排序。</li>
-<li>依次考察每条边 $(u, v)$：若加入该边不形成回路（即保持独立性），则 $A \leftarrow A \cup {(u, v)}$。<br>从这个例子可以看出，通常我们不会得到拟阵中真正的I，A ∪ {x} ∈ I的一步通常对应独立性检查。</li>
-</ul>
-<hr>
-<h4 id="单位时间任务调度问题"><a href="#单位时间任务调度问题" class="headerlink" title="单位时间任务调度问题"></a>单位时间任务调度问题</h4><p>输入：$n$ 个单位时间任务集合 $S = {a_1, \dots, a_n}$。</p>
-<ul>
-<li>截止时间 $d_i$：任务 $i$ 期望在时间 $d_i$ 之前完成。</li>
-<li>误时惩罚 $w_i$：若任务未按时完成，将招致 $w_i$ 的惩罚。</li>
-</ul>
-<p>目标：寻找一个调度序列，使得总误时惩罚最小。<br><strong>等价目标：寻找一个权值和最大的早任务 (Early Task) 集合（即按时完成的任务子集）。</strong></p>
-<p>为了应用贪心法，我们需要定义任务集上的拟阵结构。</p>
-<ul>
-<li>任务子集 $A$ 被称为独立的，当且仅当存在一个调度方案，使得 $A$ 中所有任务均不误时（即都是早任务）。</li>
-<li>子集 $A$ 是独立的，当且仅当对于任意时间 $t$，集合 $A$ 中截止时间不晚于 $t$ 的任务数量不超过 $t$。即：</li>
-<li><script type="math/tex; mode=display">N_t(A) = |\{a_i \in A \mid d_i \le t\}\le t, \quad \text{for } t=1, 2, \dots, n</script></li>
-</ul>
-<p>证明有序对 $(S, I)$ 构成一个拟阵：</p>
-<ul>
-<li>若任务集 $B$ 可按时完成，其子集 $A \subseteq B$ 显然也可按时完成</li>
-<li>设 $A, B$ 为独立集且 $|B| &gt; |A|$<ul>
-<li>设 $k$ 为满足 $N_t(B) \le N_t(A)$ 的最大时间点。由于 $|B| &gt; |A|$，在时间 $n$ 时 $N_n(B) &gt; N_n(A)$，故必然存在时间点 $k$ 使得 $k &lt; n$</li>
-<li>可以证明，在 $B$ 中存在一个截止时间为 $k+1$ 的任务 $x \notin A$，将其加入 $A$ 后，新的集合 $A’ = A \cup {x}$ 仍然满足独立性判据 $N_t(A’) \le t$。</li>
-</ul>
-</li>
-</ul>
-<p>该问题转化为在加权拟阵上求最大权独立子集</p>
-<ul>
-<li>将所有任务按惩罚 $w_i$ 单调递减排序</li>
-<li>初始化 $A = \emptyset$。依次考察每个任务 $x$：<ul>
-<li>对所有 $t$，是否 $N_t(A \cup {x}) \le t$<ul>
-<li>若满足，则 $A \leftarrow A \cup {x}$（该任务被标记为按时完成）</li>
-<li>若不满足，则该任务必须被丢弃（标记为迟任务，接受惩罚）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>将集合 $A$ 中的任务按截止时间递增排序（早任务优先形式）</li>
-<li>将迟任务 ($S - A$) 随意安排在 $A$ 之后</li>
-</ul>
-<hr>
-<p>实例：给定任务集，按惩罚 $w_i$ 排序后为 ${1(4,70), 2(2,60), 3(4,50), 4(3,40), 5(1,30), 6(4,20), 7(6,10)}$</p>
-<ul>
-<li>加入 1, 2, 3, 4：均满足 $N_t \le t$，保留。</li>
-<li>尝试加入 5 ($d_5=1$)：此时 $d=1$ 的任务有 ${1, 5}$，数量为 2，大于时间 1。违反独立性，舍弃 5。</li>
-<li>尝试加入 6 ($d_6=4$)：加入后导致截止时间 $\le 4$ 的任务数超标。舍弃 6。</li>
-<li>尝试加入 7 ($d_7=6$)：满足条件，保留。</li>
-<li>最终最优解：$A = {1, 2, 3, 4, 7}$。</li>
-</ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-3/">http://raphaelhyaan.cn/2026/01/06/algo-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第四部分-计算复杂性与近似解</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E7%B2%BE%E7%A1%AE%E6%9C%80%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-text">第三部分：精确最优化策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-Dynamic-Programming"><span class="toc-text">3.1 动态规划 (Dynamic Programming)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%92%8C%E5%A4%9A%E9%98%B6%E6%AE%B5%E5%86%B3%E7%AD%96"><span class="toc-text">3.1.1 动态规划和多阶段决策</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DP-%E6%A8%A1%E5%9E%8B"><span class="toc-text">DP 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E5%8C%96%E5%8E%9F%E7%90%86"><span class="toc-text">最优化原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E7%A8%8B"><span class="toc-text">基本方程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E7%BB%8F%E5%85%B8%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">3.1.2 经典应用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-text">资源分配问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E4%B8%8E%E5%AD%98%E5%82%A8%E9%97%AE%E9%A2%98"><span class="toc-text">生产与存储问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B3%BB%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%8F%AF%E9%9D%A0%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">复合系统工作可靠性问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="toc-text">排序问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%80%9D%E6%83%B3%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.1.3 使用动态规划思想的示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0%E3%80%81%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E3%80%81%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98"><span class="toc-text">计算二项式系数、最长公共子序列、矩阵链相乘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">0&#x2F;1背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%82%B9%E5%AF%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="toc-text">所有点对的最短路径问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">分组背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%B3%E6%B0%94%E7%90%83"><span class="toc-text">戳气球</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E4%BC%A0%E9%80%92%E9%97%AD%E5%8C%85"><span class="toc-text">有向图的传递闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">最优二叉查找树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-4%E6%9C%80%E4%BC%98%E6%80%A7%E8%BF%91%E4%BC%BC%E4%B8%8E%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3"><span class="toc-text">3.1.4最优性近似与策略迭代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%9B%9E%E6%BA%AF%E6%B3%95-Backtracking"><span class="toc-text">3.2 回溯法 (Backtracking)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="toc-text">3.2.1 回溯法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-text">3.2.2 典型应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98"><span class="toc-text">3着色问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#N-%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-text">N 皇后问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E5%B0%94%E9%A1%BF%E5%9B%9E%E8%B7%AF-Hamiltonian-Circuit"><span class="toc-text">哈密尔顿回路 (Hamiltonian Circuit)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E4%B8%80%E8%88%AC%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95"><span class="toc-text">3.2.3 一般回溯算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95-Branch-and-Bound"><span class="toc-text">3.3 分支定界法 (Branch and Bound)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E4%BB%8E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E5%88%B0%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="toc-text">3.3.1 从线性规划到整数规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95"><span class="toc-text">3.3.2  分支定界法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95%E8%A7%A3%E5%86%B3%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-text">使用分支定界法解决整数规划问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95%E7%AE%97%E6%B3%95"><span class="toc-text">分支定界法算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.3.2 简单示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-1"><span class="toc-text">0&#x2F;1背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TSP%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="toc-text">TSP旅行商问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98%E5%92%8C%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">3.3.3 指派问题和匈牙利算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98"><span class="toc-text">指派问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-%E6%9C%80%E5%B0%8F%E8%80%97%E8%B4%B9%E7%BD%91%E7%BB%9C%E6%B5%81%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.3.4 最小耗费网络流设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-Greedy-Algorithms"><span class="toc-text">3.4 贪心算法 (Greedy Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">3.4.1 贪心算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2-%E5%8C%BA%E9%97%B4%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98%E5%92%8C%E5%8C%BA%E9%97%B4%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98"><span class="toc-text">3.4.2 区间调度问题和区间划分问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">区间调度问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98"><span class="toc-text">区间划分问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-3-%E6%9C%80%E5%B0%8F%E5%BB%B6%E8%BF%9F%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">3.4.3 最小延迟调度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-4-%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%9A%E6%8B%9F%E9%98%B5-Matroids"><span class="toc-text">3.4.4 理论基础：拟阵 (Matroids)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%9F%E9%98%B5"><span class="toc-text">拟阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%A7%E8%B4%A8"><span class="toc-text">核心性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%9F%E9%98%B5%E4%B8%8A%E7%9A%84%E9%80%9A%E7%94%A8%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">拟阵上的通用贪心算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="toc-text">最小生成树问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E6%97%B6%E9%97%B4%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">单位时间任务调度问题</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-3/">http://raphaelhyaan.cn/2026/01/06/algo-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第四部分-计算复杂性与近似解</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">188</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E7%B2%BE%E7%A1%AE%E6%9C%80%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-text">第三部分：精确最优化策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-dynamic-programming"><span class="toc-text">3.1 动态规划 (Dynamic
+Programming)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%92%8C%E5%A4%9A%E9%98%B6%E6%AE%B5%E5%86%B3%E7%AD%96"><span class="toc-text">3.1.1 动态规划和多阶段决策</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dp-%E6%A8%A1%E5%9E%8B"><span class="toc-text">DP 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E5%8C%96%E5%8E%9F%E7%90%86"><span class="toc-text">最优化原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E7%A8%8B"><span class="toc-text">基本方程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">3.1.2 经典应用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-text">资源分配问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E4%B8%8E%E5%AD%98%E5%82%A8%E9%97%AE%E9%A2%98"><span class="toc-text">生产与存储问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B3%BB%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%8F%AF%E9%9D%A0%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">复合系统工作可靠性问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="toc-text">排序问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%80%9D%E6%83%B3%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.1.3 使用动态规划思想的示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E4%BA%8C%E9%A1%B9%E5%BC%8F%E7%B3%BB%E6%95%B0%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E7%9F%A9%E9%98%B5%E9%93%BE%E7%9B%B8%E4%B9%98"><span class="toc-text">计算二项式系数、最长公共子序列、矩阵链相乘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">0&#x2F;1背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%82%B9%E5%AF%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="toc-text">所有点对的最短路径问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">分组背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%B3%E6%B0%94%E7%90%83"><span class="toc-text">戳气球</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E4%BC%A0%E9%80%92%E9%97%AD%E5%8C%85"><span class="toc-text">有向图的传递闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">最优二叉查找树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E6%80%A7%E8%BF%91%E4%BC%BC%E4%B8%8E%E7%AD%96%E7%95%A5%E8%BF%AD%E4%BB%A3"><span class="toc-text">3.1.4最优性近似与策略迭代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF%E6%B3%95-backtracking"><span class="toc-text">3.2 回溯法 (Backtracking)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="toc-text">3.2.1 回溯法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="toc-text">3.2.2 典型应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98"><span class="toc-text">3着色问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#n-%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-text">N 皇后问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%88%E5%AF%86%E5%B0%94%E9%A1%BF%E5%9B%9E%E8%B7%AF-hamiltonian-circuit"><span class="toc-text">哈密尔顿回路 (Hamiltonian
+Circuit)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95"><span class="toc-text">3.2.3 一般回溯算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95-branch-and-bound"><span class="toc-text">3.3 分支定界法 (Branch and
+Bound)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E5%88%B0%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="toc-text">3.3.1 从线性规划到整数规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95"><span class="toc-text">3.3.2 分支定界法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95%E8%A7%A3%E5%86%B3%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-text">使用分支定界法解决整数规划问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95%E7%AE%97%E6%B3%95"><span class="toc-text">分支定界法算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.3.2 简单示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98-1"><span class="toc-text">0&#x2F;1背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tsp%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="toc-text">TSP旅行商问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98%E5%92%8C%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">3.3.3 指派问题和匈牙利算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98"><span class="toc-text">指派问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="toc-text">匈牙利算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%80%97%E8%B4%B9%E7%BD%91%E7%BB%9C%E6%B5%81%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.3.4 最小耗费网络流设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-greedy-algorithms"><span class="toc-text">3.4 贪心算法 (Greedy
+Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">3.4.1 贪心算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98%E5%92%8C%E5%8C%BA%E9%97%B4%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98"><span class="toc-text">3.4.2
+区间调度问题和区间划分问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">区间调度问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98"><span class="toc-text">区间划分问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%BB%B6%E8%BF%9F%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">3.4.3 最小延迟调度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E6%8B%9F%E9%98%B5-matroids"><span class="toc-text">3.4.4 理论基础：拟阵 (Matroids)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%9F%E9%98%B5"><span class="toc-text">拟阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%A7%E8%B4%A8"><span class="toc-text">核心性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%9F%E9%98%B5%E4%B8%8A%E7%9A%84%E9%80%9A%E7%94%A8%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">拟阵上的通用贪心算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="toc-text">最小生成树问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E6%97%B6%E9%97%B4%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-text">单位时间任务调度问题</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="123"/></a><div class="content"><a class="title" href="/2026/01/23/novel-childhood-and-cicade-nymph/" title="123">123</a><time datetime="2026-01-22T18:19:45.000Z" title="发表于 2026-01-23 02:19:45">2026-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
