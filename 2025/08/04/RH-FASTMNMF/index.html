@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FastMNMF及改进 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="FastMNMF及改进 FastMNMF  FastMNMF是一种基于矩阵联合对角化的MNMF的加速算法；后者在前一篇笔记中已经简略描述，是一种对NMF在音频应用上的多通道扩展。 MNMF  回顾MNMF的音频建模，MNMF认为一个音源\(s_{jfn}\)由多个表现为复高斯分布的成分\(c_{kfn}\)组成。 \[ s_{j f n}&#x3D;\sum_{k \in \mathcal{">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FastMNMF及改进 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="FastMNMF及改进FastMNMF FastMNMF是一种基于矩阵联合对角化的MNMF的加速算法；后者在前一篇笔记中已经简略描述，是一种对NMF在音频应用上的多通道扩展。 MNMF 回顾MNMF的音频建模，MNMF认为一个音源$s{jfn}$由多个表现为复高斯分布的成分$c{kfn}$组成。  s_{j f n}&#x3D;\sum_{k \in \mathcal{K}_j} c_{k f n} \qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FastMNMF及改进">
 <meta property="og:url" content="http://raphaelhyaan.cn/2025/08/04/RH-FASTMNMF/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="FastMNMF及改进 FastMNMF  FastMNMF是一种基于矩阵联合对角化的MNMF的加速算法；后者在前一篇笔记中已经简略描述，是一种对NMF在音频应用上的多通道扩展。 MNMF  回顾MNMF的音频建模，MNMF认为一个音源\(s_{jfn}\)由多个表现为复高斯分布的成分\(c_{kfn}\)组成。 \[ s_{j f n}&#x3D;\sum_{k \in \mathcal{">
+<meta property="og:description" content="FastMNMF及改进FastMNMF FastMNMF是一种基于矩阵联合对角化的MNMF的加速算法；后者在前一篇笔记中已经简略描述，是一种对NMF在音频应用上的多通道扩展。 MNMF 回顾MNMF的音频建模，MNMF认为一个音源$s{jfn}$由多个表现为复高斯分布的成分$c{kfn}$组成。  s_{j f n}&#x3D;\sum_{k \in \mathcal{K}_j} c_{k f n} \qu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png">
 <meta property="article:published_time" content="2025-08-04T14:59:12.000Z">
@@ -154,362 +154,173 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">FastMNMF及改进</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:02:52.047Z" title="更新于 2025-08-04 23:02:52">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="FastMNMF及改进"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="fastmnmf及改进">FastMNMF及改进</h1>
-<h2 id="fastmnmf">FastMNMF</h2>
-<hr />
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">FastMNMF及改进</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-04T14:59:12.000Z" title="发表于 2025-08-04 22:59:12">2025-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:02:52.047Z" title="更新于 2025-08-04 23:02:52">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="FastMNMF及改进"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="FastMNMF及改进"><a href="#FastMNMF及改进" class="headerlink" title="FastMNMF及改进"></a>FastMNMF及改进</h1><h2 id="FastMNMF"><a href="#FastMNMF" class="headerlink" title="FastMNMF"></a>FastMNMF</h2><hr>
 <p>FastMNMF是一种基于矩阵联合对角化的MNMF的加速算法；后者在前一篇笔记中已经简略描述，是一种对NMF在音频应用上的多通道扩展。</p>
-<h3 id="mnmf">MNMF</h3>
-<hr />
-<p>回顾MNMF的音频建模，MNMF认为一个音源<span
-class="math inline">\(s_{jfn}\)</span>由多个表现为复高斯分布的成分<span
-class="math inline">\(c_{kfn}\)</span>组成。</p>
-<p><span class="math display">\[
-s_{j f n}=\sum_{k \in \mathcal{K}_j} c_{k f n} \quad \text { avec } c_{k
-f n} \sim \mathcal{N}_{\mathbb{C}}\left(0, w_{f k} h_{k n}\right)
-\]</span></p>
-<p>这些成分相互独立，因此源被定义为：</p>
-<p><span class="math display">\[
-s_{j f n} \sim \mathcal{N}_{\mathbb{C}}\left(0, \sum_{k \in
-\mathcal{K}_j} w_{f k} h_{k n}\right)
-\]</span></p>
-<p>被观测信号被定义为源的线性组合：</p>
-<p><span class="math display">\[
-x_{ifn}=\mathcal{N}_{\mathbb{C}}\left(0,\sum_j q_{i j, f} \sum_{k \in
-\mathcal{K}_j} w_{f k} h_{k n}\right)
-\]</span></p>
-<p>直接考虑<span
-class="math inline">\(K\)</span>个基分量（成分），又可以将被观测信号的协方差矩阵写作：</p>
-<p><span class="math display">\[
-\tilde{X}_{f n}=\sum_{k=1}^K w_{f k} h_{k n} Q_{f k}
-\]</span></p>
-<p><span class="math inline">\(Q\)</span>在这里表示第<span
-class="math inline">\(k\)</span>个成分的空间特性矩阵，并且认为该空间特性是时不变的。需要求解的参数为<span
-class="math inline">\(w_{fk},h_{kn}\)</span>和<span
-class="math inline">\(Q_{fk}\)</span>，在实践中使用乘法规则进行迭代求解。</p>
-<p><span class="math display">\[
-\begin{aligned}&amp;w_{f k} \leftarrow w_{f k} \sqrt{\frac{\sum_n h_{k
-n} \operatorname{tr}\left(\mathbf{X}_{f n}^{-1} \tilde{\mathbf{X}}_{f n}
-\mathbf{X}_{f n}^{-1} \mathbf{Q}_{f k}\right)}{\sum_n h_{k n}
-\operatorname{tr}\left(\tilde{\mathbf{X}}_{f n}^{-1} \mathbf{Q}_{f
-k}\right)}} , \\&amp; h_{k n} \leftarrow h_{k n} \sqrt{\frac{\sum_f w_{f
-k} \operatorname{tr}\left(\mathbf{X}_{f n}^{-1} \tilde{\mathbf{X}}_{f n}
-\mathbf{X}_{f n}^{-1} \mathbf{Q}_{f k}\right)}{\sum_f w_{f k}
-\operatorname{tr}\left(\tilde{\mathbf{X}}_{f n}^{-1} \mathbf{Q}_{f
-k}\right)}} ,\\&amp;
+<h3 id="MNMF"><a href="#MNMF" class="headerlink" title="MNMF"></a>MNMF</h3><hr>
+<p>回顾MNMF的音频建模，MNMF认为一个音源$s<em>{jfn}$由多个表现为复高斯分布的成分$c</em>{kfn}$组成。</p>
+<script type="math/tex; mode=display">
+s_{j f n}=\sum_{k \in \mathcal{K}_j} c_{k f n} \quad \text { avec } c_{k f n} \sim \mathcal{N}_{\mathbb{C}}\left(0, w_{f k} h_{k n}\right)</script><p>这些成分相互独立，因此源被定义为：</p>
+<script type="math/tex; mode=display">
+s_{j f n} \sim \mathcal{N}_{\mathbb{C}}\left(0, \sum_{k \in \mathcal{K}_j} w_{f k} h_{k n}\right)</script><p>被观测信号被定义为源的线性组合：</p>
+<script type="math/tex; mode=display">
+x_{ifn}=\mathcal{N}_{\mathbb{C}}\left(0,\sum_j q_{i j, f} \sum_{k \in \mathcal{K}_j} w_{f k} h_{k n}\right)</script><p>直接考虑$K$个基分量（成分），又可以将被观测信号的协方差矩阵写作：</p>
+<script type="math/tex; mode=display">
+\tilde{X}_{f n}=\sum_{k=1}^K w_{f k} h_{k n} Q_{f k}</script><p>$Q$在这里表示第$k$个成分的空间特性矩阵，并且认为该空间特性是时不变的。需要求解的参数为$w<em>{fk},h</em>{kn}$和$Q_{fk}$，在实践中使用乘法规则进行迭代求解。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}&w_{f k} \leftarrow w_{f k} \sqrt{\frac{\sum_n h_{k n} \operatorname{tr}\left(\mathbf{X}_{f n}^{-1} \tilde{\mathbf{X}}_{f n} \mathbf{X}_{f n}^{-1} \mathbf{Q}_{f k}\right)}{\sum_n h_{k n} \operatorname{tr}\left(\tilde{\mathbf{X}}_{f n}^{-1} \mathbf{Q}_{f k}\right)}} , \\& h_{k n} \leftarrow h_{k n} \sqrt{\frac{\sum_f w_{f k} \operatorname{tr}\left(\mathbf{X}_{f n}^{-1} \tilde{\mathbf{X}}_{f n} \mathbf{X}_{f n}^{-1} \mathbf{Q}_{f k}\right)}{\sum_f w_{f k} \operatorname{tr}\left(\tilde{\mathbf{X}}_{f n}^{-1} \mathbf{Q}_{f k}\right)}} ,\\&
 \mathbf{A}_{f k}=\sum_n h_{k n} \tilde{\mathbf{X}}_{f n}^{-1} ,\quad
-\mathbf{B}_{f k}=\mathbf{Q}_{f k}\left(\sum_n h_{k n} \mathbf{X}_{f
-n}^{-1} \tilde{\mathbf{X}}_{f n} \mathbf{X}_{f n}^{-1}\right)
-\mathbf{Q}_{f k},\\&amp;\mathbf{Q}_{f k} \leftarrow \mathbf{A}_{f
-k}^{-\frac{1}{2}}\left(\mathbf{A}_{f k}^{\frac{1}{2}} \mathbf{B}_{f k}
-\mathbf{A}_{f k}^{\frac{1}{2}}\right)^{\frac{1}{2}} \mathbf{A}_{f
-k}^{-\frac{1}{2}}.
-\end{aligned}
-\]</span></p>
-<hr />
+\mathbf{B}_{f k}=\mathbf{Q}_{f k}\left(\sum_n h_{k n} \mathbf{X}_{f n}^{-1} \tilde{\mathbf{X}}_{f n} \mathbf{X}_{f n}^{-1}\right) \mathbf{Q}_{f k},\\&\mathbf{Q}_{f k} \leftarrow \mathbf{A}_{f k}^{-\frac{1}{2}}\left(\mathbf{A}_{f k}^{\frac{1}{2}} \mathbf{B}_{f k} \mathbf{A}_{f k}^{\frac{1}{2}}\right)^{\frac{1}{2}} \mathbf{A}_{f k}^{-\frac{1}{2}}.
+\end{aligned}</script><hr>
 <p>如上操作可以将被观测信号分解为基分量，但我们期望其分解为源信号。为此需要将基分量聚类到各个音源上去，这一过程被称为基础分量聚类。</p>
-<p>考虑将第<span
-class="math inline">\(k\)</span>个基分量的空间特性矩阵<span
-class="math inline">\(Q_{fk}\)</span>分解为各个音源贡献之和：</p>
-<p><span class="math display">\[
-Q_{f k}=\sum_{r=1}^R z_{k r} G_{f r}
-\]</span></p>
-<p>其中<span class="math inline">\(z_{kr}\)</span>是第<span
-class="math inline">\(r\)</span>个声源对基分量<span
-class="math inline">\(k\)</span>的责任度，<span
-class="math inline">\(G_{fr}\)</span>是第<span
-class="math inline">\(r\)</span>个音源在频率为<span
-class="math inline">\(f\)</span>时的空间特性矩阵。原本的被观测信号的协方差矩阵写作：</p>
-<p><span class="math display">\[
-\hat{X}_{f n}= \sum_{r=1}^R\left(\sum_{k=1}^K z_{k r} w_{f k} h_{k
-n}\right) G_{f r}
-\]</span></p>
-<p>在<span class="math inline">\(\left\{w_{f k}, h_{k n}, z_{k r}, G_{f
-r}\right\}\)</span>参数组估计完成之后，可以使用多通道Wiener滤波估计第<span
-class="math inline">\(r\)</span>个音源的STFT：</p>
-<p><span class="math display">\[
-\hat{y}_{f n}^{(r)}=\hat{X}_{rf n}\hat{X}_{f n}^{-1} x_{f
-n}=\left(\sum_{k=1}^K z_{k r} w_{f k} h_{k n}\right) G_{f r} \hat{X}_{f
-n}^{-1} x_{f n}
-\]</span></p>
-<p>更新方式可以参考原论文。</p>
+<p>考虑将第$k$个基分量的空间特性矩阵$Q_{fk}$分解为各个音源贡献之和：</p>
+<script type="math/tex; mode=display">
+Q_{f k}=\sum_{r=1}^R z_{k r} G_{f r}</script><p>其中$z<em>{kr}$是第$r$个声源对基分量$k$的责任度，$G</em>{fr}$是第$r$个音源在频率为$f$时的空间特性矩阵。原本的被观测信号的协方差矩阵写作：</p>
+<script type="math/tex; mode=display">
+\hat{X}_{f n}= \sum_{r=1}^R\left(\sum_{k=1}^K z_{k r} w_{f k} h_{k n}\right) G_{f r}</script><p>在$\left{w<em>{f k}, h</em>{k n}, z<em>{k r}, G</em>{f r}\right}$参数组估计完成之后，可以使用多通道Wiener滤波估计第$r$个音源的STFT：</p>
+<script type="math/tex; mode=display">
+\hat{y}_{f n}^{(r)}=\hat{X}_{rf n}\hat{X}_{f n}^{-1} x_{f n}=\left(\sum_{k=1}^K z_{k r} w_{f k} h_{k n}\right) G_{f r} \hat{X}_{f n}^{-1} x_{f n}</script><p>更新方式可以参考原论文。</p>
 <blockquote>
-<p>上述提及多次的空间特性矩阵，本质上为Spatial Covariance
-Matrix，<strong>SCM</strong>，也就是空间协方差矩阵，之后我们可能会混合使用这些名词。设声源<span
-class="math inline">\(r\)</span>在频率<span
-class="math inline">\(f\)</span>上，各个麦克风的复幅矢量（complex STFT
-vector ）为<span class="math inline">\(s_{f r n}=\left[s_{1 f r n},
-\ldots, s_{M f r
-n}\right]^{\mathrm{T}}\)</span>，则其空间特性矩阵的理想定义为：</p>
-<p><span class="math display">\[
-G_{f r}=\mathbb{E}\left[s_{f r n} s_{f r n}^{\mathrm{H}}\right]
-\]</span></p>
-<p>因此，空间特性矩阵是一个<span class="math inline">\(G_{fr}\in \mathbb
-C^{M\times M}\)</span>的矩阵，这里的<span
-class="math inline">\(M\)</span>表示麦克风数量。其对角元给出各通道功率，非对角元给出通道间相关性。</p>
-<p>如上述公式<span class="math inline">\(\hat{X}_{f n}=
-\sum_{r=1}^R\left(\sum_{k=1}^K z_{k r} w_{f k} h_{k n}\right) G_{f
-r}\)</span> 中：</p>
+<p>上述提及多次的空间特性矩阵，本质上为Spatial Covariance Matrix，<strong>SCM</strong>，也就是空间协方差矩阵，之后我们可能会混合使用这些名词。设声源$r$在频率$f$上，各个麦克风的复幅矢量（complex STFT vector ）为$s<em>{f r n}=\left[s</em>{1 f r n}, \ldots, s_{M f r n}\right]^{\mathrm{T}}$，则其空间特性矩阵的理想定义为：</p>
+<script type="math/tex; mode=display">
+G_{f r}=\mathbb{E}\left[s_{f r n} s_{f r n}^{\mathrm{H}}\right]</script><p>因此，空间特性矩阵是一个$G_{fr}\in \mathbb C^{M\times M}$的矩阵，这里的$M$表示麦克风数量。其对角元给出各通道功率，非对角元给出通道间相关性。</p>
+<p>如上述公式$\hat{X}<em>{f n}= \sum</em>{r=1}^R\left(\sum<em>{k=1}^K z</em>{k r} w<em>{f k} h</em>{k n}\right) G_{f r}$ 中：</p>
 <ul>
-<li><span class="math inline">\(\hat X_{fn}\in \mathbb{C}^{M \times
-M}\)</span>本身也是一个矩阵，是复幅矢量<span
-class="math inline">\(x_{fn}\)</span>的协方差矩阵。</li>
-<li><span class="math inline">\(v_{f n}^{(r)}=\sum_{k=1}^K z_{k r} w_{f
-k} h_{k n}\)</span>是源<span
-class="math inline">\(r\)</span>在该时频单元（可视为时频图上的一个点）的功率。</li>
+<li>$\hat X<em>{fn}\in \mathbb{C}^{M \times M}$本身也是一个矩阵，是复幅矢量$x</em>{fn}$的协方差矩阵。</li>
+<li>$v<em>{f n}^{(r)}=\sum</em>{k=1}^K z<em>{k r} w</em>{f k} h_{k n}$是源$r$在该时频单元（可视为时频图上的一个点）的功率。</li>
 </ul>
 <p>因此这个过程即为将每个音源的声场模式按照功率分布加权叠加，得到整体声场的二阶统计。</p>
-<p>关于复幅矢量<span class="math inline">\(x_{f n}=\left[X_1(f, n),
-X_2(f, n), \ldots, X_M(f, n)\right]^{\mathrm{T}} \in
-\mathbb{C}^M\)</span>，指的是对于指定时间和频率，按通道叠加形成的矢量。</p>
+<p>关于复幅矢量$x_{f n}=\left[X_1(f, n), X_2(f, n), \ldots, X_M(f, n)\right]^{\mathrm{T}} \in \mathbb{C}^M$，指的是对于指定时间和频率，按通道叠加形成的矢量。</p>
 </blockquote>
-<h3 id="fastmnmf-1">FastMNMF</h3>
-<hr />
-<p><span class="math inline">\(\tilde{X}_{f n}^{-1}=\left(\sum_{k=1}^K
-w_{f k} h_{k n} Q_{f
-k}\right)^{-1}\)</span>的计算非常耗时。FastMNMF认为如果矩阵<span
-class="math inline">\(Q_{fk}\)</span>都是对角矩阵，将大大减少计算量。但<span
-class="math inline">\(Q_{f k}=\sum_{r=1}^R z_{k r} G_{f
-r}\)</span>，体现不同麦克风之间的相关性，显然很难为对角矩阵。为此，需对<span
-class="math inline">\(Q_{fk}\)</span>进行联合对角化：</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}Q_{f 1}=\left(P_f^{-1}\right)^{\mathrm{H}}
-\mathcal{Q}_{f 1} P_f^{-1}, \\\quad \vdots \\Q_{f
-K}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{Q}_{f K}
-P_f^{-1},\end{array}\right.
-\]</span></p>
-<p>这意味着将原本相关的基映射到一组独立的基上去。在迭代过程中，原本的<span
-class="math inline">\(X_{f n}, \tilde{X}_{f n}, Q_{f k}, A,
-B\)</span>全部替换为对角化的<span class="math inline">\(\mathcal{X}_{f
-n}, \hat{\mathcal{X}}_{f n}, \mathcal{Q}_{f k}, \mathcal{A}_{f k},
-\mathcal{B}_{f k}\)</span>，即使用一组正交的基来分解，并额外估计<span
-class="math inline">\(\left[\mathbf{P}_i\right]_m\)</span> ：</p>
-<p><span class="math display">\[
-\left[\mathbf{P}_i\right]_m \leftarrow\left((1 / J) \sum_{j=1}^J
-\mathbf{X}_{i j} /\left[\hat{\boldsymbol{x}}_{i j}\right]_{m
-m}\right)^{-1}\left[\left(\mathbf{P}_i^{-1}\right)^H\right]_m
-\]</span></p>
-<p>当然如果只是希望分解（比如用于聚类、事件检测等工作），并不需要在映射回原本的基空间。源分解部分也是相同的，有<span
-class="math inline">\(\mathcal Q_{f k}=\sum_{r=1}^R z_{k r} \mathcal
-G_{f r}\)</span>，这时映射回原空间则是必要的。</p>
-<h2 id="fastmnmf的改进">FastMNMF的改进</h2>
-<hr />
-<p>上述对SCM的分解认为SCM是满秩的，这与MNMF的满秩空间模型有关，这通常在强回响环境下成立。在弱回响条件下，特别是定向声源条件下，SCM更接近一个秩为1的矩阵。满秩的无约束SCM同一陷入局部最优解且计算开销较大，而独立低秩矩阵分析（independent
-low-rank matrix annalysis，
-ILRMA）的秩为1的假设的表示能力有限，通常只能应用于麦克风数等同于扬声器数量的情况。另一方面，MNMF没有显式的空间感知也是其不足之处。在后续的讨论中，使用<span
-class="math inline">\(M\)</span>表示麦克风数量，<span
-class="math inline">\(N\)</span>表示音源数量。</p>
-<h3 id="秩1的空间模型">秩1的空间模型</h3>
-<hr />
+<h3 id="FastMNMF-1"><a href="#FastMNMF-1" class="headerlink" title="FastMNMF"></a>FastMNMF</h3><hr>
+<p>$\tilde{X}<em>{f n}^{-1}=\left(\sum</em>{k=1}^K w<em>{f k} h</em>{k n} Q<em>{f k}\right)^{-1}$的计算非常耗时。FastMNMF认为如果矩阵$Q</em>{fk}$都是对角矩阵，将大大减少计算量。但$Q<em>{f k}=\sum</em>{r=1}^R z<em>{k r} G</em>{f r}$，体现不同麦克风之间的相关性，显然很难为对角矩阵。为此，需对$Q_{fk}$进行联合对角化：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}Q_{f 1}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{Q}_{f 1} P_f^{-1}, \\\quad \vdots \\Q_{f K}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{Q}_{f K} P_f^{-1},\end{array}\right.</script><p>这意味着将原本相关的基映射到一组独立的基上去。在迭代过程中，原本的$X<em>{f n}, \tilde{X}</em>{f n}, Q<em>{f k}, A, B$全部替换为对角化的$\mathcal{X}</em>{f n}, \hat{\mathcal{X}}<em>{f n}, \mathcal{Q}</em>{f k}, \mathcal{A}<em>{f k}, \mathcal{B}</em>{f k}$，即使用一组正交的基来分解，并额外估计$\left[\mathbf{P}_i\right]_m$ ：</p>
+<script type="math/tex; mode=display">
+\left[\mathbf{P}_i\right]_m \leftarrow\left((1 / J) \sum_{j=1}^J \mathbf{X}_{i j} /\left[\hat{\boldsymbol{x}}_{i j}\right]_{m m}\right)^{-1}\left[\left(\mathbf{P}_i^{-1}\right)^H\right]_m</script><p>当然如果只是希望分解（比如用于聚类、事件检测等工作），并不需要在映射回原本的基空间。源分解部分也是相同的，有$\mathcal Q<em>{f k}=\sum</em>{r=1}^R z<em>{k r} \mathcal G</em>{f r}$，这时映射回原空间则是必要的。</p>
+<h2 id="FastMNMF的改进"><a href="#FastMNMF的改进" class="headerlink" title="FastMNMF的改进"></a>FastMNMF的改进</h2><hr>
+<p>上述对SCM的分解认为SCM是满秩的，这与MNMF的满秩空间模型有关，这通常在强回响环境下成立。在弱回响条件下，特别是定向声源条件下，SCM更接近一个秩为1的矩阵。满秩的无约束SCM同一陷入局部最优解且计算开销较大，而独立低秩矩阵分析（independent low-rank matrix annalysis， ILRMA）的秩为1的假设的表示能力有限，通常只能应用于麦克风数等同于扬声器数量的情况。另一方面，MNMF没有显式的空间感知也是其不足之处。在后续的讨论中，使用$M$表示麦克风数量，$N$表示音源数量。</p>
+<h3 id="秩1的空间模型"><a href="#秩1的空间模型" class="headerlink" title="秩1的空间模型"></a>秩1的空间模型</h3><hr>
 <p>对于线性混合模型：</p>
-<p><span class="math display">\[
-\mathbf{x}_{f n}=\sum_{r=1}^N \mathbf{a}_{r f} s_{r f n},
-\]</span></p>
-<p><span class="math inline">\(a_{rf}\)</span>描述第<span
-class="math inline">\(r\)</span>个声源在<span
-class="math inline">\(f\)</span>频率下到各个麦克风的幅度响应。</p>
-<p>定义“源图像（Source image）”为麦克风接受的对应某一个源的信号：<span
-class="math inline">\(\mathbf x_{rfn} = \mathbf
-a_{rf}s_{rfn}\)</span>。其空间特性矩阵SCM为：</p>
-<p><span class="math display">\[
-\mathbf{R}_{r f n}=\mathbb{E}\left[\mathbf{x}_{r f n} \mathbf{x}_{r f
-n}^H\right]=\mathbb{E}\left[\left|s_{r f n}\right|^2\right]
-\mathbf{a}_{r f} \mathbf{a}_{r f}^H=v_{r f n} \mathbf{a}_{r f}
-\mathbf{a}_{r f}^H .
-\]</span></p>
-<p><span class="math inline">\(\mathbf{a}_{r f} \mathbf{a}_{r
-f}^H\)</span>显然是一个秩1矩阵。</p>
+<script type="math/tex; mode=display">
+\mathbf{x}_{f n}=\sum_{r=1}^N \mathbf{a}_{r f} s_{r f n},</script><p>$a_{rf}$描述第$r$个声源在$f$频率下到各个麦克风的幅度响应。</p>
+<p>定义“源图像（Source image）”为麦克风接受的对应某一个源的信号：$\mathbf x<em>{rfn} = \mathbf a</em>{rf}s_{rfn}$。其空间特性矩阵SCM为：</p>
+<script type="math/tex; mode=display">
+\mathbf{R}_{r f n}=\mathbb{E}\left[\mathbf{x}_{r f n} \mathbf{x}_{r f n}^H\right]=\mathbb{E}\left[\left|s_{r f n}\right|^2\right] \mathbf{a}_{r f} \mathbf{a}_{r f}^H=v_{r f n} \mathbf{a}_{r f} \mathbf{a}_{r f}^H .</script><p> $\mathbf{a}<em>{r f} \mathbf{a}</em>{r f}^H$显然是一个秩1矩阵。</p>
 <blockquote>
 <p>源图像的定义引出了一个反思：在我们讨论过的盲源分离方法中，我们的目标是估计源图像还是原始信号？其实根据MNMF的定义，很容易就可以看出我们希望估计的是源图像，因为当我们考虑基信号组合称为“源信号”时，已经默认为“源信号”是应该包括空间混响的。</p>
 </blockquote>
-<p>与MNMF的混合模型最大的差异是源图像向量允许被互不相关的空间分量分解。尽管或许理解上有误，使用基向量的分解方式使得分解从麦克风的接受视角分析信号，例如在某一时刻麦克风可能介绍到了N个音源的信号，和P个回声信号。无论如何，这些信号组成了基信号<span
-class="math inline">\(Q_{f k}=\sum_{r=1}^R z_{k r} G_{f
-r}\)</span>。而某些基信号可能由同一个源贡献。这样的假设即为MNMF的混合模型提供了满秩的可能。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-FASTMNMF%2Fimage.png" /></p>
+<p>与MNMF的混合模型最大的差异是源图像向量允许被互不相关的空间分量分解。尽管或许理解上有误，使用基向量的分解方式使得分解从麦克风的接受视角分析信号，例如在某一时刻麦克风可能介绍到了N个音源的信号，和P个回声信号。无论如何，这些信号组成了基信号$Q<em>{f k}=\sum</em>{r=1}^R z<em>{k r} G</em>{f r}$。而某些基信号可能由同一个源贡献。这样的假设即为MNMF的混合模型提供了满秩的可能。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-FASTMNMF%2Fimage.png" alt=""></p>
 <p>总之，秩1和满秩（或者秩＞1）的情况的直观区别在于<strong>源图像</strong>是否可以由复数基信号组成，对应物理现象是源图像是否包含多路径。</p>
 <blockquote>
-<p>对FastMNMF的新解释：考虑<span class="math inline">\(G_{f
-r}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{G}_{f r} P_f^{-1} =
-\sum_{m = 1}^M\mathcal{G}_{f r m}u_{fm}^{H}u_{fm}\)</span>，使用<span
-class="math inline">\(u\)</span>仅是为了简写，可见<span
-class="math inline">\(G_{fr}\)</span>是<span
-class="math inline">\(M\)</span>个秩1的矩阵的加权和。当<span
-class="math inline">\(\mathcal{G}_{f
-r}\)</span>是一个对角线有且仅有一个非零量（为<span
-class="math inline">\(1\)</span>）的矩阵时，FastMNMF退化为秩1空间模型，即退化为ILPMA。</p>
+<p>对FastMNMF的新解释：考虑$G<em>{f r}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{G}</em>{f r} P<em>f^{-1} = \sum</em>{m = 1}^M\mathcal{G}<em>{f r m}u</em>{fm}^{H}u<em>{fm}$，使用$u$仅是为了简写，可见$G</em>{fr}$是$M$个秩1的矩阵的加权和。当$\mathcal{G}_{f r}$是一个对角线有且仅有一个非零量（为$1$）的矩阵时，FastMNMF退化为秩1空间模型，即退化为ILPMA。</p>
 </blockquote>
-<h3 id="fastmnmf2">FastMNMF2</h3>
-<hr />
-<p>考虑<span class="math inline">\(G_{f
-r}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{G}_{f r} P_f^{-1} =
-\sum_{m = 1}^M\mathcal{G}_{f r
-m}u_{fm}^{H}u_{fm}\)</span>，如果让每一个声源在所有频率上共享方向权重，得到权重共享的可联合对角化满秩空间模型（weight‑shared
-jointly‑diagonalizable, WJD），则有：</p>
-<p><span class="math display">\[
-G_{f r}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{G}_{ r} P_f^{-1} =
-\sum_{m = 1}^M\mathcal{G}_{ r m}u_{fm}^{H}u_{fm}
-\]</span></p>
-<h3 id="带约束的fastmnmf">带约束的FastMNMF</h3>
-<hr />
-<p><span class="math inline">\(\mathcal G_f \in \mathbb R^{M\times
-M}\)</span>的每一行通常代表每个每个音源的空间指向，并且当其中的元素被置<span
-class="math inline">\(0\)</span>之后，他们在迭代过程中就会永远保持为<span
-class="math inline">\(0\)</span>。如果认为每一个音源都有良好的指向性，可以使用one-hot向量初始化<span
-class="math inline">\(\mathcal
-G_{fr}\)</span>，而漫射音源则可以使用全<span
-class="math inline">\(1\)</span>向量初始化。</p>
-<p><span class="math display">\[
-\mathcal{G}_{ f}=\left(\begin{array}{cccccc}1 &amp; 0 &amp; \ldots &amp;
-0 &amp; \ldots &amp; 0 \\0 &amp; 1 &amp; \ldots &amp; 0 &amp; \ldots
-&amp; 0 \\\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots
-&amp; \vdots \\0 &amp; 0 &amp; \ldots &amp; 1 &amp; \ldots &amp; 0 \\1
-&amp; 1 &amp; \ldots &amp; 1 &amp; \ldots &amp; 1 \\\vdots &amp; \vdots
-&amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\1 &amp; 1 &amp;
-\ldots &amp; 1 &amp; \ldots &amp; 1\end{array}\right) .
-\]</span></p>
-<p>假设有<span
-class="math inline">\(L\)</span>个定向源（如说话人）和<span
-class="math inline">\(N-L\)</span>个漫射噪音源，则可以将<span
-class="math inline">\(\mathcal
-G\)</span>如上设置。另一方面，如果我有期望增强的目标说话人，也可以通过指定<span
-class="math inline">\(u_{f1}\)</span>（<span
-class="math inline">\(P^{-1}_{f}\)</span>的第一列）为混合信号经验 SCM
-的主特征向量，并将<span class="math inline">\(\{u_{fm}\}_{m =
-2}^{M}\)</span>指定为其他特征向量来将目标说话人保持在分离后的第一个通道。</p>
-<p>然后，按照这种假设，如果我们将目标说话人的<span
-class="math inline">\(\mathcal G_{fr}\)</span>设置为<span
-class="math inline">\((1,0,0,...,0)\)</span>，那么说话人的空间模型将退化为秩1的空间模型，此时其SCM可以写作<span
-class="math inline">\(G_{f r}=\sigma_{f r} a_f(\theta)
-a_f(\theta)^{\mathrm{H}}\)</span>，也就是我们在秩1的空间模型中讨论过的形式。其中<span
-class="math inline">\(\theta\)</span>为说话人所在的空间。那么，<span
-class="math inline">\(P_f^{-1}\)</span>的第一列，即<span
-class="math inline">\(u_{f1}\)</span>一定是<span
-class="math inline">\(a_f(\theta)\)</span>。</p>
-<p>那么，这个<span
-class="math inline">\(a_f(\theta)\)</span>如何得到呢？一般的，<span
-class="math inline">\(a_f(\theta)\)</span>可以写作：</p>
-<p><span class="math display">\[
-a_f[m]=g_m(f) \alpha_m(f) e^{-j k \Delta r_m}
-\]</span></p>
-<p>其中，<span class="math inline">\(g_m(f)\)</span>为通道增益，<span
-class="math inline">\(\alpha_m(f)\)</span>为幅度因子，<span
-class="math inline">\(\Delta
-r_m\)</span>为相对传播距离。以下是四种情况下的结论：</p>
+<h3 id="FastMNMF2"><a href="#FastMNMF2" class="headerlink" title="FastMNMF2"></a>FastMNMF2</h3><hr>
+<p>考虑$G<em>{f r}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{G}</em>{f r} P<em>f^{-1} = \sum</em>{m = 1}^M\mathcal{G}<em>{f r m}u</em>{fm}^{H}u_{fm}$，如果让每一个声源在所有频率上共享方向权重，得到权重共享的可联合对角化满秩空间模型（weight‑shared jointly‑diagonalizable, WJD），则有：</p>
+<script type="math/tex; mode=display">
+G_{f r}=\left(P_f^{-1}\right)^{\mathrm{H}} \mathcal{G}_{ r} P_f^{-1} = \sum_{m = 1}^M\mathcal{G}_{ r m}u_{fm}^{H}u_{fm}</script><h3 id="带约束的FastMNMF"><a href="#带约束的FastMNMF" class="headerlink" title="带约束的FastMNMF"></a>带约束的FastMNMF</h3><hr>
+<p>$\mathcal G<em>f \in \mathbb R^{M\times M}$的每一行通常代表每个每个音源的空间指向，并且当其中的元素被置$0$之后，他们在迭代过程中就会永远保持为$0$。如果认为每一个音源都有良好的指向性，可以使用one-hot向量初始化$\mathcal G</em>{fr}$，而漫射音源则可以使用全$1$向量初始化。</p>
+<script type="math/tex; mode=display">
+\mathcal{G}_{ f}=\left(\begin{array}{cccccc}1 & 0 & \ldots & 0 & \ldots & 0 \\0 & 1 & \ldots & 0 & \ldots & 0 \\\vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\0 & 0 & \ldots & 1 & \ldots & 0 \\1 & 1 & \ldots & 1 & \ldots & 1 \\\vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\1 & 1 & \ldots & 1 & \ldots & 1\end{array}\right) .</script><p>假设有$L$个定向源（如说话人）和$N-L$个漫射噪音源，则可以将$\mathcal G$如上设置。另一方面，如果我有期望增强的目标说话人，也可以通过指定$u<em>{f1}$（$P^{-1}</em>{f}$的第一列）为混合信号经验 SCM 的主特征向量，并将${u<em>{fm}}</em>{m = 2}^{M}$指定为其他特征向量来将目标说话人保持在分离后的第一个通道。</p>
+<p>然后，按照这种假设，如果我们将目标说话人的$\mathcal G<em>{fr}$设置为$(1,0,0,…,0)$，那么说话人的空间模型将退化为秩1的空间模型，此时其SCM可以写作$G</em>{f r}=\sigma<em>{f r} a_f(\theta) a_f(\theta)^{\mathrm{H}}$，也就是我们在秩1的空间模型中讨论过的形式。其中$\theta$为说话人所在的空间。那么，$P_f^{-1}$的第一列，即$u</em>{f1}$一定是$a_f(\theta)$。</p>
+<p>那么，这个$a_f(\theta)$如何得到呢？一般的，$a_f(\theta)$可以写作：</p>
+<script type="math/tex; mode=display">
+a_f[m]=g_m(f) \alpha_m(f) e^{-j k \Delta r_m}</script><p>其中，$g_m(f)$为通道增益，$\alpha_m(f)$为幅度因子，$\Delta r_m$为相对传播距离。以下是四种情况下的结论：</p>
 <ul>
-<li><p>远场平面波：幅度相同，设第<span
-class="math inline">\(m\)</span>振源的几何投影为<span
-class="math inline">\(p_m^{\top} u(\theta)\)</span>，有：</p>
-<p><span class="math display">\[
-  a_f(\theta)[m]=g_m(f) \exp \left(-j 2 \pi f \tau_m\right)=g_m(f) \exp
-\left(-j k p_m^{\top} u(\theta)\right), \quad m=1, \ldots, M .
-  \]</span></p></li>
-<li><p>近场球面波：幅度随距离衰减，有：</p></li>
+<li><p>远场平面波：幅度相同，设第$m$振源的几何投影为$p_m^{\top} u(\theta)$，有：</p>
+<script type="math/tex; mode=display">
+  a_f(\theta)[m]=g_m(f) \exp \left(-j 2 \pi f \tau_m\right)=g_m(f) \exp \left(-j k p_m^{\top} u(\theta)\right), \quad m=1, \ldots, M .</script></li>
+<li><p>近场球面波：幅度随距离衰减，有：</p>
+</li>
 </ul>
-<p><span class="math display">\[
-a_f(\theta)[m]=\frac{g_m(f)}{r_m} \exp \left(-j k r_m\right)
-\]</span></p>
-<ul>
-<li>均匀直线阵：幅度相同，振幅相同，仅取决于投影。设麦克风之间间距为<span
-class="math inline">\(d\)</span>：</li>
+<script type="math/tex; mode=display">
+a_f(\theta)[m]=\frac{g_m(f)}{r_m} \exp \left(-j k r_m\right)</script><ul>
+<li>均匀直线阵：幅度相同，振幅相同，仅取决于投影。设麦克风之间间距为$d$：</li>
 </ul>
-<p><span class="math display">\[
-a_f(\theta)[m]=\exp \left(-j \frac{2 \pi f}{c} m d \cos \theta\right)
-\]</span></p>
-<p>因此，结合对波形的假设，存在直接使用<span
-class="math inline">\(\theta\)</span>来指定得到的波形的可能。</p>
+<script type="math/tex; mode=display">
+a_f(\theta)[m]=\exp \left(-j \frac{2 \pi f}{c} m d \cos \theta\right)</script><p>因此，结合对波形的假设，存在直接使用$\theta$来指定得到的波形的可能。</p>
 <blockquote>
 <p>除此之外似乎也有直接显式引入DOA的NMF方法，之后可能也会研究。</p>
 </blockquote>
-<h2 id="符号">符号</h2>
-<hr />
+<h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><hr>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>符号</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(f\)</span></td>
+<tr>
+<td>$f$</td>
 <td>频率索引</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(n\)</span></td>
+<tr>
+<td>$n$</td>
 <td>时间帧索引</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(k\)</span></td>
+<tr>
+<td>$k$</td>
 <td>基分量索引</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(r\)</span></td>
+<tr>
+<td>$r$</td>
 <td>声源索引</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(M\)</span></td>
+<tr>
+<td>$M$</td>
 <td>麦克风数 (microphones)</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>符号</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(w_{fk}\)</span></td>
+<tr>
+<td>$w_{fk}$</td>
 <td>第 (k) 个基分量在频点 (f) 的功率谱</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(h_{kn}\)</span></td>
+<tr>
+<td>$h_{kn}$</td>
 <td>第 (k) 个基分量在时间帧 (n) 的激活强度</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(Q_{fk}\)</span></td>
+<tr>
+<td>$Q_{fk}$</td>
 <td>第 (k) 个基分量在频点 (f) 的空间协方差</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(z_{kr}\)</span></td>
+<tr>
+<td>$z_{kr}$</td>
 <td>声源 (r) 对基分量 (k) 的责任度</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(G_{fr}\)</span></td>
+<tr>
+<td>$G_{fr}$</td>
 <td>声源 (r) 在频点 (f) 的空间特性向量</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\tilde X_{fn}\)</span></td>
+<tr>
+<td>$\tilde X_{fn}$</td>
 <td>当前模型估计协方差</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(\hat X_{fn}\)</span></td>
+<tr>
+<td>$\hat X_{fn}$</td>
 <td>源分离扩展模型协方差</td>
 </tr>
 </tbody>
 </table>
-<h2 id="参考">参考</h2>
-<hr />
-<p><a
-target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9177266">Fast
-Multichannel Nonnegative Matrix Factorization With Directivity-Aware
-Jointly-Diagonalizable Spatial Covariance Matrices for Blind Source
-Separation</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8682291">FastMNMF:
-Joint diagonalization based ac celerated algorithms for multichannel
-nonnegative matrix factorization</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1143830">Multiple
-Emitter Location and Signal Parameter - - Estimation</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/sekiguchi92/SoundSourceSeparation/tree/master">GitHub
-- sekiguchi92/SoundSourceSeparation: The code for multi-channel source
-separation and dereverberation such as FastMNMF1, FastMNMF2, and
-AR-FastMNMF2.</a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/08/04/RH-FASTMNMF/">http://raphaelhyaan.cn/2025/08/04/RH-FASTMNMF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/NMF/">NMF</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">梵蒂冈之囚</div></div></a></div><div class="next-post pull-right"><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">波束形成</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div><a href="/2025/04/21/eles-1/" title="Amplification 放大器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-21</div><div class="title">Amplification 放大器</div></div></a></div><div><a href="/2025/04/25/eles-2/" title="filtre 滤波器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-25</div><div class="title">filtre 滤波器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#fastmnmf%E5%8F%8A%E6%94%B9%E8%BF%9B"><span class="toc-text">FastMNMF及改进</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fastmnmf"><span class="toc-text">FastMNMF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mnmf"><span class="toc-text">MNMF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fastmnmf-1"><span class="toc-text">FastMNMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fastmnmf%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">FastMNMF的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%A91%E7%9A%84%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">秩1的空间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fastmnmf2"><span class="toc-text">FastMNMF2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84fastmnmf"><span class="toc-text">带约束的FastMNMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="toc-text">符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</a><time datetime="2026-01-05T16:07:10.000Z" title="发表于 2026-01-06 00:07:10">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</div>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
+<p> <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9177266">Fast Multichannel Nonnegative Matrix Factorization  With Directivity-Aware Jointly-Diagonalizable  Spatial Covariance Matrices for Blind  Source Separation</a></p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8682291">FastMNMF: Joint diagonalization based ac celerated algorithms for multichannel nonnegative matrix factorization</a></p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1143830">Multiple Emitter Location  and Signal Parameter - - Estimation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sekiguchi92/SoundSourceSeparation/tree/master">GitHub - sekiguchi92/SoundSourceSeparation: The code for multi-channel source separation and dereverberation such as FastMNMF1, FastMNMF2, and AR-FastMNMF2.</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/08/04/RH-FASTMNMF/">http://raphaelhyaan.cn/2025/08/04/RH-FASTMNMF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/NMF/">NMF</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/10/21/novel-Le-Prisonnier-du-Vatican/" title="梵蒂冈之囚"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F奥蕊莉亚.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">梵蒂冈之囚</div></div></a></div><div class="next-post pull-right"><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">波束形成</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/04/21/eles-1/" title="Amplification 放大器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-21</div><div class="title">Amplification 放大器</div></div></a></div><div><a href="/2025/04/26/eles-r/" title="电子系统课程报告"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-26</div><div class="title">电子系统课程报告</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FastMNMF%E5%8F%8A%E6%94%B9%E8%BF%9B"><span class="toc-text">FastMNMF及改进</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FastMNMF"><span class="toc-text">FastMNMF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MNMF"><span class="toc-text">MNMF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FastMNMF-1"><span class="toc-text">FastMNMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FastMNMF%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">FastMNMF的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%A91%E7%9A%84%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">秩1的空间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FastMNMF2"><span class="toc-text">FastMNMF2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84FastMNMF"><span class="toc-text">带约束的FastMNMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="toc-text">符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

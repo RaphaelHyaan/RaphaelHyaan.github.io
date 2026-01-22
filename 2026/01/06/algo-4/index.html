@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第四部分-计算复杂性与近似解 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第四部分：计算复杂性与近似解 本部分探讨计算的边界，定义什么是“难解”问题，并介绍在无法求得精确解时的应对策略。 4.1 NP 完全理论 (NP-Completeness Theory) 在现有的算法设计技术中，分治策略 (Divide-and-Conquer)、动态规划 (Dynamic Programming) 和贪心算法 (Greedy Algorithm) 已经成功解决了大量计">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第四部分-计算复杂性与近似解 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第四部分：计算复杂性与近似解本部分探讨计算的边界，定义什么是“难解”问题，并介绍在无法求得精确解时的应对策略。 4.1 NP 完全理论 (NP-Completeness Theory)在现有的算法设计技术中，分治策略 (Divide-and-Conquer)、动态规划 (Dynamic Programming) 和贪心算法 (Greedy Algorithm) 已经成功解决了大量计算问题。然而，仍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四部分-计算复杂性与近似解">
 <meta property="og:url" content="http://raphaelhyaan.cn/2026/01/06/algo-4/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="第四部分：计算复杂性与近似解 本部分探讨计算的边界，定义什么是“难解”问题，并介绍在无法求得精确解时的应对策略。 4.1 NP 完全理论 (NP-Completeness Theory) 在现有的算法设计技术中，分治策略 (Divide-and-Conquer)、动态规划 (Dynamic Programming) 和贪心算法 (Greedy Algorithm) 已经成功解决了大量计">
+<meta property="og:description" content="第四部分：计算复杂性与近似解本部分探讨计算的边界，定义什么是“难解”问题，并介绍在无法求得精确解时的应对策略。 4.1 NP 完全理论 (NP-Completeness Theory)在现有的算法设计技术中，分治策略 (Divide-and-Conquer)、动态规划 (Dynamic Programming) 和贪心算法 (Greedy Algorithm) 已经成功解决了大量计算问题。然而，仍">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png">
 <meta property="article:published_time" content="2026-01-05T16:07:14.000Z">
@@ -153,1093 +153,436 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第四部分-计算复杂性与近似解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:09:45.853Z" title="更新于 2026-01-06 00:09:45">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第四部分-计算复杂性与近似解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第四部分计算复杂性与近似解">第四部分：计算复杂性与近似解</h1>
-<p>本部分探讨计算的边界，定义什么是“难解”问题，并介绍在无法求得精确解时的应对策略。</p>
-<h2 id="np-完全理论-np-completeness-theory">4.1 NP 完全理论
-(NP-Completeness Theory)</h2>
-<p>在现有的算法设计技术中，分治策略 (Divide-and-Conquer)、动态规划
-(Dynamic Programming) 和贪心算法 (Greedy Algorithm)
-已经成功解决了大量计算问题。然而，仍存在一类问题，至今未能找到高效的（多项式时间的）算法。典型的“难解”问题包括：</p>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第四部分-计算复杂性与近似解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-05T16:09:45.853Z" title="更新于 2026-01-06 00:09:45">2026-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第四部分-计算复杂性与近似解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第四部分：计算复杂性与近似解"><a href="#第四部分：计算复杂性与近似解" class="headerlink" title="第四部分：计算复杂性与近似解"></a>第四部分：计算复杂性与近似解</h1><p>本部分探讨计算的边界，定义什么是“难解”问题，并介绍在无法求得精确解时的应对策略。</p>
+<h2 id="4-1-NP-完全理论-NP-Completeness-Theory"><a href="#4-1-NP-完全理论-NP-Completeness-Theory" class="headerlink" title="4.1 NP 完全理论 (NP-Completeness Theory)"></a>4.1 NP 完全理论 (NP-Completeness Theory)</h2><p>在现有的算法设计技术中，分治策略 (Divide-and-Conquer)、动态规划 (Dynamic Programming) 和贪心算法 (Greedy Algorithm) 已经成功解决了大量计算问题。然而，仍存在一类问题，至今未能找到高效的（多项式时间的）算法。典型的“难解”问题包括：</p>
 <ul>
-<li><p>0-1 背包问题 (0-1 Knapsack Problem)</p></li>
-<li><p>旅行商问题 (Traveling Salesperson Problem, TSP)</p></li>
-<li><p>集合覆盖问题 (Set Cover Problem)</p></li>
-<li><p>顶点覆盖问题 (Vertex Cover Problem)</p></li>
+<li><p>0-1 背包问题 (0-1 Knapsack Problem)</p>
+</li>
+<li><p>旅行商问题 (Traveling Salesperson Problem, TSP)</p>
+</li>
+<li><p>集合覆盖问题 (Set Cover Problem)</p>
+</li>
+<li><p>顶点覆盖问题 (Vertex Cover Problem)</p>
+</li>
 </ul>
-<h3 id="问题">4.1.1 问题</h3>
-<h4 id="判定问题和最优化问题">判定问题和最优化问题</h4>
-<p><strong>判定问题</strong>是指输出仅有两种可能结果的问题，即答案属于集合
-{Yes, No} 或 {1, 0}。 <strong>最优化问题</strong>的目标是在所有可行解
-(Feasible Solution) 中，寻找一个具有最优值（最大值或最小值）的解。</p>
+<h3 id="4-1-1-问题"><a href="#4-1-1-问题" class="headerlink" title="4.1.1 问题"></a>4.1.1 问题</h3><h4 id="判定问题和最优化问题"><a href="#判定问题和最优化问题" class="headerlink" title="判定问题和最优化问题"></a>判定问题和最优化问题</h4><p><strong>判定问题</strong>是指输出仅有两种可能结果的问题，即答案属于集合 {Yes, No} 或 {1, 0}。<br><strong>最优化问题</strong>的目标是在所有可行解 (Feasible Solution) 中，寻找一个具有最优值（最大值或最小值）的解。</p>
 <p>在计算复杂性研究中，通常关注判定问题，因为其结构更简单且易于标准化。然而，最优化问题与判定问题之间存在紧密的对应关系。</p>
-<p>任何一个最优化问题都可以通过引入一个阈值 (Threshold)
-参数转化为对应的判定问题： - 求图 <span class="math inline">\(G\)</span>
-的最小生成树 <span class="math inline">\(T\)</span><em>等价于</em>给定图
-<span class="math inline">\(G\)</span> 和正整数 <span
-class="math inline">\(k\)</span>，判断是否存在边权和不超过 <span
-class="math inline">\(k\)</span> 的生成树 -
-求价值最大的物品子集<em>等价于</em>给定物品集、背包容量 <span
-class="math inline">\(W\)</span> 和正整数 <span
-class="math inline">\(V\)</span>，判断是否存在总价值至少为 <span
-class="math inline">\(V\)</span> 的物品子集？</p>
+<p>任何一个最优化问题都可以通过引入一个阈值 (Threshold) 参数转化为对应的判定问题：</p>
+<ul>
+<li>求图 $G$ 的最小生成树 $T$<em>等价于</em>给定图 $G$ 和正整数 $k$，判断是否存在边权和不超过 $k$ 的生成树</li>
+<li>求价值最大的物品子集<em>等价于</em>给定物品集、背包容量 $W$ 和正整数 $V$，判断是否存在总价值至少为 $V$ 的物品子集？</li>
+</ul>
 <p>算法理论表明，判定问题在计算上不会比对应的最优化问题更难。（最优化问题的算法通常可以用来求解判定问题）</p>
-<h4 id="编码方案与输入规模">编码方案与输入规模</h4>
-<p>为了衡量算法的时间复杂度，必须明确“输入规模”的定义。输入规模不仅取决于问题实例本身，还取决于所采用的编码方式。</p>
-<p><strong>编码方案</strong> <span class="math inline">\(e: I \to \{0,
-1\}^*\)</span> 是一个将判定问题 <span class="math inline">\(Q\)</span>
-的实例 <span class="math inline">\(x \in I\)</span> 映射为二进制串 <span
-class="math inline">\(e(x)\)</span> 的函数。 实例 <span
-class="math inline">\(x\)</span>
-的<strong>输入规模</strong>定义为二进制串的长度 <span
-class="math inline">\(|x| = |e(x)|\)</span>。</p>
-<p>例如合数问题输入为正整数 <span
-class="math inline">\(n\)</span>，二进制编码长度<span
-class="math inline">\(\lceil \log_2(n+1)
-\rceil\)</span>，输入规模为<span class="math inline">\(O(\log
-n)\)</span>。</p>
-<p>排序问题输入n个整数，编码长度为<span class="math inline">\(n \times
-m\)</span>，其中 <span class="math inline">\(m\)</span>
-是最大整数的二进制位数。</p>
-<p>如果两个编码方案 <span class="math inline">\(e_1\)</span> 和 <span
-class="math inline">\(e_2\)</span>
-可以通过多项式时间可计算的函数相互转换，则称它们是<strong>多项式相关</strong>的。即存在多项式
-<span class="math inline">\(p\)</span>，使得 <span
-class="math inline">\(|e_2(x)| \le p(|e_1(x)|)\)</span>。
-对于多项式相关的编码方案，一个问题是否属于多项式时间可解（P类）是独立于具体编码选择的。</p>
-<p>注意：一进制编码（计算步骤数量直接对应于数字的数值大小（Value），而不是数字的位数）通常会导致输入规模指数级膨胀（例如整数
-<span class="math inline">\(W\)</span> 编码为 <span
-class="math inline">\(W\)</span> 个 1），从而使伪多项式时间算法（如
-<span class="math inline">\(O(nW)\)</span>
-的背包算法）看似高效，实则非多项式时间。标准复杂度理论基于二进制编码。</p>
-<hr />
-<h4 id="p-类与-np-类">P 类与 NP 类</h4>
-<p><strong><span class="math inline">\(P\)</span>
-类</strong>是所有可以在多项式时间内被确定性算法求解的判定问题的集合。即<span
-class="math inline">\(Q \in P\)</span> 当且仅当存在算法 <span
-class="math inline">\(A\)</span> 和常数 <span
-class="math inline">\(k\)</span>，使得对于任意实例 <span
-class="math inline">\(x\)</span>，算法 <span
-class="math inline">\(A\)</span> 能在 <span
-class="math inline">\(O(|x|^k)\)</span> 时间内输出正确判定结果。</p>
-<p><strong><span class="math inline">\(NP\)</span>
-类</strong>并非指“非多项式时间”，而是指“非确定性多项式时间”。其核心特征在于解的可验证性</p>
-<p>对于NP类问题，引入整数和验证算法： - <strong>证书</strong>
-(Certificate)：对于“是”的实例 <span
-class="math inline">\(x\)</span>，存在一个辅助信息串 <span
-class="math inline">\(y\)</span>（证书），作为 <span
-class="math inline">\(x\)</span> 属于 <span
-class="math inline">\(Y_I\)</span> 的证据。 - <strong>验证算法 <span
-class="math inline">\(A(x, y)\)</span></strong>：以实例 <span
-class="math inline">\(x\)</span> 和证书 <span
-class="math inline">\(y\)</span> 为输入。若 <span
-class="math inline">\(A(x, y)=1\)</span>，则确认 <span
-class="math inline">\(x\)</span> 的答案为“是”。</p>
-<p>例如，对于0/1背包问题，转化为判断问题后可以写作：给定物品集合、容量
-<span class="math inline">\(W\)</span> 和一个目标价值 <span
-class="math inline">\(K\)</span>，是否存在一个物品子集，使得其总重量不超过
-<span class="math inline">\(W\)</span> 且总价值至少为 <span
-class="math inline">\(K\)</span>？ - 证书 <span
-class="math inline">\(y\)</span> 就是能够证明上述问题的答案为 "Yes"
-的证据，比如一个具体的物品选择方案 -
-验证算法包括对总重量、总价值的计算</p>
-<p><strong>NP 的定义</strong>： 判定问题 <span class="math inline">\(Q
-\in NP\)</span>，当且仅当存在一个多项式时间验证算法 <span
-class="math inline">\(A\)</span> 和常数 <span
-class="math inline">\(c\)</span>，满足： - 对于任意 <span
-class="math inline">\(x \in Y_I\)</span>（答案为“是”），存在一个长度为
-<span class="math inline">\(O(|x|^c)\)</span> 的证书 <span
-class="math inline">\(y\)</span>，使得 <span class="math inline">\(A(x,
-y) = 1\)</span>。 - 对于任意 <span class="math inline">\(x \in
-N_I\)</span>（答案为“否”），不存在任何证书 <span
-class="math inline">\(y\)</span> 使得 <span class="math inline">\(A(x,
-y) = 1\)</span>。</p>
-<p>例如对于0/1背包问题，证书可以是一个下标集合 <span
-class="math inline">\(S \subseteq \{1, 2, \dots,
-n\}\)</span>，表示被选中的物品编号，也可以是一个长度为 <span
-class="math inline">\(n\)</span> 的二进制向量 <span
-class="math inline">\(y = (y_1, y_2, \dots, y_n)\)</span>，其中 <span
-class="math inline">\(y_i=1\)</span> 表示选中第 <span
-class="math inline">\(i\)</span> 个物品，<span
-class="math inline">\(y_i=0\)</span>
-表示不选。都是符合多项式长度的。</p>
+<h4 id="编码方案与输入规模"><a href="#编码方案与输入规模" class="headerlink" title="编码方案与输入规模"></a>编码方案与输入规模</h4><p>为了衡量算法的时间复杂度，必须明确“输入规模”的定义。输入规模不仅取决于问题实例本身，还取决于所采用的编码方式。</p>
+<p><strong>编码方案</strong> $e: I \to {0, 1}^<em>$ 是一个将判定问题 $Q$ 的实例 $x \in I$ 映射为二进制串 $e(x)$ 的函数。<br>实例 $x$ 的<em>*输入规模</em></em>定义为二进制串的长度 $|x| = |e(x)|$。</p>
+<p>例如合数问题输入为正整数 $n$，二进制编码长度$\lceil \log_2(n+1) \rceil$，输入规模为$O(\log n)$。</p>
+<p>排序问题输入n个整数，编码长度为$n \times m$，其中 $m$ 是最大整数的二进制位数。</p>
+<p>如果两个编码方案 $e_1$ 和 $e_2$ 可以通过多项式时间可计算的函数相互转换，则称它们是<strong>多项式相关</strong>的。即存在多项式 $p$，使得 $|e_2(x)| \le p(|e_1(x)|)$。<br>对于多项式相关的编码方案，一个问题是否属于多项式时间可解（P类）是独立于具体编码选择的。</p>
+<p>注意：一进制编码（计算步骤数量直接对应于数字的数值大小（Value），而不是数字的位数）通常会导致输入规模指数级膨胀（例如整数 $W$ 编码为 $W$ 个 1），从而使伪多项式时间算法（如 $O(nW)$ 的背包算法）看似高效，实则非多项式时间。标准复杂度理论基于二进制编码。</p>
+<hr>
+<h4 id="P-类与-NP-类"><a href="#P-类与-NP-类" class="headerlink" title="P 类与 NP 类"></a>P 类与 NP 类</h4><p><strong>$P$ 类</strong>是所有可以在多项式时间内被确定性算法求解的判定问题的集合。即$Q \in P$ 当且仅当存在算法 $A$ 和常数 $k$，使得对于任意实例 $x$，算法 $A$ 能在 $O(|x|^k)$ 时间内输出正确判定结果。</p>
+<p><strong>$NP$ 类</strong>并非指“非多项式时间”，而是指“非确定性多项式时间”。其核心特征在于解的可验证性</p>
+<p>对于NP类问题，引入整数和验证算法：</p>
+<ul>
+<li><strong>证书</strong> (Certificate)：对于“是”的实例 $x$，存在一个辅助信息串 $y$（证书），作为 $x$ 属于 $Y_I$ 的证据。</li>
+<li><strong>验证算法 $A(x, y)$</strong>：以实例 $x$ 和证书 $y$ 为输入。若 $A(x, y)=1$，则确认 $x$ 的答案为“是”。</li>
+</ul>
+<p>例如，对于0/1背包问题，转化为判断问题后可以写作：给定物品集合、容量 $W$ 和一个目标价值 $K$，是否存在一个物品子集，使得其总重量不超过 $W$ 且总价值至少为 $K$？</p>
+<ul>
+<li>证书 $y$ 就是能够证明上述问题的答案为 “Yes” 的证据，比如一个具体的物品选择方案</li>
+<li>验证算法包括对总重量、总价值的计算</li>
+</ul>
+<p><strong>NP 的定义</strong>：<br>判定问题 $Q \in NP$，当且仅当存在一个多项式时间验证算法 $A$ 和常数 $c$，满足：</p>
+<ul>
+<li>对于任意 $x \in Y_I$（答案为“是”），存在一个长度为 $O(|x|^c)$ 的证书 $y$，使得 $A(x, y) = 1$。</li>
+<li>对于任意 $x \in N_I$（答案为“否”），不存在任何证书 $y$ 使得 $A(x, y) = 1$。</li>
+</ul>
+<p>例如对于0/1背包问题，证书可以是一个下标集合 $S \subseteq {1, 2, \dots, n}$，表示被选中的物品编号，也可以是一个长度为 $n$ 的二进制向量 $y = (y_1, y_2, \dots, y_n)$，其中 $y_i=1$ 表示选中第 $i$ 个物品，$y_i=0$ 表示不选。都是符合多项式长度的。</p>
 <p>即，NP问题关注能否在多项式时间内验证证书是否有效。</p>
-<p>定理：<span class="math inline">\(P \subseteq NP\)</span>， 是否
-<span class="math inline">\(P =
-NP\)</span>是计算机科学领域最大的开放问题之一。</p>
-<h4 id="示例">示例</h4>
-<p><strong>布尔可满足性问题 (SAT, Boolean Satisfiability)</strong>
-第一个被证明为 NP-完全的问题 问题实例 (Instance)： - 一组布尔变量 <span
-class="math inline">\(X = \{x_1, x_2, \dots, x_n\}\)</span> - 一个由变量
-<span class="math inline">\(X\)</span>、逻辑非 (<span
-class="math inline">\(\neg\)</span>)、逻辑或 (<span
-class="math inline">\(\lor\)</span>)、逻辑与 (<span
-class="math inline">\(\land\)</span>) 以及括号构成的公式 <span
-class="math inline">\(\phi\)</span></p>
-<p>是否存在一种真值赋值 (Truth Assignment) <span
-class="math inline">\(\mu: X \rightarrow \{0, 1\}\)</span>（即对每个变量
-<span class="math inline">\(x_i\)</span> 赋予真 <span
-class="math inline">\(T\)</span> 或假 <span
-class="math inline">\(F\)</span>），使得公式 <span
-class="math inline">\(\phi\)</span> 的最终计算结果为真（TRUE）</p>
-<hr />
+<p>定理：$P \subseteq NP$， 是否 $P = NP$是计算机科学领域最大的开放问题之一。</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><strong>布尔可满足性问题 (SAT, Boolean Satisfiability)</strong><br>第一个被证明为 NP-完全的问题<br>问题实例 (Instance)：</p>
+<ul>
+<li>一组布尔变量 $X = {x_1, x_2, \dots, x_n}$</li>
+<li>一个由变量 $X$、逻辑非 ($\neg$)、逻辑或 ($\lor$)、逻辑与 ($\land$) 以及括号构成的公式 $\phi$</li>
+</ul>
+<p>是否存在一种真值赋值 (Truth Assignment) $\mu: X \rightarrow {0, 1}$（即对每个变量 $x_i$ 赋予真 $T$ 或假 $F$），使得公式 $\phi$ 的最终计算结果为真（TRUE）</p>
+<hr>
 <p><strong>3-CNF 可满足性问题(3-SAT)</strong></p>
-<p>问题实例 (Instance)： - 变量集合：<span class="math inline">\(U =
-\{u_1, u_2, \dots, u_n\}\)</span> - 子句集合：一组子句 <span
-class="math inline">\(C = \{C_1, C_2, \dots, C_m\}\)</span> - 合取范式
-(CNF)：整个公式是所有子句的逻辑与（AND），即 <span
-class="math inline">\(\phi = C_1 \land C_2 \land \dots \land
-C_m\)</span>。 - 3-文字限制：每个子句 <span
-class="math inline">\(C_i\)</span> 恰好包含 3 个文字的逻辑或（OR），即
-<span class="math inline">\(C_i = (l_{i1} \lor l_{i2} \lor
-l_{i3})\)</span>。文字 (Literal) <span class="math inline">\(l\)</span>
-是变量 <span class="math inline">\(u\)</span> 或其否定 <span
-class="math inline">\(\neg u\)</span></p>
-<p>是否存在一种真值赋值，使得 <span class="math inline">\(\phi\)</span>
-中所有的子句 <span class="math inline">\(C_i\)</span> 同时为真？</p>
-<p>给定证书（赋值 <span
-class="math inline">\(\mu\)</span>），算法遍历所有 <span
-class="math inline">\(m\)</span> 个子句。 对于每个子句 <span
-class="math inline">\(C_i = (l_1 \lor l_2 \lor
-l_3)\)</span>，检查其中是否至少有一个文字为真。 若所有 <span
-class="math inline">\(m\)</span> 个子句均满足条件，则验证通过。</p>
+<p>问题实例 (Instance)：</p>
+<ul>
+<li>变量集合：$U = {u_1, u_2, \dots, u_n}$</li>
+<li>子句集合：一组子句 $C = {C_1, C_2, \dots, C_m}$</li>
+<li>合取范式 (CNF)：整个公式是所有子句的逻辑与（AND），即 $\phi = C_1 \land C_2 \land \dots \land C_m$。</li>
+<li>3-文字限制：每个子句 $C<em>i$ 恰好包含 3 个文字的逻辑或（OR），即 $C_i = (l</em>{i1} \lor l<em>{i2} \lor l</em>{i3})$。文字 (Literal) $l$ 是变量 $u$ 或其否定 $\neg u$</li>
+</ul>
+<p>是否存在一种真值赋值，使得 $\phi$ 中所有的子句 $C_i$ 同时为真？</p>
+<p>给定证书（赋值 $\mu$），算法遍历所有 $m$ 个子句。<br>对于每个子句 $C_i = (l_1 \lor l_2 \lor l_3)$，检查其中是否至少有一个文字为真。<br>若所有 $m$ 个子句均满足条件，则验证通过。</p>
 <p>这两个算法的证书长度都是O(n)。</p>
-<hr />
-<h3 id="多项式时间归约和np完全类">4.1.2 多项式时间归约和NP完全类</h3>
-<h4 id="归约">归约</h4>
-<p>归约是比较两个问题计算难度相对大小的核心工具</p>
-<p>设 <span class="math inline">\(Q_1\)</span> 和 <span
-class="math inline">\(Q_2\)</span> 是两个判定问题。若存在一个从 <span
-class="math inline">\(Q_1\)</span> 到 <span
-class="math inline">\(Q_2\)</span> 的多项式时间归约，记为 <span
-class="math inline">\(Q_1 \le_P Q_2\)</span>。</p>
-<p><strong>归约</strong>由一个多项式时间可计算的函数 <span
-class="math inline">\(f: \{0, 1\}^* \to \{0, 1\}^*\)</span>
-构成，该函数将 <span class="math inline">\(Q_1\)</span> 的任意实例 <span
-class="math inline">\(x\)</span> 转换为 <span
-class="math inline">\(Q_2\)</span> 的实例 <span
-class="math inline">\(f(x)\)</span>，并满足：</p>
-<p><span class="math display">\[x \in Y_{I1} \iff f(x) \in
-Y_{I2}\]</span></p>
-<ul>
-<li><span class="math inline">\(Q_1 \le_P Q_2\)</span> 意味着 <span
-class="math inline">\(Q_1\)</span> 不会比 <span
-class="math inline">\(Q_2\)</span> 更难。解决 <span
-class="math inline">\(Q_2\)</span> 的能力涵盖了解决 <span
-class="math inline">\(Q_1\)</span> 的能力。</li>
-<li>若 <span class="math inline">\(Q_1 \le_P Q_2\)</span> 且 <span
-class="math inline">\(Q_2 \in P\)</span>，则 <span
-class="math inline">\(Q_1 \in P\)</span>。</li>
-<li>若 <span class="math inline">\(Q_1 \le_P Q_2\)</span> 且 <span
-class="math inline">\(Q_2 \le_P Q_3\)</span>，则 <span
-class="math inline">\(Q_1 \le_P Q_3\)</span></li>
+<hr>
+<h3 id="4-1-2-多项式时间归约和NP完全类"><a href="#4-1-2-多项式时间归约和NP完全类" class="headerlink" title="4.1.2 多项式时间归约和NP完全类"></a>4.1.2 多项式时间归约和NP完全类</h3><h4 id="归约"><a href="#归约" class="headerlink" title="归约"></a>归约</h4><p>归约是比较两个问题计算难度相对大小的核心工具</p>
+<p>设 $Q_1$ 和 $Q_2$ 是两个判定问题。若存在一个从 $Q_1$ 到 $Q_2$ 的多项式时间归约，记为 $Q_1 \le_P Q_2$。</p>
+<p><strong>归约</strong>由一个多项式时间可计算的函数 $f: {0, 1}^<em> \to {0, 1}^</em>$ 构成，该函数将 $Q_1$ 的任意实例 $x$ 转换为 $Q_2$ 的实例 $f(x)$，并满足：</p>
+<script type="math/tex; mode=display">x \in Y_{I1} \iff f(x) \in Y_{I2}</script><ul>
+<li>$Q_1 \le_P Q_2$ 意味着 $Q_1$ 不会比 $Q_2$ 更难。解决 $Q_2$ 的能力涵盖了解决 $Q_1$ 的能力。</li>
+<li>若 $Q_1 \le_P Q_2$ 且 $Q_2 \in P$，则 $Q_1 \in P$。</li>
+<li>若 $Q_1 \le_P Q_2$ 且 $Q_2 \le_P Q_3$，则 $Q_1 \le_P Q_3$</li>
 </ul>
-<h4 id="np完全类np-complete-npc">NP完全类(NP-Complete, NPC)</h4>
-<p>NP 完全类包含了 NP 中“最难”的问题。一个判定问题 <span
-class="math inline">\(Q\)</span> 被称为 NP
-完全的，当且仅当它满足两个条件： - 属于 NP (<span
-class="math inline">\(Q \in NP\)</span>)：问题本身是可验证的。 - NP 难
-(NP-Hard)：对于任意 <span class="math inline">\(Q&#39; \in
-NP\)</span>，都有 <span class="math inline">\(Q&#39; \le_P
-Q\)</span>。（即 NP 中的每个问题都能归约到它）。</p>
-<p>其中，NP 难 (NP-Hard)包括仅满足条件 (2) 但不一定满足条件 (1)
-的问题。这类问题至少和 NPC 问题一样难，甚至可能不在 NP
-中（即不可验证）。</p>
-<p><strong>计算等价性</strong>：对于任意两个 NPC 问题 <span
-class="math inline">\(Q_1, Q_2\)</span>，必有 <span
-class="math inline">\(Q_1 \le_P Q_2\)</span> 且 <span
-class="math inline">\(Q_2 \le_P Q_1\)</span>。这说明所有 NPC
-问题在多项式时间可归约的意义下是等价的。 若存在任何一个 NPC
-问题是多项式时间可解的（即属于 P），则所有 NP 问题均为多项式时间可解（即
-<span class="math inline">\(P=NP\)</span>）。 反之，若 <span
-class="math inline">\(P \neq NP\)</span>，则没有任何 NPC
-问题存在多项式时间算法。</p>
-<h4 id="np完全性的证明方法">NP完全性的证明方法</h4>
-<p>要证明一个新问题 <span class="math inline">\(Q\)</span> 是 NP
-完全的，一般： - 证明上界 (<span class="math inline">\(Q \in
-NP\)</span>)：
-展示存在一个多项式时间的验证算法，使得对于任意“是”的实例，存在一个多项式长度的证书。</p>
+<h4 id="NP完全类-NP-Complete-NPC"><a href="#NP完全类-NP-Complete-NPC" class="headerlink" title="NP完全类(NP-Complete, NPC)"></a>NP完全类(NP-Complete, NPC)</h4><p>NP 完全类包含了 NP 中“最难”的问题。一个判定问题 $Q$ 被称为 NP 完全的，当且仅当它满足两个条件：</p>
 <ul>
-<li>证明下界 (NP-Hardness via Reduction)：找到一个已知的 NP 完全问题
-<span class="math inline">\(Q_{known}\)</span>，并证明 <span
-class="math inline">\(Q_{known} \le_P Q\)</span>。
-<ul>
-<li>逻辑：由于所有 NP 问题都能归约到 <span
-class="math inline">\(Q_{known}\)</span>，而 <span
-class="math inline">\(Q_{known}\)</span> 又能归约到 <span
-class="math inline">\(Q\)</span>，根据传递性，所有 NP 问题都能归约到
-<span class="math inline">\(Q\)</span>。方</li>
-<li>向注意：归约方向必须是 已知 NPC <span
-class="math inline">\(\to\)</span> 新问题，而非反之。</li>
-</ul></li>
+<li>属于 NP ($Q \in NP$)：问题本身是可验证的。</li>
+<li>NP 难 (NP-Hard)：对于任意 $Q’ \in NP$，都有 $Q’ \le_P Q$。（即 NP 中的每个问题都能归约到它）。</li>
 </ul>
-<h3 id="经典归约链-classic-reductions">4.1.3 经典归约链 (Classic
-Reductions)</h3>
-<p>整个规约链始于 Cook-Levin 定理，随后分支到不同的问题域</p>
-<p>逻辑基础：布尔可满足性问题 (Boolean Satisfiability, SAT) <span
-class="math inline">\(\xrightarrow{\text{Cook-Levin}}\)</span> 3-CNF
-可满足性问题 (3-CNF Satisfiability, 3-SAT)</p>
-<p><strong>图论分支</strong>：3-CNF 可满足性问题 (3-CNF Satisfiability,
-3-SAT) <span class="math inline">\(\xrightarrow{}\)</span> 团问题
-(Clique Problem, DCLIQUE) <span
-class="math inline">\(\xrightarrow{}\)</span> 顶点覆盖问题 (Vertex
-Cover, DVC) <span class="math inline">\(\xrightarrow{}\)</span>
-集合覆盖问题 (Set Cover, SC)</p>
-<p>同时：团问题 (Clique Problem, DCLIQUE) <span
-class="math inline">\(\xrightarrow{}\)</span> 独立集问题 (Independent
-Set, DIS)</p>
-<p><strong>数值与调度分支</strong>：3-CNF 可满足性问题 (3-CNF
-Satisfiability, 3-SAT) <span
-class="math inline">\(\xrightarrow{}\)</span> 子集和问题 (Subset Sum,
-SUBSET-SUM) <span class="math inline">\(\xrightarrow{}\)</span>
-带有开放时间和截止时间的调度问题 (Scheduling with Release times and
-Deadlines, SRD)</p>
-<p><strong>路径与遍历分支</strong>：3-CNF 可满足性问题 (3-CNF
-Satisfiability, 3-SAT) <span
-class="math inline">\(\xrightarrow{}\)</span> 有向哈密顿回路问题
-(Directed Hamiltonian Circuit, DHC) <span
-class="math inline">\(\xrightarrow{}\)</span> 哈密顿回路问题
-(Hamiltonian Circuit, HC)</p>
-<p>同时：有向哈密顿回路问题 (Directed Hamiltonian Circuit, DHC) <span
-class="math inline">\(\xrightarrow{}\)</span> 旅行商判定问题 (Traveling
-Salesperson Problem, DTSP)</p>
-<hr />
-<h2 id="近似算法-approximation-algorithms">4.2 近似算法 (Approximation
-Algorithms)</h2>
-<p>当问题被证明是 NP-Hard
-时，我们退而求其次，寻找多项式时间内的“近似最优解”。</p>
-<h3 id="近似算法">4.2.1 近似算法</h3>
-<p><strong>近似算法 (Approximation Algorithm)</strong>
-定义为一类能在多项式时间内运行，并产生近似解的算法。</p>
-<h4 id="优化问题的四元组模型">优化问题的四元组模型</h4>
-<p>一个优化问题 <span class="math inline">\(Q\)</span>
-可在数学上形式化为一个四元组：</p>
-<p><span class="math display">\[Q = (I_Q, SOL_Q, m_Q,
-goal_Q)\]</span></p>
+<p>其中，NP 难 (NP-Hard)包括仅满足条件 (2) 但不一定满足条件 (1) 的问题。这类问题至少和 NPC 问题一样难，甚至可能不在 NP 中（即不可验证）。</p>
+<p><strong>计算等价性</strong>：对于任意两个 NPC 问题 $Q_1, Q_2$，必有 $Q_1 \le_P Q_2$ 且 $Q_2 \le_P Q_1$。这说明所有 NPC 问题在多项式时间可归约的意义下是等价的。<br>若存在任何一个 NPC 问题是多项式时间可解的（即属于 P），则所有 NP 问题均为多项式时间可解（即 $P=NP$）。<br>反之，若 $P \neq NP$，则没有任何 NPC 问题存在多项式时间算法。</p>
+<h4 id="NP完全性的证明方法"><a href="#NP完全性的证明方法" class="headerlink" title="NP完全性的证明方法"></a>NP完全性的证明方法</h4><p>要证明一个新问题 $Q$ 是 NP 完全的，一般：</p>
 <ul>
-<li><span class="math inline">\(I_Q\)</span> (Instances)：问题 <span
-class="math inline">\(Q\)</span> 的所有合法实例的集合。</li>
-<li><span class="math inline">\(SOL_Q(x)\)</span> (Feasible
-Solutions)：一个函数，对于给定实例 <span class="math inline">\(x \in
-I_Q\)</span>，生成其所有可行解的集合。</li>
-<li><span class="math inline">\(m_Q(x, y)\)</span> (Measure
-Function)：评估函数。对于实例 <span class="math inline">\(x\)</span>
-和可行解 <span class="math inline">\(y \in SOL_Q(x)\)</span>，<span
-class="math inline">\(m_Q(x, y)\)</span>
-给出了该解的价值（整数或实数）。</li>
-<li><span class="math inline">\(goal_Q\)</span> (Goal)：优化目标，取值为
-<span class="math inline">\(MAX\)</span>（最大化）或 <span
-class="math inline">\(MIN\)</span>（最小化）。</li>
+<li><p>证明上界 ($Q \in NP$)：<br>展示存在一个多项式时间的验证算法，使得对于任意“是”的实例，存在一个多项式长度的证书。</p>
+</li>
+<li><p>证明下界 (NP-Hardness via Reduction)：找到一个已知的 NP 完全问题 $Q<em>{known}$，并证明 $Q</em>{known} \le_P Q$。</p>
+<ul>
+<li>逻辑：由于所有 NP 问题都能归约到 $Q<em>{known}$，而 $Q</em>{known}$ 又能归约到 $Q$，根据传递性，所有 NP 问题都能归约到 $Q$。方</li>
+<li>向注意：归约方向必须是 已知 NPC $\to$ 新问题，而非反之。</li>
 </ul>
-<p>例如最小顶点覆盖问题： - 实例 (<span
-class="math inline">\(I\)</span>)：无向图 <span class="math inline">\(G
-= (V, E)\)</span>。 - 可行解 (<span
-class="math inline">\(SOL\)</span>)：图 <span
-class="math inline">\(G\)</span> 的顶点子集 <span
-class="math inline">\(U \subseteq V\)</span>，满足覆盖性质：对于 <span
-class="math inline">\(E\)</span> 中任意一条边 <span
-class="math inline">\((v_i, v_j)\)</span>，至少有一个端点属于 <span
-class="math inline">\(U\)</span>（即 <span class="math inline">\(v_i \in
-U\)</span> 或 <span class="math inline">\(v_j \in U\)</span>）。 - 估量
-(<span class="math inline">\(m\)</span>)：顶点子集的大小 <span
-class="math inline">\(|U|\)</span>。 - 目标 (<span
-class="math inline">\(goal\)</span>)：<span
-class="math inline">\(MIN\)</span>，即寻找规模最小的顶点覆盖。</p>
-<h4 id="优化问题的复杂性">优化问题的复杂性</h4>
-<p><strong>NPO 类</strong></p>
-<p>一个优化问题 <span class="math inline">\(Q\)</span> 属于 NPO
-类，当且仅当满足以下四个条件 - 实例集 <span
-class="math inline">\(I_Q\)</span> 可在多项式时间内识别 - 可行解 <span
-class="math inline">\(y\)</span> 的大小受限于实例 <span
-class="math inline">\(x\)</span> 大小的多项式（即 <span
-class="math inline">\(|y| \le q(|x|)\)</span>） - 给定 <span
-class="math inline">\(x\)</span> 和 <span
-class="math inline">\(y\)</span>，可在多项式时间内判定 <span
-class="math inline">\(y\)</span> 是否属于 <span
-class="math inline">\(SOL_Q(x)\)</span> - 评估函数 <span
-class="math inline">\(m_Q\)</span> 可在多项式时间内计算 若优化问题 <span
-class="math inline">\(Q \in NPO\)</span>，则其对应的判定问题 <span
-class="math inline">\(Q_D \in NP\)</span></p>
-<p><strong>PO类</strong> PO 类包含那些属于 NPO
-且存在多项式时间算法能找到最优解及最优值的问题。 <span
-class="math inline">\(PO \subseteq NPO\)</span>。</p>
+</li>
+</ul>
+<h3 id="4-1-3-经典归约链-Classic-Reductions"><a href="#4-1-3-经典归约链-Classic-Reductions" class="headerlink" title="4.1.3 经典归约链 (Classic Reductions)"></a>4.1.3 经典归约链 (Classic Reductions)</h3><p>整个规约链始于 Cook-Levin 定理，随后分支到不同的问题域</p>
+<p>逻辑基础：布尔可满足性问题 (Boolean Satisfiability, SAT) $\xrightarrow{\text{Cook-Levin}}$ 3-CNF 可满足性问题 (3-CNF Satisfiability, 3-SAT)</p>
+<p><strong>图论分支</strong>：3-CNF 可满足性问题 (3-CNF Satisfiability, 3-SAT) $\xrightarrow{}$ 团问题 (Clique Problem, DCLIQUE) $\xrightarrow{}$ 顶点覆盖问题 (Vertex Cover, DVC) $\xrightarrow{}$ 集合覆盖问题 (Set Cover, SC)</p>
+<p>同时：团问题 (Clique Problem, DCLIQUE) $\xrightarrow{}$ 独立集问题 (Independent Set, DIS)</p>
+<p><strong>数值与调度分支</strong>：3-CNF 可满足性问题 (3-CNF Satisfiability, 3-SAT) $\xrightarrow{}$ 子集和问题 (Subset Sum, SUBSET-SUM) $\xrightarrow{}$ 带有开放时间和截止时间的调度问题 (Scheduling with Release times and Deadlines, SRD)</p>
+<p><strong>路径与遍历分支</strong>：3-CNF 可满足性问题 (3-CNF Satisfiability, 3-SAT) $\xrightarrow{}$ 有向哈密顿回路问题 (Directed Hamiltonian Circuit, DHC) $\xrightarrow{}$ 哈密顿回路问题 (Hamiltonian Circuit, HC)</p>
+<p>同时：有向哈密顿回路问题 (Directed Hamiltonian Circuit, DHC) $\xrightarrow{}$ 旅行商判定问题 (Traveling Salesperson Problem, DTSP)</p>
+<hr>
+<h2 id="4-2-近似算法-Approximation-Algorithms"><a href="#4-2-近似算法-Approximation-Algorithms" class="headerlink" title="4.2 近似算法 (Approximation Algorithms)"></a>4.2 近似算法 (Approximation Algorithms)</h2><p>当问题被证明是 NP-Hard 时，我们退而求其次，寻找多项式时间内的“近似最优解”。</p>
+<h3 id="4-2-1-近似算法"><a href="#4-2-1-近似算法" class="headerlink" title="4.2.1 近似算法"></a>4.2.1 近似算法</h3><p><strong>近似算法 (Approximation Algorithm)</strong> 定义为一类能在多项式时间内运行，并产生近似解的算法。</p>
+<h4 id="优化问题的四元组模型"><a href="#优化问题的四元组模型" class="headerlink" title="优化问题的四元组模型"></a>优化问题的四元组模型</h4><p>一个优化问题 $Q$ 可在数学上形式化为一个四元组：</p>
+<script type="math/tex; mode=display">Q = (I_Q, SOL_Q, m_Q, goal_Q)</script><ul>
+<li>$I_Q$ (Instances)：问题 $Q$ 的所有合法实例的集合。</li>
+<li>$SOL_Q(x)$ (Feasible Solutions)：一个函数，对于给定实例 $x \in I_Q$，生成其所有可行解的集合。</li>
+<li>$m_Q(x, y)$ (Measure Function)：评估函数。对于实例 $x$ 和可行解 $y \in SOL_Q(x)$，$m_Q(x, y)$ 给出了该解的价值（整数或实数）。</li>
+<li>$goal_Q$ (Goal)：优化目标，取值为 $MAX$（最大化）或 $MIN$（最小化）。</li>
+</ul>
+<p>例如最小顶点覆盖问题：</p>
+<ul>
+<li>实例 ($I$)：无向图 $G = (V, E)$。</li>
+<li>可行解 ($SOL$)：图 $G$ 的顶点子集 $U \subseteq V$，满足覆盖性质：对于 $E$ 中任意一条边 $(v_i, v_j)$，至少有一个端点属于 $U$（即 $v_i \in U$ 或 $v_j \in U$）。</li>
+<li>估量 ($m$)：顶点子集的大小 $|U|$。</li>
+<li>目标 ($goal$)：$MIN$，即寻找规模最小的顶点覆盖。</li>
+</ul>
+<h4 id="优化问题的复杂性"><a href="#优化问题的复杂性" class="headerlink" title="优化问题的复杂性"></a>优化问题的复杂性</h4><p><strong>NPO 类</strong></p>
+<p>一个优化问题 $Q$ 属于 NPO 类，当且仅当满足以下四个条件</p>
+<ul>
+<li>实例集 $I_Q$ 可在多项式时间内识别</li>
+<li>可行解 $y$ 的大小受限于实例 $x$ 大小的多项式（即 $|y| \le q(|x|)$）</li>
+<li>给定 $x$ 和 $y$，可在多项式时间内判定 $y$ 是否属于 $SOL_Q(x)$</li>
+<li>评估函数 $m_Q$ 可在多项式时间内计算<br>若优化问题 $Q \in NPO$，则其对应的判定问题 $Q_D \in NP$</li>
+</ul>
+<p><strong>PO类</strong><br>PO 类包含那些属于 NPO 且存在多项式时间算法能找到最优解及最优值的问题。<br>$PO \subseteq NPO$。</p>
 <p><strong>NP-难优化问题</strong></p>
-<p>如果一个 NPO 问题 <span class="math inline">\(Q\)</span>
-对应的判定问题 <span class="math inline">\(Q_D\)</span> 是 NP-难
-(NP-Hard) 的，则称 <span class="math inline">\(Q\)</span> 为
-NP-难优化问题。</p>
-<h4 id="近似解的度量">近似解的度量</h4>
-<p>设 <span class="math inline">\(x\)</span> 为问题实例，<span
-class="math inline">\(y\)</span> 为近似算法生成的解，<span
-class="math inline">\(m(x, y)\)</span> 为其值，<span
-class="math inline">\(m^*(x)\)</span> 为最优解的值。</p>
+<p>如果一个 NPO 问题 $Q$ 对应的判定问题 $Q_D$ 是 NP-难 (NP-Hard) 的，则称 $Q$ 为 NP-难优化问题。</p>
+<h4 id="近似解的度量"><a href="#近似解的度量" class="headerlink" title="近似解的度量"></a>近似解的度量</h4><p>设 $x$ 为问题实例，$y$ 为近似算法生成的解，$m(x, y)$ 为其值，$m^*(x)$ 为最优解的值。</p>
 <p><strong>相对误差</strong></p>
-<p>定义 <span class="math inline">\(E(x, y)\)</span>
-为近似解与最优解的归一化偏差： <span class="math display">\[E(x, y) =
-\frac{|m^*(x) - m(x, y)|}{\max\{m^*(x), m(x, y)\}}\]</span> -
-对于最小化问题：<span class="math inline">\(E(x, y) = \frac{m(x, y) -
-m^*(x)}{m(x, y)} = 1 - \frac{m^*(x)}{m(x, y)}\)</span>。 -
-对于最大化问题：<span class="math inline">\(E(x, y) = \frac{m^*(x) -
-m(x, y)}{m^*(x)} = 1 - \frac{m(x, y)}{m^*(x)}\)</span>。</p>
-<p><strong><span
-class="math inline">\(\epsilon\)</span>-近似算法</strong>：对任意实例
-<span class="math inline">\(x\)</span>，满足 <span
-class="math inline">\(E(x, A(x)) \le \epsilon\)</span>。</p>
-<p><strong>性能比</strong> 亦称近似比 (Approximation Ratio)，记为 <span
-class="math inline">\(R(x, y)\)</span>，且总有 <span
-class="math inline">\(R \ge 1\)</span></p>
-<p><span class="math display">\[R(x, y) = \max \left( \frac{m(x,
-y)}{m^*(x)}, \frac{m^*(x)}{m(x, y)} \right)\]</span> - 最小化问题：<span
-class="math inline">\(R = m(x, y) / m^*(x)\)</span>。 -
-最大化问题：<span class="math inline">\(R = m^*(x) / m(x, y)\)</span>。
-- 当 <span class="math inline">\(R(x, y) = 1\)</span> 时，<span
-class="math inline">\(y\)</span> 为最优解。</p>
-<p><strong><span
-class="math inline">\(r\)</span>-近似算法</strong>：对任意实例 <span
-class="math inline">\(x\)</span>，满足 <span class="math inline">\(R(x,
-A(x)) \le r\)</span>。</p>
+<p>定义 $E(x, y)$ 为近似解与最优解的归一化偏差：</p>
+<script type="math/tex; mode=display">E(x, y) = \frac{|m^*(x) - m(x, y)|}{\max\{m^*(x), m(x, y)\}}</script><ul>
+<li>对于最小化问题：$E(x, y) = \frac{m(x, y) - m^<em>(x)}{m(x, y)} = 1 - \frac{m^</em>(x)}{m(x, y)}$。</li>
+<li>对于最大化问题：$E(x, y) = \frac{m^<em>(x) - m(x, y)}{m^</em>(x)} = 1 - \frac{m(x, y)}{m^*(x)}$。</li>
+</ul>
+<p><strong>$\epsilon$-近似算法</strong>：对任意实例 $x$，满足 $E(x, A(x)) \le \epsilon$。</p>
+<p><strong>性能比</strong><br>亦称近似比 (Approximation Ratio)，记为 $R(x, y)$，且总有 $R \ge 1$</p>
+<script type="math/tex; mode=display">R(x, y) = \max \left( \frac{m(x, y)}{m^*(x)}, \frac{m^*(x)}{m(x, y)} \right)</script><ul>
+<li>最小化问题：$R = m(x, y) / m^*(x)$。</li>
+<li>最大化问题：$R = m^*(x) / m(x, y)$。</li>
+<li>当 $R(x, y) = 1$ 时，$y$ 为最优解。</li>
+</ul>
+<p><strong>$r$-近似算法</strong>：对任意实例 $x$，满足 $R(x, A(x)) \le r$。</p>
 <blockquote>
-<p><strong>多项式时间近似方案</strong>：一个算法被称为
-PTAS，如果对于任意固定的 <span class="math inline">\(\epsilon &gt;
-0\)</span>，其运行时间是输入规模 <span class="math inline">\(n\)</span>
-的多项式函数。 <span class="math display">\[Time(n, \epsilon) =
-O(n^{f(1/\epsilon)})\]</span></p>
-<p><strong>完全多项式时间近似方案</strong>：一个算法被称为
-FPTAS，如果其运行时间在 <span class="math inline">\(n\)</span> 和 <span
-class="math inline">\(1/\epsilon\)</span>
-上同时是多项式的。这是近似算法中的“黄金标准”。 <span
-class="math display">\[Time(n, \epsilon) = O(\text{poly}(n) \cdot
-\text{poly}(1/\epsilon))\]</span>
-这意味着即便要求较高的精度，运行时间也可以控制在多项式范围内。</p>
+<p><strong>多项式时间近似方案</strong>：一个算法被称为 PTAS，如果对于任意固定的 $\epsilon &gt; 0$，其运行时间是输入规模 $n$ 的多项式函数。</p>
+<script type="math/tex; mode=display">Time(n, \epsilon) = O(n^{f(1/\epsilon)})</script><p><strong>完全多项式时间近似方案</strong>：一个算法被称为 FPTAS，如果其运行时间在 $n$ 和 $1/\epsilon$ 上同时是多项式的。这是近似算法中的“黄金标准”。</p>
+<script type="math/tex; mode=display">Time(n, \epsilon) = O(\text{poly}(n) \cdot \text{poly}(1/\epsilon))</script><p>这意味着即便要求较高的精度，运行时间也可以控制在多项式范围内。</p>
 </blockquote>
-<h3 id="基于贪心的近似算法">4.2.2 基于贪心的近似算法</h3>
-<h4 id="旅行商问题">旅行商问题</h4>
-<p>实例：<span class="math inline">\(n\)</span> 个城市 <span
-class="math inline">\(C=\{1, \dots, n\}\)</span>，任意两点间距离 <span
-class="math inline">\(d(i, j) \in \mathbb{Z}^+\)</span>。</p>
+<h3 id="4-2-2-基于贪心的近似算法"><a href="#4-2-2-基于贪心的近似算法" class="headerlink" title="4.2.2 基于贪心的近似算法"></a>4.2.2 基于贪心的近似算法</h3><h4 id="旅行商问题"><a href="#旅行商问题" class="headerlink" title="旅行商问题"></a>旅行商问题</h4><p>实例：$n$ 个城市 $C={1, \dots, n}$，任意两点间距离 $d(i, j) \in \mathbb{Z}^+$。</p>
 <p>目标：寻找一条遍历所有城市恰好一次并回到起点的回路（哈密顿回路），使得总距离最小化。</p>
 <p><strong>最近邻居算法</strong>：总是访问离当前位置最近的未访问城市</p>
-<p>对于一般图 (General
-Graph)，无法保证常数级的性能比。通过调整最后一条边的长度，近似解的误差
-<span class="math inline">\(R\)</span> 可以任意大。例如，最优解路径长为
-8，而贪心解路径长为 <span class="math inline">\(4+w\)</span>。当 <span
-class="math inline">\(w \to \infty\)</span> 时，<span
-class="math inline">\(R \to \infty\)</span>。</p>
-<hr />
-<p><strong>不可近似性定理</strong>：如果 <span class="math inline">\(P
-\neq NP\)</span>，则对于一般的旅行商问题，不存在任何多项式时间的 <span
-class="math inline">\(r\)</span>-近似算法（其中 <span
-class="math inline">\(r \ge 1\)</span> 为常数）。</p>
-<p>假设存在一个 <span class="math inline">\(r\)</span>-近似算法 <span
-class="math inline">\(A\)</span>。我们可以利用 <span
-class="math inline">\(A\)</span> 来解决 NP-完全的哈密顿回路问题
-(Hamiltonian Cycle Problem)。</p>
+<p>对于一般图 (General Graph)，无法保证常数级的性能比。通过调整最后一条边的长度，近似解的误差 $R$ 可以任意大。例如，最优解路径长为 8，而贪心解路径长为 $4+w$。当 $w \to \infty$ 时，$R \to \infty$。</p>
+<hr>
+<p><strong>不可近似性定理</strong>：如果 $P \neq NP$，则对于一般的旅行商问题，不存在任何多项式时间的 $r$-近似算法（其中 $r \ge 1$ 为常数）。</p>
+<p>假设存在一个 $r$-近似算法 $A$。我们可以利用 $A$ 来解决 NP-完全的哈密顿回路问题 (Hamiltonian Cycle Problem)。</p>
 <ul>
-<li>给定无向图 <span class="math inline">\(G=(V,
-E)\)</span>，构造一个完全加权图 <span
-class="math inline">\(G&#39;\)</span>：
-<ul>
-<li>若 <span class="math inline">\((u, v) \in E\)</span>，则 <span
-class="math inline">\(d(u, v) = 1\)</span>。</li>
-<li>若 <span class="math inline">\((u, v) \notin E\)</span>，则 <span
-class="math inline">\(d(u, v) = r \cdot n + 1\)</span></li>
-</ul></li>
-<li>若 <span class="math inline">\(G\)</span> 有哈密顿回路，则 <span
-class="math inline">\(G&#39;\)</span> 中最优旅程长度 <span
-class="math inline">\(m^*(G&#39;) = n\)</span>（全由权重为 1
-的边构成）</li>
-<li>若 <span class="math inline">\(G\)</span> 无哈密顿回路，则 <span
-class="math inline">\(G&#39;\)</span>
-的任意旅程必包含至少一条“惩罚边”，长度至少为 <span
-class="math inline">\((n-1) \times 1 + (rn+1) = (r+1)n\)</span></li>
+<li>给定无向图 $G=(V, E)$，构造一个完全加权图 $G’$：<ul>
+<li>若 $(u, v) \in E$，则 $d(u, v) = 1$。</li>
+<li>若 $(u, v) \notin E$，则 $d(u, v) = r \cdot n + 1$</li>
 </ul>
-<p>运行算法 <span class="math inline">\(A\)</span> 求解 <span
-class="math inline">\(G&#39;\)</span>。由于 <span
-class="math inline">\(A\)</span> 是 <span
-class="math inline">\(r\)</span>-近似的，其输出解 <span
-class="math inline">\(s_a\)</span> 满足 <span
-class="math inline">\(m(G&#39;, s_a) \le r \cdot m^*(G&#39;)\)</span>。
-- 若 <span class="math inline">\(G\)</span> 有哈密顿回路：<span
-class="math inline">\(m^*(G&#39;)=n \implies m(G&#39;, s_a) \le
-rn\)</span> - 若 <span class="math inline">\(G\)</span>
-无哈密顿回路：<span class="math inline">\(m(G&#39;, s_a) \ge (r+1)n &gt;
-rn\)</span> 因此，通过判断 <span class="math inline">\(m(G&#39;,
-s_a)\)</span> 是否小于等于 <span
-class="math inline">\(rn\)</span>，即可在多项式时间内判定 <span
-class="math inline">\(G\)</span> 是否有哈密顿回路。这意味着 <span
-class="math inline">\(P=NP\)</span>，与假设矛盾。</p>
-<h4 id="欧几里得旅行商问题">欧几里得旅行商问题</h4>
-<p>这类旅行商问题满足条件： <span class="math inline">\(d[i, j] \le d[i,
-k] + d[k, j]\)</span>，对任意 <span class="math inline">\(i,
-j\)</span>，满足 <span class="math inline">\(d[i, j] = d[j,
-i]\)</span>。</p>
-<p>对于满足三角不等式的 TSP 实例 <span
-class="math inline">\(x\)</span>，最近邻居算法产生的近似解 <span
-class="math inline">\(s_a\)</span> 满足： <span
-class="math display">\[R(x, s_a) = \frac{m(x, s_a)}{m^*(x)} \le
-\frac{1}{2}(\lceil \log_2 n \rceil + 1)\]</span> 其中 <span
-class="math inline">\(n\)</span> 为城市数量，<span
-class="math inline">\(m^*(x)\)</span> 为最优解的值。这表明近似比被限制在
-<span class="math inline">\(O(\log n)\)</span> 级别，而非无界。</p>
-<p><strong>证明</strong> 设图 <span class="math inline">\(G\)</span> 有
-<span class="math inline">\(n\)</span> 个节点。近似解 <span
-class="math inline">\(s_a\)</span> 的 <span
-class="math inline">\(n\)</span> 条边按权重递减排列为 <span
-class="math inline">\(e_1, e_2, \dots, e_n\)</span>，权重分别为 <span
-class="math inline">\(l_1 \ge l_2 \ge \dots \ge l_n\)</span>。
-对于任意两个节点 <span class="math inline">\(v_i,
-v_h\)</span>，若在算法执行过程中： - <span
-class="math inline">\(v_i\)</span> 在 <span
-class="math inline">\(v_h\)</span> 之前被加入：当算法处理到 <span
-class="math inline">\(v_i\)</span> 时，<span
-class="math inline">\(v_h\)</span>
-是可选的未访问节点。贪心选择性质保证了选中的边 <span
-class="math inline">\(e_i\)</span> 长度 <span
-class="math inline">\(l_i\)</span> 不会超过到 <span
-class="math inline">\(v_h\)</span> 的距离，即 <span
-class="math inline">\(d(v_i, v_h) \ge l_i\)</span> - <span
-class="math inline">\(v_i\)</span> 在 <span
-class="math inline">\(v_h\)</span> 之后被加入：同理，当处理到 <span
-class="math inline">\(v_h\)</span> 时，选中的边 <span
-class="math inline">\(e_h\)</span> 满足 <span
-class="math inline">\(d(v_h, v_i) \ge l_h\)</span>。 任意两点间距离满足
-<span class="math inline">\(d(v_i, v_h) \ge \min(l_i, l_h)\)</span></p>
-<p>构造局部路径 <span class="math inline">\(T_k\)</span>，令 <span
-class="math inline">\(1 \le k \le n/2\)</span>。定义顶点子集 <span
-class="math inline">\(C_k = \{v_i \mid 1 \le i \le 2k\}\)</span>（即前
-<span class="math inline">\(2k\)</span> 个具有最长关联边的顶点）。 设
-<span class="math inline">\(T_k\)</span> 是仅包含 <span
-class="math inline">\(C_k\)</span>
-中顶点的路径序列，且该序列中顶点的相对顺序与最优解 <span
-class="math inline">\(s^*\)</span> 中的出现顺序一致。 - 在 <span
-class="math inline">\(T_k\)</span> 中相邻的两个顶点 <span
-class="math inline">\(v_r, v_s\)</span>，在原最优解 <span
-class="math inline">\(s^*\)</span> 中可能相邻，也可能不相邻。 -
-由三角不等式，直接连接 <span class="math inline">\(v_r, v_s\)</span>
-的距离不超过 <span class="math inline">\(s^*\)</span> 中从 <span
-class="math inline">\(v_r\)</span> 到 <span
-class="math inline">\(v_s\)</span> 的路径长度。 <span
-class="math inline">\(T_k\)</span> 的总长度 <span
-class="math inline">\(|T_k| \le m^*(x)\)</span></p>
-<p><span class="math inline">\(T_k\)</span> 包含 <span
-class="math inline">\(2k\)</span> 个顶点和 <span
-class="math inline">\(2k\)</span> 条边。对于 <span
-class="math inline">\(T_k\)</span> 中的任意边 <span
-class="math inline">\((v_i, v_h)\)</span>，根据步骤 1 的推论，有 <span
-class="math inline">\(d(v_i, v_h) \ge \min(l_i,
-l_h)\)</span>。求和可得： <span class="math display">\[m^*(x) \ge |T_k|
-= \sum_{(v_i, v_h) \in T_k} d(v_i, v_h) \ge \sum_{(v_i, v_h) \in T_k}
-\min(l_i, l_h)\]</span></p>
-<p>由于 <span class="math inline">\(C_k\)</span> 包含了对应最长边 <span
-class="math inline">\(e_1, \dots, e_{2k}\)</span>
-的顶点，可以证明求和项至少包含 <span
-class="math inline">\(l_{2k}\)</span> 及其之前的项。推导可得：</p>
-<p><span class="math display">\[m^*(x) \ge 2 \sum_{i=k+1}^{2k}
-l_i\]</span></p>
-<p>对上述不等式关于 <span class="math inline">\(k = 2^j\)</span>
-进行求和（<span class="math inline">\(j = 0, 1, \dots, \lceil \log_2 n
-\rceil - 1\)</span>）：</p>
-<p><span class="math display">\[\lceil \log_2 n \rceil \cdot m^*(x) \ge
-2 \sum_{i=2}^n l_i = 2 (m(x, s_a) - l_1)\]</span></p>
-<p>即： <span class="math display">\[m(x, s_a) \le \frac{1}{2} m^*(x)
-\lceil \log_2 n \rceil + l_1 \le \frac{1}{2} m^*(x) (\lceil \log_2 n
-\rceil + 1)\]</span></p>
-<p>得到<span class="math inline">\(R(x, s_a) \le \frac{1}{2} (\lceil
-\log_2 n \rceil + 1)\)</span></p>
-<h4 id="绕树两周算法和christofides-算法">绕树两周算法和Christofides
-算法</h4>
-<p>这个算法的原理很好理解，即首先生成最小生成树，然后从起点开始绕树一周（从图上看是从内侧绕到外侧，或者相反，实际上构建一条欧拉回路）。然后，在沿着定点队列走一遍，删除重复的节点，形成近似解。</p>
+</li>
+<li>若 $G$ 有哈密顿回路，则 $G’$ 中最优旅程长度 $m^*(G’) = n$（全由权重为 1 的边构成）</li>
+<li>若 $G$ 无哈密顿回路，则 $G’$ 的任意旅程必包含至少一条“惩罚边”，长度至少为 $(n-1) \times 1 + (rn+1) = (r+1)n$</li>
+</ul>
+<p>运行算法 $A$ 求解 $G’$。由于 $A$ 是 $r$-近似的，其输出解 $s_a$ 满足 $m(G’, s_a) \le r \cdot m^*(G’)$。</p>
+<ul>
+<li>若 $G$ 有哈密顿回路：$m^*(G’)=n \implies m(G’, s_a) \le rn$</li>
+<li>若 $G$ 无哈密顿回路：$m(G’, s_a) \ge (r+1)n &gt; rn$<br>因此，通过判断 $m(G’, s_a)$ 是否小于等于 $rn$，即可在多项式时间内判定 $G$ 是否有哈密顿回路。这意味着 $P=NP$，与假设矛盾。</li>
+</ul>
+<h4 id="欧几里得旅行商问题"><a href="#欧几里得旅行商问题" class="headerlink" title="欧几里得旅行商问题"></a>欧几里得旅行商问题</h4><p>这类旅行商问题满足条件： $d[i, j] \le d[i, k] + d[k, j]$，对任意 $i, j$，满足 $d[i, j] = d[j, i]$。</p>
+<p>对于满足三角不等式的 TSP 实例 $x$，最近邻居算法产生的近似解 $s_a$ 满足：</p>
+<script type="math/tex; mode=display">R(x, s_a) = \frac{m(x, s_a)}{m^*(x)} \le \frac{1}{2}(\lceil \log_2 n \rceil + 1)</script><p>其中 $n$ 为城市数量，$m^*(x)$ 为最优解的值。这表明近似比被限制在 $O(\log n)$ 级别，而非无界。</p>
+<p><strong>证明</strong><br>设图 $G$ 有 $n$ 个节点。近似解 $s_a$ 的 $n$ 条边按权重递减排列为 $e_1, e_2, \dots, e_n$，权重分别为 $l_1 \ge l_2 \ge \dots \ge l_n$。<br>对于任意两个节点 $v_i, v_h$，若在算法执行过程中：</p>
+<ul>
+<li>$v_i$ 在 $v_h$ 之前被加入：当算法处理到 $v_i$ 时，$v_h$ 是可选的未访问节点。贪心选择性质保证了选中的边 $e_i$ 长度 $l_i$ 不会超过到 $v_h$ 的距离，即 $d(v_i, v_h) \ge l_i$</li>
+<li>$v_i$ 在 $v_h$ 之后被加入：同理，当处理到 $v_h$ 时，选中的边 $e_h$ 满足 $d(v_h, v_i) \ge l_h$。<br>任意两点间距离满足 $d(v_i, v_h) \ge \min(l_i, l_h)$</li>
+</ul>
+<p>构造局部路径 $T_k$，令 $1 \le k \le n/2$。定义顶点子集 $C_k = {v_i \mid 1 \le i \le 2k}$（即前 $2k$ 个具有最长关联边的顶点）。<br>设 $T_k$ 是仅包含 $C_k$ 中顶点的路径序列，且该序列中顶点的相对顺序与最优解 $s^*$ 中的出现顺序一致。</p>
+<ul>
+<li>在 $T_k$ 中相邻的两个顶点 $v_r, v_s$，在原最优解 $s^*$ 中可能相邻，也可能不相邻。</li>
+<li>由三角不等式，直接连接 $v_r, v_s$ 的距离不超过 $s^<em>$ 中从 $v_r$ 到 $v_s$ 的路径长度。<br>$T_k$ 的总长度 $|T_k| \le m^</em>(x)$</li>
+</ul>
+<p>$T_k$ 包含 $2k$ 个顶点和 $2k$ 条边。对于 $T_k$ 中的任意边 $(v_i, v_h)$，根据步骤 1 的推论，有 $d(v_i, v_h) \ge \min(l_i, l_h)$。求和可得：</p>
+<script type="math/tex; mode=display">m^*(x) \ge |T_k| = \sum_{(v_i, v_h) \in T_k} d(v_i, v_h) \ge \sum_{(v_i, v_h) \in T_k} \min(l_i, l_h)</script><p>由于 $C<em>k$ 包含了对应最长边 $e_1, \dots, e</em>{2k}$ 的顶点，可以证明求和项至少包含 $l_{2k}$ 及其之前的项。推导可得：</p>
+<script type="math/tex; mode=display">m^*(x) \ge 2 \sum_{i=k+1}^{2k} l_i</script><p>对上述不等式关于 $k = 2^j$ 进行求和（$j = 0, 1, \dots, \lceil \log_2 n \rceil - 1$）：</p>
+<script type="math/tex; mode=display">\lceil \log_2 n \rceil \cdot m^*(x) \ge 2 \sum_{i=2}^n l_i = 2 (m(x, s_a) - l_1)</script><p>即：</p>
+<script type="math/tex; mode=display">m(x, s_a) \le \frac{1}{2} m^*(x) \lceil \log_2 n \rceil + l_1 \le \frac{1}{2} m^*(x) (\lceil \log_2 n \rceil + 1)</script><p>得到$R(x, s_a) \le \frac{1}{2} (\lceil \log_2 n \rceil + 1)$</p>
+<h4 id="绕树两周算法和Christofides-算法"><a href="#绕树两周算法和Christofides-算法" class="headerlink" title="绕树两周算法和Christofides 算法"></a>绕树两周算法和Christofides 算法</h4><p>这个算法的原理很好理解，即首先生成最小生成树，然后从起点开始绕树一周（从图上看是从内侧绕到外侧，或者相反，实际上构建一条欧拉回路）。然后，在沿着定点队列走一遍，删除重复的节点，形成近似解。</p>
 <blockquote>
-<p>在一个无向图中，一个顶点 <span class="math inline">\(v\)</span>
-的度（记为 <span
-class="math inline">\(deg(v)\)</span>），就是连接该顶点的边的数量。欧拉回路的充要条件：
-一个连通图存在欧拉回路（即可以一笔画经过所有边并回到起点），当且仅当图中所有顶点的度数都是偶数。</p>
+<p>在一个无向图中，一个顶点 $v$ 的度（记为 $deg(v)$），就是连接该顶点的边的数量。欧拉回路的充要条件： 一个连通图存在欧拉回路（即可以一笔画经过所有边并回到起点），当且仅当图中所有顶点的度数都是偶数。</p>
 </blockquote>
 <p>定理：绕树两周算法是 Metric TSP 的 2-近似算法。</p>
 <ul>
-<li>设最优 TSP 旅程为 <span class="math inline">\(s^*\)</span>，其长度为
-<span class="math inline">\(m^*(x)\)</span>。删除 <span
-class="math inline">\(s^*\)</span> 中的任意一条边得到一棵生成树 <span
-class="math inline">\(T\)</span>。显然 <span
-class="math inline">\(w(T^*) \le w(T) &lt; m^*(x)\)</span>。</li>
-<li>加倍后的图 <span class="math inline">\(G&#39;\)</span> 总边权为
-<span class="math inline">\(2 w(T^*)\)</span>。因此，第 3
-步生成的欧拉回路长度为 <span class="math inline">\(2 w(T^*) &lt; 2
-m^*(x)\)</span>。</li>
-<li>由于距离满足三角不等式，删除重复的节点不会增加路径长度（相当于折线取直）。因此，近似解
-<span class="math inline">\(s_a\)</span> 的长度 <span
-class="math inline">\(m(x, s_a)\)</span> 不超过欧拉回路的长度。</li>
+<li>设最优 TSP 旅程为 $s^<em>$，其长度为 $m^</em>(x)$。删除 $s^<em>$ 中的任意一条边得到一棵生成树 $T$。显然 $w(T^</em>) \le w(T) &lt; m^*(x)$。</li>
+<li>加倍后的图 $G’$ 总边权为 $2 w(T^<em>)$。因此，第 3 步生成的欧拉回路长度为 $2 w(T^</em>) &lt; 2 m^*(x)$。</li>
+<li>由于距离满足三角不等式，删除重复的节点不会增加路径长度（相当于折线取直）。因此，近似解 $s_a$ 的长度 $m(x, s_a)$ 不超过欧拉回路的长度。</li>
 </ul>
-<p><span class="math inline">\(m(x, s_a) \le 2 w(T^*) &lt; 2
-m^*(x)\)</span>，即近似比 <span class="math inline">\(R \le
-2\)</span>。</p>
-<hr />
-<p>绕树两周算法为了构造欧拉图，简单粗暴地加倍了所有边，导致成本增加了一倍。Christofides
-算法的核心洞见在于：仅需处理度数为奇数的顶点即可构造欧拉图，从而通过更精细的加边策略降低成本。</p>
+<p>$m(x, s_a) \le 2 w(T^<em>) &lt; 2 m^</em>(x)$，即近似比 $R \le 2$。</p>
+<hr>
+<p>绕树两周算法为了构造欧拉图，简单粗暴地加倍了所有边，导致成本增加了一倍。Christofides 算法的核心洞见在于：仅需处理度数为奇数的顶点即可构造欧拉图，从而通过更精细的加边策略降低成本。</p>
 <ul>
-<li>计算最小生成树 <span class="math inline">\(T^*\)</span>。</li>
-<li>找出 <span class="math inline">\(T^*\)</span> 中度数为奇数的顶点集合
-<span class="math inline">\(X\)</span>。由图论性质知 <span
-class="math inline">\(|X|\)</span> 必为偶数。</li>
-<li>在导出子图 <span class="math inline">\(G[X]\)</span>
-中，寻找最小权完美匹配 (Minimum Weight Perfect Matching) <span
-class="math inline">\(M\)</span> （最小权重的两两配对）。</li>
-<li>将 <span class="math inline">\(T^*\)</span> 的边与 <span
-class="math inline">\(M\)</span> 的边合并，形成多重图 <span
-class="math inline">\(H = T^* \cup M\)</span>。<span
-class="math inline">\(H\)</span>
-中所有顶点的度数（连接的边数）均为偶数（奇度点因匹配增加 1
-度变为偶度）。</li>
-<li>在 <span class="math inline">\(H\)</span>
-中寻找欧拉回路，消除重复顶点，得到近似解 <span
-class="math inline">\(t\)</span>。</li>
+<li>计算最小生成树 $T^*$。</li>
+<li>找出 $T^*$ 中度数为奇数的顶点集合 $X$。由图论性质知 $|X|$ 必为偶数。</li>
+<li>在导出子图 $G[X]$ 中，寻找最小权完美匹配 (Minimum Weight Perfect Matching) $M$ （最小权重的两两配对）。</li>
+<li>将 $T^<em>$ 的边与 $M$ 的边合并，形成多重图 $H = T^</em> \cup M$。$H$ 中所有顶点的度数（连接的边数）均为偶数（奇度点因匹配增加 1 度变为偶度）。</li>
+<li>在 $H$ 中寻找欧拉回路，消除重复顶点，得到近似解 $t$。</li>
 </ul>
-<p>这种算法是1.5-近似算法，区别在于： - <span
-class="math inline">\(s&#39;_X\)</span>
-是一个偶数个顶点的回路，它可以分解为两个不相交的完美匹配 <span
-class="math inline">\(M_1\)</span> 和 <span
-class="math inline">\(M_2\)</span>，有<span class="math inline">\(w(M_1)
-+ w(M_2) = w(s&#39;_X) \le m^*(x)\)</span> - 由于 <span
-class="math inline">\(M\)</span> 是最小权匹配，故 <span
-class="math inline">\(w(M) \le \min(w(M_1), w(M_2)) \le \frac{1}{2}
-m^*(x)\)</span></p>
+<p>这种算法是1.5-近似算法，区别在于：</p>
+<ul>
+<li>$s’_X$ 是一个偶数个顶点的回路，它可以分解为两个不相交的完美匹配 $M_1$ 和 $M_2$，有$w(M_1) + w(M_2) = w(s’_X) \le m^*(x)$</li>
+<li>由于 $M$ 是最小权匹配，故 $w(M) \le \min(w(M_1), w(M_2)) \le \frac{1}{2} m^*(x)$</li>
+</ul>
 <p>这就是少的0.5的来源</p>
-<hr />
-<h4 id="最大背包问题">最大背包问题</h4>
-<p>输入：<span class="math inline">\(n\)</span> 个物品 <span
-class="math inline">\(U=\{u_1, \dots, u_n\}\)</span>，每个物品有重量
-<span class="math inline">\(w_i\)</span> 和价值 <span
-class="math inline">\(v_i\)</span>。背包总承重为 <span
-class="math inline">\(W\)</span> 目标：寻找物品子集 <span
-class="math inline">\(S \subseteq U\)</span>，使得 <span
-class="math inline">\(\sum_{u \in S} w_u \le W\)</span> 且总价值 <span
-class="math inline">\(\sum_{u \in S} v_u\)</span> 最大。</p>
-<p>基础策略是按价值密度 (<span class="math inline">\(v_i/w_i\)</span>)
-降序排列物品，并依次装入背包。、</p>
+<hr>
+<h4 id="最大背包问题"><a href="#最大背包问题" class="headerlink" title="最大背包问题"></a>最大背包问题</h4><p>输入：$n$ 个物品 $U={u<em>1, \dots, u_n}$，每个物品有重量 $w_i$ 和价值 $v_i$。背包总承重为 $W$<br>目标：寻找物品子集 $S \subseteq U$，使得 $\sum</em>{u \in S} w<em>u \le W$ 且总价值 $\sum</em>{u \in S} v_u$ 最大。</p>
+<p>基础策略是按价值密度 ($v_i/w_i$) 降序排列物品，并依次装入背包。、</p>
 <p>显然，误差无上界。</p>
-<h4 id="增强贪心算法">增强贪心算法</h4>
-<ul>
-<li>运行基础贪心算法，得到解 <span
-class="math inline">\(U&#39;\)</span>（价值 <span
-class="math inline">\(v(U&#39;)\)</span>）。</li>
-<li>运行基础贪心算法，得到解 <span
-class="math inline">\(U&#39;\)</span>（价值 <span
-class="math inline">\(v(U&#39;)\)</span>）。</li>
-<li>输出 <span class="math inline">\(\max\{v(U&#39;),
-v_{max}\}\)</span>。</li>
+<h4 id="增强贪心算法"><a href="#增强贪心算法" class="headerlink" title="增强贪心算法"></a>增强贪心算法</h4><ul>
+<li>运行基础贪心算法，得到解 $U’$（价值 $v(U’)$）。</li>
+<li>运行基础贪心算法，得到解 $U’$（价值 $v(U’)$）。</li>
+<li>输出 $\max{v(U’), v_{max}}$。</li>
 </ul>
-<p>这是一种2近似算法。 贪心过程在遇到第一个无法装入的物品 <span
-class="math inline">\(u_j\)</span> 时停止。 此时背包内物品为 <span
-class="math inline">\(u_1, \dots, u_{j-1}\)</span>，总价值 <span
-class="math inline">\(V_{j-1} = v(U&#39;)\)</span>。 -
-根据线性松弛性质，最优解 <span class="math inline">\(m^*(x)\)</span>
-的上界为装入前 <span class="math inline">\(j-1\)</span> 个物品再加上物品
-<span class="math inline">\(j\)</span> 的一部分（分数背包），故 <span
-class="math inline">\(m^*(x) &lt; V_{j-1} + v_j\)</span>。 - 若 <span
-class="math inline">\(v_j \le V_{j-1}\)</span>：则 <span
-class="math inline">\(m^*(x) &lt; 2 V_{j-1} \le 2 m(x, s_a)\)</span>。 -
-若 <span class="math inline">\(v_j &gt; V_{j-1}\)</span>：由于 <span
-class="math inline">\(u_j\)</span>
-单个能放入背包（假设所有物品均不超重，否则若<span
-class="math inline">\(u_j\)</span>不能单个能放入背包，显然当前解就是最优解），算法会比较
-<span class="math inline">\(u_{max}\)</span>。显然 <span
-class="math inline">\(v(u_{max}) \ge v_j\)</span>。 此时 <span
-class="math inline">\(m^*(x) &lt; V_{j-1} + v_j &lt; 2 v_j \le 2
-v(u_{max}) \le 2 m(x, s_a)\)</span>。</p>
-<h4 id="sahni算法">Sahni算法</h4>
-<p>输入参数 <span class="math inline">\(k\)</span>（控制精度的参数） -
-生成所有基数小于等于 <span class="math inline">\(k\)</span> 的物品子集
-<span class="math inline">\(S&#39;\)</span>。 -
-对于每个满足重量限制的子集 <span
-class="math inline">\(S&#39;\)</span>，在剩余容量内，对剩下的物品运行基础贪心算法进行填充，得到完整解
-<span class="math inline">\(S&#39;&#39;\)</span>。 - 输出所有 <span
-class="math inline">\(S&#39;&#39;\)</span> 中价值最大的解。</p>
-<p>子集数量约为 <span
-class="math inline">\(O(n^k)\)</span>，贪心填充耗时 <span
-class="math inline">\(O(n)\)</span>，总时间 <span
-class="math inline">\(O(k
-n^{k+1})\)</span>。因此是n的多项式时间算法。</p>
-<p>这种算法的近似比：<span class="math display">\[R \le 1 +
-\frac{1}{k}\]</span></p>
+<p>这是一种2近似算法。<br>贪心过程在遇到第一个无法装入的物品 $u<em>j$ 时停止。<br>此时背包内物品为 $u_1, \dots, u</em>{j-1}$，总价值 $V_{j-1} = v(U’)$。</p>
+<ul>
+<li>根据线性松弛性质，最优解 $m^<em>(x)$ 的上界为装入前 $j-1$ 个物品再加上物品 $j$ 的一部分（分数背包），故 $m^</em>(x) &lt; V_{j-1} + v_j$。<ul>
+<li>若 $v<em>j \le V</em>{j-1}$：则 $m^*(x) &lt; 2 V_{j-1} \le 2 m(x, s_a)$。</li>
+<li>若 $v<em>j &gt; V</em>{j-1}$：由于 $u<em>j$ 单个能放入背包（假设所有物品均不超重，否则若$u_j$不能单个能放入背包，显然当前解就是最优解），算法会比较 $u</em>{max}$。显然 $v(u<em>{max}) \ge v_j$。<br>此时 $m^*(x) &lt; V</em>{j-1} + v<em>j &lt; 2 v_j \le 2 v(u</em>{max}) \le 2 m(x, s_a)$。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Sahni算法"><a href="#Sahni算法" class="headerlink" title="Sahni算法"></a>Sahni算法</h4><p>输入参数 $k$（控制精度的参数）</p>
+<ul>
+<li>生成所有基数小于等于 $k$ 的物品子集 $S’$。</li>
+<li>对于每个满足重量限制的子集 $S’$，在剩余容量内，对剩下的物品运行基础贪心算法进行填充，得到完整解 $S’’$。</li>
+<li>输出所有 $S’’$ 中价值最大的解。</li>
+</ul>
+<p>子集数量约为 $O(n^k)$，贪心填充耗时 $O(n)$，总时间 $O(k n^{k+1})$。因此是n的多项式时间算法。</p>
+<p>这种算法的近似比：<script type="math/tex">R \le 1 + \frac{1}{k}</script></p>
 <p>因此这种算法是一种PTAS算法。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Algorithm SahniKnapsack</span><br><span class="line">输入：n 个物品的集合 U（已按价值密度 v_i/w_i 非递增排序），背包容量 W，精度参数 k。</span><br><span class="line">输出：最大总价值 P_max。</span><br><span class="line">1. P_max ← 0</span><br><span class="line">2. for 每一个满足 |S&#x27;| ≤ k 的子集 S&#x27; ⊆ U</span><br><span class="line">3.    current_w ← sum(w_i for i in S&#x27;)</span><br><span class="line">4.    current_p ← sum(v_i for i in S&#x27;)</span><br><span class="line">5.    if current_w ≤ W then</span><br><span class="line">6.       rem_w ← W - current_w</span><br><span class="line">7.       for j ← 1 to n  (对剩余物品贪心填充)</span><br><span class="line">8.          if j ∉ S&#x27; and w_j ≤ rem_w then</span><br><span class="line">9.             current_p ← current_p + v_j</span><br><span class="line">10.            rem_w ← rem_w - w_j</span><br><span class="line">11.         end if</span><br><span class="line">12.      end for</span><br><span class="line">13.      if current_p &gt; P_max then P_max ← current_p</span><br><span class="line">14.   end if</span><br><span class="line">15. end for</span><br><span class="line">16. output P_max</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr />
-<h4 id="最小顶点覆盖问题">最小顶点覆盖问题</h4>
-<p>实例：给定无向图 <span class="math inline">\(G = (V,
-E)\)</span>。</p>
-<p>可行解：图 <span class="math inline">\(G\)</span> 的顶点子集 <span
-class="math inline">\(U \subseteq V\)</span>，满足覆盖性质：对于 <span
-class="math inline">\(E\)</span> 中的任意一条边 <span
-class="math inline">\((u, v)\)</span>，至少有一个端点属于 <span
-class="math inline">\(U\)</span>（即 <span class="math inline">\(u \in
-U\)</span> 或 <span class="math inline">\(v \in U\)</span>）。</p>
-<p>估量：顶点集合的大小 <span class="math inline">\(|U|\)</span>。</p>
-<p>目标：寻找基数最小的顶点覆盖 <span
-class="math inline">\(U^*\)</span>，即最小化 <span
-class="math inline">\(|U|\)</span>。</p>
+<hr>
+<h4 id="最小顶点覆盖问题"><a href="#最小顶点覆盖问题" class="headerlink" title="最小顶点覆盖问题"></a>最小顶点覆盖问题</h4><p>实例：给定无向图 $G = (V, E)$。</p>
+<p>可行解：图 $G$ 的顶点子集 $U \subseteq V$，满足覆盖性质：对于 $E$ 中的任意一条边 $(u, v)$，至少有一个端点属于 $U$（即 $u \in U$ 或 $v \in U$）。</p>
+<p>估量：顶点集合的大小 $|U|$。</p>
+<p>目标：寻找基数最小的顶点覆盖 $U^*$，即最小化 $|U|$。</p>
 <p>贪心思路是：迭代地选择一条边，将其其中一个端点加入覆盖集，并删除该端点覆盖的所有边。</p>
-<p>对于星型图（中心点连接所有叶子节点），若算法不幸总是选择叶子节点，最终解的大小将是
-<span class="math inline">\(|V|-1\)</span>，而最优解仅需选取 1
-个中心点。此时近似比退化为 <span
-class="math inline">\(|V|-1\)</span>。</p>
-<hr />
-<h4 id="vcoverapprox">VCOVERAPPROX</h4>
-<p>每选中一条未覆盖的边，就将其两个端点都加入覆盖集。</p>
-<p>记算法选出的边的集合为 <span
-class="math inline">\(A\)</span>。算法每选中一条边，就会删除与其端点相连的所有其他边。因此，集合
-<span class="math inline">\(A\)</span>
-中的任意两条边都不共享公共端点。</p>
-<p>由于 <span class="math inline">\(A\)</span>
-中各边互不相连（无公共顶点），要覆盖 <span
-class="math inline">\(A\)</span> 中的 <span
-class="math inline">\(|A|\)</span> 条边，最优解 <span
-class="math inline">\(U^*\)</span> 至少需要从每条边中选取 1
-个端点，即<span class="math inline">\(|U^*| \ge |A|\)</span>。</p>
-<p>算法在每一步向 <span class="math inline">\(U\)</span> 中加入 2
-个顶点（即 <span class="math inline">\(A\)</span>
-中边的两个端点），<span class="math inline">\(|U| = 2|A|\)</span>。</p>
+<p>对于星型图（中心点连接所有叶子节点），若算法不幸总是选择叶子节点，最终解的大小将是 $|V|-1$，而最优解仅需选取 1 个中心点。此时近似比退化为 $|V|-1$。</p>
+<hr>
+<h4 id="VCOVERAPPROX"><a href="#VCOVERAPPROX" class="headerlink" title="VCOVERAPPROX"></a>VCOVERAPPROX</h4><p>每选中一条未覆盖的边，就将其两个端点都加入覆盖集。</p>
+<p>记算法选出的边的集合为 $A$。算法每选中一条边，就会删除与其端点相连的所有其他边。因此，集合 $A$ 中的任意两条边都不共享公共端点。</p>
+<p>由于 $A$ 中各边互不相连（无公共顶点），要覆盖 $A$ 中的 $|A|$ 条边，最优解 $U^<em>$ 至少需要从每条边中选取 1 个端点，即$|U^</em>| \ge |A|$。</p>
+<p>算法在每一步向 $U$ 中加入 2 个顶点（即 $A$ 中边的两个端点），$|U| = 2|A|$。</p>
 <p>得：</p>
-<p><span class="math display">\[|U| = 2|A| \le 2|U^*|\]</span></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Algorithm VCOVERAPPROX</span><br><span class="line">输入：无向图 G=(V, E)。</span><br><span class="line">输出：G 的顶点覆盖 C，其中 C ⊆ V。</span><br><span class="line">1. C ← ∅</span><br><span class="line">2. E&#x27; ← E</span><br><span class="line">3. while E&#x27; ≠ ∅</span><br><span class="line">4.    从 E&#x27; 中任选一条边 (u, v)</span><br><span class="line">5.    C ← C ∪ &#123;u, v&#125;</span><br><span class="line">6.    从 E&#x27; 中删除所有与 u 关联的边</span><br><span class="line">7.    从 E&#x27; 中删除所有与 v 关联的边</span><br><span class="line">8. end while</span><br><span class="line">9. output C</span><br></pre></td></tr></table></figure>
-<h3 id="基于局部搜索的近似算法">4.2.3 基于局部搜索的近似算法</h3>
-<h4 id="最大割问题">最大割问题</h4>
-<p>实例：给定一个无向图 <span class="math inline">\(G = (V,
-E)\)</span>。</p>
-<p>可行解：将顶点集合 <span class="math inline">\(V\)</span>
-划分为两个互不相交的集合 <span class="math inline">\(\{V_1,
-V_2\}\)</span>（即 <span class="math inline">\(V_1 \cup V_2 = V\)</span>
-且 <span class="math inline">\(V_1 \cap V_2 = \emptyset\)</span>）。</p>
-<p>度量标准：割的大小 (Cut Size)，即所有连接 <span
-class="math inline">\(V_1\)</span> 中一点与 <span
-class="math inline">\(V_2\)</span> 中一点的边的总数。</p>
+<script type="math/tex; mode=display">|U| = 2|A| \le 2|U^*|</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Algorithm VCOVERAPPROX</span><br><span class="line">输入：无向图 G=(V, E)。</span><br><span class="line">输出：G 的顶点覆盖 C，其中 C ⊆ V。</span><br><span class="line">1. C ← ∅</span><br><span class="line">2. E&#x27; ← E</span><br><span class="line">3. while E&#x27; ≠ ∅</span><br><span class="line">4.    从 E&#x27; 中任选一条边 (u, v)</span><br><span class="line">5.    C ← C ∪ &#123;u, v&#125;</span><br><span class="line">6.    从 E&#x27; 中删除所有与 u 关联的边</span><br><span class="line">7.    从 E&#x27; 中删除所有与 v 关联的边</span><br><span class="line">8. end while</span><br><span class="line">9. output C</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-3-基于局部搜索的近似算法"><a href="#4-2-3-基于局部搜索的近似算法" class="headerlink" title="4.2.3 基于局部搜索的近似算法"></a>4.2.3 基于局部搜索的近似算法</h3><h4 id="最大割问题"><a href="#最大割问题" class="headerlink" title="最大割问题"></a>最大割问题</h4><p>实例：给定一个无向图 $G = (V, E)$。</p>
+<p>可行解：将顶点集合 $V$ 划分为两个互不相交的集合 ${V_1, V_2}$（即 $V_1 \cup V_2 = V$ 且 $V_1 \cap V_2 = \emptyset$）。</p>
+<p>度量标准：割的大小 (Cut Size)，即所有连接 $V_1$ 中一点与 $V_2$ 中一点的边的总数。</p>
 <p>目标：寻找一个划分，使得割的大小最大化 (MAX)。</p>
-<h4 id="局部搜索算法">局部搜索算法</h4>
-<p>从一个初始解出发，通过定义“邻域结构”，不断在当前解的邻域中寻找更优解，直至无法改进（达到局部最优）</p>
-<p>对于最大割问题，当前划分 <span class="math inline">\((V_1,
-V_2)\)</span>的邻域包含 <span class="math inline">\(n\)</span>
-个候选解。每个邻居解是通过将单个顶点 <span
-class="math inline">\(v_k\)</span> 从当前集合移至另一集合而得到的。 - 若
-<span class="math inline">\(v_k \in V_1\)</span>，新划分为 <span
-class="math inline">\((V_1 - \{v_k\}, V_2 \cup \{v_k\})\)</span> - 若
-<span class="math inline">\(v_k \in V_2\)</span>，新划分为 <span
-class="math inline">\((V_1 \cup \{v_k\}, V_2 - \{v_k\})\)</span>。</p>
-<p>算法的流程是： - 初始化 <span class="math inline">\((V_1,
-V_2)\)</span> - 检查所有顶点 <span
-class="math inline">\(v_k\)</span>。若移动 <span
-class="math inline">\(v_k\)</span>
-能增加跨割边的数量，则执行移动并更新划分 - 重复步骤
-2，直到没有任何顶点的移动能增加割的大小</p>
-<p>Local-Cut 算法是最大割问题的 2-近似算法 - 设算法终止时的解为 <span
-class="math inline">\(s_a = (V_1,
-V_2)\)</span>。由于处于局部最优，对于任意顶点 <span
-class="math inline">\(v\)</span>，将其移至另一集合不会增加跨割边数。
-定义 <span class="math inline">\(N_1(v)\)</span> 为 <span
-class="math inline">\(v\)</span> 在 <span
-class="math inline">\(V_1\)</span> 中的邻居数，<span
-class="math inline">\(N_2(v)\)</span> 为 <span
-class="math inline">\(v\)</span> 在 <span
-class="math inline">\(V_2\)</span> 中的邻居数。 - 若 <span
-class="math inline">\(v \in V_1\)</span>，移动后跨割边变化量为 <span
-class="math inline">\(N_1(v) - N_2(v)\)</span>。由局部最优知 <span
-class="math inline">\(N_1(v) - N_2(v) \le 0 \implies N_1(v) \le
-N_2(v)\)</span>。 - 同理，若 <span class="math inline">\(v \in
-V_2\)</span>，有 <span class="math inline">\(N_2(v) \le
-N_1(v)\)</span>。 - 记 <span class="math inline">\(n_1\)</span> 为 <span
-class="math inline">\(V_1\)</span> 内部边数，<span
-class="math inline">\(n_2\)</span> 为 <span
-class="math inline">\(V_2\)</span> 内部边数，<span
-class="math inline">\(m(G, s_a)\)</span> 为跨割边数。总边数 <span
-class="math inline">\(n = n_1 + n_2 + m(G, s_a)\)</span>。 - 对 <span
-class="math inline">\(V_1\)</span> 中所有顶点求和：<span
-class="math inline">\(\sum_{v \in V_1} (N_1(v) - N_2(v)) = 2n_1 - m(G,
-s_a) \le 0\)</span> - 对 <span class="math inline">\(V_2\)</span>
-中所有顶点求和：<span class="math inline">\(\sum_{v \in V_2} (N_2(v) -
-N_1(v)) = 2n_2 - m(G, s_a) \le 0\)</span>。 - 两式相加：<span
-class="math inline">\(2(n_1 + n_2) - 2m(G, s_a) \le 0\)</span> - 代入
-<span class="math inline">\(n_1 + n_2 = n - m(G, s_a)\)</span>，得 <span
-class="math inline">\(2(n - m(G, s_a)) - 2m(G, s_a) \le 0 \implies n \le
-2m(G, s_a)\)</span>。</p>
+<h4 id="局部搜索算法"><a href="#局部搜索算法" class="headerlink" title="局部搜索算法"></a>局部搜索算法</h4><p>从一个初始解出发，通过定义“邻域结构”，不断在当前解的邻域中寻找更优解，直至无法改进（达到局部最优）</p>
+<p>对于最大割问题，当前划分 $(V_1, V_2)$的邻域包含 $n$ 个候选解。每个邻居解是通过将单个顶点 $v_k$ 从当前集合移至另一集合而得到的。</p>
+<ul>
+<li>若 $v_k \in V_1$，新划分为 $(V_1 - {v_k}, V_2 \cup {v_k})$</li>
+<li>若 $v_k \in V_2$，新划分为 $(V_1 \cup {v_k}, V_2 - {v_k})$。</li>
+</ul>
+<p>算法的流程是：</p>
+<ul>
+<li>初始化 $(V_1, V_2)$</li>
+<li>检查所有顶点 $v_k$。若移动 $v_k$ 能增加跨割边的数量，则执行移动并更新划分</li>
+<li>重复步骤 2，直到没有任何顶点的移动能增加割的大小</li>
+</ul>
+<p>Local-Cut 算法是最大割问题的 2-近似算法</p>
+<ul>
+<li>设算法终止时的解为 $s_a = (V_1, V_2)$。由于处于局部最优，对于任意顶点 $v$，将其移至另一集合不会增加跨割边数。<br>定义 $N_1(v)$ 为 $v$ 在 $V_1$ 中的邻居数，$N_2(v)$ 为 $v$ 在 $V_2$ 中的邻居数。<ul>
+<li>若 $v \in V_1$，移动后跨割边变化量为 $N_1(v) - N_2(v)$。由局部最优知 $N_1(v) - N_2(v) \le 0 \implies N_1(v) \le N_2(v)$。</li>
+<li>同理，若 $v \in V_2$，有 $N_2(v) \le N_1(v)$。</li>
+</ul>
+</li>
+<li>记 $n_1$ 为 $V_1$ 内部边数，$n_2$ 为 $V_2$ 内部边数，$m(G, s_a)$ 为跨割边数。总边数 $n = n_1 + n_2 + m(G, s_a)$。<ul>
+<li>对 $V<em>1$ 中所有顶点求和：$\sum</em>{v \in V_1} (N_1(v) - N_2(v)) = 2n_1 - m(G, s_a) \le 0$</li>
+<li>对 $V<em>2$ 中所有顶点求和：$\sum</em>{v \in V_2} (N_2(v) - N_1(v)) = 2n_2 - m(G, s_a) \le 0$。</li>
+<li>两式相加：$2(n_1 + n_2) - 2m(G, s_a) \le 0$</li>
+<li>代入 $n_1 + n_2 = n - m(G, s_a)$，得 $2(n - m(G, s_a)) - 2m(G, s_a) \le 0 \implies n \le 2m(G, s_a)$。</li>
+</ul>
+</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Algorithm Local-Cut</span><br><span class="line">输入：无向图 G=(V, E)。</span><br><span class="line">输出：最大割的一个划分 (V1, V2)。</span><br><span class="line">1. V1 ← ∅</span><br><span class="line">2. V2 ← V</span><br><span class="line">3. improve ← true</span><br><span class="line">4. while improve</span><br><span class="line">5.    improve ← false</span><br><span class="line">6.    for 每一个顶点 u ∈ V</span><br><span class="line">7.       w_same ← u 与同侧集合顶点的连边数</span><br><span class="line">8.       w_diff ← u 与异侧集合顶点的连边数</span><br><span class="line">9.       if w_same &gt; w_diff then</span><br><span class="line">10.         if u ∈ V1 then V1 ← V1 - &#123;u&#125;, V2 ← V2 ∪ &#123;u&#125;</span><br><span class="line">11.         else V2 ← V2 - &#123;u&#125;, V1 ← V1 ∪ &#123;u&#125;</span><br><span class="line">12.         improve ← true</span><br><span class="line">13.      end if</span><br><span class="line">14.   end for</span><br><span class="line">15. end while</span><br><span class="line">16. output (V1, V2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="基于线性优化的近似算法">4.2.4 基于线性优化的近似算法</h3>
-<h4 id="最小加权顶点覆盖问题">最小加权顶点覆盖问题</h4>
-<ul>
-<li><p>实例：无向图 <span class="math inline">\(G=(V,
-E)\)</span>，每个顶点 <span class="math inline">\(v_i \in V\)</span>
-关联一个正权值 <span class="math inline">\(c_i\)</span>。</p></li>
-<li><p>可行解：顶点覆盖 <span class="math inline">\(C \subseteq
-V\)</span>。</p></li>
-<li><p>度量：覆盖集 <span class="math inline">\(C\)</span> 的总权值
-<span class="math inline">\(w(C) = \sum_{v_i \in C}
-c_i\)</span>。</p></li>
-<li><p>目标：寻找总权值最小的顶点覆盖 <span
-class="math inline">\(C^*\)</span>。</p></li>
+<h3 id="4-2-4-基于线性优化的近似算法"><a href="#4-2-4-基于线性优化的近似算法" class="headerlink" title="4.2.4 基于线性优化的近似算法"></a>4.2.4 基于线性优化的近似算法</h3><h4 id="最小加权顶点覆盖问题"><a href="#最小加权顶点覆盖问题" class="headerlink" title="最小加权顶点覆盖问题"></a>最小加权顶点覆盖问题</h4><ul>
+<li><p>实例：无向图 $G=(V, E)$，每个顶点 $v_i \in V$ 关联一个正权值 $c_i$。</p>
+</li>
+<li><p>可行解：顶点覆盖 $C \subseteq V$。</p>
+</li>
+<li><p>度量：覆盖集 $C$ 的总权值 $w(C) = \sum_{v_i \in C} c_i$。</p>
+</li>
+<li><p>目标：寻找总权值最小的顶点覆盖 $C^*$。</p>
+</li>
 </ul>
-<p><strong>整数规划模型</strong>： - 引入 0-1 变量 <span
-class="math inline">\(x_i\)</span>： <span class="math display">\[x_i =
-\begin{cases} 1, &amp; \text{若 } v_i \in C \\ 0, &amp; \text{否则}
-\end{cases}\]</span></p>
-<p>目标函数：$ Min _{v_i V} c_i x_i$ 约束条件： - 覆盖约束：<span
-class="math inline">\(x_i + x_j \ge 1, \quad \forall (v_i, v_j) \in
-E\)</span> - 整数约束：<span class="math inline">\(x_i \in \{0, 1\},
-\quad \forall v_i \in V\)</span></p>
+<p><strong>整数规划模型</strong>：</p>
+<ul>
+<li>引入 0-1 变量 $x_i$：<script type="math/tex; mode=display">x_i = \begin{cases} 1, & \text{若 } v_i \in C \\ 0, & \text{否则} \end{cases}</script></li>
+</ul>
+<p>目标函数：$ Min \sum_{v_i \in V} c_i x_i$<br>约束条件：</p>
+<ul>
+<li>覆盖约束：$x_i + x_j \ge 1, \quad \forall (v_i, v_j) \in E$</li>
+<li>整数约束：$x_i \in {0, 1}, \quad \forall v_i \in V$</li>
+</ul>
 <p>这是一个NP完全问题。</p>
-<h4 id="线性规划松弛与四舍五入">线性规划松弛与四舍五入</h4>
-<p>将整数约束 <span class="math inline">\(x_i \in \{0, 1\}\)</span>
-松弛为线性约束 <span class="math inline">\(0 \le x_i \le 1\)</span> - LP
-可在多项式时间内求解（如内点法）。 - 设 <span
-class="math inline">\(w(x_{LP}^*)\)</span> 为 LP 最优值，<span
-class="math inline">\(w(C^*)\)</span> 为 IP 最优值。显然 <span
-class="math inline">\(w(x_{LP}^*) \le w(C^*)\)</span>。</p>
-<p>求解 LP 得到最优解 <span class="math inline">\(\mathbf{x}^* = (x_1^*,
-\dots, x_n^*)\)</span>。对于每个 <span
-class="math inline">\(x_i^*\)</span>: - 若 <span
-class="math inline">\(x_i^* \ge 1/2\)</span>，则令 <span
-class="math inline">\(x_i = 1\)</span>（将 <span
-class="math inline">\(v_i\)</span> 加入覆盖 <span
-class="math inline">\(C\)</span>）。 - 若 <span
-class="math inline">\(x_i^* &lt; 1/2\)</span>，则令 <span
-class="math inline">\(x_i = 0\)</span>。</p>
-<p>对于任意边 <span class="math inline">\((v_i, v_j)\)</span>，LP
-约束保证 <span class="math inline">\(x_i^* + x_j^* \ge
-1\)</span>。这意味着 <span class="math inline">\(x_i^*\)</span> 和 <span
-class="math inline">\(x_j^*\)</span> 中至少有一个 <span
-class="math inline">\(\ge 1/2\)</span>。
-因此，舍入后至少有一个顶点被选中，即所有边均被覆盖，<span
-class="math inline">\(C\)</span> 是合法的顶点覆盖。 输出集合 <span
-class="math inline">\(C = \{v_i \mid x_i^* \ge 1/2\}\)</span></p>
-<p>该算法是最小加权顶点覆盖问题的 2-近似算法。 <span
-class="math display">\[w(C) = \sum_{v_i \in C} c_i \le \sum_{v_i \in C}
-c_i (2 x_i^*) = 2 \sum_{v_i \in C} c_i x_i^*\]</span></p>
-<p>由于对于 <span class="math inline">\(v_i \notin C\)</span>，<span
-class="math inline">\(x_i^* \ge 0\)</span>，故： <span
-class="math display">\[w(C) \le 2 \sum_{v_i \in V} c_i x_i^* = 2
-w(x_{LP}^*)\]</span></p>
-<p>结合下界性质 <span class="math inline">\(w(x_{LP}^*) \le
-w(C^*)\)</span>，得： <span class="math display">\[w(C) \le 2
-w(C^*)\]</span></p>
-<p>即近似比 <span class="math inline">\(R \le 2\)</span>。</p>
-<h3 id="基于随机算法的近似算法">4.2.5 基于随机算法的近似算法</h3>
-<p>机近似算法在执行过程中引入了随机选择，对于给定实例 <span
-class="math inline">\(x\)</span>，算法输出的可行解的值是一个随机变量
-<span class="math inline">\(m(x)\)</span>。</p>
-<p>性能比通常使用期望性能比来衡量：</p>
-<p><span class="math display">\[R = \max \left\{ \frac{m^*(x)}{E[m(x)]},
-\frac{E[m(x)]}{m^*(x)} \right\}\]</span></p>
-<h4 id="最大可满足性问题">最大可满足性问题</h4>
-<p>实例：定义在变量集 <span class="math inline">\(X=\{x_1, \dots,
-x_n\}\)</span> 上的析取子句集合 <span class="math inline">\(C=\{c_1,
-\dots, c_m\}\)</span>。 解：真值赋值 <span class="math inline">\(f: X
-\to \{True, False\}\)</span>。 度量：赋值 <span
-class="math inline">\(f\)</span> 下为真的子句数量。
-目标：最大化满足的子句数。</p>
-<h4 id="朴素随机算法">朴素随机算法</h4>
-<p>对于每个变量 <span class="math inline">\(x_i\)</span>，独立地以 <span
-class="math inline">\(1/2\)</span> 的概率赋值为 True，以 <span
-class="math inline">\(1/2\)</span> 的概率赋值为 False。</p>
-<p>设实例 <span class="math inline">\(x\)</span> 包含 <span
-class="math inline">\(c\)</span> 个子句，且每个子句至少包含 <span
-class="math inline">\(k\)</span> 个文字。则 RS 算法输出解的期望值满足：
-<span class="math display">\[E[m_{RS}(x)] \ge \left(1 -
-\frac{1}{2^k}\right) c\]</span></p>
-<p>由于最优解 <span class="math inline">\(m^*(x) \le
-c\)</span>（最多满足所有子句），故：</p>
-<p><span class="math display">\[\frac{m^*(x)}{E[m(x)]} \le \frac{c}{(1 -
-2^{-k})c} = \frac{2^k}{2^k - 1} \le 2\]</span></p>
-<h4 id="最大加权可满足性问题与-grws-算法">最大加权可满足性问题与 GRWS
-算法</h4>
-<p>每个子句 <span class="math inline">\(c_j\)</span> 关联一个权重 <span
-class="math inline">\(w(c_j)\)</span>。目标是最大化被满足子句的总权重。</p>
-<p>引入 0-1 变量 <span class="math inline">\(y_i\)</span>（对应 <span
-class="math inline">\(x_i\)</span>）和 <span
-class="math inline">\(z_j\)</span>（对应 <span
-class="math inline">\(c_j\)</span> 是否满足），建立IP模型：</p>
-<p>Maximize <span class="math inline">\(\sum w(c_j) z_j\)</span></p>
-<p>Subject to: <span class="math inline">\(\sum_{i \in P_j} y_i +
-\sum_{i \in N_j} (1-y_i) \ge z_j\)</span>，其中 <span
-class="math inline">\(P_j, N_j\)</span> 分别为子句 <span
-class="math inline">\(c_j\)</span> 中正文字和负文字的索引集合。</p>
-<p>LP 松弛：将 <span class="math inline">\(y_i, z_j \in \{0,
-1\}\)</span> 松弛为 <span class="math inline">\(0 \le y_i, z_j \le
-1\)</span>。求解得到最优分数解 <span class="math inline">\((y^*,
-z^*)\)</span>。</p>
-<p><strong>GRWS算法</strong>：对于每个变量 <span
-class="math inline">\(x_i\)</span>，以概率 <span
-class="math inline">\(p_i = y_i^*\)</span> 赋值为 True。</p>
-<p>对应的近似比为 <span class="math inline">\(1 -
-(1-1/k)^k\rightarrow\frac{1}{1-1/e} = \frac{e}{e-1} \approx
-1.582\)</span>。</p>
-<p>注意在k =
-2时，朴素的随机算法的近似比为4/3，小于GRWS算法的上界。事实上分别运行两种算法，输出两者中较优的那个解，可以将近似比上界降低至4/3。</p>
-<p><span class="math display">\[W_1 + W_2 \ge \sum_{c_j \in C} w(c_j)
-(\gamma_{k_j} + \alpha_{k_j}) z_j^*\]</span> - 对于 RS 算法：子句 <span
-class="math inline">\(c_j \in C_k\)</span> 被满足的概率为 <span
-class="math inline">\(\gamma_k = 1 - 2^{-k}\)</span> - 对于 GRWS
-算法：子句 <span class="math inline">\(c_j \in C_k\)</span>
-被满足的概率至少为 <span class="math inline">\(\alpha_k
-z_j^*\)</span>，其中 <span class="math inline">\(\alpha_k = 1 - (1 -
-1/k)^k\)</span>。</p>
-<p>考察系数和 <span class="math inline">\(\gamma_k + \alpha_k\)</span>
-的性质：</p>
+<h4 id="线性规划松弛与四舍五入"><a href="#线性规划松弛与四舍五入" class="headerlink" title="线性规划松弛与四舍五入"></a>线性规划松弛与四舍五入</h4><p>将整数约束 $x_i \in {0, 1}$ 松弛为线性约束 $0 \le x_i \le 1$</p>
 <ul>
-<li>当 <span class="math inline">\(k=1\)</span> 时：<span
-class="math inline">\(\gamma_1 = 1 - 1/2 = 0.5\)</span><span
-class="math inline">\(\alpha_1 = 1 - (0)^1 = 1\)</span><span
-class="math inline">\(\gamma_1 + \alpha_1 = 1.5\)</span></li>
-<li>当 <span class="math inline">\(k=2\)</span> 时：<span
-class="math inline">\(\gamma_2 = 1 - 1/4 = 0.75\)</span><span
-class="math inline">\(\alpha_2 = 1 - (1/2)^2 = 0.75\)</span><span
-class="math inline">\(\gamma_2 + \alpha_2 = 1.5\)</span></li>
-<li>当 <span class="math inline">\(k \ge 3\)</span> 时：<span
-class="math inline">\(\gamma_k + \alpha_k \ge 3/2\)</span> 恒成立。</li>
+<li>LP 可在多项式时间内求解（如内点法）。</li>
+<li>设 $w(x<em>{LP}^<em>)$ 为 LP 最优值，$w(C^</em>)$ 为 IP 最优值。显然 $w(x</em>{LP}^<em>) \le w(C^</em>)$。</li>
 </ul>
-<p><span class="math display">\[W_1 + W_2 \ge \sum_{c_j \in C} w(c_j)
-\left(\frac{3}{2}\right) z_j^* = \frac{3}{2} m^*_{LP}(x)\]</span></p>
-<p><span class="math display">\[\frac{W_1 + W_2}{2} \ge \frac{3}{4}
-m^*_{LP}(x) \ge \frac{3}{4} m^*(x)\]</span></p>
-<hr />
-<h4 id="加权最小顶点覆盖问题">加权最小顶点覆盖问题</h4>
-<p>输入：一个无向图 <span class="math inline">\(G=(V,
-E)\)</span>，以及每个顶点 <span class="math inline">\(v\)</span> 的权重
-<span class="math inline">\(w(v)\)</span>（自然数）。 输出：一个顶点集合
-<span
-class="math inline">\(U\)</span>，使得图中的每条边都至少有一个端点在
-<span class="math inline">\(U\)</span> 中（即 <span
-class="math inline">\(U\)</span> 是一个顶点覆盖）。 目标：希望 <span
-class="math inline">\(U\)</span> 中所有顶点的总权重 <span
-class="math inline">\(\sum_{v \in U} w(v)\)</span> 尽可能小。</p>
+<p>求解 LP 得到最优解 $\mathbf{x}^<em> = (x_1^</em>, \dots, x_n^<em>)$。对于每个 $x_i^</em>$:</p>
+<ul>
+<li>若 $x_i^* \ge 1/2$，则令 $x_i = 1$（将 $v_i$ 加入覆盖 $C$）。</li>
+<li>若 $x_i^* &lt; 1/2$，则令 $x_i = 0$。</li>
+</ul>
+<p>对于任意边 $(v_i, v_j)$，LP 约束保证 $x_i^<em> + x_j^</em> \ge 1$。这意味着 $x_i^<em>$ 和 $x_j^</em>$ 中至少有一个 $\ge 1/2$。<br>因此，舍入后至少有一个顶点被选中，即所有边均被覆盖，$C$ 是合法的顶点覆盖。<br>输出集合 $C = {v_i \mid x_i^* \ge 1/2}$</p>
+<p>该算法是最小加权顶点覆盖问题的 2-近似算法。</p>
+<script type="math/tex; mode=display">w(C) = \sum_{v_i \in C} c_i \le \sum_{v_i \in C} c_i (2 x_i^*) = 2 \sum_{v_i \in C} c_i x_i^*</script><p>由于对于 $v_i \notin C$，$x_i^* \ge 0$，故：</p>
+<script type="math/tex; mode=display">w(C) \le 2 \sum_{v_i \in V} c_i x_i^* = 2 w(x_{LP}^*)</script><p>结合下界性质 $w(x_{LP}^<em>) \le w(C^</em>)$，得：</p>
+<script type="math/tex; mode=display">w(C) \le 2 w(C^*)</script><p>即近似比 $R \le 2$。</p>
+<h3 id="4-2-5-基于随机算法的近似算法"><a href="#4-2-5-基于随机算法的近似算法" class="headerlink" title="4.2.5 基于随机算法的近似算法"></a>4.2.5 基于随机算法的近似算法</h3><p>机近似算法在执行过程中引入了随机选择，对于给定实例 $x$，算法输出的可行解的值是一个随机变量 $m(x)$。</p>
+<p>性能比通常使用期望性能比来衡量：</p>
+<script type="math/tex; mode=display">R = \max \left\{ \frac{m^*(x)}{E[m(x)]}, \frac{E[m(x)]}{m^*(x)} \right\}</script><h4 id="最大可满足性问题"><a href="#最大可满足性问题" class="headerlink" title="最大可满足性问题"></a>最大可满足性问题</h4><p>实例：定义在变量集 $X={x_1, \dots, x_n}$ 上的析取子句集合 $C={c_1, \dots, c_m}$。<br>解：真值赋值 $f: X \to {True, False}$。<br>度量：赋值 $f$ 下为真的子句数量。<br>目标：最大化满足的子句数。</p>
+<h4 id="朴素随机算法"><a href="#朴素随机算法" class="headerlink" title="朴素随机算法"></a>朴素随机算法</h4><p>对于每个变量 $x_i$，独立地以 $1/2$ 的概率赋值为 True，以 $1/2$ 的概率赋值为 False。</p>
+<p>设实例 $x$ 包含 $c$ 个子句，且每个子句至少包含 $k$ 个文字。则 RS 算法输出解的期望值满足：</p>
+<script type="math/tex; mode=display">E[m_{RS}(x)] \ge \left(1 - \frac{1}{2^k}\right) c</script><p>由于最优解 $m^*(x) \le c$（最多满足所有子句），故：</p>
+<script type="math/tex; mode=display">\frac{m^*(x)}{E[m(x)]} \le \frac{c}{(1 - 2^{-k})c} = \frac{2^k}{2^k - 1} \le 2</script><h4 id="最大加权可满足性问题与-GRWS-算法"><a href="#最大加权可满足性问题与-GRWS-算法" class="headerlink" title="最大加权可满足性问题与 GRWS 算法"></a>最大加权可满足性问题与 GRWS 算法</h4><p>每个子句 $c_j$ 关联一个权重 $w(c_j)$。目标是最大化被满足子句的总权重。</p>
+<p>引入 0-1 变量 $y_i$（对应 $x_i$）和 $z_j$（对应 $c_j$ 是否满足），建立IP模型：</p>
+<p>Maximize $\sum w(c_j) z_j$</p>
+<p>Subject to: $\sum<em>{i \in P_j} y_i + \sum</em>{i \in N_j} (1-y_i) \ge z_j$，其中 $P_j, N_j$ 分别为子句 $c_j$ 中正文字和负文字的索引集合。</p>
+<p>LP 松弛：将 $y_i, z_j \in {0, 1}$ 松弛为 $0 \le y_i, z_j \le 1$。求解得到最优分数解 $(y^<em>, z^</em>)$。</p>
+<p><strong>GRWS算法</strong>：对于每个变量 $x_i$，以概率 $p_i = y_i^*$ 赋值为 True。</p>
+<p>对应的近似比为 $1 - (1-1/k)^k\rightarrow\frac{1}{1-1/e} = \frac{e}{e-1} \approx 1.582$。</p>
+<p>注意在k = 2时，朴素的随机算法的近似比为4/3，小于GRWS算法的上界。事实上分别运行两种算法，输出两者中较优的那个解，可以将近似比上界降低至4/3。</p>
+<script type="math/tex; mode=display">W_1 + W_2 \ge \sum_{c_j \in C} w(c_j) (\gamma_{k_j} + \alpha_{k_j}) z_j^*</script><ul>
+<li>对于 RS 算法：子句 $c_j \in C_k$ 被满足的概率为 $\gamma_k = 1 - 2^{-k}$</li>
+<li>对于 GRWS 算法：子句 $c_j \in C_k$ 被满足的概率至少为 $\alpha_k z_j^*$，其中 $\alpha_k = 1 - (1 - 1/k)^k$。</li>
+</ul>
+<p>考察系数和 $\gamma_k + \alpha_k$ 的性质：</p>
+<ul>
+<li>当 $k=1$ 时：$\gamma_1 = 1 - 1/2 = 0.5<script type="math/tex">\alpha_1 = 1 - (0)^1 = 1</script>\gamma_1 + \alpha_1 = 1.5$</li>
+<li>当 $k=2$ 时：$\gamma_2 = 1 - 1/4 = 0.75<script type="math/tex">\alpha_2 = 1 - (1/2)^2 = 0.75</script>\gamma_2 + \alpha_2 = 1.5$</li>
+<li>当 $k \ge 3$ 时：$\gamma_k + \alpha_k \ge 3/2$ 恒成立。</li>
+</ul>
+<script type="math/tex; mode=display">W_1 + W_2 \ge \sum_{c_j \in C} w(c_j) \left(\frac{3}{2}\right) z_j^* = \frac{3}{2} m^*_{LP}(x)</script><script type="math/tex; mode=display">\frac{W_1 + W_2}{2} \ge \frac{3}{4} m^*_{LP}(x) \ge \frac{3}{4} m^*(x)</script><hr>
+<h4 id="加权最小顶点覆盖问题"><a href="#加权最小顶点覆盖问题" class="headerlink" title="加权最小顶点覆盖问题"></a>加权最小顶点覆盖问题</h4><p>输入：一个无向图 $G=(V, E)$，以及每个顶点 $v$ 的权重 $w(v)$（自然数）。<br>输出：一个顶点集合 $U$，使得图中的每条边都至少有一个端点在 $U$ 中（即 $U$ 是一个顶点覆盖）。<br>目标：希望 $U$ 中所有顶点的总权重 $\sum_{v \in U} w(v)$ 尽可能小。</p>
 <p>在构建顶点覆盖集时，并不是贪心地每次都选权重最小的点，而是按概率选择，其中权重越小的点被选中的概率越大。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Algorithm RandomWVC</span><br><span class="line">输入：无向图 G=(V, E)，顶点权重函数 w : V → N。</span><br><span class="line">输出：加权顶点覆盖 U。</span><br><span class="line">1. U ← ∅</span><br><span class="line">2. while E ≠ ∅</span><br><span class="line">3.    从 E 中任选一条边 (u, v)</span><br><span class="line">4.    p ← w(v) / (w(u) + w(v))</span><br><span class="line">5.    以概率 p 选择 x ← u，否则选择 x ← v</span><br><span class="line">6.    U ← U ∪ &#123;x&#125;</span><br><span class="line">7.    从 E 中删除所有与 x 关联的边</span><br><span class="line">8. end while</span><br><span class="line">9. output U</span><br></pre></td></tr></table></figure>
 <p>这也是一个2-近似算法。</p>
-<p><span class="math display">\[E[\text{cost}] = w(v) \cdot
-\frac{w(t)}{w(v)+w(t)} + w(t) \cdot \frac{w(v)}{w(v)+w(t)}\]</span></p>
-<p><span class="math display">\[E[\text{cost}] = \frac{2 w(v) w(t)}{w(v)
-+ w(t)}\]</span></p>
-<p>因此对于每一条边，代价不会超过二倍最优解</p>
-<h4 id="蒙特卡洛算法和拉斯维加斯算法">蒙特卡洛算法和拉斯维加斯算法</h4>
-<p>蒙特卡罗算法肯定快，但不一定对。</p>
+<script type="math/tex; mode=display">E[\text{cost}] = w(v) \cdot \frac{w(t)}{w(v)+w(t)} + w(t) \cdot \frac{w(v)}{w(v)+w(t)}</script><script type="math/tex; mode=display">E[\text{cost}] = \frac{2 w(v) w(t)}{w(v) + w(t)}</script><p>因此对于每一条边，代价不会超过二倍最优解</p>
+<h4 id="蒙特卡洛算法和拉斯维加斯算法"><a href="#蒙特卡洛算法和拉斯维加斯算法" class="headerlink" title="蒙特卡洛算法和拉斯维加斯算法"></a>蒙特卡洛算法和拉斯维加斯算法</h4><p>蒙特卡罗算法肯定快，但不一定对。</p>
 <p>它会在固定的时间（通常是多项式时间）内给出一个答案。</p>
 <p>这个答案大概率是正确的，但也存在一定的概率是错误的。</p>
-<p>通常可以通过重复运行算法多次来将错误率降低到任意小的程度（例如重复
-<span class="math inline">\(k\)</span> 次，错误率降为 <span
-class="math inline">\(1/2^k\)</span>）。</p>
-<p>例如：在一个正方形里画个圆，随机撒豆子。通过数豆子在圆内的比例来估算
-<span
-class="math inline">\(\pi\)</span>。你撒的豆子越多，结果越准，但永远是近似值。</p>
-<hr />
+<p>通常可以通过重复运行算法多次来将错误率降低到任意小的程度（例如重复 $k$ 次，错误率降为 $1/2^k$）。</p>
+<p>例如：在一个正方形里画个圆，随机撒豆子。通过数豆子在圆内的比例来估算 $\pi$。你撒的豆子越多，结果越准，但永远是近似值。</p>
+<hr>
 <p>拉斯维加斯算法只要它输出了结果，这个结果一定是正确的。它的运行时间是一个随机变量。运气好瞬间算完，运气不好可能要算很久（甚至在理论上可能永远算不完，尽管概率极低）。</p>
-<p>比如随机化快速排序 (Randomized QuickSort)：每次随机选一个
-Pivot（基准值）。结果：排序结果一定是有序的（绝对正确）。时间：运气好是
-<span class="math inline">\(O(N \log
-N)\)</span>，运气极其糟糕（每次都选到最大或最小值）则是 <span
-class="math inline">\(O(N^2)\)</span>。</p>
-<p>Las Vegas = Monte Carlo + 验证器 (Verifier) + 无限循环 (While
-Loop)</p>
-<h3 id="基于动态规划的近似算法">4.2.6 基于动态规划的近似算法</h3>
-<h4 id="背包问题的动态规划解法">背包问题的动态规划解法</h4>
-<p>状态定义：<span class="math inline">\(M^*(k, V)\)</span> 表示从前
-<span class="math inline">\(k\)</span> 个物品中选取，使得总价值恰好为
-<span class="math inline">\(V\)</span> 的最小重量</p>
-<p>递推方程：<span class="math display">\[M^*(k, V) = \min \begin{cases}
-M^*(k-1, V) &amp; \text{不选 } x_k \\ M^*(k-1, V-v_k) + w_k &amp;
-\text{选 } x_k \text{ (需 } v_k \le V \text{)} \end{cases}\]</span></p>
-<p>初始条件：<span class="math inline">\(M^*(1, v_1) = w_1, M^*(1, 0) =
-0\)</span>，其余为 <span
-class="math inline">\(\infty\)</span>（无定义）。</p>
-<p>最优解：寻找最大的 <span class="math inline">\(V^*\)</span>，使得
-<span class="math inline">\(M^*(n, V^*) \le W\)</span></p>
-<hr />
-<p>时间复杂度：<span class="math inline">\(O(n \sum v_i) = O(n \cdot n
-v_{max}) = O(n^2 v_{max})\)</span></p>
-<p>如前所述，这是伪多项式时间 (Pseudo-Polynomial Time)
-算法，因为运行时间依赖于数值 <span
-class="math inline">\(v_{max}\)</span>，而非数值的编码长度 <span
-class="math inline">\(\log v_{max}\)</span>。</p>
-<h4 id="数值缩放技术">数值缩放技术</h4>
-<p>为了消除运行时间对 <span class="math inline">\(v_{max}\)</span>
-的依赖，我们通过降低价值的精度来缩减搜索空间。</p>
-<p>物品集 <span class="math inline">\(X\)</span>，背包容量 <span
-class="math inline">\(W\)</span>，近似参数 <span class="math inline">\(r
-&gt; 1\)</span> - 确定缩放因子：令 <span class="math inline">\(v_{max} =
-\max_i v_i\)</span>。定义缩放位数 <span class="math inline">\(t =
-\lfloor \log_2 (\frac{r-1}{r} \frac{v_{max}}{n}) \rfloor\)</span> -
-对每个物品 <span class="math inline">\(x_i\)</span>，计算新价值 <span
-class="math inline">\(v&#39;_i = \lfloor v_i / 2^t
-\rfloor\)</span>（相当于右移 <span class="math inline">\(t\)</span>
-位）。 - 在缩减后的实例 <span class="math inline">\((X&#39;, W)\)</span>
-上运行上述动态规划算法，得到最优子集 <span
-class="math inline">\(Y\)</span></p>
-<p>这相当于对价值进行了量化，原本整数空间的价值被量化到<span
-class="math inline">\(\lfloor\frac{nr}{v_{max}(r-1)}
-\rfloor\)</span>为粒度的空间。量化后空间的大小降低到<span
-class="math inline">\(v_{max}\times\frac{nr}{v_{max}(r-1)} =
-nr/(r-1)\)</span></p>
-<p>使用这一项代替原本时间复杂度中的<span
-class="math inline">\(v_{max}\)</span>，这个算法的时间复杂度是<span
-class="math inline">\(O(n^3 \frac{r}{r-1})\)</span>。</p>
-<p>同样，因为粒度大小为<span class="math inline">\(\lfloor\frac{r-1}{r}
-\frac{v_{max}}{n}\rfloor\)</span>，缩放导致的价值损失不会大于这个量：</p>
-<p><span class="math display">\[m*(x) &lt;
-n\times\frac{v_{max}(r-1)}{nr} + m(x) = \frac{v_{max}(r-1)}{r} +
-m(x)\]</span></p>
-<p>选择对于任意<span
-class="math inline">\(r&gt;\frac{v_{max}}{m(x,r)}\)</span>，可保证 <span
-class="math inline">\(m^*(x) \le r \cdot m(x,
-r)\)</span>。而r本身永远大于等于1，所以当所有物品都能独立放入背包时（如果不能，可以直接剔除这些物体），这一项恒成立。</p>
-<p>如此，可见算法是关于n和误差倒数(1/(r-1))的多项式时间复杂度。这是一个FPTAS近似算法。</p>
-<h3 id="近似复杂度类">4.2.7 近似复杂度类</h3>
-<p>根据问题是否存在多项式时间近似算法，以及该算法对精度的逼近能力，我们将
-NPO 问题划分为不同的层级。</p>
-<p>假设 <span class="math inline">\(P \neq
-NP\)</span>，则这些类之间存在严格的包含关系：</p>
-<p><span class="math display">\[FPTAS \subset PTAS \subset APX \subset
-NPO\]</span></p>
-<h4 id="apx类">APX类</h4>
-<p>如果 NPO 问题 <span class="math inline">\(Q\)</span>
-存在一个多项式时间算法，且其近似比为常数 <span class="math inline">\(r
-\ge 1\)</span>，则称 <span class="math inline">\(Q \in
-APX\)</span>。</p>
-<p>如最小顶点覆盖问题 (2-近似)；欧几里得 TSP (1.5-近似)；最大割问题
-(2-近似)。</p>
-<p>若 <span class="math inline">\(P \neq NP\)</span>，则 <span
-class="math inline">\(APX \subset NPO\)</span>。这意味着存在属于 NPO
-但不属于 APX 的问题（即不存在常数近似算法的问题），典型的例子是一般图
-TSP</p>
-<p>扩展类 (F-APX)：对于某些问题，近似比不是常数而是输入规模 <span
-class="math inline">\(n\)</span> 的函数： - log-APX：近似比为 <span
-class="math inline">\(O(\log n)\)</span>，如集合覆盖问题。 -
-poly-APX：近似比为 <span
-class="math inline">\(O(n^k)\)</span>，如最大团问题</p>
-<h4 id="ptas-类">PTAS 类</h4>
-<p>NPO 问题 <span class="math inline">\(Q\)</span> 属于
-PTAS，如果存在算法 <span class="math inline">\(A(x,
-r)\)</span>，对于任意实例 <span class="math inline">\(x\)</span>
-和任意精度要求 <span class="math inline">\(r &gt; 1\)</span>： -
-算法输出一个 <span class="math inline">\(r\)</span>-近似解。 -
-算法的运行时间关于实例规模 <span class="math inline">\(|x|\)</span>
-是多项式的。</p>
-<p>运行时间的示例是 <span
-class="math inline">\(O(|x|^{f(1/(r-1))})\)</span>。虽然关于 <span
-class="math inline">\(|x|\)</span> 是多项式，但随着 <span
-class="math inline">\(r \to
-1\)</span>（精度要求提高），指数部分可能急剧增大。如上文提及的Sahni背包问题。</p>
-<p>若 <span class="math inline">\(P \neq NP\)</span>，则 <span
-class="math inline">\(PTAS \subset APX\)</span>。这意味着存在属于 APX
-但不属于 PTAS 的问题（即APX-完全问题），典型的例子是最小装箱问题 (Bin
-Packing) 和 Max-3SAT。</p>
-<h4 id="fptas-类">FPTAS 类</h4>
-<p>NPO 问题 <span class="math inline">\(Q\)</span> 属于
-FPTAS，如果存在算法 <span class="math inline">\(A(x, r)\)</span>，满足
-PTAS 的条件，且运行时间关于实例规模 <span
-class="math inline">\(|x|\)</span> 和误差倒数 <span
-class="math inline">\(1/(r-1)\)</span> 均为多项式</p>
-<p>运行时间形如 <span class="math inline">\(O(|x|^a \cdot
-(1/(r-1))^b)\)</span>。这类算法不仅能逼近最优解，而且在提高精度时，计算成本的增加是可控的。</p>
-<p>如基于动态规划的背包问题近似算法，时间复杂度为 <span
-class="math inline">\(O(n^3 / (r-1))\)</span></p>
-<p>若 <span class="math inline">\(P \neq NP\)</span>，则 <span
-class="math inline">\(FPTAS \subset PTAS\)</span>。这意味着存在属于 PTAS
-但不属于 FPTAS 的问题，典型的例子是平面图上的最大独立集问题。</p>
-<p>FPTAS 是 NP-难优化问题所能达到的最佳近似结果（除非 <span
-class="math inline">\(P=NP\)</span>）</p>
-<h3 id="近似保持的归约">4.2.8 近似保持的归约</h3>
-<h4 id="近似保持的规约">近似保持的规约</h4>
-<p>在计算复杂性理论中，多项式时间归约用于判定问题的难度传递。对于优化问题，我们需要一种更强的归约形式，不仅能映射实例，还能保持解的近似精度。</p>
-<p>设 <span class="math inline">\(Q_1\)</span> 和 <span
-class="math inline">\(Q_2\)</span> 是两个 NPO
-问题。若存在两个多项式时间可计算的函数 <span class="math inline">\(f,
-g\)</span> 和一个常数 <span class="math inline">\(\alpha \ge
-1\)</span>，满足以下条件，则称 <span class="math inline">\(Q_1\)</span>
-可 AP-归约 至 <span class="math inline">\(Q_2\)</span>（记为 <span
-class="math inline">\(Q_1 \le_{AP} Q_2\)</span>）： - 实例映射 (<span
-class="math inline">\(f\)</span>)：对于 <span
-class="math inline">\(Q_1\)</span> 的任意实例 <span
-class="math inline">\(x\)</span> 和任意误差参数 <span
-class="math inline">\(r &gt; 1\)</span>，映射得到 <span
-class="math inline">\(Q_2\)</span> 的实例 <span
-class="math inline">\(x&#39; = f(x, r)\)</span>。 - 解映射 (<span
-class="math inline">\(g\)</span>)：对于 <span
-class="math inline">\(Q_2\)</span> 的实例 <span
-class="math inline">\(x&#39;\)</span> 的任意可行解 <span
-class="math inline">\(y&#39;\)</span>，映射回 <span
-class="math inline">\(Q_1\)</span> 的可行解 <span
-class="math inline">\(y = g(x, y&#39;, r)\)</span>。 - 误差传递：若
-<span class="math inline">\(y&#39;\)</span> 是 <span
-class="math inline">\(x&#39;\)</span> 的 <span
-class="math inline">\(r\)</span>-近似解，则 <span
-class="math inline">\(y\)</span> 是 <span
-class="math inline">\(x\)</span> 的 <span class="math inline">\((1 +
-\alpha(r-1))\)</span>-近似解。 <span
-class="math display">\[R_{Q2}(x&#39;, y&#39;) \le r \implies R_{Q1}(x,
-y) \le 1 + \alpha(r-1)\]</span></p>
-<p>规约通常有两种用途： - 正向传播（构造算法）： 若 <span
-class="math inline">\(Q_1 \le_{AP} Q_2\)</span> 且 <span
-class="math inline">\(Q_2 \in APX\)</span>（或 <span
-class="math inline">\(PTAS\)</span>），则 <span
-class="math inline">\(Q_1 \in APX\)</span>（或 <span
-class="math inline">\(PTAS\)</span>）。 这意味着如果我们能近似求解 <span
-class="math inline">\(Q_2\)</span>，就能近似求解 <span
-class="math inline">\(Q_1\)</span>。 - 反向证明（证明难度）： 若 <span
-class="math inline">\(Q_1 \le_{AP} Q_2\)</span> 且已知 <span
-class="math inline">\(Q_1 \notin APX\)</span>（或 <span
-class="math inline">\(Q_1 \notin PTAS\)</span>），则 <span
-class="math inline">\(Q_2 \notin APX\)</span>（或 <span
-class="math inline">\(Q_2 \notin PTAS\)</span>）。
-这是证明一个问题难以近似的标准方法。</p>
-<h4 id="证明最大独立集问题-notin-apx">证明最大独立集问题 <span
-class="math inline">\(\notin APX\)</span></h4>
-<p>考虑最大团问题 (Max Clique)： 在图 <span
-class="math inline">\(G\)</span>
-中，找到一个顶点子集，使得子集中任意两个顶点之间都有边（即完全子图）。已知该问题
-<span class="math inline">\(\notin APX\)</span>。</p>
-<p>考虑补图 (Complement Graph, <span
-class="math inline">\(\bar{G}\)</span>)： 给定图 <span
-class="math inline">\(G=(V, E)\)</span>，其补图 <span
-class="math inline">\(\bar{G}=(V, \bar{E})\)</span> 拥有相同的顶点。 -
-如果 <span class="math inline">\(u, v\)</span> 在 <span
-class="math inline">\(G\)</span> 中有边，则在 <span
-class="math inline">\(\bar{G}\)</span> 中无边。 - 如果 <span
-class="math inline">\(u, v\)</span> 在 <span
-class="math inline">\(G\)</span> 中无边，则在 <span
-class="math inline">\(\bar{G}\)</span> 中有边。</p>
-<hr />
+<p>比如随机化快速排序 (Randomized QuickSort)：每次随机选一个 Pivot（基准值）。结果：排序结果一定是有序的（绝对正确）。时间：运气好是 $O(N \log N)$，运气极其糟糕（每次都选到最大或最小值）则是 $O(N^2)$。</p>
+<p>Las Vegas = Monte Carlo + 验证器 (Verifier) + 无限循环 (While Loop)</p>
+<h3 id="4-2-6-基于动态规划的近似算法"><a href="#4-2-6-基于动态规划的近似算法" class="headerlink" title="4.2.6 基于动态规划的近似算法"></a>4.2.6 基于动态规划的近似算法</h3><h4 id="背包问题的动态规划解法"><a href="#背包问题的动态规划解法" class="headerlink" title="背包问题的动态规划解法"></a>背包问题的动态规划解法</h4><p>状态定义：$M^*(k, V)$ 表示从前 $k$ 个物品中选取，使得总价值恰好为 $V$ 的最小重量</p>
+<p>递推方程：<script type="math/tex">M^*(k, V) = \min \begin{cases} M^*(k-1, V) & \text{不选 } x_k \\ M^*(k-1, V-v_k) + w_k & \text{选 } x_k \text{ (需 } v_k \le V \text{)} \end{cases}</script></p>
+<p>初始条件：$M^<em>(1, v_1) = w_1, M^</em>(1, 0) = 0$，其余为 $\infty$（无定义）。</p>
+<p>最优解：寻找最大的 $V^<em>$，使得 $M^</em>(n, V^*) \le W$</p>
+<hr>
+<p>时间复杂度：$O(n \sum v<em>i) = O(n \cdot n v</em>{max}) = O(n^2 v_{max})$</p>
+<p>如前所述，这是伪多项式时间 (Pseudo-Polynomial Time) 算法，因为运行时间依赖于数值 $v<em>{max}$，而非数值的编码长度 $\log v</em>{max}$。</p>
+<h4 id="数值缩放技术"><a href="#数值缩放技术" class="headerlink" title="数值缩放技术"></a>数值缩放技术</h4><p>为了消除运行时间对 $v_{max}$ 的依赖，我们通过降低价值的精度来缩减搜索空间。</p>
+<p>物品集 $X$，背包容量 $W$，近似参数 $r &gt; 1$</p>
 <ul>
-<li>在原图 <span class="math inline">\(G\)</span> 中，设 <span
-class="math inline">\(U\)</span> 是一个团 (Clique)。<span
-class="math inline">\(\iff\)</span> <span
-class="math inline">\(U\)</span> 中任意两点 <span
-class="math inline">\(u, v\)</span> 在 <span
-class="math inline">\(G\)</span> 中都有边连接。</li>
-<li>根据补图定义，既然 <span class="math inline">\(u, v\)</span> 在
-<span class="math inline">\(G\)</span> 中有边，那么它们在 <span
-class="math inline">\(\bar{G}\)</span> 中一定没有边。</li>
-<li>这意味着在 <span class="math inline">\(\bar{G}\)</span> 中，<span
-class="math inline">\(U\)</span> 中的任意两点都没有边相连。
-这正是独立集的定义。</li>
+<li>确定缩放因子：令 $v<em>{max} = \max_i v_i$。定义缩放位数 $t = \lfloor \log_2 (\frac{r-1}{r} \frac{v</em>{max}}{n}) \rfloor$</li>
+<li>对每个物品 $x_i$，计算新价值 $v’_i = \lfloor v_i / 2^t \rfloor$（相当于右移 $t$ 位）。</li>
+<li>在缩减后的实例 $(X’, W)$ 上运行上述动态规划算法，得到最优子集 $Y$</li>
 </ul>
-<p>即<span class="math inline">\(\bar{G}\)</span>
-中的任意一个独立集，对应回 <span class="math inline">\(G\)</span>
-必然是一个团吗，反之亦然。因此，给定 Max Clique 的实例 <span
-class="math inline">\(G\)</span>，我们构造 MIS 的实例 <span
-class="math inline">\(\bar{G}\)</span>。这不需要计算，只是视角的转换。</p>
-<p>同时，假设我们有一个针对 MIS 的算法，它在 <span
-class="math inline">\(\bar{G}\)</span> 中输出了一个独立集 <span
-class="math inline">\(U\)</span>。我们将这个 <span
-class="math inline">\(U\)</span> 原封不动地作为 <span
-class="math inline">\(G\)</span> 的团输出。</p>
-<p>由于 <span class="math inline">\(U\)</span>
-在两个图中是同一个顶点集合： <span class="math display">\[|U|_{Clique} =
-|U|_{Independent Set}\]</span> 即：最优团的大小 <span
-class="math inline">\(|OPT_{Clique}(G)|\)</span> 严格等于
-最优独立集的大小 <span
-class="math inline">\(|OPT_{MIS}(\bar{G})|\)</span>。</p>
-<p>因此最大独立集合问题可以归约到最大团问题。如果我们能近似解决前者，一定能近似解决后者。然而，最大团问题
-<span class="math inline">\(\notin
-APX\)</span>，因此最大独立集问题也不属于APX问题。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-4/">http://raphaelhyaan.cn/2026/01/06/algo-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第五部分-应对不确定性与大规模问题</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第三部分-精确最优化策略</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E4%B8%8E%E8%BF%91%E4%BC%BC%E8%A7%A3"><span class="toc-text">第四部分：计算复杂性与近似解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#np-%E5%AE%8C%E5%85%A8%E7%90%86%E8%AE%BA-np-completeness-theory"><span class="toc-text">4.1 NP 完全理论
-(NP-Completeness Theory)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">4.1.1 问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98%E5%92%8C%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-text">判定问题和最优化问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%96%B9%E6%A1%88%E4%B8%8E%E8%BE%93%E5%85%A5%E8%A7%84%E6%A8%A1"><span class="toc-text">编码方案与输入规模</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p-%E7%B1%BB%E4%B8%8E-np-%E7%B1%BB"><span class="toc-text">P 类与 NP 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E5%BD%92%E7%BA%A6%E5%92%8Cnp%E5%AE%8C%E5%85%A8%E7%B1%BB"><span class="toc-text">4.1.2 多项式时间归约和NP完全类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6"><span class="toc-text">归约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#np%E5%AE%8C%E5%85%A8%E7%B1%BBnp-complete-npc"><span class="toc-text">NP完全类(NP-Complete, NPC)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#np%E5%AE%8C%E5%85%A8%E6%80%A7%E7%9A%84%E8%AF%81%E6%98%8E%E6%96%B9%E6%B3%95"><span class="toc-text">NP完全性的证明方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%BD%92%E7%BA%A6%E9%93%BE-classic-reductions"><span class="toc-text">4.1.3 经典归约链 (Classic
-Reductions)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95-approximation-algorithms"><span class="toc-text">4.2 近似算法 (Approximation
-Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.1 近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E5%9B%9B%E5%85%83%E7%BB%84%E6%A8%A1%E5%9E%8B"><span class="toc-text">优化问题的四元组模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-text">优化问题的复杂性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E8%A7%A3%E7%9A%84%E5%BA%A6%E9%87%8F"><span class="toc-text">近似解的度量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%B4%AA%E5%BF%83%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.2 基于贪心的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="toc-text">旅行商问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="toc-text">欧几里得旅行商问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%95%E6%A0%91%E4%B8%A4%E5%91%A8%E7%AE%97%E6%B3%95%E5%92%8Cchristofides-%E7%AE%97%E6%B3%95"><span class="toc-text">绕树两周算法和Christofides
-算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">最大背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%BC%BA%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">增强贪心算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sahni%E7%AE%97%E6%B3%95"><span class="toc-text">Sahni算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="toc-text">最小顶点覆盖问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vcoverapprox"><span class="toc-text">VCOVERAPPROX</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%B1%80%E9%83%A8%E6%90%9C%E7%B4%A2%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.3 基于局部搜索的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%89%B2%E9%97%AE%E9%A2%98"><span class="toc-text">最大割问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-text">局部搜索算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.4 基于线性优化的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%8A%A0%E6%9D%83%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="toc-text">最小加权顶点覆盖问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%9D%BE%E5%BC%9B%E4%B8%8E%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5"><span class="toc-text">线性规划松弛与四舍五入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.5 基于随机算法的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">最大可满足性问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95"><span class="toc-text">朴素随机算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E-grws-%E7%AE%97%E6%B3%95"><span class="toc-text">最大加权可满足性问题与 GRWS
-算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%9D%83%E6%9C%80%E5%B0%8F%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="toc-text">加权最小顶点覆盖问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%92%8C%E6%8B%89%E6%96%AF%E7%BB%B4%E5%8A%A0%E6%96%AF%E7%AE%97%E6%B3%95"><span class="toc-text">蒙特卡洛算法和拉斯维加斯算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.6 基于动态规划的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%A7%A3%E6%B3%95"><span class="toc-text">背包问题的动态规划解法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%BC%A9%E6%94%BE%E6%8A%80%E6%9C%AF"><span class="toc-text">数值缩放技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%B1%BB"><span class="toc-text">4.2.7 近似复杂度类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apx%E7%B1%BB"><span class="toc-text">APX类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ptas-%E7%B1%BB"><span class="toc-text">PTAS 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fptas-%E7%B1%BB"><span class="toc-text">FPTAS 类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E4%BF%9D%E6%8C%81%E7%9A%84%E5%BD%92%E7%BA%A6"><span class="toc-text">4.2.8 近似保持的归约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E4%BF%9D%E6%8C%81%E7%9A%84%E8%A7%84%E7%BA%A6"><span class="toc-text">近似保持的规约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E6%9C%80%E5%A4%A7%E7%8B%AC%E7%AB%8B%E9%9B%86%E9%97%AE%E9%A2%98-notin-apx"><span class="toc-text">证明最大独立集问题 \(\notin APX\)</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</a><time datetime="2026-01-05T16:07:10.000Z" title="发表于 2026-01-06 00:07:10">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p>这相当于对价值进行了量化，原本整数空间的价值被量化到$\lfloor\frac{nr}{v<em>{max}(r-1)} \rfloor$为粒度的空间。量化后空间的大小降低到$v</em>{max}\times\frac{nr}{v_{max}(r-1)} = nr/(r-1)$</p>
+<p>使用这一项代替原本时间复杂度中的$v_{max}$，这个算法的时间复杂度是$O(n^3 \frac{r}{r-1})$。</p>
+<p>同样，因为粒度大小为$\lfloor\frac{r-1}{r} \frac{v_{max}}{n}\rfloor$，缩放导致的价值损失不会大于这个量：</p>
+<script type="math/tex; mode=display">m*(x) < n\times\frac{v_{max}(r-1)}{nr} + m(x) = \frac{v_{max}(r-1)}{r} + m(x)</script><p>选择对于任意$r&gt;\frac{v_{max}}{m(x,r)}$，可保证 $m^*(x) \le r \cdot m(x, r)$。而r本身永远大于等于1，所以当所有物品都能独立放入背包时（如果不能，可以直接剔除这些物体），这一项恒成立。</p>
+<p>如此，可见算法是关于n和误差倒数(1/(r-1))的多项式时间复杂度。这是一个FPTAS近似算法。</p>
+<h3 id="4-2-7-近似复杂度类"><a href="#4-2-7-近似复杂度类" class="headerlink" title="4.2.7 近似复杂度类"></a>4.2.7 近似复杂度类</h3><p>根据问题是否存在多项式时间近似算法，以及该算法对精度的逼近能力，我们将 NPO 问题划分为不同的层级。</p>
+<p>假设 $P \neq NP$，则这些类之间存在严格的包含关系：</p>
+<script type="math/tex; mode=display">FPTAS \subset PTAS \subset APX \subset NPO</script><h4 id="APX类"><a href="#APX类" class="headerlink" title="APX类"></a>APX类</h4><p>如果 NPO 问题 $Q$ 存在一个多项式时间算法，且其近似比为常数 $r \ge 1$，则称 $Q \in APX$。</p>
+<p>如最小顶点覆盖问题 (2-近似)；欧几里得 TSP (1.5-近似)；最大割问题 (2-近似)。</p>
+<p>若 $P \neq NP$，则 $APX \subset NPO$。这意味着存在属于 NPO 但不属于 APX 的问题（即不存在常数近似算法的问题），典型的例子是一般图 TSP</p>
+<p>扩展类 (F-APX)：对于某些问题，近似比不是常数而是输入规模 $n$ 的函数：</p>
+<ul>
+<li>log-APX：近似比为 $O(\log n)$，如集合覆盖问题。</li>
+<li>poly-APX：近似比为 $O(n^k)$，如最大团问题</li>
+</ul>
+<h4 id="PTAS-类"><a href="#PTAS-类" class="headerlink" title="PTAS 类"></a>PTAS 类</h4><p>NPO 问题 $Q$ 属于 PTAS，如果存在算法 $A(x, r)$，对于任意实例 $x$ 和任意精度要求 $r &gt; 1$：</p>
+<ul>
+<li>算法输出一个 $r$-近似解。</li>
+<li>算法的运行时间关于实例规模 $|x|$ 是多项式的。</li>
+</ul>
+<p>运行时间的示例是 $O(|x|^{f(1/(r-1))})$。虽然关于 $|x|$ 是多项式，但随着 $r \to 1$（精度要求提高），指数部分可能急剧增大。如上文提及的Sahni背包问题。</p>
+<p>若 $P \neq NP$，则 $PTAS \subset APX$。这意味着存在属于 APX 但不属于 PTAS 的问题（即APX-完全问题），典型的例子是最小装箱问题 (Bin Packing) 和 Max-3SAT。</p>
+<h4 id="FPTAS-类"><a href="#FPTAS-类" class="headerlink" title="FPTAS 类"></a>FPTAS 类</h4><p>NPO 问题 $Q$ 属于 FPTAS，如果存在算法 $A(x, r)$，满足 PTAS 的条件，且运行时间关于实例规模 $|x|$ 和误差倒数 $1/(r-1)$ 均为多项式</p>
+<p>运行时间形如 $O(|x|^a \cdot (1/(r-1))^b)$。这类算法不仅能逼近最优解，而且在提高精度时，计算成本的增加是可控的。</p>
+<p>如基于动态规划的背包问题近似算法，时间复杂度为 $O(n^3 / (r-1))$</p>
+<p>若 $P \neq NP$，则 $FPTAS \subset PTAS$。这意味着存在属于 PTAS 但不属于 FPTAS 的问题，典型的例子是平面图上的最大独立集问题。</p>
+<p>FPTAS 是 NP-难优化问题所能达到的最佳近似结果（除非 $P=NP$）</p>
+<h3 id="4-2-8-近似保持的归约"><a href="#4-2-8-近似保持的归约" class="headerlink" title="4.2.8 近似保持的归约"></a>4.2.8 近似保持的归约</h3><h4 id="近似保持的规约"><a href="#近似保持的规约" class="headerlink" title="近似保持的规约"></a>近似保持的规约</h4><p>在计算复杂性理论中，多项式时间归约用于判定问题的难度传递。对于优化问题，我们需要一种更强的归约形式，不仅能映射实例，还能保持解的近似精度。</p>
+<p>设 $Q<em>1$ 和 $Q_2$ 是两个 NPO 问题。若存在两个多项式时间可计算的函数 $f, g$ 和一个常数 $\alpha \ge 1$，满足以下条件，则称 $Q_1$ 可 AP-归约 至 $Q_2$（记为 $Q_1 \le</em>{AP} Q_2$）：</p>
+<ul>
+<li>实例映射 ($f$)：对于 $Q_1$ 的任意实例 $x$ 和任意误差参数 $r &gt; 1$，映射得到 $Q_2$ 的实例 $x’ = f(x, r)$。</li>
+<li>解映射 ($g$)：对于 $Q_2$ 的实例 $x’$ 的任意可行解 $y’$，映射回 $Q_1$ 的可行解 $y = g(x, y’, r)$。</li>
+<li>误差传递：若 $y’$ 是 $x’$ 的 $r$-近似解，则 $y$ 是 $x$ 的 $(1 + \alpha(r-1))$-近似解。<script type="math/tex; mode=display">R_{Q2}(x', y') \le r \implies R_{Q1}(x, y) \le 1 + \alpha(r-1)</script></li>
+</ul>
+<p>规约通常有两种用途：</p>
+<ul>
+<li>正向传播（构造算法）：<br>若 $Q<em>1 \le</em>{AP} Q_2$ 且 $Q_2 \in APX$（或 $PTAS$），则 $Q_1 \in APX$（或 $PTAS$）。<br>这意味着如果我们能近似求解 $Q_2$，就能近似求解 $Q_1$。</li>
+<li>反向证明（证明难度）：<br>若 $Q<em>1 \le</em>{AP} Q_2$ 且已知 $Q_1 \notin APX$（或 $Q_1 \notin PTAS$），则 $Q_2 \notin APX$（或 $Q_2 \notin PTAS$）。<br>这是证明一个问题难以近似的标准方法。</li>
+</ul>
+<h4 id="证明最大独立集问题-notin-APX"><a href="#证明最大独立集问题-notin-APX" class="headerlink" title="证明最大独立集问题 $\notin APX$"></a>证明最大独立集问题 $\notin APX$</h4><p>考虑最大团问题 (Max Clique)：<br>在图 $G$ 中，找到一个顶点子集，使得子集中任意两个顶点之间都有边（即完全子图）。已知该问题 $\notin APX$。</p>
+<p>考虑补图 (Complement Graph, $\bar{G}$)：<br>给定图 $G=(V, E)$，其补图 $\bar{G}=(V, \bar{E})$ 拥有相同的顶点。</p>
+<ul>
+<li>如果 $u, v$ 在 $G$ 中有边，则在 $\bar{G}$ 中无边。</li>
+<li>如果 $u, v$ 在 $G$ 中无边，则在 $\bar{G}$ 中有边。</li>
+</ul>
+<hr>
+<ul>
+<li>在原图 $G$ 中，设 $U$ 是一个团 (Clique)。$\iff$ $U$ 中任意两点 $u, v$ 在 $G$ 中都有边连接。</li>
+<li>根据补图定义，既然 $u, v$ 在 $G$ 中有边，那么它们在 $\bar{G}$ 中一定没有边。</li>
+<li>这意味着在 $\bar{G}$ 中，$U$ 中的任意两点都没有边相连。<br>这正是独立集的定义。</li>
+</ul>
+<p>即$\bar{G}$ 中的任意一个独立集，对应回 $G$ 必然是一个团吗，反之亦然。因此，给定 Max Clique 的实例 $G$，我们构造 MIS 的实例 $\bar{G}$。这不需要计算，只是视角的转换。</p>
+<p>同时，假设我们有一个针对 MIS 的算法，它在 $\bar{G}$ 中输出了一个独立集 $U$。我们将这个 $U$ 原封不动地作为 $G$ 的团输出。</p>
+<p>由于 $U$ 在两个图中是同一个顶点集合：</p>
+<script type="math/tex; mode=display">|U|_{Clique} = |U|_{Independent Set}</script><p>即：最优团的大小 $|OPT<em>{Clique}(G)|$ 严格等于 最优独立集的大小 $|OPT</em>{MIS}(\bar{G})|$。</p>
+<p>因此最大独立集合问题可以归约到最大团问题。如果我们能近似解决前者，一定能近似解决后者。然而，最大团问题 $\notin APX$，因此最大独立集问题也不属于APX问题。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/06/algo-4/">http://raphaelhyaan.cn/2026/01/06/algo-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第五部分-应对不确定性与大规模问题</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第三部分-精确最优化策略</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div><div><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-22</div><div class="title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86%EF%BC%9A%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E4%B8%8E%E8%BF%91%E4%BC%BC%E8%A7%A3"><span class="toc-text">第四部分：计算复杂性与近似解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-NP-%E5%AE%8C%E5%85%A8%E7%90%86%E8%AE%BA-NP-Completeness-Theory"><span class="toc-text">4.1 NP 完全理论 (NP-Completeness Theory)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%E9%97%AE%E9%A2%98"><span class="toc-text">4.1.1 问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98%E5%92%8C%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-text">判定问题和最优化问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%96%B9%E6%A1%88%E4%B8%8E%E8%BE%93%E5%85%A5%E8%A7%84%E6%A8%A1"><span class="toc-text">编码方案与输入规模</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P-%E7%B1%BB%E4%B8%8E-NP-%E7%B1%BB"><span class="toc-text">P 类与 NP 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E5%BD%92%E7%BA%A6%E5%92%8CNP%E5%AE%8C%E5%85%A8%E7%B1%BB"><span class="toc-text">4.1.2 多项式时间归约和NP完全类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6"><span class="toc-text">归约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NP%E5%AE%8C%E5%85%A8%E7%B1%BB-NP-Complete-NPC"><span class="toc-text">NP完全类(NP-Complete, NPC)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NP%E5%AE%8C%E5%85%A8%E6%80%A7%E7%9A%84%E8%AF%81%E6%98%8E%E6%96%B9%E6%B3%95"><span class="toc-text">NP完全性的证明方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-3-%E7%BB%8F%E5%85%B8%E5%BD%92%E7%BA%A6%E9%93%BE-Classic-Reductions"><span class="toc-text">4.1.3 经典归约链 (Classic Reductions)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95-Approximation-Algorithms"><span class="toc-text">4.2 近似算法 (Approximation Algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.1 近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E5%9B%9B%E5%85%83%E7%BB%84%E6%A8%A1%E5%9E%8B"><span class="toc-text">优化问题的四元组模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="toc-text">优化问题的复杂性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E8%A7%A3%E7%9A%84%E5%BA%A6%E9%87%8F"><span class="toc-text">近似解的度量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%9F%BA%E4%BA%8E%E8%B4%AA%E5%BF%83%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.2 基于贪心的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="toc-text">旅行商问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="toc-text">欧几里得旅行商问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%95%E6%A0%91%E4%B8%A4%E5%91%A8%E7%AE%97%E6%B3%95%E5%92%8CChristofides-%E7%AE%97%E6%B3%95"><span class="toc-text">绕树两周算法和Christofides 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">最大背包问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%BC%BA%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-text">增强贪心算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sahni%E7%AE%97%E6%B3%95"><span class="toc-text">Sahni算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="toc-text">最小顶点覆盖问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VCOVERAPPROX"><span class="toc-text">VCOVERAPPROX</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E5%9F%BA%E4%BA%8E%E5%B1%80%E9%83%A8%E6%90%9C%E7%B4%A2%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.3 基于局部搜索的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%89%B2%E9%97%AE%E9%A2%98"><span class="toc-text">最大割问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-text">局部搜索算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-%E5%9F%BA%E4%BA%8E%E7%BA%BF%E6%80%A7%E4%BC%98%E5%8C%96%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.4 基于线性优化的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%8A%A0%E6%9D%83%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="toc-text">最小加权顶点覆盖问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%9D%BE%E5%BC%9B%E4%B8%8E%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5"><span class="toc-text">线性规划松弛与四舍五入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-%E5%9F%BA%E4%BA%8E%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.5 基于随机算法的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">最大可满足性问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95"><span class="toc-text">朴素随机算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E-GRWS-%E7%AE%97%E6%B3%95"><span class="toc-text">最大加权可满足性问题与 GRWS 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%9D%83%E6%9C%80%E5%B0%8F%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="toc-text">加权最小顶点覆盖问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E7%AE%97%E6%B3%95%E5%92%8C%E6%8B%89%E6%96%AF%E7%BB%B4%E5%8A%A0%E6%96%AF%E7%AE%97%E6%B3%95"><span class="toc-text">蒙特卡洛算法和拉斯维加斯算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-6-%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-text">4.2.6 基于动态规划的近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%A7%A3%E6%B3%95"><span class="toc-text">背包问题的动态规划解法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%BC%A9%E6%94%BE%E6%8A%80%E6%9C%AF"><span class="toc-text">数值缩放技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-7-%E8%BF%91%E4%BC%BC%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%B1%BB"><span class="toc-text">4.2.7 近似复杂度类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#APX%E7%B1%BB"><span class="toc-text">APX类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PTAS-%E7%B1%BB"><span class="toc-text">PTAS 类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FPTAS-%E7%B1%BB"><span class="toc-text">FPTAS 类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-8-%E8%BF%91%E4%BC%BC%E4%BF%9D%E6%8C%81%E7%9A%84%E5%BD%92%E7%BA%A6"><span class="toc-text">4.2.8 近似保持的归约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E4%BF%9D%E6%8C%81%E7%9A%84%E8%A7%84%E7%BA%A6"><span class="toc-text">近似保持的规约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E6%9C%80%E5%A4%A7%E7%8B%AC%E7%AB%8B%E9%9B%86%E9%97%AE%E9%A2%98-notin-APX"><span class="toc-text">证明最大独立集问题 $\notin APX$</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

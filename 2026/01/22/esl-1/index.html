@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning The Elements of Statistical Learning Data Mining, Inference, and Prediction 一书第14章的笔记  监督学习和无监督学习 Supervised Learning &amp; Unsupervised Learni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">
+<meta property="og:url" content="http://raphaelhyaan.cn/2026/01/22/esl-1/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning The Elements of Statistical Learning Data Mining, Inference, and Prediction 一书第14章的笔记  监督学习和无监督学习 Supervised Learning &amp; Unsupervised Learni">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png">
+<meta property="article:published_time" content="2026-01-22T06:00:17.000Z">
+<meta property="article:modified_time" content="2026-01-22T06:00:21.006Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png"><link rel="shortcut icon" href="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flana cat 002.png"><link rel="canonical" href="http://raphaelhyaan.cn/2026/01/22/esl-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无监督学习和流形学习 Unsupervised Learning & Manifold Learning',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-01-22 14:00:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-22T06:00:21.006Z" title="更新于 2026-01-22 14:00:21">2026-01-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="无监督学习和流形学习-Unsupervised-Learning-amp-Manifold-Learning"><a href="#无监督学习和流形学习-Unsupervised-Learning-amp-Manifold-Learning" class="headerlink" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"></a>无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</h1><blockquote>
+<p>The Elements of Statistical Learning Data Mining, Inference, and Prediction 一书第14章的笔记</p>
+</blockquote>
+<h2 id="监督学习和无监督学习-Supervised-Learning-amp-Unsupervised-Learning"><a href="#监督学习和无监督学习-Supervised-Learning-amp-Unsupervised-Learning" class="headerlink" title="监督学习和无监督学习 Supervised Learning &amp; Unsupervised Learning"></a>监督学习和无监督学习 Supervised Learning &amp; Unsupervised Learning</h2><h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>给定输入$X^T = (X_1, …, X_p)$ 以预测一个或多个输出$Y = (Y_1, …, Y_m)$ 的值，这种方式通常被称作有<strong>监督学习</strong>。监督体现在真值与预测值的误差，即损失函数$L(y, \hat{y})$，如 $L(y, \hat{y}) = (y - \hat{y})^2$。</p>
+<p>具体的，若假设 $(X, Y)$ 是由联合概率密度$Pr(X, Y)$ 表示的随机变量，有监督学习可以被形式化地描述为一个密度估计问题，重点在于确定条件密度$Pr(Y|X)$ 的属性。</p>
+<script type="math/tex; mode=display">\mu(x) = \text{argmin}_\theta E_{Y|X}L(Y, \theta)</script><p>根据条件概率公式 $Pr(X, Y) = Pr(Y|X) \cdot Pr(X)$，其中 $Pr(X)$ 是仅 $X$ 值的联合边缘密度。考虑输入维度通常较大，联合边缘密度 $Pr(X)$ 会遭遇“维数灾难”，需要极大的样本量才能覆盖空间，而完整的条件密度 $Pr(Y|X)$ 包含了 $Y$ 在给定 $X$ 时的所有统计信息，包括方差、偏度、多峰分布等复杂形状。有监督学习仅关注能够最小化误差的那个点，即条件期望$\mu(x) = E[Y|X]$，从而将高维度的全概率分布估计问题转换为低维度的函数逼近问题。</p>
+<h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h3><p>在此情形下，我们拥有一组 $N$ 个观测值 $(x_1, x_2, …, x_N)$，它们来自具有联合密度 $Pr(X)$ 的随机 p-维向量 $X$。其目标是在没有监督者或教师提供正确答案或误差程度的情况下，直接推断该概率密度的属性。与有监督学习相比，$X$ 的维度有时要高得多，且感兴趣的属性往往比简单的位置估计更为复杂。</p>
+<p>低维问题（例如 $p \le 3$）中，存在多种有效的非参数方法可用于直接估计所有 $X$ 值处的密度 $Pr(X)$ 本身并进行图形化表示。由于维数灾难，这些方法在高维空间中会失效。因此，必须退而求其次，去估计较为粗略的全局模型（如高斯混合模型），或使用各种简单的描述性统计量来表征 $Pr(X)$。</p>
+<p>针对高维数据，主要有以下几种方法：</p>
+<ul>
+<li>流形学习与潜变量：主成分 (Principal Components，PCA)、多维缩放 (Multidimensional Scaling，MDS)、自组织映射 (Self-Organizing Maps，SOM) 和主曲线 (Principal Curves) 等方法，试图识别 $X$ 空间中代表高数据密度的低维流形。</li>
+<li>关联规则</li>
+<li>聚类分析</li>
+</ul>
+<p>这份笔记会简单设计关联规则和聚类分析，主要关注流形学习</p>
+<h2 id="关联规则"><a href="#关联规则" class="headerlink" title="关联规则"></a>关联规则</h2><h3 id="关联规则-1"><a href="#关联规则-1" class="headerlink" title="关联规则"></a>关联规则</h3><p>关联规则寻找变量 $X = (X_1, X_2, …, X_p)$ 中在数据库内最频繁共同出现的联合值。</p>
+<p>从广义上讲，关联规则的基本目标是为特征向量 $X$ 寻找一组原型 $X$ 值 $v_1, …, v_L$，使得在这些值处评估的概率密度 $Pr(v_l)$ 相对较大。</p>
+<h3 id="购物车模型"><a href="#购物车模型" class="headerlink" title="购物车模型"></a>购物车模型</h3><p>考虑购物车模型，假设 $X$ 是一个描述购物车的向量。如果有 10,000 种商品，这个空间就是 10,000 维的。每一个具体的“购物篮”（也就是每一个顾客的购买记录）就是这个空间里的一个点。$Pr(v_l)$代表了某个特定的点（即某种特定的商品组合）出现的频繁程度。如大多数商品组合是根本没人买的（比如“泻药 + 生日蛋糕 + 汽车轮胎”），这些地方的密度接近 0。而某些特定的组合（比如“牛奶 + 面包”）会有很多人购买，这些点在空间中会形成“高密度区域”。</p>
+<h4 id="项集"><a href="#项集" class="headerlink" title="项集"></a>项集</h4><p>合取规则将目标简化为，寻找变量值的子集 $s_1, …, s_p$，使得每个变量同时取值于其各自子集内的概率相对较大：</p>
+<script type="math/tex; mode=display">Pr \left[ \bigcap_{j=1}^p (X_j \in s_j) \right]</script><p>对于购物车这种零一问题，子集 $s<em>j$ 要么是 $X_j$ 的单个值 $v</em>{0j}$，要么是 $X_j$ 的所有可能值 $S_j$（即该变量不参与规则）。问题转化为寻找一个整数子集 $\mathcal{K} \subset {1, …, K}$，使得以下概率较大：</p>
+<script type="math/tex; mode=display">Pr \left( \prod_{k \in \mathcal{K}} Z_k = 1 \right)</script><p>对于非零一问题，可以用中位数为界切分并编码为哑变量，也可以将有 $k$ 个类别的分类变量，编码为 $k$ 个哑变量。</p>
+<p>集合 $\mathcal{K}$ 被称为“项集”，其包含的变量数称为项集的“大小”。（相当于忽略项集外的元素）</p>
+<p>项集 $\mathcal{K}$ 的<strong>支持度</strong> $T(\mathcal{K})$ 估计为数据库中满足该合取的观测值比例</p>
+<script type="math/tex; mode=display">T(\mathcal{K}) = \frac{1}{N} \sum_{i=1}^N \prod_{k \in \mathcal{K}} z_{ik}</script><p>若观测值 $i$ 满足 $\prod<em>{k \in \mathcal{K}} z</em>{ik} = 1$，则称该观测“包含”项集 $\mathcal{K}$。可设定一个下限支持度 $t$，寻找所有支持度大于该下限的项集 ${\mathcal{K}_l | T(\mathcal{K}_l) &gt; t}$。</p>
+<p>考虑任何项集 $\mathcal{K}$ 的子集 $L$ ($L \subseteq \mathcal{K}$) 的支持度必然大于或等于 $\mathcal{K}$ 的支持度 ($T(L) \ge T(\mathcal{K})$)，可以使用Apriori算法高效求解：</p>
+<ol>
+<li>计算所有单项集 (Single-item sets) 的支持度，丢弃低于阈值 $t$ 的项</li>
+<li>利用第一遍留下的单项，生成所有可能的双项集 (Size-two item sets) 候选，计算支持度并过滤。</li>
+<li>迭代：为了生成大小为 $m$ 的频繁项集，仅考虑那些所有 $m-1$ 大小的祖先项集都是频繁项集的候选者。</li>
+<li>直到上一轮没有候选规则满足阈值。</li>
+</ol>
+<h4 id="关联规则-2"><a href="#关联规则-2" class="headerlink" title="关联规则"></a>关联规则</h4><p>Apriori 算法返回的高支持度项集 $\mathcal{K}$ 将被转化为关联规则：将 $\mathcal{K}$ 划分为两个不相交的子集 $A$ 和 $B$ ($A \cup B = \mathcal{K}$)，写作 $A \Rightarrow B$。其中 $A$ 为前件 (Antecedent)，$B$ 为后件 (Consequent)。</p>
+<p>定义</p>
+<ul>
+<li>置信度：$C(A \Rightarrow B) = \frac{T(A \Rightarrow B)}{T(A)}$<ul>
+<li>这可以看作是条件概率 $Pr(B|A)$ 的估计。即在包含 $A$ 的交易中，同时也包含 $B$ 的比例。</li>
+</ul>
+</li>
+<li>提升度：$L(A \Rightarrow B) = \frac{C(A \Rightarrow B)}{T(B)}$<ul>
+<li>这是对关联度量 $\frac{Pr(A \text{ and } B)}{Pr(A)Pr(B)}$ 的估计。它衡量了 $A$ 的出现将 $B$ 的概率提升了多少（相对于 $B$ 的无条件概率）。</li>
+</ul>
+</li>
+</ul>
+<p>最终输出是满足支持度阈值 $t$ 和置信度阈值 $c$ 的所有规则的集合。</p>
+<h3 id="将无监督学习转化为有监督学习"><a href="#将无监督学习转化为有监督学习" class="headerlink" title="将无监督学习转化为有监督学习"></a>将无监督学习转化为有监督学习</h3><p>通过引入一个已知的参考分布 (Reference Density) $g_0(x)$，将估计未知数据密度 $g(x)$ 的问题转化为区分真实数据与参考数据的分类问题。</p>
+<p>取 $N$ 个真实样本 $x_i \sim g(x)$，标记为 $Y=1$。利用蒙特卡洛方法生成 $N_0$ 个参考样本 $\sim g_0(x)$，标记为 $Y=0$。在混合数据集上训练一个分类器（如逻辑回归），估计条件概率 $\mu(x) = E(Y|x) = Pr(Y=1|x)$。</p>
+<p>由此可以反推密度，根据贝叶斯公式，未知密度 $g(x)$ 可由下式估计：</p>
+<script type="math/tex; mode=display">\hat{g}(x) = g_0(x) \frac{\hat{\mu}(x)}{1 - \hat{\mu}(x)}</script><p>可以使用不同的参考分布选择策略决定分析关注的类型：</p>
+<ul>
+<li>均匀分布：用于发现数据中的高密度区域（聚类或模式）</li>
+<li>高斯分布：用于检测数据偏离正态分布的程度</li>
+<li>边缘密度乘积：<ul>
+<li>$g<em>0(x) = \prod</em>{j=1}^p g_j(x_j)$，用于检测变量间的独立性偏离，此类样本可通过在各变量内部独立置换数据顺序来生成。</li>
+</ul>
+</li>
+</ul>
+<h3 id="广义关联规则"><a href="#广义关联规则" class="headerlink" title="广义关联规则"></a>广义关联规则</h3><p>目标是寻找变量子集 $J$ 和对应的取值区间 $s<em>j$，使得广义项集 ${(X_j \in s_j)}</em>{j \in J}$ 的联合概率（支持度）显著较大：</p>
+<script type="math/tex; mode=display">Pr \left( \bigcap_{j \in J} (X_j \in s_j) \right) \text{ is large}</script><p>与传统购物篮分析不同，这里的 $s_j$ 可以是连续变量的区间或分类变量的集合。</p>
+<p>传统关联规则（基于均匀分布参考）倾向于发现那些由本身频率就很高的单项组成的规则。如“面包”和“牛奶”本身很畅销，它们的组合支持度自然很高；伏特加 $\Rightarrow$ 鱼子酱，虽然二者关联性极强（提升度高），但因为鱼子酱本身极其稀有，导致该规则的联合支持度很低，容易被基于支持度阈值的算法（如 Apriori）过滤掉。</p>
+<p>使用边缘密度乘积作为参考分布 $g_0(x)$，任何被检测出的高密度区域（$g(x) \gg g_0(x)$）都纯粹反映了变量间的关联性，而非变量自身的流行度。这使得像“伏特加 $\Rightarrow$ 鱼子酱”这样的强关联但低频的规则有机会浮出水面。</p>
+<ul>
+<li>选择参考分布（如边缘密度乘积）并生成参考样本。</li>
+<li>构建有监督学习问题（真实数据 vs. 参考数据）。</li>
+<li>寻找目标函数 $\mu(x)$ 相对较大的区域 $R$<ul>
+<li><script type="math/tex; mode=display">R = \bigcap_{j \in J} (X_j \in s_j)</script></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Algorithm GENERALIZED-ASSOCIATION-RULES-MINING</span><br><span class="line">输入：</span><br><span class="line">    D: 原始数据集，包含 N 个观测值，p 个变量 X_1, ..., X_p</span><br><span class="line">    M: 有监督学习算法（如 CART 决策树或 PRIM）</span><br><span class="line">    t_supp: 支持度阈值</span><br><span class="line">    t_conf: 置信度（或目标密度）阈值</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">    R: 满足条件的高密度区域（规则）集合</span><br><span class="line"></span><br><span class="line">1. // 构建参考分布数据（假设变量间独立）</span><br><span class="line">2. D_ref ← ∅</span><br><span class="line">3. for j ← 1 to p do</span><br><span class="line">4.    col_j ← D 中变量 X_j 的所有值</span><br><span class="line">5.    permuted_col_j ← RandomPermutation(col_j)</span><br><span class="line">6.    将 permuted_col_j 添加为 D_ref 的第 j 列</span><br><span class="line">7. end for</span><br><span class="line">8. // 构建有监督学习训练集</span><br><span class="line">9.  D_train ← D ∪ D_ref</span><br><span class="line">10. Y ← 长度为 2N 的标签向量</span><br><span class="line">11. for i ← 1 to 2N do</span><br><span class="line">12.    if 样本 i 来自 D then Y[i] ← 1</span><br><span class="line">13.    else Y[i] ← 0</span><br><span class="line">14. end for</span><br><span class="line">15. // 训练模型区分真实数据与参考数据</span><br><span class="line">16. Model ← M.Train(D_train, Y)</span><br><span class="line">17. // 提取高密度区域（以决策树终端节点为例）</span><br><span class="line">18. R ← ∅</span><br><span class="line">19. for each TerminalNode n in Model do</span><br><span class="line">20.    // 计算该区域内的平均目标值（即真实数据的比例）</span><br><span class="line">21.    prob_real ← Count(Y=1 in n) / Count(total in n)</span><br><span class="line">22.    // 计算原始支持度</span><br><span class="line">23.    support ← Count(Y=1 in n) / N</span><br><span class="line">24.    </span><br><span class="line">25.    if prob_real &gt; t_conf AND support &gt; t_supp then</span><br><span class="line">26.       Rule_n ← ExtractConditions(n) // 提取到达该节点的路径条件</span><br><span class="line">27.       R ← R ∪ &#123;Rule_n&#125;</span><br><span class="line">28.    end if</span><br><span class="line">29. end for</span><br><span class="line">30. output R</span><br></pre></td></tr></table></figure>
+<h2 id="聚类分析"><a href="#聚类分析" class="headerlink" title="聚类分析"></a>聚类分析</h2><p>聚类分析，亦称数据分割 (Data Segmentation)，其核心目标是将一组对象分组或分割成若干子集或“簇 (Clusters)”，使得同一簇内的对象彼此之间的关联度高于不同簇的对象。</p>
+<p>K-均值算法是一种自顶向下的程序，通过以下步骤迭代直至收敛：</p>
+<ul>
+<li>猜测簇中心的初始位置。</li>
+<li>将每个数据点分配给最近的簇中心（欧几里得距离）。</li>
+<li>将每个簇中心替换为该簇内所有数据点的坐标均值</li>
+</ul>
+<h3 id="邻近度和相异度"><a href="#邻近度和相异度" class="headerlink" title="邻近度和相异度"></a>邻近度和相异度</h3><p>数据可以直接以对象对之间的邻近度（相似性或亲和力）的形式呈现，这些数据可以是相似度，也可以是相异度（差异或缺乏亲和力）。此类数据由一个 $N \times N$ 矩阵 $D$ 表示，其中 $N$ 是对象数量，元素 $d_{ii’}$ 记录了第 $i$ 个和第 $i’$ 个对象之间的邻近度。</p>
+<p>使用p个属性值的临近度矩阵即可表现观测值之间的“距离”：</p>
+<script type="math/tex; mode=display">D(x_i, x_{i'}) = \sum_{j=1}^p d_j(x_{ij}, x_{i'j})</script><p>最常见的选择是平方距离 (Squared Distance)：$d<em>j(x</em>{ij}, x<em>{i’j}) = (x</em>{ij} - x_{i’j})^2$。</p>
+<p>聚类也可以基于相关性：</p>
+<script type="math/tex; mode=display">\rho(x_i, x_{i'}) = \frac{\sum_j (x_{ij} - \bar{x}_i)(x_{i'j} - \bar{x}_{i'})}{\sqrt{\sum_j (x_{ij} - \bar{x}_i)^2 \sum_j (x_{i'j} - \bar{x}_{i'})^2}}</script><p>注意这是对变量而非观测值求平均。如果观测值首先被标准化，那么 $\sum<em>j (x</em>{ij} - x<em>{i’j})^2 \propto 2(1 - \rho(x_i, x</em>{i’}))$，基于相关性的聚类等价于基于平方距离的聚类。</p>
+<p>对于叙述变量，可以将原始值替换为以下值来定义：</p>
+<script type="math/tex; mode=display">\frac{i - 1/2}{M}, i=1, \dots, M</script><p>对于分类变量，通常使用零一矩阵。</p>
+<h4 id="加权平均策略"><a href="#加权平均策略" class="headerlink" title="加权平均策略"></a>加权平均策略</h4><p>将 $p$ 个单独属性的相异度合并为单一的总体相异度 $D(x<em>i, x</em>{i’})$ 通常通过加权平均（凸组合）实现：</p>
+<script type="math/tex; mode=display">D(x_i, x_{i'}) = \sum_{j=1}^p w_j \cdot d_j(x_{ij}, x_{i'j}); \quad \sum_{j=1}^p w_j = 1</script><p>权重 $w_j$ 调节第 $j$ 个变量在决定整体相异度时的相对影响力。将每个变量的权重设为相同（如 $w_j=1$）并不意味着所有属性具有相同的影响力。</p>
+<ul>
+<li>第 $j$ 个属性的影响力取决于其在所有数据对上的平均相异度 $\bar{d}_j$。</li>
+<li>第 $j$ 个变量的相对影响力实际上是 $w_j \cdot \bar{d}_j$。</li>
+<li>若要使所有属性具有相同影响力，应设定 $w_j \sim 1/\bar{d}_j$。对于平方欧几里得距离，这意味着权重与变量的方差成反比（即标准化变量）。</li>
+</ul>
+<p>对于定量变量和平方误差距离：</p>
+<script type="math/tex; mode=display">D_I(x_i, x_{i'}) = \sum_{j=1}^p w_j \cdot (x_{ij} - x_{i'j})^2</script><p>此时平均距离：</p>
+<script type="math/tex; mode=display">\bar{d}_j = \frac{1}{N^2} \sum_{i=1}^N \sum_{i'=1}^N (x_{ij} - x_{i'j})^2 = 2 \cdot \text{var}_j</script><p>其中 $\text{var}_j$ 是 $\text{Var}(X_j)$ 的样本估计。因此，每个变量的相对重要性与其方差成正比。</p>
+<h3 id="聚类算法"><a href="#聚类算法" class="headerlink" title="聚类算法"></a>聚类算法</h3><p>聚类算法主要分为三种不同的类型：</p>
+<p>组合算法：直接在观测数据上工作，不直接参考底层的概率模型。</p>
+<p>混合建模：假设数据是来自某个由概率密度函数描述的总体的独立同分布 (i.i.d) 样本。该密度函数被特征化为一个参数化模型，由分量密度函数的混合组成；每个分量密度描述一个簇。该模型随后通过最大似然或相应的贝叶斯方法拟合到数据上。</p>
+<p>寻找模式：采取非参数视角，试图直接估计概率密度函数的不同模式 (modes)。最接近各个模式的观测值随后定义了单独的簇。</p>
+<h4 id="组合算法"><a href="#组合算法" class="headerlink" title="组合算法"></a>组合算法</h4><p>最流行的聚类算法直接将每个观测值分配给一个组或簇，而不考虑描述数据的概率模型。</p>
+<p>每个观测值由整数 $i \in {1, \dots, N}$ 唯一标记。预先设定簇的数量 $K &lt; N$，每个簇由整数 $k \in {1, \dots, K}$ 标记。每个观测值被分配给唯一的一个簇。这些分配可以用一个多对一的映射或编码器 $k = C(i)$ 来表征，它将第 $i$ 个观测值分配给第 $k$ 个簇。</p>
+<p>既然目标是将相近的点分配给同一个簇，一个自然的损失（或“能量”）函数是：</p>
+<script type="math/tex; mode=display">W(C) = \frac{1}{2} \sum_{k=1}^K \sum_{C(i)=k} \sum_{C(i')=k} d(x_i, x_{i'})</script><p>表征了分配给同一簇的观测值彼此接近的程度。</p>
+<p>这种散度可以被理解为簇内散度，考虑总散度：</p>
+<script type="math/tex; mode=display">T = \frac{1}{2} \sum_{i=1}^N \sum_{i'=1}^N d_{ii'} = \frac{1}{2} \sum_{k=1}^K \sum_{C(i)=k} \left( \sum_{C(i')=k} d_{ii'} + \sum_{C(i') \neq k} d_{ii'} \right) = W(C)+B(C)</script><p>以及簇间散度：</p>
+<script type="math/tex; mode=display">B(C) = \frac{1}{2} \sum_{k=1}^K \sum_{C(i)=k} \sum_{C(i') \neq k} d_{ii'}</script><p>剩余的部分，即刚刚的$W(C)$：</p>
+<script type="math/tex; mode=display">W(C) = T - B(C)</script><p>考虑划分方式是一个组合问题，此类可行策略通常需要结合贪婪策略：</p>
+<ul>
+<li><p>指定一个初始划分。</p>
+</li>
+<li><p>在每个迭代步骤中，以某种方式改变簇分配，使得标准的值比前一个值有所改进。</p>
+</li>
+<li><p>此类聚类算法的区别在于它们在每次迭代中修改簇分配的规定。</p>
+</li>
+<li><p>当规定无法提供改进时，算法终止，并将当前分配作为其解。<br>这些算法收敛于局部最优 (local optima)，与全局最优相比，这可能是高度次优的。</p>
+</li>
+</ul>
+<h4 id="K-means算法"><a href="#K-means算法" class="headerlink" title="K-means算法"></a>K-means算法</h4><p>它专门用于所有变量均为定量类型的情况，并选择平方欧几里得距离作为相异度度量：</p>
+<script type="math/tex; mode=display">d(x_i, x_{i'}) = \sum_{j=1}^p (x_{ij} - x_{i'j})^2 = ||x_i - x_{i'}||^2</script><p>簇内散度写作：</p>
+<script type="math/tex; mode=display">W(C) = \frac{1}{2} \sum_{k=1}^K \sum_{C(i)=k} \sum_{C(i')=k} ||x_i - x_{i'}||^2 = \sum_{k=1}^K N_k \sum_{C(i)=k} ||x_i - \bar{x}_k||^2</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Algorithm K-MEANS</span><br><span class="line">输入：观测集 X = &#123;x_1, x_2, ..., x_N&#125;，簇的数量 K，初始簇分配 C</span><br><span class="line">输出：最终簇分配 C，簇中心集合 M = &#123;m_1, m_2, ..., m_K&#125;</span><br><span class="line">1. while 簇分配 C 发生变化</span><br><span class="line">2.    // 步骤 1：固定分配 C，最小化总方差以更新簇中心</span><br><span class="line">3.    for k ← 1 to K</span><br><span class="line">4.       // 找出当前属于第 k 个簇的所有点</span><br><span class="line">5.       X_k ← &#123;x_i | C(i) = k&#125; </span><br><span class="line">6.       // 计算均值作为新的簇中心</span><br><span class="line">7.       m_k ← mean(X_k)</span><br><span class="line">8.    end for</span><br><span class="line">9.    // 步骤 2：固定簇中心 M，最小化总方差以更新分配</span><br><span class="line">10.   for i ← 1 to N</span><br><span class="line">11.      // 将每个观测分配给最近的簇中心</span><br><span class="line">12.      C(i) ← argmin_&#123;1 ≤ k ≤ K&#125; ||x_i - m_k||^2</span><br><span class="line">13.   end for</span><br><span class="line">14. end while</span><br><span class="line">15. output C, M</span><br></pre></td></tr></table></figure>
+<h2 id="流形学习"><a href="#流形学习" class="headerlink" title="流形学习"></a>流形学习</h2><h3 id="主成分"><a href="#主成分" class="headerlink" title="主成分"></a>主成分</h3><p>主成分通常被呈现为近似一组 $N$ 个点 $x_i \in \mathbb{R}^p$ 的线性流形。</p>
+<p>如果 $V$ 是 $\mathbb{R}^p$ 中的一个 $q$ 维线性子空间，那么线性流形 $M$ 可以表示为：</p>
+<script type="math/tex; mode=display">M = x_0 + V = \{ x_0 + v \mid v \in V \}</script><p>线性近似模型为一组 $\mathbb{R}^p$ 中数据的主成分提供了一系列秩 (rank) $q \le p$ 的最佳线性近似。<br>记观测值为 $x_1, x_2, \dots, x_N$，考虑用于表示它们的秩 $q$ 线性模型：</p>
+<script type="math/tex; mode=display">f(\lambda) = \mu + \mathbf{V}_q \lambda</script><p>其中：$\mu$ 是 $\mathbb{R}^p$ 中的位置向量；$\mathbf{V}_q$ 是一个 $p \times q$ 的矩阵，包含 $q$ 个正交单位向量作为列；$\lambda$ 是一个 $q$ 维参数向量。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fesl-1%2Fimage.png" alt=""></p>
+<p>几何上，将原始的 $p$ 维数据点 $x_i$ 投影到 $q$ 维空间，得到坐标 $\lambda_i$；然后使用模型 $f(\lambda_i)$ 将其还原回 $p$ 维空间。$x_i$ 与 $f(\lambda_i)$ 之间的距离，就是所谓的“信息损失”或“重构误差”。</p>
+<p>通过最小二乘法拟合该模型等同于最小化重建误差:</p>
+<script type="math/tex; mode=display">\min_{\mu, \{\lambda_i\}, \mathbf{V}_q} \sum_{i=1}^N ||x_i - \mu - \mathbf{V}_q \lambda_i||^2</script><p>我们可以针对 $\mu$ 和 $\lambda_i$ 进行部分优化以获得：</p>
+<script type="math/tex; mode=display">\hat{\mu} = \bar{x}</script><script type="math/tex; mode=display">\hat{\lambda}_i = \mathbf{V}_q^T (x_i - \bar{x})</script><p>问题转化为寻找正交矩阵：</p>
+<script type="math/tex; mode=display">\min_{\mathbf{V}_q} \sum_{i=1}^N ||(x_i - \bar{x}) - \mathbf{V}_q \mathbf{V}_q^T (x_i - \bar{x})||^2</script><p>其中，$p \times p$ 矩阵 $\mathbf{H}_q = \mathbf{V}_q \mathbf{V}_q^T$ 是一个投影矩阵，它将每个点 $x_i$ 映射到其秩 $q$ 的重建版本 $\mathbf{H}_q x_i$ 上，即 $x_i$ 在由 $\mathbf{V}_q$ 列张成的子空间上的正交投影。</p>
+<p>对于$N\times p$的中心化（假设每一列均值都为0，因此不用考虑流形的中心）数据矩阵，对X进行奇异值分解，得到：</p>
+<script type="math/tex; mode=display">\mathbf{X} = \mathbf{U} \mathbf{D} \mathbf{V}^T</script><p>其中，$\mathbf{U}$ 是 $N \times p$ 的正交矩阵 ($\mathbf{U}^T \mathbf{U} = \mathbf{I}_p$)，其列 $\mathbf{u}_j$ 称为左奇异向量 (left singular vectors)；$\mathbf{V}$ 是 $p \times p$ 的正交矩阵 ($\mathbf{V}^T \mathbf{V} = \mathbf{I}_p$)，其列 $v_j$ 称为右奇异向量 (right singular vectors)；$\mathbf{D}$ 是 $p \times p$ 的对角矩阵，对角元素 $d_1 \ge d_2 \ge \dots \ge d_p \ge 0$ 称为奇异值 (singular values)。</p>
+<blockquote>
+<p>例如，</p>
+<script type="math/tex; mode=display">\mathbf{X} = \begin{pmatrix} 
+2 & 2 & 0.1 \\ 
+-2 & -2 & -0.1 \\ 
+1 & 1 & 0 \\ 
+-1 & -1 & 0 
+\end{pmatrix}_{(4 \times 3)}</script><p>分解后得到：</p>
+<script type="math/tex; mode=display">\mathbf{D} = \begin{pmatrix} 
+4.472 & 0 & 0 \\ 
+0 & 0.141 & 0 \\ 
+0 & 0 & 0 
+\end{pmatrix}</script><p>$d_1 = 4.472$：这是主信号的强度。它非常大，说明数据主要沿着第一个方向延伸。</p>
+<script type="math/tex; mode=display">\mathbf{V}^T = \begin{pmatrix} 
+0.707 & 0.707 & 0.022 \\ 
+-0.016 & -0.016 & 0.999 \\ 
+-0.707 & 0.707 & 0 
+\end{pmatrix}</script><p>$ [0.707, 0.707, 0]$是主信号的方向，$ [0, 0, 1]$是z轴方向的扰动的方向</p>
+<script type="math/tex; mode=display">\mathbf{U} = \begin{pmatrix} 
+-0.633 & 0.707 & 0 & \dots \\ 
+0.633 & 0.707 & 0 & \dots \\ 
+-0.316 & 0 & 0 & \dots \\ 
+0.316 & 0 & 0 & \dots 
+\end{pmatrix}_{(4 \times 4)}</script><p>第一列 $u<em>{\cdot 1}$描述了 4 个样本在第一主成分的分布模式。<br>样本 1 ($x_1=[2,2,0.1]$)：对应 $u</em>{1,1} = -0.633$。绝对值最大，说明它离中心最远。样本 2 ($x<em>2=[-2,-2,-0.1]$)：对应 $u</em>{2,1} = 0.633$。与样本 1 对称，方向相反。样本 3 ($x<em>3=[1,1,0]$)：对应 $u</em>{3,1} = -0.316$。大小约为样本 1 的一半。样本 4 ($x<em>4=[-1,-1,0]$)：对应 $u</em>{4,1} = 0.316$。与样本 3 对称。<br>注意，因为p = 3，我们只关注前3行。<br>前述的参数$\lambda$即为$\mathbf{U} \cdot \mathbf{D}$ 的前 $q$ 列。<br>如果我们取 $q=1$</p>
+<script type="math/tex; mode=display">\lambda= \mathbf{u}_1 \cdot d_1 = \begin{pmatrix} -0.633 \\ 0.633 \\ -0.316 \\ 0.316 \end{pmatrix} \times 4.472 \approx \begin{pmatrix} -2.83 \\ 2.83 \\ -1.41 \\ 1.41 \end{pmatrix}</script></blockquote>
+<h3 id="主曲线和主曲面"><a href="#主曲线和主曲面" class="headerlink" title="主曲线和主曲面"></a>主曲线和主曲面</h3><p>主曲线是对主成分直线的推广，它为 $\mathbb{R}^p$ 中的数据集提供了一条平滑的一维曲线近似。主曲面则更为一般，提供维度为 2 或更高的弯曲流形近似。</p>
+<p>设 $f(\lambda)$ 是 $\mathbb{R}^p$ 中的一条参数化平滑曲线，$\lambda$ 为参数（例如弧长）。对于每个数据值 $x$，设 $\lambda_f(x)$ 定义了曲线上距离 $x$ 最近的点。<br>如果满足以下条件，则称 $f(\lambda)$ 为随机向量 $X$ 分布的主曲线：</p>
+<script type="math/tex; mode=display">f(\lambda) = E(X | \lambda_f(X) = \lambda)</script><p>即 $f(\lambda)$ 是所有投影到该点的数据点的平均值。</p>
+<h4 id="主点以引入主曲线"><a href="#主点以引入主曲线" class="headerlink" title="主点以引入主曲线"></a>主点以引入主曲线</h4><p>考虑分布支撑集上的 $k$ 个原型。对于每个点 $x$，识别最近的原型。这将特征空间划分为了 Voronoi 区域。</p>
+<blockquote>
+<p>Voronoi 区域 $R_k$ 定义为特征空间中所有满足以下条件的点 $x$ 的集合：点 $x$ 到 $\mu_k$ 的距离比到其他任何 $\mu_j$ ($j \neq k$) 的距离都要近（或相等）。</p>
+</blockquote>
+<p>最小化 $X$ 到其原型的期望距离的 $k$ 个点被称为分布的主点。每个主点都是自相容的，即它等于其 Voronoi 区域内 $X$ 的均值（类似于 K-均值聚类发现的质心）。</p>
+<p>主曲线可以被视为 $k = \infty$ 的主点，但被约束为位于一条平滑曲线上。这类似于 SOM 将 K-均值聚类中心约束在一个平滑流形上。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Principal Curve Algorithm</span><br><span class="line"></span><br><span class="line">1. 初始化：</span><br><span class="line">   使用线性主成分作为初始曲线。</span><br><span class="line"></span><br><span class="line">2. 迭代：</span><br><span class="line">   重复以下步骤 (a) 和 (b) 直到收敛：</span><br><span class="line"></span><br><span class="line">   (a) 估计坐标函数（平滑步）：</span><br><span class="line">       对于 j = 1, ..., p：</span><br><span class="line">       使用散点图平滑器 (scatterplot smoother) 估计条件期望。</span><br><span class="line">       hat&#123;f&#125;_j(lambda) ← Smoother(X_j | lambda(X) = lambda)</span><br><span class="line">       这一步固定了 lambda 并强制执行自相容性要求。</span><br><span class="line"></span><br><span class="line">   (b) 投影数据（投影步）：</span><br><span class="line">       对于每个数据点 x_i：</span><br><span class="line">       在曲线上找到最近的点，更新参数 lambda。</span><br><span class="line">       hat&#123;lambda&#125;_f(x) ← argmin_&#123;lambda&#x27;&#125; ||x - hat&#123;f&#125;(lambda&#x27;)||^2</span><br><span class="line">       这一步固定了曲线并为每个数据点寻找最近点。</span><br></pre></td></tr></table></figure>
+<h4 id="主曲面"><a href="#主曲面" class="headerlink" title="主曲面"></a>主曲面</h4><p>主曲面与主曲线形式完全相同，只是维度更高。最常用的是具有坐标函数 $f(\lambda_1, \lambda_2)$ 的二维主曲面。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fesl-1%2Fimage-1.png" alt=""></p>
+<h4 id="谱聚类"><a href="#谱聚类" class="headerlink" title="谱聚类"></a>谱聚类</h4><p>谱聚类的起点是所有观测对之间的 $N \times N$ 成对相似度矩阵 $s<em>{ii’} \ge 0$。<br>我们将观测值表示为无向相似度图 (similarity graph) $G = \langle V, E \rangle$ 的顶点 $v_i$。如果两个顶点的相似度为正（或超过某个阈值），则用边连接它们，边的权重由 $s</em>{ii’}$ 给出。<br>聚类问题现在被重新表述为图划分 (graph-partition) 问题：我们希望划分图，使得不同组之间的边权重较低，而组内的边权重较高。</p>
+<p>由相似度图的边权重组成的矩阵 $\mathbf{W} = {w<em>{ii’}}$；另顶点 $i$ 的度定义为 $g_i = \sum</em>{i’} w_{ii’}$，即连接到它的边的权重之和。其中$\mathbf{G}$ 是对角元素为 $g_i$ 的对角矩阵。</p>
+<p>图拉普拉斯矩阵 (Graph Laplacian)定义为<script type="math/tex">\mathbf{L} = \mathbf{G} - \mathbf{W}</script>。</p>
+<p>谱聚类寻找对应于 $\mathbf{L}$ 的 $m$ 个最小特征值的 $m$ 个特征向量 $\mathbf{Z}_{N \times m}$，使用标准方法（如 K-均值）对 $\mathbf{Z}$ 的行进行聚类，从而得到原始数据点的聚类结果。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fesl-1%2Fimage-2.png" alt=""></p>
+<p>相当于，先投影再聚类。</p>
+<h3 id="核主成分分析-Kernel-Principal-Components"><a href="#核主成分分析-Kernel-Principal-Components" class="headerlink" title="核主成分分析 Kernel Principal Components"></a>核主成分分析 Kernel Principal Components</h3><p>数据矩阵 $\mathbf{X}$ 的主成分变量 $\mathbf{Z}$ 可以直接从内积 (Gram) 矩阵 $\mathbf{K} = \mathbf{X}\mathbf{X}^T$ 计算得出。</p>
+<script type="math/tex; mode=display">\tilde{\mathbf{K}} = (\mathbf{I} - \mathbf{M})\mathbf{K}(\mathbf{I} - \mathbf{M}) = \mathbf{U}\mathbf{D}^2\mathbf{U}^T</script><p>其中 $\mathbf{M} = \mathbf{1}\mathbf{1}^T/N$，相当于减去行列的均值。</p>
+<p>主成分为 $\mathbf{Z} = \mathbf{U}\mathbf{D}$。</p>
+<p>PCA 简单地模仿了上述过程，但将核矩阵 $\mathbf{K} = {K(x<em>i, x</em>{i’})}$ 解释为隐式特征 $\langle \phi(x<em>i), \phi(x</em>{i’}) \rangle$ 的内积矩阵，并寻找其特征向量。</p>
+<p>第 $m$ 个主成分 $\mathbf{z}_m$（$\mathbf{Z}$ 的第 $m$ 列）的元素可以写为（忽略中心化）：</p>
+<script type="math/tex; mode=display">z_{im} = \sum_{j=1}^N \alpha_{jm} K(x_i, x_j)</script><p>$\alpha<em>{jm} = u</em>{jm}/d_m$</p>
+<hr>
+<p>具体来说，以高斯径向基核为例，假设我们有两个标量数据点 $x, y \in \mathbb{R}$，，核函数定义为：</p>
+<script type="math/tex; mode=display">K(x, y) = \exp(-\gamma (x - y)^2)</script><p>将其展开：</p>
+<script type="math/tex; mode=display">K(x, y) = \exp(-\gamma (x^2 + y^2 - 2xy)) = \exp(-\gamma x^2) \exp(-\gamma y^2) \exp(2\gamma xy)</script><p>其中最后一项可以展开为无穷级数:</p>
+<script type="math/tex; mode=display">\exp(2\gamma xy) = \sum_{n=0}^{\infty} \frac{(2\gamma xy)^n}{n!} = \sum_{n=0}^{\infty} \left( \sqrt{\frac{(2\gamma)^n}{n!}} x^n \right) \left( \sqrt{\frac{(2\gamma)^n}{n!}} y^n \right)</script><p>现在，和函数可以协作两个向量的内积$\phi(x)^T \phi(y)$：</p>
+<script type="math/tex; mode=display">K(x, y) = \sum_{n=0}^{\infty} \underbrace{\left( e^{-\gamma x^2} \sqrt{\frac{(2\gamma)^n}{n!}} x^n \right)}_{\phi(x)_n} \underbrace{\left( e^{-\gamma y^2} \sqrt{\frac{(2\gamma)^n}{n!}} y^n \right)}_{\phi(y)_n}</script><p>为了让等式成立，映射函数 $\phi(x)$ 必须包含 $x^0, x^1, x^2, x^3, \dots, x^\infty$ 所有阶项。<br>这意味着映射后的向量 $\phi(x)$ 长这个样子：</p>
+<script type="math/tex; mode=display">\phi(x) = \left[ \dots, x, x^2, x^3, \dots, x^n, \dots \right]^T</script><p>有无数个分量。因此，特征空间是无限维的。它包含了 $x$ 的所有次幂（$x^1, x^2, \dots, x^\infty$），这意味着它实际上通过所有可能的多项式组合来拟合数据。</p>
+<hr>
+<p>因为 $\mathcal{F}$ 可能是无限维的，我们通常无法直接写出 $\mathbf{w}$ 的坐标。</p>
+<p>想象 $\mathbf{w}$ 是高维空间里的一个“标尺”，$\langle \mathbf{w}, \phi(x) \rangle$ 就是计算向量 $\phi(x)$在这个标尺上的投影长度，即数据点$x$的主成分得分。内积的结果是一个标量。</p>
+<p>在高维特征空间 $\mathcal{F}$ 中找到一个主成分方向向量 $\mathbf{w}$，这个 $\mathbf{w}$ 一定位于所有训练数据 $\phi(x_1), \dots, \phi(x_N)$ 张成的子空间里：</p>
+<script type="math/tex; mode=display">\mathbf{w} = \sum_{i=1}^{N} \alpha_i \phi(x_i)</script><p>尽管$\phi(x)$是无穷维度的，但因为训练数据有限，$\alpha_i$是有限的，目标转化为找到最优的$\alpha$。</p>
+<hr>
+<p>根据投影的定义，第 $i$ 个数据点 $x_i$ 的坐标 $z_i$ 是它与主成分方向 $\mathbf{w}$ 的内积：</p>
+<script type="math/tex; mode=display">z_i = \langle \mathbf{w}, \phi(x_i) \rangle</script><p>即</p>
+<script type="math/tex; mode=display">z_i = \left\langle \sum_{j=1}^{N} \alpha_j \phi(x_j), \quad \phi(x_i) \right\rangle  = \sum_{j=1}^{N} \alpha_j \underbrace{\langle \phi(x_j), \phi(x_i) \rangle}_{K_{ji}}</script><p>故有：</p>
+<script type="math/tex; mode=display">z_i = \sum_{j=1}^{N} K_{ji} \alpha_j</script><p>即开始处写下的公式，记作$z = K\alpha$。</p>
+<p>只要知道了系数 $\boldsymbol{\alpha}$，左乘一个核矩阵 $\mathbf{K}$，就能得到坐标 $\mathbf{z}$。</p>
+<hr>
+<p>在过程中，我们找到一种$\boldsymbol{\alpha}$，使得投影后的方差最大。</p>
+<script type="math/tex; mode=display">\text{Var} = \|\mathbf{z}\|^2 = \mathbf{z}^T \mathbf{z} = (\mathbf{K} \boldsymbol{\alpha})^T (\mathbf{K} \boldsymbol{\alpha}) = \boldsymbol{\alpha}^T \mathbf{K}^T \mathbf{K} \boldsymbol{\alpha}</script><p>因为 $\mathbf{K}$ 是对称的 ($\mathbf{K}^T = \mathbf{K}$)，所以：</p>
+<script type="math/tex; mode=display">\text{Objective} = \boldsymbol{\alpha}^T \mathbf{K}^2 \boldsymbol{\alpha}</script><p>我们限制 $\mathbf{w}$ 为单位向量 ($|\mathbf{w}|^2 = 1$)，这等价于：</p>
+<script type="math/tex; mode=display">\text{Constraint}: \boldsymbol{\alpha}^T \mathbf{K} \boldsymbol{\alpha} = 1</script><p>问题转化为一个带约束的优化问题：</p>
+<ul>
+<li>目标：最大化 $\boldsymbol{\alpha}^T \mathbf{K}^2 \boldsymbol{\alpha}$</li>
+<li>约束：$\boldsymbol{\alpha}^T \mathbf{K} \boldsymbol{\alpha} = 1$</li>
+</ul>
+<p>构造拉格朗日函数 $L$。引入一个乘子 $\lambda$：</p>
+<script type="math/tex; mode=display">L(\boldsymbol{\alpha}, \lambda) = \underbrace{\boldsymbol{\alpha}^T \mathbf{K}^2 \boldsymbol{\alpha}}_{\text{目标}} - \lambda (\underbrace{\boldsymbol{\alpha}^T \mathbf{K} \boldsymbol{\alpha} - 1}_{\text{约束}})</script><p>为了找到极值点，对 $\boldsymbol{\alpha}$ 求导，并令导数为 0。</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial \boldsymbol{\alpha}} = 2 \mathbf{K}^2 \boldsymbol{\alpha} - 2 \lambda \mathbf{K} \boldsymbol{\alpha}</script><p>令导数为 0：</p>
+<script type="math/tex; mode=display">2 \mathbf{K}^2 \boldsymbol{\alpha} - 2 \lambda \mathbf{K} \boldsymbol{\alpha} = 0</script><p>得到：</p>
+<script type="math/tex; mode=display">\mathbf{K}^2 \boldsymbol{\alpha} = \lambda \mathbf{K} \boldsymbol{\alpha}</script><p>这就意味着向量 $\mathbf{K} \boldsymbol{\alpha}$ 必须是矩阵 $\mathbf{K}$ 的特征向量。或者更直接地，如果矩阵 $\mathbf{K}$ 是可逆的，可以两边同时“去掉”一个 $\mathbf{K}$（左乘 $\mathbf{K}^{-1}$）：</p>
+<script type="math/tex; mode=display">\mathbf{K} \boldsymbol{\alpha} = \lambda \boldsymbol{\alpha}</script><p>即， $\boldsymbol{\alpha}$ 的方向就是核矩阵 $\mathbf{K}$ 的特征向量方向。</p>
+<hr>
+<p>虽然 $\boldsymbol{\alpha}$ 和 $\mathbf{u}$ 方向一致，但它们的长度不同。设 $\boldsymbol{\alpha} = c \mathbf{u}$，需要满足 $|\mathbf{w}| = 1$：</p>
+<script type="math/tex; mode=display">\|\mathbf{w}\|^2 = \langle \mathbf{w}, \mathbf{w} \rangle = \boldsymbol{\alpha}^T \mathbf{K} \boldsymbol{\alpha} = 1</script><script type="math/tex; mode=display">(c \mathbf{u})^T \mathbf{K} (c \mathbf{u}) = c^2 \mathbf{u}^T (\mathbf{K} \mathbf{u}) = 1</script><script type="math/tex; mode=display">c^2 \mathbf{u}^T (\lambda \mathbf{u}) = c^2 \lambda \underbrace{(\mathbf{u}^T \mathbf{u})}_{=1} = 1</script><p>解得缩放系数 $c = \frac{1}{\sqrt{\lambda}}$。</p>
+<hr>
+<p>代入：</p>
+<script type="math/tex; mode=display">\mathbf{z} = \mathbf{K} \left( \frac{\mathbf{u}}{\sqrt{\lambda}} \right)</script><p>由$\mathbf{K} \mathbf{u} = \lambda \mathbf{u}$：</p>
+<script type="math/tex; mode=display">\mathbf{z} = \frac{\lambda}{\sqrt{\lambda}} \mathbf{u} = \sqrt{\lambda} \mathbf{u}</script><p>$\mathbf{u}$ 是 $\mathbf{K}$ 的第 $k$ 个特征向量（SVD 中的 $\mathbf{U}$ 的列）。$\sqrt{\lambda}$ 是特征值的平方根（SVD 中的奇异值 $d$）。</p>
+<p>如果把前 $m$ 个主成分并排放在一起：</p>
+<p>左边变成坐标矩阵 $\mathbf{Z}$；右边变成特征向量矩阵 $\mathbf{U}$ 乘以 奇异值对角矩阵 $\mathbf{D}$（对角线上是 $\sqrt{\lambda_1}, \sqrt{\lambda_2}, \dots$）；得到：</p>
+<script type="math/tex; mode=display">\mathbf{Z} = \mathbf{U} \mathbf{D}</script><p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fesl-1%2Fimage-3.png" alt=""></p>
+<h3 id="独立成分分析-ICA"><a href="#独立成分分析-ICA" class="headerlink" title="独立成分分析 ICA"></a>独立成分分析 ICA</h3><p>独立成分分析 (ICA) 模型的形式为 $X = \mathbf{A}S$，假设潜在变量 $S_\ell$ 是统计独立。</p>
+<p>其中S是源信号、A是混合过程，X是观测道德数据。</p>
+<p>ICA 的目标是找到一个解混矩阵$\mathbf{W}$，使得$S \approx Y = \mathbf{W}X$。</p>
+<p>假设X已经白化、即$Cov(X) = I$，由于S的协方差也是单位矩阵，A一定是正交的。因此，求解ICA问题就变成了寻找正交矩阵A，使得向量随机变量$S = \mathbf{A}^T X$ 的分量是独立（且非高斯）的。</p>
+<p>简单来说，许多独立的非高斯随机变量混合后的结果会越来越接近高斯分布，即中心极限定理。如此，解混就应该让数据变得更“不像”高斯分布。因此ICA也无法处理高斯信号。</p>
+<p>引入熵的定义$H(Y) = - \int g(y) \log g(y) dy$，根据信息论，在所有具有相等方差的随机变量中，高斯变量具有最大的熵。</p>
+<p>引入互信息定义：</p>
+<script type="math/tex; mode=display">I(Y) = \sum_{j=1}^p H(Y_j) - H(Y)</script><p>即：随机向量 $Y$ 的分量之间的依赖性的自然度量，也被称为密度 $g(y)$ 与其独立版本 $\prod g_j(y_j)$ 之间的 Kullback-Leibler 距离。</p>
+<p>由此，ICA的目标进一步被表述为最小化 $I(Y) = I(\mathbf{A}^T X)$ 。这等价于最小化各分量熵的和 $\sum H(Y_j)$，也就是最大化各分量偏离高斯分布的程度。</p>
+<p>也可以使用负熵来度量非高斯性：</p>
+<script type="math/tex; mode=display">J(Y_j) = H(Z_j) - H(Y_j)</script><p>其中 $Z_j$ 是与 $Y_j$ 同方差的高斯变量。负熵非负，主要衡量 $Y_j$ 偏离高斯性的距离。</p>
+<h3 id="多维缩放-MDS"><a href="#多维缩放-MDS" class="headerlink" title="多维缩放 MDS"></a>多维缩放 MDS</h3><p>MDS 是一组核心的降维和可视化技术，与 ISOMAP 或 LLE 不同，MDS 的出发点不是保持某种局部邻域结构，而是在低维空间中尽可能保留样本之间的成对距离（或相似性）。</p>
+<p>MDS 的核心目标是将高维数据（或样本间的距离矩阵）映射到低维空间（通常 $d=2$ 或 $3$），使得低维空间中两点间的欧几里得距离 $||z<em>i - z_j||$ 尽可能接近原始空间中的距离 $d</em>{ij}$。</p>
+<h4 id="经典多维缩放-Classical-MDS-PCoA"><a href="#经典多维缩放-Classical-MDS-PCoA" class="headerlink" title="经典多维缩放 (Classical MDS / PCoA)"></a>经典多维缩放 (Classical MDS / PCoA)</h4><p>通常称为主坐标分析 (Principal Coordinate Analysis, PCoA)。当使用欧几里得距离时，它等价于 PCA。</p>
+<p>通过最小化“应变 (Strain)”损失函数来寻找低维坐标。它假设原始距离矩阵是欧几里得距离，并利用特征值分解得到闭式解 (Closed-form solution)。</p>
+<p>具体通过，</p>
+<ul>
+<li>计算 $N$ 个样本两两之间的距离矩阵 $\mathbf{D} \in \mathbb{R}^{N \times N}$，其中 $d_{ij}$ 是第 $i$ 和第 $j$ 个样本的距离。</li>
+<li>构建双中心矩阵 (Double Centering)：<br>首先计算距离的平方矩阵 $\mathbf{D}^{(2)}$（即每个元素是 $d_{ij}^2$）。然后应用双中心化操作得到 Gram 矩阵 $\mathbf{B}$：<script type="math/tex; mode=display">\mathbf{B} = -\frac{1}{2} \mathbf{J} \mathbf{D}^{(2)} \mathbf{J}</script><ul>
+<li>其中 $\mathbf{J} = \mathbf{I} - \frac{1}{N}\mathbf{1}\mathbf{1}^T$ 是中心化矩阵（$\mathbf{I}$ 是单位矩阵，$\mathbf{1}$ 是全1向量）。<br>这一步的作用是将距离矩阵转换为内积矩阵，即 $b_{ij} \approx x_i^T x_j$。</li>
+</ul>
+</li>
+<li>特征分解：<br>对矩阵 $\mathbf{B}$ 进行特征值分解：$\mathbf{B} = \mathbf{V} \mathbf{\Lambda} \mathbf{V}^T$。</li>
+<li>特征分解：<br>对矩阵 $\mathbf{B}$ 进行特征值分解：$\mathbf{B} = \mathbf{V} \mathbf{\Lambda} \mathbf{V}^T$。<script type="math/tex; mode=display">\mathbf{Z} = \mathbf{V}_d \mathbf{\Lambda}_d^{1/2}</script></li>
+</ul>
+<h3 id="等距特征映射-ISOMAP-amp-局部线性嵌入-LLE"><a href="#等距特征映射-ISOMAP-amp-局部线性嵌入-LLE" class="headerlink" title="等距特征映射 ISOMAP &amp;局部线性嵌入  LLE"></a>等距特征映射 ISOMAP &amp;局部线性嵌入  LLE</h3><p><strong>等距特征映射</strong>为每个数据点找到其邻居（欧几里得距离内的点）。构建图，邻居之间有边连接。任意两点间的测地线距离通过图上的最短路径近似。最后，将经典缩放应用于图距离，产生低维映射。</p>
+<p>具体来说，对于每一个数据点 $x_i$，确定其邻居。通常使用 $K$-近邻 ($K$-Nearest Neighbors) 或 $\epsilon$-半径球 ($ \epsilon$-radius) 方法。在邻居之间建立连接边，边的权重设为两点间的欧几里得距离 $d_E(x_i, x_j)$。此时，数据被表示为一个加权图</p>
+<p>对于图中任意两个非邻居点，通过图上的最短路径来近似它们之间的测地线距离，可以使用Dijkstra 算法。</p>
+<p>将步骤 2 得到的测地线距离矩阵 $D_G$ 作为输入，应用经典的 MDS 算法。通过特征分解，找到低维坐标 $Y$，使得低维空间中的欧几里得距离尽可能逼近高维流形上的测地线距离。</p>
+<p><strong>局部线性嵌入</strong>为每个数据点由其邻近点的线性组合近似。然后构建一个低维表示，以此最好地保留这些局部近似。</p>
+<p>如果流形在局部是平滑的，那么每一个数据点及其邻居大致位于一个局部的线性斑块上。如果高维空间中 $x_i$ 可以由其邻居线性表示，那么在低维空间中对应的 $y_i$ 也应该保持同样的线性关系。</p>
+<p>为每个数据点 $x<em>i$ 找到 $K$ 个最近邻 $N(i)$。通过最小化重建误差来计算权重 $w</em>{ik}$：</p>
+<script type="math/tex; mode=display">\mathcal{E}(W) = \sum_i \left\| x_i - \sum_{j \in N(i)} w_{ij}x_j \right\|^2</script><p>对于每个点 $i$，要求 $\sum<em>j w</em>{ij} = 1$（这保证了对平移和缩放的不变性）。如果 $j$ 不是 $i$ 的邻居，则 $w_{ij}=0$。这是一个带约束的最小二乘问题。</p>
+<p>固定上一步得到的权重 $W$，寻找低维坐标 $y_i$，使得在低维空间中的重建误差最小化：</p>
+<script type="math/tex; mode=display">\Phi(Y) = \sum_i \left\| y_i - \sum_j w_{ij}y_j \right\|^2</script><p>该优化问题可以通过求解稀疏矩阵的特征值问题解决。具体来说，涉及矩阵 $\mathbf{M} = (\mathbf{I} - \mathbf{W})^T (\mathbf{I} - \mathbf{W})$ 的最小非零特征值对应的特征向量。</p>
+<p>局部多维缩放(Local MDS)改变了传统MDS算法，传统的 MDS 试图匹配所有点对的距离，这往往受到大距离（远距离点对）的支配。Local MDS 旨在主要保留局部距离（邻居），同时利用排斥力将非邻居推开，以此展开流形。使用如下压力函数：</p>
+<script type="math/tex; mode=display">S_L(z_1, \dots, z_N) = \sum_{(i, i') \in \mathcal{N}} (d_{ii'} - ||z_i - z_{i'}||)^2 - \tau \sum_{(i, i') \notin \mathcal{N}} ||z_i - z_{i'}||</script><p>该函数由两部分的权衡组成：</p>
+<ul>
+<li><p>局部保真项 (Local Fidelity)： $\sum<em>{(i, i’) \in \mathcal{N}} (d</em>{ii’} - ||z<em>i - z</em>{i’}||)^2$这部分类似于经典的 Stress 函数，但仅针对邻居集合 $\mathcal{N}$ 求和。它强制要求低维空间中邻居间的距离逼近高维空间中的原始距离 $d_{ii’}$。</p>
+</li>
+<li><p>排斥项 (Repulsion)： $- \tau \sum<em>{(i, i’) \notin \mathcal{N}} ||z_i - z</em>{i’}||$针对非邻居点对。由于前面带有负号，最小化总 Stress 意味着这一项的数值越大越好（即 $||z<em>i - z</em>{i’}||$ 越大越好）。</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/01/22/esl-1/">http://raphaelhyaan.cn/2026/01/22/esl-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第五部分-应对不确定性与大规模问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</div></div></a></div><div><a href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</div></div></a></div><div><a href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第四部分-计算复杂性与近似解</div></div></a></div><div><a href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第五部分-应对不确定性与大规模问题</div></div></a></div><div><a href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-06</div><div class="title">第三部分-精确最优化策略</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%B5%81%E5%BD%A2%E5%AD%A6%E4%B9%A0-Unsupervised-Learning-amp-Manifold-Learning"><span class="toc-text">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0-Supervised-Learning-amp-Unsupervised-Learning"><span class="toc-text">监督学习和无监督学习 Supervised Learning &amp; Unsupervised Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">监督学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">无监督学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99"><span class="toc-text">关联规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99-1"><span class="toc-text">关联规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%A8%A1%E5%9E%8B"><span class="toc-text">购物车模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B9%E9%9B%86"><span class="toc-text">项集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99-2"><span class="toc-text">关联规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-text">将无监督学习转化为有监督学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99"><span class="toc-text">广义关联规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90"><span class="toc-text">聚类分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E8%BF%91%E5%BA%A6%E5%92%8C%E7%9B%B8%E5%BC%82%E5%BA%A6"><span class="toc-text">邻近度和相异度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%9D%83%E5%B9%B3%E5%9D%87%E7%AD%96%E7%95%A5"><span class="toc-text">加权平均策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="toc-text">聚类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E7%AE%97%E6%B3%95"><span class="toc-text">组合算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#K-means%E7%AE%97%E6%B3%95"><span class="toc-text">K-means算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E5%BD%A2%E5%AD%A6%E4%B9%A0"><span class="toc-text">流形学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%88%90%E5%88%86"><span class="toc-text">主成分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9B%B2%E7%BA%BF%E5%92%8C%E4%B8%BB%E6%9B%B2%E9%9D%A2"><span class="toc-text">主曲线和主曲面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E7%82%B9%E4%BB%A5%E5%BC%95%E5%85%A5%E4%B8%BB%E6%9B%B2%E7%BA%BF"><span class="toc-text">主点以引入主曲线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%9B%B2%E9%9D%A2"><span class="toc-text">主曲面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%B1%E8%81%9A%E7%B1%BB"><span class="toc-text">谱聚类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-Kernel-Principal-Components"><span class="toc-text">核主成分分析 Kernel Principal Components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-ICA"><span class="toc-text">独立成分分析 ICA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E7%BC%A9%E6%94%BE-MDS"><span class="toc-text">多维缩放 MDS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%A4%9A%E7%BB%B4%E7%BC%A9%E6%94%BE-Classical-MDS-PCoA"><span class="toc-text">经典多维缩放 (Classical MDS &#x2F; PCoA)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E8%B7%9D%E7%89%B9%E5%BE%81%E6%98%A0%E5%B0%84-ISOMAP-amp-%E5%B1%80%E9%83%A8%E7%BA%BF%E6%80%A7%E5%B5%8C%E5%85%A5-LLE"><span class="toc-text">等距特征映射 ISOMAP &amp;局部线性嵌入  LLE</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

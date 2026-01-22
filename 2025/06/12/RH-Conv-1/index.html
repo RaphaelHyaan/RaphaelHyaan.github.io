@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>空洞卷积，多尺度特征融合，大核卷积 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="空洞卷积，多尺度特征融合，大核卷积 空洞卷积和空洞空间金字塔池化（ASPP）  空洞卷积  第一项系统使用空洞卷积的工作可能是Fisher Yu在2016年的工作。作者使用这种卷积处理图像分割任务。在文献中，作者将其称为膨胀卷积dilated convolution，与本文中使用的空洞卷积atrous convolution同义。后者名称来源于法语的à trous. 相比于一般的">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>空洞卷积，多尺度特征融合，大核卷积 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="空洞卷积，多尺度特征融合，大核卷积空洞卷积和空洞空间金字塔池化（ASPP） 空洞卷积 第一项系统使用空洞卷积的工作可能是Fisher Yu在2016年的工作。作者使用这种卷积处理图像分割任务。在文献中，作者将其称为膨胀卷积dilated convolution，与本文中使用的空洞卷积atrous convolution同义。后者名称来源于法语的à trous. 相比于一般的卷积，作者强调了其能够扩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="空洞卷积，多尺度特征融合，大核卷积">
 <meta property="og:url" content="http://raphaelhyaan.cn/2025/06/12/RH-Conv-1/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="空洞卷积，多尺度特征融合，大核卷积 空洞卷积和空洞空间金字塔池化（ASPP）  空洞卷积  第一项系统使用空洞卷积的工作可能是Fisher Yu在2016年的工作。作者使用这种卷积处理图像分割任务。在文献中，作者将其称为膨胀卷积dilated convolution，与本文中使用的空洞卷积atrous convolution同义。后者名称来源于法语的à trous. 相比于一般的">
+<meta property="og:description" content="空洞卷积，多尺度特征融合，大核卷积空洞卷积和空洞空间金字塔池化（ASPP） 空洞卷积 第一项系统使用空洞卷积的工作可能是Fisher Yu在2016年的工作。作者使用这种卷积处理图像分割任务。在文献中，作者将其称为膨胀卷积dilated convolution，与本文中使用的空洞卷积atrous convolution同义。后者名称来源于法语的à trous. 相比于一般的卷积，作者强调了其能够扩">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png">
 <meta property="article:published_time" content="2025-06-12T14:50:22.000Z">
@@ -155,223 +155,118 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">空洞卷积，多尺度特征融合，大核卷积</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-12T14:50:22.000Z" title="发表于 2025-06-12 22:50:22">2025-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:05:22.838Z" title="更新于 2025-08-04 23:05:22">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="空洞卷积，多尺度特征融合，大核卷积"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
-id="空洞卷积多尺度特征融合大核卷积">空洞卷积，多尺度特征融合，大核卷积</h1>
-<h2
-id="空洞卷积和空洞空间金字塔池化aspp">空洞卷积和空洞空间金字塔池化（ASPP）</h2>
-<hr />
-<h3 id="空洞卷积">空洞卷积</h3>
-<hr />
-<p>第一项系统使用空洞卷积的工作可能是Fisher
-Yu在2016年的工作。作者使用这种卷积处理图像分割任务。在文献中，作者将其称为膨胀卷积dilated
-convolution，与本文中使用的空洞卷积atrous
-convolution同义。后者名称来源于法语的à trous.
-相比于一般的卷积，作者强调了其能够扩大感受野的同时不损失分辨率和覆盖的能力。</p>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">空洞卷积，多尺度特征融合，大核卷积</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-12T14:50:22.000Z" title="发表于 2025-06-12 22:50:22">2025-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-04T15:05:22.838Z" title="更新于 2025-08-04 23:05:22">2025-08-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RH/">RH</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="空洞卷积，多尺度特征融合，大核卷积"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="空洞卷积，多尺度特征融合，大核卷积"><a href="#空洞卷积，多尺度特征融合，大核卷积" class="headerlink" title="空洞卷积，多尺度特征融合，大核卷积"></a>空洞卷积，多尺度特征融合，大核卷积</h1><h2 id="空洞卷积和空洞空间金字塔池化（ASPP）"><a href="#空洞卷积和空洞空间金字塔池化（ASPP）" class="headerlink" title="空洞卷积和空洞空间金字塔池化（ASPP）"></a>空洞卷积和空洞空间金字塔池化（ASPP）</h2><hr>
+<h3 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h3><hr>
+<p>第一项系统使用空洞卷积的工作可能是Fisher Yu在2016年的工作。作者使用这种卷积处理图像分割任务。在文献中，作者将其称为膨胀卷积dilated convolution，与本文中使用的空洞卷积atrous convolution同义。后者名称来源于法语的à trous. 相比于一般的卷积，作者强调了其能够扩大感受野的同时不损失分辨率和覆盖的能力。</p>
 <p>在数学上，如果将一般的卷积协作：</p>
-<p><span class="math display">\[
-(F * k)(\mathbf{p})=\sum_{\mathbf{s}+\mathbf{t}=\mathbf{p}}
-F(\mathbf{s}) k(\mathbf{t}) .
-\]</span></p>
-<p>则空洞卷积可以被写作：</p>
-<p><span class="math display">\[
-\left(F *_l k\right)(\mathbf{p})=\sum_{\mathbf{s}+l
-\mathbf{t}=\mathbf{p}} F(\mathbf{s}) k(\mathbf{t}) .
-\]</span></p>
-<p>其中<span class="math inline">\(l\)</span>被称作空洞率 <em>dilation
-factor.</em></p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage.png" /></p>
-<p>通过系统性的使用空洞卷积，可以在实现参数量线性增长的同时使得感受野指数级增长。如上图所示，首先通过一次空洞率<span
-class="math inline">\(1\)</span>的空洞卷积，每个卷积的感受野为<span
-class="math inline">\(3\times3\)</span>；然后通过一次空洞率为<span
-class="math inline">\(2\)</span>的卷积，此时每个元素的感受野上升至<span
-class="math inline">\(7\times 7\)</span>。如再使用一次空洞率为<span
-class="math inline">\(4\)</span>的空洞卷积，则可以得到<span
-class="math inline">\(15\times15\)</span>的感受野。在这个过程中，感受野大小呈指数增长，但每次使用的卷积都使用<span
-class="math inline">\(3\times3\)</span>的卷积核。</p>
+<script type="math/tex; mode=display">
+(F * k)(\mathbf{p})=\sum_{\mathbf{s}+\mathbf{t}=\mathbf{p}} F(\mathbf{s}) k(\mathbf{t}) .</script><p>则空洞卷积可以被写作：</p>
+<script type="math/tex; mode=display">
+\left(F *_l k\right)(\mathbf{p})=\sum_{\mathbf{s}+l \mathbf{t}=\mathbf{p}} F(\mathbf{s}) k(\mathbf{t}) .</script><p>其中$l$被称作空洞率 <em>dilation factor.</em></p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage.png" alt=""></p>
+<p>通过系统性的使用空洞卷积，可以在实现参数量线性增长的同时使得感受野指数级增长。如上图所示，首先通过一次空洞率$1$的空洞卷积，每个卷积的感受野为$3\times3$；然后通过一次空洞率为$2$的卷积，此时每个元素的感受野上升至$7\times 7$。如再使用一次空洞率为$4$的空洞卷积，则可以得到$15\times15$的感受野。在这个过程中，感受野大小呈指数增长，但每次使用的卷积都使用$3\times3$的卷积核。</p>
 <p>在这篇文献中，作者主要使用了串联新式的空洞卷积。通过串联不同空洞率的空洞卷积，模型可以在不降低原图片分辨率的情况下获取图片全局信息，从而实现在不增加额外参数的情况下自由控制特征响应分辨率。</p>
-<h3 id="空洞空间金字塔池化aspp">空洞空间金字塔池化（ASPP）</h3>
-<hr />
-<p>在2017年，一篇新的研究《Rethinking Atrous Convolution for Semantic
-Image
-Segmentation》指出，除了空洞卷积已经被表述的“在不增加额外参数的情况下自由控制特征响应分辨率”的能力，使用空洞卷积还能提取多尺度特征。为此，作者提出了了一种同时使用串联和并联空洞卷积的方法。空洞空间金字塔池化并非在这项研究中首次提出，而是在这样研究中得到了优化和补足。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_1.png" /></p>
-<p>ASPP模块通常包括多个并联的不同空洞率的空洞卷积。上级神经网络会分别通过这些网络，最终再由<span
-class="math inline">\(1\times1\)</span>卷积回到理想的通道数。例如，图中展示的ASPP块包括了：</p>
+<h3 id="空洞空间金字塔池化（ASPP）"><a href="#空洞空间金字塔池化（ASPP）" class="headerlink" title="空洞空间金字塔池化（ASPP）"></a>空洞空间金字塔池化（ASPP）</h3><hr>
+<p>在2017年，一篇新的研究《Rethinking Atrous Convolution for Semantic Image Segmentation》指出，除了空洞卷积已经被表述的“在不增加额外参数的情况下自由控制特征响应分辨率”的能力，使用空洞卷积还能提取多尺度特征。为此，作者提出了了一种同时使用串联和并联空洞卷积的方法。空洞空间金字塔池化并非在这项研究中首次提出，而是在这样研究中得到了优化和补足。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_1.png" alt=""></p>
+<p>ASPP模块通常包括多个并联的不同空洞率的空洞卷积。上级神经网络会分别通过这些网络，最终再由$1\times1$卷积回到理想的通道数。例如，图中展示的ASPP块包括了：</p>
 <ul>
-<li>一个<span class="math inline">\(1\times 1\)</span>卷积分支</li>
-<li>空洞率为<span class="math inline">\(6\)</span>的一个<span
-class="math inline">\(3\times 3\)</span>空洞卷积分支</li>
-<li>空洞率为<span class="math inline">\(12\)</span>的一个<span
-class="math inline">\(3\times 3\)</span>空洞卷积分支</li>
-<li>空洞率为<span class="math inline">\(18\)</span>的一个<span
-class="math inline">\(3\times 3\)</span>空洞卷积分支</li>
+<li>一个$1\times 1$卷积分支</li>
+<li>空洞率为$6$的一个$3\times 3$空洞卷积分支</li>
+<li>空洞率为$12$的一个$3\times 3$空洞卷积分支</li>
+<li>空洞率为$18$的一个$3\times 3$空洞卷积分支</li>
 <li>图像级特征分支</li>
 </ul>
-<p>前四个分支很好理解，其目的就是利用不同空洞率的空洞卷积对不同尺度特征的提取能力采集不同尺度特征。而图像级特征分支则直接对特征图做全局池化，然后再通过<span
-class="math inline">\(1\times1\)</span>卷积、批量归一化映射到与其他分支相同的通道数，再使用双线性上采样至原始空间尺寸。</p>
-<p>在每个分支都处理完成之后，将5个分支的特征图在通道维度上拼接，在通过<span
-class="math inline">\(1\times1\)</span>卷积处理到所希望的通道数。</p>
+<p>前四个分支很好理解，其目的就是利用不同空洞率的空洞卷积对不同尺度特征的提取能力采集不同尺度特征。而图像级特征分支则直接对特征图做全局池化，然后再通过$1\times1$卷积、批量归一化映射到与其他分支相同的通道数，再使用双线性上采样至原始空间尺寸。</p>
+<p>在每个分支都处理完成之后，将5个分支的特征图在通道维度上拼接，在通过$1\times1$卷积处理到所希望的通道数。</p>
 <p>ASPP可以无缝插入各类主干网络，提供多尺度信息。</p>
-<h2 id="大核卷积">大核卷积</h2>
-<hr />
-<h3
-id="replknet大卷积核convnet架构空洞重参数块">RepLKNet：大卷积核ConvNet架构，<strong>空洞重参数块</strong></h3>
-<hr />
-<p>在小卷积核架构中增加<span
-class="math inline">\(3\times3\)</span>卷积通常期望它能同时产生三种效应：</p>
-<ol type="1">
+<h2 id="大核卷积"><a href="#大核卷积" class="headerlink" title="大核卷积"></a>大核卷积</h2><hr>
+<h3 id="RepLKNet：大卷积核ConvNet架构，空洞重参数块"><a href="#RepLKNet：大卷积核ConvNet架构，空洞重参数块" class="headerlink" title="RepLKNet：大卷积核ConvNet架构，空洞重参数块"></a>RepLKNet：大卷积核ConvNet架构，<strong>空洞重参数块</strong></h3><hr>
+<p>在小卷积核架构中增加$3\times3$卷积通常期望它能同时产生三种效应：</p>
+<ol>
 <li>增大感受野；</li>
 <li>提升空间模式的抽象层次，例如从角度和纹理到物体形状；</li>
 <li>通过加深模型，引入更多可学习参数和非线性，从而提高模型的通用表征能力。</li>
 </ol>
 <p>大卷积核具备与小核卷积不同的特性，例如其不需要通过增加深度以增加感受野。据此，作者提出大核ConvNet的四条架构设计准则：</p>
-<ol type="1">
+<ol>
 <li>使用高效结构如SE模块来增加网络深度；</li>
 <li>使用膨胀重参数模块对大核卷积层进行重参数化，以在不增加推理成本的情况下提升性能；</li>
 <li>根据下游任务决定卷积核大小，并通常仅在中高层使用大核；</li>
 <li>在扩展模型深度时，添加3×3卷积层而非更多大核。</li>
 </ol>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_2.png" /></p>
-<hr />
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_2.png" alt=""></p>
+<hr>
 <p><strong>空洞重参数块 Dilated Re-param Block</strong></p>
 <p>大核卷积应用时，常并联小核卷积以提取更加局部的特征。再次基础上增加空洞卷积可以进一步增强捕捉稀疏模式的能力。这将增加参数量。</p>
-<p>带小核的空洞卷积层可以等效地转换为具有稀疏大核的非空洞卷积层。若原空洞卷积卷积核大小为<span
-class="math inline">\(k\)</span>，通过插入<span
-class="math inline">\(0\)</span>元素得到的非空洞卷积核大小为<span
-class="math inline">\((k-1)r+1\)</span>。这个过程可以通过步长为<span
-class="math inline">\(r\)</span>，卷积核为单位核的转置卷积实现。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_3.png" /></p>
+<p>带小核的空洞卷积层可以等效地转换为具有稀疏大核的非空洞卷积层。若原空洞卷积卷积核大小为$k$，通过插入$0$元素得到的非空洞卷积核大小为$(k-1)r+1$。这个过程可以通过步长为$r$，卷积核为单位核的转置卷积实现。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_3.png" alt=""></p>
 <p>由于并联通道最终结果相加，可以在推理时将每个BN层合并到卷积层中，对空洞卷积层应用上述变换，从而将所有卷积层变换为相同大小，然后相加得到最终用于推理的大核卷积层。</p>
-<h3 id="pelk参数共享的外围卷积">PeLK：参数共享的外围卷积</h3>
-<hr />
-<p><strong>外围卷积 peripheral
-convolution</strong>，通过共享参数将卷积复杂度从<span
-class="math inline">\(O(K^2)\)</span>降低到<span
-class="math inline">\(O(log K)\)</span>，同时将卷积核大小提升至<span
-class="math inline">\(101\times101\)</span>。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_4.png" /></p>
-<p>外围卷积旨在将标准二维卷积核<span class="math inline">\(w \in
-\mathbb{R}^{c_{\text {in }} \times c_{\text {out }} \times k \times
-k}\)</span>通过空间参数共享，转化为更小的卷积核<span
-class="math inline">\(w_\theta \in \mathbb{R}^{c_{\mathrm{in}} \times
-c_{\mathrm{ont}} \times k^{\prime} \times
-k^{\prime}}\)</span>。定义共享网络：</p>
-<p><span class="math display">\[
-S=\left[s_0, s_1, \ldots, s_{k^{\prime}-1}\right], \quad
-\sum_{i=0}^{k^{\prime}-1} s_i=k .
-\]</span></p>
-<p>并根据网格划分原本的参数：</p>
-<p><span class="math display">\[
-Z_{a, b}=\left\{(x, y) \mid \sum_{i=0}^{a-1} s_i \leq x&lt;\sum_{i=0}^a
-s_i, \sum_{j=0}^{b-1} s_j \leq y&lt;\sum_{j=0}^b s_j\right\}
-\]</span></p>
-<p>规定：<span class="math inline">\(w(x, y)=w_\theta(a,
-b)\)</span>。从而实现小核对大核实现参数共享。对于共享网络，重新定义为：</p>
-<p><span class="math display">\[
-\bar{S}=\left[\bar{s}_{-r}, \bar{s}_{-r+1}, \ldots, \bar{s}_0, \ldots,
-\bar{s}_r\right]，\bar{s}_i= \begin{cases}1, &amp; |i| \leq r_c \\
-m^{\left(|i|-r_c\right)}, &amp; r_c&lt;|i| \leq r\end{cases}
-\]</span></p>
-<p>其中<span
-class="math inline">\(m\)</span>为指数基数，默认取2。由此可以将卷积参数复杂度由<span
-class="math inline">\(O(k^2)\)</span>降低至<span
-class="math inline">\(O(log k)\)</span>。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_5.png" /></p>
-<p>在大卷积核中，由于一个参数覆盖极大的范围，模糊问题会比较明显。为此引入<strong>核级位置编码
-Kernel-wise Positional
-Embedding</strong>。简单来说就是引入位置编码：</p>
-<p><span class="math display">\[
-h \in \mathbb{R}^{c_{\mathrm{in}} \times k \times k}
-\]</span></p>
-<p>并采用截断正态分布初始化，作为位置编码加在卷积核上，以区分相同参数覆盖的卷积部分。</p>
-<p><span class="math display">\[
-Y(x, y)=\sum_{i=-r_w}^{r_w} \sum_{j=-r_w}^{r_w}(w(i, j)+h(i, j)) X(x+i,
-y+j) .
-\]</span></p>
-<p>大核卷积通常有较高的通道冗余，引入部分卷积Partial
-Convolution。将输入通道分为两组：</p>
-<p><span class="math display">\[
-X_{\text {conv }}, X_{\text {id }}=\operatorname{Split}(X)=X_{:,: g},
-X_{:, g:,} \quad g = 3/8
-\]</span></p>
-<p>仅对前者进行卷积操作，后者进行恒等变换：</p>
-<p><span class="math display">\[
-X_{\text {conv }}^{\prime}=\text { PeripheralConv }\left(X_{\text {conv
-}}\right), \quad X_{\mathrm{id}}^{\prime}=X_{\mathrm{id}} .
-\]</span></p>
-<p>最后拼接复原：</p>
-<p><span class="math display">\[
-X^{\prime}=\operatorname{Concat}\left(X_{\text {conv }}^{\prime},
-X_{\mathrm{id}}^{\prime}\right) .
-\]</span></p>
-<hr />
+<h3 id="PeLK：参数共享的外围卷积"><a href="#PeLK：参数共享的外围卷积" class="headerlink" title="PeLK：参数共享的外围卷积"></a>PeLK：参数共享的外围卷积</h3><hr>
+<p><strong>外围卷积 peripheral convolution</strong>，通过共享参数将卷积复杂度从$O(K^2)$降低到$O(log K)$，同时将卷积核大小提升至$101\times101$。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_4.png" alt=""></p>
+<p>外围卷积旨在将标准二维卷积核$w \in \mathbb{R}^{c<em>{\text {in }} \times c</em>{\text {out }} \times k \times k}$通过空间参数共享，转化为更小的卷积核$w<em>\theta \in \mathbb{R}^{c</em>{\mathrm{in}} \times c_{\mathrm{ont}} \times k^{\prime} \times k^{\prime}}$。定义共享网络：</p>
+<script type="math/tex; mode=display">
+S=\left[s_0, s_1, \ldots, s_{k^{\prime}-1}\right], \quad \sum_{i=0}^{k^{\prime}-1} s_i=k .</script><p>并根据网格划分原本的参数：</p>
+<script type="math/tex; mode=display">
+Z_{a, b}=\left\{(x, y) \mid \sum_{i=0}^{a-1} s_i \leq x<\sum_{i=0}^a s_i, \sum_{j=0}^{b-1} s_j \leq y<\sum_{j=0}^b s_j\right\}</script><p>规定：$w(x, y)=w_\theta(a, b)$。从而实现小核对大核实现参数共享。对于共享网络，重新定义为：</p>
+<script type="math/tex; mode=display">
+\bar{S}=\left[\bar{s}_{-r}, \bar{s}_{-r+1}, \ldots, \bar{s}_0, \ldots, \bar{s}_r\right]，\bar{s}_i= \begin{cases}1, & |i| \leq r_c \\ m^{\left(|i|-r_c\right)}, & r_c<|i| \leq r\end{cases}</script><p>其中$m$为指数基数，默认取2。由此可以将卷积参数复杂度由$O(k^2)$降低至$O(log k)$。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_5.png" alt=""></p>
+<p>在大卷积核中，由于一个参数覆盖极大的范围，模糊问题会比较明显。为此引入<strong>核级位置编码 Kernel-wise Positional Embedding</strong>。简单来说就是引入位置编码：</p>
+<script type="math/tex; mode=display">
+h \in \mathbb{R}^{c_{\mathrm{in}} \times k \times k}</script><p>并采用截断正态分布初始化，作为位置编码加在卷积核上，以区分相同参数覆盖的卷积部分。</p>
+<script type="math/tex; mode=display">
+Y(x, y)=\sum_{i=-r_w}^{r_w} \sum_{j=-r_w}^{r_w}(w(i, j)+h(i, j)) X(x+i, y+j) .</script><p>大核卷积通常有较高的通道冗余，引入部分卷积Partial Convolution。将输入通道分为两组：</p>
+<script type="math/tex; mode=display">
+X_{\text {conv }}, X_{\text {id }}=\operatorname{Split}(X)=X_{:,: g}, X_{:, g:,} \quad g = 3/8</script><p>仅对前者进行卷积操作，后者进行恒等变换：</p>
+<script type="math/tex; mode=display">
+X_{\text {conv }}^{\prime}=\text { PeripheralConv }\left(X_{\text {conv }}\right), \quad X_{\mathrm{id}}^{\prime}=X_{\mathrm{id}} .</script><p>最后拼接复原：</p>
+<script type="math/tex; mode=display">
+X^{\prime}=\operatorname{Concat}\left(X_{\text {conv }}^{\prime}, X_{\mathrm{id}}^{\prime}\right) .</script><hr>
 <p>PeLK 模型架构规格</p>
 <ul>
 <li>Stem: 使用 <code>4×4</code> 卷积，步幅为 <code>4</code></li>
-<li>Stage 块数
-<ul>
+<li>Stage 块数<ul>
 <li>Tiny 模型：<code>[3, 3, 9, 3]</code></li>
 <li>Small/Base 模型：<code>[3, 3, 27, 3]</code></li>
-</ul></li>
+</ul>
+</li>
 <li>默认卷积核尺寸: <code>[51, 49, 47, 13]</code></li>
 <li>PeLK-101 卷积核尺寸: <code>[101, 69, 67, 13]</code></li>
-<li>中心精细区域
-<ul>
+<li>中心精细区域<ul>
 <li>默认保留 <code>5×5</code> 精细区</li>
 <li>PeLK-101 扩大至 <code>7×7</code> 精细区</li>
-</ul></li>
-<li>动态稀疏: 网络宽度增益因子为 <code>1.3×</code>，稀疏比例
-<code>40%</code></li>
 </ul>
-<h3
-id="lsknet大卷积核分解和动态调整空间感受野">LSKNet：大卷积核分解和动态调整空间感受野</h3>
-<hr />
+</li>
+<li>动态稀疏: 网络宽度增益因子为 <code>1.3×</code>，稀疏比例 <code>40%</code></li>
+</ul>
+<h3 id="LSKNet：大卷积核分解和动态调整空间感受野"><a href="#LSKNet：大卷积核分解和动态调整空间感受野" class="headerlink" title="LSKNet：大卷积核分解和动态调整空间感受野"></a>LSKNet：大卷积核分解和动态调整空间感受野</h3><hr>
 <p>这项研究的目标是在要遥感目标检测中生成准确拟合目标方向的旋转边界框。作者提出广泛的上下文信息能有效地提升目标检测的准确率，而不同目标所需要的上下文信息不同。为此作者提出了LSKNet，按照作者分说法，其实现机理是：使用一组大尺度的深度可分离卷积核高效处理输入特征，并在空间上进行融合。每个卷积核的权重由输入特征动态决定，从而使得模型能够自适应选择合适的大核，并根据空间位置为每个目标调整感受野大小。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_6.png" /></p>
-<p>LSKNet通过重复堆叠的模块构建。每一个LSKNet模块由两个残差子模块构成：大卷积核选择子模块（LSK
-module），前馈网络子模块。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_7.png" /></p>
-<hr />
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_6.png" alt=""></p>
+<p>LSKNet通过重复堆叠的模块构建。每一个LSKNet模块由两个残差子模块构成：大卷积核选择子模块（LSK module），前馈网络子模块。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_7.png" alt=""></p>
+<hr>
 <p>首先是大卷积核的分解部分。研究并没有直接使用大卷积核，而是将大卷积核分解为多层卷积序列，以在保证感受野的基础上减少参数量。随着深度的增加，卷积核的大小和空洞率都会增加。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_8.png" /></p>
-<p>如表中使用一个卷积核为5，空洞率为1的卷积和一个卷积核大小为7，空洞率为3的卷积组合，替代了原本的卷积核大小为23，空洞率为1的卷积，实现了相同的感受野。除此之外，如此方法还可以显式的产生多种不同感受野的特征。如上LSK模块结构中的<span
-class="math inline">\(\tilde U_1\)</span>和<span
-class="math inline">\(\tilde U_2\)</span>。</p>
-<hr />
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_8.png" alt=""></p>
+<p>如表中使用一个卷积核为5，空洞率为1的卷积和一个卷积核大小为7，空洞率为3的卷积组合，替代了原本的卷积核大小为23，空洞率为1的卷积，实现了相同的感受野。除此之外，如此方法还可以显式的产生多种不同感受野的特征。如上LSK模块结构中的$\tilde U_1$和$\tilde U_2$。</p>
+<hr>
 <p>然后是卷积核选择机制，该研究使用了空间卷积核选择机制。首先，将上一步得到的不同感受野的特征拼接，分别送入通道平均池化和通道最大池化得到两个空间描述图。将两张图拼接之后，送入卷积层将通道数从2转换到N，得到N张空间注意力图，每一个对应不同的卷积核分支。然后通过sigmoid函数生成空间掩码，卷积对应卷积输出在空间位置上的权重。将权重和卷积分支输出加权，得到注意力特征。</p>
 <p>最终将输入特征与注意力特征逐元素相乘，得到输出。</p>
 <p>也就是说，LSK模块类似于传统的attention模块，本身的神经网络不直接处理输入，而是根据输入计算注意力向量，然后将注意力向量与输入向量相乘得到输出。</p>
-<h3 id="slak稀疏大核卷积">SLaK：稀疏大核卷积</h3>
-<hr />
-<p>这项研究首先证明了使用常规方式突破<span
-class="math inline">\(31\times31\)</span>大核极限的困难，并提出了解决方案。这种解决方案很像之前在语音分解部分提到的NMF算法。使用两个矩阵并行卷积核替代一个完整的大卷积核，即将原本的<span
-class="math inline">\(M\times M\)</span>的卷积核分解为<span
-class="math inline">\(M\times N\)</span>和<span
-class="math inline">\(N\times
-M\)</span>的两个矩阵，以近似原本的大卷积核。除此之外，作者使用了之前已经提及的RepLKNet中使用的并联小核。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_9.png" /></p>
+<h3 id="SLaK：稀疏大核卷积"><a href="#SLaK：稀疏大核卷积" class="headerlink" title="SLaK：稀疏大核卷积"></a>SLaK：稀疏大核卷积</h3><hr>
+<p>这项研究首先证明了使用常规方式突破$31\times31$大核极限的困难，并提出了解决方案。这种解决方案很像之前在语音分解部分提到的NMF算法。使用两个矩阵并行卷积核替代一个完整的大卷积核，即将原本的$M\times M$的卷积核分解为$M\times N$和$N\times M$的两个矩阵，以近似原本的大卷积核。除此之外，作者使用了之前已经提及的RepLKNet中使用的并联小核。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_9.png" alt=""></p>
 <p>除此之外，作者在训练时引入和动态稀疏性训练，在训练中通过修建权重最小的连接并随机生长新的连接的方式，使得网络结构在训练过程中能够动态调整。关于动态稀疏性训练，可能会在之后提到。</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_10.png" /></p>
-<h2 id="参考文献">参考文献</h2>
-<hr />
-<p>https://arxiv.org/abs/1511.07122</p>
-<p>https://arxiv.org/abs/1706.05587</p>
-<p>https://arxiv.org/abs/2203.06717</p>
-<p>https://arxiv.org/abs/2403.07589</p>
-<p>https://arxiv.org/abs/2303.09030</p>
-<p>https://arxiv.org/abs/2207.03620</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/06/12/RH-Conv-1/">http://raphaelhyaan.cn/2025/06/12/RH-Conv-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a><a class="post-meta__tags" href="/tags/%E5%8D%B7%E7%A7%AF/">卷积</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/26/eles-r/" title="电子系统课程报告"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">电子系统课程报告</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/26/informatique/deeplearning/Generative-11/" title="GAN,VAE和流模型的原理（以流模型为主）"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蝶1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">GAN,VAE和流模型的原理（以流模型为主）</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_1/" title="Chapter 1 Generative Modeling"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 1 Generative Modeling</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_10/" title="Chapter 10 Advanced GANs 各种各样的GAN"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 10 Advanced GANs 各种各样的GAN</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_2/" title="Chapter 2 Deep Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 2 Deep Learning</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_3/" title="Chapter 3 Variational Autoencoders 自动变分编码器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 3 Variational Autoencoders 自动变分编码器</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_4/" title="Chapter 4 Generative Adversarial Networks 生成对抗网络"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 4 Generative Adversarial Networks 生成对抗网络</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF%E5%A4%9A%E5%B0%BA%E5%BA%A6%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%E5%A4%A7%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="toc-text">空洞卷积，多尺度特征融合，大核卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF%E5%92%8C%E7%A9%BA%E6%B4%9E%E7%A9%BA%E9%97%B4%E9%87%91%E5%AD%97%E5%A1%94%E6%B1%A0%E5%8C%96aspp"><span class="toc-text">空洞卷积和空洞空间金字塔池化（ASPP）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF"><span class="toc-text">空洞卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E7%A9%BA%E9%97%B4%E9%87%91%E5%AD%97%E5%A1%94%E6%B1%A0%E5%8C%96aspp"><span class="toc-text">空洞空间金字塔池化（ASPP）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="toc-text">大核卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#replknet%E5%A4%A7%E5%8D%B7%E7%A7%AF%E6%A0%B8convnet%E6%9E%B6%E6%9E%84%E7%A9%BA%E6%B4%9E%E9%87%8D%E5%8F%82%E6%95%B0%E5%9D%97"><span class="toc-text">RepLKNet：大卷积核ConvNet架构，空洞重参数块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pelk%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB%E7%9A%84%E5%A4%96%E5%9B%B4%E5%8D%B7%E7%A7%AF"><span class="toc-text">PeLK：参数共享的外围卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lsknet%E5%A4%A7%E5%8D%B7%E7%A7%AF%E6%A0%B8%E5%88%86%E8%A7%A3%E5%92%8C%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4%E7%A9%BA%E9%97%B4%E6%84%9F%E5%8F%97%E9%87%8E"><span class="toc-text">LSKNet：大卷积核分解和动态调整空间感受野</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slak%E7%A8%80%E7%96%8F%E5%A4%A7%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="toc-text">SLaK：稀疏大核卷积</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-1/" title="第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)">第一部分-算法分析基础与开发规范 (Foundations &amp; Methodology)</a><time datetime="2026-01-05T16:07:10.000Z" title="发表于 2026-01-06 00:07:10">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2FRH-Conv-1%2Fimage_10.png" alt=""></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><hr>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.07122">https://arxiv.org/abs/1511.07122</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.05587">https://arxiv.org/abs/1706.05587</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.06717">https://arxiv.org/abs/2203.06717</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.07589">https://arxiv.org/abs/2403.07589</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.09030">https://arxiv.org/abs/2303.09030</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2207.03620">https://arxiv.org/abs/2207.03620</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2025/06/12/RH-Conv-1/">http://raphaelhyaan.cn/2025/06/12/RH-Conv-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a><a class="post-meta__tags" href="/tags/%E5%8D%B7%E7%A7%AF/">卷积</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/26/eles-r/" title="电子系统课程报告"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">电子系统课程报告</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/26/informatique/deeplearning/Generative-11/" title="GAN,VAE和流模型的原理（以流模型为主）"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F蝶1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">GAN,VAE和流模型的原理（以流模型为主）</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_1/" title="Chapter 1 Generative Modeling"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 1 Generative Modeling</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_10/" title="Chapter 10 Advanced GANs 各种各样的GAN"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 10 Advanced GANs 各种各样的GAN</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_5/" title="Chapter 5 Autoregressive Models 自回归模型"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 5 Autoregressive Models 自回归模型</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_4/" title="Chapter 4 Generative Adversarial Networks 生成对抗网络"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 4 Generative Adversarial Networks 生成对抗网络</div></div></a></div><div><a href="/2024/01/20/informatique/deeplearning/Generative_3/" title="Chapter 3 Variational Autoencoders 自动变分编码器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fgenerative.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">Chapter 3 Variational Autoencoders 自动变分编码器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF%EF%BC%8C%E5%A4%9A%E5%B0%BA%E5%BA%A6%E7%89%B9%E5%BE%81%E8%9E%8D%E5%90%88%EF%BC%8C%E5%A4%A7%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="toc-text">空洞卷积，多尺度特征融合，大核卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF%E5%92%8C%E7%A9%BA%E6%B4%9E%E7%A9%BA%E9%97%B4%E9%87%91%E5%AD%97%E5%A1%94%E6%B1%A0%E5%8C%96%EF%BC%88ASPP%EF%BC%89"><span class="toc-text">空洞卷积和空洞空间金字塔池化（ASPP）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF"><span class="toc-text">空洞卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E7%A9%BA%E9%97%B4%E9%87%91%E5%AD%97%E5%A1%94%E6%B1%A0%E5%8C%96%EF%BC%88ASPP%EF%BC%89"><span class="toc-text">空洞空间金字塔池化（ASPP）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="toc-text">大核卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RepLKNet%EF%BC%9A%E5%A4%A7%E5%8D%B7%E7%A7%AF%E6%A0%B8ConvNet%E6%9E%B6%E6%9E%84%EF%BC%8C%E7%A9%BA%E6%B4%9E%E9%87%8D%E5%8F%82%E6%95%B0%E5%9D%97"><span class="toc-text">RepLKNet：大卷积核ConvNet架构，空洞重参数块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PeLK%EF%BC%9A%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB%E7%9A%84%E5%A4%96%E5%9B%B4%E5%8D%B7%E7%A7%AF"><span class="toc-text">PeLK：参数共享的外围卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LSKNet%EF%BC%9A%E5%A4%A7%E5%8D%B7%E7%A7%AF%E6%A0%B8%E5%88%86%E8%A7%A3%E5%92%8C%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4%E7%A9%BA%E9%97%B4%E6%84%9F%E5%8F%97%E9%87%8E"><span class="toc-text">LSKNet：大卷积核分解和动态调整空间感受野</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SLaK%EF%BC%9A%E7%A8%80%E7%96%8F%E5%A4%A7%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="toc-text">SLaK：稀疏大核卷积</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)"/></a><div class="content"><a class="title" href="/2026/01/06/algo-2/" title="第二部分-基于规模的策略：分解与变换 (Structure Decomposition)">第二部分-基于规模的策略：分解与变换 (Structure Decomposition)</a><time datetime="2026-01-05T16:07:11.000Z" title="发表于 2026-01-06 00:07:11">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
