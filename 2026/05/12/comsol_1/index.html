@@ -1,0 +1,849 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>压力声学·一 | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="压力声学·一 本节涉及部分压力声学的基本理论，comsol的简单介绍和压力升学接口的部分使用方式，以及使用comsol进行仿真的一个简单案例。本节主要内容来自于comsol视频课程中心的对应模块教程。  1. 压力声学的理论基础1.1 压力声学的研究对象在 COMSOL 的声学模块中，不同的物理假设对应不同声学接口。声-结构耦合适用于流体声场与固体结构振动相互作用的问题；气动声学适用于存在显著背景">
+<meta property="og:type" content="article">
+<meta property="og:title" content="压力声学·一">
+<meta property="og:url" content="http://raphaelhyaan.cn/2026/05/12/comsol_1/index.html">
+<meta property="og:site_name" content="Raphael&#39;s Home">
+<meta property="og:description" content="压力声学·一 本节涉及部分压力声学的基本理论，comsol的简单介绍和压力升学接口的部分使用方式，以及使用comsol进行仿真的一个简单案例。本节主要内容来自于comsol视频课程中心的对应模块教程。  1. 压力声学的理论基础1.1 压力声学的研究对象在 COMSOL 的声学模块中，不同的物理假设对应不同声学接口。声-结构耦合适用于流体声场与固体结构振动相互作用的问题；气动声学适用于存在显著背景">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png">
+<meta property="article:published_time" content="2026-05-12T12:22:37.000Z">
+<meta property="article:modified_time" content="2026-05-12T12:22:47.610Z">
+<meta property="article:author" content="Raphael Hyaan">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="建模">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png"><link rel="shortcut icon" href="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flana cat 002.png"><link rel="canonical" href="http://raphaelhyaan.cn/2026/05/12/comsol_1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '压力声学·一',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-05-12 20:22:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">压力声学·一</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-12T12:22:47.610Z" title="更新于 2026-05-12 20:22:47">2026-05-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="压力声学·一"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="压力声学·一"><a href="#压力声学·一" class="headerlink" title="压力声学·一"></a>压力声学·一</h1><blockquote>
+<p>本节涉及部分压力声学的基本理论，comsol的简单介绍和压力升学接口的部分使用方式，以及使用comsol进行仿真的一个简单案例。<br>本节主要内容来自于<a target="_blank" rel="noopener" href="https://cn.comsol.com/video-training">comsol视频课程中心</a>的对应模块教程。</p>
+</blockquote>
+<h2 id="1-压力声学的理论基础"><a href="#1-压力声学的理论基础" class="headerlink" title="1. 压力声学的理论基础"></a>1. 压力声学的理论基础</h2><h3 id="1-1-压力声学的研究对象"><a href="#1-1-压力声学的研究对象" class="headerlink" title="1.1 压力声学的研究对象"></a>1.1 压力声学的研究对象</h3><p>在 COMSOL 的声学模块中，不同的物理假设对应不同声学接口。声-结构耦合适用于流体声场与固体结构振动相互作用的问题；气动声学适用于存在显著背景流动的声学问题；热粘性声学适用于微小尺度结构中粘性边界层与热边界层不可忽略的问题；几何声学则适用于几何尺度远大于波长、可以近似使用射线描述声传播的问题。压力声学则适用于流体中以压力波为主的传播问题。</p>
+<p>具体来说，压力声学研究的是流体介质中的小幅声学扰动传播问题。流体包括空气、水、软组织、多孔材料中的等效流体区域，或者其他主要通过压缩与膨胀传递声能的连续介质。在这类问题中，声波被建模为纵波，即介质质点的振动方向与波传播方向一致。因此，压力声学的核心变量是声压扰动 $p$。</p>
+<p>压力声学是根据其假设得到的简化模型。这种简化的优势在于计算效率高，主变量少，适合用于常规声场、共振腔、管道、扬声器辐射、声压分布和频域响应等问题的建模。然而，当声场附近存在显著边界层损耗、背景流动、柔性结构振动或固体弹性波传播时，单纯压力声学可能不再充分，则需借助上述其他接口。</p>
+<h3 id="1-2-连续流体的控制方程"><a href="#1-2-连续流体的控制方程" class="headerlink" title="1.2 连续流体的控制方程"></a>1.2 连续流体的控制方程</h3><p>声学方程来源于连续流体力学方程。对于一般流体，控制方程主要包括质量守恒方程、动量守恒方程、能量守恒方程以及状态方程：</p>
+<script type="math/tex; mode=display">
+
+\left\{
+\begin{aligned}
+&
+\frac{\partial \rho}{\partial t}+\nabla\cdot(\rho\mathbf{u})=0,\\&
+
+\frac{\partial(\rho\mathbf{u})}{\partial t}
++\nabla\cdot(\rho\mathbf{u}\mathbf{u}^{T})
+=
+\nabla\cdot\boldsymbol{\sigma}+\mathbf{F},\\&
+
+\rho C_p\frac{\partial T}{\partial t}
++
+\alpha_0T\frac{\partial p}{\partial t}
+=
+-\nabla\cdot(\mathbf{q}-\mathbf{u}\cdot\boldsymbol{\tau})+Q,\\&
+
+\rho=\rho(p,T).
+
+\end{aligned}
+\right.</script><p>其中，第一式为质量守恒方程，描述流体密度随时间的变化与质量通量之间的关系。$\rho$ 表示流体密度，$\mathbf{u}$ 表示流体速度矢量。第二式为动量守恒方程，描述流体动量随时间的变化及其与应力和体力之间的关系。其中，$\boldsymbol{\sigma}$ 是应力张量，$\mathbf{F}$ 是体力项。第三式为能量守恒方程，用于描述温度、压力、热传导、粘性耗散和热源之间的关系。其中，$T$ 是温度，$C_p$ 是定压热容，$\alpha_0$ 是热膨胀系数，$\mathbf{q}$ 是热通量，$\boldsymbol{\tau}$ 是粘性应力张量，$Q$ 是热源项。第四式为状态方程，是密度与压力和温度的关系。</p>
+<p>对于牛顿流体，应力张量可表示为</p>
+<script type="math/tex; mode=display">
+\boldsymbol{\sigma}
+=
+-p\mathbf{I}
++
+\boldsymbol{\tau},</script><p>其中 $p$ 是压力，$\mathbf{I}$ 是单位张量，$\boldsymbol{\tau}$ 是粘性应力张量。粘性应力张量通常写为</p>
+<script type="math/tex; mode=display">
+\boldsymbol{\tau}
+=
+\mu\left[\nabla\mathbf{u}+(\nabla\mathbf{u})^{T}\right]
+-
+\left(\frac{2}{3}\mu-\mu_{B}\right)
+(\nabla\cdot\mathbf{u})\mathbf{I},</script><p>其中 $\mu$ 为动力粘度，$\mu_B$ 为体积粘度。热通量通常满足傅里叶热传导定律</p>
+<script type="math/tex; mode=display">
+\mathbf{q}=-k\nabla T,</script><p>其中 $k$ 是热导率。</p>
+<h3 id="1-3-小扰动假设与线性声学"><a href="#1-3-小扰动假设与线性声学" class="headerlink" title="1.3 小扰动假设与线性声学"></a>1.3 小扰动假设与线性声学</h3><p>声波通常被看作叠加在背景状态上的小幅扰动。设背景状态为静态或稳态场，声学扰动远小于背景量，则总温度、总速度、总压力和总密度可分别表示为背景量与一阶扰动量之和：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+T_{\mathrm{tot}}(\mathbf{x},t)
+&=
+T_0(\mathbf{x})+T_1(\mathbf{x},t),\\
+
+\mathbf{u}_{\mathrm{tot}}(\mathbf{x},t)
+&=
+\mathbf{u}_0(\mathbf{x})+\mathbf{u}_1(\mathbf{x},t),\\
+
+p_{\mathrm{tot}}(\mathbf{x},t)
+&=
+p_0(\mathbf{x})+p_1(\mathbf{x},t),\\
+
+\rho_{\mathrm{tot}}(\mathbf{x},t)
+&=
+\rho_0(\mathbf{x})+\rho_1(\mathbf{x},t).
+\end{aligned}</script><p>在频域分析中，扰动量进一步假设为简谐形式。例如，声压扰动可以写成</p>
+<script type="math/tex; mode=display">
+p_1(\mathbf{x},t)
+=
+\mathrm{Re}\left\{p(\mathbf{x})e^{i\omega t}\right\},</script><p>其中 $p(\mathbf{x})$ 是复声压幅值，$\omega$ 是角频率。类似地，温度、速度和密度扰动可写为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+T_1(\mathbf{x},t)
+&=
+\mathrm{Re}\left\{T(\mathbf{x})e^{i\omega t}\right\},
+\\
+\mathbf{u}_1(\mathbf{x},t)
+&=
+\mathrm{Re}\left\{\mathbf{u}(\mathbf{x})e^{i\omega t}\right\},
+\\
+\rho_1(\mathbf{x},t)
+&=
+\mathrm{Re}\left\{\rho(\mathbf{x})e^{i\omega t}\right\}.
+\end{aligned}</script><p>小扰动假设的核心条件是</p>
+<script type="math/tex; mode=display">
+|p_1|\ll |p_0|,\qquad
+|\rho_1|\ll |\rho_0|,\qquad
+|T_1|\ll |T_0|.</script><h3 id="1-4-线性-Navier-Stokes-声学"><a href="#1-4-线性-Navier-Stokes-声学" class="headerlink" title="1.4 线性 Navier-Stokes 声学"></a>1.4 线性 Navier-Stokes 声学</h3><p>以上所述，当介质中存在背景流动时，声学扰动是在运动介质中传播的，此时总速度可写为</p>
+<script type="math/tex; mode=display">
+\mathbf{u}_{\mathrm{tot}}(\mathbf{x},t)
+=
+\mathbf{u}_0(\mathbf{x})
++
+\mathbf{u}(\mathbf{x})e^{i\omega t},</script><p>其中 $\mathbf{u}_0$ 是背景流速，$\mathbf{u}$ 是声学扰动速度。其他变量也可以写作类似像是。将这些形式代入 Navier-Stokes 方程并保留一阶扰动项，可得到线性 Navier-Stokes 声学模型。</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{aligned}&
+\frac{\partial \rho}{\partial t}
++\nabla\cdot(\rho\mathbf{u}_0+\rho_0\mathbf{u})
+=M,
+\\&
+\rho_0\left(
+\frac{\partial \mathbf{u}}{\partial t}
++(\mathbf{u}\cdot\nabla)\mathbf{u}_0
++(\mathbf{u}_0\cdot\nabla)\mathbf{u}
+\right)
++\rho(\mathbf{u}_0\cdot\nabla)\mathbf{u}_0
+=
+\nabla\cdot\boldsymbol{\sigma}
++\mathbf{F}
+-\mathbf{u}_0M,&
+\\&
+\rho_0C_p\left(
+\frac{\partial T}{\partial t}
++\mathbf{u}\cdot\nabla T_0
++\mathbf{u}_0\cdot\nabla T
+\right)
++\rho C_p(\mathbf{u}_0\cdot\nabla T_0)
+-\alpha_pT_0\left(
+\frac{\partial p}{\partial t}
++\mathbf{u}\cdot\nabla p_0
++\mathbf{u}_0\cdot\nabla p
+\right)
+-\alpha_pT(\mathbf{u}_0\cdot\nabla p_0)
+=
+\nabla\cdot(k\nabla T)+\Phi+Q,
+
+\\&
+\rho
+=
+\rho_0(\beta_Tp-\alpha_pT).
+\end{aligned}
+\right.</script><p>其中 $\beta_T$ 是等温压缩率，$\alpha_p$ 是热膨胀系数。线性 Navier-Stokes 声学比普通压力声学更一般，保留了背景流动、粘性和热效应对声波传播的影响。</p>
+<p>在介质可以近似认为无平均流动时，即</p>
+<script type="math/tex; mode=display">
+\mathbf{u}_0=0.</script><p>可进一步简化为无流动声学问题。</p>
+<h3 id="1-5-热粘性声学"><a href="#1-5-热粘性声学" class="headerlink" title="1.5 热粘性声学"></a>1.5 热粘性声学</h3><p>如果背景流动可以忽略，但几何尺度很小，声波在壁面附近形成的粘性边界层和热边界层不可忽略，则需要使用热粘性声学。热粘性声学保留声压、速度和温度扰动，并考虑粘性耗散与热传导损耗。</p>
+<p>在无背景流动条件下，热粘性声学的连续性方程可写为</p>
+<script type="math/tex; mode=display">
+\frac{\partial \rho_t}{\partial t}
++
+\nabla\cdot(\rho_0\mathbf{u}_t)
+=
+0.</script><p>其动量方程可写为</p>
+<script type="math/tex; mode=display">
+\rho_0\frac{\partial \mathbf{u}_t}{\partial t}
+=
+\nabla\cdot
+\left[
+-p_t\mathbf{I}
++
+\mu\left(\nabla\mathbf{u}_t+(\nabla\mathbf{u}_t)^T\right)
+-
+\left(\frac{2}{3}\mu-\mu_B\right)
+(\nabla\cdot\mathbf{u}_t)\mathbf{I}
+\right].</script><p>能量方程可概括为</p>
+<script type="math/tex; mode=display">
+\rho_0C_p
+\left(
+\frac{\partial T_t}{\partial t}
++
+\mathbf{u}_t\cdot\nabla T_0
+\right)
+-
+\alpha_0T_0
+\left(
+\frac{\partial p_t}{\partial t}
++
+\mathbf{u}_t\cdot\nabla p_0
+\right)
+=
+\nabla\cdot(\kappa\nabla T_t)+Q.</script><p>状态关系可表示为</p>
+<script type="math/tex; mode=display">
+\rho_t
+=
+\rho_0(\beta_Tp_t-\alpha_pT_t),</script><p>与压力声学相比，热粘性声学的变量更多，计算成本更高，但能够描述微型声学结构中的边界层耗散。例如微孔、MEMS 声学器件、窄缝、耳机泄漏缝隙、小型声腔等问题中，热粘性损耗可能决定系统响应。</p>
+<h3 id="1-6-从热粘性声学到压力声学"><a href="#1-6-从热粘性声学到压力声学" class="headerlink" title="1.6 从热粘性声学到压力声学"></a>1.6 从热粘性声学到压力声学</h3><p>压力声学方程是由连续流体控制方程在特定近似条件下化简得到的。其基本假设包括：介质无平均流动、忽略粘性损耗、忽略热传导损耗，并认为声学扰动相对于背景量足够小。设背景介质均匀且静止，即</p>
+<script type="math/tex; mode=display">
+\mathbf{u}_0=0,\qquad
+\rho_0=\text{const.},\qquad
+p_0=\text{const.}</script><p>在小扰动假设下，压力、密度和速度分别写为</p>
+<script type="math/tex; mode=display">
+p_{\mathrm{tot}}=p_0+p,</script><script type="math/tex; mode=display">
+\rho_{\mathrm{tot}}=\rho_0+\rho,</script><script type="math/tex; mode=display">
+\mathbf{u}_{\mathrm{tot}}=\mathbf{u}.</script><p>其中 $p$、$\rho$ 和 $\mathbf{u}$ 分别表示声压扰动、密度扰动和声学质点速度。将这些变量代入质量守恒方程，并忽略二阶小量，可得线性化连续性方程：</p>
+<script type="math/tex; mode=display">
+\frac{\partial \rho}{\partial t}
++
+\rho_0\nabla\cdot\mathbf{u}
+=
+0.</script><p>在无粘、无背景流动条件下，动量方程退化为线性欧拉方程：</p>
+<script type="math/tex; mode=display">
+\rho_0
+\frac{\partial \mathbf{u}}{\partial t}
+=
+-\nabla p.</script><p>同时，在绝热声学近似下，压力扰动与密度扰动满足</p>
+<script type="math/tex; mode=display">
+p=c^2\rho,</script><p>即</p>
+<script type="math/tex; mode=display">
+\rho=\frac{p}{c^2},</script><p>其中 $c$ 是介质中的声速。</p>
+<p>由此可以消去 $\rho$ 和 $\mathbf{u}$，得到只关于声压 $p$ 的方程。首先将</p>
+<script type="math/tex; mode=display">
+\rho=\frac{p}{c^2}</script><p>代入线性化连续性方程，得到</p>
+<script type="math/tex; mode=display">
+\frac{1}{c^2}
+\frac{\partial p}{\partial t}
++
+\rho_0\nabla\cdot\mathbf{u}
+=
+0.</script><p>对时间再求一次导数，有</p>
+<script type="math/tex; mode=display">
+\frac{1}{c^2}
+\frac{\partial^2 p}{\partial t^2}
++
+\rho_0\nabla\cdot
+\frac{\partial \mathbf{u}}{\partial t}
+=
+0.</script><p>由线性欧拉方程可得</p>
+<script type="math/tex; mode=display">
+\frac{\partial \mathbf{u}}{\partial t}
+=
+-\frac{1}{\rho_0}\nabla p.</script><p>将其代入上式，得到</p>
+<script type="math/tex; mode=display">
+\frac{1}{c^2}
+\frac{\partial^2 p}{\partial t^2}
+-
+\nabla^2p
+=
+0.</script><p>这就是无源、无损、无背景流动条件下的声压波动方程。若写成更适合有限元形式的散度形式，则为</p>
+<script type="math/tex; mode=display">
+\nabla\cdot
+\left(
+-\frac{1}{\rho_0}\nabla p
+\right)
++
+\frac{1}{\rho_0c^2}
+\frac{\partial^2p}{\partial t^2}
+=
+0.</script><p>如果进一步考虑声源项，可以在方程右端加入单极源 $Q$，并在梯度项中加入偶极源 $\mathbf{q}_d$，于是得到带源项的时域压力声学方程：</p>
+<script type="math/tex; mode=display">
+\nabla\cdot
+\left[
+-\frac{1}{\rho_0}
+(\nabla p-\mathbf{q}_d)
+\right]
++
+\frac{1}{\rho_0c^2}
+\frac{\partial^2p}{\partial t^2}
+=
+Q.</script><p>这里，$Q$ 表示单极声源，例如体积注入型声源；$\mathbf{q}_d$ 表示偶极声源，例如方向性力源或偶极型声源。若不考虑声源，则有</p>
+<script type="math/tex; mode=display">
+Q=0,\qquad \mathbf{q}_d=\mathbf{0}.</script><p>所有变量都被消去，只剩下声压 $p$ 作为唯一主变量。</p>
+<p>若考虑频域简谐声场，令</p>
+<script type="math/tex; mode=display">
+p(\mathbf{x},t)
+=
+\mathrm{Re}
+\left\{
+p(\mathbf{x})e^{i\omega t}
+\right\},</script><p>则有</p>
+<script type="math/tex; mode=display">
+\frac{\partial^2p}{\partial t^2}
+\rightarrow
+-\omega^2p.</script><p>将其代入无源时域波动方程，得到频域压力声学方程：</p>
+<script type="math/tex; mode=display">
+\nabla\cdot
+\left(
+-\frac{1}{\rho_0}\nabla p
+\right)
+-
+\frac{\omega^2p}{\rho_0c^2}
+=
+0.</script><p>这就是压力声学频域形式的 Helmholtz 方程。有源情况下，则可写为</p>
+<script type="math/tex; mode=display">
+\nabla\cdot
+\left[
+-\frac{1}{\rho_0}
+(\nabla p-\mathbf{q})
+\right]
+-
+\frac{\omega^2p}{\rho_0c^2}
+=
+Q.</script><h3 id="1-7-压力声学中的派生变量"><a href="#1-7-压力声学中的派生变量" class="headerlink" title="1.7 压力声学中的派生变量"></a>1.7 压力声学中的派生变量</h3><p>虽然压力声学以声压 $p$ 为主变量，但其他声学量仍然可以通过声压推导得到。对于频域谐波问题，线性化动量方程给出声压与质点速度之间的关系。若采用 $e^{i\omega t}$ 的时间因子，则可写为</p>
+<script type="math/tex; mode=display">
+i\omega\rho_0\mathbf{u}
+=
+\nabla p.</script><p>在绝热条件下，密度扰动与压力扰动之间满足</p>
+<script type="math/tex; mode=display">
+\rho
+=
+\frac{p}{c^2}.</script><p>温度扰动也可通过热力学关系由声压推得。例如，在小扰动条件下可写为</p>
+<script type="math/tex; mode=display">
+\rho_0C_pT
+=
+pT_0\alpha_0.</script><hr>
+<h2 id="2-特征频率与频域响应"><a href="#2-特征频率与频域响应" class="headerlink" title="2. 特征频率与频域响应"></a>2. 特征频率与频域响应</h2><h3 id="2-1-无源分析与有源分析"><a href="#2-1-无源分析与有源分析" class="headerlink" title="2.1 无源分析与有源分析"></a>2.1 无源分析与有源分析</h3><p>压力声学分析通常可以分为无源分析和有源分析。无源分析关注系统自身的固有性质，例如特征频率和模态分布；有源分析关注系统在外部声源激励下的实际响应，例如某一频率下的声压分布、扫频响应、传递函数和声压级。</p>
+<p>特征频率分析属于无源分析。它不需要定义外部声源，而是求解在给定几何、材料参数和边界条件下，声学系统自身允许存在的非零振动模式。频域响应分析则属于有源分析，需要给定声源、激励频率和边界条件，求解声场在外部强迫下的响应。</p>
+<h3 id="2-2-特征频率方程"><a href="#2-2-特征频率方程" class="headerlink" title="2.2 特征频率方程"></a>2.2 特征频率方程</h3><p>在频域压力声学中，无源 Helmholtz 方程为</p>
+<script type="math/tex; mode=display">
+\nabla\cdot
+\left(
+-\frac{1}{\rho_0}\nabla p
+\right)
+-
+\frac{\omega^2p}{\rho_0c^2}
+=
+0.</script><p>在特征频率分析中，角频率 $\omega$ 不再是预先指定的参数，而是需要求解的特征值。COMSOL 中常将其写为与特征值 $\lambda$ 有关的形式：</p>
+<script type="math/tex; mode=display">
+\nabla\cdot
+\left(
+-\frac{1}{\rho_0}\nabla p
+\right)
++
+\frac{\lambda^2p}{\rho_0c^2}
+=
+0.</script><p>若时间因子采用 $e^{i\omega t}$，则特征值与角频率之间存在相应关系。特征频率 $f$ 与角频率 $\omega$ 的关系为</p>
+<script type="math/tex; mode=display">
+\omega=2\pi f.</script><p>特征频率方程中没有外部源项 $Q$，也没有偶极源项 $\mathbf{q}$。因此，特征频率不是由声源决定的，而是由几何形状、材料参数、边界条件和介质声速决定的。声源的作用是在频域响应分析中激发这些模态，而不是改变这些模态本身。</p>
+<h3 id="2-3-特征频率与声源"><a href="#2-3-特征频率与声源" class="headerlink" title="2.3 特征频率与声源"></a>2.3 特征频率与声源</h3><p>频域有源问题可以抽象写为</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(p,\omega)=Q,</script><p>其中，$\mathcal{L}$ 是由几何形状、材料参数和边界条件共同决定的线性算子，$p$ 是待求解的声压场，$\omega$ 是外部指定的激励角频率，$Q$ 是声源项。该方程表示：在给定声源和给定频率下，求解声学系统的受迫响应。</p>
+<p>与之对应，特征频率问题是无源问题，可写为</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(p,\lambda)=0.</script><p>这里右端没有外部声源项，因此该方程是齐次方程。对于任意 $\lambda$，平凡解</p>
+<script type="math/tex; mode=display">
+p=0</script><p>总是存在，但该解没有物理意义。特征频率分析真正寻找的是使齐次方程存在非零解的特殊 $\lambda$，即</p>
+<script type="math/tex; mode=display">
+p(\mathbf{x})\neq 0.</script><p>因此，特征频率问题的本质是寻找满足下列条件的特征值与特征模态：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(p,\lambda)=0,
+\qquad
+p(\mathbf{x})\neq 0.</script><p>其中，$\lambda$ 是特征值，对应系统的固有频率；$p(\mathbf{x})$ 是对应的特征模态，表示该固有频率下声压的空间分布。换言之，特征频率并不是由外部声源激发出来的频率，而是在没有外部声源时，系统自身由几何、材料和边界条件所允许的自由振动频率。</p>
+<p>有源频域响应与特征频率之间的关系可以从非齐次线性方程的解来理解。对于有源问题</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(p,\omega)=Q,</script><p>其解可以形式上表示为</p>
+<script type="math/tex; mode=display">
+p=p_h+p_p,</script><p>其中 $p_h$ 是齐次解，满足</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(p_h,\omega)=0,</script><p>而 $p_p$ 是特解，满足</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(p_p,\omega)=Q.</script><p>在实际声学问题中，更常用的理解方式是将有源响应表示为各个特征模态的加权叠加：</p>
+<script type="math/tex; mode=display">
+p(\mathbf{x},\omega)
+=
+\sum_n a_n(\omega)\phi_n(\mathbf{x}),</script><p>其中 $\phi_n(\mathbf{x})$ 是第 $n$ 阶特征模态，$a_n(\omega)$ 是该模态在当前声源和当前激励频率下的参与系数。该系数不仅与激励频率 $\omega$ 有关，也与声源的空间位置、相位和分布有关。一般来说，当激励频率接近某一阶特征频率时，该模态更容易被强烈激发；但如果声源位置与该模态的空间分布不匹配，例如声源位于该模态的节点附近，则该模态的响应也可能较弱。</p>
+<p>因此，声源与特征频率之间的关系可以概括为：声源通常不决定系统的特征频率，但决定哪些特征模态会被激发，以及被激发的强弱。系统的特征频率由几何形状、材料参数和边界条件决定；有源频域响应则由系统特征、声源形式和激励频率共同决定。</p>
+<p>例如，在房间声学模型中，房间的固有频率主要由房间尺寸、空气声速和墙面边界条件决定。改变扬声器的位置或声源幅值通常不会改变房间的固有频率，但会改变不同房间模态的激发程度，从而改变实际测得的声压响应曲线。</p>
+<p>需要注意的是，上述结论成立的前提是声源被理想化为外部给定的压力源、速度源或体源项，而不改变系统本身的边界条件和动力学性质。如果声源本身具有明显机械阻抗，例如扬声器振膜、动铁单元或压电片，并且该结构与声腔发生强耦合，那么声源就不再只是外部激励，而会成为系统边界或结构的一部分。此时，系统的特征频率可能会发生改变，问题也应从纯压力声学问题扩展为声-结构耦合问题。</p>
+<hr>
+<h2 id="3-典型理论问题"><a href="#3-典型理论问题" class="headerlink" title="3. 典型理论问题"></a>3. 典型理论问题</h2><h3 id="3-1-刚性圆柱声腔的特征频率"><a href="#3-1-刚性圆柱声腔的特征频率" class="headerlink" title="3.1 刚性圆柱声腔的特征频率"></a>3.1 刚性圆柱声腔的特征频率</h3><p>为了理解特征频率的物理含义，可以考虑一个刚性圆柱声腔。设圆柱半径为 $R$，长度为 $L$，腔内介质声速为 $c$，密度为 $\rho_0$。在无源、无损、无背景流动条件下，声压满足 Helmholtz 方程</p>
+<script type="math/tex; mode=display">
+\nabla^2p+k^2p=0,</script><p>其中</p>
+<script type="math/tex; mode=display">
+k=\frac{\omega}{c}.</script><p>如果圆柱壁面为声硬边界，则法向质点速度为零。对于压力声学，在均匀密度和无偶极源条件下，这等价于声压法向导数为零：</p>
+<script type="math/tex; mode=display">
+\frac{\partial p}{\partial n}=0.</script><p>对于二维圆形截面，声压模态可在极坐标下写为</p>
+<script type="math/tex; mode=display">
+p_{mn}(r,\theta)
+=
+J_m(k_{mn}r)
+\left[
+A\cos(m\theta)+B\sin(m\theta)
+\right],</script><p>其中 $J_m$ 是 $m$ 阶第一类 Bessel 函数，$m$ 为周向模态阶数，$n$ 为径向模态阶数。刚性壁边界要求</p>
+<script type="math/tex; mode=display">
+\left.
+\frac{\partial p}{\partial r}
+\right|_{r=R}
+=
+0.</script><p>因此有</p>
+<script type="math/tex; mode=display">
+J_m'(k_{mn}R)=0.</script><p>令 $\alpha’_{mn}$ 表示 $J_m’(x)$ 的第 $n$ 个零点，则</p>
+<script type="math/tex; mode=display">
+k_{mn}
+=
+\frac{\alpha'_{mn}}{R}.</script><p>对应的特征频率为</p>
+<script type="math/tex; mode=display">
+f_{mn}
+=
+\frac{c}{2\pi}
+\frac{\alpha'_{mn}}{R}.</script><p>对于三维有限长圆柱，还需要考虑轴向模态。若两端也为声硬边界，则轴向波数可写为</p>
+<script type="math/tex; mode=display">
+k_z
+=
+\frac{l\pi}{L},</script><p>其中 $l=0,1,2,\cdots$。此时总波数满足</p>
+<script type="math/tex; mode=display">
+k_{mnl}^2
+=
+\left(\frac{\alpha'_{mn}}{R}\right)^2
++
+\left(\frac{l\pi}{L}\right)^2.</script><p>因此三维圆柱刚性声腔的特征频率为</p>
+<script type="math/tex; mode=display">
+f_{mnl}
+=
+\frac{c}{2\pi}
+\sqrt{
+\left(\frac{\alpha'_{mn}}{R}\right)^2
++
+\left(\frac{l\pi}{L}\right)^2
+}.</script><p>该解析结果可用于验证 COMSOL 的特征频率计算。若在 COMSOL 中建立相同半径、长度、材料参数和声硬边界条件的圆柱模型，则其前几个特征频率应与上述理论结果接近。偏差主要来自几何离散误差、网格误差、边界条件设置差异以及数值求解精度。</p>
+<h3 id="3-2-刚性圆柱声腔特征频率的理论计算"><a href="#3-2-刚性圆柱声腔特征频率的理论计算" class="headerlink" title="3.2 刚性圆柱声腔特征频率的理论计算"></a>3.2 刚性圆柱声腔特征频率的理论计算</h3><p>设三维刚性圆柱声腔的半径和长度分别为</p>
+<script type="math/tex; mode=display">
+R=1\ \mathrm{m},
+\qquad
+L=10\ \mathrm{m}.</script><p>若腔内介质为空气，并取声速为</p>
+<script type="math/tex; mode=display">
+c=343\ \mathrm{m/s},</script><p>刚性圆柱声腔的特征频率公式为</p>
+<script type="math/tex; mode=display">
+f_{mnl}
+=
+\frac{c}{2\pi}
+\sqrt{
+\left(\frac{\alpha'_{mn}}{R}\right)^2
++
+\left(\frac{l\pi}{L}\right)^2
+}.</script><p>代入 $R=1\ \mathrm{m}$、$L=10\ \mathrm{m}$ 和 $c=343\ \mathrm{m/s}$，可得</p>
+<script type="math/tex; mode=display">
+f_{mnl}
+=
+\frac{343}{2\pi}
+\sqrt{
+(\alpha'_{mn})^2
++
+\left(\frac{l\pi}{10}\right)^2
+}.</script><p>其中，</p>
+<script type="math/tex; mode=display">
+\frac{343}{2\pi}
+\approx
+54.59.</script><p>因此，</p>
+<script type="math/tex; mode=display">
+f_{mnl}
+\approx
+54.59
+\sqrt{
+(\alpha'_{mn})^2
++
+\left(\frac{l\pi}{10}\right)^2
+}.</script><p>其中，$m$ 表示声压沿圆柱周向 $\theta$ 方向的变化阶数，$n$ 表示声压沿径向 $r$ 方向的变化阶数，$l$ 表示声压沿轴向 $z$ 方向的变化阶数。</p>
+<p>对于刚性圆柱声腔，最低阶径向均匀模态满足</p>
+<script type="math/tex; mode=display">
+\alpha'_{00}=0.</script><p>因此，当只考虑轴向模态，即 $m=0$、$n=0$ 时，特征频率公式化简为</p>
+<script type="math/tex; mode=display">
+f_{00l}
+=
+\frac{343}{2\pi}
+\left(
+\frac{l\pi}{10}
+\right).</script><p>整理得</p>
+<script type="math/tex; mode=display">
+f_{00l}
+=
+\frac{343l}{20}.</script><p>因此，前几个纯轴向模态为</p>
+<script type="math/tex; mode=display">
+f_{001}
+=
+\frac{343}{20}
+=
+17.15\ \mathrm{Hz},</script><script type="math/tex; mode=display">
+f_{002}
+=
+\frac{343\times 2}{20}
+=
+34.30\ \mathrm{Hz},</script><script type="math/tex; mode=display">
+f_{003}
+=
+\frac{343\times 3}{20}
+=
+51.45\ \mathrm{Hz},</script><script type="math/tex; mode=display">
+f_{004}
+=
+\frac{343\times 4}{20}
+=
+68.60\ \mathrm{Hz}.</script><p>需要注意的是，$(m,n,l)=(0,0,0)$ 对应</p>
+<script type="math/tex; mode=display">
+f_{000}=0,</script><p>它表示整个腔体内压力均匀变化的零频模式，通常不作为实际声学共振频率讨论。</p>
+<p>接下来考虑具有横向声压分布的模态。常用的 Bessel 函数导数零点包括</p>
+<script type="math/tex; mode=display">
+\alpha'_{11}=1.8412,</script><script type="math/tex; mode=display">
+\alpha'_{21}=3.0542,</script><script type="math/tex; mode=display">
+\alpha'_{01}=3.8317.</script><p>对于模态 $(m,n,l)=(1,1,0)$，有</p>
+<script type="math/tex; mode=display">
+f_{110}
+=
+\frac{343}{2\pi}
+\sqrt{
+(1.8412)^2
++
+0
+}.</script><p>因此</p>
+<script type="math/tex; mode=display">
+f_{110}
+=
+54.59\times 1.8412
+\approx
+100.51\ \mathrm{Hz}.</script><p>对于模态 $(m,n,l)=(2,1,0)$，有</p>
+<script type="math/tex; mode=display">
+f_{210}
+=
+\frac{343}{2\pi}
+\sqrt{
+(3.0542)^2
++
+0
+}.</script><p>因此</p>
+<script type="math/tex; mode=display">
+f_{210}
+=
+54.59\times 3.0542
+\approx
+166.73\ \mathrm{Hz}.</script><p>对于模态 $(m,n,l)=(0,1,0)$，有</p>
+<script type="math/tex; mode=display">
+f_{010}
+=
+\frac{343}{2\pi}
+\sqrt{
+(3.8317)^2
++
+0
+}.</script><p>因此</p>
+<script type="math/tex; mode=display">
+f_{010}
+=
+54.59\times 3.8317
+\approx
+209.17\ \mathrm{Hz}.</script><p>由此可得，若 $R=1\ \mathrm{m}$、$L=10\ \mathrm{m}$，并取空气声速 $c=343\ \mathrm{m/s}$，则刚性圆柱声腔的部分特征频率为</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模态 $(m,n,l)$</th>
+<th style="text-align:right">$\alpha’_{mn}$</th>
+<th style="text-align:right">特征频率 $f_{mnl}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$(0,0,1)$</td>
+<td style="text-align:right">$0$</td>
+<td style="text-align:right">$17.15\ \mathrm{Hz}$</td>
+</tr>
+<tr>
+<td>$(0,0,2)$</td>
+<td style="text-align:right">$0$</td>
+<td style="text-align:right">$34.30\ \mathrm{Hz}$</td>
+</tr>
+<tr>
+<td>$(0,0,3)$</td>
+<td style="text-align:right">$0$</td>
+<td style="text-align:right">$51.45\ \mathrm{Hz}$</td>
+</tr>
+<tr>
+<td>$(0,0,4)$</td>
+<td style="text-align:right">$0$</td>
+<td style="text-align:right">$68.60\ \mathrm{Hz}$</td>
+</tr>
+<tr>
+<td>$(1,1,0)$</td>
+<td style="text-align:right">$1.8412$</td>
+<td style="text-align:right">$100.51\ \mathrm{Hz}$</td>
+</tr>
+<tr>
+<td>$(2,1,0)$</td>
+<td style="text-align:right">$3.0542$</td>
+<td style="text-align:right">$166.73\ \mathrm{Hz}$</td>
+</tr>
+<tr>
+<td>$(0,1,0)$</td>
+<td style="text-align:right">$3.8317$</td>
+<td style="text-align:right">$209.17\ \mathrm{Hz}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>从计算结果可以看出，由于圆柱长度 $L=10\ \mathrm{m}$ 明显大于半径 $R=1\ \mathrm{m}$，最低的非零特征频率首先表现为轴向模态。其最低非零特征频率为</p>
+<script type="math/tex; mode=display">
+f_{001}=17.15\ \mathrm{Hz}.</script><p>而第一个具有明显横向声压变化的模态为</p>
+<script type="math/tex; mode=display">
+f_{110}\approx 100.51\ \mathrm{Hz}.</script><p>这说明，对于细长圆柱声腔，低频模态主要由轴向长度决定；随着频率升高，径向和周向模态才逐渐出现。</p>
+<h3 id="3-2-左侧压力源与右侧开放边界的一维声传播"><a href="#3-2-左侧压力源与右侧开放边界的一维声传播" class="headerlink" title="3.2 左侧压力源与右侧开放边界的一维声传播"></a>3.2 左侧压力源与右侧开放边界的一维声传播</h3><p>另一个基础问题是长度为 $L$ 的一维管道声传播。设左侧边界为压力源，右侧边界为开放或无反射边界，介质声速为 $c$，密度为 $\rho_0$。在频域中，波数为</p>
+<script type="math/tex; mode=display">
+k=\frac{\omega}{c}.</script><p>如果左端给定压力源</p>
+<script type="math/tex; mode=display">
+p(0)=p_s,</script><p>且右端为理想无反射边界，则管道内只存在向右传播的行波。此时声压可写为</p>
+<script type="math/tex; mode=display">
+p(x)=p_s e^{-ikx}.</script><p>对应的质点速度为</p>
+<script type="math/tex; mode=display">
+u(x)=\frac{p(x)}{\rho_0c}.</script><p>该情况下声波从左向右传播并离开计算区域，不形成明显驻波，因此不会出现由右端反射导致的强烈共振峰。理想无反射边界在数值仿真中通常通过辐射边界、端口边界或完美匹配层近似实现。</p>
+<p>如果右端不是无反射边界，而是声软边界，即</p>
+<script type="math/tex; mode=display">
+p(L)=0,</script><p>则解可写为</p>
+<script type="math/tex; mode=display">
+p(x)
+=
+p_s
+\frac{\sin[k(L-x)]}{\sin(kL)}.</script><p>当分母趋近于零时，系统出现强烈响应，即</p>
+<script type="math/tex; mode=display">
+\sin(kL)=0.</script><p>因此共振条件为</p>
+<script type="math/tex; mode=display">
+kL=n\pi,</script><p>对应频率为</p>
+<script type="math/tex; mode=display">
+f_n=\frac{nc}{2L}.</script><p>如果右端为声硬边界，即</p>
+<script type="math/tex; mode=display">
+\left.
+\frac{\partial p}{\partial x}
+\right|_{x=L}
+=
+0,</script><p>则声压可写为</p>
+<script type="math/tex; mode=display">
+p(x)
+=
+p_s
+\frac{\cos[k(L-x)]}{\cos(kL)}.</script><p>共振条件变为</p>
+<script type="math/tex; mode=display">
+\cos(kL)=0,</script><p>即</p>
+<script type="math/tex; mode=display">
+kL=\frac{(2n+1)\pi}{2}.</script><p>对应频率为</p>
+<script type="math/tex; mode=display">
+f_n
+=
+\frac{(2n+1)c}{4L}.</script><h2 id="4-使用COMSOL进行仿真"><a href="#4-使用COMSOL进行仿真" class="headerlink" title="4. 使用COMSOL进行仿真"></a>4. 使用COMSOL进行仿真</h2><h3 id="4-1-特征频率分析"><a href="#4-1-特征频率分析" class="headerlink" title="4.1 特征频率分析"></a>4.1 特征频率分析</h3><p>首先使用 COMSOL 对刚性圆柱声腔进行仿真。</p>
+<p>点击新建-&gt;模型向导-&gt;三维-&gt;声学-&gt;压力声学-&gt;压力声学，频域</p>
+<p>点击选择物理场下侧添加，将该接口添加进 “添加到物理场接口”，点击研究。<br><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-24.png" alt=""></p>
+<p>由于本次研究特征频率，因此选择一般研究中的特征频率。点击完成，进入以下界面。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-23.png" alt=""></p>
+<p>首先添加材料，在左侧组件1中右键材料，选择第一项，从库中添加材料：<br><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-25.png" alt=""></p>
+<p>选择用于仿真的材料，这里我们搜索并选择air。双击目标材料，材料将出现在左侧组件1的材料栏中。其中，材料明细中会显示此材料的各项属性值。例如，空气的平均摩尔质量被设置为0.2897Kg/mol等等。</p>
+<p>然后增加几何。我们计划对刚性圆柱声腔进行仿真，因此不必使用其他建模软件建模。右键组件1中的几何1，选择圆柱体，指定半径和高度（这里我们选择R = 1，L = 10，与我们之前的假设对应），点击构建选定对象，圆柱体将显示在右侧。此时圆柱体的主轴为Z轴，如果希望完全仿照之前的理论计算，可以指定轴类型。由于不影响计算，我们保持。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-26.png" alt=""></p>
+<p>计算前的最后一步是构建网格。构建网格有多种方式。这里简单起见，我们双击网格，选择最大网格单元大小控制参数，改为频率 ，并指定最大频率：</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-27.png" alt=""></p>
+<p>一般来说，最大频率和最大网格单元大小的关系是：</p>
+<script type="math/tex; mode=display">
+最大网格单元大小 = 声速/最大频率/5</script><p>注意越大的网格会带来越大的计算量。根据之前的理论计算，主要关注250Hz之内的特征频率。</p>
+<p>点击全部构建，完成网格构建。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-29.png" alt=""></p>
+<p>点击研究1的步骤1：特征频率。可选栏中包括围绕偏移量搜索特征频率，这一项与下一选单共同决定哪些特征频率会被计算。所需特征频率数顾名思义。我们将后者改为10，点击计算。</p>
+<p>在右侧结果中选择声压或声压级（声压的分贝表示），即可查看仿真结果。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-31.png" alt=""></p>
+<p>可见部分结果与我们的理论计算相同，例如17.15Hz处的 (0,0,1) 模态。</p>
+<h3 id="4-2-频率分析"><a href="#4-2-频率分析" class="headerlink" title="4.2 频率分析"></a>4.2 频率分析</h3><p>接下来我们尝试一些添加声源的频域分析效果。</p>
+<p>首先右键模型开发器最上部的root栏，增加一个新研究，选择频域。或者也可以直接重新建一个文件并重复上述材料、几何、网络步骤。</p>
+<p>在频域栏，指定频率：</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-32.png" alt=""></p>
+<p>注意不要超过之前网络中设置的最大频率，或重新设置网络。</p>
+<p>我们首先尝试平面辐射波，其本质是一个开边界的声场输入。</p>
+<p>右键压力声学，频域，</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-33.png" alt=""></p>
+<p>在辐射条件中选择平面辐射波，然后在边界中选择顶部和底部两个边界。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-34.png" alt=""></p>
+<p>此时，这两个边界将会变成开边界，声学信号遇到此处边界将完全不会反射。</p>
+<p>接下来，右键平面波辐射，点击入射压力场。设置入射压力长的压力幅值、声速和材料。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-35.png" alt=""></p>
+<p>选择顶部边界或底部边界作为入射边界。</p>
+<p>如此声源部分构建完成。在研究2中点击计算，即可得到结果。</p>
+<p>最终的结果显而易见的，是一个声学纵波。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-36.png" alt=""></p>
+<p>我们尝试其他边界，比如将原本出射的边界改为软声场边界。</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-38.png" alt=""></p>
+<p>或不使用入射压力场，改为使用一个球形声源：</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcomsol_1%2Fimage-39.png" alt=""></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2026/05/12/comsol_1/">http://raphaelhyaan.cn/2026/05/12/comsol_1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%BB%BA%E6%A8%A1/">建模</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/05/12/comsol-1/" title="comsol_1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">comsol_1</div></div></a></div><div class="next-post pull-right"><a href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div><div><a href="/2025/06/12/RH-Conv-1/" title="空洞卷积，多尺度特征融合，大核卷积"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">空洞卷积，多尺度特征融合，大核卷积</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/08/04/RH-FASTMNMF/" title="FastMNMF及改进"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">FastMNMF及改进</div></div></a></div><div><a href="/2025/04/25/eles-3/" title="Génération de signaux 信号发生器"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F入云.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-25</div><div class="title">Génération de signaux 信号发生器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%8B%E5%8A%9B%E5%A3%B0%E5%AD%A6%C2%B7%E4%B8%80"><span class="toc-text">压力声学·一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8E%8B%E5%8A%9B%E5%A3%B0%E5%AD%A6%E7%9A%84%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-text">1. 压力声学的理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%8E%8B%E5%8A%9B%E5%A3%B0%E5%AD%A6%E7%9A%84%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1"><span class="toc-text">1.1 压力声学的研究对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%BF%9E%E7%BB%AD%E6%B5%81%E4%BD%93%E7%9A%84%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B"><span class="toc-text">1.2 连续流体的控制方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%B0%8F%E6%89%B0%E5%8A%A8%E5%81%87%E8%AE%BE%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%A3%B0%E5%AD%A6"><span class="toc-text">1.3 小扰动假设与线性声学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E7%BA%BF%E6%80%A7-Navier-Stokes-%E5%A3%B0%E5%AD%A6"><span class="toc-text">1.4 线性 Navier-Stokes 声学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E7%83%AD%E7%B2%98%E6%80%A7%E5%A3%B0%E5%AD%A6"><span class="toc-text">1.5 热粘性声学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E4%BB%8E%E7%83%AD%E7%B2%98%E6%80%A7%E5%A3%B0%E5%AD%A6%E5%88%B0%E5%8E%8B%E5%8A%9B%E5%A3%B0%E5%AD%A6"><span class="toc-text">1.6 从热粘性声学到压力声学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%8E%8B%E5%8A%9B%E5%A3%B0%E5%AD%A6%E4%B8%AD%E7%9A%84%E6%B4%BE%E7%94%9F%E5%8F%98%E9%87%8F"><span class="toc-text">1.7 压力声学中的派生变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%89%B9%E5%BE%81%E9%A2%91%E7%8E%87%E4%B8%8E%E9%A2%91%E5%9F%9F%E5%93%8D%E5%BA%94"><span class="toc-text">2. 特征频率与频域响应</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%97%A0%E6%BA%90%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%89%E6%BA%90%E5%88%86%E6%9E%90"><span class="toc-text">2.1 无源分析与有源分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%89%B9%E5%BE%81%E9%A2%91%E7%8E%87%E6%96%B9%E7%A8%8B"><span class="toc-text">2.2 特征频率方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%89%B9%E5%BE%81%E9%A2%91%E7%8E%87%E4%B8%8E%E5%A3%B0%E6%BA%90"><span class="toc-text">2.3 特征频率与声源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%B8%E5%9E%8B%E7%90%86%E8%AE%BA%E9%97%AE%E9%A2%98"><span class="toc-text">3. 典型理论问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%88%9A%E6%80%A7%E5%9C%86%E6%9F%B1%E5%A3%B0%E8%85%94%E7%9A%84%E7%89%B9%E5%BE%81%E9%A2%91%E7%8E%87"><span class="toc-text">3.1 刚性圆柱声腔的特征频率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%9A%E6%80%A7%E5%9C%86%E6%9F%B1%E5%A3%B0%E8%85%94%E7%89%B9%E5%BE%81%E9%A2%91%E7%8E%87%E7%9A%84%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97"><span class="toc-text">3.2 刚性圆柱声腔特征频率的理论计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%B7%A6%E4%BE%A7%E5%8E%8B%E5%8A%9B%E6%BA%90%E4%B8%8E%E5%8F%B3%E4%BE%A7%E5%BC%80%E6%94%BE%E8%BE%B9%E7%95%8C%E7%9A%84%E4%B8%80%E7%BB%B4%E5%A3%B0%E4%BC%A0%E6%92%AD"><span class="toc-text">3.2 左侧压力源与右侧开放边界的一维声传播</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8COMSOL%E8%BF%9B%E8%A1%8C%E4%BB%BF%E7%9C%9F"><span class="toc-text">4. 使用COMSOL进行仿真</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E7%89%B9%E5%BE%81%E9%A2%91%E7%8E%87%E5%88%86%E6%9E%90"><span class="toc-text">4.1 特征频率分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E9%A2%91%E7%8E%87%E5%88%86%E6%9E%90"><span class="toc-text">4.2 频率分析</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/12/comsol-1/" title="comsol_1">comsol_1</a><time datetime="2026-05-12T12:22:47.000Z" title="发表于 2026-05-12 20:22:47">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
