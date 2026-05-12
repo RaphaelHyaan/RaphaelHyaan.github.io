@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="C2 PLAN 1. 状态空间表示回顾  一般情况、线性不变系统（SLI）连续时间 状态方程的解法 采样系统 稳定性 状态 ↔ 传递函数之间的转换  2. 基底变换3. 可控性  定义及线性不变系统的必要和充分条件（CNS） 不可控系统的分解  4. 可观性  定义及线性不变系统的必要和充分条件（CNS） 不可观系统的分解  C2.1 状态的表示 Représentation d’état  🪺">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="C2 PLAN  1. 状态空间表示回顾   一般情况、线性不变系统（SLI）连续时间 状态方程的解法 采样系统 稳定性 状态 ↔︎ 传递函数之间的转换  2. 基底变换 3. 可控性   定义及线性不变系统的必要和充分条件（CNS） 不可控系统的分解  4. 可观性   定义及线性不变系统的必要和充分条件（CNS） 不可观系统的分解  C2.1 状">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C2 状态空间表示、可控性与可观性 Représentation d&#39;état, commandabilité, observabilité">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/09/19/informatique/controle/csd-2/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="C2 PLAN 1. 状态空间表示回顾  一般情况、线性不变系统（SLI）连续时间 状态方程的解法 采样系统 稳定性 状态 ↔ 传递函数之间的转换  2. 基底变换3. 可控性  定义及线性不变系统的必要和充分条件（CNS） 不可控系统的分解  4. 可观性  定义及线性不变系统的必要和充分条件（CNS） 不可观系统的分解  C2.1 状态的表示 Représentation d’état  🪺">
+<meta property="og:description" content="C2 PLAN  1. 状态空间表示回顾   一般情况、线性不变系统（SLI）连续时间 状态方程的解法 采样系统 稳定性 状态 ↔︎ 传递函数之间的转换  2. 基底变换 3. 可控性   定义及线性不变系统的必要和充分条件（CNS） 不可控系统的分解  4. 可观性   定义及线性不变系统的必要和充分条件（CNS） 不可观系统的分解  C2.1 状">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F%E7%BE%BD.png">
 <meta property="article:published_time" content="2024-09-19T13:27:42.000Z">
@@ -154,487 +154,822 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> Gallery</span></a></li><li><a class="site-page child" href="/Video/"><i class="fa-fw fas fa-video"></i><span> Video</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-19T13:27:42.000Z" title="发表于 2024-09-19 21:27:42">2024-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.891Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="C2-PLAN"><a href="#C2-PLAN" class="headerlink" title="C2 PLAN"></a>C2 PLAN</h2><hr>
-<h3 id="1-状态空间表示回顾"><a href="#1-状态空间表示回顾" class="headerlink" title="1. 状态空间表示回顾"></a>1. 状态空间表示回顾</h3><hr>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">189</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-19T13:27:42.000Z" title="发表于 2024-09-19 21:27:42">2024-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.891Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C2 状态空间表示、可控性与可观性 Représentation d'état, commandabilité, observabilité"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="c2-plan">C2 PLAN</h2>
+<hr />
+<h3 id="状态空间表示回顾">1. 状态空间表示回顾</h3>
+<hr />
 <ul>
 <li>一般情况、线性不变系统（SLI）连续时间</li>
 <li>状态方程的解法</li>
 <li>采样系统</li>
 <li>稳定性</li>
-<li>状态 ↔ 传递函数之间的转换</li>
+<li>状态 ↔︎ 传递函数之间的转换</li>
 </ul>
-<h3 id="2-基底变换"><a href="#2-基底变换" class="headerlink" title="2. 基底变换"></a>2. 基底变换</h3><h3 id="3-可控性"><a href="#3-可控性" class="headerlink" title="3. 可控性"></a>3. 可控性</h3><hr>
+<h3 id="基底变换">2. 基底变换</h3>
+<h3 id="可控性">3. 可控性</h3>
+<hr />
 <ul>
 <li>定义及线性不变系统的必要和充分条件（CNS）</li>
 <li>不可控系统的分解</li>
 </ul>
-<h3 id="4-可观性"><a href="#4-可观性" class="headerlink" title="4. 可观性"></a>4. 可观性</h3><hr>
+<h3 id="可观性">4. 可观性</h3>
+<hr />
 <ul>
 <li>定义及线性不变系统的必要和充分条件（CNS）</li>
 <li>不可观系统的分解</li>
 </ul>
-<h2 id="C2-1-状态的表示-Representation-d’etat"><a href="#C2-1-状态的表示-Representation-d’etat" class="headerlink" title="C2.1 状态的表示 Représentation d’état"></a>C2.1 状态的表示 Représentation d’état</h2><hr>
+<h2 id="c2.1-状态的表示-représentation-détat">C2.1 状态的表示
+Représentation d'état</h2>
+<hr />
 <blockquote>
-<p>🪺 <strong>状态模型</strong> <code>modèle d&#39;état</code>不仅捕捉了系统的输入-输出行为<code>comportement entrée-sortie</code>，还能够描述系统的内部行为 <code>le comportement interne du système</code>。</p>
+<p>🪺 <strong>状态模型</strong>
+<code>modèle d'état</code>不仅捕捉了系统的输入-输出行为<code>comportement entrée-sortie</code>，还能够描述系统的内部行为
+<code>le comportement interne du système</code>。</p>
 </blockquote>
 <p>因此，与只描述输入-输出行为的传递函数不同，状态空间表示法可以处理更广泛的系统类型，包括非线性和/或时变系统。</p>
-<h3 id="C2-1-1-定义-Definition"><a href="#C2-1-1-定义-Definition" class="headerlink" title="C2.1.1 定义 Définition"></a>C2.1.1 定义 Définition</h3><hr>
-<p>一个时间连续系统<code>système à temps continu</code>的状态空间表示<code>Une représentation d&#39;état</code> 由两个方程来描述：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{x}(t)=f(t, x(t), u(t)) \\& y(t)=h(t, x(t), u(t))\end{aligned}</script><p>其中：</p>
+<h3 id="c2.1.1-定义-définition">C2.1.1 定义 Définition</h3>
+<hr />
+<p>一个时间连续系统<code>système à temps continu</code>的状态空间表示<code>Une représentation d'état</code>
+由两个方程来描述：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{x}(t)=f(t, x(t), u(t)) \\&amp; y(t)=h(t, x(t),
+u(t))\end{aligned}
+\]</span></p>
+<p>其中：</p>
 <ul>
-<li>$u(t) \in \mathbb{R}^m$ 是输入向量,</li>
-<li>$x(t) \in \mathbb{R}^n$ 是状态向量,</li>
-<li>$y(t) \in \mathbb{R}^p$ 是输出向量。</li>
+<li><span class="math inline">\(u(t) \in \mathbb{R}^m\)</span>
+是输入向量,</li>
+<li><span class="math inline">\(x(t) \in \mathbb{R}^n\)</span>
+是状态向量,</li>
+<li><span class="math inline">\(y(t) \in \mathbb{R}^p\)</span>
+是输出向量。</li>
 </ul>
-<hr>
-<p>第一个方程描述状态$x(t)$向量随时间的演化，在$t = t_0$时，有$x(t_0) = x_0$。这个方程被称为状态方程<code>équation d’état</code> 。</p>
-<p>&gt;</p>
+<hr />
+<p>第一个方程描述状态<span
+class="math inline">\(x(t)\)</span>向量随时间的演化，在<span
+class="math inline">\(t = t_0\)</span>时，有<span
+class="math inline">\(x(t_0) =
+x_0\)</span>。这个方程被称为状态方程<code>équation d’état</code> 。</p>
 <blockquote>
-<p>🪺 状态变量<code>variables d&#39;état</code>通常可以与物理量关联，例如位置、速度、角位移、转速、电流强度、电压、温度、压力等，尽管这不是强制性的。任何状态变量的线性组合也可以视为状态变量。</p>
+<p>🪺
+状态变量<code>variables d'état</code>通常可以与物理量关联，例如位置、速度、角位移、转速、电流强度、电压、温度、压力等，尽管这不是强制性的。任何状态变量的线性组合也可以视为状态变量。</p>
 </blockquote>
-<hr>
-<p>第二个方程描述输出$y(t)$与状态变量和输入的关系。被称为输出方程或者观测方程<code>équation de sortie ou d&#39;observation</code>。</p>
-<h3 id="CE2-1-例-小车上的倒立摆"><a href="#CE2-1-例-小车上的倒立摆" class="headerlink" title="CE2.1 例- 小车上的倒立摆"></a>CE2.1 例- 小车上的倒立摆</h3><hr>
+<hr />
+<p>第二个方程描述输出<span
+class="math inline">\(y(t)\)</span>与状态变量和输入的关系。被称为输出方程或者观测方程<code>équation de sortie ou d'observation</code>。</p>
+<h3 id="ce2.1-例--小车上的倒立摆">CE2.1 例- 小车上的倒立摆</h3>
+<hr />
 <p>考虑如下示例：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage.png" alt=""></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage.png" /></p>
 <p>忽略对力学问题的探讨，已知通过拉格朗日方法可以直接得到运动方程：·</p>
-<script type="math/tex; mode=display">
-\begin{aligned}(m+M) \ddot{z}-m l \ddot{\theta} \cos \theta+m l \dot{\theta}^2 \sin \theta & =F \\l \ddot{\theta}-\ddot{z} \cos \theta-g \sin \theta & =0\end{aligned}</script><p>在本实例下分析和探讨状态方程。</p>
-<hr>
-<p>本系统的状态向量：·$x=\left(x_1, x_2, x_3, x_4\right)^{\top}=(z, \theta, \dot{z}, \dot{\theta})^{\top}$。特别需要注意的是，状态方程中只出现一阶导。输入$u = F$，输出$y = z$。</p>
-<p>观察两个方程，每个方程中都同时涉及$\ddot \theta$和$\ddot z$，将其写作矩阵形式得到：</p>
-<script type="math/tex; mode=display">
-\underbrace{\left(\begin{array}{cc}m+M & -m l \cos \theta \\-\cos \theta & l\end{array}\right)}_{=\mathcal{M}(\theta)}\binom{\ddot{z}}{\ddot{\theta}}=\underbrace{\binom{F-m l \dot{\theta}^2 \sin \theta}{g \sin \theta}}_{=G(\theta, F)}</script><p>在物理中，前者被称为质量矩阵，后者被称为广义力。</p>
-<hr>
-<p>质量方程的行列式$\operatorname{det} \mathcal{M}(\theta)=l\left(M+m \sin ^2 \theta\right)&gt;0$，质量矩阵有逆，方程可解。</p>
-<script type="math/tex; mode=display">
-\binom{\ddot{z}}{\ddot{\theta}}=\mathcal{M}(\theta)^{-1} G(\theta, F)=\frac{1}{l\left(M+m \sin ^2 \theta\right)}\binom{l F-m l^2 \dot{\theta}^2 \sin \theta+m g l \sin \theta \cos \theta}{F \cos \theta-m l \dot{\theta}^2 \sin \theta \cos \theta+(m+M) g \sin \theta}</script><p>由此可以推导出状态方程：</p>
-<script type="math/tex; mode=display">
-f(t, x, u)=f(x, u)=\left(\begin{array}{c}x_3 \\x_4 \\\frac{u-m l x_4^2 \sin x_2+m g \sin x_2 \cos x_2}{M+m \sin ^2 x_2} \\\frac{u \cos x_2-m l x_4^2 \sin x_2 \cos x_2+(m+M) g \sin x_2}{l\left(M+m \sin ^2 x_2\right)}\end{array}\right)</script><p>而输出方程很简单：</p>
-<script type="math/tex; mode=display">
-h(t, x, u)=h(x)=x_1</script><hr>
-<hr>
+<p><span class="math display">\[
+\begin{aligned}(m+M) \ddot{z}-m l \ddot{\theta} \cos \theta+m l
+\dot{\theta}^2 \sin \theta &amp; =F \\l \ddot{\theta}-\ddot{z} \cos
+\theta-g \sin \theta &amp; =0\end{aligned}
+\]</span></p>
+<p>在本实例下分析和探讨状态方程。</p>
+<hr />
+<p>本系统的状态向量：·<span class="math inline">\(x=\left(x_1, x_2, x_3,
+x_4\right)^{\top}=(z, \theta, \dot{z},
+\dot{\theta})^{\top}\)</span>。特别需要注意的是，状态方程中只出现一阶导。输入<span
+class="math inline">\(u = F\)</span>，输出<span class="math inline">\(y
+= z\)</span>。</p>
+<p>观察两个方程，每个方程中都同时涉及<span class="math inline">\(\ddot
+\theta\)</span>和<span class="math inline">\(\ddot
+z\)</span>，将其写作矩阵形式得到：</p>
+<p><span class="math display">\[
+\underbrace{\left(\begin{array}{cc}m+M &amp; -m l \cos \theta \\-\cos
+\theta &amp;
+l\end{array}\right)}_{=\mathcal{M}(\theta)}\binom{\ddot{z}}{\ddot{\theta}}=\underbrace{\binom{F-m
+l \dot{\theta}^2 \sin \theta}{g \sin \theta}}_{=G(\theta, F)}
+\]</span></p>
+<p>在物理中，前者被称为质量矩阵，后者被称为广义力。</p>
+<hr />
+<p>质量方程的行列式<span class="math inline">\(\operatorname{det}
+\mathcal{M}(\theta)=l\left(M+m \sin ^2
+\theta\right)&gt;0\)</span>，质量矩阵有逆，方程可解。</p>
+<p><span class="math display">\[
+\binom{\ddot{z}}{\ddot{\theta}}=\mathcal{M}(\theta)^{-1} G(\theta,
+F)=\frac{1}{l\left(M+m \sin ^2 \theta\right)}\binom{l F-m l^2
+\dot{\theta}^2 \sin \theta+m g l \sin \theta \cos \theta}{F \cos
+\theta-m l \dot{\theta}^2 \sin \theta \cos \theta+(m+M) g \sin \theta}
+\]</span></p>
+<p>由此可以推导出状态方程：</p>
+<p><span class="math display">\[
+f(t, x, u)=f(x, u)=\left(\begin{array}{c}x_3 \\x_4 \\\frac{u-m l x_4^2
+\sin x_2+m g \sin x_2 \cos x_2}{M+m \sin ^2 x_2} \\\frac{u \cos x_2-m l
+x_4^2 \sin x_2 \cos x_2+(m+M) g \sin x_2}{l\left(M+m \sin ^2
+x_2\right)}\end{array}\right)
+\]</span></p>
+<p>而输出方程很简单：</p>
+<p><span class="math display">\[
+h(t, x, u)=h(x)=x_1
+\]</span></p>
+<hr />
+<hr />
 <p>回到状态空间的表示。</p>
-<p>当输入为标量时，称其为单输入系统 <code>système mono-entrée</code>。</p>
-<p>当输出为标量时，称其为单输出系统<code>système mono-sortie</code> 。</p>
-<p>当输入输出均为标量时，称之为单变量系统/单输入单输出系统<code>（SISO，Single Input Single Output）</code> ，CE2.1探讨的就是这种情况。</p>
-<p>在相反的情况下，称之为多输入多输出系统<code>（MIMO，Multi Input Multi Output）</code> 。</p>
-<hr>
-<p>在研究状态空间时，首先要确定方程是否是柯西问题<code>cauchy problem</code> ，即常微分方程界的存在性和唯一性。为此，比较常用的方法是柯西-利普希茨定理<code>le théorème de Cauchy Lipchitz</code> ，为此，需要保证向量场连续，且在$x$上满足局部利普希茨条件。</p>
+<p>当输入为标量时，称其为单输入系统
+<code>système mono-entrée</code>。</p>
+<p>当输出为标量时，称其为单输出系统<code>système mono-sortie</code>
+。</p>
+<p>当输入输出均为标量时，称之为单变量系统/单输入单输出系统<code>（SISO，Single Input Single Output）</code>
+，CE2.1探讨的就是这种情况。</p>
+<p>在相反的情况下，称之为多输入多输出系统<code>（MIMO，Multi Input Multi Output）</code>
+。</p>
+<hr />
+<p>在研究状态空间时，首先要确定方程是否是柯西问题<code>cauchy problem</code>
+，即常微分方程界的存在性和唯一性。为此，比较常用的方法是柯西-利普希茨定理<code>le théorème de Cauchy Lipchitz</code>
+，为此，需要保证向量场连续，且在<span
+class="math inline">\(x\)</span>上满足局部利普希茨条件。</p>
 <blockquote>
-<p>🪺 柯西-利普希茨定理（<code>Cauchy-Lipschitz Theorem</code>），又称皮卡-林德勒夫定理（<code>Picard-Lindelöf Theorem</code>），是常微分方程中的一个重要定理，保证了某些微分方程的局部解的存在性和唯一性。<br>具体而言，该定理讨论的是以下形式的初值问题:<br>$\frac{d y}{d x}=f(x, y), \quad y\left(x_0\right)=y_0$<br>假设函数 $f(x, y)$ 对于 $x$ 和 $y$ 是连续的，并且在 $y$ 上满足利普希茨条件，即存在常数 $L$ ，使得对于所有 $x$ 和任意的 $y_1, y_2$ ，有:<br>$\left|f\left(x, y_1\right)-f\left(x, y_2\right)\right| \leq L\left|y_1-y_2\right|$<br>那么，在初值 $\left(x_0, y_0\right)$ 附近的某个区间上，初值问题存在唯一解。</p>
+<p>🪺
+柯西-利普希茨定理（<code>Cauchy-Lipschitz Theorem</code>），又称皮卡-林德勒夫定理（<code>Picard-Lindelöf Theorem</code>），是常微分方程中的一个重要定理，保证了某些微分方程的局部解的存在性和唯一性。
+具体而言，该定理讨论的是以下形式的初值问题: <span
+class="math inline">\(\frac{d y}{d x}=f(x, y), \quad
+y\left(x_0\right)=y_0\)</span> 假设函数 <span class="math inline">\(f(x,
+y)\)</span> 对于 <span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 是连续的，并且在 <span
+class="math inline">\(y\)</span> 上满足利普希茨条件，即存在常数 <span
+class="math inline">\(L\)</span> ，使得对于所有 <span
+class="math inline">\(x\)</span> 和任意的 <span
+class="math inline">\(y_1, y_2\)</span> ，有: <span
+class="math inline">\(\left|f\left(x, y_1\right)-f\left(x,
+y_2\right)\right| \leq L\left|y_1-y_2\right|\)</span> 那么，在初值 <span
+class="math inline">\(\left(x_0, y_0\right)\)</span>
+附近的某个区间上，初值问题存在唯一解。</p>
 </blockquote>
-<hr>
+<hr />
 <p>状态空间并非唯一的，如：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{z}(t)=T^{-1} f(t, T z(t), u(t)) \\& y(t)=h(t, T z(t), u(t))\end{aligned}</script><p>与原始的状态空间表示完全一致。</p>
-<h3 id="C2-1-2-不同的系统"><a href="#C2-1-2-不同的系统" class="headerlink" title="C2.1.2 不同的系统"></a>C2.1.2 不同的系统</h3><hr>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{z}(t)=T^{-1} f(t, T z(t), u(t)) \\&amp;
+y(t)=h(t, T z(t), u(t))\end{aligned}
+\]</span></p>
+<p>与原始的状态空间表示完全一致。</p>
+<h3 id="c2.1.2-不同的系统">C2.1.2 不同的系统</h3>
+<hr />
 <p><strong>时不变系统 Système invariant</strong></p>
-<p>时不变<code>invariant</code> 是描述系统的状态与初始时刻无关的性质，即$x(t) = x(t+t_0)$。</p>
+<p>时不变<code>invariant</code>
+是描述系统的状态与初始时刻无关的性质，即<span class="math inline">\(x(t)
+= x(t+t_0)\)</span>。</p>
 <p>更加具体的说：</p>
 <blockquote>
-<p>🪺<br>状态空间表示被称为时不变系统，当且仅当对于任意初始时刻 $t_0 \in \mathbb{R}$<br>任意初始条件 $x_0 \in \mathbb{R}^n$ 、任意控制输入 $v:\left[t_0,+\infty\right) \rightarrow \mathbb{R}^m$ 和任意 $h&gt;0$ ，设 $(x(t), y(t))$ 是系统在初始条件 $x\left(t_0\right)=x_0$ 和输入 $u(t)=v(t)$ 下的解，则 $(\tilde{x}(t), \tilde{y}(t))=(x(t-h), y(t-h))$ 是同一系统在初始条件 $\tilde{x}\left(t_0+h\right)=x_0$ 和输入 $u(t)=v(t-h)$ 下的解。</p>
+<p>🪺 状态空间表示被称为时不变系统，当且仅当对于任意初始时刻 <span
+class="math inline">\(t_0 \in \mathbb{R}\)</span> 任意初始条件 <span
+class="math inline">\(x_0 \in \mathbb{R}^n\)</span> 、任意控制输入 <span
+class="math inline">\(v:\left[t_0,+\infty\right) \rightarrow
+\mathbb{R}^m\)</span> 和任意 <span class="math inline">\(h&gt;0\)</span>
+，设 <span class="math inline">\((x(t), y(t))\)</span> 是系统在初始条件
+<span class="math inline">\(x\left(t_0\right)=x_0\)</span> 和输入 <span
+class="math inline">\(u(t)=v(t)\)</span> 下的解，则 <span
+class="math inline">\((\tilde{x}(t), \tilde{y}(t))=(x(t-h),
+y(t-h))\)</span> 是同一系统在初始条件 <span
+class="math inline">\(\tilde{x}\left(t_0+h\right)=x_0\)</span> 和输入
+<span class="math inline">\(u(t)=v(t-h)\)</span> 下的解。</p>
 </blockquote>
 <p>简单来说，时不变系统的状态形式为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{x}(t)=f(x(t), u(t)) \\& y(t)=h(x(t), u(t))\end{aligned}</script><p>即$f: \mathbb{R}^n \times \mathbb{R}^m \rightarrow \mathbb{R}^n$ 和 $h: \mathbb{R}^n \times \mathbb{R}^m \rightarrow \mathbb{R}^p$与时间无关。</p>
-<p>在实际情况下，当方程中涉及的系数都与时间无关时，系统为时不变的。如CE2.1中，如果$m,M,l,g$都与时间无关，则系统是时不变的。</p>
-<hr>
-<p><strong>线性系统  Système linéaire</strong></p>
-<p>线性系统是控制论的核心。当向量场$f$和$h$对$x$和$u$都为线性时，系统称为线性系统，表示为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\dot{x}(t) & =A(t) x(t)+B(t) u(t) \\y(t) & =C(t) x(t)+D(t) u(t)\end{aligned}</script><p>其中：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{x}(t)=f(x(t), u(t)) \\&amp; y(t)=h(x(t),
+u(t))\end{aligned}
+\]</span></p>
+<p>即<span class="math inline">\(f: \mathbb{R}^n \times \mathbb{R}^m
+\rightarrow \mathbb{R}^n\)</span> 和 <span class="math inline">\(h:
+\mathbb{R}^n \times \mathbb{R}^m \rightarrow
+\mathbb{R}^p\)</span>与时间无关。</p>
+<p>在实际情况下，当方程中涉及的系数都与时间无关时，系统为时不变的。如CE2.1中，如果<span
+class="math inline">\(m,M,l,g\)</span>都与时间无关，则系统是时不变的。</p>
+<hr />
+<p><strong>线性系统 Système linéaire</strong></p>
+<p>线性系统是控制论的核心。当向量场<span
+class="math inline">\(f\)</span>和<span
+class="math inline">\(h\)</span>对<span
+class="math inline">\(x\)</span>和<span
+class="math inline">\(u\)</span>都为线性时，系统称为线性系统，表示为：</p>
+<p><span class="math display">\[
+\begin{aligned}\dot{x}(t) &amp; =A(t) x(t)+B(t) u(t) \\y(t) &amp; =C(t)
+x(t)+D(t) u(t)\end{aligned}
+\]</span></p>
+<p>其中：</p>
 <ul>
-<li>$A(t) \in \mathbb{R}^{n \times n}$ 是演化矩阵，</li>
-<li>$B(t) \in \mathbb{R}^{n \times m}$ 是控制矩阵，</li>
-<li>$C(t) \in \mathbb{R}^{p \times n}$ 是输出矩阵，</li>
-<li>$D(t) \in \mathbb{R}^{p \times m}$ 是直接传输矩阵。</li>
+<li><span class="math inline">\(A(t) \in \mathbb{R}^{n \times
+n}\)</span> 是演化矩阵，</li>
+<li><span class="math inline">\(B(t) \in \mathbb{R}^{n \times
+m}\)</span> 是控制矩阵，</li>
+<li><span class="math inline">\(C(t) \in \mathbb{R}^{p \times
+n}\)</span> 是输出矩阵，</li>
+<li><span class="math inline">\(D(t) \in \mathbb{R}^{p \times
+m}\)</span> 是直接传输矩阵。</li>
 </ul>
-<hr>
+<hr />
 <p><strong>线性时不变系统 Système linéaire et invariant</strong></p>
 <p>结合线性和时不变两个性质，线性时不变系统表示为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\dot{x}(t) & =A x(t)+B u(t) \\y(t) & =C x(t)+D u(t)\end{aligned}</script><p>这种形式的方程有显式解：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\begin{aligned}\dot{x}(t) &amp; =A x(t)+B u(t) \\y(t) &amp; =C x(t)+D
+u(t)\end{aligned}
+\]</span></p>
+<p>这种形式的方程有显式解：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& x(t)=e^{A\left(t-t_0\right)} x\left(t_0\right)+\int_{t_0}^t e^{A(t-\tau)} B u(\tau) d \tau \\
-& y(t)=C e^{A\left(t-t_0\right)} x\left(t_0\right)+\int_{t_0}^t C e^{A(t-\tau)} B u(\tau) d \tau+D u(t)
-\end{aligned}</script><p>状态解的第一部分称为自由响应<code>régime libre</code> ， 表示在没有输入$u=0$ 的情况下，系统响应初始条件 $x\left(t_0\right)$ 的状态变化。第二部分称为受迫相应<code>régime forcé</code> ，表示系统对外部刺激的相应。</p>
-<script type="math/tex; mode=display">
-\Phi\left(t, t_0\right)=e^{A\left(t-t_0\right)} \triangleq \sum_{k \geq 0} \frac{\left(t-t_0\right)^k A^k}{k!}</script><p>解中，$e^{A\left(t-t_0\right)}$被称为状态转移矩阵，是通过矩阵指数计算的。可以如下计算：</p>
-<script type="math/tex; mode=display">
-e^{A t}=I+A t+A^2 \frac{t^2}{2!}+A^3 \frac{t^3}{3!}+\ldots</script><p>或者使用拉普拉斯变换来表示：</p>
-<script type="math/tex; mode=display">
-e^{A t}=\mathcal{L}^{-1}\left((s I-A)^{-1}\right)</script><p>关于矩阵指数的显式计算方法，可以使用Sylvester插值法或者Jordan标准形。</p>
+&amp; x(t)=e^{A\left(t-t_0\right)} x\left(t_0\right)+\int_{t_0}^t
+e^{A(t-\tau)} B u(\tau) d \tau \\
+&amp; y(t)=C e^{A\left(t-t_0\right)} x\left(t_0\right)+\int_{t_0}^t C
+e^{A(t-\tau)} B u(\tau) d \tau+D u(t)
+\end{aligned}
+\]</span></p>
+<p>状态解的第一部分称为自由响应<code>régime libre</code> ，
+表示在没有输入<span class="math inline">\(u=0\)</span>
+的情况下，系统响应初始条件 <span
+class="math inline">\(x\left(t_0\right)\)</span>
+的状态变化。第二部分称为受迫相应<code>régime forcé</code>
+，表示系统对外部刺激的相应。</p>
+<p><span class="math display">\[
+\Phi\left(t, t_0\right)=e^{A\left(t-t_0\right)} \triangleq \sum_{k \geq
+0} \frac{\left(t-t_0\right)^k A^k}{k!}
+\]</span></p>
+<p>解中，<span
+class="math inline">\(e^{A\left(t-t_0\right)}\)</span>被称为状态转移矩阵，是通过矩阵指数计算的。可以如下计算：</p>
+<p><span class="math display">\[
+e^{A t}=I+A t+A^2 \frac{t^2}{2!}+A^3 \frac{t^3}{3!}+\ldots
+\]</span></p>
+<p>或者使用拉普拉斯变换来表示：</p>
+<p><span class="math display">\[
+e^{A t}=\mathcal{L}^{-1}\left((s I-A)^{-1}\right)
+\]</span></p>
+<p>关于矩阵指数的显式计算方法，可以使用Sylvester插值法或者Jordan标准形。</p>
 <blockquote>
 <p><strong>Sylvester 插值法</strong></p>
 <aside>
-🪺
-
-Sylvester 插值法（Sylvester Interpolation Method）是一种基于矩阵多项式插值的技术，用于计算矩阵的函数（如矩阵指数）。这个方法的基本思想是，通过矩阵的特征值和特征向量来构造矩阵指数。
-
-具体步骤:
-
-- 首先，找到矩阵 $A$ 的特征值 $\lambda_1, \lambda_2, \ldots, \lambda_n$ 以及对应的特征向量。
-- 对每个特征值 $\lambda_i$ ，矩阵的指数 $e^A$ 可以用特征多项式表示为:
-$e^A=P(A)$
-
-其中， $P(A)$ 是某个矩阵多项式。通过在特征值处进行插值，可以找到这个多项式。矩阵的指数通过特征向量和特征值来构造。
-
-如矩阵$A=\left(\begin{array}{ll}2 & 1 \\0 & 3\end{array}\right)$，其特征值为$\lambda_1=2 ， \lambda_2=3$；特征向量矩阵$P=\left(\begin{array}{ll}
-1 & 1 \\
-0 & 1
-\end{array}\right)$。其指数可以表示为：
-
-$e^A=P e^D P^{-1}$
-
-而$e^D=\left(\begin{array}{cc}e^2 & 0 \\0 & e^3\end{array}\right)$，故有：
-
-$e^A=\left(\begin{array}{ll}1 & 1 \\0 & 1\end{array}\right)\left(\begin{array}{cc}e^2 & 0 \\0 & e^3\end{array}\right)\left(\begin{array}{cc}1 & -1 \\0 & 1\end{array}\right)=\left(\begin{array}{cc}e^2 & e^3-e^2 \\0 & e^3\end{array}\right)$
-
+<p>🪺</p>
+<p>Sylvester 插值法（Sylvester Interpolation
+Method）是一种基于矩阵多项式插值的技术，用于计算矩阵的函数（如矩阵指数）。这个方法的基本思想是，通过矩阵的特征值和特征向量来构造矩阵指数。</p>
+<p>具体步骤:</p>
+<ul>
+<li>首先，找到矩阵 <span class="math inline">\(A\)</span> 的特征值 <span
+class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_n\)</span>
+以及对应的特征向量。</li>
+<li>对每个特征值 <span class="math inline">\(\lambda_i\)</span>
+，矩阵的指数 <span class="math inline">\(e^A\)</span>
+可以用特征多项式表示为: <span
+class="math inline">\(e^A=P(A)\)</span></li>
+</ul>
+<p>其中， <span class="math inline">\(P(A)\)</span>
+是某个矩阵多项式。通过在特征值处进行插值，可以找到这个多项式。矩阵的指数通过特征向量和特征值来构造。</p>
+<p>如矩阵<span class="math inline">\(A=\left(\begin{array}{ll}2 &amp; 1
+\\0 &amp; 3\end{array}\right)\)</span>，其特征值为<span
+class="math inline">\(\lambda_1=2 ，
+\lambda_2=3\)</span>；特征向量矩阵<span
+class="math inline">\(P=\left(\begin{array}{ll}
+1 &amp; 1 \\
+0 &amp; 1
+\end{array}\right)\)</span>。其指数可以表示为：</p>
+<p><span class="math inline">\(e^A=P e^D P^{-1}\)</span></p>
+<p>而<span class="math inline">\(e^D=\left(\begin{array}{cc}e^2 &amp; 0
+\\0 &amp; e^3\end{array}\right)\)</span>，故有：</p>
+<p><span class="math inline">\(e^A=\left(\begin{array}{ll}1 &amp; 1 \\0
+&amp; 1\end{array}\right)\left(\begin{array}{cc}e^2 &amp; 0 \\0 &amp;
+e^3\end{array}\right)\left(\begin{array}{cc}1 &amp; -1 \\0 &amp;
+1\end{array}\right)=\left(\begin{array}{cc}e^2 &amp; e^3-e^2 \\0 &amp;
+e^3\end{array}\right)\)</span></p>
 </aside>
-
 <aside>
-🪺
-
-矩阵求逆
-
-1. **初等行变换法 (Gauss-Jordan 消元法)**
-
-高斯-若尔当消元法通过将矩阵 $A$ 变换为单位矩阵，同时对单位矩阵进行相同的变换来得到逆矩阵。具体步骤如下:
-
-1. 构造 $A$ 和单位矩阵 $I$ 的增广矩阵 $(A \mid I)$ 。
-2. 对 $A$ 执行一系列初等行变换，使得 $A$ 变为单位矩阵 $I$ 。这些变换可以是:
-- 交换两行
-- 将某一行乘以非零数
-- 将某一行加上另一行的倍数
-1. 当增广矩阵左侧的 $A$ 变为单位矩阵时, 增广矩阵右侧的矩阵就是 $A$ 的逆矩阵。
-
-对于矩阵 $A=\left(\begin{array}{ll}1 & 2 \\ 3 & 4\end{array}\right)$ ，使用初等行变换法求逆矩阵:
-
-1. 构造增广矩阵 $(A \mid I)$ :
-$\left(\begin{array}{ll|ll}
-1 & 2 & 1 & 0 \\
-3 & 4 & 0 & 1
-\end{array}\right)$
-2. 对第 2 行减去第 1 行的 3 倍，得到:
-$\left(\begin{array}{cc|cc}
-1 & 2 & 1 & 0 \\
-0 & -2 & -3 & 1
-\end{array}\right)$
-3. 将第 2 行乘以 $-\frac{1}{2}$ ，得到:
-$\left(\begin{array}{cc|cc}
-1 & 2 & 1 & 0 \\
-0 & 1 & \frac{3}{2} & -\frac{1}{2}
-\end{array}\right)$
-4. 将第 1 行减去第 2 行的 2 倍, 得到:
-$\left(\begin{array}{cc|cc}
-1 & 0 & -2 & 1 \\
-0 & 1 & \frac{3}{2} & -\frac{1}{2}
-\end{array}\right)$
-
-因此，逆矩阵为:
-$A^{-1}=\left(\begin{array}{cc}
--2 & 1 \\
-\frac{3}{2} & -\frac{1}{2}
-\end{array}\right)$
-
----
-
-1. **伴随矩阵法 (Cofactor/Adjugate Method)**
-
-对于一个 $n \times n$ 的矩阵 $A$ ，其逆矩阵可以通过伴随矩阵和行列式来计算。具体步骤如下：
-
-1. 计算行列式 $\operatorname{det}(A)$ ：确保行列式不为零。
-2. 求代数余子式矩阵：计算矩阵的每个元素对应的代数余子式。代数余子式是将对应元素所在的行和列去掉后，计算剩余矩阵的行列式，并根据位置赋予正负号。
-3. 求伴随矩阵：伴随矩阵是代数余子式矩阵的转置。
-4. 计算逆矩阵: 如果行列式 $\operatorname{det}(A) \neq 0$ ，则逆矩阵可以表示为:
-$A^{-1}=\frac{1}{\operatorname{det}(A)} \cdot$ 伴随矩阵
-
-对于矩阵 $A=\left(\begin{array}{ll}1 & 2 \\ 3 & 4\end{array}\right)$ ，计算其逆矩阵:
-
-1. 计算行列式:
-$\operatorname{det}(A)=1 \times 4-2 \times 3=-2$
-2. 计算代数余子式矩阵:
-$\text { 代数余子式矩阵 }=\left(\begin{array}{cc}
-4 & -3 \\
--2 & 1
-\end{array}\right)$
-3. 转置代数余子式矩阵得到伴随矩阵:
-$\text { 伴随矩阵 }=\left(\begin{array}{cc}
-4 & -2 \\
--3 & 1
-\end{array}\right)$
-4. 计算逆矩阵:
-$A^{-1}=\frac{1}{\operatorname{det}(A)}\left(\begin{array}{cc}
-4 & -2 \\
--3 & 1
+<p>🪺</p>
+<p>矩阵求逆</p>
+<ol type="1">
+<li><strong>初等行变换法 (Gauss-Jordan 消元法)</strong></li>
+</ol>
+<p>高斯-若尔当消元法通过将矩阵 <span class="math inline">\(A\)</span>
+变换为单位矩阵，同时对单位矩阵进行相同的变换来得到逆矩阵。具体步骤如下:</p>
+<ol type="1">
+<li>构造 <span class="math inline">\(A\)</span> 和单位矩阵 <span
+class="math inline">\(I\)</span> 的增广矩阵 <span
+class="math inline">\((A \mid I)\)</span> 。</li>
+<li>对 <span class="math inline">\(A\)</span> 执行一系列初等行变换，使得
+<span class="math inline">\(A\)</span> 变为单位矩阵 <span
+class="math inline">\(I\)</span> 。这些变换可以是:</li>
+</ol>
+<ul>
+<li>交换两行</li>
+<li>将某一行乘以非零数</li>
+<li>将某一行加上另一行的倍数</li>
+</ul>
+<ol type="1">
+<li>当增广矩阵左侧的 <span class="math inline">\(A\)</span>
+变为单位矩阵时, 增广矩阵右侧的矩阵就是 <span
+class="math inline">\(A\)</span> 的逆矩阵。</li>
+</ol>
+<p>对于矩阵 <span class="math inline">\(A=\left(\begin{array}{ll}1 &amp;
+2 \\ 3 &amp; 4\end{array}\right)\)</span>
+，使用初等行变换法求逆矩阵:</p>
+<ol type="1">
+<li>构造增广矩阵 <span class="math inline">\((A \mid I)\)</span> : <span
+class="math inline">\(\left(\begin{array}{ll|ll}
+1 &amp; 2 &amp; 1 &amp; 0 \\
+3 &amp; 4 &amp; 0 &amp; 1
+\end{array}\right)\)</span></li>
+<li>对第 2 行减去第 1 行的 3 倍，得到: <span
+class="math inline">\(\left(\begin{array}{cc|cc}
+1 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; -2 &amp; -3 &amp; 1
+\end{array}\right)\)</span></li>
+<li>将第 2 行乘以 <span class="math inline">\(-\frac{1}{2}\)</span>
+，得到: <span class="math inline">\(\left(\begin{array}{cc|cc}
+1 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; \frac{3}{2} &amp; -\frac{1}{2}
+\end{array}\right)\)</span></li>
+<li>将第 1 行减去第 2 行的 2 倍, 得到: <span
+class="math inline">\(\left(\begin{array}{cc|cc}
+1 &amp; 0 &amp; -2 &amp; 1 \\
+0 &amp; 1 &amp; \frac{3}{2} &amp; -\frac{1}{2}
+\end{array}\right)\)</span></li>
+</ol>
+<p>因此，逆矩阵为: <span
+class="math inline">\(A^{-1}=\left(\begin{array}{cc}
+-2 &amp; 1 \\
+\frac{3}{2} &amp; -\frac{1}{2}
+\end{array}\right)\)</span></p>
+<hr />
+<ol type="1">
+<li><strong>伴随矩阵法 (Cofactor/Adjugate Method)</strong></li>
+</ol>
+<p>对于一个 <span class="math inline">\(n \times n\)</span> 的矩阵 <span
+class="math inline">\(A\)</span>
+，其逆矩阵可以通过伴随矩阵和行列式来计算。具体步骤如下：</p>
+<ol type="1">
+<li>计算行列式 <span
+class="math inline">\(\operatorname{det}(A)\)</span>
+：确保行列式不为零。</li>
+<li>求代数余子式矩阵：计算矩阵的每个元素对应的代数余子式。代数余子式是将对应元素所在的行和列去掉后，计算剩余矩阵的行列式，并根据位置赋予正负号。</li>
+<li>求伴随矩阵：伴随矩阵是代数余子式矩阵的转置。</li>
+<li>计算逆矩阵: 如果行列式 <span
+class="math inline">\(\operatorname{det}(A) \neq 0\)</span>
+，则逆矩阵可以表示为: <span
+class="math inline">\(A^{-1}=\frac{1}{\operatorname{det}(A)}
+\cdot\)</span> 伴随矩阵</li>
+</ol>
+<p>对于矩阵 <span class="math inline">\(A=\left(\begin{array}{ll}1 &amp;
+2 \\ 3 &amp; 4\end{array}\right)\)</span> ，计算其逆矩阵:</p>
+<ol type="1">
+<li>计算行列式: <span class="math inline">\(\operatorname{det}(A)=1
+\times 4-2 \times 3=-2\)</span></li>
+<li>计算代数余子式矩阵: <span class="math inline">\(\text {
+代数余子式矩阵 }=\left(\begin{array}{cc}
+4 &amp; -3 \\
+-2 &amp; 1
+\end{array}\right)\)</span></li>
+<li>转置代数余子式矩阵得到伴随矩阵: <span class="math inline">\(\text {
+伴随矩阵 }=\left(\begin{array}{cc}
+4 &amp; -2 \\
+-3 &amp; 1
+\end{array}\right)\)</span></li>
+<li>计算逆矩阵: <span
+class="math inline">\(A^{-1}=\frac{1}{\operatorname{det}(A)}\left(\begin{array}{cc}
+4 &amp; -2 \\
+-3 &amp; 1
 \end{array}\right)=\frac{1}{-2}\left(\begin{array}{cc}
-4 & -2 \\
--3 & 1
+4 &amp; -2 \\
+-3 &amp; 1
 \end{array}\right)=\left(\begin{array}{cc}
--2 & 1 \\
-1.5 & -0.5
-\end{array}\right)$
+-2 &amp; 1 \\
+1.5 &amp; -0.5
+\end{array}\right)\)</span></li>
+</ol>
 </aside>
-
-
+</blockquote>
+<blockquote>
 <p><strong>Jordan标准化方法</strong></p>
 <aside>
-🪺
-
-Jordan 标准形（Jordan Canonical Form）是一种将矩阵简化为由 Jordan 块组成的近似对角化形式的方法。对于任意一个矩阵 $A$ ，可以通过相似变换找到它的 Jordan 形式 $J$ ，这样 $A=P J P^{-1}$ ，其中 $J$ 是 Jordan 形式， $P$ 是一个可逆矩阵。
-
-在 Jordan 标准形下，矩阵的指数计算变得更加容易，因为 Jordan 块具有特定的结构。
-具体步骤:
-
-1. 找到 Jordan 标准形：通过求解特征值和特征向量，得到矩阵 $A$ 的 Jordan 标准形 $J$ ，其中 $J$是由 Jordan 块组成的矩阵。
-2. 计算 Jordan 块的指数：对于每个 Jordan 块 $J_i$ ，它的指数可以通过以下公式计算:
-$e^{J_i}=e^{\lambda_i}\left(I+N_i+\frac{N_i^2}{2!}+\cdots+\frac{N_i^{k-1}}{(k-1)!}\right)$
-
-    其中 $\lambda_i$ 是 Jordan 块 $J_i$ 的特征值， $N_i$ 是 Jordan 块中的上三角部分（对应于广义特征向量的结构），而 $k$ 是 Jordan 块的大小。
-
-3. 构造矩阵指数：通过 Jordan 形式计算出矩阵的指数后，使用 $P$ 和 $P^{-1}$ 恢复原矩阵的指数：
-$e^A=P e^J P^{-1}$
-
-如$A=\left(\begin{array}{ll}
-5 & 1 \\
-0 & 5
-\end{array}\right)$不可对角化，特征值为$A=\left(\begin{array}{ll}5 & 1 \\0 & 5\end{array}\right)$，由此：
-
-$e^J=e^5\left(I+J_1\right)$即可求得。
-
+<p>🪺</p>
+<p>Jordan 标准形（Jordan Canonical Form）是一种将矩阵简化为由 Jordan
+块组成的近似对角化形式的方法。对于任意一个矩阵 <span
+class="math inline">\(A\)</span> ，可以通过相似变换找到它的 Jordan 形式
+<span class="math inline">\(J\)</span> ，这样 <span
+class="math inline">\(A=P J P^{-1}\)</span> ，其中 <span
+class="math inline">\(J\)</span> 是 Jordan 形式， <span
+class="math inline">\(P\)</span> 是一个可逆矩阵。</p>
+<p>在 Jordan 标准形下，矩阵的指数计算变得更加容易，因为 Jordan
+块具有特定的结构。 具体步骤:</p>
+<ol type="1">
+<li><p>找到 Jordan 标准形：通过求解特征值和特征向量，得到矩阵 <span
+class="math inline">\(A\)</span> 的 Jordan 标准形 <span
+class="math inline">\(J\)</span> ，其中 <span
+class="math inline">\(J\)</span>是由 Jordan 块组成的矩阵。</p></li>
+<li><p>计算 Jordan 块的指数：对于每个 Jordan 块 <span
+class="math inline">\(J_i\)</span> ，它的指数可以通过以下公式计算: <span
+class="math inline">\(e^{J_i}=e^{\lambda_i}\left(I+N_i+\frac{N_i^2}{2!}+\cdots+\frac{N_i^{k-1}}{(k-1)!}\right)\)</span></p>
+<p>其中 <span class="math inline">\(\lambda_i\)</span> 是 Jordan 块
+<span class="math inline">\(J_i\)</span> 的特征值， <span
+class="math inline">\(N_i\)</span> 是 Jordan
+块中的上三角部分（对应于广义特征向量的结构），而 <span
+class="math inline">\(k\)</span> 是 Jordan 块的大小。</p></li>
+<li><p>构造矩阵指数：通过 Jordan 形式计算出矩阵的指数后，使用 <span
+class="math inline">\(P\)</span> 和 <span
+class="math inline">\(P^{-1}\)</span> 恢复原矩阵的指数： <span
+class="math inline">\(e^A=P e^J P^{-1}\)</span></p></li>
+</ol>
+<p>如<span class="math inline">\(A=\left(\begin{array}{ll}
+5 &amp; 1 \\
+0 &amp; 5
+\end{array}\right)\)</span>不可对角化，特征值为<span
+class="math inline">\(A=\left(\begin{array}{ll}5 &amp; 1 \\0 &amp;
+5\end{array}\right)\)</span>，由此：</p>
+<p><span
+class="math inline">\(e^J=e^5\left(I+J_1\right)\)</span>即可求得。</p>
 </aside>
-
 <aside>
-🪺
-
-Jordan块的标准形式是
-
-$$
-J_k(\lambda)=\left(\begin{array}{ccccc}\lambda & 1 & 0 & \cdots & 0 \\0 & \lambda & 1 & \cdots & 0 \\0 & 0 & \lambda & \cdots & 0 \\\vdots & \vdots & \vdots & \ddots & 1 \\0 & 0 & 0 & \cdots & \lambda\end{array}\right)_{k \times k}
-$$
-
-给定一个 $5 \times 5$ 的矩阵 $A$ :
-$A=\left(\begin{array}{lllll}
-4 & 1 & 0 & 0 & 0 \\
-0 & 4 & 0 & 0 & 0 \\
-0 & 0 & 3 & 1 & 0 \\
-0 & 0 & 0 & 3 & 1 \\
-0 & 0 & 0 & 0 & 3
-\end{array}\right)$
-
-我们将对这个矩阵进行 Jordan 标准化。
-
-1. 计算特征值
-
-首先，我们通过解特征方程 $\operatorname{det}(A-\lambda I)=0$ 来找到矩阵的特征值。
-$\operatorname{det}(A-\lambda I)=\operatorname{det}\left(\begin{array}{ccccc}
-4-\lambda & 1 & 0 & 0 & 0 \\
-0 & 4-\lambda & 0 & 0 & 0 \\
-0 & 0 & 3-\lambda & 1 & 0 \\
-0 & 0 & 0 & 3-\lambda & 1 \\
-0 & 0 & 0 & 0 & 3-\lambda
-\end{array}\right)=(4-\lambda)^2(3-\lambda)^3$
-
-解得两个特征值:
-
-- $\lambda=4$ ，代数重数为 2 。
-- $\lambda=3$ ，代数重数为 3 。
-
-对于 $\lambda=4$ 的特征值，对应的 Jordan 块 $J_2(4)$ 是:
-$J_2(4)=\left(\begin{array}{ll}
-4 & 1 \\
-0 & 4
-\end{array}\right)$
-
-这是一个大小为 2 的 Jordan 块。
-
-- 对于 $\lambda=3$ 的特征值，对应的 Jordan 块 $J_3(3)$ 是:
-$J_3(3)=\left(\begin{array}{lll}
-3 & 1 & 0 \\
-0 & 3 & 1 \\
-0 & 0 & 3
-\end{array}\right)$
-
-这是一个大小为 3 的 Jordan 块。
-
-由此，
-
-$J=\left(\begin{array}{cc}
-J_2(4) & 0 \\
-0 & J_3(3)
+<p>🪺</p>
+<p>Jordan块的标准形式是</p>
+<p><span class="math display">\[
+J_k(\lambda)=\left(\begin{array}{ccccc}\lambda &amp; 1 &amp; 0 &amp;
+\cdots &amp; 0 \\0 &amp; \lambda &amp; 1 &amp; \cdots &amp; 0 \\0 &amp;
+0 &amp; \lambda &amp; \cdots &amp; 0 \\\vdots &amp; \vdots &amp; \vdots
+&amp; \ddots &amp; 1 \\0 &amp; 0 &amp; 0 &amp; \cdots &amp;
+\lambda\end{array}\right)_{k \times k}
+\]</span></p>
+<p>给定一个 <span class="math inline">\(5 \times 5\)</span> 的矩阵 <span
+class="math inline">\(A\)</span> : <span
+class="math inline">\(A=\left(\begin{array}{lllll}
+4 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 4 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 3 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 3 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 3
+\end{array}\right)\)</span></p>
+<p>我们将对这个矩阵进行 Jordan 标准化。</p>
+<ol type="1">
+<li>计算特征值</li>
+</ol>
+<p>首先，我们通过解特征方程 <span
+class="math inline">\(\operatorname{det}(A-\lambda I)=0\)</span>
+来找到矩阵的特征值。 <span
+class="math inline">\(\operatorname{det}(A-\lambda
+I)=\operatorname{det}\left(\begin{array}{ccccc}
+4-\lambda &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 4-\lambda &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 3-\lambda &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 3-\lambda &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 3-\lambda
+\end{array}\right)=(4-\lambda)^2(3-\lambda)^3\)</span></p>
+<p>解得两个特征值:</p>
+<ul>
+<li><span class="math inline">\(\lambda=4\)</span> ，代数重数为 2
+。</li>
+<li><span class="math inline">\(\lambda=3\)</span> ，代数重数为 3
+。</li>
+</ul>
+<p>对于 <span class="math inline">\(\lambda=4\)</span> 的特征值，对应的
+Jordan 块 <span class="math inline">\(J_2(4)\)</span> 是: <span
+class="math inline">\(J_2(4)=\left(\begin{array}{ll}
+4 &amp; 1 \\
+0 &amp; 4
+\end{array}\right)\)</span></p>
+<p>这是一个大小为 2 的 Jordan 块。</p>
+<ul>
+<li>对于 <span class="math inline">\(\lambda=3\)</span> 的特征值，对应的
+Jordan 块 <span class="math inline">\(J_3(3)\)</span> 是: <span
+class="math inline">\(J_3(3)=\left(\begin{array}{lll}
+3 &amp; 1 &amp; 0 \\
+0 &amp; 3 &amp; 1 \\
+0 &amp; 0 &amp; 3
+\end{array}\right)\)</span></li>
+</ul>
+<p>这是一个大小为 3 的 Jordan 块。</p>
+<p>由此，</p>
+<p><span class="math inline">\(J=\left(\begin{array}{cc}
+J_2(4) &amp; 0 \\
+0 &amp; J_3(3)
 \end{array}\right)=\left(\begin{array}{lllll}
-4 & 1 & 0 & 0 & 0 \\
-0 & 4 & 0 & 0 & 0 \\
-0 & 0 & 3 & 1 & 0 \\
-0 & 0 & 0 & 3 & 1 \\
-0 & 0 & 0 & 0 & 3
-\end{array}\right)$
-
-对于 $\lambda=4$ :
-
-- 特征方程 $(A-4 I) v=0$ 给出的特征向量是 $v_1=(1,0,0,0,0)^T$ 。
-- 广义特征向量是通过 $(A-4 I) v_2=v_1$ 计算的，得到广义特征向量 $v_2=(0,1,0,0,0)^T$ 。
-
-这些特征向量构成了大小为 2 的 Jordan 块对应的矩阵部分。
-对于 $\lambda=3$ :
-
-- 特征方程 $(A-3 I) v=0$ 给出的特征向量是 $v_3=(0,0,1,0,0)^T$ 。
-- 广义特征向量通过 $(A-3 I) v_4=v_3$ 计算得到 $v_4=(0,0,0,1,0)^T$ 。
-- 再次应用 $(A-3 I) v_5=v_4$ ，得到广义特征向量 $v_5=(0,0,0,0,1)^T$ 。
-
-这些特征问量和广义特征向量构成了大小为 3 的 Jordan 块对应的矩阵部分。
-
-$P=\left(\begin{array}{lllll}
-v_2 & v_1 & v_5 & v_4 & v_3
+4 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 4 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 3 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 3 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 3
+\end{array}\right)\)</span></p>
+<p>对于 <span class="math inline">\(\lambda=4\)</span> :</p>
+<ul>
+<li>特征方程 <span class="math inline">\((A-4 I) v=0\)</span>
+给出的特征向量是 <span class="math inline">\(v_1=(1,0,0,0,0)^T\)</span>
+。</li>
+<li>广义特征向量是通过 <span class="math inline">\((A-4 I)
+v_2=v_1\)</span> 计算的，得到广义特征向量 <span
+class="math inline">\(v_2=(0,1,0,0,0)^T\)</span> 。</li>
+</ul>
+<p>这些特征向量构成了大小为 2 的 Jordan 块对应的矩阵部分。 对于 <span
+class="math inline">\(\lambda=3\)</span> :</p>
+<ul>
+<li>特征方程 <span class="math inline">\((A-3 I) v=0\)</span>
+给出的特征向量是 <span class="math inline">\(v_3=(0,0,1,0,0)^T\)</span>
+。</li>
+<li>广义特征向量通过 <span class="math inline">\((A-3 I)
+v_4=v_3\)</span> 计算得到 <span
+class="math inline">\(v_4=(0,0,0,1,0)^T\)</span> 。</li>
+<li>再次应用 <span class="math inline">\((A-3 I) v_5=v_4\)</span>
+，得到广义特征向量 <span
+class="math inline">\(v_5=(0,0,0,0,1)^T\)</span> 。</li>
+</ul>
+<p>这些特征问量和广义特征向量构成了大小为 3 的 Jordan
+块对应的矩阵部分。</p>
+<p><span class="math inline">\(P=\left(\begin{array}{lllll}
+v_2 &amp; v_1 &amp; v_5 &amp; v_4 &amp; v_3
 \end{array}\right)=\left(\begin{array}{lllll}
-0 & 1 & 0 & 0 & 0 \\
-1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 1 & 0 & 0
-\end{array}\right)$
-
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0
+\end{array}\right)\)</span></p>
 </aside>
-
-
 </blockquote>
-<h3 id="C2-1-3-在平衡点附近线性化-Linearisation-autour-d’un-point-d’equilibre"><a href="#C2-1-3-在平衡点附近线性化-Linearisation-autour-d’un-point-d’equilibre" class="headerlink" title="C2.1.3 在平衡点附近线性化 Linéarisation autour d’un point d’équilibre"></a>C2.1.3 在平衡点附近线性化 Linéarisation autour d’un point d’équilibre</h3><hr>
+<h3
+id="c2.1.3-在平衡点附近线性化-linéarisation-autour-dun-point-déquilibre">C2.1.3
+在平衡点附近线性化 Linéarisation autour d'un point d'équilibre</h3>
+<hr />
 <p>为了方便计算，需对更为常见的非线性系统在平衡点附近进行线性化。</p>
 <p>本章考虑非线性时不变系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\dot{x}(t) & =f(x(t), u(t)) \\y(t) & =h(x(t), u(t))\end{aligned}</script><hr>
-<p><strong>平衡点</strong> <code>Point d’équilibre ou équilibre</code></p>
-<p>平衡点$(\bar{x}, \bar{u}) \in \mathbb{R}^n \times \mathbb{R}^m$满足$f(\bar{x}, \bar{u})=0$。即平衡点系统状态在时间上保持不变。其解满足：</p>
-<script type="math/tex; mode=display">
-\bar{y}=h(\bar{x}, \bar{u})</script><p>在自治系统 <code>système autonome</code> 中，平衡点满足$f(\bar{x})=0$。</p>
+<p><span class="math display">\[
+\begin{aligned}\dot{x}(t) &amp; =f(x(t), u(t)) \\y(t) &amp; =h(x(t),
+u(t))\end{aligned}
+\]</span></p>
+<hr />
+<p><strong>平衡点</strong>
+<code>Point d’équilibre ou équilibre</code></p>
+<p>平衡点<span class="math inline">\((\bar{x}, \bar{u}) \in \mathbb{R}^n
+\times \mathbb{R}^m\)</span>满足<span class="math inline">\(f(\bar{x},
+\bar{u})=0\)</span>。即平衡点系统状态在时间上保持不变。其解满足：</p>
+<p><span class="math display">\[
+\bar{y}=h(\bar{x}, \bar{u})
+\]</span></p>
+<p>在自治系统 <code>système autonome</code> 中，平衡点满足<span
+class="math inline">\(f(\bar{x})=0\)</span>。</p>
 <p>平衡点并非一定存在。</p>
 <p>另一种表示形式使用如下记号表示平衡点：</p>
-<script type="math/tex; mode=display">
-f\left(x^{\star}, u^{\star}\right)=0</script><hr>
-<h3 id="CE2-2-例-小车上的倒立摆中的平衡点"><a href="#CE2-2-例-小车上的倒立摆中的平衡点" class="headerlink" title="CE2.2 例- 小车上的倒立摆中的平衡点"></a>CE2.2 例- 小车上的倒立摆中的平衡点</h3><hr>
+<p><span class="math display">\[
+f\left(x^{\star}, u^{\star}\right)=0
+\]</span></p>
+<hr />
+<h3 id="ce2.2-例--小车上的倒立摆中的平衡点">CE2.2 例-
+小车上的倒立摆中的平衡点</h3>
+<hr />
 <p>考虑已经得到的状态方程，平衡点要求：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-\bar{x}_3 & =0 \\
-\bar{x}_4 & =0 \\
-\frac{\bar{u}-m l \bar{x}_4^2 \sin \bar{x}_2+m g \sin \bar{x}_2 \cos \bar{x}_2}{M+m \sin ^2 \bar{x}_2} & =0 \\
-\frac{\bar{u} \cos \bar{x}_2-m l \bar{x}_4^2 \sin \bar{x}_2 \cos \bar{x}_2+(m+M) g \sin \bar{x}_2}{l\left(M+m \sin ^2 \bar{x}_2\right)} & =0
-\end{aligned}</script><p>经过简化，得到：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\bar{x}_3=\bar{x}_4 & =0 \\\bar{u}+m g \sin \bar{x}_2 \cos \bar{x}_2 & =0 \\\bar{u} \cos \bar{x}_2+(m+M) g \sin \bar{x}_2 & =0\end{aligned}</script><p>联立后两个方程：</p>
-<script type="math/tex; mode=display">
-\sin \bar{x}_2 \underbrace{\left(M+m \sin ^2 \bar{x}_2\right)}_{>0}=0</script><p>这意味着 $\sin \bar{x}_2=0$ ，即 $\bar{x}_2=0$ 或 $\bar{x}_2=\pi$ 。这两个解对应倒立摆的两个平衡状态：</p>
+\bar{x}_3 &amp; =0 \\
+\bar{x}_4 &amp; =0 \\
+\frac{\bar{u}-m l \bar{x}_4^2 \sin \bar{x}_2+m g \sin \bar{x}_2 \cos
+\bar{x}_2}{M+m \sin ^2 \bar{x}_2} &amp; =0 \\
+\frac{\bar{u} \cos \bar{x}_2-m l \bar{x}_4^2 \sin \bar{x}_2 \cos
+\bar{x}_2+(m+M) g \sin \bar{x}_2}{l\left(M+m \sin ^2 \bar{x}_2\right)}
+&amp; =0
+\end{aligned}
+\]</span></p>
+<p>经过简化，得到：</p>
+<p><span class="math display">\[
+\begin{aligned}\bar{x}_3=\bar{x}_4 &amp; =0 \\\bar{u}+m g \sin \bar{x}_2
+\cos \bar{x}_2 &amp; =0 \\\bar{u} \cos \bar{x}_2+(m+M) g \sin \bar{x}_2
+&amp; =0\end{aligned}
+\]</span></p>
+<p>联立后两个方程：</p>
+<p><span class="math display">\[
+\sin \bar{x}_2 \underbrace{\left(M+m \sin ^2 \bar{x}_2\right)}_{&gt;0}=0
+\]</span></p>
+<p>这意味着 <span class="math inline">\(\sin \bar{x}_2=0\)</span> ，即
+<span class="math inline">\(\bar{x}_2=0\)</span> 或 <span
+class="math inline">\(\bar{x}_2=\pi\)</span>
+。这两个解对应倒立摆的两个平衡状态：</p>
 <ul>
-<li>当 $\bar{x}_2=0$ 时，摆处于向下稳定状态。</li>
-<li>当 $\bar{x}_2=\pi$ 时，摆处于向上不稳定状态。</li>
+<li>当 <span class="math inline">\(\bar{x}_2=0\)</span>
+时，摆处于向下稳定状态。</li>
+<li>当 <span class="math inline">\(\bar{x}_2=\pi\)</span>
+时，摆处于向上不稳定状态。</li>
 </ul>
-<p>同时可以观察到$\bar{u}=0$，$\bar{x}_1 \in \mathbb{R}$。也就是说，在外力为零的时候，存在两个平衡点。</p>
-<hr>
-<hr>
+<p>同时可以观察到<span class="math inline">\(\bar{u}=0\)</span>，<span
+class="math inline">\(\bar{x}_1 \in
+\mathbb{R}\)</span>。也就是说，在外力为零的时候，存在两个平衡点。</p>
+<hr />
+<hr />
 <p>然后我们尝试在平衡点附近对非线性状态模型进行近似。</p>
 <p><strong>偏导数</strong> <code>Dérivées partielles</code></p>
-<p>当函数 $x<em>l \mapsto$ $f_k\left(a_1, \ldots, a</em>{l-1}, x<em>l, a</em>{l+1}, \ldots a_n\right)$ 在 $x_l=a_l$ 处可导时，我们说 $f_k$ 在点 $a=\left(a_1, \ldots, a_n\right)^{\top} \in \mathbb{R}^n$ 相对于 $x_l$ 存在偏导数。此时，该偏导数记为 $\frac{\partial f_k}{\partial x_l}(a)$ 。如果每个 $f_k$在 $a$ 处对所有 $x_k$ 都有偏导数，则定义雅可比矩阵为:</p>
-<script type="math/tex; mode=display">
-\frac{\partial f}{\partial x}=\left(\frac{\partial f_k}{\partial x_l}(a)\right)_{1 \leq k \leq m, 1 \leq l \leq n} \in \mathbb{R}^{m \times n}</script><p>在当前问题中，更为细致的：</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_1.png" alt=""></p>
-<p>如果$f$在每一个点对每一个$x_k$都有偏导数，且偏导数是连续的，那么我们称$f$是连续可微<code>continumentdi érentiable</code>的。</p>
-<hr>
+<p>当函数 <span class="math inline">\(x_l \mapsto\)</span> <span
+class="math inline">\(f_k\left(a_1, \ldots, a_{l-1}, x_l, a_{l+1},
+\ldots a_n\right)\)</span> 在 <span
+class="math inline">\(x_l=a_l\)</span> 处可导时，我们说 <span
+class="math inline">\(f_k\)</span> 在点 <span
+class="math inline">\(a=\left(a_1, \ldots, a_n\right)^{\top} \in
+\mathbb{R}^n\)</span> 相对于 <span class="math inline">\(x_l\)</span>
+存在偏导数。此时，该偏导数记为 <span
+class="math inline">\(\frac{\partial f_k}{\partial x_l}(a)\)</span>
+。如果每个 <span class="math inline">\(f_k\)</span>在 <span
+class="math inline">\(a\)</span> 处对所有 <span
+class="math inline">\(x_k\)</span> 都有偏导数，则定义雅可比矩阵为:</p>
+<p><span class="math display">\[
+\frac{\partial f}{\partial x}=\left(\frac{\partial f_k}{\partial
+x_l}(a)\right)_{1 \leq k \leq m, 1 \leq l \leq n} \in \mathbb{R}^{m
+\times n}
+\]</span></p>
+<p>在当前问题中，更为细致的：</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_1.png" /></p>
+<p>如果<span class="math inline">\(f\)</span>在每一个点对每一个<span
+class="math inline">\(x_k\)</span>都有偏导数，且偏导数是连续的，那么我们称<span
+class="math inline">\(f\)</span>是连续可微<code>continumentdi érentiable</code>的。</p>
+<hr />
 <p>在这种条件下，可以在稳定点附近进行一阶泰勒展开。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{x}(t)=\underbrace{f(\bar{x}, \bar{u})}_{=0}+\frac{\partial f}{\partial x}(\bar{x}, \bar{u})[x(t)-\bar{x}]+\frac{\partial f}{\partial u}(\bar{x}, \bar{u})[u(t)-\bar{u}]+O(\|(x(t), u(t))-(\bar{x}, \bar{u})\|) \\& y(t)=\underbrace{h(\bar{x}, \bar{u})}_{=\bar{y}}+\frac{\partial h}{\partial x}(\bar{x}, \bar{u})[x(t)-\bar{x}]+\frac{\partial h}{\partial u}(\bar{x}, \bar{u})[u(t)-\bar{u}]+O(\|(x(t), u(t))-(\bar{x}, \bar{u})\|)\end{aligned}</script><p>忽略高阶小量，并引入偏差量$\delta x(t)=x(t)-\bar{x}, \delta u(t)=u(t)-\bar{u}, \delta y(t)=y(t)-\bar{y}$，即可得到线性化之后的线性时不变系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\delta \dot{x}(t) & =A \delta x(t)+B \delta u(t) \\\delta y(t) & =C \delta x(t)+D \delta u(t)\end{aligned}</script><ul>
-<li>$A=\frac{\partial f}{\partial x}(\bar{x}, \bar{u})$</li>
-<li>$B=\frac{\partial f}{\partial u}(\bar{x}, \bar{u})$</li>
-<li>$C=\frac{\partial h}{\partial x}(\bar{x}, \bar{u})$</li>
-<li>$D=\frac{\partial h}{\partial u}(\bar{x}, \bar{u})$</li>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{x}(t)=\underbrace{f(\bar{x},
+\bar{u})}_{=0}+\frac{\partial f}{\partial x}(\bar{x},
+\bar{u})[x(t)-\bar{x}]+\frac{\partial f}{\partial u}(\bar{x},
+\bar{u})[u(t)-\bar{u}]+O(\|(x(t), u(t))-(\bar{x}, \bar{u})\|) \\&amp;
+y(t)=\underbrace{h(\bar{x}, \bar{u})}_{=\bar{y}}+\frac{\partial
+h}{\partial x}(\bar{x}, \bar{u})[x(t)-\bar{x}]+\frac{\partial
+h}{\partial u}(\bar{x}, \bar{u})[u(t)-\bar{u}]+O(\|(x(t),
+u(t))-(\bar{x}, \bar{u})\|)\end{aligned}
+\]</span></p>
+<p>忽略高阶小量，并引入偏差量<span class="math inline">\(\delta
+x(t)=x(t)-\bar{x}, \delta u(t)=u(t)-\bar{u}, \delta
+y(t)=y(t)-\bar{y}\)</span>，即可得到线性化之后的线性时不变系统：</p>
+<p><span class="math display">\[
+\begin{aligned}\delta \dot{x}(t) &amp; =A \delta x(t)+B \delta u(t)
+\\\delta y(t) &amp; =C \delta x(t)+D \delta u(t)\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(A=\frac{\partial f}{\partial x}(\bar{x},
+\bar{u})\)</span></li>
+<li><span class="math inline">\(B=\frac{\partial f}{\partial u}(\bar{x},
+\bar{u})\)</span></li>
+<li><span class="math inline">\(C=\frac{\partial h}{\partial x}(\bar{x},
+\bar{u})\)</span></li>
+<li><span class="math inline">\(D=\frac{\partial h}{\partial u}(\bar{x},
+\bar{u})\)</span></li>
 </ul>
-<hr>
+<hr />
 <p>注意，首先，线性化必须在平衡点进行，雅可比矩阵必须是平衡点处的雅可比矩阵，简化仅在平衡点附近较好的模拟原有系统。</p>
-<h3 id="CE2-3-例-小车上的倒立摆中的线性化"><a href="#CE2-3-例-小车上的倒立摆中的线性化" class="headerlink" title="CE2.3 例- 小车上的倒立摆中的线性化"></a>CE2.3 例- 小车上的倒立摆中的线性化</h3><hr>
-<p>我们继续分析示例 3 中的倒立摆系统，已经知道系统的平衡点由以下条件定义:</p>
-<script type="math/tex; mode=display">
-\bar{x}=\left(\bar{x}_1, \bar{x}_2, 0,0\right)^{\top} \in \mathbb{R}^4, \quad \bar{x}_1 \in \mathbb{R} \text { 任意 }, \quad \bar{x}_2 \in \pi \mathbb{Z}, \quad \bar{u}=0, \quad \bar{y}=\bar{x}_1</script><p>现在，在这个平衡点处对系统的动力学进行线性化，得到的系统矩阵如下:</p>
-<script type="math/tex; mode=display">
+<h3 id="ce2.3-例--小车上的倒立摆中的线性化">CE2.3 例-
+小车上的倒立摆中的线性化</h3>
+<hr />
+<p>我们继续分析示例 3
+中的倒立摆系统，已经知道系统的平衡点由以下条件定义:</p>
+<p><span class="math display">\[
+\bar{x}=\left(\bar{x}_1, \bar{x}_2, 0,0\right)^{\top} \in \mathbb{R}^4,
+\quad \bar{x}_1 \in \mathbb{R} \text { 任意 }, \quad \bar{x}_2 \in \pi
+\mathbb{Z}, \quad \bar{u}=0, \quad \bar{y}=\bar{x}_1
+\]</span></p>
+<p>现在，在这个平衡点处对系统的动力学进行线性化，得到的系统矩阵如下:</p>
+<p><span class="math display">\[
 A=\left(\begin{array}{cccc}
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & \frac{m g}{M} & 0 & 0 \\
-0 & \frac{(m+M) g \cos \bar{x}_2}{M l} & 0 & 0
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; \frac{m g}{M} &amp; 0 &amp; 0 \\
+0 &amp; \frac{(m+M) g \cos \bar{x}_2}{M l} &amp; 0 &amp; 0
 \end{array}\right), \quad B=\left(\begin{array}{c}
 0 \\
 0 \\
 \frac{1}{M} \\
 \frac{\cos \bar{x}_2}{M l}
 \end{array}\right), \quad C=\left(\begin{array}{llll}
-1 & 0 & 0 & 0
-\end{array}\right), \quad D=0</script><p>其中，关于 $\cos \bar{x}_2$ 的值有以下情况：</p>
+1 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right), \quad D=0
+\]</span></p>
+<p>其中，关于 <span class="math inline">\(\cos \bar{x}_2\)</span>
+的值有以下情况：</p>
 <ul>
-<li>如果 $\bar{x}_2 \in 2 \pi \mathbb{Z}$ (即摆处于向下稳定位置)，则 $\cos \bar{x}_2=1$ ；</li>
-<li>如果 $\bar{x}_2 \in \pi+2 \pi \mathbb{Z}$ (即摆处于向上不稳定位置)，则 $\cos \bar{x}_2=-1$ 。</li>
+<li>如果 <span class="math inline">\(\bar{x}_2 \in 2 \pi
+\mathbb{Z}\)</span> (即摆处于向下稳定位置)，则 <span
+class="math inline">\(\cos \bar{x}_2=1\)</span> ；</li>
+<li>如果 <span class="math inline">\(\bar{x}_2 \in \pi+2 \pi
+\mathbb{Z}\)</span> (即摆处于向上不稳定位置)，则 <span
+class="math inline">\(\cos \bar{x}_2=-1\)</span> 。</li>
 </ul>
-<p>这些矩阵表示的是系统在平衡点处的线性近似。通过这个线性化模型，我们可以进一步分析系统的稳定性，并设计控制器来稳定系统。例如，当 $\bar{x}_2=0$ 时，系统处于向下稳定状态；而当 $\bar{x}_2=\pi$ 时，系统处于向上不稳定状态。</p>
-<h3 id="C2-1-4-从状态空间模型到传递函数-Passageetat-transfert"><a href="#C2-1-4-从状态空间模型到传递函数-Passageetat-transfert" class="headerlink" title="C2.1.4 从状态空间模型到传递函数 Passageétat-transfert"></a>C2.1.4 从状态空间模型到传递函数 Passageétat-transfert</h3><hr>
-<p>我们知道，线性时不变系统可以用传递函数或者传递矩阵来建模。这种建模被称为外部表示 <code>représentation externe</code> ，相应的，使用状态的表示方法被称为内部表示<code>représentation interne</code>。传递矩阵<code>matricede transfert</code>或传递函数（仅在单变量系统）描述输入与输出大的关系：</p>
-<script type="math/tex; mode=display">
-Y(s)=H(s) U(s)</script><hr>
+<p>这些矩阵表示的是系统在平衡点处的线性近似。通过这个线性化模型，我们可以进一步分析系统的稳定性，并设计控制器来稳定系统。例如，当
+<span class="math inline">\(\bar{x}_2=0\)</span>
+时，系统处于向下稳定状态；而当 <span
+class="math inline">\(\bar{x}_2=\pi\)</span>
+时，系统处于向上不稳定状态。</p>
+<h3 id="c2.1.4-从状态空间模型到传递函数-passageétat-transfert">C2.1.4
+从状态空间模型到传递函数 Passageétat-transfert</h3>
+<hr />
+<p>我们知道，线性时不变系统可以用传递函数或者传递矩阵来建模。这种建模被称为外部表示
+<code>représentation externe</code>
+，相应的，使用状态的表示方法被称为内部表示<code>représentation interne</code>。传递矩阵<code>matricede transfert</code>或传递函数（仅在单变量系统）描述输入与输出大的关系：</p>
+<p><span class="math display">\[
+Y(s)=H(s) U(s)
+\]</span></p>
+<hr />
 <p>接下来我们讨论从内部表示转化到外部表示。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\dot{x}(t) & =A x(t)+B u(t) \\y(t) & =C x(t)+D u(t)\end{aligned}</script><p>首先进行拉普拉斯变换，得到：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}s X(s) & =A X(s)+B U(s) \\Y(s) & =C X(s)+D U(s)\end{aligned}</script><p>注意我们假设了初始条件$x(0) = 0$。然后就可以直接得出传递函数的表达式：</p>
-<script type="math/tex; mode=display">
-H(s)=C(s I-A)^{-1} B+D</script><ol>
-<li>传递函数的分母：在单输入单输出系统（SISO）的情况下，传递函数 $H(s)$ 的分母是矩阵 $A$ 的特征多项式（回忆上一章提到过的伴随矩阵法求逆），即 $\operatorname{det}(s I-A)$ 。换句话说，传递函数的极点是矩阵 $A$ 的特征值。（注意，反之并不一定）。</li>
-<li>传递函数的阶数：传递函数的阶数（即分母多项式的最高次数）小于或等于状态空间表示的维度 $n$ 。这意味着状态空间模型的维度限制了系统的动态复杂性。</li>
+<p><span class="math display">\[
+\begin{aligned}\dot{x}(t) &amp; =A x(t)+B u(t) \\y(t) &amp; =C x(t)+D
+u(t)\end{aligned}
+\]</span></p>
+<p>首先进行拉普拉斯变换，得到：</p>
+<p><span class="math display">\[
+\begin{aligned}s X(s) &amp; =A X(s)+B U(s) \\Y(s) &amp; =C X(s)+D
+U(s)\end{aligned}
+\]</span></p>
+<p>注意我们假设了初始条件<span class="math inline">\(x(0) =
+0\)</span>。然后就可以直接得出传递函数的表达式：</p>
+<p><span class="math display">\[
+H(s)=C(s I-A)^{-1} B+D
+\]</span></p>
+<ol type="1">
+<li>传递函数的分母：在单输入单输出系统（SISO）的情况下，传递函数 <span
+class="math inline">\(H(s)\)</span> 的分母是矩阵 <span
+class="math inline">\(A\)</span>
+的特征多项式（回忆上一章提到过的伴随矩阵法求逆），即 <span
+class="math inline">\(\operatorname{det}(s I-A)\)</span>
+。换句话说，传递函数的极点是矩阵 <span class="math inline">\(A\)</span>
+的特征值。（注意，反之并不一定）。</li>
+<li>传递函数的阶数：传递函数的阶数（即分母多项式的最高次数）小于或等于状态空间表示的维度
+<span class="math inline">\(n\)</span>
+。这意味着状态空间模型的维度限制了系统的动态复杂性。</li>
 </ol>
-<h3 id="CE2-4-例-小车上的倒立摆的传递矩阵"><a href="#CE2-4-例-小车上的倒立摆的传递矩阵" class="headerlink" title="CE2.4 例- 小车上的倒立摆的传递矩阵"></a>CE2.4 例- 小车上的倒立摆的传递矩阵</h3><hr>
+<h3 id="ce2.4-例--小车上的倒立摆的传递矩阵">CE2.4 例-
+小车上的倒立摆的传递矩阵</h3>
+<hr />
 <p>考虑状态方程的标量形式：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\delta \dot{x}_1 & =\delta x_3 \\\delta \dot{x}_2 & =\delta x_4 \\\delta \dot{x}_3 & =\frac{m g}{M} \delta x_2+\frac{1}{M} \delta u \\\delta \dot{x}_4 & =\frac{(m+M) g \cos \bar{x}_2}{M l} \delta x_2+\frac{\cos \bar{x}_2}{M l} \delta u \\\delta y & =\delta x_1\end{aligned}</script><p>进行拉普拉斯变换得到：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\begin{aligned}\delta \dot{x}_1 &amp; =\delta x_3 \\\delta \dot{x}_2
+&amp; =\delta x_4 \\\delta \dot{x}_3 &amp; =\frac{m g}{M} \delta
+x_2+\frac{1}{M} \delta u \\\delta \dot{x}_4 &amp; =\frac{(m+M) g \cos
+\bar{x}_2}{M l} \delta x_2+\frac{\cos \bar{x}_2}{M l} \delta u \\\delta
+y &amp; =\delta x_1\end{aligned}
+\]</span></p>
+<p>进行拉普拉斯变换得到：</p>
+<p><span class="math display">\[
 \begin{aligned}
-s \Delta X_1(s) & =\Delta X_3(s) \\
-s \Delta X_2(s) & =\Delta X_4(s) \\
-s \Delta X_3(s) & =\frac{m g}{M} \Delta X_2(s)+\frac{1}{M} \Delta U(s) \\
-s \Delta X_4(s) & =\frac{(m+M) g \cos \bar{x}_2}{M l} \Delta X_2(s)+\frac{\cos \bar{x}_2}{M l} \Delta U(s) \\
-\Delta Y(s) & =\Delta X_1(s)
-\end{aligned}</script><p>简化方程可得：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}&\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right) \Delta X_2(s)=\frac{\cos \bar{x}_2}{M l} \Delta U(s)\\&s^2 \Delta X_1(s)=\frac{m g}{M} \Delta X_2(s)+\frac{1}{M} \Delta U(s)\end{aligned}</script><p>联立可得：</p>
-<script type="math/tex; mode=display">
+s \Delta X_1(s) &amp; =\Delta X_3(s) \\
+s \Delta X_2(s) &amp; =\Delta X_4(s) \\
+s \Delta X_3(s) &amp; =\frac{m g}{M} \Delta X_2(s)+\frac{1}{M} \Delta
+U(s) \\
+s \Delta X_4(s) &amp; =\frac{(m+M) g \cos \bar{x}_2}{M l} \Delta
+X_2(s)+\frac{\cos \bar{x}_2}{M l} \Delta U(s) \\
+\Delta Y(s) &amp; =\Delta X_1(s)
+\end{aligned}
+\]</span></p>
+<p>简化方程可得：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp;\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right)
+\Delta X_2(s)=\frac{\cos \bar{x}_2}{M l} \Delta U(s)\\&amp;s^2 \Delta
+X_1(s)=\frac{m g}{M} \Delta X_2(s)+\frac{1}{M} \Delta U(s)\end{aligned}
+\]</span></p>
+<p>联立可得：</p>
+<p><span class="math display">\[
 \begin{aligned}
-s^2\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right) \Delta X_1(s) & =\frac{m g}{M} \cdot \frac{\cos \bar{x}_2}{M l} \Delta U(s)+\frac{1}{M}\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right) \Delta U(s) \\
-& =\left(\frac{1}{M} s^2-\frac{g \cos \bar{x}_2}{M l}\right) \Delta U(s)
-\end{aligned}</script><p>从而得到传递函数：</p>
-<script type="math/tex; mode=display">
-H(s)=\frac{\Delta X_1(s)}{\Delta U(s)}=\frac{\frac{1}{M} s^2-\frac{g \cos \bar{x}_2}{M l}}{s^2\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right)}</script><hr>
-<hr>
-<h3 id="CE2-1-5-单变量情况下的从状态空间模型到传递函数-Passageetat-transfert-cas-monovariable"><a href="#CE2-1-5-单变量情况下的从状态空间模型到传递函数-Passageetat-transfert-cas-monovariable" class="headerlink" title="CE2.1.5 单变量情况下的从状态空间模型到传递函数 Passageétat-transfert cas monovariable"></a><strong>CE2.1.5 单变量情况下的从状态空间模型到传递函数</strong> Passageétat-transfert cas monovariable</h3><hr>
+s^2\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right) \Delta X_1(s)
+&amp; =\frac{m g}{M} \cdot \frac{\cos \bar{x}_2}{M l} \Delta
+U(s)+\frac{1}{M}\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M l}\right)
+\Delta U(s) \\
+&amp; =\left(\frac{1}{M} s^2-\frac{g \cos \bar{x}_2}{M l}\right) \Delta
+U(s)
+\end{aligned}
+\]</span></p>
+<p>从而得到传递函数：</p>
+<p><span class="math display">\[
+H(s)=\frac{\Delta X_1(s)}{\Delta U(s)}=\frac{\frac{1}{M} s^2-\frac{g
+\cos \bar{x}_2}{M l}}{s^2\left(s^2-\frac{(m+M) g \cos \bar{x}_2}{M
+l}\right)}
+\]</span></p>
+<hr />
+<hr />
+<h3
+id="ce2.1.5-单变量情况下的从状态空间模型到传递函数-passageétat-transfert-cas-monovariable"><strong>CE2.1.5
+单变量情况下的从状态空间模型到传递函数</strong> Passageétat-transfert
+cas monovariable</h3>
+<hr />
 <p>仅考虑在单变量情况下，从传递函数向状态空间的转变。在这种情况下，传递函数可以写作：</p>
-<script type="math/tex; mode=display">
-H(s)=\frac{b_0+b_1 s+\ldots+b_{n-1} s^{n-1}}{a_0+a_1 s+\ldots+a_{n-1} s^{n-1}+s^n}+d_0</script><p>并且满足传递函数是严格真分式，其分子的阶数小于或等于分母的阶数。</p>
-<hr>
-<p><strong>控制伴随形式</strong> <code>Forme compagnon pour la commande</code></p>
+<p><span class="math display">\[
+H(s)=\frac{b_0+b_1 s+\ldots+b_{n-1} s^{n-1}}{a_0+a_1 s+\ldots+a_{n-1}
+s^{n-1}+s^n}+d_0
+\]</span></p>
+<p>并且满足传递函数是严格真分式，其分子的阶数小于或等于分母的阶数。</p>
+<hr />
+<p><strong>控制伴随形式</strong>
+<code>Forme compagnon pour la commande</code></p>
 <p>传递函数形式为：</p>
-<script type="math/tex; mode=display">
-Y(s)=Y_1(s)+d_0 U(s), \quad Y_1(s)=\frac{b_0+b_1 s+\cdots+b_{n-1} s^{n-1}}{a_0+a_1 s+\cdots+s^n} U(s)</script><p>引入$W(s)=\frac{1}{a_0+a_1 s+\cdots+s^n} U(s)$，有</p>
-<script type="math/tex; mode=display">
-Y_1(s)=\left(b_0+b_1 s+\cdots+b_{n-1} s^{n-1}\right) W(s)</script><p>在时间域上则有：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{aligned}y(t) & =y_1(t)+d_0 u(t) \\y_1(t) & =b_0 w(t)+b_1 \dot{w}(t)+\cdots+b_{n-1} w^{(n-1)}(t) \\w^{(n)}(t) & =-a_0 w(t)-a_1 \dot{w}(t)-\cdots-a_{n-1} w^{(n-1)}(t)+u(t)\end{aligned}\right.</script><p>然后如此选择状态变量：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+Y(s)=Y_1(s)+d_0 U(s), \quad Y_1(s)=\frac{b_0+b_1 s+\cdots+b_{n-1}
+s^{n-1}}{a_0+a_1 s+\cdots+s^n} U(s)
+\]</span></p>
+<p>引入<span class="math inline">\(W(s)=\frac{1}{a_0+a_1 s+\cdots+s^n}
+U(s)\)</span>，有</p>
+<p><span class="math display">\[
+Y_1(s)=\left(b_0+b_1 s+\cdots+b_{n-1} s^{n-1}\right) W(s)
+\]</span></p>
+<p>在时间域上则有：</p>
+<p><span class="math display">\[
+\left\{\begin{aligned}y(t) &amp; =y_1(t)+d_0 u(t) \\y_1(t) &amp; =b_0
+w(t)+b_1 \dot{w}(t)+\cdots+b_{n-1} w^{(n-1)}(t) \\w^{(n)}(t) &amp; =-a_0
+w(t)-a_1 \dot{w}(t)-\cdots-a_{n-1} w^{(n-1)}(t)+u(t)\end{aligned}\right.
+\]</span></p>
+<p>然后如此选择状态变量：</p>
+<p><span class="math display">\[
 \begin{aligned}
-x_1(t) & =w(t) \\
-x_2(t) & =\dot{x}_1(t)=\dot{w}(t) \\
-x_3(t) & =\dot{x}_2(t)=\ddot{w}(t) \\
-& \vdots \\
-x_n(t) & =\dot{x}_{n-1}(t)=w^{(n-1)}(t)
-\end{aligned}</script><p>即可将状态方程表示为：</p>
-<script type="math/tex; mode=display">
+x_1(t) &amp; =w(t) \\
+x_2(t) &amp; =\dot{x}_1(t)=\dot{w}(t) \\
+x_3(t) &amp; =\dot{x}_2(t)=\ddot{w}(t) \\
+&amp; \vdots \\
+x_n(t) &amp; =\dot{x}_{n-1}(t)=w^{(n-1)}(t)
+\end{aligned}
+\]</span></p>
+<p>即可将状态方程表示为：</p>
+<p><span class="math display">\[
 \frac{\mathrm{d}}{\mathrm{d} t}\left(\begin{array}{c}
 x_1 \\
 x_2 \\
@@ -642,11 +977,11 @@ x_2 \\
 x_{n-1} \\
 x_n
 \end{array}\right)(t)=\underbrace{\left(\begin{array}{ccccc}
-0 & 1 & 0 & \cdots & 0 \\
-0 & 0 & 1 & \cdots & 0 \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & \cdots & 1 \\
--a_0 & -a_1 & -a_2 & \cdots & -a_{n-1}
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 \\
+-a_0 &amp; -a_1 &amp; -a_2 &amp; \cdots &amp; -a_{n-1}
 \end{array}\right)}_{=A}\left(\begin{array}{c}
 x_1 \\
 x_2 \\
@@ -659,575 +994,1155 @@ x_n
 \vdots \\
 0 \\
 1
-\end{array}\right)}_{=B} u(t)</script><p>并把输出方程表示为：</p>
-<script type="math/tex; mode=display">
+\end{array}\right)}_{=B} u(t)
+\]</span></p>
+<p>并把输出方程表示为：</p>
+<p><span class="math display">\[
 y(t)=y_1(t)+d_0 u(t)=\underbrace{\left(\begin{array}{llll}
-b_0 & b_1 & \cdots & b_{n-1}
+b_0 &amp; b_1 &amp; \cdots &amp; b_{n-1}
 \end{array}\right)}_{=C}\left(\begin{array}{c}
 x_1 \\
 x_2 \\
 \vdots \\
 x_n
-\end{array}\right)(t)+\underbrace{d_0}_{=D} u(t)</script><hr>
-<p><strong>观察伴随形式</strong>  <code>Forme compagnon pour l&#39;observation</code></p>
-<p>不引入$W(s)=\frac{1}{a_0+a_1 s+\cdots+s^n} U(s)$，而是将方程写成：</p>
-<script type="math/tex; mode=display">
-Y_1(s)=\left(b_{n-1} \frac{1}{s}+\cdots+b_1 \frac{1}{s^{n-1}}+b_0 \frac{1}{s^n}\right) U(s)-\left(a_{n-1} \frac{1}{s}+\cdots+a_1 \frac{1}{s^{n-1}}+a_0 \frac{1}{s^n}\right) Y_1(s)</script><p>进而引入$\zeta_j=b_j U(s)-a_j Y_1(s)$：</p>
-<script type="math/tex; mode=display">
-Y_1(s)=\left(b_{n-1} \frac{1}{s}+\cdots+b_1 \frac{1}{s^{n-1}}+b_0 \frac{1}{s^n}\right) U(s)-\left(a_{n-1} \frac{1}{s}+\cdots+a_1 \frac{1}{s^{n-1}}+a_0 \frac{1}{s^n}\right) Y_1(s)</script><p>如下选择状态变量：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{aligned}X_n(s) & =\frac{1}{s}\left(b_{n-1} U(s)-a_{n-1} X_n(s)+X_{n-1}(s)\right) \\X_{n-1}(s) & =\frac{1}{s}\left(b_{n-2} U(s)-a_{n-2} X_n(s)+X_{n-2}(s)\right) \\& \vdots \\X_1(s) & =\frac{1}{s}\left(b_0 U(s)-a_0 X_n(s)\right)\end{aligned}\right.</script><p>在时间域上：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}\dot{x}_1(t)=b_0 u(t)-a_0 x_n(t) \\\dot{x}_2(t)=b_1 u(t)-a_1 x_n(t)+x_1(t) \\\dot{x}_3(t)=b_2 u(t)-a_2 x_n(t)+x_2(t) \\\quad \vdots \\\dot{x}_n(t)=b_{n-1} u(t)-a_{n-1} x_n(t)+x_{n-1}(t)\end{array}\right.</script><p>由此可以写出状态空间表示：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}\frac{\mathrm{d}}{\mathrm{d} t}\left(\begin{array}{c}x_1 \\x_2 \\\vdots \\x_{n-1} \\x_n\end{array}\right)(t)=\underbrace{\left(\begin{array}{ccccc}0 & 0 & \cdots & 0 & -a_0 \\1 & 0 & \cdots & 0 & -a_1 \\\vdots & \vdots & \ddots & \vdots & \vdots \\0 & 0 & \cdots & 0 & -a_{n-2} \\0 & 0 & \cdots & 1 & -a_{n-1}\end{array}\right)}_{=A}\left(\begin{array}{c}x_1 \\x_2 \\\vdots \\x_{n-1} \\x_n\end{array}\right)(t)+\underbrace{\left(\begin{array}{c}b_0 \\b_1 \\\vdots \\b_{n-2} \\b_{n-1}\end{array}\right)}_{=B} u(t) \\y(t)=y_1(t)+d_0 u(t)=\underbrace{\left(\begin{array}{lllll}0 & 0 & \cdots & 0 & 1\end{array}\right)}_{=C}\left(\begin{array}{c}x_1 \\x_2 \\\vdots \\x_{n-1} \\x_n\end{array}\right)(t)+\underbrace{d_0}_{=D} u(t)\end{gathered}</script><hr>
-<p><strong>两种表示的对偶性</strong> <code>Dualité des deux formes compagnons</code></p>
-<p>控制伴随形式和观测伴随形式中的矩阵结构具有对偶性。具体来说，设控制伴随形式的状态空间表示矩阵为 $A_c, B_c, C_c, D_c$ ， 观测伴随形式的矩阵为 $A_o, B_o, C_o, D_o$ ，它们之间满足以下关系：</p>
-<script type="math/tex; mode=display">
-A_o=A_c^{\top}, \quad B_o=C_c^{\top}, \quad C_o=B_c^{\top}, \quad D_o=D_c</script><p>这表明这两种形式是对偶的。当我们讨论系统的可控性和可观测性时，这种对偶性将会再次出现。通过这种对偶关系，我们可以看到控制和观测问题之间的内在联系，进而帮助我们在系统分析中使用相似的工具和方法。</p>
-<h3 id="C2-1-6-状态空间的基变换-Changement-de-base-dans-l’espace-d’etat"><a href="#C2-1-6-状态空间的基变换-Changement-de-base-dans-l’espace-d’etat" class="headerlink" title="C2.1.6 状态空间的基变换 Changement de base dans l’espace d’état"></a>C2.1.6 状态空间的基变换 Changement de base dans l’espace d’état</h3><hr>
-<p>状态的表示不是唯一的。对于状态$x(t)$，假设存在状态$z(t)$是$x(t)$的线性变换：</p>
-<script type="math/tex; mode=display">
-x(t)=T z(t)</script><p>则有：</p>
-<script type="math/tex; mode=display">
-\begin{gathered}\dot{z}(t)=T^{-1} \dot{x}(t)=T^{-1}(A x(t)+B u(t))=T^{-1} A T z(t)+T^{-1} B u(t) \\y(t)=C x(t)+D u(t)=C T z(t)+D u(t)\end{gathered}</script><p>因此新的状态：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}\dot{z}(t)=\tilde{A} z(t)+\tilde{B} u(t) \\y(t)=\tilde{C} z(t)+D u(t)\end{array} \quad \text { 其中 } \quad \tilde{A}=T^{-1} A T, \tilde{B}=T^{-1} B, \tilde{C}=C T\right.</script><p>而此时的外部表示：</p>
-<script type="math/tex; mode=display">
+\end{array}\right)(t)+\underbrace{d_0}_{=D} u(t)
+\]</span></p>
+<hr />
+<p><strong>观察伴随形式</strong>
+<code>Forme compagnon pour l'observation</code></p>
+<p>不引入<span class="math inline">\(W(s)=\frac{1}{a_0+a_1 s+\cdots+s^n}
+U(s)\)</span>，而是将方程写成：</p>
+<p><span class="math display">\[
+Y_1(s)=\left(b_{n-1} \frac{1}{s}+\cdots+b_1 \frac{1}{s^{n-1}}+b_0
+\frac{1}{s^n}\right) U(s)-\left(a_{n-1} \frac{1}{s}+\cdots+a_1
+\frac{1}{s^{n-1}}+a_0 \frac{1}{s^n}\right) Y_1(s)
+\]</span></p>
+<p>进而引入<span class="math inline">\(\zeta_j=b_j U(s)-a_j
+Y_1(s)\)</span>：</p>
+<p><span class="math display">\[
+Y_1(s)=\left(b_{n-1} \frac{1}{s}+\cdots+b_1 \frac{1}{s^{n-1}}+b_0
+\frac{1}{s^n}\right) U(s)-\left(a_{n-1} \frac{1}{s}+\cdots+a_1
+\frac{1}{s^{n-1}}+a_0 \frac{1}{s^n}\right) Y_1(s)
+\]</span></p>
+<p>如下选择状态变量：</p>
+<p><span class="math display">\[
+\left\{\begin{aligned}X_n(s) &amp; =\frac{1}{s}\left(b_{n-1}
+U(s)-a_{n-1} X_n(s)+X_{n-1}(s)\right) \\X_{n-1}(s) &amp;
+=\frac{1}{s}\left(b_{n-2} U(s)-a_{n-2} X_n(s)+X_{n-2}(s)\right) \\&amp;
+\vdots \\X_1(s) &amp; =\frac{1}{s}\left(b_0 U(s)-a_0
+X_n(s)\right)\end{aligned}\right.
+\]</span></p>
+<p>在时间域上：</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}\dot{x}_1(t)=b_0 u(t)-a_0 x_n(t)
+\\\dot{x}_2(t)=b_1 u(t)-a_1 x_n(t)+x_1(t) \\\dot{x}_3(t)=b_2 u(t)-a_2
+x_n(t)+x_2(t) \\\quad \vdots \\\dot{x}_n(t)=b_{n-1} u(t)-a_{n-1}
+x_n(t)+x_{n-1}(t)\end{array}\right.
+\]</span></p>
+<p>由此可以写出状态空间表示：</p>
+<p><span class="math display">\[
+\begin{gathered}\frac{\mathrm{d}}{\mathrm{d} t}\left(\begin{array}{c}x_1
+\\x_2 \\\vdots \\x_{n-1}
+\\x_n\end{array}\right)(t)=\underbrace{\left(\begin{array}{ccccc}0 &amp;
+0 &amp; \cdots &amp; 0 &amp; -a_0 \\1 &amp; 0 &amp; \cdots &amp; 0 &amp;
+-a_1 \\\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\0
+&amp; 0 &amp; \cdots &amp; 0 &amp; -a_{n-2} \\0 &amp; 0 &amp; \cdots
+&amp; 1 &amp; -a_{n-1}\end{array}\right)}_{=A}\left(\begin{array}{c}x_1
+\\x_2 \\\vdots \\x_{n-1}
+\\x_n\end{array}\right)(t)+\underbrace{\left(\begin{array}{c}b_0 \\b_1
+\\\vdots \\b_{n-2} \\b_{n-1}\end{array}\right)}_{=B} u(t)
+\\y(t)=y_1(t)+d_0 u(t)=\underbrace{\left(\begin{array}{lllll}0 &amp; 0
+&amp; \cdots &amp; 0 &amp;
+1\end{array}\right)}_{=C}\left(\begin{array}{c}x_1 \\x_2 \\\vdots
+\\x_{n-1} \\x_n\end{array}\right)(t)+\underbrace{d_0}_{=D}
+u(t)\end{gathered}
+\]</span></p>
+<hr />
+<p><strong>两种表示的对偶性</strong>
+<code>Dualité des deux formes compagnons</code></p>
+<p>控制伴随形式和观测伴随形式中的矩阵结构具有对偶性。具体来说，设控制伴随形式的状态空间表示矩阵为
+<span class="math inline">\(A_c, B_c, C_c, D_c\)</span> ，
+观测伴随形式的矩阵为 <span class="math inline">\(A_o, B_o, C_o,
+D_o\)</span> ，它们之间满足以下关系：</p>
+<p><span class="math display">\[
+A_o=A_c^{\top}, \quad B_o=C_c^{\top}, \quad C_o=B_c^{\top}, \quad
+D_o=D_c
+\]</span></p>
+<p>这表明这两种形式是对偶的。当我们讨论系统的可控性和可观测性时，这种对偶性将会再次出现。通过这种对偶关系，我们可以看到控制和观测问题之间的内在联系，进而帮助我们在系统分析中使用相似的工具和方法。</p>
+<h3
+id="c2.1.6-状态空间的基变换-changement-de-base-dans-lespace-détat">C2.1.6
+状态空间的基变换 Changement de base dans l'espace d'état</h3>
+<hr />
+<p>状态的表示不是唯一的。对于状态<span
+class="math inline">\(x(t)\)</span>，假设存在状态<span
+class="math inline">\(z(t)\)</span>是<span
+class="math inline">\(x(t)\)</span>的线性变换：</p>
+<p><span class="math display">\[
+x(t)=T z(t)
+\]</span></p>
+<p>则有：</p>
+<p><span class="math display">\[
+\begin{gathered}\dot{z}(t)=T^{-1} \dot{x}(t)=T^{-1}(A x(t)+B
+u(t))=T^{-1} A T z(t)+T^{-1} B u(t) \\y(t)=C x(t)+D u(t)=C T z(t)+D
+u(t)\end{gathered}
+\]</span></p>
+<p>因此新的状态：</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}\dot{z}(t)=\tilde{A} z(t)+\tilde{B} u(t)
+\\y(t)=\tilde{C} z(t)+D u(t)\end{array} \quad \text { 其中 } \quad
+\tilde{A}=T^{-1} A T, \tilde{B}=T^{-1} B, \tilde{C}=C T\right.
+\]</span></p>
+<p>而此时的外部表示：</p>
+<p><span class="math display">\[
 \begin{aligned}
-H(s) & =\tilde{C}(s I-\tilde{A})^{-1} \tilde{B}+D \\
-& =C T\left(s I-T^{-1} A T\right)^{-1} T^{-1} B+D \\
-& =C\left(T\left(s I-T^{-1} A T\right) T^{-1}\right)^{-1} B+D \\
-& =C(s I-A)^{-1} B+D
-\end{aligned}</script><p>并不发生改变。</p>
-<hr>
-<h3 id="CE2-5-双槽系统-systeme-a-2-cuves"><a href="#CE2-5-双槽系统-systeme-a-2-cuves" class="headerlink" title="CE2.5 双槽系统 système à 2 cuves"></a>CE2.5 双槽系统 système à 2 cuves</h3><hr>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_2.png" alt=""></p>
+H(s) &amp; =\tilde{C}(s I-\tilde{A})^{-1} \tilde{B}+D \\
+&amp; =C T\left(s I-T^{-1} A T\right)^{-1} T^{-1} B+D \\
+&amp; =C\left(T\left(s I-T^{-1} A T\right) T^{-1}\right)^{-1} B+D \\
+&amp; =C(s I-A)^{-1} B+D
+\end{aligned}
+\]</span></p>
+<p>并不发生改变。</p>
+<hr />
+<h3 id="ce2.5-双槽系统-système-à-2-cuves">CE2.5 双槽系统 système à 2
+cuves</h3>
+<hr />
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_2.png" /></p>
 <p>前后两个阀门<code>vanne</code> 分别如下控制。</p>
-<script type="math/tex; mode=display">
-\frac{d Q_e}{d t}+Q_e=K_V U; Q_s = cst.</script><p>输出电压为：</p>
-<script type="math/tex; mode=display">
-V_2=K_c H_2</script><p>两个槽中的水量（高度）：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\frac{d Q_e}{d t}+Q_e=K_V U; Q_s = cst.
+\]</span></p>
+<p>输出电压为：</p>
+<p><span class="math display">\[
+V_2=K_c H_2
+\]</span></p>
+<p>两个槽中的水量（高度）：</p>
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 S_1 \frac{d H_1}{d t}=Q_e-\alpha \sqrt{H_1} \\
 S_2 \frac{d H_2}{d t}=\alpha \sqrt{H_1}-Q_s
-\end{array}\right.</script><p>参考这些方程，我们可以确定$x = (Q_e,H_1,H_2)$为状态向量的系统状态表示，但是显然，这并非线性。我们尝试寻找平衡点位置。</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array} { l } { \overline { Q } _ { e } = K _ { v } \overline { U } } \\{ 0 = \overline { Q } _ { e } - \alpha \sqrt { \overline { H } _ { 1 } } } \\{ 0 = \alpha \sqrt { \overline { H } _ { 1 } } - \overline { Q } _ { s } }\end{array} \rightarrow \left\{\begin{array}{l}\bar{Q}_e=\bar{Q}_s\\\bar{U}=\bar{Q}_e/K_v \\\bar{H}_1=\left(\bar{Q}_e / \alpha\right)^2 \\\bar{H}_2 \text { quelconque }\end{array}\right.\right.</script><p>然后可以在这一点周围进行线性化。</p>
-<script type="math/tex; mode=display">
-\sqrt{H_1} \approx \sqrt{\bar{H}_1}+\frac{1}{2 \sqrt{\bar{H}_1}} \tilde{H}_1</script><p>得到：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& S_1 \frac{d \tilde{H}_1}{d t}=\tilde{Q}_e-\alpha \frac{1}{2 \sqrt{\bar{H}_1}} \tilde{H}_1 \\& S_2 \frac{d \tilde{H}_2}{d t}=\alpha \frac{1}{2 \sqrt{\bar{H}_1}} \tilde{H}_1-\tilde{Q}_s\end{aligned}</script><h2 id="C2-2-稳定-stabilite"><a href="#C2-2-稳定-stabilite" class="headerlink" title="C2.2 稳定 stabilité"></a>C2.2 稳定 stabilité</h2><hr>
-<h3 id="C2-2-1-Lyapunov意义下的稳定-Stabilite-au-sens-de-Lyapunov"><a href="#C2-2-1-Lyapunov意义下的稳定-Stabilite-au-sens-de-Lyapunov" class="headerlink" title="C2.2.1 Lyapunov意义下的稳定  Stabilité au sens de Lyapunov"></a>C2.2.1 Lyapunov意义下的稳定  Stabilité au sens de Lyapunov</h3><hr>
+\end{array}\right.
+\]</span></p>
+<p>参考这些方程，我们可以确定<span class="math inline">\(x =
+(Q_e,H_1,H_2)\)</span>为状态向量的系统状态表示，但是显然，这并非线性。我们尝试寻找平衡点位置。</p>
+<p><span class="math display">\[
+\left\{\begin{array} { l } { \overline { Q } _ { e } = K _ { v }
+\overline { U } } \\{ 0 = \overline { Q } _ { e } - \alpha \sqrt {
+\overline { H } _ { 1 } } } \\{ 0 = \alpha \sqrt { \overline { H } _ { 1
+} } - \overline { Q } _ { s } }\end{array} \rightarrow
+\left\{\begin{array}{l}\bar{Q}_e=\bar{Q}_s\\\bar{U}=\bar{Q}_e/K_v
+\\\bar{H}_1=\left(\bar{Q}_e / \alpha\right)^2 \\\bar{H}_2 \text {
+quelconque }\end{array}\right.\right.
+\]</span></p>
+<p>然后可以在这一点周围进行线性化。</p>
+<p><span class="math display">\[
+\sqrt{H_1} \approx \sqrt{\bar{H}_1}+\frac{1}{2 \sqrt{\bar{H}_1}}
+\tilde{H}_1
+\]</span></p>
+<p>得到：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; S_1 \frac{d \tilde{H}_1}{d t}=\tilde{Q}_e-\alpha
+\frac{1}{2 \sqrt{\bar{H}_1}} \tilde{H}_1 \\&amp; S_2 \frac{d
+\tilde{H}_2}{d t}=\alpha \frac{1}{2 \sqrt{\bar{H}_1}}
+\tilde{H}_1-\tilde{Q}_s\end{aligned}
+\]</span></p>
+<h2 id="c2.2-稳定-stabilité">C2.2 稳定 stabilité</h2>
+<hr />
+<h3
+id="c2.2.1-lyapunov意义下的稳定-stabilité-au-sens-de-lyapunov">C2.2.1
+Lyapunov意义下的稳定 Stabilité au sens de Lyapunov</h3>
+<hr />
 <p>本节考虑系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{x}(t)=f(x(t)), \quad t>0 \\& x(0)=x_0\end{aligned}</script><hr>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{x}(t)=f(x(t)), \quad t&gt;0 \\&amp;
+x(0)=x_0\end{aligned}
+\]</span></p>
+<hr />
 <p><strong>Lyapunov意义下稳定性的定义</strong></p>
-<p>平衡点$\bar x$是稳定的，或者称广义稳定<code>stable au sens large</code>，当且仅当平衡点满足：</p>
-<script type="math/tex; mode=display">
-\forall \varepsilon>0, \exists \delta=\delta(\varepsilon)>0:\left\|x_0-\bar{x}\right\|<\delta \Rightarrow\|x(t)-\bar{x}\|<\varepsilon, \forall t>0</script><p>即，平衡点 $\bar{x}$ 是（局部）稳定的，当且仅当对于任何足够接近平衡点 $\bar{x}$的初始条件 $x_0$ ，系统的轨迹 $x(t)$ 在任意 $t \geq 0$ 时都保持足够接近 $\bar{x}$ 。</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_3.png" alt=""></p>
-<p>式中的范数一般选择欧几里得范数$|x|=\sqrt{x^{\top} x}$</p>
-<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_4.png" alt=""></p>
-<h3 id="CE2-6-三个针对Lyapunou稳定性的研究"><a href="#CE2-6-三个针对Lyapunou稳定性的研究" class="headerlink" title="CE2.6 三个针对Lyapunou稳定性的研究"></a>CE2.6 三个针对Lyapunou稳定性的研究</h3><hr>
-<p>分别讨论$\dot{x}=-x^3$，$\dot{x}=x^3$，$\ddot{z}+\omega^2 z=0$的稳定性。</p>
-<hr>
-<p>对于$\dot{x}=-x^3$，唯一的平衡点是$\bar{x}=0$。写成如下形式直接对两侧积分：</p>
-<script type="math/tex; mode=display">
-\frac{d x}{x^3}=-d t</script><p>最终可得$x(t)=\frac{x_0}{\sqrt{1+2 t x_0^2}}$，其中$t \geq 0$ 。当$|x(t)| \leq \varepsilon$时，有：</p>
-<script type="math/tex; mode=display">
-\frac{x_0^2}{1+2 t x_0^2} \leq \varepsilon^2</script><p>对于任意的$t \geq 0$ ，上述不等式满足的充分必要条件为$\left|x_0\right| \leq \varepsilon = \delta$，因此此平衡点是稳定的</p>
-<hr>
-<p>对于$\dot{x}=x^3$，唯一的平衡点为$\bar{x}=0$ ，同样的方法可以得到：</p>
-<script type="math/tex; mode=display">
-x(t)=\frac{x_0}{\sqrt{1-2 t x_0^2}}</script><p>当$t$趋近于$\frac{1}{2 x_0^2}$时，无论初始条件，$|x(t)| \rightarrow+\infty$，因此是不稳定的。</p>
-<hr>
-<p>对于$\ddot{z}+\omega^2 z=0$，选择状态向量为$x=\left(x_1, x_2\right)^{\top}=(z, \dot{z})^{\top}$，有$f(x) = \left(x_2,-\omega^2 x_1\right)$。唯一的平衡点为$\bar x = 0$。解的：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& z(t)=x_{10} \cos (\omega t)+\frac{x_{20}}{\omega} \sin (\omega t) \\& \dot{z}(t)=-\omega x_{10} \sin (\omega t)+x_{20} \cos (\omega t)\end{aligned}</script><p>有：</p>
-<script type="math/tex; mode=display">
-\|x(t)\| \leq \sqrt{2}\left(1+\omega+\frac{1}{\omega}\right)\left\|x_0\right\|</script><p>因此，对于任意的$\varepsilon$，只要定义$\delta = \frac{\varepsilon}{\sqrt{2}\left(1+\omega+\frac{1}{\omega}\right)}$，就能使$\left|x_0\right|&lt;\delta \Rightarrow |x(t)|&lt;\varepsilon$对于任意的$t$成立。因此是稳定的</p>
-<hr>
-<hr>
+<p>平衡点<span class="math inline">\(\bar
+x\)</span>是稳定的，或者称广义稳定<code>stable au sens large</code>，当且仅当平衡点满足：</p>
+<p><span class="math display">\[
+\forall \varepsilon&gt;0, \exists
+\delta=\delta(\varepsilon)&gt;0:\left\|x_0-\bar{x}\right\|&lt;\delta
+\Rightarrow\|x(t)-\bar{x}\|&lt;\varepsilon, \forall t&gt;0
+\]</span></p>
+<p>即，平衡点 <span class="math inline">\(\bar{x}\)</span>
+是（局部）稳定的，当且仅当对于任何足够接近平衡点 <span
+class="math inline">\(\bar{x}\)</span>的初始条件 <span
+class="math inline">\(x_0\)</span> ，系统的轨迹 <span
+class="math inline">\(x(t)\)</span> 在任意 <span class="math inline">\(t
+\geq 0\)</span> 时都保持足够接近 <span
+class="math inline">\(\bar{x}\)</span> 。</p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_3.png" /></p>
+<p>式中的范数一般选择欧几里得范数<span
+class="math inline">\(\|x\|=\sqrt{x^{\top} x}\)</span></p>
+<p><img
+src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fcsd-2%2Fimage_4.png" /></p>
+<h3 id="ce2.6-三个针对lyapunou稳定性的研究">CE2.6
+三个针对Lyapunou稳定性的研究</h3>
+<hr />
+<p>分别讨论<span class="math inline">\(\dot{x}=-x^3\)</span>，<span
+class="math inline">\(\dot{x}=x^3\)</span>，<span
+class="math inline">\(\ddot{z}+\omega^2 z=0\)</span>的稳定性。</p>
+<hr />
+<p>对于<span
+class="math inline">\(\dot{x}=-x^3\)</span>，唯一的平衡点是<span
+class="math inline">\(\bar{x}=0\)</span>。写成如下形式直接对两侧积分：</p>
+<p><span class="math display">\[
+\frac{d x}{x^3}=-d t
+\]</span></p>
+<p>最终可得<span class="math inline">\(x(t)=\frac{x_0}{\sqrt{1+2 t
+x_0^2}}\)</span>，其中<span class="math inline">\(t \geq 0\)</span>
+。当<span class="math inline">\(|x(t)| \leq
+\varepsilon\)</span>时，有：</p>
+<p><span class="math display">\[
+\frac{x_0^2}{1+2 t x_0^2} \leq \varepsilon^2
+\]</span></p>
+<p>对于任意的<span class="math inline">\(t \geq 0\)</span>
+，上述不等式满足的充分必要条件为<span
+class="math inline">\(\left|x_0\right| \leq \varepsilon =
+\delta\)</span>，因此此平衡点是稳定的</p>
+<hr />
+<p>对于<span
+class="math inline">\(\dot{x}=x^3\)</span>，唯一的平衡点为<span
+class="math inline">\(\bar{x}=0\)</span> ，同样的方法可以得到：</p>
+<p><span class="math display">\[
+x(t)=\frac{x_0}{\sqrt{1-2 t x_0^2}}
+\]</span></p>
+<p>当<span class="math inline">\(t\)</span>趋近于<span
+class="math inline">\(\frac{1}{2 x_0^2}\)</span>时，无论初始条件，<span
+class="math inline">\(|x(t)|
+\rightarrow+\infty\)</span>，因此是不稳定的。</p>
+<hr />
+<p>对于<span class="math inline">\(\ddot{z}+\omega^2
+z=0\)</span>，选择状态向量为<span class="math inline">\(x=\left(x_1,
+x_2\right)^{\top}=(z, \dot{z})^{\top}\)</span>，有<span
+class="math inline">\(f(x) = \left(x_2,-\omega^2
+x_1\right)\)</span>。唯一的平衡点为<span class="math inline">\(\bar x =
+0\)</span>。解的：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; z(t)=x_{10} \cos (\omega t)+\frac{x_{20}}{\omega}
+\sin (\omega t) \\&amp; \dot{z}(t)=-\omega x_{10} \sin (\omega t)+x_{20}
+\cos (\omega t)\end{aligned}
+\]</span></p>
+<p>有：</p>
+<p><span class="math display">\[
+\|x(t)\| \leq
+\sqrt{2}\left(1+\omega+\frac{1}{\omega}\right)\left\|x_0\right\|
+\]</span></p>
+<p>因此，对于任意的<span
+class="math inline">\(\varepsilon\)</span>，只要定义<span
+class="math inline">\(\delta =
+\frac{\varepsilon}{\sqrt{2}\left(1+\omega+\frac{1}{\omega}\right)}\)</span>，就能使<span
+class="math inline">\(\left\|x_0\right\|&lt;\delta \Rightarrow
+\|x(t)\|&lt;\varepsilon\)</span>对于任意的<span
+class="math inline">\(t\)</span>成立。因此是稳定的</p>
+<hr />
+<hr />
 <p><strong>渐近稳定性</strong> stabilité asymptotique</p>
 <p>为了进一步描述系统的收敛行为，称一个系统为渐进稳定性的当且仅当它是Lyapunov稳定的且满足：</p>
-<script type="math/tex; mode=display">
-\exists \eta>0:\left\|x_0-\bar{x}\right\|<\eta \Rightarrow \lim _{t \rightarrow+\infty}\|x(t)-\bar{x}\|=0</script><p>也就是在稳定的基础上，要求热呢初始条件$x_0$取自平衡点的某一个邻域对应的轨迹，最终都收敛到平衡点上。</p>
-<hr>
+<p><span class="math display">\[
+\exists \eta&gt;0:\left\|x_0-\bar{x}\right\|&lt;\eta \Rightarrow \lim
+_{t \rightarrow+\infty}\|x(t)-\bar{x}\|=0
+\]</span></p>
+<p>也就是在稳定的基础上，要求热呢初始条件<span
+class="math inline">\(x_0\)</span>取自平衡点的某一个邻域对应的轨迹，最终都收敛到平衡点上。</p>
+<hr />
 <p><strong>指数稳定性 stabilité exponentielle</strong></p>
-<p>为了进一步表征状态轨迹的收敛速度，引入指数稳定性。称一个平衡点$\bar x$为指数稳定的，当且仅当：</p>
-<script type="math/tex; mode=display">
-\exists \delta, M, \kappa>0:\left\|x_0-\bar{x}\right\|<\delta \Rightarrow\|x(t)-\bar{x}\| \leq M\left\|x_0-\bar{x}\right\| e^{-\kappa t}, \forall t \geq 0</script><p>这是一个比Lyapunov稳定和渐进稳定都要更强的稳定性，同时指出了其轨迹的衰减速度可以有指数衰减率$\kappa$控制。</p>
-<hr>
+<p>为了进一步表征状态轨迹的收敛速度，引入指数稳定性。称一个平衡点<span
+class="math inline">\(\bar x\)</span>为指数稳定的，当且仅当：</p>
+<p><span class="math display">\[
+\exists \delta, M, \kappa&gt;0:\left\|x_0-\bar{x}\right\|&lt;\delta
+\Rightarrow\|x(t)-\bar{x}\| \leq M\left\|x_0-\bar{x}\right\| e^{-\kappa
+t}, \forall t \geq 0
+\]</span></p>
+<p>这是一个比Lyapunov稳定和渐进稳定都要更强的稳定性，同时指出了其轨迹的衰减速度可以有指数衰减率<span
+class="math inline">\(\kappa\)</span>控制。</p>
+<hr />
 <p>以上所有的稳定性都不会受系统的基的影响。</p>
-<h3 id="C2-2-2-研究系统在平衡点的稳定性的方法"><a href="#C2-2-2-研究系统在平衡点的稳定性的方法" class="headerlink" title="C2.2.2 研究系统在平衡点的稳定性的方法"></a>C2.2.2 研究系统在平衡点的稳定性的方法</h3><hr>
+<h3 id="c2.2.2-研究系统在平衡点的稳定性的方法">C2.2.2
+研究系统在平衡点的稳定性的方法</h3>
+<hr />
 <p>在之前的例子中，研究系统稳定性依赖于微分方程的解析解。这是十分困难的，在本节中将介绍不求解析解的前提下衡量系统稳定性的方法。</p>
-<hr>
+<hr />
 <p><strong>稳定性和偏移量的关系 stabilité et perte</strong></p>
-<p>首先，假设$\bar x$是系统的一个平衡点，那么$z = x-\bar x$在零点处对于系统$\dot{z}(t)=\tilde{f}(z(t))$有平衡点。由于稳定性不受基的影响，我们更倾向于在零点处研究稳定性，而非考虑偏移量。</p>
-<hr>
+<p>首先，假设<span class="math inline">\(\bar
+x\)</span>是系统的一个平衡点，那么<span class="math inline">\(z = x-\bar
+x\)</span>在零点处对于系统<span
+class="math inline">\(\dot{z}(t)=\tilde{f}(z(t))\)</span>有平衡点。由于稳定性不受基的影响，我们更倾向于在零点处研究稳定性，而非考虑偏移量。</p>
+<hr />
 <p><strong>线性时不变系统的稳定性</strong></p>
 <p>首先研究线性时不变系统：</p>
-<script type="math/tex; mode=display">
-\dot{x}(t)=A x(t)</script><p>我们忽略了偏移量，因此，系统在$\bar x = 0$有平衡点，且这个方程的解我们是知道的：</p>
-<script type="math/tex; mode=display">
-x(t)=e^{A t} x_0</script><p>很显然，其解满足$|x(t)| \leq\left|e^{A t}\right|\left|x_0\right|, \quad \forall t \geq 0$。也就是说，线性时不变系统是否稳定，仅取决于$e^{A t}$的诱导系数<code>norme induite de la matrice</code>。</p>
+<p><span class="math display">\[
+\dot{x}(t)=A x(t)
+\]</span></p>
+<p>我们忽略了偏移量，因此，系统在<span class="math inline">\(\bar x =
+0\)</span>有平衡点，且这个方程的解我们是知道的：</p>
+<p><span class="math display">\[
+x(t)=e^{A t} x_0
+\]</span></p>
+<p>很显然，其解满足<span class="math inline">\(\|x(t)\| \leq\left\|e^{A
+t}\right\|\left\|x_0\right\|, \quad \forall t \geq
+0\)</span>。也就是说，线性时不变系统是否稳定，仅取决于<span
+class="math inline">\(e^{A
+t}\)</span>的诱导系数<code>norme induite de la matrice</code>。</p>
 <blockquote>
 <p><strong>矩阵指数和矩阵的诱导系数</strong></p>
 <aside>
-🪺
-
-矩阵指数的定义为：
-
-$$
+<p>🪺</p>
+<p>矩阵指数的定义为：</p>
+<p><span class="math display">\[
 e^{A t}=\sum_{k=0}^{\infty} \frac{(A t)^k}{k!}
-$$
-
-矩阵的诱导系数为：
-
-$$
+\]</span></p>
+<p>矩阵的诱导系数为：</p>
+<p><span class="math display">\[
 \|M\|=\sup _{x \in \mathbb{R}^n, x \neq 0} \frac{\|M x\|}{\|x\|}
-$$
-
+\]</span></p>
 </aside>
-
-
+</blockquote>
+<blockquote>
 <p><strong>矩阵的特征值</strong><code>valeur propre</code><strong>，谱</strong><code>spectre</code><strong>，代数重数</strong><code>mutipilicités algébrique</code><strong>和几何重数</strong><code>mutipilicités géométrique</code></p>
 <aside>
-🪺
-
-我们称 $\lambda \in \mathbb{C}$ 为矩阵 $A$ 的特征值，如果存在一个非零向量 $x \in \mathbb{C}^n \backslash\{0\}$ ，使得 $A x=\lambda x$ 。因此，矩阵 $A$ 的特征值是其特征多项式 $\operatorname{det}(X I-A) \in \mathbb{R}[X]$ 的根，这是一个次数为 $n$ 的多项式。矩阵 $A$最多有 $n$ 个不同的特征值。
-
-矩阵 $A$ 的特征值集合是 $\mathbb{C}$ 的一个子集，称为 $A$ 的谱，记作 $\operatorname{sp}(A)$ 。对于固定的 $\lambda \in \operatorname{sp}(A)$ ，特征值 $\lambda$ 的代数重数是 $\lambda$作为特征多项式 $\operatorname{det}(X I-A)$ 的根的重数。特征值 $\lambda$ 的几何重数是特征子空间 $\operatorname{ker}(\lambda I-A)$ 的维数。代数重数总是大于或等于几何重数。
-
+<p>🪺</p>
+<p>我们称 <span class="math inline">\(\lambda \in \mathbb{C}\)</span>
+为矩阵 <span class="math inline">\(A\)</span>
+的特征值，如果存在一个非零向量 <span class="math inline">\(x \in
+\mathbb{C}^n \backslash\{0\}\)</span> ，使得 <span
+class="math inline">\(A x=\lambda x\)</span> 。因此，矩阵 <span
+class="math inline">\(A\)</span> 的特征值是其特征多项式 <span
+class="math inline">\(\operatorname{det}(X I-A) \in
+\mathbb{R}[X]\)</span> 的根，这是一个次数为 <span
+class="math inline">\(n\)</span> 的多项式。矩阵 <span
+class="math inline">\(A\)</span>最多有 <span
+class="math inline">\(n\)</span> 个不同的特征值。</p>
+<p>矩阵 <span class="math inline">\(A\)</span> 的特征值集合是 <span
+class="math inline">\(\mathbb{C}\)</span> 的一个子集，称为 <span
+class="math inline">\(A\)</span> 的谱，记作 <span
+class="math inline">\(\operatorname{sp}(A)\)</span> 。对于固定的 <span
+class="math inline">\(\lambda \in \operatorname{sp}(A)\)</span> ，特征值
+<span class="math inline">\(\lambda\)</span> 的代数重数是 <span
+class="math inline">\(\lambda\)</span>作为特征多项式 <span
+class="math inline">\(\operatorname{det}(X I-A)\)</span>
+的根的重数。特征值 <span class="math inline">\(\lambda\)</span>
+的几何重数是特征子空间 <span
+class="math inline">\(\operatorname{ker}(\lambda I-A)\)</span>
+的维数。代数重数总是大于或等于几何重数。</p>
 </aside>
-
-
+</blockquote>
+<blockquote>
 <p><strong>Hurwitz矩阵</strong></p>
 <aside>
-🪺
-
-如果矩阵 $A \in \mathbb{R}^{n \times n}$ 的所有特征值的实部都严格为负，则称矩阵 $A$ 是 Hurwitz 矩阵:
-
-$$
-\forall \lambda \in \operatorname{sp}(A), \quad \operatorname{Re}(\lambda)<0
-$$
-
+<p>🪺</p>
+<p>如果矩阵 <span class="math inline">\(A \in \mathbb{R}^{n \times
+n}\)</span> 的所有特征值的实部都严格为负，则称矩阵 <span
+class="math inline">\(A\)</span> 是 Hurwitz 矩阵:</p>
+<p><span class="math display">\[
+\forall \lambda \in \operatorname{sp}(A), \quad
+\operatorname{Re}(\lambda)&lt;0
+\]</span></p>
 </aside>
-
-
 </blockquote>
-<hr>
+<hr />
 <p><strong>定理 1</strong></p>
 <p><strong>线性时不变系统是稳定的当且仅当：</strong></p>
 <ul>
-<li>矩阵A的所有特征值实部都非正：$\forall \lambda \in \operatorname{sp}(A), \quad \operatorname{Re}(\lambda) \leq 0$</li>
+<li>矩阵A的所有特征值实部都非正：<span class="math inline">\(\forall
+\lambda \in \operatorname{sp}(A), \quad \operatorname{Re}(\lambda) \leq
+0\)</span></li>
 <li>对于所有实部为零的特征值，其代数重数几何重数必须相等</li>
 </ul>
 <p><strong>线性时不变系统是渐进/指数稳定的，当且仅当：</strong></p>
 <ul>
 <li>A是Hurwitz 矩阵。</li>
 </ul>
-<hr>
+<hr />
 <p>在上述的定理的第二条中，我们间接为渐进稳定和指数稳定构建了等价关系。事实上，对于线性时不变系统，这两种稳定性是等价的。</p>
-<hr>
-<p>考虑矩阵指数可以由用特征值 $\lambda$ 和一个与时间 $t$ 相关的多项式 $P_\lambda(t)$ 的线性组合来表示：</p>
-<script type="math/tex; mode=display">
-e^{A t}=\sum_{\lambda \in \operatorname{sp}(A)} P_\lambda(t) e^{\lambda t}</script><p>其中， $P<em>\lambda(t)$ 的次数最多等于 $\lambda$ 的代数重数减去 1 。当 $\lambda$ 的几何重数大于或等于 2 时， $P</em>\lambda(t)$ 的次数会小于代数重数减去1，因为特征值的几何重数决定了 Jordan 块的数量。</p>
+<hr />
+<p>考虑矩阵指数可以由用特征值 <span
+class="math inline">\(\lambda\)</span> 和一个与时间 <span
+class="math inline">\(t\)</span> 相关的多项式 <span
+class="math inline">\(P_\lambda(t)\)</span> 的线性组合来表示：</p>
+<p><span class="math display">\[
+e^{A t}=\sum_{\lambda \in \operatorname{sp}(A)} P_\lambda(t) e^{\lambda
+t}
+\]</span></p>
+<p>其中， <span class="math inline">\(P_\lambda(t)\)</span>
+的次数最多等于 <span class="math inline">\(\lambda\)</span>
+的代数重数减去 1 。当 <span class="math inline">\(\lambda\)</span>
+的几何重数大于或等于 2 时， <span
+class="math inline">\(P_\lambda(t)\)</span>
+的次数会小于代数重数减去1，因为特征值的几何重数决定了 Jordan
+块的数量。</p>
 <p>由此我们可以定义矩阵的谱线横坐标<code>spectral abscissa</code> ：</p>
-<script type="math/tex; mode=display">
-\omega(A)=\max (\operatorname{Re}(\operatorname{sp}(A)))</script><ul>
-<li>对于任意 $\sigma&gt;\omega(A)$ ，存在常数 $M_\sigma&gt;0$ ，使得：</li>
-</ul>
-<script type="math/tex; mode=display">
-\left\|e^{A t}\right\| \leq M_\sigma e^{\sigma t}, \quad \forall t \geq 0</script><ul>
-<li>对于任意 $\sigma&lt;\omega(A)$ ，不存在常数 $M_\sigma&gt;0$ ，使得:</li>
-</ul>
-<script type="math/tex; mode=display">
-\left\|e^{A t}\right\| \leq M_\sigma e^{\sigma t}, \quad \forall t \geq 0</script><p>换句话说，当矩阵 $A$ 是 Hurwitz 矩阵时， $\omega(A)$ 表示系统轨迹的<strong>最大理论指数衰减速率</strong><code>le taux de décroissance exponentiel maximal</code>。</p>
-<h3 id="CE2-7-两个特征值为0的情况"><a href="#CE2-7-两个特征值为0的情况" class="headerlink" title="CE2.7 两个特征值为0的情况"></a>CE2.7 两个特征值为0的情况</h3><hr>
-<p>考虑$A=\left(\begin{array}{ll}0 &amp; 0 \ 0 &amp; 0\end{array}\right) \in \mathbb{R}^{2 \times 2}$，唯一的特征值为$0$，因此不是指数稳定的。此时，$0$是一个代数重数为$2$的特征值。对于几何重数，$\operatorname{ker}(\lambda I-A)=\operatorname{ker}(A)=\mathbb{R}^2$，因此几何重数也是$2$。因此，系统是稳定的。</p>
-<hr>
-<p>考虑$A=\left(\begin{array}{ll}0 &amp; 1 \ 0 &amp; 0\end{array}\right) \in \mathbb{R}^{2 \times 2}$，唯一的特征值为$0$，代数重数为$2$。考虑几何重数：$\operatorname{ker}(\lambda I-A)=\operatorname{ker}(A)=\left{\left(x_1, 0\right): x_1 \in \mathbb{R}\right}$，因此几何重数为$1$。故系统不是稳定的。</p>
-<hr>
-<hr>
-<p><strong>非线性系统：Lyapunov第一方法</strong></p>
-<p><strong>定理 3：</strong>设 $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$ ，且对于某个向量 $\bar{x} \in \mathbb{R}^n ， f(\bar{x})=0$ ，其中 $f$ 是在 $\bar{x}$ 附近连续可微的向量场。记 $A=\frac{\partial f}{\partial x}(\bar{x})$ 为在平衡点处 $f$ 的雅可比矩阵。则系统的平衡点 $\bar{x}$ 满足以下条件:</p>
+<p><span class="math display">\[
+\omega(A)=\max (\operatorname{Re}(\operatorname{sp}(A)))
+\]</span></p>
 <ul>
-<li>当且仅当矩阵 $A$ 是 <code>Hurwitz</code> 时，平衡点是指数稳定的:</li>
+<li>对于任意 <span class="math inline">\(\sigma&gt;\omega(A)\)</span>
+，存在常数 <span class="math inline">\(M_\sigma&gt;0\)</span>
+，使得：</li>
 </ul>
-<script type="math/tex; mode=display">
-\forall \lambda \in \operatorname{sp} A, \quad \operatorname{Re}(\lambda)<0</script><ul>
-<li>如果 $A$ 存在一个特征值的实部严格为正，则平衡点是不稳定的:</li>
+<p><span class="math display">\[
+\left\|e^{A t}\right\| \leq M_\sigma e^{\sigma t}, \quad \forall t \geq
+0
+\]</span></p>
+<ul>
+<li>对于任意 <span class="math inline">\(\sigma&lt;\omega(A)\)</span>
+，不存在常数 <span class="math inline">\(M_\sigma&gt;0\)</span>
+，使得:</li>
 </ul>
-<script type="math/tex; mode=display">
-\exists \lambda \in \operatorname{sp} A, \quad \operatorname{Re}(\lambda)>0</script><p><code>Lyapunov</code> 第一方法的优点在于为研究平衡点的指数稳定性提供了一个简单而系统的框架。然而，该方法在处理渐近稳定性问题时缺乏足够的精确性。在一些情况下，<code>Lyapunov</code> 第一方法无法得出结论。此外，我们希望拥有更精细的工具来估计平衡点的吸引域，也就是系统轨迹会收敛到平衡点的初始条件集合。Lyapunov 的第二方法正是为了满足这些需求。但是本笔记不会涉及。</p>
-<hr>
-<h3 id="2-2-3-有界输入-有界输出稳定性-Stabilite-Entree-Bornee-Sortie-Bornee-EBSB"><a href="#2-2-3-有界输入-有界输出稳定性-Stabilite-Entree-Bornee-Sortie-Bornee-EBSB" class="headerlink" title="2.2.3 有界输入-有界输出稳定性 Stabilité Entrée Bornée Sortie Bornée (EBSB)"></a><strong>2.2.3 有界输入-有界输出稳定性 Stabilité Entrée Bornée Sortie Bornée (EBSB)</strong></h3><hr>
+<p><span class="math display">\[
+\left\|e^{A t}\right\| \leq M_\sigma e^{\sigma t}, \quad \forall t \geq
+0
+\]</span></p>
+<p>换句话说，当矩阵 <span class="math inline">\(A\)</span> 是 Hurwitz
+矩阵时， <span class="math inline">\(\omega(A)\)</span>
+表示系统轨迹的<strong>最大理论指数衰减速率</strong><code>le taux de décroissance exponentiel maximal</code>。</p>
+<h3 id="ce2.7-两个特征值为0的情况">CE2.7 两个特征值为0的情况</h3>
+<hr />
+<p>考虑<span class="math inline">\(A=\left(\begin{array}{ll}0 &amp; 0 \\
+0 &amp; 0\end{array}\right) \in \mathbb{R}^{2 \times
+2}\)</span>，唯一的特征值为<span
+class="math inline">\(0\)</span>，因此不是指数稳定的。此时，<span
+class="math inline">\(0\)</span>是一个代数重数为<span
+class="math inline">\(2\)</span>的特征值。对于几何重数，<span
+class="math inline">\(\operatorname{ker}(\lambda
+I-A)=\operatorname{ker}(A)=\mathbb{R}^2\)</span>，因此几何重数也是<span
+class="math inline">\(2\)</span>。因此，系统是稳定的。</p>
+<hr />
+<p>考虑<span class="math inline">\(A=\left(\begin{array}{ll}0 &amp; 1 \\
+0 &amp; 0\end{array}\right) \in \mathbb{R}^{2 \times
+2}\)</span>，唯一的特征值为<span
+class="math inline">\(0\)</span>，代数重数为<span
+class="math inline">\(2\)</span>。考虑几何重数：<span
+class="math inline">\(\operatorname{ker}(\lambda
+I-A)=\operatorname{ker}(A)=\left\{\left(x_1, 0\right): x_1 \in
+\mathbb{R}\right\}\)</span>，因此几何重数为<span
+class="math inline">\(1\)</span>。故系统不是稳定的。</p>
+<hr />
+<hr />
+<p><strong>非线性系统：Lyapunov第一方法</strong></p>
+<p><strong>定理 3：</strong>设 <span class="math inline">\(f:
+\mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> ，且对于某个向量 <span
+class="math inline">\(\bar{x} \in \mathbb{R}^n ， f(\bar{x})=0\)</span>
+，其中 <span class="math inline">\(f\)</span> 是在 <span
+class="math inline">\(\bar{x}\)</span> 附近连续可微的向量场。记 <span
+class="math inline">\(A=\frac{\partial f}{\partial x}(\bar{x})\)</span>
+为在平衡点处 <span class="math inline">\(f\)</span>
+的雅可比矩阵。则系统的平衡点 <span
+class="math inline">\(\bar{x}\)</span> 满足以下条件:</p>
+<ul>
+<li>当且仅当矩阵 <span class="math inline">\(A\)</span> 是
+<code>Hurwitz</code> 时，平衡点是指数稳定的:</li>
+</ul>
+<p><span class="math display">\[
+\forall \lambda \in \operatorname{sp} A, \quad
+\operatorname{Re}(\lambda)&lt;0
+\]</span></p>
+<ul>
+<li>如果 <span class="math inline">\(A\)</span>
+存在一个特征值的实部严格为正，则平衡点是不稳定的:</li>
+</ul>
+<p><span class="math display">\[
+\exists \lambda \in \operatorname{sp} A, \quad
+\operatorname{Re}(\lambda)&gt;0
+\]</span></p>
+<p><code>Lyapunov</code>
+第一方法的优点在于为研究平衡点的指数稳定性提供了一个简单而系统的框架。然而，该方法在处理渐近稳定性问题时缺乏足够的精确性。在一些情况下，<code>Lyapunov</code>
+第一方法无法得出结论。此外，我们希望拥有更精细的工具来估计平衡点的吸引域，也就是系统轨迹会收敛到平衡点的初始条件集合。Lyapunov
+的第二方法正是为了满足这些需求。但是本笔记不会涉及。</p>
+<hr />
+<h3
+id="有界输入-有界输出稳定性-stabilité-entrée-bornée-sortie-bornée-ebsb"><strong>2.2.3
+有界输入-有界输出稳定性 Stabilité Entrée Bornée Sortie Bornée
+(EBSB)</strong></h3>
+<hr />
 <p>在连续条件下：</p>
 <ul>
 <li>充要条件 1：</li>
 </ul>
-<script type="math/tex; mode=display">
-
-\text { EBSB 稳定性 } \Leftrightarrow \int_{-\infty}^{+\infty}|h(t)| d t<+\infty</script><ul>
-<li>充要条件 2：一个因果系统的传递函数 $H(s)$ 是 EBSB 稳定的，当且仅当 $H(s)$ 的所有极点的实部都小于 0 （可以通过 Routh 判据验证）。</li>
+<p>$$</p>
+<p> _{-}^{+}|h(t)| d t&lt;+ $$</p>
+<ul>
+<li>充要条件 2：一个因果系统的传递函数 <span
+class="math inline">\(H(s)\)</span> 是 EBSB 稳定的，当且仅当 <span
+class="math inline">\(H(s)\)</span> 的所有极点的实部都小于 0 （可以通过
+Routh 判据验证）。</li>
 </ul>
-<p>如果系统的演化矩阵 $A$ 是 Hurwitz 的，那么 $H(s)$ 的所有极点的实部都小于 0 。然而，反过来不一定成立。</p>
+<p>如果系统的演化矩阵 <span class="math inline">\(A\)</span> 是 Hurwitz
+的，那么 <span class="math inline">\(H(s)\)</span>
+的所有极点的实部都小于 0 。然而，反过来不一定成立。</p>
 <blockquote>
 <p><strong>Routh-Hurwitz判据</strong></p>
 <aside>
-🪺
-
-Routh判据是判断线性连续时间系统多项式是否稳定的一种方法。它通过检查多项式的系数来判断所有根是否具有负实部，从而确保系统的稳定性。
-
-假设系统的特征方程为一个 $n$ 次多项式:
-
-$$
+<p>🪺</p>
+<p>Routh判据是判断线性连续时间系统多项式是否稳定的一种方法。它通过检查多项式的系数来判断所有根是否具有负实部，从而确保系统的稳定性。</p>
+<p>假设系统的特征方程为一个 <span class="math inline">\(n\)</span>
+次多项式:</p>
+<p><span class="math display">\[
 P(s)=a_n s^n+a_{n-1} s^{n-1}+\cdots+a_1 s+a_0
-$$
-
-其中， $a_n, a_{n-1}, \ldots, a_0$ 是多项式的系数。
-Routh判据的步骤:
-
-1. 构建Routh表: 将特征方程的系数按照一定顺序填入Routh表格。Routh表格的第一列非常重要，它决定了系统的稳定性。构建表格的步骤如下:
-- 第一行：取多项式中奇数次幂的系数，即 $a_n, a_{n-2}, a_{n-4}, \ldots$ 。
-- 第二行：取多项式中偶数次幂的系数，即 $a_{n-1}, a_{n-3}, a_{n-5}, \ldots$ 。
-- 后续行：根据前两行的系数计算，公式为:
-
-$$
-b_{i j}=\frac{\text { 前一行第一个元素 } \times \text { 上一行下一列元素 }- \text { 上一行第一个元素 } \times \text { 前一行下一 个元素}}{\text { 前一行第一个元素 }}
-$$
-
-按照这个方式填充Routh表，直到构建完成。
-2. 判别稳定性: Routh表的第一列中的符号变化次数决定系统的稳定性。如果第一列的所有元素都为正，则系统稳定。每出现一次符号变化，意味着系统有一个根的实部为正，这代表系统有一个不稳定的极点。
-
-举例:
-
-考虑一个三阶多项式:
-
-$$
+\]</span></p>
+<p>其中， <span class="math inline">\(a_n, a_{n-1}, \ldots, a_0\)</span>
+是多项式的系数。 Routh判据的步骤:</p>
+<ol type="1">
+<li>构建Routh表:
+将特征方程的系数按照一定顺序填入Routh表格。Routh表格的第一列非常重要，它决定了系统的稳定性。构建表格的步骤如下:</li>
+</ol>
+<ul>
+<li>第一行：取多项式中奇数次幂的系数，即 <span
+class="math inline">\(a_n, a_{n-2}, a_{n-4}, \ldots\)</span> 。</li>
+<li>第二行：取多项式中偶数次幂的系数，即 <span
+class="math inline">\(a_{n-1}, a_{n-3}, a_{n-5}, \ldots\)</span> 。</li>
+<li>后续行：根据前两行的系数计算，公式为:</li>
+</ul>
+<p><span class="math display">\[
+b_{i j}=\frac{\text { 前一行第一个元素 } \times \text { 上一行下一列元素
+}- \text { 上一行第一个元素 } \times \text { 前一行下一 个元素}}{\text {
+前一行第一个元素 }}
+\]</span></p>
+<p>按照这个方式填充Routh表，直到构建完成。 2. 判别稳定性:
+Routh表的第一列中的符号变化次数决定系统的稳定性。如果第一列的所有元素都为正，则系统稳定。每出现一次符号变化，意味着系统有一个根的实部为正，这代表系统有一个不稳定的极点。</p>
+<p>举例:</p>
+<p>考虑一个三阶多项式:</p>
+<p><span class="math display">\[
 P(s)=s^3+2 s^2+3 s+4
-$$
-
-构建Routh表如下:
-
-$$
+\]</span></p>
+<p>构建Routh表如下:</p>
+<p><span class="math display">\[
 \begin{array}{c|c|c}
-s^3 & 1 & 3 \\
-s^2 & 2 & 4 \\
-s^1 & \frac{2 \times 3-1 \times 4}{2}=1 & 0 \\
-s^0 & 4
+s^3 &amp; 1 &amp; 3 \\
+s^2 &amp; 2 &amp; 4 \\
+s^1 &amp; \frac{2 \times 3-1 \times 4}{2}=1 &amp; 0 \\
+s^0 &amp; 4
 \end{array}
-$$
-
-第一列为 $1,2,1,4$ ，全为正数，因此系统是稳定的。
-
+\]</span></p>
+<p>第一列为 <span class="math inline">\(1,2,1,4\)</span>
+，全为正数，因此系统是稳定的。</p>
 </aside>
-
-
 </blockquote>
-<h2 id="C2-3-可控性-commandabilite"><a href="#C2-3-可控性-commandabilite" class="headerlink" title="C2.3 可控性 commandabilité"></a>C2.3 可控性 commandabilité</h2><hr>
-<h3 id="C2-3-1-定义"><a href="#C2-3-1-定义" class="headerlink" title="C2.3.1 定义"></a>C2.3.1 定义</h3><hr>
-<p><strong>可控性概念</strong>是系统控制中的一个基本概念，描述我们通过控制输入在状态空间中操纵系统的能力。<br>本节仅讨论线性时不变系统：</p>
-<script type="math/tex; mode=display">
-\dot{x}(t)=A x(t)+B u(t)</script><p>其积分形式为：</p>
-<script type="math/tex; mode=display">
-x\left(t_2\right)=e^{A\left(t_2-t_1\right)} x\left(t_1\right)+\int_{t_1}^{t_2} e^{A\left(t_2-\tau\right)} B u(\tau) d \tau, \quad \forall t_1<t_2</script><hr>
+<h2 id="c2.3-可控性-commandabilité">C2.3 可控性 commandabilité</h2>
+<hr />
+<h3 id="c2.3.1-定义">C2.3.1 定义</h3>
+<hr />
+<p><strong>可控性概念</strong>是系统控制中的一个基本概念，描述我们通过控制输入在状态空间中操纵系统的能力。
+本节仅讨论线性时不变系统：</p>
+<p><span class="math display">\[
+\dot{x}(t)=A x(t)+B u(t)
+\]</span></p>
+<p>其积分形式为：</p>
+<p><span class="math display">\[
+x\left(t_2\right)=e^{A\left(t_2-t_1\right)}
+x\left(t_1\right)+\int_{t_1}^{t_2} e^{A\left(t_2-\tau\right)} B u(\tau)
+d \tau, \quad \forall t_1&lt;t_2
+\]</span></p>
+<hr />
 <p><strong>定义</strong></p>
 <ul>
-<li>称在时间 $T&gt;0$ 内从 $x_I \in \mathbb{R}^n$ 到 $x_F \in \mathbb{R}^n$ 可控，当且仅当存在一个 $u \in L^2(0, T)$ ，使得在初始条件 $x(0)=x_I$ 下，轨迹满足 $x(T)=x_F$ ，即：</li>
+<li>称在时间 <span class="math inline">\(T&gt;0\)</span> 内从 <span
+class="math inline">\(x_I \in \mathbb{R}^n\)</span> 到 <span
+class="math inline">\(x_F \in \mathbb{R}^n\)</span>
+可控，当且仅当存在一个 <span class="math inline">\(u \in L^2(0,
+T)\)</span> ，使得在初始条件 <span
+class="math inline">\(x(0)=x_I\)</span> 下，轨迹满足 <span
+class="math inline">\(x(T)=x_F\)</span> ，即：</li>
 </ul>
-<script type="math/tex; mode=display">
-x_F=e^{A T} x_I+\int_0^T e^{A(T-\tau)} B u(\tau) d \tau</script><ul>
-<li>称系统可控, 当它在任意时间 $T&gt;0$ 内从任意 $x_I \in \mathbb{R}^n$ 到任意 $x_F \in \mathbb{R}^n$可控;</li>
+<p><span class="math display">\[
+x_F=e^{A T} x_I+\int_0^T e^{A(T-\tau)} B u(\tau) d \tau
+\]</span></p>
+<ul>
+<li>称系统可控, 当它在任意时间 <span
+class="math inline">\(T&gt;0\)</span> 内从任意 <span
+class="math inline">\(x_I \in \mathbb{R}^n\)</span> 到任意 <span
+class="math inline">\(x_F \in \mathbb{R}^n\)</span>可控;</li>
 <li>反之，则称之为不可控。</li>
 </ul>
-<p>也就是说，一个系统是完全可控的，如果存在一个控制输入 $\mathbf{u}(t)$ ，可以使系统在有限时间内从任意初始状态 $\mathbf{x}_0$ 转移到任意最终状态 $\mathbf{x}_1$ 。</p>
-<hr>
-<h3 id="CE2-8-可控性的例子"><a href="#CE2-8-可控性的例子" class="headerlink" title="CE2.8 可控性的例子"></a>CE2.8 可控性的例子</h3><hr>
-<p>考虑由以下状态方程定义的单变量系统，维度为 $n=2$ :</p>
-<script type="math/tex; mode=display">
+<p>也就是说，一个系统是完全可控的，如果存在一个控制输入 <span
+class="math inline">\(\mathbf{u}(t)\)</span>
+，可以使系统在有限时间内从任意初始状态 <span
+class="math inline">\(\mathbf{x}_0\)</span> 转移到任意最终状态 <span
+class="math inline">\(\mathbf{x}_1\)</span> 。</p>
+<hr />
+<h3 id="ce2.8-可控性的例子">CE2.8 可控性的例子</h3>
+<hr />
+<p>考虑由以下状态方程定义的单变量系统，维度为 <span
+class="math inline">\(n=2\)</span> :</p>
+<p><span class="math display">\[
 \dot{x}(t)=\left(\begin{array}{cc}
-a_1 & a_3 \\
-0 & a_2
-\end{array}\right) x(t)+\binom{b_1}{0} u(t)</script><p>其中假设 $b_1 \neq 0$ 。直观上可以感觉到，由于 $b_1 \neq 0$ ，状态变量 $x_1$ 受控制输入 $u(t)$ 的影响，因为它的演化由以下方程控制:</p>
-<script type="math/tex; mode=display">
-\dot{x}_1(t)=a_1 x_1(t)+a_3 x_2(t)+b_1 u(t)</script><p>事实上，通过设定控制输入 $u(t)=\frac{1}{b_1}\left(-a_1 x_1(t)-a_3 x_2(t)+v(t)\right)$ ，可以得到 $\dot{x}_1(t)=v(t)$ 。接着，设定 $v(t)=\frac{\beta-\alpha}{T}$ ，其中 $\alpha, \beta \in \mathbb{R}$ ，且 $T&gt;0$ 是任意的，则可以实现 $x_1(0)=\alpha$ 和 $x_1(T)=\beta$ 。因此，状态 $x_1$ 是可控的。</p>
-<p>至于状态变量 $x_2$ 的演化由方程 $\dot{x}_2(t)=a_2 x_2(t)$ 决定。因此，它是自治的，既不依赖于控制输入 $u$ ，也不依赖于可控状态变量 $x_1$ 。无论选择什么控制输入 $u(t)$ ，其最终状态都不能任意选择。因此，该系统是不可控的。</p>
-<hr>
-<hr>
-<h3 id="C2-3-2-线性时不变系统的可控性"><a href="#C2-3-2-线性时不变系统的可控性" class="headerlink" title="C2.3.2 线性时不变系统的可控性"></a>C2.3.2 线性时不变系统的可控性</h3><hr>
+a_1 &amp; a_3 \\
+0 &amp; a_2
+\end{array}\right) x(t)+\binom{b_1}{0} u(t)
+\]</span></p>
+<p>其中假设 <span class="math inline">\(b_1 \neq 0\)</span>
+。直观上可以感觉到，由于 <span class="math inline">\(b_1 \neq 0\)</span>
+，状态变量 <span class="math inline">\(x_1\)</span> 受控制输入 <span
+class="math inline">\(u(t)\)</span>
+的影响，因为它的演化由以下方程控制:</p>
+<p><span class="math display">\[
+\dot{x}_1(t)=a_1 x_1(t)+a_3 x_2(t)+b_1 u(t)
+\]</span></p>
+<p>事实上，通过设定控制输入 <span
+class="math inline">\(u(t)=\frac{1}{b_1}\left(-a_1 x_1(t)-a_3
+x_2(t)+v(t)\right)\)</span> ，可以得到 <span
+class="math inline">\(\dot{x}_1(t)=v(t)\)</span> 。接着，设定 <span
+class="math inline">\(v(t)=\frac{\beta-\alpha}{T}\)</span> ，其中 <span
+class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span> ，且 <span
+class="math inline">\(T&gt;0\)</span> 是任意的，则可以实现 <span
+class="math inline">\(x_1(0)=\alpha\)</span> 和 <span
+class="math inline">\(x_1(T)=\beta\)</span> 。因此，状态 <span
+class="math inline">\(x_1\)</span> 是可控的。</p>
+<p>至于状态变量 <span class="math inline">\(x_2\)</span> 的演化由方程
+<span class="math inline">\(\dot{x}_2(t)=a_2 x_2(t)\)</span>
+决定。因此，它是自治的，既不依赖于控制输入 <span
+class="math inline">\(u\)</span> ，也不依赖于可控状态变量 <span
+class="math inline">\(x_1\)</span> 。无论选择什么控制输入 <span
+class="math inline">\(u(t)\)</span>
+，其最终状态都不能任意选择。因此，该系统是不可控的。</p>
+<hr />
+<hr />
+<h3 id="c2.3.2-线性时不变系统的可控性">C2.3.2
+线性时不变系统的可控性</h3>
+<hr />
 <p><strong>Kalman 可控性判据</strong></p>
-<p>对于 $(A, B) \in \mathbb{R}^{n \times n} \times \mathbb{R}^{n \times m}$ ，当且仅当可控性矩阵</p>
-<script type="math/tex; mode=display">
+<p>对于 <span class="math inline">\((A, B) \in \mathbb{R}^{n \times n}
+\times \mathbb{R}^{n \times m}\)</span> ，当且仅当可控性矩阵</p>
+<p><span class="math display">\[
 \mathcal{C}=\left(\begin{array}{lllll}
-B & A B & A^2 B & \ldots & A^{n-1} B
-\end{array}\right) \in \mathbb{R}^{n \times n m}</script><p>满秩时，系统是可控的。也就是说， $\mathcal{C}$ 的秩等于 $n$ ，即 $\operatorname{Rang}(\mathcal{C})=n$</p>
+B &amp; A B &amp; A^2 B &amp; \ldots &amp; A^{n-1} B
+\end{array}\right) \in \mathbb{R}^{n \times n m}
+\]</span></p>
+<p>满秩时，系统是可控的。也就是说， <span
+class="math inline">\(\mathcal{C}\)</span> 的秩等于 <span
+class="math inline">\(n\)</span> ，即 <span
+class="math inline">\(\operatorname{Rang}(\mathcal{C})=n\)</span></p>
 <blockquote>
 <p><strong>Matlab</strong></p>
 <aside>
-🪺
-
-- `ctrb(A,B)` 函数用于计算控制系统的可控性矩阵
-- `rank(A)` 用于介绍函数的秩
+<p>🪺</p>
+<ul>
+<li><code>ctrb(A,B)</code> 函数用于计算控制系统的可控性矩阵</li>
+<li><code>rank(A)</code> 用于介绍函数的秩</li>
+</ul>
 </aside>
-
-
 </blockquote>
-<hr>
-<h3 id="CE2-9-Kalman盘踞的示例"><a href="#CE2-9-Kalman盘踞的示例" class="headerlink" title="CE2.9 Kalman盘踞的示例"></a>CE2.9 Kalman盘踞的示例</h3><hr>
+<hr />
+<h3 id="ce2.9-kalman盘踞的示例">CE2.9 Kalman盘踞的示例</h3>
+<hr />
 <p>对于状态方程：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{\mathbf{x}}(t)=\left[\begin{array}{cc}-1 & 2 \\1 & -2\end{array}\right] \mathbf{x}(t)+\left[\begin{array}{c}1 \\-1\end{array}\right] u(t) \\& y(t)=\left[\begin{array}{ll}1 & 0\end{array}\right] \mathbf{x}(t)\end{aligned}</script><p>其可控性矩阵：</p>
-<script type="math/tex; mode=display">
-\mathbf{Q}_C=\left[\begin{array}{ll}B & A B\end{array}\right]=\left[\begin{array}{cc}1 & -3 \\-1 & 3\end{array}\right]</script><p>的秩为$1$，因此系统是部分可控<code>partiellement commandable</code>的</p>
-<hr>
-<hr>
-<h3 id="C2-3-3-Kalman-控制标准形式、系统可稳定性概念与-PBH-判据-Forme-canonique-de-Kalman-pour-la-commande-notion-de-systeme-stabilisable-et-test-PBH"><a href="#C2-3-3-Kalman-控制标准形式、系统可稳定性概念与-PBH-判据-Forme-canonique-de-Kalman-pour-la-commande-notion-de-systeme-stabilisable-et-test-PBH" class="headerlink" title="C2.3.3 Kalman 控制标准形式、系统可稳定性概念与 PBH 判据 Forme canonique de Kalman pour la commande, notion de système stabilisable et test PBH"></a>C2.3.3 Kalman 控制标准形式、系统可稳定性概念与 PBH 判据 Forme canonique de Kalman pour la commande, notion de système stabilisable et test PBH</h3><p>我们刚刚提到了部分可控的概念，实际上，部分可控描述了满足：</p>
-<script type="math/tex; mode=display">
-\operatorname{rang}(\mathcal{C})=q, \quad \text { 其中 } \quad 0 \leq q<n</script><p>的不可控系统。本节中我们尝试研究，这些不可控的系统，它是否在现有状态下仍能被视为“足够”稳定或可控？</p>
-<hr>
-<p><strong>Kalman 控制标准形式 Forme canonique de Kalman pour la commande</strong></p>
-<p>这种形式考虑将系统的状态空间划分为$q$维的完全可控部分和$n-q$维的不可控部分。</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{\mathbf{x}}(t)=\left[\begin{array}{cc}-1 &amp;
+2 \\1 &amp; -2\end{array}\right] \mathbf{x}(t)+\left[\begin{array}{c}1
+\\-1\end{array}\right] u(t) \\&amp; y(t)=\left[\begin{array}{ll}1 &amp;
+0\end{array}\right] \mathbf{x}(t)\end{aligned}
+\]</span></p>
+<p>其可控性矩阵：</p>
+<p><span class="math display">\[
+\mathbf{Q}_C=\left[\begin{array}{ll}B &amp; A
+B\end{array}\right]=\left[\begin{array}{cc}1 &amp; -3 \\-1 &amp;
+3\end{array}\right]
+\]</span></p>
+<p>的秩为<span
+class="math inline">\(1\)</span>，因此系统是部分可控<code>partiellement commandable</code>的</p>
+<hr />
+<hr />
+<h3
+id="c2.3.3-kalman-控制标准形式系统可稳定性概念与-pbh-判据-forme-canonique-de-kalman-pour-la-commande-notion-de-système-stabilisable-et-test-pbh">C2.3.3
+Kalman 控制标准形式、系统可稳定性概念与 PBH 判据 Forme canonique de
+Kalman pour la commande, notion de système stabilisable et test PBH</h3>
+<p>我们刚刚提到了部分可控的概念，实际上，部分可控描述了满足：</p>
+<p><span class="math display">\[
+\operatorname{rang}(\mathcal{C})=q, \quad \text { 其中 } \quad 0 \leq
+q&lt;n
+\]</span></p>
+<p>的不可控系统。本节中我们尝试研究，这些不可控的系统，它是否在现有状态下仍能被视为“足够”稳定或可控？</p>
+<hr />
+<p><strong>Kalman 控制标准形式 Forme canonique de Kalman pour la
+commande</strong></p>
+<p>这种形式考虑将系统的状态空间划分为<span
+class="math inline">\(q\)</span>维的完全可控部分和<span
+class="math inline">\(n-q\)</span>维的不可控部分。</p>
 <p>考虑状态空间表示：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\dot{x}(t) & =A x(t)+B u(t) \\y(t) & =C x(t)+D u(t)\end{aligned}</script><p>当$(A,B)$不可控时，存在变换（换基）：</p>
-<script type="math/tex; mode=display">
-z=\binom{z_c}{z_{\bar{c}}}=T x, \quad z_c \in \mathbb{R}^q, \quad z_{\bar{c}} \in \mathbb{R}^{n-q}</script><p>其中$T \in \mathbb{R}^{n \times n}$可逆，使得系统可以被重新表示为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{z}=\left(\begin{array}{cc}\tilde{A}_c & \tilde{A}_{12} \\0 & \tilde{A}_{\bar{c}}\end{array}\right) z+\binom{\tilde{B}_c}{0} u \\& y=\left(\begin{array}{cc}\tilde{C}_c & \tilde{C}_{\bar{c}}\end{array}\right) z+D u\end{aligned}</script><p>而其中$\left(\tilde{A}_c, \tilde{B}_c\right) \in \mathbb{R}^{q \times q} \times \mathbb{R}^{q \times m}$是完全可控的，且传递函数满足：</p>
-<script type="math/tex; mode=display">
-H(s)=C(s I-A)^{-1} B+D=\tilde{C}_c\left(s I-\tilde{A}_c\right)^{-1} \tilde{B}_c+D</script><blockquote>
+<p><span class="math display">\[
+\begin{aligned}\dot{x}(t) &amp; =A x(t)+B u(t) \\y(t) &amp; =C x(t)+D
+u(t)\end{aligned}
+\]</span></p>
+<p>当<span
+class="math inline">\((A,B)\)</span>不可控时，存在变换（换基）：</p>
+<p><span class="math display">\[
+z=\binom{z_c}{z_{\bar{c}}}=T x, \quad z_c \in \mathbb{R}^q, \quad
+z_{\bar{c}} \in \mathbb{R}^{n-q}
+\]</span></p>
+<p>其中<span class="math inline">\(T \in \mathbb{R}^{n \times
+n}\)</span>可逆，使得系统可以被重新表示为：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{z}=\left(\begin{array}{cc}\tilde{A}_c &amp;
+\tilde{A}_{12} \\0 &amp; \tilde{A}_{\bar{c}}\end{array}\right)
+z+\binom{\tilde{B}_c}{0} u \\&amp; y=\left(\begin{array}{cc}\tilde{C}_c
+&amp; \tilde{C}_{\bar{c}}\end{array}\right) z+D u\end{aligned}
+\]</span></p>
+<p>而其中<span class="math inline">\(\left(\tilde{A}_c,
+\tilde{B}_c\right) \in \mathbb{R}^{q \times q} \times \mathbb{R}^{q
+\times m}\)</span>是完全可控的，且传递函数满足：</p>
+<p><span class="math display">\[
+H(s)=C(s I-A)^{-1} B+D=\tilde{C}_c\left(s I-\tilde{A}_c\right)^{-1}
+\tilde{B}_c+D
+\]</span></p>
+<blockquote>
 <p><strong>Matlab</strong></p>
 <aside>
-🪺
-
-`[Ac, Bc, Cc, T, k] = ctrbf(A, B, C)` 函数可以将状态空间模型转换为Kalman 控制标准形式。
-
+<p>🪺</p>
+<p><code>[Ac, Bc, Cc, T, k] = ctrbf(A, B, C)</code>
+函数可以将状态空间模型转换为Kalman 控制标准形式。</p>
 </aside>
-
-
 </blockquote>
 <p>在表述为Kalman标准控制形式之后，将：</p>
 <ul>
-<li>$\tilde{A}_c$的特征值称为可控模态 <code>commandables</code></li>
-<li>$\tilde{A}_{\bar{c}}$的特征值称为不不可控模态<code>non commandables</code></li>
+<li><span class="math inline">\(\tilde{A}_c\)</span>的特征值称为可控模态
+<code>commandables</code></li>
+<li><span
+class="math inline">\(\tilde{A}_{\bar{c}}\)</span>的特征值称为不不可控模态<code>non commandables</code></li>
 </ul>
-<h3 id="CE2-10-不可控系统的分解"><a href="#CE2-10-不可控系统的分解" class="headerlink" title="CE2.10 不可控系统的分解"></a>CE2.10 不可控系统的分解</h3><hr>
+<h3 id="ce2.10-不可控系统的分解">CE2.10 不可控系统的分解</h3>
+<hr />
 <p>考虑系统：</p>
-<script type="math/tex; mode=display">
-\binom{\dot{x}_1(t)}{\dot{x}_2(t)}=\left(\begin{array}{cc}-1 & 0 \\0 & -1\end{array}\right)\binom{x_1(t)}{x_2(t)}+\binom{1}{1} u(t)</script><p>其可控性矩阵：</p>
-<script type="math/tex; mode=display">
-[\mathbf{B}: \mathbf{A B}]=\left(\begin{array}{l:l}1 & -1 \\1 & -1\end{array}\right)</script><p>的秩为$1$，因此是部分可控的。为此，我们可以进行换基，注意换基的方法并不唯一：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\binom{\dot{x}_1(t)}{\dot{x}_2(t)}=\left(\begin{array}{cc}-1 &amp; 0 \\0
+&amp; -1\end{array}\right)\binom{x_1(t)}{x_2(t)}+\binom{1}{1} u(t)
+\]</span></p>
+<p>其可控性矩阵：</p>
+<p><span class="math display">\[
+[\mathbf{B}: \mathbf{A B}]=\left(\begin{array}{l:l}1 &amp; -1 \\1 &amp;
+-1\end{array}\right)
+\]</span></p>
+<p>的秩为<span
+class="math inline">\(1\)</span>，因此是部分可控的。为此，我们可以进行换基，注意换基的方法并不唯一：</p>
+<p><span class="math display">\[
 \mathbf{T}=\left(\begin{array}{l:l}
-1 & 1 \\
-1 & 0
+1 &amp; 1 \\
+1 &amp; 0
 \end{array}\right) \text { ou } \quad \mathbf{T}=\left(\begin{array}{ll}
-1 & 0 \\
-1 & 1
-\end{array}\right) \text { ou } \ldots</script><p>在这两种情况下可以得到新的状态：</p>
-<script type="math/tex; mode=display">
+1 &amp; 0 \\
+1 &amp; 1
+\end{array}\right) \text { ou } \ldots
+\]</span></p>
+<p>在这两种情况下可以得到新的状态：</p>
+<p><span class="math display">\[
 \binom{\dot{\bar{X}}_1(t)}{\dot{\bar{X}}_2(t)}=\left(\begin{array}{c:c}
--1 & 0 \\
-0 & -1
-\end{array}\right)\binom{\bar{x}_1(t)}{\bar{X}_2(t)}+\binom{1} u(t)</script><hr>
-<hr>
-<p><strong>PBH 判据</strong> </p>
-<p>设 $(A, B) \in \mathbb{R}^{n \times n} \times \mathbb{R}^{n \times m}$ 为一对矩阵。</p>
+-1 &amp; 0 \\
+0 &amp; -1
+\end{array}\right)\binom{\bar{x}_1(t)}{\bar{X}_2(t)}+\binom{1} u(t)
+\]</span></p>
+<hr />
+<hr />
+<p><strong>PBH 判据</strong></p>
+<p>设 <span class="math inline">\((A, B) \in \mathbb{R}^{n \times n}
+\times \mathbb{R}^{n \times m}\)</span> 为一对矩阵。</p>
 <ul>
-<li>当且仅当满足以下条件时，矩阵对 $(A, B)$ 是可控的:</li>
+<li>当且仅当满足以下条件时，矩阵对 <span class="math inline">\((A,
+B)\)</span> 是可控的:</li>
 </ul>
-<script type="math/tex; mode=display">
-\forall \lambda \in \mathbb{C}, \forall x \in \mathbb{C}^n, \quad\left[x^* A=\lambda x^* \text { 且 } x^* B=0\right] \Rightarrow x=0</script><ul>
-<li>如果矩阵对 $(A, B)$ 是不可控的，则不可控的特征值 $\lambda \in \mathbb{C}$ 满足:</li>
-</ul>
-<script type="math/tex; mode=display">
-\exists x \in \mathbb{C}^n \backslash\{0\}: x^* A=\lambda x^* \text { 且 } x^* B=0</script><hr>
-<p>或者说，在连续条件下，矩阵对 $(A, B)$ 是可控的等价于：</p>
+<p><span class="math display">\[
+\forall \lambda \in \mathbb{C}, \forall x \in \mathbb{C}^n,
+\quad\left[x^* A=\lambda x^* \text { 且 } x^* B=0\right] \Rightarrow x=0
+\]</span></p>
 <ul>
-<li>对于所有 $s \in \mathbb{C}$ ， $\operatorname{rang}[s I-A \quad B]=n$ ；</li>
-<li>对于所有 $\lambda \in \operatorname{spectre}(A) ， \operatorname{rang}\left[\begin{array}{ll}\lambda I-A &amp; B\end{array}\right]=n_{\text {。 }}$</li>
+<li>如果矩阵对 <span class="math inline">\((A, B)\)</span>
+是不可控的，则不可控的特征值 <span class="math inline">\(\lambda \in
+\mathbb{C}\)</span> 满足:</li>
+</ul>
+<p><span class="math display">\[
+\exists x \in \mathbb{C}^n \backslash\{0\}: x^* A=\lambda x^* \text { 且
+} x^* B=0
+\]</span></p>
+<hr />
+<p>或者说，在连续条件下，矩阵对 <span class="math inline">\((A,
+B)\)</span> 是可控的等价于：</p>
+<ul>
+<li>对于所有 <span class="math inline">\(s \in \mathbb{C}\)</span> ，
+<span class="math inline">\(\operatorname{rang}[s I-A \quad
+B]=n\)</span> ；</li>
+<li>对于所有 <span class="math inline">\(\lambda \in
+\operatorname{spectre}(A) ，
+\operatorname{rang}\left[\begin{array}{ll}\lambda I-A &amp;
+B\end{array}\right]=n_{\text {。 }}\)</span></li>
 </ul>
 <p>通过第二个条件，可以判断哪些特征值是不可控的，对于这些特征值，第二个条件不成立。</p>
-<hr>
+<hr />
 <p><strong>可稳定性</strong> <code>stabilisable</code></p>
-<p>对于使用上述方法判断的不可控的特征值，如果其实部小于零$\operatorname{Re}(\lambda)&lt;0$，则称系统是可稳定的。</p>
-<h3 id="CE2-11-PBH的应用"><a href="#CE2-11-PBH的应用" class="headerlink" title="CE2.11 PBH的应用"></a>CE2.11 PBH的应用</h3><hr>
-<p>考虑矩阵，其中$b_1 \neq 0 \text { 且 } a_1 \neq a_2$：</p>
-<script type="math/tex; mode=display">
+<p>对于使用上述方法判断的不可控的特征值，如果其实部小于零<span
+class="math inline">\(\operatorname{Re}(\lambda)&lt;0\)</span>，则称系统是可稳定的。</p>
+<h3 id="ce2.11-pbh的应用">CE2.11 PBH的应用</h3>
+<hr />
+<p>考虑矩阵，其中<span class="math inline">\(b_1 \neq 0 \text { 且 } a_1
+\neq a_2\)</span>：</p>
+<p><span class="math display">\[
 A=\left(\begin{array}{cc}
-a_1 & a_3 \\
-0 & a_2
-\end{array}\right), \quad B=\binom{b_1}{0}</script><p>在先前的例子中，我们用朴素的方法说明了其整体来说不可控。也可以通过可控性矩阵：</p>
-<script type="math/tex; mode=display">
-\operatorname{Rang} \mathcal{C}=\operatorname{Rang}\left(\begin{array}{cc}
-b_1 & a_1 b_1 \\
-0 & 0
-\end{array}\right)=1<n=2</script><p>判断出其部分可控。我们产生过hi应用$PBH$。首先考虑：</p>
-<script type="math/tex; mode=display">
-x^* A=a_1 x^* , \ x^* B=0</script><p>第二个式子可以直接给出$x^*_1 = 0$，而第一个方程展开之后：</p>
-<script type="math/tex; mode=display">
-\left(0, x^*_2\right)\left(\begin{array}{cc}a_1 & a_3 \\0 & a_2\end{array}\right)=a_1\left(0, x^*_2\right)</script><p>可得：</p>
-<script type="math/tex; mode=display">
-\left(0, x^*_2 a_2\right)=\left(0, a_1 x^*_2\right)</script><p>由此，可得$x^<em> = 0$，对于$a_1$是可控模态。同理，对于$a_2$，在此不再赘述，可以得到$x^</em>_2=(0,1) \neq 0$，因此不可控。</p>
-<hr>
-<hr>
-<h2 id="C2-4-可观性-observabilite"><a href="#C2-4-可观性-observabilite" class="headerlink" title="C2.4 可观性 observabilité"></a>C2.4 可观性 observabilité</h2><hr>
-<p>可观性描述能否通过观测输出$y$和已知的输入$u$来重构系统的状态$x$。在本节中，考虑线性时不变系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\dot{x}(t) & =A x(t)+B u(t) \\y(t) & =C x(t)+D u(t)\end{aligned}</script><p>我们可以观测输出$y(t)$，已知$u(t),A,B,C,D$。</p>
-<hr>
-<h3 id="C2-4-1-可观性的定义"><a href="#C2-4-1-可观性的定义" class="headerlink" title="C2.4.1 可观性的定义"></a><strong>C2.4.1 可观性的定义</strong></h3><hr>
-<p>称系统，或称矩阵对$(A,C)$是可观的，当对于任何时间$T&gt;0$ ，所有初始条件 $x<em>{10}, x</em>{20} \in \mathbb{R}^n$ 以及任意输入 $u \in L^2(0, T)$ ，记 $y<em>i(t)$ 为在初始条件 $x</em>{i 0}$ 和输入 $u$ 下系统的输出，则 $y<em>1(t)=y_2(t)$ 对于所有 $t \in[0, T]$ 成立时，必然有 $x</em>{10}=x_{20}$。也就是说：</p>
-<script type="math/tex; mode=display">
-\left[C e^{A t} x_{10}=C e^{A t} x_{20}, \forall t \in[0, T]\right] \Rightarrow x_{10}=x_{20}</script><h3 id="CE2-12-二维系统的可观性"><a href="#CE2-12-二维系统的可观性" class="headerlink" title="CE2.12 二维系统的可观性"></a>CE2.12 二维系统的可观性</h3><hr>
+a_1 &amp; a_3 \\
+0 &amp; a_2
+\end{array}\right), \quad B=\binom{b_1}{0}
+\]</span></p>
+<p>在先前的例子中，我们用朴素的方法说明了其整体来说不可控。也可以通过可控性矩阵：</p>
+<p><span class="math display">\[
+\operatorname{Rang}
+\mathcal{C}=\operatorname{Rang}\left(\begin{array}{cc}
+b_1 &amp; a_1 b_1 \\
+0 &amp; 0
+\end{array}\right)=1&lt;n=2
+\]</span></p>
+<p>判断出其部分可控。我们产生过hi应用<span
+class="math inline">\(PBH\)</span>。首先考虑：</p>
+<p><span class="math display">\[
+x^* A=a_1 x^* , \ x^* B=0
+\]</span></p>
+<p>第二个式子可以直接给出<span class="math inline">\(x^*_1 =
+0\)</span>，而第一个方程展开之后：</p>
+<p><span class="math display">\[
+\left(0, x^*_2\right)\left(\begin{array}{cc}a_1 &amp; a_3 \\0 &amp;
+a_2\end{array}\right)=a_1\left(0, x^*_2\right)
+\]</span></p>
+<p>可得：</p>
+<p><span class="math display">\[
+\left(0, x^*_2 a_2\right)=\left(0, a_1 x^*_2\right)
+\]</span></p>
+<p>由此，可得<span class="math inline">\(x^* = 0\)</span>，对于<span
+class="math inline">\(a_1\)</span>是可控模态。同理，对于<span
+class="math inline">\(a_2\)</span>，在此不再赘述，可以得到<span
+class="math inline">\(x^*_2=(0,1) \neq 0\)</span>，因此不可控。</p>
+<hr />
+<hr />
+<h2 id="c2.4-可观性-observabilité">C2.4 可观性 observabilité</h2>
+<hr />
+<p>可观性描述能否通过观测输出<span
+class="math inline">\(y\)</span>和已知的输入<span
+class="math inline">\(u\)</span>来重构系统的状态<span
+class="math inline">\(x\)</span>。在本节中，考虑线性时不变系统：</p>
+<p><span class="math display">\[
+\begin{aligned}\dot{x}(t) &amp; =A x(t)+B u(t) \\y(t) &amp; =C x(t)+D
+u(t)\end{aligned}
+\]</span></p>
+<p>我们可以观测输出<span class="math inline">\(y(t)\)</span>，已知<span
+class="math inline">\(u(t),A,B,C,D\)</span>。</p>
+<hr />
+<h3 id="c2.4.1-可观性的定义"><strong>C2.4.1 可观性的定义</strong></h3>
+<hr />
+<p>称系统，或称矩阵对<span
+class="math inline">\((A,C)\)</span>是可观的，当对于任何时间<span
+class="math inline">\(T&gt;0\)</span> ，所有初始条件 <span
+class="math inline">\(x_{10}, x_{20} \in \mathbb{R}^n\)</span>
+以及任意输入 <span class="math inline">\(u \in L^2(0, T)\)</span> ，记
+<span class="math inline">\(y_i(t)\)</span> 为在初始条件 <span
+class="math inline">\(x_{i 0}\)</span> 和输入 <span
+class="math inline">\(u\)</span> 下系统的输出，则 <span
+class="math inline">\(y_1(t)=y_2(t)\)</span> 对于所有 <span
+class="math inline">\(t \in[0, T]\)</span> 成立时，必然有 <span
+class="math inline">\(x_{10}=x_{20}\)</span>。也就是说：</p>
+<p><span class="math display">\[
+\left[C e^{A t} x_{10}=C e^{A t} x_{20}, \forall t \in[0, T]\right]
+\Rightarrow x_{10}=x_{20}
+\]</span></p>
+<h3 id="ce2.12-二维系统的可观性">CE2.12 二维系统的可观性</h3>
+<hr />
 <p>考虑单变量系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{x}(t)=\left(\begin{array}{cc}a_1 & 0 \\a_3 & a_2\end{array}\right) x(t)+\binom{b_1}{b_2} u(t) \\& y(t)=\left(\begin{array}{ll}1 & 0\end{array}\right) x(t)\end{aligned}</script><p>显然的是，对于任意的两个相同的输出，我们不能确定$x_2$是否相同，因此系统不可观。</p>
-<hr>
-<hr>
-<h3 id="C2-4-2-可观性的判定"><a href="#C2-4-2-可观性的判定" class="headerlink" title="C2.4.2 可观性的判定"></a>C2.4.2 可观性的判定</h3><hr>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{x}(t)=\left(\begin{array}{cc}a_1 &amp; 0 \\a_3
+&amp; a_2\end{array}\right) x(t)+\binom{b_1}{b_2} u(t) \\&amp;
+y(t)=\left(\begin{array}{ll}1 &amp; 0\end{array}\right)
+x(t)\end{aligned}
+\]</span></p>
+<p>显然的是，对于任意的两个相同的输出，我们不能确定<span
+class="math inline">\(x_2\)</span>是否相同，因此系统不可观。</p>
+<hr />
+<hr />
+<h3 id="c2.4.2-可观性的判定">C2.4.2 可观性的判定</h3>
+<hr />
 <p><strong>Kalman 可观性判据</strong></p>
-<p>称矩阵对$(A,C)\in \mathbb{R}^{n \times n} \times \mathbb{R}^{p \times n}$是可观的，当且仅当可观性矩阵：</p>
-<script type="math/tex; mode=display">
+<p>称矩阵对<span class="math inline">\((A,C)\in \mathbb{R}^{n \times n}
+\times \mathbb{R}^{p \times
+n}\)</span>是可观的，当且仅当可观性矩阵：</p>
+<p><span class="math display">\[
 \mathcal{O}=\left(\begin{array}{c}
 C \\
 C A \\
 C A^2 \\
 \vdots \\
 C A^{n-1}
-\end{array}\right) \in \mathbb{R}^{n p \times n}</script><p>是满秩的，即$\operatorname{Rang}(\mathcal{O})=n$。</p>
+\end{array}\right) \in \mathbb{R}^{n p \times n}
+\]</span></p>
+<p>是满秩的，即<span
+class="math inline">\(\operatorname{Rang}(\mathcal{O})=n\)</span>。</p>
 <blockquote>
 <p><strong>Matlab</strong></p>
 <aside>
-🪺
-
-`O = obsv(A, C)` 可用于生成可观性矩阵。
-
+<p>🪺</p>
+<p><code>O = obsv(A, C)</code> 可用于生成可观性矩阵。</p>
 </aside>
-
-
 </blockquote>
-<h3 id="CE2-13-使用Kalman可观性判据计算可观性的例子"><a href="#CE2-13-使用Kalman可观性判据计算可观性的例子" class="headerlink" title="CE2.13 使用Kalman可观性判据计算可观性的例子"></a>CE2.13 使用Kalman可观性判据计算可观性的例子</h3><hr>
+<h3 id="ce2.13-使用kalman可观性判据计算可观性的例子">CE2.13
+使用Kalman可观性判据计算可观性的例子</h3>
+<hr />
 <p>对于系统：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{\mathbf{x}}(t)=\left[\begin{array}{cc}0 & 1 \\-2 & -3\end{array}\right] \mathbf{x}(t)+\left[\begin{array}{l}0 \\1\end{array}\right] u(t) \\& y(t)=\left[\begin{array}{ll}1 & 1\end{array}\right] \mathbf{x}(t)\end{aligned}</script><p>其可观性矩阵：</p>
-<script type="math/tex; mode=display">
-\mathbf{Q}_o=\left[\frac{\mathbf{C}}{\mathbf{C A}}\right]=\left[\begin{array}{cc}1 & 1 \\-2 & -2\end{array}\right]</script><p>其秩为$1$，称系统部分客观 <code>partiellemnet observable</code>。</p>
-<h3 id="CE2-4-3-Kalman-观测标准形式，系统可检测性和PBH判据-Forme-canonique-de-Kalman-pour-l’observation-notion-de-sys"><a href="#CE2-4-3-Kalman-观测标准形式，系统可检测性和PBH判据-Forme-canonique-de-Kalman-pour-l’observation-notion-de-sys" class="headerlink" title="CE2.4.3 Kalman 观测标准形式，系统可检测性和PBH判据 Forme canonique de Kalman pour l’observation, notion de sys"></a>CE2.4.3 Kalman 观测标准形式，系统可检测性和PBH判据 Forme canonique de Kalman pour l’observation, notion de sys</h3><p>tème détectable et test PBH</p>
-<hr>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{\mathbf{x}}(t)=\left[\begin{array}{cc}0 &amp;
+1 \\-2 &amp; -3\end{array}\right] \mathbf{x}(t)+\left[\begin{array}{l}0
+\\1\end{array}\right] u(t) \\&amp; y(t)=\left[\begin{array}{ll}1 &amp;
+1\end{array}\right] \mathbf{x}(t)\end{aligned}
+\]</span></p>
+<p>其可观性矩阵：</p>
+<p><span class="math display">\[
+\mathbf{Q}_o=\left[\frac{\mathbf{C}}{\mathbf{C
+A}}\right]=\left[\begin{array}{cc}1 &amp; 1 \\-2 &amp;
+-2\end{array}\right]
+\]</span></p>
+<p>其秩为<span class="math inline">\(1\)</span>，称系统部分客观
+<code>partiellemnet observable</code>。</p>
+<h3
+id="ce2.4.3-kalman-观测标准形式系统可检测性和pbh判据-forme-canonique-de-kalman-pour-lobservation-notion-de-sys">CE2.4.3
+Kalman 观测标准形式，系统可检测性和PBH判据 Forme canonique de Kalman
+pour l'observation, notion de sys</h3>
+<p>tème détectable et test PBH</p>
+<hr />
 <p>在之前的例子中，我们提到了部分客观性，即满足以下条件的系统：</p>
-<script type="math/tex; mode=display">
-\operatorname{rang}(\mathcal{O})=q, \quad \text { 其中 } \quad 0 \leq q<n</script><p>本节将讨论这种系统。</p>
-<hr>
+<p><span class="math display">\[
+\operatorname{rang}(\mathcal{O})=q, \quad \text { 其中 } \quad 0 \leq
+q&lt;n
+\]</span></p>
+<p>本节将讨论这种系统。</p>
+<hr />
 <p><strong>Kalman 观测标准形式</strong></p>
-<p><strong>定理</strong>：设 $(A, C) \in \mathbb{R}^{n \times n} \times \mathbb{R}^{p \times n}$ 为不可观对。则存在一个变换:</p>
-<script type="math/tex; mode=display">
-z=\binom{z_o}{z_{\bar{o}}}=T x, \quad z_o \in \mathbb{R}^q, \quad z_{\bar{o}} \in \mathbb{R}^{n-q}</script><p>其中 $T \in \mathbb{R}^{n \times n}$ 是可逆矩阵，使得系统可以重写为：</p>
-<script type="math/tex; mode=display">
+<p><strong>定理</strong>：设 <span class="math inline">\((A, C) \in
+\mathbb{R}^{n \times n} \times \mathbb{R}^{p \times n}\)</span>
+为不可观对。则存在一个变换:</p>
+<p><span class="math display">\[
+z=\binom{z_o}{z_{\bar{o}}}=T x, \quad z_o \in \mathbb{R}^q, \quad
+z_{\bar{o}} \in \mathbb{R}^{n-q}
+\]</span></p>
+<p>其中 <span class="math inline">\(T \in \mathbb{R}^{n \times
+n}\)</span> 是可逆矩阵，使得系统可以重写为：</p>
+<p><span class="math display">\[
 \begin{aligned}
-& \dot{z}=\left(\begin{array}{cc}
-\tilde{A}_0 & 0 \\
-\tilde{A}_{21} & \tilde{A}_{\bar{o}}
+&amp; \dot{z}=\left(\begin{array}{cc}
+\tilde{A}_0 &amp; 0 \\
+\tilde{A}_{21} &amp; \tilde{A}_{\bar{o}}
 \end{array}\right) z+\binom{\tilde{B}_o}{\tilde{B}_{\bar{o}}} u \\
-& y=\left(\begin{array}{cc}
-\tilde{C}_o & 0
+&amp; y=\left(\begin{array}{cc}
+\tilde{C}_o &amp; 0
 \end{array}\right) z+D u
-\end{aligned}</script><p>其中 $\left(\tilde{A}_o, \tilde{C}_o\right) \in \mathbb{R}^{q \times q} \times \mathbb{R}^{p \times q}$ 是可观的，且传递函数为:</p>
-<script type="math/tex; mode=display">
-H(s)=C(s I-A)^{-1} B+D=\tilde{C}_o\left(s I-\tilde{A}_o\right)^{-1} \tilde{B}_o+D</script><blockquote>
+\end{aligned}
+\]</span></p>
+<p>其中 <span class="math inline">\(\left(\tilde{A}_o,
+\tilde{C}_o\right) \in \mathbb{R}^{q \times q} \times \mathbb{R}^{p
+\times q}\)</span> 是可观的，且传递函数为:</p>
+<p><span class="math display">\[
+H(s)=C(s I-A)^{-1} B+D=\tilde{C}_o\left(s I-\tilde{A}_o\right)^{-1}
+\tilde{B}_o+D
+\]</span></p>
+<blockquote>
 <p><strong>Matlab</strong></p>
 <aside>
-🪺
-
-`[Ao, Bo, Co, T, k] = obsvf(A, B, C)`  可以将状态转化为**Kalman 观测标准形式**
-
+<p>🪺</p>
+<p><code>[Ao, Bo, Co, T, k] = obsvf(A, B, C)</code>
+可以将状态转化为<strong>Kalman 观测标准形式</strong></p>
 </aside>
-
-
 </blockquote>
 <p>其中，</p>
 <ul>
-<li>$\tilde{A}_o$ 的特征值称为<strong>可观模态</strong>。</li>
-<li>$\tilde{A}_{\bar{o}}$ 的特征值称为<strong>不可观模态</strong>。</li>
+<li><span class="math inline">\(\tilde{A}_o\)</span>
+的特征值称为<strong>可观模态</strong>。</li>
+<li><span class="math inline">\(\tilde{A}_{\bar{o}}\)</span>
+的特征值称为<strong>不可观模态</strong>。</li>
 </ul>
-<hr>
+<hr />
 <p><strong>PBH 可观性判据</strong></p>
 <ul>
-<li>矩阵对 $(A, C)$ 是可观的，当且仅当:</li>
+<li>矩阵对 <span class="math inline">\((A, C)\)</span>
+是可观的，当且仅当:</li>
 </ul>
-<script type="math/tex; mode=display">
-\forall \lambda \in \mathbb{C}, \forall x \in \mathbb{C}^n, \quad[A x=\lambda x \text { 且 } C x=0] \Rightarrow x=0</script><ul>
-<li>如果矩阵对 $(A, C)$ 是不可观的，则不可观的特征值 $\lambda \in \mathbb{C}$ 满足:</li>
-</ul>
-<script type="math/tex; mode=display">
-\exists x \in \mathbb{C}^n \backslash\{0\}: A x=\lambda x \text { 且 } C x=0</script><hr>
-<p>更进一部分，矩阵对 $(A, C)$ 是可观的等价于以下任意一条：</p>
+<p><span class="math display">\[
+\forall \lambda \in \mathbb{C}, \forall x \in \mathbb{C}^n, \quad[A
+x=\lambda x \text { 且 } C x=0] \Rightarrow x=0
+\]</span></p>
 <ul>
-<li>对于所有 $s \in \mathbb{C}$ ，有 $\operatorname{rang}\left[\begin{array}{c}s I-A \ C\end{array}\right]=n$ 。</li>
-<li>对于所有 $\lambda \in \operatorname{spectre}(A)$ ，有 $\operatorname{rang}\left[\begin{array}{c}\lambda I-A \ C\end{array}\right]=n$ 。</li>
+<li>如果矩阵对 <span class="math inline">\((A, C)\)</span>
+是不可观的，则不可观的特征值 <span class="math inline">\(\lambda \in
+\mathbb{C}\)</span> 满足:</li>
 </ul>
-<hr>
+<p><span class="math display">\[
+\exists x \in \mathbb{C}^n \backslash\{0\}: A x=\lambda x \text { 且 } C
+x=0
+\]</span></p>
+<hr />
+<p>更进一部分，矩阵对 <span class="math inline">\((A, C)\)</span>
+是可观的等价于以下任意一条：</p>
+<ul>
+<li>对于所有 <span class="math inline">\(s \in \mathbb{C}\)</span> ，有
+<span class="math inline">\(\operatorname{rang}\left[\begin{array}{c}s
+I-A \\ C\end{array}\right]=n\)</span> 。</li>
+<li>对于所有 <span class="math inline">\(\lambda \in
+\operatorname{spectre}(A)\)</span> ，有 <span
+class="math inline">\(\operatorname{rang}\left[\begin{array}{c}\lambda
+I-A \\ C\end{array}\right]=n\)</span> 。</li>
+</ul>
+<hr />
 <p><strong>系统可检测性 détectable</strong></p>
-<p>对于矩阵对 $(A, C) \in \mathbb{R}^{n \times n} \times \mathbb{R}^{p \times n}$ ，如果其所有不可观的模态的特征值 $\lambda \in \mathbb{C}$ 满足 $\operatorname{Re}(\lambda)&lt;0$ ，则称该系统为可检测的。换句话说，基于 PBH 判据， $(A, C)$ 是可检测的，当且仅当:</p>
-<script type="math/tex; mode=display">
-\forall \lambda \in \mathbb{C}, \forall x \in \mathbb{C}^n \backslash\{0\},[A x=\lambda x \text { 且 } C x=0] \Rightarrow \operatorname{Re}(\lambda)<0</script><p>这意味着，系统中不可观的模态如果对应的特征值实部为负，则该系统是可检测的。</p>
-<h3 id="CE2-14-倒立摆问题"><a href="#CE2-14-倒立摆问题" class="headerlink" title="CE2.14 倒立摆问题"></a>CE2.14 倒立摆问题</h3><hr>
+<p>对于矩阵对 <span class="math inline">\((A, C) \in \mathbb{R}^{n
+\times n} \times \mathbb{R}^{p \times n}\)</span>
+，如果其所有不可观的模态的特征值 <span class="math inline">\(\lambda \in
+\mathbb{C}\)</span> 满足 <span
+class="math inline">\(\operatorname{Re}(\lambda)&lt;0\)</span>
+，则称该系统为可检测的。换句话说，基于 PBH 判据， <span
+class="math inline">\((A, C)\)</span> 是可检测的，当且仅当:</p>
+<p><span class="math display">\[
+\forall \lambda \in \mathbb{C}, \forall x \in \mathbb{C}^n
+\backslash\{0\},[A x=\lambda x \text { 且 } C x=0] \Rightarrow
+\operatorname{Re}(\lambda)&lt;0
+\]</span></p>
+<p>这意味着，系统中不可观的模态如果对应的特征值实部为负，则该系统是可检测的。</p>
+<h3 id="ce2.14-倒立摆问题">CE2.14 倒立摆问题</h3>
+<hr />
 <p>回忆线性化之后的矩阵：</p>
-<script type="math/tex; mode=display">
-A=\left(\begin{array}{cccc}0 & 0 & 1 & 0 \\0 & 0 & 0 & 1 \\0 & \frac{m g}{M} & 0 & 0 \\0 & \frac{(m+M) g \cos \bar{x}_2}{M} & 0 & 0\end{array}\right), \quad C=\left(\begin{array}{llll}0 & 1 & 0 & 0\end{array}\right)</script><p>计算得可观测矩阵的秩为：</p>
-<script type="math/tex; mode=display">
-q=\operatorname{Rang} \mathcal{O}=\operatorname{Rang}\left(\begin{array}{cccc}
-0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & \frac{(m+M) g \cos \bar{x}_2}{M l} & 0 & 0 \\
-0 & 0 & 0 & \frac{(m+M) g \cos \bar{x}_2}{M l}
-\end{array}\right)=2</script><p>由此，可观子空间的维数为$2$，不可观子空间的维数为$2$。</p>
-<p>首先考虑矩阵A的特征值：${0，0，\sqrt{\frac{(m+M) g}{M l}},-\sqrt{\frac{(m+M) g}{M l}}}$。</p>
-<p>对于特征值为$0$的情况，当$x=(1,0,0,0)^{\top} \neq 0$，有$A x=0, \quad C x=0$，因此特征值$0$不可观。</p>
-<p>对于后两种情况，以$\lambda  =\sqrt{\frac{(m+M) g}{M l}}$为例，方程组：</p>
-<script type="math/tex; mode=display">
-x_3=\lambda x_1, \quad x_4=\lambda x_2, \quad \frac{m g}{M} x_2=\lambda x_3, \quad \frac{(m+M) g \cos \bar{x}_2}{M l} x_2=\lambda</script><p>唯一的解为$x = 0$，因此$\lambda$可观。</p>
-<hr>
-<hr>
-<h2 id="C2-5-Kalman标准型-Forme-canonique-de-Kalman"><a href="#C2-5-Kalman标准型-Forme-canonique-de-Kalman" class="headerlink" title="C2.5 Kalman标准型 Forme canonique de Kalman"></a>C2.5 Kalman标准型 Forme canonique de Kalman</h2><hr>
-<p><strong>定理</strong>： 设 $A \in \mathbb{R}^{n \times n} 、 B \in \mathbb{R}^{n \times m} 、 C \in \mathbb{R}^{p \times n} 、 D \in \mathbb{R}^{p \times m}$ 。存在一个可逆变换 $T \in \mathbb{R}^{n \times n}$ ，使得系统可以重写为：</p>
-<script type="math/tex; mode=display">
-z=\left(\begin{array}{c}z_{c o} \\z_{c\bar{o}} \\z_{\bar{c} o} \\z_{\overline{c o}}\end{array}\right)=T x</script><p>变换后，系统的状态方程变为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}& \dot{z}=\left(\begin{array}{cccc}\tilde{A}_{c o} & 0 & \tilde{A}_{13} & 0 \\\tilde{A}_{21} & \tilde{A}_{c \bar{o}} & \tilde{A}_{23} & \tilde{A}_{24} \\0 & 0 & \tilde{A}_{\bar{c} o} & 0 \\0 & 0 & \tilde{A}_{43} & \tilde{A}_{\overline{c o}}\end{array}\right) z+\left(\begin{array}{c}\tilde{B}_{c o} \\\tilde{B}_{c \bar{o}} \\0 \\0\end{array}\right) u \\& y=\left(\begin{array}{llll}\tilde{C}_{c o} & 0 & \tilde{C}_{\bar{c} o} & 0\end{array}\right) z+D u\end{aligned}</script><p>使得：</p>
+<p><span class="math display">\[
+A=\left(\begin{array}{cccc}0 &amp; 0 &amp; 1 &amp; 0 \\0 &amp; 0 &amp; 0
+&amp; 1 \\0 &amp; \frac{m g}{M} &amp; 0 &amp; 0 \\0 &amp; \frac{(m+M) g
+\cos \bar{x}_2}{M} &amp; 0 &amp; 0\end{array}\right), \quad
+C=\left(\begin{array}{llll}0 &amp; 1 &amp; 0 &amp; 0\end{array}\right)
+\]</span></p>
+<p>计算得可观测矩阵的秩为：</p>
+<p><span class="math display">\[
+q=\operatorname{Rang}
+\mathcal{O}=\operatorname{Rang}\left(\begin{array}{cccc}
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; \frac{(m+M) g \cos \bar{x}_2}{M l} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \frac{(m+M) g \cos \bar{x}_2}{M l}
+\end{array}\right)=2
+\]</span></p>
+<p>由此，可观子空间的维数为<span
+class="math inline">\(2\)</span>，不可观子空间的维数为<span
+class="math inline">\(2\)</span>。</p>
+<p>首先考虑矩阵A的特征值：<span
+class="math inline">\(\{0，0，\sqrt{\frac{(m+M) g}{M
+l}},-\sqrt{\frac{(m+M) g}{M l}}\}\)</span>。</p>
+<p>对于特征值为<span class="math inline">\(0\)</span>的情况，当<span
+class="math inline">\(x=(1,0,0,0)^{\top} \neq 0\)</span>，有<span
+class="math inline">\(A x=0, \quad C x=0\)</span>，因此特征值<span
+class="math inline">\(0\)</span>不可观。</p>
+<p>对于后两种情况，以<span
+class="math inline">\(\lambda  =\sqrt{\frac{(m+M) g}{M
+l}}\)</span>为例，方程组：</p>
+<p><span class="math display">\[
+x_3=\lambda x_1, \quad x_4=\lambda x_2, \quad \frac{m g}{M} x_2=\lambda
+x_3, \quad \frac{(m+M) g \cos \bar{x}_2}{M l} x_2=\lambda
+\]</span></p>
+<p>唯一的解为<span class="math inline">\(x = 0\)</span>，因此<span
+class="math inline">\(\lambda\)</span>可观。</p>
+<hr />
+<hr />
+<h2 id="c2.5-kalman标准型-forme-canonique-de-kalman">C2.5 Kalman标准型
+Forme canonique de Kalman</h2>
+<hr />
+<p><strong>定理</strong>： 设 <span class="math inline">\(A \in
+\mathbb{R}^{n \times n} 、 B \in \mathbb{R}^{n \times m} 、 C \in
+\mathbb{R}^{p \times n} 、 D \in \mathbb{R}^{p \times m}\)</span>
+。存在一个可逆变换 <span class="math inline">\(T \in \mathbb{R}^{n
+\times n}\)</span> ，使得系统可以重写为：</p>
+<p><span class="math display">\[
+z=\left(\begin{array}{c}z_{c o} \\z_{c\bar{o}} \\z_{\bar{c} o}
+\\z_{\overline{c o}}\end{array}\right)=T x
+\]</span></p>
+<p>变换后，系统的状态方程变为：</p>
+<p><span class="math display">\[
+\begin{aligned}&amp; \dot{z}=\left(\begin{array}{cccc}\tilde{A}_{c o}
+&amp; 0 &amp; \tilde{A}_{13} &amp; 0 \\\tilde{A}_{21} &amp; \tilde{A}_{c
+\bar{o}} &amp; \tilde{A}_{23} &amp; \tilde{A}_{24} \\0 &amp; 0 &amp;
+\tilde{A}_{\bar{c} o} &amp; 0 \\0 &amp; 0 &amp; \tilde{A}_{43} &amp;
+\tilde{A}_{\overline{c o}}\end{array}\right)
+z+\left(\begin{array}{c}\tilde{B}_{c o} \\\tilde{B}_{c \bar{o}} \\0
+\\0\end{array}\right) u \\&amp; y=\left(\begin{array}{llll}\tilde{C}_{c
+o} &amp; 0 &amp; \tilde{C}_{\bar{c} o} &amp; 0\end{array}\right) z+D
+u\end{aligned}
+\]</span></p>
+<p>使得：</p>
 <ul>
-<li>$\left(\left(\begin{array}{cc}\tilde{A}<em>{c o} &amp; 0 \\tilde{A}</em>{21} &amp; \tilde{A}<em>{c \bar{o}}\end{array}\right),\binom{\tilde{B}</em>{c o}}{\tilde{B}_{c \bar{o}}}\right)$ 可控</li>
-<li>$\left(\begin{array}{cc}\left(\begin{array}{cc}\tilde{A}<em>{c o} &amp; \tilde{A}</em>{13} \0 &amp; \tilde{A}<em>{\bar{c} o}\end{array}\right),\left(\begin{array}{ll}\tilde{C}</em>{c o} &amp; \tilde{C}_{\bar{c} o}\end{array}\right)\end{array}\right)$可观</li>
+<li><p><span
+class="math inline">\(\left(\left(\begin{array}{cc}\tilde{A}_{c o} &amp;
+0 \\\tilde{A}_{21} &amp; \tilde{A}_{c
+\bar{o}}\end{array}\right),\binom{\tilde{B}_{c o}}{\tilde{B}_{c
+\bar{o}}}\right)\)</span> 可控</p></li>
+<li><p><span
+class="math inline">\(\left(\begin{array}{cc}\left(\begin{array}{cc}\tilde{A}_{c
+o} &amp; \tilde{A}_{13} \\0 &amp; \tilde{A}_{\bar{c}
+o}\end{array}\right),\left(\begin{array}{ll}\tilde{C}_{c o} &amp;
+\tilde{C}_{\bar{c}
+o}\end{array}\right)\end{array}\right)\)</span>可观</p></li>
 <li><p>传递函数为：</p>
-<script type="math/tex; mode=display">
-  H(s)=C(s I-A)^{-1} B+D=\tilde{C}_{c o}\left(s I-\tilde{A}_{c o}\right)^{-1} \tilde{B}_{c o}+D</script></li>
+<p><span class="math display">\[
+  H(s)=C(s I-A)^{-1} B+D=\tilde{C}_{c o}\left(s I-\tilde{A}_{c
+o}\right)^{-1} \tilde{B}_{c o}+D
+  \]</span></p></li>
 </ul>
 <p>如此，</p>
 <ul>
-<li>$z<em>{c o}$ 是系统的可控且可观部分——系统的可控且可观模态是 $\tilde{A}</em>{c o}$ 的特征值;</li>
-<li>$z<em>{c \bar{o}}$ 是系统的可控但不可观部分——系统的可控但不可观模态是 $\tilde{A}</em>{c \bar{o}}$的特征值；</li>
-<li>$z<em>{\bar{c} o}$ 是系统的不可控但可观部分——系统的不可控但可观模态是 $\tilde{A}</em>{\bar{c} o}$的特征值；</li>
-<li>$z<em>{\overline{c o}}$ 是系统的不可控且不可观部分——系统的不可控且不可观模态是 $\tilde{A}</em>{\overline{c o}}$ 的特征值。</li>
+<li><span class="math inline">\(z_{c o}\)</span>
+是系统的可控且可观部分——系统的可控且可观模态是 <span
+class="math inline">\(\tilde{A}_{c o}\)</span> 的特征值;</li>
+<li><span class="math inline">\(z_{c \bar{o}}\)</span>
+是系统的可控但不可观部分——系统的可控但不可观模态是 <span
+class="math inline">\(\tilde{A}_{c \bar{o}}\)</span>的特征值；</li>
+<li><span class="math inline">\(z_{\bar{c} o}\)</span>
+是系统的不可控但可观部分——系统的不可控但可观模态是 <span
+class="math inline">\(\tilde{A}_{\bar{c} o}\)</span>的特征值；</li>
+<li><span class="math inline">\(z_{\overline{c o}}\)</span>
+是系统的不可控且不可观部分——系统的不可控且不可观模态是 <span
+class="math inline">\(\tilde{A}_{\overline{c o}}\)</span>
+的特征值。</li>
 </ul>
-<h2 id="C2-6-可观-可控对偶性-Dualite-commandabilite-observabilite"><a href="#C2-6-可观-可控对偶性-Dualite-commandabilite-observabilite" class="headerlink" title="C2.6 可观/可控对偶性 Dualité commandabilité-observabilité"></a>C2.6 可观/可控对偶性 Dualité commandabilité-observabilité</h2><hr>
+<h2 id="c2.6-可观可控对偶性-dualité-commandabilité-observabilité">C2.6
+可观/可控对偶性 Dualité commandabilité-observabilité</h2>
+<hr />
 <p>之前我们讨论了系统的对偶性，然后现在我们进一步对偶性与可观/可控性的联系。</p>
-<p>对于矩阵对 $(A, C)$ ，如果系统可观，那么其转置系统 $\left(A^{\top}, C^{\top}\right)$ 可控，反之亦然。这意味着可控性和可观性之间存在对偶关系。</p>
+<p>对于矩阵对 <span class="math inline">\((A, C)\)</span>
+，如果系统可观，那么其转置系统 <span
+class="math inline">\(\left(A^{\top}, C^{\top}\right)\)</span>
+可控，反之亦然。这意味着可控性和可观性之间存在对偶关系。</p>
 <p>具体来说, 系统</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-& \dot{x}(t)=A x(t)+B u(t) \\
-& y(t)=C x(t)+D u(t)
-\end{aligned}</script><p>的可控性等价于以下系统的可观性:</p>
-<script type="math/tex; mode=display">
+&amp; \dot{x}(t)=A x(t)+B u(t) \\
+&amp; y(t)=C x(t)+D u(t)
+\end{aligned}
+\]</span></p>
+<p>的可控性等价于以下系统的可观性:</p>
+<p><span class="math display">\[
 \begin{aligned}
-& \dot{x}(t)=A^{\top} x(t)+C^{\top} u(t) \\
-& y(t)=B^{\top} x(t)+D^{\top} u(t)
-\end{aligned}</script><p>这表明，一个系统的可控性问题可以转化为其对偶系统的可观性问题，反之亦然。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/09/19/informatique/controle/csd-2/">http://raphaelhyaan.cn/2024/09/19/informatique/controle/csd-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/19/nature/pt-2/" title="法兰西岛花草树木·其二"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶02.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">法兰西岛花草树木·其二</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/19/informatique/controle/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C1 受控系统结构 Structure d’un système asservi</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/informatique/controle/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C1 受控系统结构 Structure d’un système asservi</div></div></a></div><div><a href="/2024/11/11/informatique/controle/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div><div><a href="/2024/11/11/informatique/controle/csd-5/" title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</div></div></a></div><div><a href="/2024/10/08/informatique/controle/csd-3/" title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</div></div></a></div><div><a href="/2025/06/30/RH-NMF/" title="NMF及语音分离"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">NMF及语音分离</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-PLAN"><span class="toc-text">C2 PLAN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E8%A1%A8%E7%A4%BA%E5%9B%9E%E9%A1%BE"><span class="toc-text">1. 状态空间表示回顾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%BA%E5%BA%95%E5%8F%98%E6%8D%A2"><span class="toc-text">2. 基底变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8F%AF%E6%8E%A7%E6%80%A7"><span class="toc-text">3. 可控性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%AF%E8%A7%82%E6%80%A7"><span class="toc-text">4. 可观性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-1-%E7%8A%B6%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA-Representation-d%E2%80%99etat"><span class="toc-text">C2.1 状态的表示 Représentation d’état</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-1-1-%E5%AE%9A%E4%B9%89-Definition"><span class="toc-text">C2.1.1 定义 Définition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-1-%E4%BE%8B-%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86"><span class="toc-text">CE2.1 例- 小车上的倒立摆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-1-2-%E4%B8%8D%E5%90%8C%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="toc-text">C2.1.2 不同的系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-1-3-%E5%9C%A8%E5%B9%B3%E8%A1%A1%E7%82%B9%E9%99%84%E8%BF%91%E7%BA%BF%E6%80%A7%E5%8C%96-Linearisation-autour-d%E2%80%99un-point-d%E2%80%99equilibre"><span class="toc-text">C2.1.3 在平衡点附近线性化 Linéarisation autour d’un point d’équilibre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-2-%E4%BE%8B-%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86%E4%B8%AD%E7%9A%84%E5%B9%B3%E8%A1%A1%E7%82%B9"><span class="toc-text">CE2.2 例- 小车上的倒立摆中的平衡点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-3-%E4%BE%8B-%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%80%A7%E5%8C%96"><span class="toc-text">CE2.3 例- 小车上的倒立摆中的线性化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-1-4-%E4%BB%8E%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E5%88%B0%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0-Passageetat-transfert"><span class="toc-text">C2.1.4 从状态空间模型到传递函数 Passageétat-transfert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-4-%E4%BE%8B-%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E4%BC%A0%E9%80%92%E7%9F%A9%E9%98%B5"><span class="toc-text">CE2.4 例- 小车上的倒立摆的传递矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-1-5-%E5%8D%95%E5%8F%98%E9%87%8F%E6%83%85%E5%86%B5%E4%B8%8B%E7%9A%84%E4%BB%8E%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E5%88%B0%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0-Passageetat-transfert-cas-monovariable"><span class="toc-text">CE2.1.5 单变量情况下的从状态空间模型到传递函数 Passageétat-transfert cas monovariable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-1-6-%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA%E5%8F%98%E6%8D%A2-Changement-de-base-dans-l%E2%80%99espace-d%E2%80%99etat"><span class="toc-text">C2.1.6 状态空间的基变换 Changement de base dans l’espace d’état</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-5-%E5%8F%8C%E6%A7%BD%E7%B3%BB%E7%BB%9F-systeme-a-2-cuves"><span class="toc-text">CE2.5 双槽系统 système à 2 cuves</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-2-%E7%A8%B3%E5%AE%9A-stabilite"><span class="toc-text">C2.2 稳定 stabilité</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-2-1-Lyapunov%E6%84%8F%E4%B9%89%E4%B8%8B%E7%9A%84%E7%A8%B3%E5%AE%9A-Stabilite-au-sens-de-Lyapunov"><span class="toc-text">C2.2.1 Lyapunov意义下的稳定  Stabilité au sens de Lyapunov</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-6-%E4%B8%89%E4%B8%AA%E9%92%88%E5%AF%B9Lyapunou%E7%A8%B3%E5%AE%9A%E6%80%A7%E7%9A%84%E7%A0%94%E7%A9%B6"><span class="toc-text">CE2.6 三个针对Lyapunou稳定性的研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-2-2-%E7%A0%94%E7%A9%B6%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">C2.2.2 研究系统在平衡点的稳定性的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-7-%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%BA0%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">CE2.7 两个特征值为0的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E6%9C%89%E7%95%8C%E8%BE%93%E5%85%A5-%E6%9C%89%E7%95%8C%E8%BE%93%E5%87%BA%E7%A8%B3%E5%AE%9A%E6%80%A7-Stabilite-Entree-Bornee-Sortie-Bornee-EBSB"><span class="toc-text">2.2.3 有界输入-有界输出稳定性 Stabilité Entrée Bornée Sortie Bornée (EBSB)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-3-%E5%8F%AF%E6%8E%A7%E6%80%A7-commandabilite"><span class="toc-text">C2.3 可控性 commandabilité</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-3-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">C2.3.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-8-%E5%8F%AF%E6%8E%A7%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">CE2.8 可控性的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-3-2-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%AF%E6%8E%A7%E6%80%A7"><span class="toc-text">C2.3.2 线性时不变系统的可控性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-9-Kalman%E7%9B%98%E8%B8%9E%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="toc-text">CE2.9 Kalman盘踞的示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-3-3-Kalman-%E6%8E%A7%E5%88%B6%E6%A0%87%E5%87%86%E5%BD%A2%E5%BC%8F%E3%80%81%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%A6%82%E5%BF%B5%E4%B8%8E-PBH-%E5%88%A4%E6%8D%AE-Forme-canonique-de-Kalman-pour-la-commande-notion-de-systeme-stabilisable-et-test-PBH"><span class="toc-text">C2.3.3 Kalman 控制标准形式、系统可稳定性概念与 PBH 判据 Forme canonique de Kalman pour la commande, notion de système stabilisable et test PBH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-10-%E4%B8%8D%E5%8F%AF%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-text">CE2.10 不可控系统的分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-11-PBH%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">CE2.11 PBH的应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-4-%E5%8F%AF%E8%A7%82%E6%80%A7-observabilite"><span class="toc-text">C2.4 可观性 observabilité</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-4-1-%E5%8F%AF%E8%A7%82%E6%80%A7%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">C2.4.1 可观性的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-12-%E4%BA%8C%E7%BB%B4%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%AF%E8%A7%82%E6%80%A7"><span class="toc-text">CE2.12 二维系统的可观性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2-4-2-%E5%8F%AF%E8%A7%82%E6%80%A7%E7%9A%84%E5%88%A4%E5%AE%9A"><span class="toc-text">C2.4.2 可观性的判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-13-%E4%BD%BF%E7%94%A8Kalman%E5%8F%AF%E8%A7%82%E6%80%A7%E5%88%A4%E6%8D%AE%E8%AE%A1%E7%AE%97%E5%8F%AF%E8%A7%82%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">CE2.13 使用Kalman可观性判据计算可观性的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-4-3-Kalman-%E8%A7%82%E6%B5%8B%E6%A0%87%E5%87%86%E5%BD%A2%E5%BC%8F%EF%BC%8C%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%A3%80%E6%B5%8B%E6%80%A7%E5%92%8CPBH%E5%88%A4%E6%8D%AE-Forme-canonique-de-Kalman-pour-l%E2%80%99observation-notion-de-sys"><span class="toc-text">CE2.4.3 Kalman 观测标准形式，系统可检测性和PBH判据 Forme canonique de Kalman pour l’observation, notion de sys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CE2-14-%E5%80%92%E7%AB%8B%E6%91%86%E9%97%AE%E9%A2%98"><span class="toc-text">CE2.14 倒立摆问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-5-Kalman%E6%A0%87%E5%87%86%E5%9E%8B-Forme-canonique-de-Kalman"><span class="toc-text">C2.5 Kalman标准型 Forme canonique de Kalman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C2-6-%E5%8F%AF%E8%A7%82-%E5%8F%AF%E6%8E%A7%E5%AF%B9%E5%81%B6%E6%80%A7-Dualite-commandabilite-observabilite"><span class="toc-text">C2.6 可观&#x2F;可控对偶性 Dualité commandabilité-observabilité</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/12/comsol-1/" title="comsol_1">comsol_1</a><time datetime="2026-05-12T12:22:47.000Z" title="发表于 2026-05-12 20:22:47">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+&amp; \dot{x}(t)=A^{\top} x(t)+C^{\top} u(t) \\
+&amp; y(t)=B^{\top} x(t)+D^{\top} u(t)
+\end{aligned}
+\]</span></p>
+<p>这表明，一个系统的可控性问题可以转化为其对偶系统的可观性问题，反之亦然。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/09/19/informatique/controle/csd-2/">http://raphaelhyaan.cn/2024/09/19/informatique/controle/csd-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6/">动态系统控制</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/19/nature/pt-2/" title="法兰西岛花草树木·其二"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F叶02.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">法兰西岛花草树木·其二</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/19/informatique/controle/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C1 受控系统结构 Structure d’un système asservi</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/informatique/controle/csd-1/" title="C1 受控系统结构 Structure d’un système asservi"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">C1 受控系统结构 Structure d’un système asservi</div></div></a></div><div><a href="/2024/11/11/informatique/controle/csd-5/" title="C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C5 稳定性和鲁棒性分析 Analyse des performances et de robustesse d’une loi de commande</div></div></a></div><div><a href="/2024/10/08/informatique/controle/csd-3/" title="C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">C3 基于状态空间方法的系统控制  Commande des systèmes par approche d’état</div></div></a></div><div><a href="/2024/11/11/informatique/controle/csd-4/" title="C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2F羽.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">C4 基于观测器的状态的状态反馈控制 Commande par retour d’état avec observateur</div></div></a></div><div><a href="/2025/08/04/RH-BF/" title="波束形成"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fpink01-s.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">波束形成</div></div></a></div><div><a href="/2025/06/12/RH-Kalman/" title="Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-a.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-12</div><div class="title">Kalman滤波：线性卡尔曼滤波，扩展卡尔曼滤波，无迹卡尔曼滤波</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">189</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#c2-plan"><span class="toc-text">C2 PLAN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E8%A1%A8%E7%A4%BA%E5%9B%9E%E9%A1%BE"><span class="toc-text">1. 状态空间表示回顾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E5%BA%95%E5%8F%98%E6%8D%A2"><span class="toc-text">2. 基底变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%8E%A7%E6%80%A7"><span class="toc-text">3. 可控性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%82%E6%80%A7"><span class="toc-text">4. 可观性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c2.1-%E7%8A%B6%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA-repr%C3%A9sentation-d%C3%A9tat"><span class="toc-text">C2.1 状态的表示
+Représentation d&#39;état</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.1.1-%E5%AE%9A%E4%B9%89-d%C3%A9finition"><span class="toc-text">C2.1.1 定义 Définition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.1-%E4%BE%8B--%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86"><span class="toc-text">CE2.1 例- 小车上的倒立摆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.1.2-%E4%B8%8D%E5%90%8C%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="toc-text">C2.1.2 不同的系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.1.3-%E5%9C%A8%E5%B9%B3%E8%A1%A1%E7%82%B9%E9%99%84%E8%BF%91%E7%BA%BF%E6%80%A7%E5%8C%96-lin%C3%A9arisation-autour-dun-point-d%C3%A9quilibre"><span class="toc-text">C2.1.3
+在平衡点附近线性化 Linéarisation autour d&#39;un point d&#39;équilibre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.2-%E4%BE%8B--%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86%E4%B8%AD%E7%9A%84%E5%B9%B3%E8%A1%A1%E7%82%B9"><span class="toc-text">CE2.2 例-
+小车上的倒立摆中的平衡点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.3-%E4%BE%8B--%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%80%A7%E5%8C%96"><span class="toc-text">CE2.3 例-
+小车上的倒立摆中的线性化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.1.4-%E4%BB%8E%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E5%88%B0%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0-passage%C3%A9tat-transfert"><span class="toc-text">C2.1.4
+从状态空间模型到传递函数 Passageétat-transfert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.4-%E4%BE%8B--%E5%B0%8F%E8%BD%A6%E4%B8%8A%E7%9A%84%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E4%BC%A0%E9%80%92%E7%9F%A9%E9%98%B5"><span class="toc-text">CE2.4 例-
+小车上的倒立摆的传递矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.1.5-%E5%8D%95%E5%8F%98%E9%87%8F%E6%83%85%E5%86%B5%E4%B8%8B%E7%9A%84%E4%BB%8E%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B%E5%88%B0%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0-passage%C3%A9tat-transfert-cas-monovariable"><span class="toc-text">CE2.1.5
+单变量情况下的从状态空间模型到传递函数 Passageétat-transfert
+cas monovariable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.1.6-%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA%E5%8F%98%E6%8D%A2-changement-de-base-dans-lespace-d%C3%A9tat"><span class="toc-text">C2.1.6
+状态空间的基变换 Changement de base dans l&#39;espace d&#39;état</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.5-%E5%8F%8C%E6%A7%BD%E7%B3%BB%E7%BB%9F-syst%C3%A8me-%C3%A0-2-cuves"><span class="toc-text">CE2.5 双槽系统 système à 2
+cuves</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c2.2-%E7%A8%B3%E5%AE%9A-stabilit%C3%A9"><span class="toc-text">C2.2 稳定 stabilité</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.2.1-lyapunov%E6%84%8F%E4%B9%89%E4%B8%8B%E7%9A%84%E7%A8%B3%E5%AE%9A-stabilit%C3%A9-au-sens-de-lyapunov"><span class="toc-text">C2.2.1
+Lyapunov意义下的稳定 Stabilité au sens de Lyapunov</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.6-%E4%B8%89%E4%B8%AA%E9%92%88%E5%AF%B9lyapunou%E7%A8%B3%E5%AE%9A%E6%80%A7%E7%9A%84%E7%A0%94%E7%A9%B6"><span class="toc-text">CE2.6
+三个针对Lyapunou稳定性的研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.2.2-%E7%A0%94%E7%A9%B6%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">C2.2.2
+研究系统在平衡点的稳定性的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.7-%E4%B8%A4%E4%B8%AA%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%BA0%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">CE2.7 两个特征值为0的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%95%8C%E8%BE%93%E5%85%A5-%E6%9C%89%E7%95%8C%E8%BE%93%E5%87%BA%E7%A8%B3%E5%AE%9A%E6%80%A7-stabilit%C3%A9-entr%C3%A9e-born%C3%A9e-sortie-born%C3%A9e-ebsb"><span class="toc-text">2.2.3
+有界输入-有界输出稳定性 Stabilité Entrée Bornée Sortie Bornée
+(EBSB)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c2.3-%E5%8F%AF%E6%8E%A7%E6%80%A7-commandabilit%C3%A9"><span class="toc-text">C2.3 可控性 commandabilité</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.3.1-%E5%AE%9A%E4%B9%89"><span class="toc-text">C2.3.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.8-%E5%8F%AF%E6%8E%A7%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">CE2.8 可控性的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.3.2-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%AF%E6%8E%A7%E6%80%A7"><span class="toc-text">C2.3.2
+线性时不变系统的可控性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.9-kalman%E7%9B%98%E8%B8%9E%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="toc-text">CE2.9 Kalman盘踞的示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.3.3-kalman-%E6%8E%A7%E5%88%B6%E6%A0%87%E5%87%86%E5%BD%A2%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%8F%AF%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%A6%82%E5%BF%B5%E4%B8%8E-pbh-%E5%88%A4%E6%8D%AE-forme-canonique-de-kalman-pour-la-commande-notion-de-syst%C3%A8me-stabilisable-et-test-pbh"><span class="toc-text">C2.3.3
+Kalman 控制标准形式、系统可稳定性概念与 PBH 判据 Forme canonique de
+Kalman pour la commande, notion de système stabilisable et test PBH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.10-%E4%B8%8D%E5%8F%AF%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-text">CE2.10 不可控系统的分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.11-pbh%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">CE2.11 PBH的应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c2.4-%E5%8F%AF%E8%A7%82%E6%80%A7-observabilit%C3%A9"><span class="toc-text">C2.4 可观性 observabilité</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.4.1-%E5%8F%AF%E8%A7%82%E6%80%A7%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">C2.4.1 可观性的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.12-%E4%BA%8C%E7%BB%B4%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%AF%E8%A7%82%E6%80%A7"><span class="toc-text">CE2.12 二维系统的可观性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c2.4.2-%E5%8F%AF%E8%A7%82%E6%80%A7%E7%9A%84%E5%88%A4%E5%AE%9A"><span class="toc-text">C2.4.2 可观性的判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.13-%E4%BD%BF%E7%94%A8kalman%E5%8F%AF%E8%A7%82%E6%80%A7%E5%88%A4%E6%8D%AE%E8%AE%A1%E7%AE%97%E5%8F%AF%E8%A7%82%E6%80%A7%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">CE2.13
+使用Kalman可观性判据计算可观性的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.4.3-kalman-%E8%A7%82%E6%B5%8B%E6%A0%87%E5%87%86%E5%BD%A2%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%A3%80%E6%B5%8B%E6%80%A7%E5%92%8Cpbh%E5%88%A4%E6%8D%AE-forme-canonique-de-kalman-pour-lobservation-notion-de-sys"><span class="toc-text">CE2.4.3
+Kalman 观测标准形式，系统可检测性和PBH判据 Forme canonique de Kalman
+pour l&#39;observation, notion de sys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ce2.14-%E5%80%92%E7%AB%8B%E6%91%86%E9%97%AE%E9%A2%98"><span class="toc-text">CE2.14 倒立摆问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c2.5-kalman%E6%A0%87%E5%87%86%E5%9E%8B-forme-canonique-de-kalman"><span class="toc-text">C2.5 Kalman标准型
+Forme canonique de Kalman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c2.6-%E5%8F%AF%E8%A7%82%E5%8F%AF%E6%8E%A7%E5%AF%B9%E5%81%B6%E6%80%A7-dualit%C3%A9-commandabilit%C3%A9-observabilit%C3%A9"><span class="toc-text">C2.6
+可观&#x2F;可控对偶性 Dualité commandabilité-observabilité</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第五部分-应对不确定性与大规模问题"/></a><div class="content"><a class="title" href="/2026/01/06/algo-5/" title="第五部分-应对不确定性与大规模问题">第五部分-应对不确定性与大规模问题</a><time datetime="2026-01-05T16:07:15.000Z" title="发表于 2026-01-06 00:07:15">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第四部分-计算复杂性与近似解"/></a><div class="content"><a class="title" href="/2026/01/06/algo-4/" title="第四部分-计算复杂性与近似解">第四部分-计算复杂性与近似解</a><time datetime="2026-01-05T16:07:14.000Z" title="发表于 2026-01-06 00:07:14">2026-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-7.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="第三部分-精确最优化策略"/></a><div class="content"><a class="title" href="/2026/01/06/algo-3/" title="第三部分-精确最优化策略">第三部分-精确最优化策略</a><time datetime="2026-01-05T16:07:12.000Z" title="发表于 2026-01-06 00:07:12">2026-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
