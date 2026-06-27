@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>旋转系统 Rotating Systems | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="旋转系统 Rotating Systems  刚体的能量通常由两部分描述：平移动能\(\frac{\boldsymbol{p}^2}{2 m}\)和旋转动能\(\frac{\boldsymbol{L}^2}{2 I}\)，其中\(p\)被称为动量，而\(L\)被称为角动量。本章讨论量子力学体系中的角动量。  角动量算子  角动量算子的定义  角动量使用相对旋转轴的位置和动量之间的">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>旋转系统 Rotating Systems | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="旋转系统 Rotating Systems 刚体的能量通常由两部分描述：平移动能$\frac{\boldsymbol{p}^2}{2 m}$和旋转动能$\frac{\boldsymbol{L}^2}{2 I}$，其中$p$被称为动量，而$L$被称为角动量。本章讨论量子力学体系中的角动量。  角动量算子 角动量算子的定义 角动量使用相对旋转轴的位置和动量之间的叉乘定义：  \boldsymbol{L">
 <meta property="og:type" content="article">
 <meta property="og:title" content="旋转系统 Rotating Systems">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-10/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="旋转系统 Rotating Systems  刚体的能量通常由两部分描述：平移动能\(\frac{\boldsymbol{p}^2}{2 m}\)和旋转动能\(\frac{\boldsymbol{L}^2}{2 I}\)，其中\(p\)被称为动量，而\(L\)被称为角动量。本章讨论量子力学体系中的角动量。  角动量算子  角动量算子的定义  角动量使用相对旋转轴的位置和动量之间的">
+<meta property="og:description" content="旋转系统 Rotating Systems 刚体的能量通常由两部分描述：平移动能$\frac{\boldsymbol{p}^2}{2 m}$和旋转动能$\frac{\boldsymbol{L}^2}{2 I}$，其中$p$被称为动量，而$L$被称为角动量。本章讨论量子力学体系中的角动量。  角动量算子 角动量算子的定义 角动量使用相对旋转轴的位置和动量之间的叉乘定义：  \boldsymbol{L">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png">
 <meta property="article:published_time" content="2024-05-12T09:55:01.000Z">
@@ -154,358 +154,128 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">旋转系统 Rotating Systems</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-12T09:55:01.000Z" title="发表于 2024-05-12 17:55:01">2024-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.854Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="旋转系统 Rotating Systems"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="旋转系统-rotating-systems">旋转系统 Rotating Systems</h1>
-<blockquote>
-<p>刚体的能量通常由两部分描述：平移动能<span
-class="math inline">\(\frac{\boldsymbol{p}^2}{2
-m}\)</span>和旋转动能<span
-class="math inline">\(\frac{\boldsymbol{L}^2}{2 I}\)</span>，其中<span
-class="math inline">\(p\)</span>被称为动量，而<span
-class="math inline">\(L\)</span>被称为角动量。本章讨论量子力学体系中的角动量。</p>
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">旋转系统 Rotating Systems</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-12T09:55:01.000Z" title="发表于 2024-05-12 17:55:01">2024-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.854Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="旋转系统 Rotating Systems"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="旋转系统-Rotating-Systems"><a href="#旋转系统-Rotating-Systems" class="headerlink" title="旋转系统 Rotating Systems"></a>旋转系统 Rotating Systems</h1><blockquote>
+<p>刚体的能量通常由两部分描述：平移动能$\frac{\boldsymbol{p}^2}{2 m}$和旋转动能$\frac{\boldsymbol{L}^2}{2 I}$，其中$p$被称为动量，而$L$被称为角动量。本章讨论量子力学体系中的角动量。</p>
 </blockquote>
-<h2 id="角动量算子">角动量算子</h2>
-<hr />
-<h3 id="角动量算子的定义">角动量算子的定义</h3>
-<hr />
+<h2 id="角动量算子"><a href="#角动量算子" class="headerlink" title="角动量算子"></a>角动量算子</h2><hr>
+<h3 id="角动量算子的定义"><a href="#角动量算子的定义" class="headerlink" title="角动量算子的定义"></a>角动量算子的定义</h3><hr>
 <p>角动量使用相对旋转轴的位置和动量之间的叉乘定义：</p>
-<p><span class="math display">\[
-\boldsymbol{L}=\boldsymbol{r} \times \boldsymbol{p}
-\]</span></p>
-<p>因此，可以使用位置算子和动量算子来定义角动量算子：</p>
-<p><span class="math display">\[
-\begin{aligned}&amp; \widehat{L}_x=\widehat{y} \widehat{p}_z-\widehat{z}
-\widehat{p}_y=-i \hbar\left(y \frac{\partial}{\partial z}-z
-\frac{\partial}{\partial y}\right) \\&amp; \widehat{L}_y=z
-\widehat{p}_x-\widehat{x} \widehat{p}_z=-i \hbar\left(z
-\frac{\partial}{\partial x}-x \frac{\partial}{\partial z}\right) \\&amp;
-\widehat{L}_z=\widehat{x} \widehat{p}_y-\widehat{y} \widehat{p}_x=-i
-\hbar\left(x \frac{\partial}{\partial y}-y \frac{\partial}{\partial
-x}\right)\end{aligned}
-\]</span></p>
-<hr />
-<p>对位置向量和动量向量的空间反演<span class="math inline">\((\theta
-\rightarrow \pi-\theta ; \varphi \rightarrow
-\varphi+\pi)\)</span>不会改变角动量算子。因此，对于任何反演算子<span
-class="math inline">\(\widehat{\Pi} f(\theta, \varphi)=f(\pi-\theta,
-\varphi+\pi)\)</span>，有：</p>
-<p><span class="math display">\[
-[\widehat{\Pi}, \widehat{\boldsymbol{L}}]=0
-\]</span></p>
-<h3 id="角动量的对易性">角动量的对易性</h3>
-<hr />
+<script type="math/tex; mode=display">
+\boldsymbol{L}=\boldsymbol{r} \times \boldsymbol{p}</script><p>因此，可以使用位置算子和动量算子来定义角动量算子：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}& \widehat{L}_x=\widehat{y} \widehat{p}_z-\widehat{z} \widehat{p}_y=-i \hbar\left(y \frac{\partial}{\partial z}-z \frac{\partial}{\partial y}\right) \\& \widehat{L}_y=z \widehat{p}_x-\widehat{x} \widehat{p}_z=-i \hbar\left(z \frac{\partial}{\partial x}-x \frac{\partial}{\partial z}\right) \\& \widehat{L}_z=\widehat{x} \widehat{p}_y-\widehat{y} \widehat{p}_x=-i \hbar\left(x \frac{\partial}{\partial y}-y \frac{\partial}{\partial x}\right)\end{aligned}</script><hr>
+<p>对位置向量和动量向量的空间反演$(\theta \rightarrow \pi-\theta ; \varphi \rightarrow \varphi+\pi)$不会改变角动量算子。因此，对于任何反演算子$\widehat{\Pi} f(\theta, \varphi)=f(\pi-\theta, \varphi+\pi)$，有：</p>
+<script type="math/tex; mode=display">
+[\widehat{\Pi}, \widehat{\boldsymbol{L}}]=0</script><h3 id="角动量的对易性"><a href="#角动量的对易性" class="headerlink" title="角动量的对易性"></a>角动量的对易性</h3><hr>
 <p>由于位置算子和动量算子不是对易的，不同方向的角动量算子之间也不会是对易的：</p>
-<p><span class="math display">\[
-\left[\widehat{L}_x, \widehat{L}_y\right]=-i\hbar\left[\widehat{y}
-\hat{p}_z-\widehat{z} \hat{p}_y, z \hat{p}_x-\widehat{x}
-\hat{p}_z\right]
-\]</span></p>
-<p>展开对易子：</p>
-<p><span class="math display">\[
-\begin{aligned}{\left[\widehat{L}_x, \widehat{L}_y\right] } &amp;
-=\left(\widehat{y} \widehat{p}_z-\widehat{z}
-\widehat{p}_y\right)\left(\widehat{z} \widehat{p}_x-\widehat{x}
-\widehat{p}_z\right)-\left(\widehat{z} \widehat{p}_x-\widehat{x}
-\widehat{p}_z\right)\left(\widehat{y} \widehat{p}_z-\widehat{z}
-\widehat{p}_y\right) \\&amp; =\widehat{z} \widehat{x} \widehat{p}_y
-\widehat{p}_z-\widehat{x} \widehat{p}_z \widehat{z}
-\widehat{p}_y+\widehat{y} \widehat{p}_z \widehat{z}
-\widehat{p}_x-\widehat{z} \widehat{y} \widehat{p}_x \widehat{p}_z
-\\&amp; =i \hbar\left(\widehat{x} \widehat{p}_y-\widehat{y}
-\widehat{p}_x\right)=i \hbar \widehat{L}_z\end{aligned}
-\]</span></p>
-<p>同时有：</p>
-<p><span class="math display">\[
-\left[\widehat{L}_y, \widehat{L}_z\right]=i \hbar \widehat{L}_x \quad
-\text { and } \quad\left[\widehat{L}_z, \widehat{L}_x\right]=i \hbar
-\widehat{L}_y
-\]</span></p>
-<p>根据广义海森堡不确定性原理，有：</p>
-<p><span class="math display">\[
-\Delta_\psi\left(L_x\right) \Delta_\psi\left(L_y\right) \geqslant
-\frac{\hbar}{2}\left\langle L_z\right\rangle_\psi
-\]</span></p>
-<p>因此，不同方向的角动量不能被同时精确测量。</p>
-<hr />
+<script type="math/tex; mode=display">
+\left[\widehat{L}_x, \widehat{L}_y\right]=-i\hbar\left[\widehat{y} \hat{p}_z-\widehat{z} \hat{p}_y, z \hat{p}_x-\widehat{x} \hat{p}_z\right]</script><p>展开对易子：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}{\left[\widehat{L}_x, \widehat{L}_y\right] } & =\left(\widehat{y} \widehat{p}_z-\widehat{z} \widehat{p}_y\right)\left(\widehat{z} \widehat{p}_x-\widehat{x} \widehat{p}_z\right)-\left(\widehat{z} \widehat{p}_x-\widehat{x} \widehat{p}_z\right)\left(\widehat{y} \widehat{p}_z-\widehat{z} \widehat{p}_y\right) \\& =\widehat{z} \widehat{x} \widehat{p}_y \widehat{p}_z-\widehat{x} \widehat{p}_z \widehat{z} \widehat{p}_y+\widehat{y} \widehat{p}_z \widehat{z} \widehat{p}_x-\widehat{z} \widehat{y} \widehat{p}_x \widehat{p}_z \\& =i \hbar\left(\widehat{x} \widehat{p}_y-\widehat{y} \widehat{p}_x\right)=i \hbar \widehat{L}_z\end{aligned}</script><p>同时有：</p>
+<script type="math/tex; mode=display">
+\left[\widehat{L}_y, \widehat{L}_z\right]=i \hbar \widehat{L}_x \quad \text { and } \quad\left[\widehat{L}_z, \widehat{L}_x\right]=i \hbar \widehat{L}_y</script><p>根据广义海森堡不确定性原理，有：</p>
+<script type="math/tex; mode=display">
+\Delta_\psi\left(L_x\right) \Delta_\psi\left(L_y\right) \geqslant \frac{\hbar}{2}\left\langle L_z\right\rangle_\psi</script><p>因此，不同方向的角动量不能被同时精确测量。</p>
+<hr>
 <p>考虑角动量的平方模量与某一方向角动量的对易子：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-{\left[\widehat{L}^2, \widehat{L}_z\right] } &amp;
-=\left[\widehat{L}_x^2, \widehat{L}_z\right]+\left[\widehat{L}_y^2,
-\widehat{L}_z\right]+\left[\widehat{L}_z^2, \widehat{L}_z\right] \\
-&amp; =\widehat{L}_x\left[\widehat{L}_x,
-\widehat{L}_z\right]+\left[\widehat{L}_x, \widehat{L}_z\right]
-\widehat{L}_x+\widehat{L}_y\left[\widehat{L}_y,
-\widehat{L}_z\right]+\left[\widehat{L}_y, \widehat{L}_z\right]
-\widehat{L}_y \\
-&amp; =-i \hbar \widehat{L}_x \widehat{L}_y-i \hbar \widehat{L}_y
-\widehat{L}_x+i \hbar \widehat{L}_y \widehat{L}_x+i \hbar \widehat{L}_x
-\widehat{L}_y=0
-\end{aligned}
-\]</span></p>
-<p>同时有：</p>
-<p><span class="math display">\[
-\left[\widehat{L}^2, \widehat{L}_x\right]=0 \quad \text { and }
-\quad\left[\widehat{L}^2, \widehat{L}_y\right]=0
-\]</span></p>
-<p>可见，尽管不能同时知道角动量分量，但单个分量与平方模量兼容。因此，关于角动量可获得的知识至多是在一个特定轴及其范数上的投影。</p>
-<hr />
-<h2 id="角动量的本征值和本征态">角动量的本征值和本征态</h2>
-<blockquote>
+{\left[\widehat{L}^2, \widehat{L}_z\right] } & =\left[\widehat{L}_x^2, \widehat{L}_z\right]+\left[\widehat{L}_y^2, \widehat{L}_z\right]+\left[\widehat{L}_z^2, \widehat{L}_z\right] \\
+& =\widehat{L}_x\left[\widehat{L}_x, \widehat{L}_z\right]+\left[\widehat{L}_x, \widehat{L}_z\right] \widehat{L}_x+\widehat{L}_y\left[\widehat{L}_y, \widehat{L}_z\right]+\left[\widehat{L}_y, \widehat{L}_z\right] \widehat{L}_y \\
+& =-i \hbar \widehat{L}_x \widehat{L}_y-i \hbar \widehat{L}_y \widehat{L}_x+i \hbar \widehat{L}_y \widehat{L}_x+i \hbar \widehat{L}_x \widehat{L}_y=0
+\end{aligned}</script><p>同时有：</p>
+<script type="math/tex; mode=display">
+\left[\widehat{L}^2, \widehat{L}_x\right]=0 \quad \text { and } \quad\left[\widehat{L}^2, \widehat{L}_y\right]=0</script><p>可见，尽管不能同时知道角动量分量，但单个分量与平方模量兼容。因此，关于角动量可获得的知识至多是在一个特定轴及其范数上的投影。</p>
+<hr>
+<h2 id="角动量的本征值和本征态"><a href="#角动量的本征值和本征态" class="headerlink" title="角动量的本征值和本征态"></a>角动量的本征值和本征态</h2><blockquote>
 <p>研究纯旋转体的角动量问题，纯旋转体的动能只有角动量动能，没有平动动能。</p>
 </blockquote>
-<p>由于不同方向的角动量分量之间不对易，寻找角动量的共同本征态是有意义的。纯旋转问题的CSCO(可交换观测量的完全集合)是角动量平方算子<span
-class="math inline">\(\widehat{L}^2\)</span>和某一方向角动量算子<span
-class="math inline">\(\widehat{L}_z\)</span>的共同本征态：<span
-class="math inline">\(\left\{\widehat{L}^2,
-\widehat{L}_z\right\}\)</span>。这两个特征值具备的信息可以被认为完全确认旋转体的状态。</p>
-<p>假设 <span class="math inline">\(\widehat{L}^2,
-\widehat{L}_z\)</span> 两者的本征值分别为：<span
-class="math inline">\(\lambda^2, \mu\)</span>，对应的本征态为<span
-class="math inline">\(\left| \lambda, \mu
-\right\rangle\)</span>，则有：</p>
-<p><span class="math display">\[
-\widehat{L}^2\left|\lambda^2, \mu\right\rangle=\lambda^2
-\hbar^2\left|\lambda^2, \mu\right\rangle \quad \text { and } \quad
-\widehat{L}_z\left|\lambda^2, \mu\right\rangle=\mu \hbar\left|\lambda^2,
-\mu\right\rangle
-\]</span></p>
-<p>值得一提的是，假设 <span class="math inline">\(\left|\lambda^2,
-\mu\right\rangle\)</span> 是CSCO基于仅了解 <span
-class="math inline">\(\widehat{L}^2, \widehat{L}_z\)</span>
-就足以确定量子的状态，但这是未必的。目前，我们假设 <span
-class="math inline">\(\left\{\widehat{L}^2,
-\widehat{L}_z\right\}\)</span> 是合法的 CSCO，并且将本征态写为：<span
-class="math inline">\(\left| \lambda, \mu \right\rangle\)</span>
-就足够了。</p>
-<h3 id="本征值的性质">本征值的性质</h3>
-<hr />
+<p>由于不同方向的角动量分量之间不对易，寻找角动量的共同本征态是有意义的。纯旋转问题的CSCO(可交换观测量的完全集合)是角动量平方算子$\widehat{L}^2$和某一方向角动量算子$\widehat{L}_z$的共同本征态：$\left{\widehat{L}^2, \widehat{L}_z\right}$。这两个特征值具备的信息可以被认为完全确认旋转体的状态。</p>
+<p>假设 $\widehat{L}^2, \widehat{L}_z$ 两者的本征值分别为：$\lambda^2, \mu$，对应的本征态为$\left| \lambda, \mu \right\rangle$，则有：</p>
+<script type="math/tex; mode=display">
+\widehat{L}^2\left|\lambda^2, \mu\right\rangle=\lambda^2 \hbar^2\left|\lambda^2, \mu\right\rangle \quad \text { and } \quad \widehat{L}_z\left|\lambda^2, \mu\right\rangle=\mu \hbar\left|\lambda^2, \mu\right\rangle</script><p>值得一提的是，假设 $\left|\lambda^2, \mu\right\rangle$ 是CSCO基于仅了解 $\widehat{L}^2, \widehat{L}_z$ 就足以确定量子的状态，但这是未必的。目前，我们假设 $\left{\widehat{L}^2, \widehat{L}_z\right}$ 是合法的 CSCO，并且将本征态写为：$\left| \lambda, \mu \right\rangle$ 就足够了。</p>
+<h3 id="本征值的性质"><a href="#本征值的性质" class="headerlink" title="本征值的性质"></a>本征值的性质</h3><hr>
 <ul>
-<li><p>角动量平方算符始终大于 <span class="math inline">\(Z\)</span>
-分量的平方算符：<span class="math inline">\(\lambda^2 \geqslant
-\mu^2\)</span>。这很好理解，因为角动量平方算符包含了所有方向的角动量，而
-<span class="math inline">\(Z\)</span>
-分量的平方算符只包含了一个方向的角动量。可以通过下式定量证明：</p>
-<p><span class="math display">\[
-  \lambda^2 \hbar^2-\mu^2 \hbar^2 = \left\langle\lambda^2,
-\mu\left|\widehat{L}^2-\widehat{L}_z^2\right| \lambda^2,
-\mu\right\rangle=\left\langle\lambda^2,
-\mu\left|\widehat{L}_x^2+\widehat{L}_y^2\right| \lambda^2,
-\mu\right\rangle \geqslant 0
-  \]</span></p></li>
+<li><p>角动量平方算符始终大于 $Z$ 分量的平方算符：$\lambda^2 \geqslant \mu^2$。这很好理解，因为角动量平方算符包含了所有方向的角动量，而 $Z$ 分量的平方算符只包含了一个方向的角动量。可以通过下式定量证明：</p>
+<script type="math/tex; mode=display">
+  \lambda^2 \hbar^2-\mu^2 \hbar^2 = \left\langle\lambda^2, \mu\left|\widehat{L}^2-\widehat{L}_z^2\right| \lambda^2, \mu\right\rangle=\left\langle\lambda^2, \mu\left|\widehat{L}_x^2+\widehat{L}_y^2\right| \lambda^2, \mu\right\rangle \geqslant 0</script></li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li><p><span
-class="math inline">\(\widehat{L}^2-\widehat{L}z^2\)</span>可以被写作两个新的互为伴随的角动量算子的均值<em>。</em></p>
-<p><span class="math display">\[
-  \widehat{L}^2-\widehat{L}z^2=\widehat{L}x^2+\widehat{L}y^2=\frac{1}{2}\left(\widehat{L}{+}
-\widehat{L}{-}+\widehat{L}{-} \widehat{L}{+}\right)\quad with \quad
-\widehat{L}_{+}=\widehat{L}_x+i \widehat{L}y ,\ \
-\widehat{L}{-}=\widehat{L}_x-i \widehat{L}_y
-  \]</span></p>
-<p>由于<span class="math inline">\(\widehat L_x\)</span>和<span
-class="math inline">\(\widehat L_y\)</span>是厄米的，因此<span
-class="math inline">\(\widehat L_+\)</span>和<span
-class="math inline">\(\widehat
-L_-\)</span>不可能是厄米的。因此，这两个算符不可能与可观测量相关联。</p></li>
+<li><p>$\widehat{L}^2-\widehat{L}z^2$可以被写作两个新的互为伴随的角动量算子的均值<em>。</em></p>
+<script type="math/tex; mode=display">
+  \widehat{L}^2-\widehat{L}z^2=\widehat{L}x^2+\widehat{L}y^2=\frac{1}{2}\left(\widehat{L}{+} \widehat{L}{-}+\widehat{L}{-} \widehat{L}{+}\right)\quad with \quad \widehat{L}_{+}=\widehat{L}_x+i \widehat{L}y ,\ \ \widehat{L}{-}=\widehat{L}_x-i \widehat{L}_y</script><p>  由于$\widehat L<em>x$和$\widehat L_y$是厄米的，因此$\widehat L</em>+$和$\widehat L_-$不可能是厄米的。因此，这两个算符不可能与可观测量相关联。</p>
+</li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li><p>新定义的两个算子被称为<strong>阶梯算子opérateurs
-d’échelle</strong>，其中<span class="math inline">\(\widehat
-L_+\)</span>被称为升算子，<span class="math inline">\(\widehat
-L_-\)</span>被称为降算子。它们在角动量中的作用类似于创生/湮灭算子在震动问题中的作用。</p>
-<p><span class="math display">\[
-  \widehat{L}_{+}\left|\lambda^2, \mu\right\rangle=c_{+}\left|\lambda^2,
-\mu+1\right\rangle \quad \text { and } \quad
-\widehat{L}_{-}\left|\lambda^2, \mu\right\rangle=c_{-}\left|\lambda^2,
-\mu-1\right\rangle
-  \]</span></p>
-<p>注意，阶梯算符改变<span
-class="math inline">\(z\)</span>方向角动量算子的本征值而不是角动量平方算子的本征值。</p>
-<p>其中，<span class="math inline">\(c_+\)</span>和<span
-class="math inline">\(c_-\)</span>由正则化条件求得。</p>
-<p>它们与原本的两个算符的对易子：</p>
+<li><p>新定义的两个算子被称为<strong>阶梯算子opérateurs d’échelle</strong>，其中$\widehat L<em>+$被称为升算子，$\widehat L</em>-$被称为降算子。它们在角动量中的作用类似于创生/湮灭算子在震动问题中的作用。</p>
+<script type="math/tex; mode=display">
+  \widehat{L}_{+}\left|\lambda^2, \mu\right\rangle=c_{+}\left|\lambda^2, \mu+1\right\rangle \quad \text { and } \quad \widehat{L}_{-}\left|\lambda^2, \mu\right\rangle=c_{-}\left|\lambda^2, \mu-1\right\rangle</script><p>  注意，阶梯算符改变$z$方向角动量算子的本征值而不是角动量平方算子的本征值。</p>
+<p>  其中，$c<em>+$和$c</em>-$由正则化条件求得。</p>
+<p>  它们与原本的两个算符的对易子：</p>
 <ul>
-<li><span class="math inline">\(\widehat{L}_{+}\left|\lambda^2,
-\mu\right\rangle=c_{+}\left|\lambda^2, \mu+1\right\rangle \quad \text {
-and } \quad \widehat{L}_{-}\left|\lambda^2,
-\mu\right\rangle=c_{-}\left|\lambda^2, \mu-1\right\rangle\)</span></li>
-<li><span class="math inline">\(\left[\widehat{L}^2, \widehat{L}_{
-\pm}\right]=0\)</span></li>
+<li>$\widehat{L}<em>{+}\left|\lambda^2, \mu\right\rangle=c</em>{+}\left|\lambda^2, \mu+1\right\rangle \quad \text { and } \quad \widehat{L}<em>{-}\left|\lambda^2, \mu\right\rangle=c</em>{-}\left|\lambda^2, \mu-1\right\rangle$</li>
+<li><p>$\left[\widehat{L}^2, \widehat{L}_{ \pm}\right]=0$</p>
+<p>根据阶梯算符与$z$方向角动量算子的对易子，可以发现$\widehat{L}_{ \pm}\left|\lambda^2, \mu\right\rangle$是角动量算子的特征向量：</p>
+<script type="math/tex; mode=display">
+\widehat{L}_z \widehat{L}_{ \pm}\left|\lambda^2, \mu\right\rangle=\left( \pm \hbar \widehat{L}_{ \pm}+\widehat{L}_{ \pm} \widehat{L}_z\right)\left|\lambda^2, \mu\right\rangle=( \pm 1+\mu) \hbar \widehat{L}_{ \pm}\left|\lambda^2, \mu\right\rangle</script></li>
 </ul>
-<p>根据阶梯算符与<span
-class="math inline">\(z\)</span>方向角动量算子的对易子，可以发现<span
-class="math inline">\(\widehat{L}_{ \pm}\left|\lambda^2,
-\mu\right\rangle\)</span>是角动量算子的特征向量：</p>
-<p><span class="math display">\[
-  \widehat{L}_z \widehat{L}_{ \pm}\left|\lambda^2,
-\mu\right\rangle=\left( \pm \hbar \widehat{L}_{ \pm}+\widehat{L}_{ \pm}
-\widehat{L}_z\right)\left|\lambda^2, \mu\right\rangle=( \pm 1+\mu) \hbar
-\widehat{L}_{ \pm}\left|\lambda^2, \mu\right\rangle
-  \]</span></p></li>
+</li>
 </ul>
-<hr />
+<hr>
 <ul>
-<li><p><span
-class="math inline">\(z\)</span>方向的角动量算符的本征值存在取值范围<span
-class="math inline">\(-n / 2 \leqslant \mu \leqslant n /
-2\)</span>，<span class="math inline">\(n \in
-\mathbb{N}\)</span>。考虑阶梯算符会改变<span
-class="math inline">\(\widehat L_z\)</span>的本征值。由于<span
-class="math inline">\(\mu^2&lt;\lambda^2\)</span>，一定存在<span
-class="math inline">\(\mu\)</span>的最大值和最小值：</p>
-<p><span class="math display">\[
+<li><p>$z$方向的角动量算符的本征值存在取值范围$-n / 2 \leqslant \mu \leqslant n / 2$，$n \in \mathbb{N}$。考虑阶梯算符会改变$\widehat L_z$的本征值。由于$\mu^2&lt;\lambda^2$，一定存在$\mu$的最大值和最小值：</p>
+<script type="math/tex; mode=display">
   \\\begin{aligned}
-  &amp; \widehat{L}_{+}\left|\lambda^2, \mu_{\max
-}\right\rangle=|\varnothing\rangle \\
-  &amp; \widehat{L}_{-}\left|\lambda^2, \mu_{\min
-}\right\rangle=|\varnothing\rangle
-  \end{aligned}
-  \]</span></p>
-<p>根据已有的性质，可知：</p>
+  & \widehat{L}_{+}\left|\lambda^2, \mu_{\max }\right\rangle=|\varnothing\rangle \\
+  & \widehat{L}_{-}\left|\lambda^2, \mu_{\min }\right\rangle=|\varnothing\rangle
+  \end{aligned}</script><p>  根据已有的性质，可知：</p>
 <ul>
-<li><span class="math inline">\(\mu_{\min }=-\mu_{\max }\)</span></li>
-<li><span class="math inline">\(\mu_{\max }=\mu_{\min }+n \quad \text {
-with } n \in \mathbb{N}\)</span></li>
+<li>$\mu<em>{\min }=-\mu</em>{\max }$</li>
+<li><p>$\mu<em>{\max }=\mu</em>{\min }+n \quad \text { with } n \in \mathbb{N}$</p>
+<p>从而可以得到：$-n / 2 \leqslant \mu \leqslant n / 2$。</p>
+</li>
 </ul>
-<p>从而可以得到：<span class="math inline">\(-n / 2 \leqslant \mu
-\leqslant n / 2\)</span>。</p></li>
+</li>
 </ul>
-<hr />
-<p>对于<span class="math inline">\(\lambda\)</span>为固定值的系统：</p>
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fmq-10%2FUntitled.png" /></p>
-<h2 id="本征函数球谐函数">本征函数：球谐函数</h2>
-<hr />
-<h3 id="球坐标系"><strong>球坐标系</strong></h3>
-<hr />
+<hr>
+<p>对于$\lambda$为固定值的系统：</p>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fmq-10%2FUntitled.png" alt=""></p>
+<h2 id="本征函数：球谐函数"><a href="#本征函数：球谐函数" class="headerlink" title="本征函数：球谐函数"></a>本征函数：球谐函数</h2><hr>
+<h3 id="球坐标系"><a href="#球坐标系" class="headerlink" title="球坐标系"></a><strong>球坐标系</strong></h3><hr>
 <p>考虑将角动量的三个分量转化到球坐标系：</p>
-<p><span class="math display">\[
-\begin{aligned}&amp; \widehat{L}_x=i \hbar\left(\sin \varphi
-\frac{\partial}{\partial \theta}+\frac{\cos \varphi}{\tan \theta}
-\frac{\partial}{\partial \varphi}\right) \\&amp; \widehat{L}_y=i
-\hbar\left(-\cos \varphi \frac{\partial}{\partial \theta}+\frac{\sin
-\varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \\&amp;
-\widehat{L}_z=-i \hbar \frac{\partial}{\partial \varphi}\end{aligned}
-\]</span></p>
-<p>→ 引：从直角坐标系到球坐标系的转换矩阵：</p>
-<p><span class="math display">\[
-\left(\begin{array}{l}\partial / \partial r \\\partial / \partial \theta
-\\\partial / \partial
-\varphi\end{array}\right)=\left(\begin{array}{ccc}\sin \theta \cos
-\varphi &amp; \sin \theta \sin \varphi &amp; \cos \theta \\r \cos \theta
-\cos \varphi &amp; r \cos \theta \sin \varphi &amp; -r \sin \theta \\-r
-\sin \theta \sin \varphi &amp; r \sin \theta \cos \varphi &amp;
-0\end{array}\right)\left(\begin{array}{l}\partial / \partial x
-\\\partial / \partial y \\\partial / \partial z\end{array}\right)
-\]</span></p>
-<hr />
-<h3 id="角量子数和磁量子数">角量子数和磁量子数</h3>
-<p><strong>结论1</strong>：<span
-class="math inline">\(\widehat{L}_z\)</span><strong>的特征值是<span
-class="math inline">\(\hbar\)</span>的整数倍</strong></p>
-<p>球坐标系下的<span
-class="math inline">\(\widehat{L}_z\)</span>被表示为：<span
-class="math inline">\(-i \hbar \frac{\partial}{\partial
-\varphi}\)</span>。假设函数<span class="math inline">\(\psi_{\mu_{\max
-}, \mu}(\theta, \varphi)\)</span>是<span
-class="math inline">\(\widehat{L}_z\)</span>的本征函数<span
-class="math inline">\(\psi_{\mu_{\max }, \mu}(\theta,
-\varphi)=\left\langle\theta, \varphi \mid \mu_{\max },
-\mu\right\rangle\)</span>。则有：</p>
-<p><span class="math display">\[
--i \hbar \frac{\partial}{\partial \varphi} \psi_{\mu_{\max },
-\mu}(\theta, \varphi)=\mu \hbar \psi_{\mu_{\max }, \mu}(\theta, \varphi)
-\]</span></p>
-<p>一种非退化的解的形式为：</p>
-<p><span class="math display">\[
-\psi_{\mu_{\max }, \mu}(\theta, \varphi)=A_{\mu_{\max }, \mu}(\theta)
-\exp (i \mu \varphi)
-\]</span></p>
-<p>在三维空间中，围绕<span class="math inline">\(z\)</span>轴旋转<span
-class="math inline">\(2\pi\)</span>，空间不发生变换。表现相同对称性的条件是:
-<span class="math inline">\(\psi_{\mu_{\max }, \mu}(\theta, \varphi+2
-\pi)=\psi_{\mu_{\max }, \mu}(\theta, \varphi)\)</span> 。条件 <span
-class="math inline">\(\exp (i 2 \mu \pi)=1\)</span> 只有在 <span
-class="math inline">\(\mu \in \mathbb{Z}\)</span> 时才能满足。因此<span
-class="math inline">\(\widehat{L}_z\)</span>的特征值必须是整数。</p>
-<p>设<span class="math inline">\(\mu_{max} =l,\mu = m_l\)</span>，<span
-class="math inline">\(\widehat{L}^2\)</span>和<span
-class="math inline">\(\widehat{L}z\)</span><em>共享的本征态可以写成<span
-class="math inline">\(\left|\ell,
-m{\ell}\right\rangle\)</span></em>，其中<span
-class="math inline">\(-|\ell| \leqslant m_{\ell} \leqslant
-|\ell|\)</span>。其中<span
-class="math inline">\(l\)</span>被称为<strong>角量子数nombre quantique
-orbital</strong>，<span
-class="math inline">\(m_l\)</span>被称为<strong>磁量子数nombre quantique
-magnétique。</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}& \widehat{L}_x=i \hbar\left(\sin \varphi \frac{\partial}{\partial \theta}+\frac{\cos \varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \\& \widehat{L}_y=i \hbar\left(-\cos \varphi \frac{\partial}{\partial \theta}+\frac{\sin \varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \\& \widehat{L}_z=-i \hbar \frac{\partial}{\partial \varphi}\end{aligned}</script><p>→ 引：从直角坐标系到球坐标系的转换矩阵：</p>
+<script type="math/tex; mode=display">
+\left(\begin{array}{l}\partial / \partial r \\\partial / \partial \theta \\\partial / \partial \varphi\end{array}\right)=\left(\begin{array}{ccc}\sin \theta \cos \varphi & \sin \theta \sin \varphi & \cos \theta \\r \cos \theta \cos \varphi & r \cos \theta \sin \varphi & -r \sin \theta \\-r \sin \theta \sin \varphi & r \sin \theta \cos \varphi & 0\end{array}\right)\left(\begin{array}{l}\partial / \partial x \\\partial / \partial y \\\partial / \partial z\end{array}\right)</script><hr>
+<h3 id="角量子数和磁量子数"><a href="#角量子数和磁量子数" class="headerlink" title="角量子数和磁量子数"></a>角量子数和磁量子数</h3><p><strong>结论1</strong>：$\widehat{L}_z$<strong>的特征值是$\hbar$的整数倍</strong></p>
+<p>球坐标系下的$\widehat{L}<em>z$被表示为：$-i \hbar \frac{\partial}{\partial \varphi}$。假设函数$\psi</em>{\mu<em>{\max }, \mu}(\theta, \varphi)$是$\widehat{L}_z$的本征函数$\psi</em>{\mu<em>{\max }, \mu}(\theta, \varphi)=\left\langle\theta, \varphi \mid \mu</em>{\max }, \mu\right\rangle$。则有：</p>
+<script type="math/tex; mode=display">
+-i \hbar \frac{\partial}{\partial \varphi} \psi_{\mu_{\max }, \mu}(\theta, \varphi)=\mu \hbar \psi_{\mu_{\max }, \mu}(\theta, \varphi)</script><p>一种非退化的解的形式为：</p>
+<script type="math/tex; mode=display">
+\psi_{\mu_{\max }, \mu}(\theta, \varphi)=A_{\mu_{\max }, \mu}(\theta) \exp (i \mu \varphi)</script><p>在三维空间中，围绕$z$轴旋转$2\pi$，空间不发生变换。表现相同对称性的条件是: $\psi<em>{\mu</em>{\max }, \mu}(\theta, \varphi+2 \pi)=\psi<em>{\mu</em>{\max }, \mu}(\theta, \varphi)$ 。条件 $\exp (i 2 \mu \pi)=1$ 只有在 $\mu \in \mathbb{Z}$ 时才能满足。因此$\widehat{L}_z$的特征值必须是整数。</p>
+<p>设$\mu<em>{max} =l,\mu = m_l$，$\widehat{L}^2$和$\widehat{L}z$<em>共享的本征态可以写成$\left|\ell, m{\ell}\right\rangle$</em>，其中$-|\ell| \leqslant m</em>{\ell} \leqslant |\ell|$。其中$l$被称为<strong>角量子数nombre quantique orbital</strong>，$m_l$被称为<strong>磁量子数nombre quantique magnétique。</strong></p>
 <blockquote>
-<p>🐈‍⬛ <strong>值得注意的是，在这种定义下，原本的</strong><span
-class="math inline">\(\lambda^2 = l(l+1)\)</span></p>
+<p>🐈‍⬛ <strong>值得注意的是，在这种定义下，原本的</strong>$\lambda^2 = l(l+1)$</p>
 </blockquote>
-<hr />
-<h3 id="球谐函数">球谐函数</h3>
-<p><strong>结论2：CSCO<span class="math inline">\(\left\{\widehat{L}^2,
-\widehat{L}_z\right\}\)</span>的特征函数是球谐函数</strong></p>
-<p><span class="math display">\[
-\begin{aligned}Y_{\ell}^{m_{\ell}}(\theta, \varphi)= &amp;
-\frac{(-1)^{\ell+m_{\ell}}}{2^{\ell} \ell!} \sqrt{\frac{(2 \ell+1)}{4
-\pi}
-\frac{\left(\ell-m_{\ell}\right)!}{\left(\ell+m_{\ell}\right)!}}  \times
-\exp \left(i m_{\ell} \varphi\right) \sin _{\ell}^m \theta
-\frac{d^{\ell+m_{\ell}}}{d(\cos \theta)^{\ell+m_{\ell}}} \sin ^{2 \ell}
-\theta\end{aligned}
-\]</span></p>
-<p>已知<span class="math inline">\(\widehat{L}_{+}|\ell,
-\ell\rangle=|\varnothing\rangle\)</span>，代入<span
-class="math inline">\(\widehat L_x\)</span>和<span
-class="math inline">\(\widehat L_y\)</span>在球坐标系的表述，有：</p>
-<p><span class="math display">\[
-\hbar e^{i \varphi}\left(\frac{\partial}{\partial \theta}+\frac{i}{\tan
-\theta} \frac{\partial}{\partial \varphi}\right) \psi_{\ell, \ell}(r,
-\theta, \varphi)=0
-\]</span></p>
-<p>同时根据<span class="math inline">\(\psi(\theta, \varphi)=A(\theta)
-\exp (i l \varphi)\)</span>，有：</p>
-<p><span class="math display">\[
-e^{i(\ell+1) \varphi}\left(\frac{\partial}{\partial
-\theta}-\frac{\ell}{\tan \theta}\right) A(r, \theta)=0
-\]</span></p>
-<p>可得一个解：</p>
-<p><span class="math display">\[
-\psi_{\ell, \ell}(r, \theta, \varphi)=f(r) Y_{\ell}^{\ell}(\theta,
-\varphi)\ with \ Y_{\ell}^{\ell}(\theta, \varphi)=c_{\ell} e^{i \ell
-\varphi} \sin ^{\ell} \theta
-\]</span></p>
-<p>然后在这个解上应用降算子即可得到其他磁量子数对应的解：</p>
-<p><span class="math display">\[
-Y_{\ell}^{m_{\ell}}(\theta, \varphi) \propto \underbrace{\left[e^{-i
-\varphi}\left(\frac{\partial}{\partial \theta}-\frac{i}{\tan \theta}
-\frac{\partial}{\partial \varphi}\right) \cdots e^{-i
-\varphi}\left(\frac{\partial}{\partial \theta}-\frac{i}{\tan \theta}
-\frac{\partial}{\partial \varphi}\right)\right]}_{\ell-m_{\ell} \text {
-times }} Y_{\ell}^{\ell}(\theta, \varphi)
-\]</span></p>
-<p>最终解可以写作：</p>
-<p><span class="math display">\[
-y_{\ell, m_{\ell}}(\theta, \varphi)=
-\begin{cases}\frac{1}{\sqrt{2}}\left[Y_{\ell}^{-\left|m_{\ell}\right|}(\theta,
-\varphi)+(-1)^{m_{\ell}} Y_{\ell}^{\left|m_{\ell}\right|}(\theta,
-\varphi)\right] &amp; \text { si } m_{\ell}&gt;0 \\ Y_{\ell}^0(\theta,
-\varphi) &amp; \text { si } m_{\ell}=0 \\
-\frac{i}{\sqrt{2}}\left[Y_{\ell}^{-\left|m_{\ell}\right|}(\theta,
-\varphi)-(-1)^{m_{\ell}} Y_{\ell}^{\left|m_{\ell}\right|}(\theta,
-\varphi)\right] &amp; \text { si } m_{\ell}&lt;0\end{cases}
-\]</span></p>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fmq-10%2FUntitled_1.png" /></p>
-<h2 id="角动量例题证明方法">角动量例题：证明方法</h2>
-<hr />
-<a href="/2023/05/12/physique/mq/mq-e2/" title="角动量算子">角动量算子</a>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-10/">http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-10/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/12/physique/mq/mq-11/" title="自旋：另一个自由度 Spin, a New Degree of Freedom"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">自旋：另一个自由度 Spin, a New Degree of Freedom</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/06/physique/chem-heattrans/chempro-3/" title="平衡级和精馏原理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fchempro.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">平衡级和精馏原理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/12/physique/mq/" title="量子力学总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">量子力学总览</div></div></a></div><div><a href="/2024/03/01/physique/mq/mq-1/" title="从波到粒子  Des ondes aux particules"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">从波到粒子  Des ondes aux particules</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-11/" title="自旋：另一个自由度 Spin, a New Degree of Freedom"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">自旋：另一个自由度 Spin, a New Degree of Freedom</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-12/" title="氢：中心库伦势 Central Coulombic Potential"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">氢：中心库伦势 Central Coulombic Potential</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-13/" title="多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-14/" title="变分原理 Théorème variationnel"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">变分原理 Théorème variationnel</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E7%B3%BB%E7%BB%9F-rotating-systems"><span class="toc-text">旋转系统 Rotating Systems</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%AE%97%E5%AD%90"><span class="toc-text">角动量算子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%AE%97%E5%AD%90%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">角动量算子的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E5%AF%B9%E6%98%93%E6%80%A7"><span class="toc-text">角动量的对易性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%9C%AC%E5%BE%81%E5%80%BC%E5%92%8C%E6%9C%AC%E5%BE%81%E6%80%81"><span class="toc-text">角动量的本征值和本征态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%BE%81%E5%80%BC%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">本征值的性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%BE%81%E5%87%BD%E6%95%B0%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="toc-text">本征函数：球谐函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="toc-text">球坐标系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E9%87%8F%E5%AD%90%E6%95%B0%E5%92%8C%E7%A3%81%E9%87%8F%E5%AD%90%E6%95%B0"><span class="toc-text">角量子数和磁量子数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="toc-text">球谐函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E4%BE%8B%E9%A2%98%E8%AF%81%E6%98%8E%E6%96%B9%E6%B3%95"><span class="toc-text">角动量例题：证明方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-06-08-%E6%B2%99%E6%B2%B3%2F2txo%2F20260608-P6081104-1.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-06-18"/></a><div class="content"><a class="title" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18">观鸟记录 2026-06-18</a><time datetime="2026-06-17T16:16:38.000Z" title="发表于 2026-06-18 00:16:38">2026-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-16%2FP5160671.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-16"/></a><div class="content"><a class="title" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16">观鸟记录 2026-05-16</a><time datetime="2026-05-16T15:52:34.000Z" title="发表于 2026-05-16 23:52:34">2026-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-14-%E6%A4%8D%E7%89%A9%E5%9B%AD%2FP5141611.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-15"/></a><div class="content"><a class="title" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15">观鸟记录 2026-05-15</a><time datetime="2026-05-15T06:44:42.000Z" title="发表于 2026-05-15 14:44:42">2026-05-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<hr>
+<h3 id="球谐函数"><a href="#球谐函数" class="headerlink" title="球谐函数"></a>球谐函数</h3><p><strong>结论2：CSCO$\left{\widehat{L}^2, \widehat{L}_z\right}$的特征函数是球谐函数</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}Y_{\ell}^{m_{\ell}}(\theta, \varphi)= & \frac{(-1)^{\ell+m_{\ell}}}{2^{\ell} \ell!} \sqrt{\frac{(2 \ell+1)}{4 \pi} \frac{\left(\ell-m_{\ell}\right)!}{\left(\ell+m_{\ell}\right)!}}  \times \exp \left(i m_{\ell} \varphi\right) \sin _{\ell}^m \theta \frac{d^{\ell+m_{\ell}}}{d(\cos \theta)^{\ell+m_{\ell}}} \sin ^{2 \ell} \theta\end{aligned}</script><p>已知$\widehat{L}_{+}|\ell, \ell\rangle=|\varnothing\rangle$，代入$\widehat L_x$和$\widehat L_y$在球坐标系的表述，有：</p>
+<script type="math/tex; mode=display">
+\hbar e^{i \varphi}\left(\frac{\partial}{\partial \theta}+\frac{i}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \psi_{\ell, \ell}(r, \theta, \varphi)=0</script><p>同时根据$\psi(\theta, \varphi)=A(\theta) \exp (i l \varphi)$，有：</p>
+<script type="math/tex; mode=display">
+e^{i(\ell+1) \varphi}\left(\frac{\partial}{\partial \theta}-\frac{\ell}{\tan \theta}\right) A(r, \theta)=0</script><p>可得一个解：</p>
+<script type="math/tex; mode=display">
+\psi_{\ell, \ell}(r, \theta, \varphi)=f(r) Y_{\ell}^{\ell}(\theta, \varphi)\ with \ Y_{\ell}^{\ell}(\theta, \varphi)=c_{\ell} e^{i \ell \varphi} \sin ^{\ell} \theta</script><p>然后在这个解上应用降算子即可得到其他磁量子数对应的解：</p>
+<script type="math/tex; mode=display">
+Y_{\ell}^{m_{\ell}}(\theta, \varphi) \propto \underbrace{\left[e^{-i \varphi}\left(\frac{\partial}{\partial \theta}-\frac{i}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \cdots e^{-i \varphi}\left(\frac{\partial}{\partial \theta}-\frac{i}{\tan \theta} \frac{\partial}{\partial \varphi}\right)\right]}_{\ell-m_{\ell} \text { times }} Y_{\ell}^{\ell}(\theta, \varphi)</script><p>最终解可以写作：</p>
+<script type="math/tex; mode=display">
+y_{\ell, m_{\ell}}(\theta, \varphi)= \begin{cases}\frac{1}{\sqrt{2}}\left[Y_{\ell}^{-\left|m_{\ell}\right|}(\theta, \varphi)+(-1)^{m_{\ell}} Y_{\ell}^{\left|m_{\ell}\right|}(\theta, \varphi)\right] & \text { si } m_{\ell}>0 \\ Y_{\ell}^0(\theta, \varphi) & \text { si } m_{\ell}=0 \\ \frac{i}{\sqrt{2}}\left[Y_{\ell}^{-\left|m_{\ell}\right|}(\theta, \varphi)-(-1)^{m_{\ell}} Y_{\ell}^{\left|m_{\ell}\right|}(\theta, \varphi)\right] & \text { si } m_{\ell}<0\end{cases}</script><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fmq-10%2FUntitled_1.png" alt=""></p>
+<h2 id="角动量例题：证明方法"><a href="#角动量例题：证明方法" class="headerlink" title="角动量例题：证明方法"></a>角动量例题：证明方法</h2><hr>
+<a href="/2023/05/12/physique/mq/mq-e2/" title="角动量算子">角动量算子</a>  </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-10/">http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-10/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/12/physique/mq/mq-11/" title="自旋：另一个自由度 Spin, a New Degree of Freedom"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">自旋：另一个自由度 Spin, a New Degree of Freedom</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/06/physique/chem-heattrans/chempro-3/" title="平衡级和精馏原理"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fchempro.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">平衡级和精馏原理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/12/physique/mq/" title="量子力学总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">量子力学总览</div></div></a></div><div><a href="/2024/03/01/physique/mq/mq-1/" title="从波到粒子  Des ondes aux particules"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">从波到粒子  Des ondes aux particules</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-11/" title="自旋：另一个自由度 Spin, a New Degree of Freedom"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">自旋：另一个自由度 Spin, a New Degree of Freedom</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-12/" title="氢：中心库伦势 Central Coulombic Potential"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">氢：中心库伦势 Central Coulombic Potential</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-13/" title="多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-14/" title="变分原理 Théorème variationnel"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">变分原理 Théorème variationnel</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E7%B3%BB%E7%BB%9F-Rotating-Systems"><span class="toc-text">旋转系统 Rotating Systems</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%AE%97%E5%AD%90"><span class="toc-text">角动量算子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%AE%97%E5%AD%90%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">角动量算子的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E5%AF%B9%E6%98%93%E6%80%A7"><span class="toc-text">角动量的对易性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%9C%AC%E5%BE%81%E5%80%BC%E5%92%8C%E6%9C%AC%E5%BE%81%E6%80%81"><span class="toc-text">角动量的本征值和本征态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%BE%81%E5%80%BC%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">本征值的性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%BE%81%E5%87%BD%E6%95%B0%EF%BC%9A%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="toc-text">本征函数：球谐函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="toc-text">球坐标系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E9%87%8F%E5%AD%90%E6%95%B0%E5%92%8C%E7%A3%81%E9%87%8F%E5%AD%90%E6%95%B0"><span class="toc-text">角量子数和磁量子数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="toc-text">球谐函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E4%BE%8B%E9%A2%98%EF%BC%9A%E8%AF%81%E6%98%8E%E6%96%B9%E6%B3%95"><span class="toc-text">角动量例题：证明方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-06-08-%E6%B2%99%E6%B2%B3%2F2txo%2F20260608-P6081104-1.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-06-18"/></a><div class="content"><a class="title" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18">观鸟记录 2026-06-18</a><time datetime="2026-06-17T16:16:38.000Z" title="发表于 2026-06-18 00:16:38">2026-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-16%2FP5160671.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-16"/></a><div class="content"><a class="title" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16">观鸟记录 2026-05-16</a><time datetime="2026-05-16T15:52:34.000Z" title="发表于 2026-05-16 23:52:34">2026-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-14-%E6%A4%8D%E7%89%A9%E5%9B%AD%2FP5141611.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-15"/></a><div class="content"><a class="title" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15">观鸟记录 2026-05-15</a><time datetime="2026-05-15T06:44:42.000Z" title="发表于 2026-05-15 14:44:42">2026-05-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

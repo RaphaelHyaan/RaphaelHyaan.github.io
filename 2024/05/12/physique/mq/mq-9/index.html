@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator 量子谐振子的波函数   🐈‍⬛ 根据波函数的定义， \(\phi_n(x)\) 表示态 \(|n\rangle\) 在位置 \(x\)处的波函数值。因此， \(\phi_n(x)&#x3D;\langle x \mid n\rangle\)，即态\(|n\rangle\) 在位置 \(">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator | Raphael's Home</title><meta name="author" content="Raphael Hyaan"><meta name="copyright" content="Raphael Hyaan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator量子谐振子的波函数  🐈‍⬛ 根据波函数的定义， $\phi_n(x)$ 表示态 $|n\rangle$ 在位置 $x$处的波函数值。因此， $\phi_n(x)&#x3D;\langle x \mid n\rangle$，即态$|n\rangle$ 在位置 $x$ 处的波函数就是态 $|n\rangl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator">
 <meta property="og:url" content="http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-9/index.html">
 <meta property="og:site_name" content="Raphael&#39;s Home">
-<meta property="og:description" content="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator 量子谐振子的波函数   🐈‍⬛ 根据波函数的定义， \(\phi_n(x)\) 表示态 \(|n\rangle\) 在位置 \(x\)处的波函数值。因此， \(\phi_n(x)&#x3D;\langle x \mid n\rangle\)，即态\(|n\rangle\) 在位置 \(">
+<meta property="og:description" content="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator量子谐振子的波函数  🐈‍⬛ 根据波函数的定义， $\phi_n(x)$ 表示态 $|n\rangle$ 在位置 $x$处的波函数值。因此， $\phi_n(x)&#x3D;\langle x \mid n\rangle$，即态$|n\rangle$ 在位置 $x$ 处的波函数就是态 $|n\rangl">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png">
 <meta property="article:published_time" content="2024-05-12T09:55:10.000Z">
@@ -154,446 +154,165 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-12T09:55:10.000Z" title="发表于 2024-05-12 17:55:10">2024-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.850Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
-id="量子简谐系统的波函数-wavefunctions-for-the-harmonic-oscillator">量子简谐系统的波函数
-Wavefunctions for the Harmonic Oscillator</h1>
-<h1 id="量子谐振子的波函数">量子谐振子的波函数</h1>
-<hr />
+    })(window)</script><link rel="stylesheet" href="/butterflyChange/css/code.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Raphael's Home"><span class="site-name">Raphael's Home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/Reading/"><i class="fa-fw fas fa-book"></i><span> Reading</span></a></div><div class="menus_item"><a class="site-page" href="/Birds/"><i class="fa-fw fas fa-dove"></i><span> Birds</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-12T09:55:10.000Z" title="发表于 2024-05-12 17:55:10">2024-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-11T00:24:25.850Z" title="更新于 2025-02-11 08:24:25">2025-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="量子简谐系统的波函数-Wavefunctions-for-the-Harmonic-Oscillator"><a href="#量子简谐系统的波函数-Wavefunctions-for-the-Harmonic-Oscillator" class="headerlink" title="量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator"></a>量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator</h1><h1 id="量子谐振子的波函数"><a href="#量子谐振子的波函数" class="headerlink" title="量子谐振子的波函数"></a>量子谐振子的波函数</h1><hr>
 <blockquote>
-<p>🐈‍⬛ 根据波函数的定义， <span class="math inline">\(\phi_n(x)\)</span>
-表示态 <span class="math inline">\(|n\rangle\)</span> 在位置 <span
-class="math inline">\(x\)</span>处的波函数值。因此， <span
-class="math inline">\(\phi_n(x)=\langle x \mid
-n\rangle\)</span>，即态<span class="math inline">\(|n\rangle\)</span>
-在位置 <span class="math inline">\(x\)</span> 处的波函数就是态 <span
-class="math inline">\(|n\rangle\)</span> 和位置本征态 <span
-class="math inline">\(|x\rangle\)</span>的内积。</p>
+<p>🐈‍⬛ 根据波函数的定义， $\phi_n(x)$ 表示态 $|n\rangle$ 在位置 $x$处的波函数值。因此， $\phi_n(x)=\langle x \mid n\rangle$，即态$|n\rangle$ 在位置 $x$ 处的波函数就是态 $|n\rangle$ 和位置本征态 $|x\rangle$的内积。</p>
 </blockquote>
-<h3 id="基态波函数">基态波函数</h3>
-<hr />
+<h3 id="基态波函数"><a href="#基态波函数" class="headerlink" title="基态波函数"></a>基态波函数</h3><hr>
 <p>首先考虑湮灭算子：</p>
-<p><span class="math display">\[
-\widehat{a}=\frac{\widetilde{x}+i
-\widetilde{p}}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{x}+\hbar \sqrt{\frac{1}{m \hbar \omega}}
-\frac{\partial}{\partial x}\right)
-\]</span></p>
-<p>对于谐振子系统的基态<span class="math inline">\(|n\rangle =
-|0\rangle\)</span>，有其在位置<span
-class="math inline">\(x\)</span>上的投影<span
-class="math inline">\(|x\rangle\langle x|\widehat a |0\rangle =
-|x\rangle\langle x|\varnothing\rangle =
-|\varnothing\rangle\)</span>，或者写作标量形式<span
-class="math inline">\(\langle x \mid
-\varnothing\rangle=0\)</span>。又因为，<span
-class="math inline">\(\phi_n(x)=\langle x \mid
-n\rangle\)</span>，得到基态波函数<span
-class="math inline">\(\phi_0(x)=\langle x \mid
-0\rangle\)</span>。综合得：</p>
-<p><span class="math display">\[
-\widehat a\phi_0(x) = \widehat a \langle x|0\rangle = \langle
-x|\widehat{a}| 0\rangle = 0
-\]</span></p>
-<p>将湮灭算子带入得：</p>
-<p><span class="math display">\[
-\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}}
-\widehat{x}+\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial
-x}\right) \phi_0(x)=0
-\]</span></p>
-<p>可以求出基态波函数：</p>
-<p><span class="math display">\[
-\phi_0(x)=A \exp \left(-\frac{m \omega x^2}{2 \hbar}\right)
-\]</span></p>
-<hr />
-<p>通过波函数的归一性求解<span class="math inline">\(A\)</span>：</p>
-<p><span class="math display">\[
-\int_{-\infty}^{+\infty} \phi_0^*(x) \phi_0(x) d x=1=A^2
-\int_{-\infty}^{+\infty} \exp \left(-\frac{m \omega x^2}{\hbar}\right) d
-x=A^2 \sqrt{\frac{\pi \hbar}{m \omega}}
-\]</span></p>
-<p>得：</p>
-<p><span class="math display">\[
-\phi_0(x)=\left(\frac{m \omega}{\pi \hbar}\right)^{1 / 4} \exp
-\left(-\frac{m \omega x^2}{2 \hbar}\right)
-\]</span></p>
-<hr />
+<script type="math/tex; mode=display">
+\widehat{a}=\frac{\widetilde{x}+i \widetilde{p}}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{x}+\hbar \sqrt{\frac{1}{m \hbar \omega}} \frac{\partial}{\partial x}\right)</script><p>对于谐振子系统的基态$|n\rangle = |0\rangle$，有其在位置$x$上的投影$|x\rangle\langle x|\widehat a |0\rangle = |x\rangle\langle x|\varnothing\rangle = |\varnothing\rangle$，或者写作标量形式$\langle x \mid \varnothing\rangle=0$。又因为，$\phi_n(x)=\langle x \mid n\rangle$，得到基态波函数$\phi_0(x)=\langle x \mid 0\rangle$。综合得：</p>
+<script type="math/tex; mode=display">
+\widehat a\phi_0(x) = \widehat a \langle x|0\rangle = \langle x|\widehat{a}| 0\rangle = 0</script><p>将湮灭算子带入得：</p>
+<script type="math/tex; mode=display">
+\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{x}+\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial x}\right) \phi_0(x)=0</script><p>可以求出基态波函数：</p>
+<script type="math/tex; mode=display">
+\phi_0(x)=A \exp \left(-\frac{m \omega x^2}{2 \hbar}\right)</script><hr>
+<p>通过波函数的归一性求解$A$：</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{+\infty} \phi_0^*(x) \phi_0(x) d x=1=A^2 \int_{-\infty}^{+\infty} \exp \left(-\frac{m \omega x^2}{\hbar}\right) d x=A^2 \sqrt{\frac{\pi \hbar}{m \omega}}</script><p>得：</p>
+<script type="math/tex; mode=display">
+\phi_0(x)=\left(\frac{m \omega}{\pi \hbar}\right)^{1 / 4} \exp \left(-\frac{m \omega x^2}{2 \hbar}\right)</script><hr>
 <p>其概率密度为波函数的平方：</p>
-<p><span class="math display">\[
-\rho_0(x)=\left|\varphi_0(x)\right|^2=\sqrt{\frac{m \omega}{\pi \hbar}}
-\exp \left(-\frac{m \omega}{\hbar} x^2\right)
-\]</span></p>
-<h3
-id="进一步求解其他能量本征态的波函数">进一步求解其他能量本征态的波函数</h3>
-<hr />
+<script type="math/tex; mode=display">
+\rho_0(x)=\left|\varphi_0(x)\right|^2=\sqrt{\frac{m \omega}{\pi \hbar}} \exp \left(-\frac{m \omega}{\hbar} x^2\right)</script><h3 id="进一步求解其他能量本征态的波函数"><a href="#进一步求解其他能量本征态的波函数" class="headerlink" title="进一步求解其他能量本征态的波函数"></a>进一步求解其他能量本征态的波函数</h3><hr>
 <p>应用创生算子：</p>
-<p><span class="math display">\[
-\widehat{a}^{\dagger} = \frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{x}-\sqrt{\frac{\hbar}{m \omega}}
-\frac{\partial}{\partial x}\right)
-\]</span></p>
-<p>得第一能量本征态波函数：</p>
-<p><span class="math display">\[
-\begin{aligned}\phi_1(x)&amp;=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{x}-\sqrt{\frac{\hbar}{m \omega}}
-\frac{\partial}{\partial x}\right) \phi_0(x)\\&amp;=x \sqrt{\frac{2 m
-\omega}{\hbar}} \phi_0(x)\\&amp;=\left[\left(\frac{m
-\omega}{\hbar}\right)^3 \frac{4}{\pi}\right]^{1 / 4} x \exp
-\left(-\frac{m \omega x^2}{2 \hbar}\right) \end{aligned}
-\]</span></p>
-<hr />
+<script type="math/tex; mode=display">
+\widehat{a}^{\dagger} = \frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{x}-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial x}\right)</script><p>得第一能量本征态波函数：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}\phi_1(x)&=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{x}-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial x}\right) \phi_0(x)\\&=x \sqrt{\frac{2 m \omega}{\hbar}} \phi_0(x)\\&=\left[\left(\frac{m \omega}{\hbar}\right)^3 \frac{4}{\pi}\right]^{1 / 4} x \exp \left(-\frac{m \omega x^2}{2 \hbar}\right) \end{aligned}</script><hr>
 <p>或者可以直接写出第n阶能量本征态的波函数:</p>
-<p><span class="math display">\[
-\phi_n(x)=\sqrt{\frac{1}{n !}} \frac{1}{\sqrt{2^n}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{x}-\sqrt{\frac{\hbar}{m \omega}}
-\frac{\partial}{\partial x}\right)^n \phi_0(x)
-\]</span></p>
-<h2 id="从波函数得到的一些结论">从波函数得到的一些结论</h2>
-<hr />
-<p><img
-src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fmq-9%2FUntitled.png" /></p>
+<script type="math/tex; mode=display">
+\phi_n(x)=\sqrt{\frac{1}{n !}} \frac{1}{\sqrt{2^n}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{x}-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial x}\right)^n \phi_0(x)</script><h2 id="从波函数得到的一些结论"><a href="#从波函数得到的一些结论" class="headerlink" title="从波函数得到的一些结论"></a>从波函数得到的一些结论</h2><hr>
+<p><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/post%2Fmq-9%2FUntitled.png" alt=""></p>
 <p><strong>最低能量不为零的另一种解释</strong></p>
-<hr />
+<hr>
 <p>根据不确定性原理，<strong>基态</strong>的位移不能为零。位置概率密度有一个有限的扩展。由于波函数必须在大位移处消失，并且它必须在某处非零，因此必然存在曲率。因此，二阶导数不为零，因而平均动能不为零。</p>
 <p><strong>波函数的奇偶性</strong></p>
-<hr />
-<p>本征波函数是奇偶的。其奇偶性由<span
-class="math inline">\(𝑛\)</span>给出。因此，概率密度始终是偶的。</p>
+<hr>
+<p>本征波函数是奇偶的。其奇偶性由$𝑛$给出。因此，概率密度始终是偶的。</p>
 <p><strong>Hermite多项式（Polynômes d’Hermite）</strong></p>
-<hr />
+<hr>
 <p>波函数可以用Hermite多项式表示：</p>
-<p><span class="math display">\[
-\phi_n(x)=\left(\frac{m \omega}{\pi \hbar}\right)^{1 / 4}
-\sqrt{\frac{1}{2^n n !}} \exp \left(-\frac{m \omega x^2}{2 \hbar}\right)
-H_n\left(\sqrt{\frac{m \omega}{\hbar}} x\right)
-\]</span></p>
-<p><span class="math display">\[
-\begin{array}{|c|c|}\hline n &amp; H_n(x) \\\hline 0 &amp; 1 \\1 &amp; 2
-x \\2 &amp; 4 x^2-2 \\3 &amp; 8 x^3-12 x \\4 &amp; 16 x^4-48 x^2+12 \\5
-&amp; 32 x^5-160 x^3+120 x \\6 &amp; 64 x^6-480 x^4+720 x^2-120 \\7
-&amp; 128 x^7-1344 x^5+3360 x^3-1680 x \\8 &amp; 256 x^8-3584 x^6+13440
-x^4-13440 x^2+1680 \\9 &amp; 512 x^9-9216 x^7+48384 x^5-80640 x^3+30240
-x \\10 &amp; 1024 x^{10}-23040 x^8+161280 x^6-403200 x^4+302400
-x^2-30240 \\\hline\end{array}
-\]</span></p>
-<h3 id="动能算符和位置算符的平均值">动能算符和位置算符的平均值</h3>
-<hr />
+<script type="math/tex; mode=display">
+\phi_n(x)=\left(\frac{m \omega}{\pi \hbar}\right)^{1 / 4} \sqrt{\frac{1}{2^n n !}} \exp \left(-\frac{m \omega x^2}{2 \hbar}\right) H_n\left(\sqrt{\frac{m \omega}{\hbar}} x\right)</script><script type="math/tex; mode=display">
+\begin{array}{|c|c|}\hline n & H_n(x) \\\hline 0 & 1 \\1 & 2 x \\2 & 4 x^2-2 \\3 & 8 x^3-12 x \\4 & 16 x^4-48 x^2+12 \\5 & 32 x^5-160 x^3+120 x \\6 & 64 x^6-480 x^4+720 x^2-120 \\7 & 128 x^7-1344 x^5+3360 x^3-1680 x \\8 & 256 x^8-3584 x^6+13440 x^4-13440 x^2+1680 \\9 & 512 x^9-9216 x^7+48384 x^5-80640 x^3+30240 x \\10 & 1024 x^{10}-23040 x^8+161280 x^6-403200 x^4+302400 x^2-30240 \\\hline\end{array}</script><h3 id="动能算符和位置算符的平均值"><a href="#动能算符和位置算符的平均值" class="headerlink" title="动能算符和位置算符的平均值"></a>动能算符和位置算符的平均值</h3><hr>
 <p>简谐系统的均值将非常容易计算。因为可以使用创生算子和湮灭算子表示波函数</p>
-<p><span class="math display">\[
-\widehat{x}=\sqrt{\frac{\hbar}{m \omega}}
-\frac{\widehat{a}+\widehat{a}^{\dagger}}{\sqrt{2}}, \quad
-\hat{p}=\sqrt{m \hbar \omega} \frac{\widehat{a}-\widehat{a}^{\dagger}}{i
-\sqrt{2}}
-\]</span></p>
-<p>然后可以依次计算均值，以动量为例。根据本征态之间呈正交关系，动量的均值为<span
-class="math inline">\(0\)</span>：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
+\widehat{x}=\sqrt{\frac{\hbar}{m \omega}} \frac{\widehat{a}+\widehat{a}^{\dagger}}{\sqrt{2}}, \quad \hat{p}=\sqrt{m \hbar \omega} \frac{\widehat{a}-\widehat{a}^{\dagger}}{i \sqrt{2}}</script><p>然后可以依次计算均值，以动量为例。根据本征态之间呈正交关系，动量的均值为$0$：</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\langle p\rangle_n &amp; =\frac{\sqrt{m \hbar \omega}}{i
-\sqrt{2}}\left\langle n\left|\widehat{a}-\widehat{a}^{\dagger}\right|
-n\right\rangle \\
-&amp; =\frac{\sqrt{m \hbar \omega}}{i \sqrt{2}}(\sqrt{n}\langle n \mid
-n-1\rangle-\sqrt{n+1}\langle n \mid n+1\rangle)=0
-\end{aligned}
-\]</span></p>
-<hr />
+\langle p\rangle_n & =\frac{\sqrt{m \hbar \omega}}{i \sqrt{2}}\left\langle n\left|\widehat{a}-\widehat{a}^{\dagger}\right| n\right\rangle \\
+& =\frac{\sqrt{m \hbar \omega}}{i \sqrt{2}}(\sqrt{n}\langle n \mid n-1\rangle-\sqrt{n+1}\langle n \mid n+1\rangle)=0
+\end{aligned}</script><hr>
 <p>考虑动量平方的均值，这将跟动能相关：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-\left\langle p^2\right\rangle_n &amp; =\frac{-m \hbar
-\omega}{2}\left\langle
-n\left|\left(\widehat{a}-\widehat{a}^{\dagger}\right)^2\right|
-n\right\rangle \\
-&amp; =\frac{-m \hbar \omega}{2}\left(\langle n|\widehat{a} \widehat{a}|
-n\rangle+\left\langle n\left|\widehat{a}^{\dagger}
-\widehat{a}^{\dagger}\right| n\right\rangle-\left\langle
-n\left|\widehat{a}^{\dagger} \widehat{a}\right|
-n\right\rangle-\left\langle n\left|\widehat{a}
-\widehat{a}^{\dagger}\right| n\right\rangle\right)\\&amp;=\frac{m \hbar
-\omega}{2}\left(\left\langle n\left|\widehat{a}^{\dagger}
-\widehat{a}\right| n\right\rangle+\left\langle
-n\left|\widehat{a}^{\dagger}\right|
-n\right\rangle\right)\\&amp;=\frac{(2 n+1)}{2} m \hbar \omega
-\end{aligned}
-\]</span></p>
-<p>在上述计算中，<span class="math inline">\(\langle n|\widehat{a}
-\widehat{a}| n\rangle\)</span>和<span class="math inline">\(\left\langle
-n\left|\widehat{a}^{\dagger} \widehat{a}^{\dagger}\right|
-n\right\rangle\)</span>返回分别将右矢转化为<span
-class="math inline">\(|n+2\rangle\)</span>和<span
-class="math inline">\(|n-2\rangle\)</span>，从而根据本征态的正交性将其消除。</p>
-<h3 id="最小波包">最小波包</h3>
-<hr />
+\left\langle p^2\right\rangle_n & =\frac{-m \hbar \omega}{2}\left\langle n\left|\left(\widehat{a}-\widehat{a}^{\dagger}\right)^2\right| n\right\rangle \\
+& =\frac{-m \hbar \omega}{2}\left(\langle n|\widehat{a} \widehat{a}| n\rangle+\left\langle n\left|\widehat{a}^{\dagger} \widehat{a}^{\dagger}\right| n\right\rangle-\left\langle n\left|\widehat{a}^{\dagger} \widehat{a}\right| n\right\rangle-\left\langle n\left|\widehat{a} \widehat{a}^{\dagger}\right| n\right\rangle\right)\\&=\frac{m \hbar \omega}{2}\left(\left\langle n\left|\widehat{a}^{\dagger} \widehat{a}\right| n\right\rangle+\left\langle n\left|\widehat{a}^{\dagger}\right| n\right\rangle\right)\\&=\frac{(2 n+1)}{2} m \hbar \omega
+\end{aligned}</script><p>在上述计算中，$\langle n|\widehat{a} \widehat{a}| n\rangle$和$\left\langle n\left|\widehat{a}^{\dagger} \widehat{a}^{\dagger}\right| n\right\rangle$返回分别将右矢转化为$|n+2\rangle$和$|n-2\rangle$，从而根据本征态的正交性将其消除。</p>
+<h3 id="最小波包"><a href="#最小波包" class="headerlink" title="最小波包"></a>最小波包</h3><hr>
 <blockquote>
-<p>🐈‍⬛
-最小波包的定义通常是一个波函数在某个特定的态下，它在位置和动量空间中的不确定度取得最小值的状态。
-🐈‍⬛ 对于谐振子基态<span
-class="math inline">\(|0⟩\)</span>，位置和动量的不确定度的乘积被称为零点振动（zero-point
-oscillation）或零点波包（zero-point
-wavepacket）。对于谐振子，零点波包就是最小波包。</p>
+<p>🐈‍⬛ 最小波包的定义通常是一个波函数在某个特定的态下，它在位置和动量空间中的不确定度取得最小值的状态。<br>🐈‍⬛ 对于谐振子基态$|0⟩$，位置和动量的不确定度的乘积被称为零点振动（zero-point oscillation）或零点波包（zero-point wavepacket）。对于谐振子，零点波包就是最小波包。</p>
 </blockquote>
-<hr />
+<hr>
 <p>与上一节类似，分别考察位置算符和动量算符的基态方差。两种平方和均值的推导过程十分容易，且已经在上一节中展示，不再此赘述。</p>
 <p>对于位置算符：</p>
-<p><span class="math display">\[
-\begin{aligned}\left\langle 0\left|\widehat{x}^2\right| 0\right\rangle
-&amp; =\frac{\hbar}{2 m \omega}\left\langle
-0\left|\widehat{a}^2+\widehat{a}^{\dagger 2}+2 \widehat{N}+1\right|
-0\right\rangle=\frac{\hbar}{2 m \omega} \\\Delta_0 x &amp;
-=\sqrt{\left\langle 0\left|\widehat{x}^2\right| 0\right\rangle-(\langle
-0|\widehat{x}| 0\rangle)^2}=\sqrt{\frac{\hbar}{2 m \omega}}\end{aligned}
-\]</span></p>
-<p>对于动能算符：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
+\begin{aligned}\left\langle 0\left|\widehat{x}^2\right| 0\right\rangle & =\frac{\hbar}{2 m \omega}\left\langle 0\left|\widehat{a}^2+\widehat{a}^{\dagger 2}+2 \widehat{N}+1\right| 0\right\rangle=\frac{\hbar}{2 m \omega} \\\Delta_0 x & =\sqrt{\left\langle 0\left|\widehat{x}^2\right| 0\right\rangle-(\langle 0|\widehat{x}| 0\rangle)^2}=\sqrt{\frac{\hbar}{2 m \omega}}\end{aligned}</script><p>对于动能算符：</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\left\langle 0\left|\widehat{p}^2\right| 0\right\rangle &amp; =-\frac{m
-\hbar \omega}{2}\left\langle 0\left|\widehat{a}^2+\widehat{a}^{\dagger
-2}-2 \widehat{N}-1\right| 0\right\rangle=\frac{m \hbar \omega}{2} \\
-\Delta_0 p &amp; =\sqrt{\left\langle 0\left|\widehat{p}^2\right|
-0\right\rangle-(\langle 0|\widehat{p}| 0\rangle)^2}=\sqrt{\frac{m \hbar
-\omega}{2}}
-\end{aligned}
-\]</span></p>
-<p>从而得到最小波包：</p>
-<p><span class="math display">\[
-\Delta_0 x \Delta_0 p=\sqrt{\frac{\hbar}{2 m \omega}} \sqrt{\frac{m
-\hbar \omega}{2}}=\frac{\hbar}{2}
-\]</span></p>
-<h1 id="示例三维简谐子">示例：三维简谐子</h1>
-<hr />
+\left\langle 0\left|\widehat{p}^2\right| 0\right\rangle & =-\frac{m \hbar \omega}{2}\left\langle 0\left|\widehat{a}^2+\widehat{a}^{\dagger 2}-2 \widehat{N}-1\right| 0\right\rangle=\frac{m \hbar \omega}{2} \\
+\Delta_0 p & =\sqrt{\left\langle 0\left|\widehat{p}^2\right| 0\right\rangle-(\langle 0|\widehat{p}| 0\rangle)^2}=\sqrt{\frac{m \hbar \omega}{2}}
+\end{aligned}</script><p>从而得到最小波包：</p>
+<script type="math/tex; mode=display">
+\Delta_0 x \Delta_0 p=\sqrt{\frac{\hbar}{2 m \omega}} \sqrt{\frac{m \hbar \omega}{2}}=\frac{\hbar}{2}</script><h1 id="示例：三维简谐子"><a href="#示例：三维简谐子" class="headerlink" title="示例：三维简谐子"></a>示例：三维简谐子</h1><hr>
 <p>对于一个势能如下表示的简谐子，我们逐渐研究其性质：</p>
-<p><span class="math display">\[
-V(\vec{r})=\frac{1}{2} k r^2=\frac{1}{2} m \omega^2 r^2
-\]</span></p>
-<p><strong>哈密顿算子和特征值</strong></p>
-<hr />
+<script type="math/tex; mode=display">
+V(\vec{r})=\frac{1}{2} k r^2=\frac{1}{2} m \omega^2 r^2</script><p><strong>哈密顿算子和特征值</strong></p>
+<hr>
 <p>从哈密顿算子的一般形式出发：</p>
-<p><span class="math display">\[
-\widehat H = \frac{\widehat p}{2m}+\widehat{V} = \frac{\widehat
-p}{2m}+\frac{1}{2} m \omega^2 \widehat{r}^2
-\]</span></p>
-<p>根据薛定谔方程：</p>
-<p><span class="math display">\[
-\widehat H \psi = E\psi
-\]</span></p>
-<p>在三维中展开：</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}\widehat{h}_x \phi_x(x)=\varepsilon_x \phi_x(x)
-\\\widehat{h}_y \phi_y(y)=\varepsilon_y \phi_y(y) \\\widehat{h}_z
-\phi_z(z)=\varepsilon_z \phi_z(z)\end{array}\right.\ avec \
-\left\{\begin{array}{l}
-\widehat{h}_x=\frac{\widehat{p}_x^2}{2 m}+\frac{1}{2} m \omega^2
-\widehat{x}^2 \\
-\widehat{h}_y=\frac{\widehat{p}_y^2}{2 m}+\frac{1}{2} m \omega^2
-\widehat{y}^2 \\
-\widehat{h}_z=\frac{\widehat{p}_z^2}{2 m}+\frac{1}{2} m \omega^2
-\widehat{z}^2
-\end{array}\right.
-\]</span></p>
-<p>由简谐子能量本征值公式：</p>
-<p><span class="math display">\[
-\varepsilon_n = (n+\frac 12 )\hbar\omega,\ n\in \mathbb N
-\]</span></p>
-<p>得哈密顿算子得本征值：</p>
-<p><span class="math display">\[
-E_n =
-\varepsilon_{x,n}+\varepsilon_{y,n}+\varepsilon_{z,n}  =\left(n_x+n_y+n_z+\frac{3}{2}\right)
-\hbar \omega,\left(n_x, n_y, n_z\right) \in \mathbb{N}^3
-\]</span></p>
-<p>由此，哈莫顿量的本征态必须由三个量子数来描述。式中，<span
-class="math inline">\(\left|n_i\right\rangle\)</span>分别为<span
-class="math inline">\(n_i\)</span>的本征态。</p>
-<p><span class="math display">\[
-\varphi(\vec{r})=\left\langle\vec{r} \mid n_x, n_y,
-n_z\right\rangle=\left\langle x \mid n_x\right\rangle\left\langle y \mid
-n_y\right\rangle\left\langle z \mid n_z\right\rangle
-\]</span></p>
-<p><strong>本征态描述</strong></p>
-<hr />
-<p>由于每个本征态都可以从基态应用创生算子得到，首先我们考虑基态<span
-class="math inline">\(\left|n_x = 0, n_y = 0, n_z =
-0\right\rangle\)</span></p>
+<script type="math/tex; mode=display">
+\widehat H = \frac{\widehat p}{2m}+\widehat{V} = \frac{\widehat p}{2m}+\frac{1}{2} m \omega^2 \widehat{r}^2</script><p>根据薛定谔方程：</p>
+<script type="math/tex; mode=display">
+\widehat H \psi = E\psi</script><p>在三维中展开：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}\widehat{h}_x \phi_x(x)=\varepsilon_x \phi_x(x) \\\widehat{h}_y \phi_y(y)=\varepsilon_y \phi_y(y) \\\widehat{h}_z \phi_z(z)=\varepsilon_z \phi_z(z)\end{array}\right.\ avec \ \left\{\begin{array}{l}
+\widehat{h}_x=\frac{\widehat{p}_x^2}{2 m}+\frac{1}{2} m \omega^2 \widehat{x}^2 \\
+\widehat{h}_y=\frac{\widehat{p}_y^2}{2 m}+\frac{1}{2} m \omega^2 \widehat{y}^2 \\
+\widehat{h}_z=\frac{\widehat{p}_z^2}{2 m}+\frac{1}{2} m \omega^2 \widehat{z}^2
+\end{array}\right.</script><p>由简谐子能量本征值公式：</p>
+<script type="math/tex; mode=display">
+\varepsilon_n = (n+\frac 12 )\hbar\omega,\ n\in \mathbb N</script><p>得哈密顿算子得本征值：</p>
+<script type="math/tex; mode=display">
+E_n = \varepsilon_{x,n}+\varepsilon_{y,n}+\varepsilon_{z,n}  =\left(n_x+n_y+n_z+\frac{3}{2}\right) \hbar \omega,\left(n_x, n_y, n_z\right) \in \mathbb{N}^3</script><p>由此，哈莫顿量的本征态必须由三个量子数来描述。式中，$\left|n_i\right\rangle$分别为$n_i$的本征态。</p>
+<script type="math/tex; mode=display">
+\varphi(\vec{r})=\left\langle\vec{r} \mid n_x, n_y, n_z\right\rangle=\left\langle x \mid n_x\right\rangle\left\langle y \mid n_y\right\rangle\left\langle z \mid n_z\right\rangle</script><p><strong>本征态描述</strong></p>
+<hr>
+<p>由于每个本征态都可以从基态应用创生算子得到，首先我们考虑基态$\left|n_x = 0, n_y = 0, n_z = 0\right\rangle$</p>
 <p>根据创生算子的效果：</p>
-<p><span class="math display">\[
-\widehat{a}^{\dagger}|n\rangle=\sqrt{n+1}|n+1\rangle
-\]</span></p>
-<p>有对于单个维度：</p>
-<p><span class="math display">\[
-\left(\widehat{a}x^{\dagger}\right)^{n_x}|0,0,0\rangle=\sqrt{n_{x}!}\left|n_x,
-0,0\right\rangle
-\]</span></p>
-<p>同时有：</p>
-<p><span class="math display">\[
-\widehat{a}^{\dagger}=\frac{\tilde{x}-i \tilde{p}}{\sqrt{2}} =
-\widehat{a}_x^{\dagger}=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{x}-i \sqrt{\frac{1}{m \hbar \omega}}
-\widehat{p}_x\right)=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} x-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial
-x}\right)
-\]</span></p>
-<p>同理，对于其他维度：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
+\widehat{a}^{\dagger}|n\rangle=\sqrt{n+1}|n+1\rangle</script><p>有对于单个维度：</p>
+<script type="math/tex; mode=display">
+\left(\widehat{a}x^{\dagger}\right)^{n_x}|0,0,0\rangle=\sqrt{n_{x}!}\left|n_x, 0,0\right\rangle</script><p>同时有：</p>
+<script type="math/tex; mode=display">
+\widehat{a}^{\dagger}=\frac{\tilde{x}-i \tilde{p}}{\sqrt{2}} = \widehat{a}_x^{\dagger}=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{x}-i \sqrt{\frac{1}{m \hbar \omega}} \widehat{p}_x\right)=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} x-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial x}\right)</script><p>同理，对于其他维度：</p>
+<script type="math/tex; mode=display">
 \left\{\begin{aligned}
-\widehat{a}_y^{\dagger} &amp; =\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{y}-i \sqrt{\frac{1}{m \hbar \omega}}
-\widehat{p}_y\right) =\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} y-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial
-y}\right)\\
-\widehat{a}_z^{\dagger} &amp; =\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} \widehat{z}-i \sqrt{\frac{1}{m \hbar \omega}}
-\widehat{p}_z\right)=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m
-\omega}{\hbar}} z-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial
-z}\right)
-\end{aligned}\right.
-\]</span></p>
-<p>综上，得任何一个量子态与基态得关系：</p>
-<p><span class="math display">\[
-\left|n_x, n_y,
-n_z\right\rangle=\frac{1}{\sqrt{n_{x}!n_{y}!n_{z}!}}\left(\widehat{a}_x^{\dagger}\right)^{n_x}\left(\widehat{a}_y^{\dagger}\right)^{n_y}\left(\widehat{a}_z^{\dagger}\right)^{n_z}|0,0,0\rangle
-\]</span></p>
-<p><strong>能级的退化</strong></p>
-<hr />
+\widehat{a}_y^{\dagger} & =\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{y}-i \sqrt{\frac{1}{m \hbar \omega}} \widehat{p}_y\right) =\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} y-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial y}\right)\\
+\widehat{a}_z^{\dagger} & =\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} \widehat{z}-i \sqrt{\frac{1}{m \hbar \omega}} \widehat{p}_z\right)=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m \omega}{\hbar}} z-\sqrt{\frac{\hbar}{m \omega}} \frac{\partial}{\partial z}\right)
+\end{aligned}\right.</script><p>综上，得任何一个量子态与基态得关系：</p>
+<script type="math/tex; mode=display">
+\left|n_x, n_y, n_z\right\rangle=\frac{1}{\sqrt{n_{x}!n_{y}!n_{z}!}}\left(\widehat{a}_x^{\dagger}\right)^{n_x}\left(\widehat{a}_y^{\dagger}\right)^{n_y}\left(\widehat{a}_z^{\dagger}\right)^{n_z}|0,0,0\rangle</script><p><strong>能级的退化</strong></p>
+<hr>
 <p>相比于一维简谐子，三维简谐子的本征态与三个量子数相关，但当三个量子数的和相等时，能量相等。这意味着退化状态的发生。</p>
-<p>对于能量<span
-class="math inline">\(E_n\)</span>，讨论其中能量相等的本征态数量：</p>
-<p><span class="math display">\[
-g_{E_n} = \sum_{n_x = 0}^n(n-n_x+1) = \frac{((n+1)+1)(n+1)}{2} =
-\frac{(n+1)(n+2)}{2}
-\]</span></p>
-<p>其中，<span class="math inline">\(n=\frac{E_n}{\hbar
-\omega}-\frac{3}{2}\)</span>。简并性来自于系统的球对称性，或者说在起初的假设中，当三个量子数的和相等时，能量相等的性质即来自于球对称性。</p>
+<p>对于能量$E_n$，讨论其中能量相等的本征态数量：</p>
+<script type="math/tex; mode=display">
+g_{E_n} = \sum_{n_x = 0}^n(n-n_x+1) = \frac{((n+1)+1)(n+1)}{2} = \frac{(n+1)(n+2)}{2}</script><p>其中，$n=\frac{E_n}{\hbar \omega}-\frac{3}{2}$。简并性来自于系统的球对称性，或者说在起初的假设中，当三个量子数的和相等时，能量相等的性质即来自于球对称性。</p>
 <p><strong>计算位置平方的均值</strong></p>
-<hr />
+<hr>
 <p>使用创生算符和湮灭算符表示位置和动量，有：</p>
-<p><span class="math display">\[
-\widehat{r}=\sqrt{\frac{\hbar}{m \omega}}
-\frac{\widehat{a}+\widehat{a}^{\dagger}}{\sqrt{2}}, \quad
-\hat{p}=\sqrt{m \hbar \omega} \frac{\widehat{a}-\widehat{a}^{\dagger}}{i
-\sqrt{2}}
-\]</span></p>
-<p>首先考虑一维情况。</p>
-<p><span class="math display">\[
-\begin{aligned}\widehat{x}^2&amp;=\frac{\hbar}{2 m
-\omega}\left(\widehat{a}_x+\widehat{a}_x^{\dagger}\right)^2=\frac{\hbar}{2
-m
-\omega}\left(\left(\widehat{a}_x\right)^2+\left(\widehat{a}_x^{\dagger}\right)^2+\widehat{a}_x
-\widehat{a}_x^{\dagger}+\widehat{a}_x^{\dagger}
-\widehat{a}_x\right)\\&amp; = \frac{\hbar}{2 m
-\omega}\left(\left(\widehat{a}_x\right)^2+\left(\widehat{a}_x^{\dagger}\right)^2+2\widehat
-N_x+1\right)\end{aligned}
-\]</span></p>
-<p>其均值：</p>
-<p><span class="math display">\[
-\langle \hat x^2 \rangle = \frac{\hbar}{2 m \omega}\left\langle
-n_x\left|\left(\widehat{a}_x\right)^2+\left(\widehat{a}_x^{\dagger}\right)^2+2
-\widehat{N}_x+\widehat{\mathbb{1}}\right| n_x\right\rangle
-\]</span></p>
-<p>对于湮灭算符或者创生算符，有：</p>
-<p><span class="math display">\[
-\begin{gathered}\left\langle
-n_x\left|\left(\widehat{a}_x\right)^2\right|
-n_x\right\rangle=\sqrt{n_x}\left\langle n_x\left|\widehat{a}_x\right|
-n_x-1\right\rangle=\sqrt{n_x\left(n_x-1\right)}\left\langle n_x \mid
-n_x-2\right\rangle=0 \\\left\langle
-n_x\left|\left(\widehat{a}_x^{\dagger}\right)^2\right|
-n_x\right\rangle=\sqrt{n_x+1}\left\langle
-n_x\left|\widehat{a}_x^{\dagger}\right|
-n_x+1\right\rangle=\sqrt{\left(n_x+1\right)\left(n_x+2\right)}\left\langle
-n_x \mid n_x+2\right\rangle=0\end{gathered}
-\]</span></p>
-<p>因此，均值：</p>
-<p><span class="math display">\[
-\left\langle x^2\right\rangle=\frac{\hbar}{2 m \omega}\left\langle
-n_x\left|2 \widehat{N}_x+\widehat{\mathbb{1}}\right|
-n_x\right\rangle=\frac{\hbar}{2 m \omega}\left(2 n_x+1\right)
-\]</span></p>
-<p>将三个维度的均值叠加：</p>
-<p><span class="math display">\[
-\left\langle r^2\right\rangle=\left\langle x^2\right\rangle+\left\langle
-y^2\right\rangle+\left\langle z^2\right\rangle =\frac{\hbar}{m
-\omega}\left(n_x+n_y+n_z+\frac{3}{2}\right)
-\]</span></p>
-<p><strong>计算动量平方的均值</strong></p>
-<hr />
+<script type="math/tex; mode=display">
+\widehat{r}=\sqrt{\frac{\hbar}{m \omega}} \frac{\widehat{a}+\widehat{a}^{\dagger}}{\sqrt{2}}, \quad \hat{p}=\sqrt{m \hbar \omega} \frac{\widehat{a}-\widehat{a}^{\dagger}}{i \sqrt{2}}</script><p>首先考虑一维情况。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}\widehat{x}^2&=\frac{\hbar}{2 m \omega}\left(\widehat{a}_x+\widehat{a}_x^{\dagger}\right)^2=\frac{\hbar}{2 m \omega}\left(\left(\widehat{a}_x\right)^2+\left(\widehat{a}_x^{\dagger}\right)^2+\widehat{a}_x \widehat{a}_x^{\dagger}+\widehat{a}_x^{\dagger} \widehat{a}_x\right)\\& = \frac{\hbar}{2 m \omega}\left(\left(\widehat{a}_x\right)^2+\left(\widehat{a}_x^{\dagger}\right)^2+2\widehat N_x+1\right)\end{aligned}</script><p>其均值：</p>
+<script type="math/tex; mode=display">
+\langle \hat x^2 \rangle = \frac{\hbar}{2 m \omega}\left\langle n_x\left|\left(\widehat{a}_x\right)^2+\left(\widehat{a}_x^{\dagger}\right)^2+2 \widehat{N}_x+\widehat{\mathbb{1}}\right| n_x\right\rangle</script><p>对于湮灭算符或者创生算符，有：</p>
+<script type="math/tex; mode=display">
+\begin{gathered}\left\langle n_x\left|\left(\widehat{a}_x\right)^2\right| n_x\right\rangle=\sqrt{n_x}\left\langle n_x\left|\widehat{a}_x\right| n_x-1\right\rangle=\sqrt{n_x\left(n_x-1\right)}\left\langle n_x \mid n_x-2\right\rangle=0 \\\left\langle n_x\left|\left(\widehat{a}_x^{\dagger}\right)^2\right| n_x\right\rangle=\sqrt{n_x+1}\left\langle n_x\left|\widehat{a}_x^{\dagger}\right| n_x+1\right\rangle=\sqrt{\left(n_x+1\right)\left(n_x+2\right)}\left\langle n_x \mid n_x+2\right\rangle=0\end{gathered}</script><p>因此，均值：</p>
+<script type="math/tex; mode=display">
+\left\langle x^2\right\rangle=\frac{\hbar}{2 m \omega}\left\langle n_x\left|2 \widehat{N}_x+\widehat{\mathbb{1}}\right| n_x\right\rangle=\frac{\hbar}{2 m \omega}\left(2 n_x+1\right)</script><p>将三个维度的均值叠加：</p>
+<script type="math/tex; mode=display">
+\left\langle r^2\right\rangle=\left\langle x^2\right\rangle+\left\langle y^2\right\rangle+\left\langle z^2\right\rangle =\frac{\hbar}{m \omega}\left(n_x+n_y+n_z+\frac{3}{2}\right)</script><p><strong>计算动量平方的均值</strong></p>
+<hr>
 <p>根据一维的哈密顿算符：</p>
-<p><span class="math display">\[
-\widehat{h}_x=\frac{\widehat{p}_x^2}{2 m}+\frac{1}{2} m \omega^2
-\widehat{x}^2
-\]</span></p>
-<p>有动量的均值：</p>
-<p><span class="math display">\[
-\left\langle p_x^2\right\rangle=2 m\left\langle h_x\right\rangle-m^2
-\omega^2\left\langle x^2\right\rangle
-\]</span></p>
-<p>其中，哈密顿算符的均值为：</p>
-<p><span class="math display">\[
-\left\langle h_x\right\rangle=\left\langle n_x\left|\widehat{h}_x\right|
-n_x\right\rangle=\left\langle n_x\left|\varepsilon_x\right|
-n_x\right\rangle=\varepsilon_x=\left(n_x+\frac{1}{2}\right) \hbar \omega
-\]</span></p>
-<p>因此得到动量的均值为：</p>
-<p><span class="math display">\[
-\left\langle p_x^2\right\rangle=2\left(n_x+\frac{1}{2}\right) m \hbar
-\omega-m^2 \omega^2 \frac{\hbar}{2 m \omega}\left(2
-n_x+1\right)=\left(n_x+\frac{1}{2}\right) m \hbar \omega
-\]</span></p>
-<p>三维动量的均值：</p>
-<p><span class="math display">\[
-\left\langle p^2\right\rangle=\left(n_x+n_y+n_z+\frac{3}{2}\right) m
-\hbar \omega
-\]</span></p>
-<p>最后从动量的均值得到动能的均值：</p>
-<p><span class="math display">\[
-\frac{1}{2 m}\left\langle
-p^2\right\rangle=\frac{1}{2}\left(n_x+n_y+n_z+\frac{3}{2}\right) \hbar
-\omega
-\]</span></p>
-<p>可以发现正好为总能量的一半。</p>
+<script type="math/tex; mode=display">
+\widehat{h}_x=\frac{\widehat{p}_x^2}{2 m}+\frac{1}{2} m \omega^2 \widehat{x}^2</script><p>有动量的均值：</p>
+<script type="math/tex; mode=display">
+\left\langle p_x^2\right\rangle=2 m\left\langle h_x\right\rangle-m^2 \omega^2\left\langle x^2\right\rangle</script><p>其中，哈密顿算符的均值为：</p>
+<script type="math/tex; mode=display">
+\left\langle h_x\right\rangle=\left\langle n_x\left|\widehat{h}_x\right| n_x\right\rangle=\left\langle n_x\left|\varepsilon_x\right| n_x\right\rangle=\varepsilon_x=\left(n_x+\frac{1}{2}\right) \hbar \omega</script><p>因此得到动量的均值为：</p>
+<script type="math/tex; mode=display">
+\left\langle p_x^2\right\rangle=2\left(n_x+\frac{1}{2}\right) m \hbar \omega-m^2 \omega^2 \frac{\hbar}{2 m \omega}\left(2 n_x+1\right)=\left(n_x+\frac{1}{2}\right) m \hbar \omega</script><p>三维动量的均值：</p>
+<script type="math/tex; mode=display">
+\left\langle p^2\right\rangle=\left(n_x+n_y+n_z+\frac{3}{2}\right) m \hbar \omega</script><p>最后从动量的均值得到动能的均值：</p>
+<script type="math/tex; mode=display">
+\frac{1}{2 m}\left\langle p^2\right\rangle=\frac{1}{2}\left(n_x+n_y+n_z+\frac{3}{2}\right) \hbar \omega</script><p>可以发现正好为总能量的一半。</p>
 <p><strong>最小波包</strong></p>
-<hr />
+<hr>
 <p>对于简谐子，其动能和位移的均值都为零，因此有：</p>
-<p><span class="math display">\[
-\begin{aligned}&amp;\Delta x=\sqrt{\left\langle x^2\right\rangle-\langle
-x\rangle^2}=\sqrt{\left\langle x^2\right\rangle}=\sqrt{\frac{\hbar}{2 m
-\omega}\left(2 n_x+1\right)}\\&amp;\Delta p_x=\sqrt{\left\langle
-p_x^2\right\rangle-\left\langle p_x\right\rangle^2}=\sqrt{\left\langle
-p_x^2\right\rangle}=\sqrt{\left(n_x+\frac{1}{2}\right) m \hbar
-\omega}\end{aligned}
-\]</span></p>
-<p>对应的三维空间的动能和位移：</p>
-<p><span class="math display">\[
-\begin{aligned}&amp;\Delta r=\sqrt{\left\langle r^2\right\rangle-\langle
-r\rangle^2}=\sqrt{\left\langle r^2\right\rangle}=\sqrt{\frac{\hbar}{ m
-\omega}\left(n_x+n_y+n_z+3/2\right)}\\&amp;\Delta p=\sqrt{\left\langle
-p^2\right\rangle-\left\langle p\right\rangle^2}=\sqrt{\left\langle
-p^2\right\rangle}=\sqrt{\left(n_x+n_y+n_z+3/2\right) m \hbar
-\omega}\end{aligned}
-\]</span></p>
-<p>波包：</p>
-<p><span class="math display">\[
-\Delta r\Delta p = \hbar(n_x+n_y+n_z+3/2)
-\]</span></p>
-<p>可见最小的标准偏差乘积来自于基态时的<span
-class="math inline">\(\frac{3\hbar}{2}\)</span>，这是三个维度不确定度的叠加。</p>
-<h1 id="示例可行的跃迁">示例：可行的跃迁</h1>
-<hr />
-<p>电子在受到激发后，可能会从能级<span
-class="math inline">\(n\)</span>跃迁到<span
-class="math inline">\(n^\prime\)</span>。在这个过程中，如果跃迁的概率<span
-class="math inline">\(\left|\left\langle n|\widehat{x}|
-n^{\prime}\right\rangle\right|^2\)</span>不为零，则认为跃迁是可以发生的。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}&\Delta x=\sqrt{\left\langle x^2\right\rangle-\langle x\rangle^2}=\sqrt{\left\langle x^2\right\rangle}=\sqrt{\frac{\hbar}{2 m \omega}\left(2 n_x+1\right)}\\&\Delta p_x=\sqrt{\left\langle p_x^2\right\rangle-\left\langle p_x\right\rangle^2}=\sqrt{\left\langle p_x^2\right\rangle}=\sqrt{\left(n_x+\frac{1}{2}\right) m \hbar \omega}\end{aligned}</script><p>对应的三维空间的动能和位移：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}&\Delta r=\sqrt{\left\langle r^2\right\rangle-\langle r\rangle^2}=\sqrt{\left\langle r^2\right\rangle}=\sqrt{\frac{\hbar}{ m \omega}\left(n_x+n_y+n_z+3/2\right)}\\&\Delta p=\sqrt{\left\langle p^2\right\rangle-\left\langle p\right\rangle^2}=\sqrt{\left\langle p^2\right\rangle}=\sqrt{\left(n_x+n_y+n_z+3/2\right) m \hbar \omega}\end{aligned}</script><p>波包：</p>
+<script type="math/tex; mode=display">
+\Delta r\Delta p = \hbar(n_x+n_y+n_z+3/2)</script><p>可见最小的标准偏差乘积来自于基态时的$\frac{3\hbar}{2}$，这是三个维度不确定度的叠加。</p>
+<h1 id="示例：可行的跃迁"><a href="#示例：可行的跃迁" class="headerlink" title="示例：可行的跃迁"></a>示例：可行的跃迁</h1><hr>
+<p>电子在受到激发后，可能会从能级$n$跃迁到$n^\prime$。在这个过程中，如果跃迁的概率$\left|\left\langle n|\widehat{x}| n^{\prime}\right\rangle\right|^2$不为零，则认为跃迁是可以发生的。</p>
 <p>使用湮灭算符和创生算符表示位移：</p>
-<p><span class="math display">\[
-\left|\left\langle n|\widehat{x}|
-n^{\prime}\right\rangle\right|^2=\frac{\hbar}{2 m
-\omega}\left|\left\langle
-n\left|\widehat{a}_x+\widehat{a}_x^{\dagger}\right|
-n^{\prime}\right\rangle\right|^2 = \frac{\hbar}{2 m
-\omega}\left(\sqrt{n^{\prime}} \delta_{n,
-n^{\prime}-1}+\sqrt{n^{\prime}+1} \delta_{n, n^{\prime}+1}\right)^2
-\]</span></p>
-<p>因此，电子只能跃迁到上下两个相近的轨道。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-9/">http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/12/physique/mq/" title="量子力学总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">量子力学总览</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/12/physique/mq/mq-8/" title="振动系统 Vibrating Systems"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">振动系统 Vibrating Systems</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/12/physique/mq/" title="量子力学总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">量子力学总览</div></div></a></div><div><a href="/2024/03/01/physique/mq/mq-1/" title="从波到粒子  Des ondes aux particules"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">从波到粒子  Des ondes aux particules</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-10/" title="旋转系统 Rotating Systems"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">旋转系统 Rotating Systems</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-11/" title="自旋：另一个自由度 Spin, a New Degree of Freedom"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">自旋：另一个自由度 Spin, a New Degree of Freedom</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-12/" title="氢：中心库伦势 Central Coulombic Potential"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">氢：中心库伦势 Central Coulombic Potential</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-13/" title="多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8F%E5%AD%90%E7%AE%80%E8%B0%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B3%A2%E5%87%BD%E6%95%B0-wavefunctions-for-the-harmonic-oscillator"><span class="toc-text">量子简谐系统的波函数
-Wavefunctions for the Harmonic Oscillator</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8F%E5%AD%90%E8%B0%90%E6%8C%AF%E5%AD%90%E7%9A%84%E6%B3%A2%E5%87%BD%E6%95%B0"><span class="toc-text">量子谐振子的波函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%80%81%E6%B3%A2%E5%87%BD%E6%95%B0"><span class="toc-text">基态波函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%B1%82%E8%A7%A3%E5%85%B6%E4%BB%96%E8%83%BD%E9%87%8F%E6%9C%AC%E5%BE%81%E6%80%81%E7%9A%84%E6%B3%A2%E5%87%BD%E6%95%B0"><span class="toc-text">进一步求解其他能量本征态的波函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%B3%A2%E5%87%BD%E6%95%B0%E5%BE%97%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E8%AE%BA"><span class="toc-text">从波函数得到的一些结论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD%E7%AE%97%E7%AC%A6%E5%92%8C%E4%BD%8D%E7%BD%AE%E7%AE%97%E7%AC%A6%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-text">动能算符和位置算符的平均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E6%B3%A2%E5%8C%85"><span class="toc-text">最小波包</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%89%E7%BB%B4%E7%AE%80%E8%B0%90%E5%AD%90"><span class="toc-text">示例：三维简谐子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E5%8F%AF%E8%A1%8C%E7%9A%84%E8%B7%83%E8%BF%81"><span class="toc-text">示例：可行的跃迁</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-06-08-%E6%B2%99%E6%B2%B3%2F2txo%2F20260608-P6081104-1.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-06-18"/></a><div class="content"><a class="title" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18">观鸟记录 2026-06-18</a><time datetime="2026-06-17T16:16:38.000Z" title="发表于 2026-06-18 00:16:38">2026-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-16%2FP5160671.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-16"/></a><div class="content"><a class="title" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16">观鸟记录 2026-05-16</a><time datetime="2026-05-16T15:52:34.000Z" title="发表于 2026-05-16 23:52:34">2026-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-14-%E6%A4%8D%E7%89%A9%E5%9B%AD%2FP5141611.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-15"/></a><div class="content"><a class="title" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15">观鸟记录 2026-05-15</a><time datetime="2026-05-15T06:44:42.000Z" title="发表于 2026-05-15 14:44:42">2026-05-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<script type="math/tex; mode=display">
+\left|\left\langle n|\widehat{x}| n^{\prime}\right\rangle\right|^2=\frac{\hbar}{2 m \omega}\left|\left\langle n\left|\widehat{a}_x+\widehat{a}_x^{\dagger}\right| n^{\prime}\right\rangle\right|^2 = \frac{\hbar}{2 m \omega}\left(\sqrt{n^{\prime}} \delta_{n, n^{\prime}-1}+\sqrt{n^{\prime}+1} \delta_{n, n^{\prime}+1}\right)^2</script><p>因此，电子只能跃迁到上下两个相近的轨道。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn">Raphael Hyaan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-9/">http://raphaelhyaan.cn/2024/05/12/physique/mq/mq-9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://raphaelhyaan.cn" target="_blank">Raphael's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/12/physique/mq/" title="量子力学总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">量子力学总览</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/12/physique/mq/mq-8/" title="振动系统 Vibrating Systems"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" onerror="onerror=null;src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">振动系统 Vibrating Systems</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/12/physique/mq/" title="量子力学总览"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">量子力学总览</div></div></a></div><div><a href="/2024/03/01/physique/mq/mq-1/" title="从波到粒子  Des ondes aux particules"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">从波到粒子  Des ondes aux particules</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-10/" title="旋转系统 Rotating Systems"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">旋转系统 Rotating Systems</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-11/" title="自旋：另一个自由度 Spin, a New Degree of Freedom"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">自旋：另一个自由度 Spin, a New Degree of Freedom</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-12/" title="氢：中心库伦势 Central Coulombic Potential"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">氢：中心库伦势 Central Coulombic Potential</div></div></a></div><div><a href="/2024/05/12/physique/mq/mq-13/" title="多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity"><img class="cover" src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fmq.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-12</div><div class="title">多电子原子：第一量子复杂性 N -electron Atoms： A First Quantum Complexity</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2FR-2.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffriend_404.gif'" alt="avatar"/></div><div class="author-info__name">Raphael Hyaan</div><div class="author-info__description">何日可谓归去来</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">63</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">24</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/raphaelhyaan"><i class="fab fa-github"></i><span>Bonjour</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/raphaelhyaan" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:raphael.ma.yuhan@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰观宇宙之大，俯察品类之盛</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8F%E5%AD%90%E7%AE%80%E8%B0%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B3%A2%E5%87%BD%E6%95%B0-Wavefunctions-for-the-Harmonic-Oscillator"><span class="toc-text">量子简谐系统的波函数 Wavefunctions for the Harmonic Oscillator</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8F%E5%AD%90%E8%B0%90%E6%8C%AF%E5%AD%90%E7%9A%84%E6%B3%A2%E5%87%BD%E6%95%B0"><span class="toc-text">量子谐振子的波函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%80%81%E6%B3%A2%E5%87%BD%E6%95%B0"><span class="toc-text">基态波函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%B1%82%E8%A7%A3%E5%85%B6%E4%BB%96%E8%83%BD%E9%87%8F%E6%9C%AC%E5%BE%81%E6%80%81%E7%9A%84%E6%B3%A2%E5%87%BD%E6%95%B0"><span class="toc-text">进一步求解其他能量本征态的波函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%B3%A2%E5%87%BD%E6%95%B0%E5%BE%97%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%93%E8%AE%BA"><span class="toc-text">从波函数得到的一些结论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD%E7%AE%97%E7%AC%A6%E5%92%8C%E4%BD%8D%E7%BD%AE%E7%AE%97%E7%AC%A6%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-text">动能算符和位置算符的平均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E6%B3%A2%E5%8C%85"><span class="toc-text">最小波包</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%B8%89%E7%BB%B4%E7%AE%80%E8%B0%90%E5%AD%90"><span class="toc-text">示例：三维简谐子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%8F%AF%E8%A1%8C%E7%9A%84%E8%B7%83%E8%BF%81"><span class="toc-text">示例：可行的跃迁</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-06-08-%E6%B2%99%E6%B2%B3%2F2txo%2F20260608-P6081104-1.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-06-18"/></a><div class="content"><a class="title" href="/2026/06/18/birds-20260618-001638/" title="观鸟记录 2026-06-18">观鸟记录 2026-06-18</a><time datetime="2026-06-17T16:16:38.000Z" title="发表于 2026-06-18 00:16:38">2026-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-16%2FP5160671.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-16"/></a><div class="content"><a class="title" href="/2026/05/16/birds-20260516-235234/" title="观鸟记录 2026-05-16">观鸟记录 2026-05-16</a><time datetime="2026-05-16T15:52:34.000Z" title="发表于 2026-05-16 23:52:34">2026-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Fbirds%2F2026-05-14-%E6%A4%8D%E7%89%A9%E5%9B%AD%2FP5141611.jpg" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="观鸟记录 2026-05-15"/></a><div class="content"><a class="title" href="/2026/05/15/birds-20260515-144442/" title="观鸟记录 2026-05-15">观鸟记录 2026-05-15</a><time datetime="2026-05-15T06:44:42.000Z" title="发表于 2026-05-15 14:44:42">2026-05-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/12/comsol_1/" title="压力声学·一"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Fkalli-1.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="压力声学·一"/></a><div class="content"><a class="title" href="/2026/05/12/comsol_1/" title="压力声学·一">压力声学·一</a><time datetime="2026-05-12T12:22:37.000Z" title="发表于 2026-05-12 20:22:37">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ftop_image%2Flf-01.png" onerror="this.onerror=null;this.src='https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2Ffavicon.png'" alt="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning"/></a><div class="content"><a class="title" href="/2026/01/22/esl-1/" title="无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning">无监督学习和流形学习 Unsupervised Learning &amp; Manifold Learning</a><time datetime="2026-01-22T06:00:17.000Z" title="发表于 2026-01-22 14:00:17">2026-01-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Raphael Hyaan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="framework-info"><span>备案号: </span><a href="href=&quot;https://beian.miit.gov.cn/&quot; ">京ICP备2024051904号</a><span class="footer-separator">|</span><img src="https://raphaelhyaan-1322456377.cos.ap-beijing.myqcloud.com/source%2F%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" alt="MIT License" height="20" align="top"/><span> </span><a href="href=&quot;https://beian.mps.gov.cn/#/query/webSearch?code=11010802044068&quot; ">京公网安备11010802044068号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
